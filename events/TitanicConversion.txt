@@ -5,8 +5,6 @@ country_event = {
 	title = titanconversion.1.title
 	desc = titanconversion.1.desc
 	picture = TITANS_eventPicture
-	
-	major = yes
 
 	trigger = {
 		religion = religion_titan
@@ -96,12 +94,12 @@ country_event = {
 		name = titanconversion.1.opt1
 		capital_scope = {
 			change_religion = religion_titan_corrupt
-			add_reform_center = religion_titan_corrupt
 			add_permanent_province_modifier = {
 				name = "religious_zeal_at_conv"
 				duration = 9000
 			}
 		}
+		set_country_flag = converting_to_titan_corrupt
 	}
 }
 
@@ -111,8 +109,6 @@ country_event = {
 	title = titanconversion.2.title
 	desc = titanconversion.2.desc
 	picture = TITANS_eventPicture
-	
-	major = yes
 
 	trigger = {
 		religion = religion_titan_corrupt
@@ -202,10 +198,122 @@ country_event = {
 		name = titanconversion.2.opt1
 		capital_scope = {
 			change_religion = religion_titan
-			add_reform_center = religion_titan
 			add_permanent_province_modifier = {
 				name = "religious_zeal_at_conv"
 				duration = 9000
+			}
+		}
+		set_country_flag = converting_to_titan
+	}
+}
+
+country_event = {
+	id = titanconversion.3
+	title = titanconversion.3.title
+	desc = titanconversion.3.desc
+	picture = SHA_eventPicture
+    
+	trigger = {
+		has_country_flag = converting_to_titan_corrupt
+	}
+	
+	mean_time_to_happen = {
+		months = 70
+	}
+	
+	option = {
+        name = titanconversion.3.opt1
+		every_owned_province =
+		{
+			limit = {
+				NOT = { religion = religion_titan_corrupt }
+			}
+			change_religion = religion_titan_corrupt
+		}
+		change_religion = religion_titan_corrupt
+		clr_country_flag = converting_to_titan_corrupt
+	}
+	option = {
+        name = titanconversion.3.opt2
+		random_list = {
+			45 = {
+				add_stability = -1
+			}
+			45 = {
+				random_province =
+				{
+					limit = {
+						owned_by = ROOT
+					}
+					change_religion = religion_titan_corrupt
+				}
+				random_province =
+				{
+					limit = {
+						owned_by = ROOT
+					}
+					change_religion = religion_titan_corrupt
+				}
+			}
+			10 = {
+				clr_country_flag = converting_to_titan_corrupt
+				custom_tooltip = converting_to_titan_corrupt_clear
+			}
+		}
+	}
+}
+
+country_event = {
+	id = titanconversion.4
+	title = titanconversion.4.title
+	desc = titanconversion.4.desc
+	picture = SHA_eventPicture
+    
+	trigger = {
+		has_country_flag = converting_to_titan
+	}
+	
+	mean_time_to_happen = {
+		months = 70
+	}
+	
+	option = {
+        name = titanconversion.4.opt1
+		every_owned_province =
+		{
+			limit = {
+				NOT = { religion = religion_titan }
+			}
+			change_religion = religion_titan
+		}
+		change_religion = religion_titan
+		clr_country_flag = converting_to_titan
+	}
+	option = {
+        name = titanconversion.4.opt2
+		random_list = {
+			45 = {
+				add_stability = -1
+			}
+			45 = {
+				random_province =
+				{
+					limit = {
+						owned_by = ROOT
+					}
+					change_religion = religion_titan
+				}
+				random_province =
+				{
+					limit = {
+						owned_by = ROOT
+					}
+					change_religion = religion_titan
+				}
+			}
+			10 = {
+				clr_country_flag = converting_to_titan
+				custom_tooltip = converting_to_titan_clear
 			}
 		}
 	}
