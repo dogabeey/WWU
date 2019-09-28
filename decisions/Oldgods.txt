@@ -186,26 +186,12 @@ country_decisions = {
 		allow = {
 			adm_power = 100
 			NOT = { has_country_modifier = communed_tidemother }
+			NOT = { has_country_flag = nzoth_probability_set }
 		}
 		
 		effect = {
 			add_adm_power = -100
-			random_list = {
-				90 = {
-					add_country_modifier = { 
-						name = communed_tidemother 
-						duration = 365
-						hidden = no
-					}
-				}
-				10 = {
-					set_country_flag = influenced_by_nzoth
-					custom_tooltip = influenced_by_nzoth_text
-					country_event = { 
-						id = old_gods.5
-					}
-				}
-			}
+			set_country_flag = nzoth_probability_set
 		}
 		
 		ai_will_do = {

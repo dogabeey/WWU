@@ -156,6 +156,40 @@ country_event = {
 	}
 }
 country_event = {
+	id = old_gods.6
+	title = old_gods.6.title
+	desc = old_gods.6.desc
+	picture = SHA_eventPicture
+    hidden = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		has_country_flag = nzoth_probability_set
+	}
+	
+	immediate = {
+		clr_country_flag = nzoth_probability_set
+	}
+	
+	option = {
+        name = old_gods.5.opt1
+		random_list = {
+			8 = {
+				add_country_modifier = { name = communed_tidemother duration = 3650 }
+			}
+			2 = {
+				set_country_flag = influenced_by_nzoth
+				country_event = { id = old_gods.5 }
+			}
+		}
+	}
+}
+
+## Uncomplete event
+country_event = {
 	id = old_gods.5
 	title = old_gods.5.title
 	desc = old_gods.5.desc
@@ -166,20 +200,5 @@ country_event = {
 	
 	option = {
         name = old_gods.5.opt1
-	}
-}
-
-## Uncomplete event
-country_event = {
-	id = old_gods.6
-	title = old_gods.6.title
-	desc = old_gods.6.desc
-	picture = SHA_eventPicture
-    	
-	hidden = no
-	is_triggered_only = yes
-	
-	option = {
-        name = old_gods.6.opt1
 	}
 }
