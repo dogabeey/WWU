@@ -1,10 +1,11 @@
 # WWU
 
-World of Warcraft Universalis is an ambitious project that attempts to recreate the Warcraft universe as we know it so far. We aim to integrate the world of Warcraft seamlessly into the gameplay systems of Europa Universalis 4, creating an unique playing experience.
+World of Warcraft Universalis is an ambitious project that attempts to recreate the Warcraft universe as we know it so far. We aim to integrate the world of Warcraft seamlessly into the gameplay systems of Europa Universalis 4, creating an unique playing experience. Created by **Jaymez** and **Xylozi**, developed by **vawser** up to *1.22* version and recently was taken over by **Aetherum** since *1.28* version. 
+##### It's currently up to date with latest EU4 version, *1.29*.
 
 ________________________________________________________________________________
 
-Features:
+## Features:
 
 1) More than 3000 provinces to explore.
 2) Hundreds of Playable Countries.
@@ -12,7 +13,15 @@ Features:
 4) New Events and Decisions.
 5) Variety of New Mechanics.
 
-Follow World of Warcraft Universalis:
+## Installing via GitHub
+Important Note: Github version is actively developing version and should not be used except for testing purposes. It's very likely unstable, unfinished and may not work at all.
+
+1) Download the repository using "Clone or Download" button at right-top.
+2) Move the folder in archive to c:/<User Name>/Documents/Paradox Interactive/Europa Universalis IV/mod/
+3) Move world_of_warcraft_universalis.mod in WWU folder back to /mod/ folder (The previous folder).
+4) Launch the mod using "World of Warcraft Universalis local" in launcher.
+
+### Follow World of Warcraft Universalis:
 
 DISCORD + Trouble Shooting Instructions : https://discordapp.com/invite/bGVcZyK 
 
@@ -24,7 +33,7 @@ ________________________________________________________________________________
 If you find a bug - write about it - I'll try to fix the problem in the shortest possible time.
 ________________________________________________________________________________
 
-Disclaimer:
+### Disclaimer:
 
 - World of Warcraft Universalis is an Update of Vawser's Warcraft 1.22, created and published with his permission.
 
