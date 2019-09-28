@@ -1,0 +1,52 @@
+namespace = mf_positive_personality
+
+#Military Advisor Recruited
+country_event = {
+
+	id = mf_positive_personality.1
+	title = mf_positive_personality.EVTNAME1
+	desc = mf_positive_personality.EVTDESC1
+	picture = ADVISOR_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		ruler_has_personality = keen_recruiter_personality
+		NOT = { has_ruler_flag = mf_positive_personality.1.military_advisor }
+	}
+
+	immediate = {
+		set_ruler_flag = mf_positive_personality.1.military_advisor
+	}
+	
+	mean_time_to_happen = {
+		months = 2400
+		modifier = {
+			factor = 0.8
+			ruler_has_personality = well_advised_personality
+		}
+	}
+
+	option = {
+		name = "mf_positive_personality.EVTOPTA1" #Let him reform our armies
+		define_advisor = {
+			type = army_reformer
+			skill = 3
+		}
+	}
+
+	option = {
+		name = "mf_positive_personality.EVTOPTB1" #Let him organize our ranks
+		define_advisor = {
+			type = army_organiser
+			skill = 3
+		}
+	}
+	
+	option = {
+		name = "mf_positive_personality.EVTOPTC1" #Let him drill the soldiers
+		define_advisor = {
+			type = commandant
+			skill = 3
+		}
+	}
+}

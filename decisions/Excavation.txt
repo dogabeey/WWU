@@ -1,0 +1,350 @@
+country_decisions = {
+    start_archeological_project = {
+        potential = {
+			ROOT = { has_archaeologists = yes }
+			NOT = { OR = {
+				has_country_modifier = apocalypse
+				has_country_modifier = twinblades_of_deceiver
+				has_country_modifier = scythe_of_elune
+				has_country_modifier = thasdorah
+				has_country_modifier = aluneth
+				has_country_modifier = sheilun
+				has_country_modifier = ashbringer
+				has_country_modifier = xalatath
+				has_country_modifier = the_dreadblades
+				has_country_modifier = doomhammer
+				has_country_modifier = skull_of_manari
+				has_country_modifier = warswords_of_valarjar
+			} }
+        }
+        allow = {
+			OR = {
+				AND = {
+					has_country_modifier = archaeology_fragment
+					adm_power = 15
+					treasury = 100
+				}
+				AND = {
+					NOT = { has_country_modifier = archaeology_fragment }
+					adm_power = 30
+					treasury = 200
+				}
+			}
+        }
+        effect = {
+			add_adm_power = -30
+			add_treasury = -100
+			random_owned_province = {
+				limit = {
+					NOT = { devastation = 50 }
+				}
+				add_devastation = 50
+			}
+			custom_tooltip = start_archeological_project_tooltip
+			hidden_effect = {
+				random_list = {
+					10 = { }
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = apocalypse }
+								}
+							}
+							add_country_modifier = { 
+								name = apocalypse
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = apocalypse }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = twinblades_of_deceiver }
+								}
+							}
+							add_country_modifier = { 
+								name = twinblades_of_deceiver
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = twinblades_of_deceiver }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = thasdorah }
+								}
+							}
+							add_country_modifier = { 
+								name = thasdorah
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = thasdorah }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = apocalypse }
+								}
+							}
+							add_country_modifier = { 
+								name = apocalypse
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = apocalypse }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = aluneth }
+								}
+							}
+							add_country_modifier = { 
+								name = aluneth
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = aluneth }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = sheilun }
+								}
+							}
+							add_country_modifier = { 
+								name = sheilun
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = sheilun }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = ashbringer }
+								}
+							}
+							add_country_modifier = { 
+								name = ashbringer
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = ashbringer }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = xalatath }
+								}
+							}
+							add_country_modifier = { 
+								name = xalatath
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = xalatath }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = doomhammer }
+								}
+							}
+							add_country_modifier = { 
+								name = doomhammer
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = doomhammer }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = the_dreadblades }
+								}
+							}
+							add_country_modifier = { 
+								name = the_dreadblades
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = the_dreadblades }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = skull_of_manari }
+								}
+							}
+							add_country_modifier = { 
+								name = skull_of_manari
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = skull_of_manari }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = warswords_of_valarjar }
+								}
+							}
+							add_country_modifier = { 
+								name = warswords_of_valarjar
+								duration = 730
+								hidden = no
+							}
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = warswords_of_valarjar }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 730
+								hidden = no
+							}
+						}
+					}
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0.1
+			modifier = {
+				factor = 0
+				has_artifact = yes
+			}
+			modifier = {
+				factor = 0
+				NOT = { treasury = 500 }
+			}
+        }
+    }
+}

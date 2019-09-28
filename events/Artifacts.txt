@@ -1,0 +1,98 @@
+namespace = wow_artifacts
+
+# Quest story is taken from the Legion questlines for the players
+
+# The Sword of Kings
+#   Culling the Cultists (Tirisfal Glades)
+#       Investigate the camp
+#   The Ghost King
+#       Slay the ritualists torturing Thoradin
+#   Thoradin's Folly
+#       Listen to Thoradin
+#   The Tomb of Tyr
+#       Enter the tomb
+#       Fight Flesh Spawn
+#   Cleansing the Desecration
+#       Kill the Void Tendrils
+#   The Root of the Corruption
+#       Kill Soth'ozz
+#   The Dark Passage
+#       Reach the prison chamber
+#       Kill the Faceless illusionist to bring down the barrier
+#   A Quick Execution
+#       Take the sword and attempt to slay Zakajz
+#   To Kill a C'Thraxxi
+#       Defeat Zakajz
+#   The Warbreaker
+#       Take Strom'kar, the Warbreaker and finish Zakajz
+
+# The Sword of Kings
+# Our ruler, [Root.Monarch.GetTitle] [Root.Monarch.GetName] has set off to seek the legendary artifact known as Strom'kar, the Warbreaker. Their trip will take them to Tirisfal Glade, where they will search the Tomb of Tyr for the artifact. Whether they are successful or not is yet to be seen.
+# Our people wait...
+country_event = {
+	id = wow_artifacts.1
+	title = wow_artifacts.1.title
+	desc = wow_artifacts.1.desc
+	picture = SWORD_SHIELD_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wow_artifacts.1.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+
+        hidden_effect = {
+            random_list = {
+                50 = {
+                    country_event = { id = wow_artifacts.2 days = 30 }
+                }
+                50 = {
+                    country_event = { id = wow_artifacts.3 days = 30 }
+                }
+            }
+        }
+	}
+}
+
+# Strom'kar, the Warbreaker!
+# Our ruler, [Root.Monarch.GetTitle] [Root.Monarch.GetName] had set off to seek a legendary artifact. [Root.Monarch.GetHeShe] has returned wielding the legendary artifact known as Strom'kar!
+# Wonderful!
+country_event = {
+	id = wow_artifacts.2
+	title = wow_artifacts.2.title
+	desc = wow_artifacts.2.desc
+	picture = SWORD_SHIELD_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wow_artifacts.2.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+
+        add_country_modifier = {
+            name = stromkar_the_warbreaker
+            duration = -1
+        }
+	}
+}
+
+# Failure!
+# Our ruler, [Root.Monarch.GetTitle] [Root.Monarch.GetName] had set off to seek a legendary artifact. [Root.Monarch.GetHeShe] has returned empty-handed...
+# Oh well...
+country_event = {
+	id = wow_artifacts.3
+	title = wow_artifacts.3.title
+	desc = wow_artifacts.3.desc
+	picture = SWORD_SHIELD_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wow_artifacts.3.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_prestige = -5
+	}
+}

@@ -1,0 +1,52 @@
+country_decisions = {
+
+    release_crowley = {
+        major = yes
+        
+        potential = {
+            tag = A12
+            is_year = 617
+            NOT = { has_country_flag = released_crowley }
+        }
+        
+		allow = {
+            is_at_war = yes
+		}
+        
+		effect = {
+            hidden_effect = { 
+                set_country_flag = released_crowley
+                set_variable = { which = loop_counter value = 0 }
+            }
+            
+            custom_tooltip = released_crowley_tt
+            while = {
+                limit = {
+                    NOT = { check_variable = { which = loop_counter value = 10 } }
+                }
+                change_variable = { which = loop_counter value = 1 }
+                capital_scope = { mercenary_infantry = ROOT }
+            }
+		}		
+        
+		ai_will_do = {
+			factor = 1
+            
+            # Don't allow unless the AI is losing
+            modifier = {
+                factor = 0
+                
+                any_country = {
+                    war_with = ROOT
+                    NOT = {
+                        war_score_against = {
+                            who = ROOT
+                            value = 25
+                        }
+                    }
+                }
+            }
+		}
+    }
+    
+}

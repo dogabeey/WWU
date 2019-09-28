@@ -1,0 +1,212 @@
+religion_group_order = {
+	defender_of_faith = no
+	can_form_personal_unions = no
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+	religion_arcane = {
+		color = { 102 146 227 }
+		icon = 13
+		
+		country = {
+			advisor_pool = 1
+		}
+		country_as_secondary = {
+			advisor_pool = 1
+		}
+		on_convert = {
+			change_religion = religion_arcane
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+	
+	religion_titan = {
+		color = { 253 204 09 }
+		icon = 9
+		
+		allowed_center_conversion = {
+			religion_titan_corrupt
+		}
+		
+		country = {
+			defensiveness = 0.15
+		}
+		country_as_secondary = {
+			defensiveness = 0.15
+		}
+		province = {
+		
+		}
+		
+		holy_sites = { 728 1514 1573 1968 2509 } # Ulduar - Chamber of Heart - Uldum - Uldaman - Uldir
+		
+		blessings = {
+			gift_of_the_stone
+			cosmic_knowledge
+			protectors_of_history
+			life_binding
+			master_of_magic
+		}
+		
+		on_convert = {
+			change_religion = religion_titan
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}				
+		}
+		
+		heretic = { }
+	}
+	
+	religion_titan_corrupt = {
+		color = { 225 215 09 }
+		icon = 9
+		
+		allowed_center_conversion = {
+			religion_titan
+		}
+		
+		country = {
+			defensiveness = 0.15
+		}
+		country_as_secondary = {
+			defensiveness = 0.15
+		}
+		province = {
+		
+		}
+		
+		holy_sites = { 728 1514 1573 1968 2509 } # Ulduar - Chamber of Heart - Uldum - Uldaman - Uldir
+		
+		blessings = {
+			the_dark_heart
+			cosmic_knowledge
+			protectors_of_history
+			breath_of_death
+			master_of_magic
+		}
+		
+		on_convert = {
+			change_religion = religion_titan_corrupt
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}				
+		}
+		
+		heretic = { }
+	}
+	
+	religion_mystery_of_the_makers = {
+		color = { 0.33 0.33 0.33 }
+		icon = 23
+		
+		country = {
+			build_cost = -0.1
+		}
+		country_as_secondary = {
+			build_cost = -0.1
+		}
+		
+		on_convert = {
+			change_religion = religion_mystery_of_the_makers
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+	
+	religion_sect_of_dragons = {
+		color = { 213 114 96 }
+		icon = 10
+		
+		country = {
+			discipline = 0.025
+		}
+		country_as_secondary = {
+			discipline = 0.025
+		}
+		
+		on_convert = {
+			change_religion = religion_sect_of_dragons
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+	
+	religion_celestial = {
+		color = { 255 210 255 }
+		icon = 24
+		
+		country = {
+			num_accepted_cultures = 2
+		}
+		country_as_secondary = {
+			num_accepted_cultures = 2
+		}
+
+		personal_deity = yes
+		
+		on_convert = {
+			change_religion = religion_celestial
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+	
+	religion_arkkorok = {
+		color = { 58 173 174 }
+		icon = 18
+		
+		country = {
+			land_forcelimit_modifier = 0.1
+		}
+		country_as_secondary = {
+			land_forcelimit_modifier = 0.1
+		}
+
+		on_convert = {
+			change_religion = religion_arkkorok
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+}

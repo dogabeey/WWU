@@ -1,0 +1,60 @@
+country_decisions = {
+    construct_deeprun_tram = {
+        major = yes
+        potential = {
+            always = no
+            OR = {
+                ai = no
+                AND = {
+                    treasury = 3000
+                    owns_or_vassal_of = 3049
+                }
+            }
+            has_discovered = 3049
+            2505 = {
+                NOT = { has_great_project = deeprun_tram }
+                NOT = { has_construction = canal }
+            }
+        }
+        allow = {
+            owns_or_vassal_of = 3049
+            is_subject = no
+            treasury = 3000
+        }
+        effect = {
+            add_treasury = -3000
+            2505 = {
+                add_great_project = deeprun_tram
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    cancel_deeprun_tram = {
+        major = yes
+        potential = {
+            always = no
+            ai = no
+            owns_or_vassal_of = 3049
+            is_subject = no
+            2505 = {
+                has_construction = canal
+            }
+        }
+        allow = {
+            2505 = {
+                has_construction = canal
+            }
+        }
+        effect = {
+            2505 = {
+                cancel_construction = yes
+            }
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+}

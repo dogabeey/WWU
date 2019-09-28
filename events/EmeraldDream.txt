@@ -1,0 +1,373 @@
+namespace = emerald_dream
+
+# Piety = Purity
+# General Events 
+country_event = {
+	id = emerald_dream.1
+	title = spirit_of_ancestor.title # Spirit of Ancestor
+	desc = spirit_of_ancestor.desc # During [Root.Monarch.GetHerHis] slumber, [Root.Monarch.Name] has come across one of [Root.Monarch.GetHerHis] long deceased ancestors' spirit. He is eager to teach everything he knows, but he does not have much time in this plane. [Root.Monarch] time for only one lesson.
+	picture = DREAM_eventPicture
+	
+    trigger = {
+		has_country_modifier = dreaming
+    }
+	
+	mean_time_to_happen = { months = 90 }
+
+    immediate = {
+    }
+
+    option = {
+		name = spirit_of_ancestor.opt1 # Learn how to be a good leader
+		change_adm = 1
+    }  
+    option = {
+		name = spirit_of_ancestor.opt2 # Learn art of speech
+		change_dip = 1
+    }  
+    option = {
+		name = spirit_of_ancestor.opt3 # Learn how to command armies
+		change_mil = 1
+    }  
+}
+country_event = {
+	id = emerald_dream.2
+	title = excess_magical_energy.title # Excess magical energy
+	desc = excess_magical_energy.desc # Recently, our druids stumbled upon a residuum left untouched for millenias. This residuum is filled with pure nature magic and can be processed to achieve variety of goals.
+	picture = DREAM_eventPicture
+	
+    trigger = {
+		has_country_modifier = dreaming
+    }
+	
+	mean_time_to_happen = { months = 90 }
+
+    immediate = {
+    }
+
+    option = {
+		name = excess_magical_energy.opt1 # Use it to cull out the corruption.
+		add_piety = 0.2
+    }  
+    option = {
+		name = excess_magical_energy.opt2 # Use it to improve one of our provinces.
+		random_owned_province = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+    }  
+    option = {
+		name = excess_magical_energy.opt3 # Use it to increase our nature powers. 
+		add_adm_power = 75
+		add_dip_power = 75
+		add_mil_power = 75
+    }  
+}
+
+#Mid Events (Purity between -25 and 25)
+country_event = {
+	id = emerald_dream.3
+	title = tendrils_of_nightmare.title # Tendrils of Nightmare
+	desc = tendrils_of_nightmare.desc # We discovered that Emerald Nightmare is trying take roots into our world once again. Nightmarish tendrils emerged from the ground and corrupted a group of spirits. Its sway is growing even more day by day. Something must be done about it, before it corrupts entire area.
+	picture = DREAM_eventPicture
+	
+    trigger = {
+		has_country_modifier = dreaming
+		NOT = { piety = 0.25 }
+		piety = -0.25
+    }
+	
+	mean_time_to_happen = { months = 90 }
+
+    immediate = {
+    }
+
+    option = {
+		name = tendrils_of_nightmare.opt1 # Send your men to cut them down
+		add_yearly_manpower = -0.5
+		add_piety = 0.1
+    }  
+    option = {
+		name = tendrils_of_nightmare.opt2 # Commence a purification ritual
+		add_adm_power = -150
+		add_piety = 0.1
+    }  
+    option = {
+		name = tendrils_of_nightmare.opt3 # We cannot afford such task
+		add_piety = -0.1
+    }  
+}
+country_event = {
+	id = emerald_dream.4
+	title = traitor_among_us.title # Traitor Among Us
+	desc = traitor_among_us.desc # An important member of our court might be working for Nightmare forces for awhile, yet we do not have any proof. We can accuse him and seize immediately or conduct an investigation. But if those claims are true, he might get away and we miss the chance to revert his corruption entirely.
+	picture = DREAM_eventPicture
+	
+    trigger = {
+		has_country_modifier = dreaming
+		NOT = { piety = 0.25 }
+		piety = -0.25
+    }
+	
+	mean_time_to_happen = { months = 90 }
+
+    immediate = {
+		
+    }
+
+    option = {
+		name = traitor_among_us.opt1 # Arrest him
+		random_list = {
+			1 = {
+				custom_tooltip = traitor_among_us.opt1.tt1 # He is innocent
+				add_prestige = -10
+				add_piety = -0.05
+			}
+			1 = {
+				custom_tooltip = traitor_among_us.opt1.tt2 # He is guilty
+				add_prestige = 5
+				add_piety = 0.1
+			}
+		}
+    }  
+    option = {
+		name = traitor_among_us.opt2 # Investigate him
+		random_list = {
+			2 = {
+				custom_tooltip = traitor_among_us.opt2.tt1 # He is innocent
+				add_prestige = -5
+			}
+			1 = {
+				custom_tooltip = traitor_among_us.opt2.tt2 # He escapes
+				add_piety = -0.05
+			}
+			1 = {
+				custom_tooltip = traitor_among_us.opt2.tt3 # He can't escape
+				add_prestige = 5
+				add_piety = 0.1
+			}
+		}
+		
+    }  
+    option = {
+		name = traitor_among_us.opt3 # Leave him be
+		random_list = {
+			1 = {
+				custom_tooltip = traitor_among_us.opt3.tt1 # He is innocent
+			}
+			1 = {
+				custom_tooltip = traitor_among_us.opt3.tt2 # He is guilty
+				add_prestige = -10
+				add_piety = -0.1
+			}
+		}
+    }  
+}
+#Purified Event ( Piety >25 )
+country_event = {
+	id = emerald_dream.5
+	title = layers_of_dream.title # Layers of Dream
+	desc = layers_of_dream.desc # The Emerald Dream consists of multiple layers, which is created by titans eons ago to perfect Azeroth's shape. Each layer contains older versions of Azeroth, mostly untouched since its creation.\n\nRecently, we discovered a way to travel to those lands. It will be probably dangerous but we might learn ancient, even cosmic information regarding the secrets of universe.
+	picture = DREAM_eventPicture
+	
+    trigger = {
+		has_country_modifier = dreaming
+		piety = 0.25
+    }
+	
+	mean_time_to_happen = { months = 90 }
+
+    immediate = {
+    }
+
+    option = {
+		name = layers_of_dream.opt1 # Conduct a short expedition in the boundaries of realm
+		random_list = {
+			2 = {
+				custom_tooltip = layers_of_dream.failure # 
+				add_yearly_manpower = -1
+				random = { 
+					chance = 50
+					kill_ruler = yes
+				}
+			}
+			8 = {
+				custom_tooltip = layers_of_dream.success #
+				add_prestige = 5
+				add_piety = 0.05
+				add_adm_power = 50
+			}
+		}
+    }  
+    option = {
+		name = layers_of_dream.opt2 # Conduct mid-term expedition beyond the boundaries of this layer
+		random_list = {
+			4 = {
+				custom_tooltip = layers_of_dream.failure # 
+				add_yearly_manpower = -1
+				random = { 
+					chance = 50
+					kill_ruler = yes
+				}
+			}
+			6 = {
+				custom_tooltip = layers_of_dream.success #
+				add_prestige = 10
+				add_piety = 0.1
+				add_adm_power = 100
+			}
+		}
+    }  
+    option = {
+		name = layers_of_dream.opt3 # Conduct long-term expedition to research the hidden layers
+		random_list = {
+			6 = {
+				custom_tooltip = layers_of_dream.failure # 
+				add_yearly_manpower = -1
+				random = { 
+					chance = 50
+					kill_ruler = yes
+				}
+			}
+			4 = {
+				custom_tooltip = layers_of_dream.success #
+				add_prestige = 15
+				add_piety = 0.15
+				add_adm_power = 150
+			}
+		}
+    }  
+    option = {
+		name = layers_of_dream.opt4 # Try to discover what lies in farthest part of the dream, at all costs
+		random_list = {
+			8 = {
+				custom_tooltip = layers_of_dream.failure # 
+				add_yearly_manpower = -1
+				random = { 
+					chance = 50
+					kill_ruler = yes
+				}
+			}
+			2 = {
+				custom_tooltip = layers_of_dream.success #
+				add_prestige = 30
+				add_piety = 0.25
+				add_adm_power = 250
+			}
+		}
+    }  
+    option = {
+		name = layers_of_dream.opt5 # Nevermind
+    }  
+}
+country_event = {
+	id = emerald_dream.6
+	title = friendly_spritis.title # Friendly Spirits
+	desc = friendly_spritis.desc # A group of forest spirits impressed by our work to keep the realm purified and offering their help to defeat our enemies. However, their absence in dream may cause disturbance. Also they are far from a disciplined army.
+	picture = DREAM_eventPicture
+	
+    trigger = {
+		has_country_modifier = dreaming
+		piety = 0.25
+    }
+	
+	mean_time_to_happen = { months = 90 }
+
+    immediate = {
+    }
+
+    option = {
+		name = friendly_spritis.opt1 # Recruit all of them
+		add_yearly_manpower = 1
+		add_army_professionalism = -0.05
+		add_piety = -0.05
+    }  
+    option = {
+		name = friendly_spritis.opt2 # Recruit some of them.
+		add_yearly_manpower = 0.5
+		add_army_professionalism = -0.05
+    }  
+    option = {
+		name = friendly_spritis.opt3 # Their place is the Emerald dream
+    }
+}
+#Corrupted (Piety <-0.25)
+country_event = {
+	id = emerald_dream.7
+	title = burst_of_corruption.title # Burst of Corruption
+	desc = burst_of_corruption.desc # The corruption of Nightmare can manifest in variety of ways. In most cases, It causes small groups of wildlife fauna go crazy or wilt a few trees. But if It increases its grasp in Dream, It can really affect real world counterparts of the dream. No matter how hard one tries to suppress it, corruption will eventually burst somewhere.\n\nIn this particular case, the Nightmare totally totally smothered dream counterpart one of our provinces and now its overflowing to the outside world. Something must be done about it.
+	picture = DREAM_eventPicture
+	
+    trigger = {
+		has_country_modifier = dreaming
+		NOT = { piety = -0.25 }
+    }
+	
+	mean_time_to_happen = { months = 90 }
+
+    immediate = {
+    }
+
+    option = {
+		name = burst_of_corruption.opt1 # Try an aggressive approach
+		add_yearly_manpower = -1
+		add_mil_power = -50
+		add_piety = -0.05
+    }  
+    option = {
+		name = burst_of_corruption.opt2 # Cleanse the dream counterpart
+		random_owned_province = {
+			add_devastation = 20
+		}
+		add_adm_power = -50
+		add_piety = 0.05
+    }  
+    option = {
+		highlight = yes
+		name = burst_of_corruption.opt3 # Ask help of a fellow druidic nation
+		trigger = {
+			OR = {
+				ruler_has_personality = well_connected_personality
+				any_country = {
+					religion = religion_druidic
+					has_opinion = {
+						who = ROOT
+						value = 10
+					}
+				}
+			}
+		}
+		add_dip_power = -50
+		add_piety = 0.1
+    }
+}
+country_event = {
+	id = emerald_dream.8
+	title = corruption_took_over.title # Corruption of Heir
+	desc = corruption_took_over.desc # Terrible news! It turns out our beloved ruler, [Root.Monarch.Name] has been corrupted by the Nightmare. We cannot reverse this terrible curse no matter what, so we must do unspeakable: Kill our own ruler.
+	picture = DREAM_eventPicture
+	
+    trigger = {
+		has_country_modifier = dreaming
+		NOT = { piety = -0.25 }
+		has_heir = yes
+    }
+	
+	mean_time_to_happen = { months = 90 }
+
+    immediate = {
+    }
+
+    option = {
+		name = corruption_took_over.opt1 # Execute [Root.Monarch.Name] 
+		kill_ruler = yes
+    }  
+    option = {
+		highlight = yes
+		name = corruption_took_over.opt2 # There must be cure
+		trigger = {
+			full_idea_group = supremacist_ideas
+		}
+    }
+}

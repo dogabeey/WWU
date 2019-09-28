@@ -1,0 +1,248 @@
+namespace = wow_government
+
+# For regular races, i.e. Humans
+# The Education of [Root.Monarch.GetName]
+# "The previous [Root.Monarch.GetTitle] has passed away, it is time for [Root.GetName] to pick a new [Root.Monarch.GetTitle]. However, if the people think ill of the chosen [Root.Monarch.GetTitle], there is likely to be pretenders to the position."
+country_event = {
+	id = wow_government.1
+	title = wow_government.1.title
+	desc = wow_government.1.desc
+	picture = ANGRY_MOB_eventPicture # Placeholder
+    
+    is_triggered_only = yes
+    
+	trigger = {
+       NOT = { government = tribal }
+	   NOT = { government = native }
+	   NOT = { primary_culture = culture_kul_tiran }
+	}
+
+	option = {
+		name = wow_government.1.option.a
+            
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+		random_list = {
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_adm_1_civilized
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_adm_2_civilized
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_adm_3_civilized
+					duration = -1
+				}
+			}
+		}
+		
+		if = {
+			limit = { has_estate = estate_burghers }
+				
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 5
+			}
+		}
+	}
+
+	option = {
+		name = wow_government.1.option.b
+		
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+		random_list = {
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_dip_1_civilized
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_dip_2_civilized
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_dip_3_civilized
+					duration = -1
+				}
+			}
+		}
+		
+		if = {
+			limit = { has_estate = estate_burghers }
+				
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 5
+			}
+		}
+	}
+	
+	option = {
+		name = wow_government.1.option.c
+		
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+		random_list = {
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_mil_1_civilized
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_mil_2_civilized
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_mil_3_civilized
+					duration = -1
+				}
+			}
+		}
+		
+		if = {
+			limit = { has_estate = estate_nobles }
+				
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 5
+			}
+		}
+	}
+}
+
+# For savage races, i.e. Orcs
+# Ascension of [Root.Monarch.GetName]
+# As the cycle of life continues, [Root.Monarch.GetName] has arisen to the position of [Root.Monarch.GetTitle] in [Root.GetName]. 
+country_event = {
+	id = wow_government.2
+	title = wow_government.2.title
+	desc = wow_government.2.desc
+	picture = ANGRY_MOB_eventPicture # Placeholder
+    
+    is_triggered_only = yes
+    
+	trigger = {
+       OR = {
+	   government = tribal
+	   government = native
+	   }
+	}
+
+    option = {
+		name = wow_government.2.option.a
+		
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+		random_list = {
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_adm_1_savage
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_adm_2_savage
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_adm_3_savage
+					duration = -1
+				}
+			}
+		}
+		
+		if = {
+			limit = { has_estate = estate_burghers }
+				
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 5
+			}
+		}
+	}
+
+	option = {
+		name = wow_government.2.option.b
+		
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+		random_list = {
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_dip_1_savage
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_dip_2_savage
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_dip_3_savage
+					duration = -1
+				}
+			}
+		}
+		
+		if = {
+			limit = { has_estate = estate_burghers }
+				
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 5
+			}
+		}
+	}
+	
+	option = {
+		name = wow_government.2.option.c
+		
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+		random_list = {
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_mil_1_savage
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_mil_2_savage
+					duration = -1
+				}
+			}
+			33 = {
+				add_ruler_modifier = {
+					name = ruler_education_mil_3_savage
+					duration = -1
+				}
+			}
+		}
+		
+		if = {
+			limit = { has_estate = estate_nobles }
+				
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 5
+			}
+		}
+	}
+}

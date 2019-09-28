@@ -1,0 +1,38 @@
+namespace = cleanup_events
+
+#########################################################
+#	        Losing Renaissance Philosophy				#
+#########################################################
+country_event = {
+	id = cleanup_events.2
+	title = e_l
+	desc = e_l
+	picture = REFORM_eventPicture
+
+	trigger = {
+		has_country_modifier = blooming_renaissance
+		num_of_cities = 6
+	}
+
+	mean_time_to_happen = {
+		months = 6
+
+		modifier = {
+			factor = 0.9
+			num_of_cities = 7
+		}
+		modifier = {
+			factor = 0.9
+			num_of_cities = 8
+		}
+		modifier = {
+			factor = 0.9
+			num_of_cities = 9
+		}
+	}
+
+	option = {
+		name = e_l
+		remove_country_modifier = "blooming_renaissance"
+	}
+}

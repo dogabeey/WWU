@@ -1,0 +1,124 @@
+# Here will be age ending goal decisions for AI, so AI will try to achieve these.
+country_decisions = {
+	rise_of_the_horde_orc_goal = {
+	
+        potential = {
+			ai = yes
+            current_age = rise_of_the_horde
+			has_global_flag = blood_of_mannoroth
+			culture_group = culture_group_orc
+			NOT = { has_country_flag = rise_of_the_horde_orc_goal_complete }
+        }
+        
+		allow = {
+			A54 = { NOT = { total_development = 40 } }
+			A55 = { NOT = { total_development = 40 } }
+			F49 = { NOT = { total_development = 40 } }
+		}
+        
+		effect = {
+            set_country_flag = rise_of_the_horde_orc_goal_complete
+		}
+		
+		ai_importance = 999
+        
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	the_first_war_orc_goal = {
+	
+        potential = {
+			ai = yes
+            current_age = the_first_war
+			culture_group = culture_group_orc
+			NOT = { has_country_flag = the_first_war_orc_goal_complete }
+        }
+        
+		allow = {
+			1022 = { controlled_by = ROOT }
+		}
+		
+		ai_importance = 999
+        
+		effect = {
+            set_country_flag = the_first_war_orc_goal_complete
+		}
+        
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# TFW Azeroth Goal is already addressed in DarkPortal.txt
+
+	the_second_war_orc_goal = {
+	
+        potential = {
+			ai = yes
+            current_age = the_second_war
+			culture_group = culture_group_orc
+			NOT = { has_country_flag = the_second_war_orc_goal_complete }
+        }
+        
+		allow = {
+			OR = {
+				AND = {
+					has_global_flag = tfw_human_victory_path
+					1022 = { controlled_by = ROOT }
+				}
+				AND = {
+					NOT = { has_global_flag = tfw_human_victory_path }
+					543 = { controlled_by = ROOT }
+				}
+			}
+		}
+		
+		ai_importance = 999
+        
+		effect = {
+            set_country_flag = the_second_war_orc_goal_complete
+		}
+        
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	the_second_war_human_goal = {
+	
+        potential = {
+			ai = yes
+            current_age = the_second_war
+			culture_group = culture_group_human
+			NOT = { has_country_flag = the_second_war_human_goal_complete }
+        }
+        
+		allow = {
+			OR = {
+				AND = {
+					has_global_flag = tfw_human_victory_path
+					NOT = { any_country = {
+						culture_group = culture_group_orc
+						capital_scope = { continent = continent_eastern_kingdoms }
+					} }
+				}
+				AND = {
+					NOT = { has_global_flag = tfw_human_victory_path }
+					1022 = { controlled_by = ROOT }
+				}
+			}
+		}
+		
+		ai_importance = 999
+        
+		effect = {
+            set_country_flag = the_second_war_human_goal_complete
+		}
+        
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

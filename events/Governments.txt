@@ -1,0 +1,57 @@
+# Constitutional Restoration
+country_event = {
+	id = 9479
+	title = "EVTNAME9479"
+	desc = "EVTDESC9479"
+	picture = COURT_eventPicture
+	
+	trigger = {
+		government = monarchy
+		NOT = { has_reform = celestial_empire }
+		has_country_modifier = separation_of_powers
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "EVTOPTA9479"
+		remove_country_modifier = separation_of_powers
+		add_stability = -2
+		random_owned_province = {
+			limit = {
+				is_core = ROOT
+			}
+			noble_rebels = 3
+		}
+	}
+	
+	option = {
+		name = "EVTOPTB9479"
+		add_stability_or_adm_power = yes
+	}
+}
+
+# Free City status lost (for non Common Sense players)
+country_event = {
+	id = 9900
+	title = free_cities.2.t
+	desc = free_cities.2.d
+	picture = HRE_eventPicture
+	
+	trigger = {
+		NOT = { has_dlc = "Common Sense" }
+		num_of_cities = 2
+		has_reform = free_city
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = free_cities.2.a
+		remove_government_reform = free_city
+	}
+}

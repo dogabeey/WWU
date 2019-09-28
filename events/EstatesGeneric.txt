@@ -1,0 +1,173 @@
+namespace = WOW_ESTATES
+
+country_event = {
+	id = WOW_ESTATES.1
+	title = WOW_ESTATES.1.title
+	desc = WOW_ESTATES.1.desc
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = WOW_ESTATES.1.option.a
+		
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+		if = {
+			limit = {
+				has_heir = yes
+			}
+				
+			define_heir = {
+				claim = 25
+				dynasty = ROOT
+				adm = 3
+				dip = 3
+				mil = 3
+			}
+		}
+			
+		if = {
+			limit = {
+				has_heir = no
+			}
+				
+			define_heir = {
+				claim = 90
+				dynasty = ROOT
+				adm = 3
+				dip = 3
+				mil = 3
+			}
+		}
+	}
+}
+
+# A Throne Abdicated
+country_event = {
+	id = WOW_ESTATES.2
+	title = WOW_ESTATES.2.title
+	desc = WOW_ESTATES.2.desc
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	option = {
+		name = WOW_ESTATES.2.option.a
+		
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+
+			# Very Low Legitimacy
+				if = {
+				limit = {
+					NOT = { legitimacy = 35 }
+				}
+				
+				add_stability = -4
+				
+				random_list = {
+					# Family gets backing
+					25 = {
+						define_ruler = {
+							dynasty = ROOT
+							adm = 3
+							dip = 3
+							mil = 3
+							claim = 10
+						}
+					}
+					# Noble gets backing
+					75 = {
+						define_ruler = {
+							adm = 3
+							dip = 3
+							mil = 3
+							claim = 10
+						}
+					}
+				}
+			}
+			
+			# Low Legitimacy
+			if = {
+				limit = {
+					legitimacy = 35
+					NOT = { legitimacy = 50 }
+				}
+				
+				add_stability = -3
+				
+				random_list = {
+					# Family gets backing
+					50 = {
+						define_ruler = {
+							dynasty = ROOT
+							adm = 3
+							dip = 3
+							mil = 3
+							claim = 35
+						}
+					}
+					# Noble gets backing
+					50 = {
+						define_ruler = {
+							adm = 3
+							dip = 3
+							mil = 3
+							claim = 35
+						}
+					}
+				}
+			}
+			
+			# Medium Legitimacy
+			if = {
+				limit = {
+					legitimacy = 75
+					NOT = { legitimacy = 90 }
+				}
+				
+				add_stability = -1
+				
+				define_ruler = {
+					dynasty = ROOT
+					adm = 3
+					dip = 3
+					mil = 3
+					claim = 75
+				}
+			}
+			
+			if = {
+				limit = {
+					legitimacy = 50
+					NOT = { legitimacy = 75 }
+				}
+				
+				add_stability = -2
+				
+				define_ruler = {
+					dynasty = ROOT
+					adm = 3
+					dip = 3
+					mil = 3
+					claim = 50
+				}
+			}
+			
+			# High Legitimacy
+			if = {
+				limit = {
+					legitimacy = 90
+				}
+				
+				define_ruler = {
+					dynasty = ROOT
+					adm = 3
+					dip = 3
+					mil = 3
+					claim = 100
+				}
+			}
+	}
+}

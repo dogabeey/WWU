@@ -1,0 +1,404 @@
+country_decisions = {
+	
+    religion_menu_open = {
+	    major = yes
+		potential = {
+            ai = no
+			NOT = { has_country_modifier = religion_menu }
+		}
+		allow = {
+			always = yes
+            ai = no
+		}
+		effect = {
+		    
+		    add_country_modifier = {
+				name = "religion_menu"
+				duration = -1
+				hidden = yes
+			}
+		  
+		}
+	}
+	
+	religion_menu_close = {
+	    major = yes
+		potential = {
+		   ai = no
+	       has_country_modifier = religion_menu
+		}
+		allow = {
+			has_country_modifier = religion_menu
+		}
+		effect = {
+		    hidden_effect = {
+			remove_country_modifier = religion_menu
+		    }
+		}
+	}
+	
+    construct_fel_conduits = {
+        
+        potential = { 
+	       has_country_modifier = religion_menu
+            religion = religion_fel
+            NOT = { has_country_modifier = fel_conduits }
+        }
+        allow = {
+            religion = religion_fel
+            adm_power = 100
+        }
+        effect = {
+            add_adm_power = -100
+            add_country_modifier = {
+                name = fel_conduits
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                religious_unity = 1.0
+            }
+        }
+    }
+    
+    enact_blood_sacrifice = {
+        
+        potential = { 
+	       has_country_modifier = religion_menu
+            religion = religion_hakkari
+            NOT = { has_country_modifier = blood_sacrifice_hakkari }
+        }
+        allow = {
+            religion = religion_hakkari
+            adm_power = 100
+        }
+        effect = {
+            add_adm_power = -100
+            add_country_modifier = {
+                name = blood_sacrifice_hakkari
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                religious_unity = 1.0
+            }
+        }
+    }
+    
+    encourage_fervor = {
+        
+        potential = { 
+	       has_country_modifier = religion_menu
+            OR = {
+                religion = religion_scarlet_light
+                religion = religion_argent_light
+            }
+            NOT = { has_country_modifier = the_light_fervor }
+        }
+        allow = {
+            OR = {
+                religion = religion_scarlet_light
+                religion = religion_argent_light
+            }
+            adm_power = 100
+        }
+        effect = {
+            add_adm_power = -100
+            add_country_modifier = {
+                name = the_light_fervor
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                religious_unity = 1.0
+            }
+        }
+    }
+    
+    enforce_daily_contemplation = {
+        
+        potential = { 
+	       has_country_modifier = religion_menu
+            OR = {
+                religion = religion_church_of_the_light
+                religion = religion_light_of_the_naaru
+            }
+            NOT = { has_country_modifier = the_light_contemplation }
+        }
+        allow = {
+            OR = {
+                religion = religion_church_of_the_light
+                religion = religion_light_of_the_naaru
+            }
+            adm_power = 100
+        }
+        effect = {
+            add_adm_power = -100
+            add_country_modifier = {
+                name = the_light_contemplation
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                religious_unity = 1.0
+            }
+        }
+    }
+    
+    display_the_power_of_the_sunwell = {
+        
+        potential = { 
+	       has_country_modifier = religion_menu
+            religion = religion_light_of_the_sunwell
+            NOT = { has_country_modifier = the_light_sunwell }
+        }
+        allow = {
+            religion = religion_light_of_the_sunwell
+            adm_power = 100
+        }
+        effect = {
+            add_adm_power = -100
+            add_country_modifier = {
+                name = the_light_sunwell
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                religious_unity = 1.0
+            }
+        }
+    }
+    
+    construct_void_portals = {
+        
+        potential = { 
+	       has_country_modifier = religion_menu
+            OR = {
+                religion = religion_shadow
+                religion = religion_void
+            }
+            NOT = { has_country_modifier = void_portals }
+        }
+        allow = {
+            OR = {
+                religion = religion_shadow
+                religion = religion_void
+            }
+            adm_power = 100
+        }
+        effect = {
+            add_adm_power = -100
+            add_country_modifier = {
+                name = void_portals
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                religious_unity = 1.0
+            }
+        }
+    }
+	
+	advancement_of_true_religion_act_1 = {
+		potential = { 
+	       has_country_modifier = religion_menu
+			NOT = { has_country_modifier = the_advancement_of_true_religion_act }
+		}
+		allow = {
+			adm_tech = 4
+		}
+		effect = {
+			add_country_modifier = {
+				name = "the_advancement_of_true_religion_act"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { full_idea_group = supremacist_ideas  }
+				NOT = { government = theocracy }
+			}
+		}
+	}
+
+	declaration_of_indulgence_1 = {
+		potential = { 
+	       has_country_modifier = religion_menu
+			NOT = { has_country_modifier = the_declaration_of_indulgence_1 }
+		}
+		allow = {
+			NOT = { has_country_modifier = the_declaration_of_indulgence_1 }
+			adm_tech = 7
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "the_declaration_of_indulgence_1"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				NOT = { stability = 2 }
+				factor = 0
+			}
+		}
+	}
+
+	act_of_uniformity_1 = {
+		potential = { 
+	       has_country_modifier = religion_menu
+			NOT = { has_country_modifier = the_act_of_uniformity }
+		}
+		allow = {
+			adm_tech = 10
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "the_act_of_uniformity"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { full_idea_group = supremacist_ideas  }
+				NOT = { government = theocracy }
+			}
+		}
+	}
+	
+	monastic_education_1 = {
+		potential = { 
+	       has_country_modifier = religion_menu
+			NOT = { has_country_modifier = monastic_education_system }
+		}
+		allow = {
+			adm_tech = 13
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "monastic_education_system"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { treasury = 100 }
+				factor = 0
+			}
+		}
+	}
+	
+	regulate_the_monastaries_1 = {
+		potential = { 
+	       has_country_modifier = religion_menu
+			NOT = { has_country_modifier = regulated_monasteries }
+		}
+		allow = {
+			adm_tech = 16
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "regulated_monasteries"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	acceptance_of_religious_sects_1 = {
+		potential = { 
+	       has_country_modifier = religion_menu
+			NOT = { has_country_modifier = religious_sect_tolerance_1 }
+		}
+		allow = {
+		    adm_tech = 19
+			stability = 3
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "religious_sect_tolerance_1"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				NOT = { any_owned_province = { has_owner_religion = no } }
+				factor = 0
+			}
+		}
+	}
+	
+	conversion_of_convenience_1 = {
+		potential = { 
+	       has_country_modifier = religion_menu
+			is_lesser_in_union = no
+			NOT = { ruler_religion = ROOT }
+			OR = {
+				has_regency = no
+				AND = {
+					NOT = { ruler_religion = ROOT }
+					has_heir = yes
+					NOT = { heir_religion = ROOT }
+				}
+			}
+			OR = {
+				ai = no
+				has_idea_group = supremacist_ideas
+			}
+		}
+		allow = {
+			stability = 1
+			capital_scope = {
+				has_owner_religion = yes
+			}
+		}
+		effect = {
+			add_stability = -1
+			add_legitimacy = 10
+			set_ruler_religion = ROOT
+			if = {
+				limit = {
+					has_heir = yes
+					NOT = { heir_religion = ROOT }
+				}
+				set_heir_religion = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

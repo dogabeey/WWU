@@ -1,0 +1,1135 @@
+namespace = building_events
+
+#-------------------------------------------------------
+# Administration
+#-------------------------------------------------------
+
+# Prosperous Locals in [Root.GetName]
+# The local people of [Root.GetName] have pooled together their wealth towards a town hall for their settlement. They have contacted [Root.Monarch.GetTitle] [Root.Monarch.GetName] to ensure their wealth is spent in accordance to [Root.Monarch.GetHerHis] wishes.
+# Build the town hall
+# Invest in other projects
+province_event = {
+	id = building_events.1
+	title = building_events.1.title
+	desc = building_events.1.desc
+	picture = BUILDING_DEVELOPMENT_HUMAN_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_town_hall }
+        num_free_building_slots = 1
+        controlled_by = owner
+        
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+        
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.1.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+
+        add_building = wow_town_hall
+	}
+    
+    option = {
+		name = building_events.1.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_tax = 1
+	}
+}
+
+# Prosperous Locals in [Root.GetName]
+# The local people of [Root.GetName] have pooled together their wealth towards a court for their settlement. They have contacted [Root.Monarch.GetTitle] [Root.Monarch.GetName] to ensure their wealth is spent in accordance to [Root.Monarch.GetHerHis] wishes.
+# Build the court
+# Invest in other projects
+province_event = {
+	id = building_events.2
+	title = building_events.2.title
+	desc = building_events.2.desc
+	picture = BUILDING_DEVELOPMENT_HUMAN_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_court }
+        num_free_building_slots = 1
+        controlled_by = owner
+        
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+        
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.2.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_court
+	}
+    
+    option = {
+		name = building_events.2.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_tax = 1
+	}
+}
+
+# Prosperous Locals in [Root.GetName]
+# The local people of [Root.GetName] have pooled together their wealth towards a wow_temple for their settlement. They have contacted [Root.Monarch.GetTitle] [Root.Monarch.GetName] to ensure their wealth is spent in accordance to [Root.Monarch.GetHerHis] wishes.
+# Build the wow_temple
+# Invest in other projects
+province_event = {
+	id = building_events.3
+	title = building_events.3.title
+	desc = building_events.3.desc
+	picture = BUILDING_DEVELOPMENT_HUMAN_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_temple }
+        num_free_building_slots = 1
+        controlled_by = owner
+        
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+        
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.3.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_temple
+	}
+    
+    option = {
+		name = building_events.3.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_tax = 1
+	}
+}
+
+#-------------------------------------------------------
+# Economic
+#-------------------------------------------------------
+# Rich Veins found in [Root.GetName]
+# The peasants of [Root.GetName] are reporting the discovery of rich veins of ore in their province. It would be wise to take advantage of this, before others do so.
+# Build a mine
+# Encourage productivity in other areas
+province_event = {
+	id = building_events.4
+	title = building_events.4.title
+	desc = building_events.4.desc
+	picture = CITY_DEVELOPMENT_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_mine }
+        num_free_building_slots = 1
+        controlled_by = owner
+        
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+        
+        modifier = {
+            factor = 0.5
+            
+            OR = {
+                trade_goods = dark_iron
+                trade_goods = kypari
+                trade_goods = saronite
+                trade_goods = mithril
+                trade_goods = thorium
+                trade_goods = fel_iron
+                trade_goods = khorium
+                trade_goods = adamantite
+                trade_goods = titanium
+                trade_goods = elementium
+                trade_goods = ghost_iron
+                trade_goods = gemstones    
+            }
+        }
+        
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.4.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_mine
+	}
+    
+    option = {
+		name = building_events.4.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_production = 1
+	}
+}
+
+# Excellent trees in [Root.GetName]
+# The peasants of [Root.GetName] have fully explored their local forests, and have found that many parts of the forest are home to excellent quality lumber. It would be wise to take advantage of this, before others do so.
+# Build a lumbermill
+# Encourage productivity in other areas
+province_event = {
+	id = building_events.5
+	title = building_events.5.title
+	desc = building_events.5.desc
+	picture = CITY_DEVELOPMENT_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_lumbermill }
+        num_free_building_slots = 1
+        controlled_by = owner
+        
+        owner = {
+            is_at_war = no
+        }
+        
+        OR = {
+            has_terrain = forest
+            has_terrain = woods
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+        
+        modifier = {
+            factor = 0.5
+            
+            OR = {
+                trade_goods = lumber
+                trade_goods = ashenvale_lumber  
+            }
+        }
+        
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.5.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_lumbermill
+	}
+    
+    option = {
+		name = building_events.5.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_production = 1
+	}
+}
+
+# Verdant farmland in [Root.GetName]
+# The farmers of [Root.GetName] report that the soil quality in [Root.GetName] is unmatched elsewhere in the realm. It would be wise to invest in proper infrastructure for a farm to fully exploit the land.
+# Build a farm
+# Encourage productivity in other areas
+province_event = {
+	id = building_events.6
+	title = building_events.6.title
+	desc = building_events.6.desc
+	picture = FARMING_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_farm }
+        num_free_building_slots = 1
+        controlled_by = owner
+        
+        owner = {
+            is_at_war = no
+        }
+        
+        OR = {
+            has_terrain = grasslands
+            has_terrain = farmlands
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+        
+        modifier = {
+            factor = 0.5
+            
+            OR = {
+                trade_goods = lumber
+                trade_goods = ashenvale_lumber  
+            }
+        }
+        
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.6.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_farm
+	}
+    
+    option = {
+		name = building_events.6.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_production = 1
+	}
+}
+
+#-------------------------------------------------------
+# Army
+#-------------------------------------------------------
+# Strategic Report for [Root.GetName]
+# Our military advisors report that [Root.GetName] would be a wise place for a military encampment.
+# Build a barracks
+# Draft more locals instead
+province_event = {
+	id = building_events.7
+	title = building_events.7.title
+	desc = building_events.7.desc
+	picture = BUILDING_DEVELOPMENT_HUMAN_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_barracks }
+        num_free_building_slots = 1
+        controlled_by = owner
+        
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.7.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_barracks
+	}
+    
+    option = {
+		name = building_events.7.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_manpower = 1
+	}
+}
+
+# Strategic Report for [Root.GetName]
+# Our military advisors report that [Root.GetName] would be a wise place for a military encampment.
+# Build training grounds
+# Draft more locals instead
+province_event = {
+	id = building_events.8
+	title = building_events.8.title
+	desc = building_events.8.desc
+	picture = BUILDING_DEVELOPMENT_HUMAN_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_training_grounds }
+        num_free_building_slots = 1
+        controlled_by = owner
+        
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.8.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_training_grounds
+	}
+    
+    option = {
+		name = building_events.8.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_manpower = 1
+	}
+}
+
+# Strategic Report for [Root.GetName]
+# Our military advisors report that [Root.GetName] would be a wise place for a supply depot.
+# Build a supply depot
+# Draft more locals instead
+province_event = {
+	id = building_events.9
+	title = building_events.9.title
+	desc = building_events.9.desc
+	picture = TRADEGOODS_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_supply_depot }
+        num_free_building_slots = 1
+        controlled_by = owner
+        
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.9.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_supply_depot
+	}
+    
+    option = {
+		name = building_events.9.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_manpower = 1
+	}
+}
+
+#-------------------------------------------------------
+# Navy
+#-------------------------------------------------------
+# Strategic Report for [Root.GetName]
+# Our naval advisors report that [Root.GetName] would be a excellent place for a shipyard.
+# Build a shipyard
+# Draft more locals instead
+province_event = {
+	id = building_events.10
+	title = building_events.10.title
+	desc = building_events.10.desc
+	picture = NAVAL_MILITARY_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_shipyard }
+        num_free_building_slots = 1
+        controlled_by = owner
+        has_port = yes
+        
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.10.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_shipyard
+	}
+    
+    option = {
+		name = building_events.10.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_manpower = 1
+	}
+}
+
+# Strategic Report for [Root.GetName]
+# Our naval advisors report that [Root.GetName] would be a excellent place for a dock.
+# Build a dock
+# Draft more locals instead
+province_event = {
+	id = building_events.11
+	title = building_events.11.title
+	desc = building_events.11.desc
+	picture = HARBOUR_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_dock }
+        num_free_building_slots = 1
+        controlled_by = owner
+        has_port = yes
+        
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.11.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_dock
+	}
+    
+    option = {
+		name = building_events.11.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_manpower = 1
+	}
+}
+
+#-------------------------------------------------------
+# Trade
+#-------------------------------------------------------
+# Strategic Report for [Root.GetName]
+# Our trade advisors report that [Root.GetName] would be a excellent place for a market.
+# Build a market
+# Encourage manufacturing instead
+province_event = {
+	id = building_events.12
+	title = building_events.12.title
+	desc = building_events.12.desc
+	picture = CORRUPTION_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_market }
+        num_free_building_slots = 1
+        controlled_by = owner
+
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.12.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_market
+	}
+    
+    option = {
+		name = building_events.12.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_production = 1
+	}
+}
+
+# [Root.GetName]'s Watering Hole
+# Many peasants in [Root.GetName] have requested that their local tavern be refurbished, as it has reached a state of disrepair over the years.
+# Restore the tavern
+# Provide other avenues for respite instead
+province_event = {
+	id = building_events.13
+	title = building_events.13.title
+	desc = building_events.13.desc
+	picture = TAVERN_eventPicture
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_tavern }
+        num_free_building_slots = 1
+        controlled_by = owner
+
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.13.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_tavern
+	}
+    
+    option = {
+		name = building_events.13.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_production = 1
+	}
+}
+
+# Strategic Report for [Root.GetName]
+# Our trade advisors report that [Root.GetName] would be a excellent place for a workshop.
+# Build a workshop
+# Encourage other forms of manufacturing instead
+province_event = {
+	id = building_events.14
+	title = building_events.14.title
+	desc = building_events.14.desc
+	picture = CITY_DEVELOPMENT_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_workshop }
+        num_free_building_slots = 1
+        controlled_by = owner
+
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.14.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_workshop
+	}
+    
+    option = {
+		name = building_events.14.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_base_production = 1
+	}
+}
+
+#-------------------------------------------------------
+# Trade
+#-------------------------------------------------------
+# Defences for [Root.GetName]
+# A strategic review of [Root.GetName] has revealed that they lack any measurable form of defence, and could become an vunerability if we were to engage in an war.
+# Construct fortifications
+# Save the gold instead
+province_event = {
+	id = building_events.15
+	title = building_events.15.title
+	desc = building_events.15.desc
+	picture = BUILDING_DEVELOPMENT_HUMAN_eventPicture # Placeholder
+
+    is_mtth_scaled_to_size = 1
+    
+	trigger = {
+        NOT = { has_building = wow_fort_1 }
+        num_free_building_slots = 1
+        controlled_by = owner
+
+        owner = {
+            is_at_war = no
+        }
+	}
+
+    mean_time_to_happen = {
+        months = 600
+
+        modifier = {
+            factor = 2
+            
+            NOT = { development = 10 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 20 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 30 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 40 }
+        }
+        
+        modifier = {
+            factor = 0.9
+            
+            NOT = { development = 50 }
+        }
+    }
+    
+	option = {
+		name = building_events.15.option.a
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        add_building = wow_fort_1
+	}
+    
+    option = {
+		name = building_events.15.option.b
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+        owner = { add_treasury = 50 }
+	}
+}

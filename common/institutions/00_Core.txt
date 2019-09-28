@@ -1,0 +1,1282 @@
+#-----------------------------------------------------------------------------
+# Civic Code
+#-----------------------------------------------------------------------------
+civic_code = {
+    historical_start_date = 546.1.1
+	historical_start_province = 1022
+	
+	penalty = 0.50
+    
+	bonus = {
+		global_tax_modifier = 0.1
+	}
+	history = {
+        is_year = 546
+		owner = {
+	    NOT = { government = tribal }
+		NOT = { government = native }
+		}
+	}
+	
+	can_embrace = {
+		always = yes
+	}
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_anhe_civic_code
+				any_friendly_coast_border_province = {
+					civic_code = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_afcbphe_civic_code
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					civic_code = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = civic_code
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_civic_code
+				owner = {
+					has_institution = civic_code
+				}
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 24
+		
+		modifier = {
+			factor = 0.25
+			is_at_war = yes
+		}
+	}
+}
+
+#-----------------------------------------------------------------------------
+# Phlogiston
+#-----------------------------------------------------------------------------
+phlogiston = {
+    historical_start_date = 600.1.1
+	historical_start_province = 941
+	
+	penalty = 0.50
+    
+	bonus = {
+		production_efficiency = 0.2
+	}
+	history = {
+        is_year = 600
+        owner = {
+            OR = {
+                primary_culture = culture_iron
+                primary_culture = culture_frostborn
+                primary_culture = culture_ironforge
+                primary_culture = culture_wildhammer
+                primary_culture = culture_dark_iron
+                primary_culture = culture_gnome
+                primary_culture = culture_mecha_gnome
+                primary_culture = culture_kezani
+                primary_culture = culture_bilgewater
+                primary_culture = culture_steamwheedle
+                primary_culture = culture_venture
+                primary_culture = culture_blackwater
+            }
+        }
+	}
+	
+    can_start = {
+		is_year = 600
+		is_state = yes
+		is_island = no
+		OR = {
+			development = 20
+			is_capital = yes
+			normal_or_historical_nations = no
+		}
+	}
+	start_chance = 5		#in 100 for when a province can_start
+	on_start = warcraft_institutions.100
+    
+	can_embrace = {
+		owner = { has_institution = civic_code }
+	}
+    
+    embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_anhe_phlogiston
+				any_friendly_coast_border_province = {
+					phlogiston = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_afcbphe_phlogiston
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					phlogiston = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = phlogiston
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_phlogiston
+				owner = {
+					has_institution = phlogiston
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.075
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_10
+				development = 10
+			}
+		}
+		
+        modifier = {
+			factor = 0.075
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_15
+				development = 15
+			}
+		}
+        
+        modifier = {
+			factor = 0.075
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_20
+				development = 20
+			}
+		}
+		
+		modifier = {
+			factor = 1.10
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        primary_culture = culture_iron
+                        primary_culture = culture_frostborn
+                        primary_culture = culture_ironforge
+                        primary_culture = culture_wildhammer
+                        primary_culture = culture_dark_iron
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 1.15
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                        primary_culture = culture_gnome
+                        primary_culture = culture_mecha_gnome
+                        primary_culture = culture_kezani
+                        primary_culture = culture_bilgewater
+                        primary_culture = culture_steamwheedle
+                        primary_culture = culture_venture
+                        primary_culture = culture_blackwater
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+		
+        modifier = {
+			factor = 0.9
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                       culture_group = culture_group_tauren
+                       culture_group = culture_group_darnassian
+                       culture_group = culture_group_thalassian
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_averse_to_technology
+			}
+		}
+        
+	}
+	
+	ai_will_do = { 
+		factor = 24
+		
+		modifier = {
+			factor = 0.25
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.1
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.2
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.3
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.4
+		}
+	}
+}
+
+#-----------------------------------------------------------------------------
+# Clockwerk Engineering
+#-----------------------------------------------------------------------------
+clockwerk_engineering = {
+    historical_start_date = 650.1.1
+	historical_start_province = 3038
+	
+	penalty = 0.50
+    
+	bonus = {
+		shock_damage = 0.15
+        shock_damage_received = -0.15
+	}
+	history = {
+        is_year = 650
+        owner = {
+            OR = {
+                primary_culture = culture_iron
+                primary_culture = culture_frostborn
+                primary_culture = culture_ironforge
+                primary_culture = culture_wildhammer
+                primary_culture = culture_dark_iron
+                primary_culture = culture_gnome
+                primary_culture = culture_mecha_gnome
+                primary_culture = culture_kezani
+                primary_culture = culture_bilgewater
+                primary_culture = culture_steamwheedle
+                primary_culture = culture_venture
+                primary_culture = culture_blackwater
+            }
+        }
+	}
+    
+    can_start = {
+		is_year = 650
+		is_state = yes
+		is_island = no
+		OR = {
+			development = 20
+			is_capital = yes
+			normal_or_historical_nations = no
+		}
+	}
+	start_chance = 5		#in 100 for when a province can_start
+	on_start = warcraft_institutions.200
+    
+    can_embrace = {
+		owner = { has_institution = phlogiston }
+	}
+    
+    embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_anhe_clockwerk_engineering
+				any_friendly_coast_border_province = {
+					clockwerk_engineering = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_afcbphe_clockwerk_engineering
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					clockwerk_engineering = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = clockwerk_engineering
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_clockwerk_engineering
+				owner = {
+					has_institution = clockwerk_engineering
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_10
+				development = 10
+			}
+		}
+		
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_15
+				development = 15
+			}
+		}
+        
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_20
+				development = 20
+			}
+		}
+		
+		modifier = {
+			factor = 1.10
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        primary_culture = culture_iron
+                        primary_culture = culture_frostborn
+                        primary_culture = culture_ironforge
+                        primary_culture = culture_wildhammer
+                        primary_culture = culture_dark_iron
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 1.15
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                        primary_culture = culture_gnome
+                        primary_culture = culture_mecha_gnome
+                        primary_culture = culture_kezani
+                        primary_culture = culture_bilgewater
+                        primary_culture = culture_steamwheedle
+                        primary_culture = culture_venture
+                        primary_culture = culture_blackwater
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+		
+        modifier = {
+			factor = 0.9
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                       culture_group = culture_group_tauren
+                       culture_group = culture_group_darnassian
+                       culture_group = culture_group_thalassian
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_averse_to_technology
+			}
+		}
+
+	}
+	
+	ai_will_do = { 
+		factor = 24
+		
+		modifier = {
+			factor = 0.25
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.1
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.2
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.3
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.4
+		}
+	}
+}
+
+#-----------------------------------------------------------------------------
+# Boomsticks
+#-----------------------------------------------------------------------------
+boomsticks = {
+    historical_start_date = 700.1.1
+	historical_start_province = 3048
+	
+	penalty = 0.50
+    
+	bonus = {
+        fire_damage = 0.15
+        fire_damage_received = -0.15
+	}
+	history = {
+        is_year = 700
+        owner = {
+            OR = {
+                primary_culture = culture_iron
+                primary_culture = culture_frostborn
+                primary_culture = culture_ironforge
+                primary_culture = culture_wildhammer
+                primary_culture = culture_dark_iron
+                primary_culture = culture_gnome
+                primary_culture = culture_mecha_gnome
+                primary_culture = culture_kezani
+                primary_culture = culture_bilgewater
+                primary_culture = culture_steamwheedle
+                primary_culture = culture_venture
+                primary_culture = culture_blackwater
+            }
+        }
+	}
+    
+    can_start = {
+		is_year = 700
+		is_state = yes
+		is_island = no
+		OR = {
+			development = 20
+			is_capital = yes
+			normal_or_historical_nations = no
+		}
+	}
+	start_chance = 5		#in 100 for when a province can_start
+	on_start = warcraft_institutions.300
+    
+    can_embrace = {
+		owner = { has_institution = clockwerk_engineering }
+	}
+    
+    embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_anhe_boomsticks
+				any_friendly_coast_border_province = {
+					boomsticks = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_afcbphe_boomsticks
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					boomsticks = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = boomsticks
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_boomsticks
+				owner = {
+					has_institution = boomsticks
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_10
+				development = 10
+			}
+		}
+		
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_15
+				development = 15
+			}
+		}
+        
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_20
+				development = 20
+			}
+		}
+		
+		modifier = {
+			factor = 1.10
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        primary_culture = culture_iron
+                        primary_culture = culture_frostborn
+                        primary_culture = culture_ironforge
+                        primary_culture = culture_wildhammer
+                        primary_culture = culture_dark_iron
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 1.15
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                        primary_culture = culture_gnome
+                        primary_culture = culture_mecha_gnome
+                        primary_culture = culture_kezani
+                        primary_culture = culture_bilgewater
+                        primary_culture = culture_steamwheedle
+                        primary_culture = culture_venture
+                        primary_culture = culture_blackwater
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+		
+        modifier = {
+			factor = 0.9
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                       culture_group = culture_group_tauren
+                       culture_group = culture_group_darnassian
+                       culture_group = culture_group_thalassian
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_averse_to_technology
+			}
+		}
+        
+	}
+	
+	ai_will_do = { 
+		factor = 24
+		
+		modifier = {
+			factor = 0.25
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.1
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.2
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.3
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.4
+		}
+	}
+}
+
+#-----------------------------------------------------------------------------
+# Oil Extraction
+#-----------------------------------------------------------------------------
+oil_extraction = {
+    historical_start_date = 750.1.1
+	historical_start_province = 1098
+	
+	penalty = 0.50
+    
+	bonus = {
+        naval_attrition = -0.25
+	}
+	history = {
+        is_year = 750
+        owner = {
+            OR = {
+                primary_culture = culture_iron
+                primary_culture = culture_frostborn
+                primary_culture = culture_ironforge
+                primary_culture = culture_wildhammer
+                primary_culture = culture_dark_iron
+                primary_culture = culture_gnome
+                primary_culture = culture_mecha_gnome
+                primary_culture = culture_kezani
+                primary_culture = culture_bilgewater
+                primary_culture = culture_steamwheedle
+                primary_culture = culture_venture
+                primary_culture = culture_blackwater
+            }
+        }
+	}
+    
+    can_start = {
+		is_year = 750
+		is_state = yes
+		is_island = no
+		OR = {
+			development = 20
+			is_capital = yes
+			normal_or_historical_nations = no
+		}
+	}
+	start_chance = 5		#in 100 for when a province can_start
+	on_start = warcraft_institutions.400
+    
+    can_embrace = {
+		owner = { has_institution = boomsticks }
+	}
+    
+    embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_anhe_oil_extraction
+				any_friendly_coast_border_province = {
+					oil_extraction = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_afcbphe_oil_extraction
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					oil_extraction = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = oil_extraction
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_oil_extraction
+				owner = {
+					has_institution = oil_extraction
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_10
+				development = 10
+			}
+		}
+		
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_15
+				development = 15
+			}
+		}
+        
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_20
+				development = 20
+			}
+		}
+		
+		modifier = {
+			factor = 1.10
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        primary_culture = culture_iron
+                        primary_culture = culture_frostborn
+                        primary_culture = culture_ironforge
+                        primary_culture = culture_wildhammer
+                        primary_culture = culture_dark_iron
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 1.15
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                        primary_culture = culture_gnome
+                        primary_culture = culture_mecha_gnome
+                        primary_culture = culture_kezani
+                        primary_culture = culture_bilgewater
+                        primary_culture = culture_steamwheedle
+                        primary_culture = culture_venture
+                        primary_culture = culture_blackwater
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+		
+        modifier = {
+			factor = 0.9
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                       culture_group = culture_group_tauren
+                       culture_group = culture_group_darnassian
+                       culture_group = culture_group_thalassian
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_averse_to_technology
+			}
+		}
+        
+	}
+	
+	ai_will_do = {
+		factor = 24
+		
+		modifier = {
+			factor = 0.25
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.1
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.2
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.3
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.4
+		}
+	}
+}
+
+#-----------------------------------------------------------------------------
+# Mechanical Constructs
+#-----------------------------------------------------------------------------
+mechanical_constructs = {
+    historical_start_date = 800.1.1
+	historical_start_province = 941
+	
+	penalty = 0.50
+    
+	bonus = {
+        build_cost = -0.25
+        build_time = -0.25
+	}
+	history = {
+        is_year = 800
+        owner = {
+            OR = {
+                primary_culture = culture_iron
+                primary_culture = culture_frostborn
+                primary_culture = culture_ironforge
+                primary_culture = culture_wildhammer
+                primary_culture = culture_dark_iron
+                primary_culture = culture_gnome
+                primary_culture = culture_mecha_gnome
+                primary_culture = culture_kezani
+                primary_culture = culture_bilgewater
+                primary_culture = culture_steamwheedle
+                primary_culture = culture_venture
+                primary_culture = culture_blackwater
+            }
+        }
+	}
+    
+    can_start = {
+		is_year = 800
+		is_state = yes
+		is_island = no
+		OR = {
+			development = 20
+			is_capital = yes
+			normal_or_historical_nations = no
+		}
+	}
+	start_chance = 5		#in 100 for when a province can_start
+	on_start = warcraft_institutions.500
+    
+    can_embrace = {
+		owner = { has_institution = oil_extraction }
+	}
+    
+    embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_anhe_mechanical_constructs
+				any_friendly_coast_border_province = {
+					mechanical_constructs = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_afcbphe_mechanical_constructs
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					mechanical_constructs = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = mechanical_constructs
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_mechanical_constructs
+				owner = {
+					has_institution = mechanical_constructs
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_10
+				development = 10
+			}
+		}
+		
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_15
+				development = 15
+			}
+		}
+        
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_20
+				development = 20
+			}
+		}
+		
+		modifier = {
+			factor = 1.10
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        primary_culture = culture_iron
+                        primary_culture = culture_frostborn
+                        primary_culture = culture_ironforge
+                        primary_culture = culture_wildhammer
+                        primary_culture = culture_dark_iron
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 1.15
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                        primary_culture = culture_gnome
+                        primary_culture = culture_mecha_gnome
+                        primary_culture = culture_kezani
+                        primary_culture = culture_bilgewater
+                        primary_culture = culture_steamwheedle
+                        primary_culture = culture_venture
+                        primary_culture = culture_blackwater
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+		
+        modifier = {
+			factor = 0.9
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                       culture_group = culture_group_tauren
+                       culture_group = culture_group_darnassian
+                       culture_group = culture_group_thalassian
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_averse_to_technology
+			}
+		}
+        
+	}
+	
+	ai_will_do = { 
+		factor = 24
+		
+		modifier = {
+			factor = 0.25
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.1
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.2
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.3
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.4
+		}
+	}
+}
+
+#-----------------------------------------------------------------------------
+# Pneumatics
+#-----------------------------------------------------------------------------
+pneumatics = {
+    historical_start_date = 850.1.1
+	historical_start_province = 1097
+	
+	penalty = 0.50
+    
+	bonus = {
+        artillery_power = 0.1
+        siege_ability = 0.1
+	}
+	history = {
+        is_year = 850
+        owner = {
+            OR = {
+                primary_culture = culture_iron
+                primary_culture = culture_frostborn
+                primary_culture = culture_ironforge
+                primary_culture = culture_wildhammer
+                primary_culture = culture_dark_iron
+                primary_culture = culture_gnome
+                primary_culture = culture_mecha_gnome
+                primary_culture = culture_kezani
+                primary_culture = culture_bilgewater
+                primary_culture = culture_steamwheedle
+                primary_culture = culture_venture
+                primary_culture = culture_blackwater
+            }
+        }
+	}
+    
+    can_start = {
+		is_year = 850
+		is_state = yes
+		is_island = no
+		OR = {
+			development = 20
+			is_capital = yes
+			normal_or_historical_nations = no
+		}
+	}
+	start_chance = 5		#in 100 for when a province can_start
+	on_start = warcraft_institutions.600
+    
+    can_embrace = {
+		owner = { has_institution = mechanical_constructs }
+	}
+    
+    embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_anhe_pneumatics
+				any_friendly_coast_border_province = {
+					pneumatics = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_afcbphe_pneumatics
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					pneumatics = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = pneumatics
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_pneumatics
+				owner = {
+					has_institution = pneumatics
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_10
+				development = 10
+			}
+		}
+		
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_15
+				development = 15
+			}
+		}
+        
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_fm_20
+				development = 20
+			}
+		}
+		
+		modifier = {
+			factor = 1.10
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        primary_culture = culture_iron
+                        primary_culture = culture_frostborn
+                        primary_culture = culture_ironforge
+                        primary_culture = culture_wildhammer
+                        primary_culture = culture_dark_iron
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 1.15
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                        primary_culture = culture_gnome
+                        primary_culture = culture_mecha_gnome
+                        primary_culture = culture_kezani
+                        primary_culture = culture_bilgewater
+                        primary_culture = culture_steamwheedle
+                        primary_culture = culture_venture
+                        primary_culture = culture_blackwater
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+		
+        modifier = {
+			factor = 0.9
+			scale = yes
+			potential = {
+                owner = {
+                OR = {
+                       culture_group = culture_group_tauren
+                       culture_group = culture_group_darnassian
+                       culture_group = culture_group_thalassian
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_averse_to_technology
+			}
+		}
+        
+    }
+	ai_will_do = { 
+		factor = 24
+		
+		modifier = {
+			factor = 0.25
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.1
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.2
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.3
+		}
+		modifier = {
+			factor = 2
+			neighbors_tech_discount = 0.4
+		}
+	}
+}

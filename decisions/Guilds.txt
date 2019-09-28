@@ -1,0 +1,77 @@
+country_decisions = {
+	allow_adventurers = {
+		potential = {
+			NOT = { has_country_modifier = is_evil }
+		}
+		
+		allow = {
+			NOT = { has_country_modifier = is_evil }
+			NOT = { has_country_modifier = adventurers_allowed }
+		}
+		
+		effect = {
+			add_country_modifier = { 
+				name = adventurers_allowed
+				duration = -1
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.25
+		}
+	}
+	disallow_adventurers = {
+		potential = {
+			has_country_modifier = adventurers_allowed
+		}
+		
+		allow = {
+			has_country_modifier = adventurers_allowed
+			NOT = { estate_influence = {
+				estate = estate_cossacks
+				influence = 80
+			} }
+		}
+		
+		effect = {
+			remove_country_modifier = adventurers_allowed
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_cossacks
+						influence = 70
+					}
+				}
+				add_stability = -3
+				add_prestige = -15
+			}
+			else_if = {
+				limit = {
+					estate_influence = {
+						estate = estate_cossacks
+						influence = 55
+					}
+				}
+				add_stability = -2
+				add_prestige = -10
+			}
+			else_if = {
+				limit = {
+					estate_influence = {
+						estate = estate_cossacks
+						influence = 40
+					}
+				}
+				add_stability = -1
+				add_prestige = -5
+			}
+			else = {
+				add_prestige = -5
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

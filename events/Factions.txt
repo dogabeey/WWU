@@ -1,0 +1,226 @@
+namespace = factions
+# Kick
+country_event = {
+	id = factions.1
+	title = factions.1.title
+	desc = factions.1.desc
+	picture = KING_LLANE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = factions.1.opt1
+	}
+}
+# Leave
+country_event = {
+	id = factions.2
+	title = factions.2.title
+	desc = factions.2.desc
+	picture = KING_LLANE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = factions.2.opt1
+	}
+}
+# Leadership Transfer (Ally)
+country_event = {
+	id = factions.3
+	title = factions.3.title
+	desc = factions.3.desc
+	picture = KING_LLANE_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		always = no
+		faction_alliance = 1
+		any_country = {
+			is_subject_of_type = faction_alliance
+			total_development = ROOT
+		}
+	}
+	
+	option = {
+		name = factions.3.opt1
+		remove_country_modifier = alliance_head
+		every_country = {
+			limit = {
+				OR = {
+					faction_alliance = 1
+					is_subject_of_type = faction_alliance
+				}
+			}
+			grant_independence = yes
+			set_country_flag = potential_alliance_vassal
+		}
+		random_country = {
+			limit = {
+				is_subject_of_type = faction_alliance
+				total_development = ROOT
+			}
+			set_country_flag = potential_alliance_overlord
+			country_event = { id = factions.4 }
+			add_country_modifier = {
+				name = alliance_head
+				duration = -1
+			}
+		}
+		every_country = {
+			limit = {
+				has_country_flag = potential_vassal
+			}
+			random_country = {
+				limit = {
+					has_country_flag = potential_alliance_overlord
+				}
+				create_subject = {
+					subject_type = faction_alliance
+					subject = PREV
+				}
+			}
+		}
+	}
+}
+# Leadership Notice (Ally)
+country_event = {
+	id = factions.4
+	title = factions.4.title
+	desc = factions.4.desc
+	picture = KING_LLANE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = factions.4.opt1
+	}
+}
+# Leadership Transfer (Horde)
+country_event = {
+	id = factions.5
+	title = factions.5.title
+	desc = factions.5.desc
+	picture = KING_LLANE_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		always = no
+		faction_horde = 1
+		any_country = {
+			is_subject_of_type = faction_horde
+			total_development = ROOT
+		}
+	}
+	
+	option = {
+		name = factions.5.opt1
+		remove_country_modifier = horde_head
+		every_country = {
+			limit = {
+				OR = {
+					faction_horde = 1
+					is_subject_of_type = faction_horde
+				}
+			}
+			set_country_flag = potential_horde_vassal
+		}
+		random_country = {
+			limit = {
+				is_subject_of_type = faction_horde
+				total_development = ROOT
+			}
+			set_country_flag = potential_horde_overlord
+			country_event = { id = factions.4 }
+			add_country_modifier = {
+				name = horde_head
+				duration = -1
+			}
+		}
+		every_country = {
+			limit = {
+				has_country_flag = potential_vassal
+			}
+			random_country = {
+				limit = {
+					has_country_flag = potential_horde_overlord
+				}
+				create_subject = {
+					subject_type = faction_horde
+					subject = PREV
+				}
+			}
+		}
+	}
+}
+# Leadership Notice (Horde)
+country_event = {
+	id = factions.6
+	title = factions.6.title
+	desc = factions.6.desc
+	picture = KING_LLANE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = factions.6.opt1
+	}
+}
+# Transfer Alliance leadership
+country_event = {
+	id = factions.7
+	title = factions.7.title
+	desc = factions.7.desc
+	picture = KING_LLANE_eventPicture
+	hidden = yes
+	
+	trigger = {
+		has_country_modifier = alliance_head
+		is_subject = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = factions.7.opt1
+		remove_country_modifier = alliance_head
+		overlord = {
+			add_country_modifier = {
+				name = alliance_head
+				duration = -1
+			}
+		}
+	}
+}
+# Transfer Horde leadership
+country_event = {
+	id = factions.8
+	title = factions.8.title
+	desc = factions.8.desc
+	picture = KING_LLANE_eventPicture
+	hidden = yes
+	
+	trigger = {
+		has_country_modifier = horde_head
+		is_subject = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = factions.7.opt1
+		remove_country_modifier = horde_head
+		overlord = {
+			add_country_modifier = {
+				name = horde_head
+				duration = -1
+			}
+		}
+	}
+}

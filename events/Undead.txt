@@ -1,0 +1,202 @@
+namespace = undead
+
+country_event = {
+	id = undead.1
+	title = pick_champion.title
+	desc = pick_champion.desc
+	picture = UNDEAD_eventpicture
+	
+	trigger = {
+		OR = {
+			has_reform = scourge_reform
+			government = scourge_legacy
+		}
+		champion_system = yes
+		has_heir = no
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	#Generic
+	option = {
+		name = pick_champion.generic.opt1
+		define_heir = {
+			age = 30
+			max_random_adm = 4
+			max_random_dip = 4
+			max_random_mil = 4
+		}
+	}
+	
+	# Vassals
+	option = {
+		name = pick_champion.subject.opt1
+		trigger = {
+			num_of_subjects = 1
+			NOT = { num_of_subjects = 2 }
+		}
+		define_heir = {
+			age = 30
+			adm = 1
+			dip = 1
+		}
+		every_subject_country = {
+			add_yearly_manpower = 0.5
+		}
+	}
+	
+	option = {
+		name = pick_champion.subject.opt2
+		trigger = {
+			num_of_subjects = 2
+			NOT = { num_of_subjects = 3 }
+		}
+		define_heir = {
+			age = 30
+			adm = 2
+			dip = 2
+		}
+		every_subject_country = {
+			add_yearly_manpower = 0.5
+		}
+	}
+	
+	option = {
+		name = pick_champion.subject.opt3
+		trigger = {
+			num_of_subjects = 3
+			NOT = { num_of_subjects = 4 }
+		}
+		define_heir = {
+			age = 30
+			adm = 3
+			dip = 3
+		}
+		every_subject_country = {
+			add_yearly_manpower = 0.5
+		}
+	}
+	
+	option = {
+		name = pick_champion.subject.opt4
+		trigger = {
+			num_of_subjects = 4
+		}
+		define_heir = {
+			age = 30
+			adm = 4
+			dip = 4
+		}
+		every_subject_country = {
+			add_yearly_manpower = 0.5
+		}
+	}
+	# Num. of Cultures
+	option = {
+		name = pick_champion.cultures.opt1
+		trigger = {
+			num_accepted_cultures = 1
+			NOT = { num_accepted_cultures = 3 }
+		}
+		define_heir = {
+			age = 30
+			adm = 1
+			mil = 1
+		}
+		add_legitimacy = 15
+	}
+	
+	option = {
+		name = pick_champion.cultures.opt2
+		trigger = {
+			num_accepted_cultures = 3
+			NOT = { num_accepted_cultures = 5 }
+		}
+		define_heir = {
+			age = 30
+			adm = 2
+			mil = 2
+		}
+		add_legitimacy = 15
+	}
+	
+	option = {
+		name = pick_champion.cultures.opt3
+		trigger = {
+			num_accepted_cultures = 5
+			NOT = { num_accepted_cultures = 7 }
+		}
+		define_heir = {
+			age = 30
+			adm = 3
+			mil = 3
+		}
+		add_legitimacy = 15
+	}
+	
+	option = {
+		name = pick_champion.cultures.opt4
+		trigger = {
+			num_accepted_cultures = 7
+		}
+		define_heir = {
+			age = 30
+			adm = 4
+			mil = 4
+		}
+		add_legitimacy = 15
+	}
+	# num of Allies
+	option = {
+		name = pick_champion.allies.opt1
+		trigger = {
+			num_of_allies = 1
+			NOT = { num_of_allies = 2 }
+		}
+		define_heir = {
+			age = 30
+			dip = 1
+			mil = 1
+		}
+	}
+	
+	option = {
+		name = pick_champion.allies.opt2
+		trigger = {
+			num_of_allies = 2
+			NOT = { num_of_allies = 3 }
+		}
+		define_heir = {
+			age = 30
+			dip = 2
+			mil = 2
+		}
+	}
+	
+	option = {
+		name = pick_champion.allies.opt3
+		trigger = {
+			num_of_allies = 3
+			NOT = { num_of_allies = 4 }
+		}
+		define_heir = {
+			age = 30
+			dip = 3
+			mil = 3
+		}
+	}
+	
+	option = {
+		name = pick_champion.allies.opt4
+		trigger = {
+			num_of_allies = 4
+		}
+		define_heir = {
+			age = 30
+			dip = 4
+			mil = 4
+		}
+	}
+}

@@ -1,0 +1,58 @@
+namespace = scourge
+
+country_event = {
+	id = scourge.1
+	title = arrival_of_nerzhul.title
+	desc = arrival_of_nerzhul.desc
+	picture = FROZENTHRONE_eventPicture
+	
+	
+	trigger = {
+		current_age = the_second_war
+		has_global_flag = the_third_war
+		NOT = { has_country_flag = notified_about_scourge }
+	}
+	
+	mean_time_to_happen = { months = 12 }
+    
+	
+	immediate = {
+		set_country_flag = notified_about_scourge
+		set_global_flag = nerzhul_arrived
+    }
+	
+	option = {
+		name = arrival_of_nerzhul.opt1
+	}
+}
+
+country_event = {
+	id = scourge.2
+	title = rise_of_scourge.title
+	desc = rise_of_scourge.desc
+	picture = FROZENTHRONE_eventPicture
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { exists = P11 }
+		has_global_flag = nerzhul_arrived
+	}
+	
+	mean_time_to_happen = { months = 1 }
+	
+	immediate = {
+		set_country_flag = notified_about_scourge
+		set_global_flag = nerzhul_arrived
+    }
+	
+	option = {
+		name = rise_of_scourge.opt1
+		1268 = {
+			cede_province = P11
+		}
+		region_icecrown = {
+			add_core = P11
+		}
+	}
+}

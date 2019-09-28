@@ -1,0 +1,213 @@
+namespace = titanconversion
+
+country_event = {
+	id = titanconversion.1
+	title = titanconversion.1.title
+	desc = titanconversion.1.desc
+	picture = TITANS_eventPicture
+	
+	major = yes
+
+	trigger = {
+		religion = religion_titan
+		has_country_flag = revealed_to_world
+		any_neighbor_country = {
+			OR = {
+				religion_group = religion_group_disorder
+				religion_group = religion_group_the_void
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			factor = 2
+			stability = 3
+		}
+		modifier = {
+			factor = 2
+			religious_unity = 0.9
+		}
+		modifier = {
+			factor = 0.5
+			any_country = {
+				OR = {
+					religion_group = religion_group_disorder
+					religion_group = religion_group_the_void
+				}
+				alliance_with = ROOT
+			}
+		}
+		# Amount of neighboring evil religion
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_country = {
+					OR = {
+						religion_group = religion_group_disorder
+						religion_group = religion_group_the_void
+					}
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_country = {
+					OR = {
+						religion_group = religion_group_disorder
+						religion_group = religion_group_the_void
+					}
+				}
+				amount = 3
+			}
+		}
+		# Corruption
+		modifier = {
+			factor = 0.9
+			corruption = 2
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 4
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 6
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 8
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 10
+		}
+	}
+	
+	immediate = {
+		
+    }
+	
+	option = {
+		name = titanconversion.1.opt1
+		capital_scope = {
+			change_religion = religion_titan_corrupt
+			add_reform_center = religion_titan_corrupt
+			add_permanent_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 9000
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = titanconversion.2
+	title = titanconversion.2.title
+	desc = titanconversion.2.desc
+	picture = TITANS_eventPicture
+	
+	major = yes
+
+	trigger = {
+		religion = religion_titan_corrupt
+		has_country_flag = revealed_to_world
+		any_neighbor_country = {
+			OR = {
+				religion_group = religion_group_nature
+				religion_group = religion_group_the_light
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			factor = 2
+			stability = 3
+		}
+		modifier = {
+			factor = 2
+			religious_unity = 0.9
+		}
+		modifier = {
+			factor = 0.5
+			any_country = {
+				OR = {
+					religion_group = religion_group_nature
+					religion_group = religion_group_the_light
+				}
+				alliance_with = ROOT
+			}
+		}
+		# Amount of neighboring evil religion
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_country = {
+					OR = {
+						religion_group = religion_group_nature
+						religion_group = religion_group_the_light
+					}
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_country = {
+					OR = {
+						religion_group = religion_group_nature
+						religion_group = religion_group_the_light
+					}
+				}
+				amount = 3
+			}
+		}
+		# Corruption
+		modifier = {
+			factor = 0.9
+			corruption = 2
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 4
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 6
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 8
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 10
+		}
+	}
+	
+	immediate = {
+		
+    }
+	
+	option = {
+		name = titanconversion.2.opt1
+		capital_scope = {
+			change_religion = religion_titan
+			add_reform_center = religion_titan
+			add_permanent_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 9000
+			}
+		}
+	}
+}
+

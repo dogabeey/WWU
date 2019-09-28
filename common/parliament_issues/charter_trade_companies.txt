@@ -1,0 +1,40 @@
+charter_trade_companies = {
+	
+	category = 2
+	
+	allow = {
+		has_idea_group = mercantile_ideas
+	}
+	
+	effect = {
+
+	}
+	
+	modifier = {
+		global_foreign_trade_power = 0.10
+	}
+	
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			trade_income_percentage = 0.35
+		}
+		modifier = {
+			factor = 2
+			trade_income_percentage = 0.5
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				has_idea_group = necromancy_ideas
+				has_idea_group = expedition_ideas
+			}
+		}
+	}
+
+
+	ai_will_do = {
+		factor = 1	
+	}	
+}

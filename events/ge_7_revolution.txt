@@ -1,0 +1,1169 @@
+########################################
+# Revolution Events
+#
+# written by Aetherum
+########################################
+
+namespace = ge_revolution
+
+### nobility wins ###
+
+country_event = {
+	id =  ge_revolution.21           
+	title = "ge_revolution.21.t"
+	desc = "ge_revolution.21.d"
+	picture = NOBLE_ESTATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "ge_revolution.21.a"
+		ai_chance = { factor = 50 }
+		
+		if = {
+		limit = {
+		has_dlc = "Dharma"
+		}
+		change_government = monarchy 
+		remove_country_modifier = ge_3_timer
+		}
+		else = {
+		set_legacy_government = despotic_monarchy
+		}
+        
+		if = {
+		limit = { government = monarchy }
+		add_legitimacy = 100	
+        add_stability = -1
+		add_prestige = -25
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_legitimacy = 100	
+        add_stability = -6
+		add_prestige = -75
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_legitimacy = 100	
+        add_stability = -3
+		add_prestige = -50
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		}
+		
+		add_country_modifier = {
+				name = "fall_of_church"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "fall_of_burghers"
+				duration = 3650
+			}		
+		add_country_modifier = {
+				name = "nobility_in_power"
+				duration = 3650
+			}
+		
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+		
+random_owned_province = { 
+			spawn_rebels = {
+				type = particularist_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+		
+random_owned_province = { 
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+		
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+	}
+	
+	option = {
+		name = "ge_revolution.21.b"
+		ai_chance = { factor = 50 }
+		
+		if = {
+		limit = {
+		has_dlc = "Dharma"
+		}
+		change_government = republic 
+		remove_country_modifier = ge_3_timer
+		}
+		else = {
+		set_legacy_government = noble_republic
+		}
+
+        if = {
+		limit = { government = monarchy }
+		add_legitimacy = 100	
+        add_stability = -1
+		add_prestige = -25
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_legitimacy = 100	
+        add_stability = -6
+		add_prestige = -50
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_legitimacy = 100	
+        add_stability = -3
+		add_prestige = -50
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		add_country_modifier = {
+				name = "fall_of_church"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "fall_of_burghers"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "nobility_in_power"
+				duration = 3650
+			}
+			
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+		
+random_owned_province = { 
+			spawn_rebels = {
+				type = particularist_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+		
+random_owned_province = { 
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}	
+			
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+	}
+}
+
+### church wins ###
+
+country_event = {
+	id =  ge_revolution.22           
+	title = "ge_revolution.22.t"
+	desc = "ge_revolution.22.d"
+	picture = CHURCH_ESTATE_1_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "ge_revolution.22.a"
+		ai_chance = { factor = 33 }
+		
+		if = {
+		limit = {
+		has_dlc = "Dharma"
+		}
+		change_government = theocracy
+		remove_country_modifier = ge_3_timer
+		}
+		else = {
+		set_legacy_government = theocratic_government
+		}
+        
+		if = {
+		limit = { government = monarchy }
+		add_devotion = 100	
+        add_stability = -3
+		add_prestige = -50
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_devotion = 100	
+        add_stability = -6
+		add_prestige = -75
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_devotion = 100	
+        add_stability = -1
+		add_prestige = -25
+		}
+		
+		add_country_modifier = {
+				name = "church_in_power"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "fall_of_burghers"
+				duration = 3650
+			}		
+		add_country_modifier = {
+				name = "fall_of_nobility"
+				duration = 3650
+			}
+			
+random_owned_province = { 
+			spawn_rebels = {
+				type = noble_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+random_owned_province = { 
+			spawn_rebels = {
+				type = noble_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}		
+random_owned_province = { 
+			spawn_rebels = {
+				type = particularist_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+	}
+	
+}
+
+### burghers wins ###
+
+country_event = {
+	id =  ge_revolution.23           
+	title = "ge_revolution.23.t"
+	desc = "ge_revolution.23.d"
+	picture = BURGHER_ESTATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "ge_revolution.23.a"
+		ai_chance = { factor = 33 }
+		
+		if = {
+		limit = {
+		has_dlc = "Dharma"
+		}
+		change_government = monarchy
+		remove_country_modifier = ge_3_timer
+		}
+		else = {
+		set_legacy_government = english_monarchy_legacy
+		}
+		
+		if = {
+		limit = { government = monarchy }
+		add_legitimacy = 100	
+        add_stability = -1
+		add_prestige = -25
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_legitimacy = 100	
+        add_stability = -6
+		add_prestige = -75
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_legitimacy = 100	
+        add_stability = -3
+		add_prestige = -50
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		add_country_modifier = {
+				name = "fall_of_church"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "fall_of_burghers"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "nobility_in_power"
+				duration = 3650
+			}
+			
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+		
+random_owned_province = { 
+			spawn_rebels = {
+				type = particularist_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+		
+random_owned_province = { 
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}	
+			
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+	}
+	option = {
+		name = "ge_revolution.23.b"
+		ai_chance = { factor = 33 }
+		
+		if = {
+		limit = {
+		has_dlc = "Dharma"
+		}
+		change_government = republic
+		remove_country_modifier = ge_3_timer
+		}
+		else = {
+		set_legacy_government = oligarchic_republic
+		}
+		
+		if = {
+		limit = { government = monarchy }
+		add_republican_tradition = 100	
+        add_stability = -6
+		add_prestige = -75
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_republican_tradition = 100	
+        add_stability = -1
+		add_prestige = -25
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_republican_tradition = 100	
+        add_stability = -3
+		add_prestige = -50
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		add_country_modifier = {
+				name = "fall_of_nobility"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "fall_of_church"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "burghers_in_power"
+				duration = 3650
+			}
+			
+random_owned_province = { 
+			spawn_rebels = {
+				type = noble_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+random_owned_province = { 
+			spawn_rebels = {
+				type = noble_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}		
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+		
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+		}
+	option = {
+		name = "ge_revolution.23.c"
+		ai_chance = { factor = 33 }
+		
+		if = {
+		limit = {
+		has_dlc = "Dharma"
+		}
+		change_government = republic
+		remove_country_modifier = ge_3_timer
+		}
+		else = {
+		set_legacy_government = merchant_republic
+		} 
+		
+		if = {
+		limit = { government = monarchy }
+		add_republican_tradition = 100	
+        add_stability = -6
+		add_prestige = -75
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_republican_tradition = 100	
+        add_stability = -1
+		add_prestige = -25
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_republican_tradition = 100	
+        add_stability = -3
+		add_prestige = -50
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		add_country_modifier = {
+				name = "fall_of_nobility"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "fall_of_church"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "burghers_in_power"
+				duration = 3650
+			}
+			
+random_owned_province = { 
+			spawn_rebels = {
+				type = noble_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+random_owned_province = { 
+			spawn_rebels = {
+				type = noble_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}		
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}			
+			
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+	}
+}
+	
+### church + nobility wins ### 
+
+country_event = {
+	id =  ge_revolution.24           
+	title = "ge_revolution.24.t"
+	desc = "ge_revolution.24.d"
+	picture = CHURCH_ESTATE_1_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "ge_revolution.24.a"
+		ai_chance = { factor = 50 }
+		
+		if = {
+		limit = {
+		has_dlc = "Dharma"
+		}
+		change_government = theocracy
+		remove_country_modifier = ge_3_timer
+		}
+		else = {
+		set_legacy_government = monastic_order_government
+		} 
+        
+		if = {
+		limit = { government = monarchy }
+		add_devotion = 100	
+        add_stability = -3
+		add_prestige = -50
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_devotion = 100	
+        add_stability = -6
+		add_prestige = -75
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_devotion = 100	
+        add_stability = -1
+		add_prestige = -25
+		}
+		
+		add_country_modifier = {
+				name = "church_in_power"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "fall_of_burghers"
+				duration = 3650
+			}		
+		add_country_modifier = {
+				name = "nobility_in_power"
+				duration = 3650
+			}
+			
+random_owned_province = { 
+			spawn_rebels = {
+				type = particularist_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+random_owned_province = { 
+			spawn_rebels = {
+				type = particularist_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}		
+random_owned_province = { 
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}		
+		
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+	}
+	
+}
+
+### nobility + burghers wins ###
+
+country_event = {
+	id =  ge_revolution.25          
+	title = "ge_revolution.25.t"
+	desc = "ge_revolution.25.d"
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "ge_revolution.25.a"
+		
+		trigger = {
+		has_dlc = "Common Sense"
+		}
+		
+		ai_chance = { factor = 50 }
+		
+		if = {
+		limit = {
+		has_dlc = "Dharma"
+		}
+		change_government = monarchy
+		remove_country_modifier = ge_3_timer
+		}
+		else = {
+		set_legacy_government = elective_monarchy_legacy
+		} 
+        
+		if = {
+		limit = { government = monarchy }
+		add_legitimacy = 100	
+        add_stability = -1
+		add_prestige = -25
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_legitimacy = 100	
+        add_stability = -3
+		add_prestige = -50
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_legitimacy = 100	
+        add_stability = -6
+		add_prestige = -75
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		}
+		
+		add_country_modifier = {
+				name = "fall_of_church"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "burghers_in_power"
+				duration = 3650
+			}		
+		add_country_modifier = {
+				name = "nobility_in_power"
+				duration = 3650
+			}
+			
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}		
+			
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+	}
+	
+	option = {
+		name = "ge_revolution.25.b"
+		ai_chance = { factor = 50 }
+		
+		if = {
+		limit = {
+		has_dlc = "Dharma"
+		}
+		change_government = monarchy
+		remove_country_modifier = ge_3_timer
+		}
+		else = {
+		set_legacy_government = english_monarchy_legacy
+		} 
+
+       if = {
+		limit = { government = monarchy }
+		add_legitimacy = 100	
+        add_stability = -1
+		add_prestige = -25
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_legitimacy = 100	
+        add_stability = -3
+		add_prestige = -50
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_legitimacy = 100	
+        add_stability = -6
+		add_prestige = -75
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		}
+		
+		add_country_modifier = {
+				name = "fall_of_church"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "burghers_in_power"
+				duration = 3650
+			}		
+		add_country_modifier = {
+				name = "nobility_in_power"
+				duration = 3650
+			}
+			
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+random_owned_province = { 
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}		
+			
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+	}
+}
+
+### church + burghers wins ###
+
+country_event = {
+	id =  ge_revolution.26          
+	title = "ge_revolution.26.t"
+	desc = "ge_revolution.26.d"
+	picture = BURGHER_ESTATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "ge_revolution.26.a"
+		ai_chance = { factor = 50 }
+		
+		if = {
+		limit = {
+		has_dlc = "Dharma"
+		}
+		change_government = republic
+		remove_country_modifier = ge_3_timer
+		}
+		else = {
+		set_legacy_government = oligarchic_republic
+		} 
+        
+		if = {
+		limit = { government = monarchy }
+		add_republican_tradition = 100	
+        add_stability = -1
+		add_prestige = -25
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_republican_tradition = 100	
+        add_stability = -3
+		add_prestige = -50
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_republican_tradition = 100	
+        add_stability = -6
+		add_prestige = -75
+		add_country_modifier = {
+				name = "the_revolution"
+				duration = 3650
+			}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+		}
+		}
+		
+		add_country_modifier = {
+				name = "church_in_power"
+				duration = 3650
+			}
+		add_country_modifier = {
+				name = "burghers_in_power"
+				duration = 3650
+			}		
+		add_country_modifier = {
+				name = "fall_of_nobility"
+				duration = 3650
+			}
+			
+random_owned_province = { 
+			spawn_rebels = {
+				type = noble_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+random_owned_province = { 
+			spawn_rebels = {
+				type = noble_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}
+random_owned_province = { 
+			spawn_rebels = {
+				type = noble_rebels
+				size = 10
+				win = yes
+				unrest = 25
+			}
+		}		
+			
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+	}
+
+}
+
+### happy end ### 
+
+country_event = {
+	id =  ge_revolution.27           
+	title = "ge_revolution.27.t"
+	desc = "ge_revolution.27.d"
+	picture = THEATRE_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "ge_revolution.27.a"
+        
+		if = {
+		limit = { government = monarchy }
+		add_legitimacy = 100	
+		add_country_modifier = {
+				name = "nobility_in_power"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = republic }
+		add_republican_tradition = 100	
+		add_country_modifier = {
+				name = "burghers_in_power"
+				duration = 3650
+			}
+		}
+		
+		if = {
+		limit = { government = theocracy }
+		add_devotion = 100	
+		add_country_modifier = {
+				name = "church_in_power"
+				duration = 3650
+			}
+		}
+		
+		add_stability = 1
+		add_prestige = 25
+				
+		remove_country_modifier = political_indefiniteness end_disaster = es_revolution
+	}
+}

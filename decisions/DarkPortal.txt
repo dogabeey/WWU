@@ -1,0 +1,174 @@
+country_decisions = {
+	close_dark_portal = {
+		major = yes
+		potential = {
+			NOT = {
+				current_age = rise_of_the_horde
+				tag = Z99
+			}
+			1586 = { NOT = { has_province_modifier = dark_portal_closed } }
+			capital_scope = {
+				NOT = { continent = continent_outland }
+			}
+		}
+		allow =  {
+			807 = {
+				any_neighbor_province = { controlled_by = ROOT }
+			}
+			mil_power = 300
+		}
+	  	effect = {
+			add_mil_power = -300
+			add_country_modifier = {
+				name = closed_the_dark_portal
+				duration = 3650
+			}
+			1586 = {
+				add_province_modifier = {
+					name = dark_portal_closed
+					duration = -1
+				}
+				remove_province_modifier = dark_portal_speed_boost
+			}
+			
+			hidden_effect = {   
+				every_country = {
+					limit = {
+						capital_scope = {
+							continent = continent_outland
+						}
+					}
+					every_owned_province = {
+						limit = {
+							NOT = { continent = continent_outland }
+						}
+						kill_units = {
+							who = owner
+						}
+						remove_core = PREV
+						cede_to_culture = yes
+					}
+				}
+				every_country = {
+					limit = {
+						capital_scope = {
+							NOT = { continent = continent_outland }
+						}
+					}
+					every_owned_province = {
+						limit = {
+							continent = continent_outland
+						}
+						kill_units = {
+							who = owner
+						}
+						remove_core = PREV
+						cede_to_culture = yes
+					}
+				}
+				every_country = {
+					limit = {
+						has_country_flag = first_war_orc
+					}
+					
+					add_country_modifier = {
+						name = tfw_orc_defeat
+						duration = 3650
+					}
+				}
+				
+				every_country = {
+					limit = {
+						capital_scope = {
+							NOT = { continent = continent_outland }
+						}
+					}
+					country_event = { id = the_first_war.8 }
+				}
+			}
+			if = {
+				limit = { has_global_flag = the_first_war }
+				clr_global_flag = the_first_war
+				set_global_flag = the_second_war
+				set_global_flag = tfw_human_victory_path
+			}
+		}
+		
+		ai_importance = 999
+		
+		ai_will_do = {
+			
+			# TODO: Add more detail here. 
+			factor = 0
+		}
+	}
+	reopen_dark_portal = {
+		major = yes
+		potential = {
+			rise_of_the_qiraji_or_later = yes
+			NOT = { tag = Z99 }
+			1586 = {
+				has_province_modifier = dark_portal_closed
+			}
+		}
+		allow =  {
+			1586 = {
+				any_neighbor_province = { controlled_by = ROOT }
+			}
+			any_ally = {
+				1035 = {
+					OR = {
+						any_neighbor_province = { controlled_by = PREV }
+						any_neighbor_province = { controlled_by = ROOT }
+					}
+				}
+			}
+			mil_power = 300
+		}
+	  	effect = {			
+			add_country_modifier = {
+				name = opened_the_dark_portal
+				duration = 3650
+			}
+			add_mil_power = -300
+			1586 = {
+				remove_province_modifier = dark_portal_closed
+			}
+			add_country_modifier = {
+				name = dark_portal_speed_boost
+				duration = -1
+			}
+			every_country = {
+				limit = {
+					capital_scope = {
+						NOT = { continent = continent_outland }
+					}
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = opened_dark_portal_neg
+				}
+			}
+			every_country = {
+				limit = {
+					capital_scope = {
+						continent = continent_outland
+					}
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = opened_dark_portal_pos
+				}
+				add_trust = {
+					who = ROOT
+					value = 25
+					mutual = yes
+				}
+			}
+		}
+		ai_will_do = {
+			# TODO: Add more detail here. 
+			factor = 0
+		}
+	}
+}

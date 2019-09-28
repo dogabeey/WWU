@@ -1,0 +1,66 @@
+country_decisions = {
+	construct_ula_tek_canal = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				AND = {
+					treasury = 5000
+					owns_or_vassal_of = 2214
+				}
+			}
+			has_discovered = 2214
+			2214 = {
+				range = ROOT
+				NOT = { has_great_project = ula_tek_canal }
+				NOT = { has_construction = canal }
+			}
+			adm_tech = 2
+		}
+		allow = {
+			owns_or_vassal_of = 2214
+			is_subject = no			
+			adm_tech = 2
+			treasury = 5000
+            2214 = { NOT = { has_province_flag = has_ula_tek_construction } }
+		}
+		effect = {
+			add_treasury = -5000
+			2214 = {	# Shrine of Ula-tek
+				add_great_project = ula_tek_canal
+			}
+            2214 = {
+                set_province_flag = has_ula_tek_construction
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	cancel_ula_tek_canal = {
+		major = yes
+		potential = {
+			ai = no
+			owns_or_vassal_of = 2214
+			is_subject = no
+			2214 = {
+				has_construction = canal
+			}
+		}
+		allow = {
+			2214 = {
+				has_construction = canal
+			}
+		}
+		effect = {
+			2214 = {	# Shrine of Ula-tek
+				cancel_construction = yes
+                clr_province_flag = has_ula_tek_construction
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

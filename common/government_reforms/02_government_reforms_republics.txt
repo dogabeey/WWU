@@ -1,0 +1,651 @@
+republic_mechanic = {
+	basic_reform = yes
+	republican_name = yes
+	royal_marriage = no
+	republic = yes
+	duration = 4
+	has_term_election = yes
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+
+	valid_for_nation_designer = no
+}
+
+ancient_civilization_reform = {
+	icon = "assembly_hall"
+	legacy_equivalent = ancient_civilization_legacy
+	allow_normal_conversion = no
+	valid_for_new_country = yes
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+	republic = yes
+	republican_name = yes
+	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	potential = {
+		is_ancient = yes
+	}
+	militarised_society = yes
+	government_abilities = {  }
+	unique_government = yes
+	modifiers = {
+		monarch_diplomatic_power = 1
+		claim_duration = 1
+    	idea_cost = 0.15
+	}
+	ai = {
+		factor = 500
+	}
+}
+
+dutch_republic = {
+	icon = "dutch_republic"
+	allow_normal_conversion = no
+	legacy_equivalent = dutch_republic_legacy
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+	royal_marriage = yes
+	
+	potential = {
+		NOT = { has_reform = presidential_despot_reform }
+		NOT = { has_reform = colonial_government }
+	}
+	
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+
+	modifiers = {
+		max_states = 1
+		global_tax_modifier = 0.10
+		tolerance_heathen = 1
+		global_autonomy = -0.10
+		max_absolutism = -30
+	}
+
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	conditional = {
+		allow = {
+			always = no
+		}
+
+		states_general_mechanic = {
+			statists = {
+				naval_forcelimit_modifier = 0.10
+				global_trade_power = 0.10
+				republican_tradition = 1
+			}
+
+			orangists = {
+				land_forcelimit_modifier = 0.10
+				stability_cost_modifier = -0.10
+				republican_tradition = -1
+			}
+		}
+	}
+	duration = 5
+}
+
+oligarchy_reform = {
+	icon = "people_walking"
+	allow_normal_conversion = yes
+	duration = 4
+	legacy_equivalent = oligarchic_republic
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	
+	potential = {
+		NOT = { has_reform = presidential_despot_reform }
+		NOT = { has_reform = colonial_government }
+	}
+	
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	
+	modifiers = {
+		max_states = 1
+		years_of_nationalism = -5
+		stability_cost_modifier = -0.10
+		global_autonomy = -0.10
+		max_absolutism = -30
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+}
+
+merchants_reform = {
+	icon = "merchant"
+	allow_normal_conversion = yes
+	modifiers = {
+		merchants = 1
+		caravan_power = 0.10
+		trade_efficiency = 0.10
+		max_absolutism = -50
+    	max_states = 1
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	legacy_equivalent = merchant_republic
+	boost_income = yes
+	duration = 7
+	potential = {
+		NOT = { has_reform = presidential_despot_reform }
+		NOT = { has_reform = free_city }
+		NOT = { has_reform = trading_city }
+		NOT = { has_reform = colonial_government }
+	}
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		is_merchant_republic = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+}
+
+pirate_republic_reform = {
+	icon = "pirate_republic"
+	allow_normal_conversion = yes
+	legacy_equivalent = pirate_republic
+	modifiers = {
+		max_absolutism = -50
+		naval_forcelimit_modifier = 0.10
+		naval_morale = 0.10
+		navy_tradition_decay = -0.01
+		capture_ship_chance = 0.10
+		may_perform_slave_raid_on_same_religion = yes
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	can_form_trade_league = yes
+	has_term_election = no
+	
+	potential = {
+		has_dlc = "Golden Century"
+		NOT = { has_reform = presidential_despot_reform }
+		NOT = { has_reform = free_city }
+		NOT = { has_reform = trading_city }
+		NOT = { has_reform = colonial_government }
+	}
+	
+	government_abilities = {  }
+
+factions = {
+		pr_buccaneers
+		pr_smugglers
+		pr_captains
+	}
+	
+	custom_attributes = {
+		force_admiral_leader = yes
+		lottery_election = yes
+		election_on_death = yes
+		is_merchant_republic = yes
+	}
+	
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+	
+	boost_income = yes
+	
+}
+
+noble_elite_reform = {
+	icon = "nobleman"
+	allow_normal_conversion = yes
+	legacy_equivalent = noble_republic
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	
+	potential = {
+		NOT = { has_reform = presidential_despot_reform }
+		NOT = { has_reform = free_city }
+		NOT = { has_reform = trading_city }
+		NOT = { has_reform = colonial_government }
+	}
+	
+	modifiers = {
+		max_states = 1
+		tolerance_heathen = 1
+		cavalry_power = 0.10
+		free_leader_pool = 1
+		max_absolutism = -35
+	}
+	duration = 12
+
+	royal_marriage = yes
+	
+	custom_attributes = {
+		enables_plutocratic_idea_group = no
+		enables_aristocratic_idea_group = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Third Rome"
+		}
+		government_abilities = {
+			russian_mechanic
+		}
+	}
+}
+
+bureaucratic_despotism_reform = {
+	icon = "politician"
+	allow_normal_conversion = yes
+	legacy_equivalent = bureaucratic_despotism
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	has_term_election = no
+	
+	potential = {
+		NOT = { has_reform = presidential_despot_reform }
+		NOT = { has_reform = free_city }
+		NOT = { has_reform = trading_city }
+		NOT = { has_reform = colonial_government }
+	}
+	
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	
+	modifiers = {
+		max_states = 1
+		global_autonomy = -0.10
+		stability_cost_modifier = -0.10
+		global_unrest = -1
+		harsh_treatment_cost = -0.10
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+}
+
+consortium_government_reform = {
+	icon = "black_market_consortium"
+	allow_normal_conversion = yes
+	duration = 10
+	legacy_equivalent = consortium_republic
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	
+	potential = {
+		NOT = { has_reform = presidential_despot_reform }
+		NOT = { has_reform = colonial_government }
+	}
+	
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	
+	modifiers = {
+		spy_offence = 0.10
+		global_spy_defence = 0.10
+		production_efficiency = 0.10
+		global_autonomy = -0.10
+		max_absolutism = -35
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+}
+
+presidential_despot_reform = {
+	allow_normal_conversion = no
+	dictatorship = yes
+	lock_level_when_selected = yes
+	icon = "parliament_hall"
+	potential = {
+		has_reform = presidential_despot_reform
+	}
+	valid_for_nation_designer = no
+	legacy_equivalent = republican_dictatorship
+
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	
+	modifiers = {
+		max_states = 1
+		global_autonomy = -0.075
+		tolerance_heathen = 1
+		land_morale = 0.1
+		stability_cost_modifier = -0.10
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	has_term_election = no
+	conditional = {
+		allow = {
+			has_dlc = "Third Rome"
+		}
+		government_abilities = {
+			russian_mechanic
+		}
+	}
+}
+
+peasants_republic = {
+	allow_normal_conversion = yes
+	icon = "peasant_republic"
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	legacy_equivalent = peasants_republic_legacy
+	
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	
+	potential = {
+		NOT = { has_reform = presidential_despot_reform }
+		NOT = { has_reform = free_city }
+		NOT = { has_reform = trading_city }
+		NOT = { has_reform = colonial_government }
+	}
+	
+	modifiers = {
+		global_trade_goods_size_modifier = 0.10
+		land_morale = 0.10
+		max_absolutism = -50
+		max_states = 1
+		global_autonomy = -0.05
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	duration = 5
+	conditional = {
+		allow = {
+			has_dlc = "Third Rome"
+		}
+		government_abilities = {
+			russian_mechanic
+		}
+	}
+}
+
+free_city = {
+	icon = "free_city"
+	allow_normal_conversion = no
+	legacy_equivalent = imperial_city_legacy
+	valid_for_nation_designer = yes
+	lock_level_when_selected = yes
+	nation_designer_cost = 0
+	nation_designer_trigger = {
+		has_dlc = "Common Sense"
+		capital_scope = { is_part_of_hre = yes }
+		NOT = { num_custom_nation_provinces = 2 }
+	}
+	free_city = yes
+	
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	
+	modifiers = {
+	    production_efficiency = 0.10
+		diplomatic_reputation = 1
+		trade_efficiency = 0.10
+		development_cost = -0.10
+		max_absolutism = -25
+	}
+	fixed_rank = 4
+
+	custom_attributes = {
+		locked_government_type = yes
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	duration = 4
+	conditional = {
+		allow = {
+			has_dlc = "Third Rome"
+		}
+		government_abilities = {
+			russian_mechanic
+		}
+	}
+}
+
+trading_city = {
+	icon = "trading_city"
+	allow_normal_conversion = no
+	valid_for_nation_designer = no
+	legacy_equivalent = trading_city_legacy
+	boost_income = yes
+	lock_level_when_selected = yes
+	is_trading_city = yes
+	
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	modifiers = {
+	    trade_steering = 0.10
+		global_trade_power = 0.1
+		max_absolutism = -25
+		merchants = 1
+    	max_states = 1
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = merchants_reform # For trade cities this is their fallback government if they get more than 1 provinces
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = merchants_reform # For trade cities this is their fallback government if they get more than 1 provinces
+	}
+	duration = 4
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+}
+
+colonial_government = {
+	icon = "peasants"
+	valid_for_nation_designer = no
+	lock_level_when_selected = yes
+	allow_normal_conversion = no
+	fixed_rank = 4
+	potential = {
+		is_colonial_nation = yes
+	}
+	legacy_equivalent = colonial_government_legacy
+	
+	government_abilities = {  }
+
+factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	
+	modifiers = {
+		global_autonomy = -0.05
+		recover_army_morale_speed = 0.01
+		embracement_cost = -0.10
+		max_states = 1
+		global_institution_spread = 0.10
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	duration = 4
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+}

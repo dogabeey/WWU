@@ -1,0 +1,188 @@
+namespace = wow_ruler
+
+# Reduction for Immortals
+country_event = {
+	id = wow_ruler.1
+	title = wow_ruler.1.title
+	desc = wow_ruler.1.desc
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+    
+    trigger = {
+        has_dlc = "Rights of Man"
+        ruler_has_personality = immortal_personality
+    }
+   
+	option = {
+		name = wow_ruler.1.option.a
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.1.option.a" }
+        change_adm = -1
+	}
+    
+    option = {
+		name = wow_ruler.1.option.b
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.1.option.b" }
+        change_dip = -1
+	}
+    
+    option = {
+		name = wow_ruler.1.option.c
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.1.option.c" }
+        change_mil = -1
+	}
+}
+
+# Increase for Immortals
+country_event = {
+	id = wow_ruler.2
+	title = wow_ruler.2.title
+	desc = wow_ruler.2.desc
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+    
+    trigger = {
+        has_dlc = "Rights of Man"
+        ruler_has_personality = immortal_personality
+    }
+   
+	option = {
+		name = wow_ruler.2.option.a
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.2.option.a" }
+        change_adm = 1
+	}
+    
+    option = {
+		name = wow_ruler.2.option.b
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.2.option.b" }
+        change_dip = 1
+	}
+    
+    option = {
+		name = wow_ruler.2.option.c
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.2.option.c" }
+        change_mil = 1
+	}
+}
+
+# Any culture that lives longer 120 years max should be given this flag
+country_event = {
+	id = wow_ruler.3
+	title = wow_ruler.3.title
+	desc = wow_ruler.3.desc
+	picture = DIPLOMACY_eventPicture
+	
+    trigger = {
+        has_dlc = "Rights of Man"
+        NOT = { ruler_has_personality = immortal_personality } 
+        NOT = { has_ruler_flag = set_immortality }
+        OR = {
+            culture_group = culture_group_titan
+            culture_group = culture_group_dwarven
+            culture_group = culture_group_darnassian
+            culture_group = culture_group_draenei
+            culture_group = culture_group_thalassian
+            culture_group = culture_group_aqir
+            culture_group = culture_group_demonic
+            culture_group = culture_group_naga
+            culture_group = culture_group_undead
+            culture_group = culture_group_tol_vir
+            culture_group = culture_group_fire
+            culture_group = culture_group_earth
+            culture_group = culture_group_water
+            culture_group = culture_group_air
+            culture_group = culture_group_ethereal
+            culture_group = culture_group_mogu
+            culture_group = culture_group_pandaren
+            culture_group = culture_group_arrakoa
+            culture_group = culture_group_dryad
+            culture_group = culture_group_satyr
+			#Special Case
+			tag = P59
+        }
+        # Exclude any cultures in a group that aren't similar
+        NOT = { primary_culture = culture_trogg }
+        NOT = { primary_culture = culture_grummle }
+        NOT = { primary_culture = culture_wretched }
+        NOT = { primary_culture = culture_legion_cultist }
+        NOT = { primary_culture = culture_fel_orc }
+        NOT = { primary_culture = culture_felblood_elf }
+        NOT = { primary_culture = culture_cultist }
+        NOT = { primary_culture = culture_rothide }
+    }
+   
+	option = {
+		name = wow_ruler.3.option.a
+
+        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.3.option.a" }
+		clear_scripted_personalities = yes
+        add_ruler_personality = immortal_personality
+        set_ruler_flag = set_immortality
+	}
+}
+
+# Death event
+# When a ruler has an Immortal flag, and is of a culture with a long, but not immortal lifespan, this event will strip them of the flag up when they reach the "Old" age for their culture: http://wowwiki.wikia.com/wiki/Life_spans
+country_event = {
+	id = wow_ruler.4
+	title = wow_ruler.4.title
+	desc = wow_ruler.4.desc
+	picture = DIPLOMACY_eventPicture
+	
+	
+	
+    trigger = {
+        has_dlc = "Rights of Man"
+        ruler_has_personality = immortal_personality 
+        OR = {
+			# All
+            ruler_age = 500 # No king rules forever
+            # Dwarfs
+            AND = {
+                OR = {
+                    primary_culture = culture_iron
+                    primary_culture = culture_ironforge
+                    primary_culture = culture_frostborn
+                    primary_culture = culture_wildhammer
+                    primary_culture = culture_dark_iron
+                }
+                ruler_age = 300
+            }
+            # High Elf
+            AND = {
+                culture_group = culture_group_thalassian
+                ruler_age = 350
+            }
+            # Mogu
+            AND = {
+                culture_group = culture_group_mogu
+                ruler_age = 300
+            }
+            # Pandaren
+            AND = {
+                culture_group = culture_group_pandaren
+                ruler_age = 275
+            }
+            # Arrakoa
+            AND = {
+                culture_group = culture_group_arrakoa
+                ruler_age = 250
+            }
+        }
+    }
+   
+	option = {
+		name = wow_ruler.4.option.a
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.4.option.a" }
+        remove_ruler_personality = immortal_personality
+	}
+}
+

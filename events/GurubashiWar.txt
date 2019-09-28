@@ -1,0 +1,230 @@
+# A66 Gurubashi
+# A67 Bloodscalp
+# A69 Skullsplitter
+# A01 Stormwind
+namespace = gurubashiwar
+
+# Border Friction between Azerothian farmers and Stranglethorn Trolls
+country_event = {
+	id = gurubashiwar.1
+	title = border_friction_with_trolls.title
+	desc = border_friction_with_trolls.desc
+	picture = TROLL_BERSERKER_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		tag = A66
+		is_at_war = no
+		manpower_percentage = 0.25
+		any_country = {
+			OR = {
+				tag = A01
+				is_subject_of = A01
+			}
+			any_country = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+			
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+		modifier = {
+			factor = 2
+			
+			alliance_with = A01
+		}
+		modifier = {
+			factor = 2
+			
+			has_opinion = {
+				who = A01
+				value = 50
+			}
+		}
+	}
+
+	option = {
+		name = border_friction_with_trolls.opt1 # Do nothing
+		add_prestige = -5
+	}
+	option = {
+		name = border_friction_with_trolls.opt2 # Send a diplomatic note
+		add_prestige = 5
+		A01 = { country_event = { id = gurubashiwar.2 tooltip = border_friction_with_trolls.opt2.tt } }
+	}
+	option = {
+		name = border_friction_with_trolls.opt3 # Attack the farmers and scare them away
+		add_prestige = 10
+		A01 = { country_event = { id = gurubashiwar.3 tooltip = border_friction_with_trolls.opt3.tt } }
+		A01 = {
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = {
+						owned_by = ROOT
+					}
+				}
+				add_base_production = -2
+			}
+		}
+		reverse_add_opinion = {
+			who = A01
+			modifier = dishonorable_act
+		}
+	}
+	option = {
+		name = border_friction_with_trolls.opt4 # Raze a bordering province
+		add_prestige = 15
+		A01 = { country_event = { id = gurubashiwar.4 tooltip = border_friction_with_trolls.opt4.tt } }
+		A01 = {
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = {
+						owned_by = ROOT
+					}
+				}
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				add_devastation = 20
+			}
+		}
+		reverse_add_opinion = {
+			who = A01
+			modifier = razed
+		}
+	}
+}
+
+# Stormwind Response for diplomatic note
+country_event = {
+	id = gurubashiwar.2
+	title = sw_response_diplomatic_note.title
+	desc = sw_response_diplomatic_note.desc
+	picture = TROLL_BERSERKER_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = sw_response_diplomatic_note.opt1 # Ignore their demands
+		add_prestige = 5
+		A66 = { country_event = { id = gurubashiwar.5 tooltip = sw_response_diplomatic_note.opt1.tt } }
+	}
+	option = {
+		name = sw_response_diplomatic_note.opt2 # Stay back from troll territory
+		add_prestige = -5
+		A66 = { country_event = { id = gurubashiwar.6 tooltip = sw_response_diplomatic_note.opt2.tt } }
+		every_owned_province = {
+			limit = {
+				any_neighbor_province = {
+					owned_by = FROM
+				}
+			}
+			add_base_production = -1
+		}
+	}
+}
+# Stormwind Response for attacking farmers
+country_event = {
+	id = gurubashiwar.3
+	title = sw_response_attacking_farmer.title
+	desc = sw_response_attacking_farmer.desc
+	picture = TROLL_BERSERKER_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = sw_response_attacking_farmer.opt1 # This is outrageous
+		add_casus_belli = {
+			target = FROM
+			type = cb_insult
+			months = 120
+		}
+	}
+	option = {
+		name = sw_response_attacking_farmer.opt2 # Try to ease tension
+		add_prestige = -10
+		add_opinion = {
+			who = A66
+			modifier = eased_tension
+		}
+		reverse_add_opinion = {
+			who = A66
+			modifier = eased_tension
+		}
+		A66 = { country_event = { id = gurubashiwar.6 tooltip = sw_response_attacking_farmer.opt2.tt } }
+	}
+}
+# Stormwind Response for raze province
+country_event = {
+	id = gurubashiwar.4
+	title = sw_response_razing_province.title
+	desc = sw_response_razing_province.desc
+	picture = TROLL_BERSERKER_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = sw_response_razing_province.opt1 # This is outrageous
+		add_casus_belli = {
+			target = FROM
+			type = cb_insult
+			months = 120
+		}
+	}
+	option = {
+		name = sw_response_razing_province.opt2 # This is WAR
+		ai_chance = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+		}
+		add_prestige = 10
+		add_yearly_manpower = 1
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_annex
+		}
+	}
+}
+# Gurubashi Response for ignoring demands
+country_event = {
+	id = gurubashiwar.5
+	title = gb_response_ignored.title
+	desc = gb_response_ignored.desc
+	picture = TROLL_BERSERKER_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = gb_response_ignored.opt1 # Do not push conflict any further
+		add_prestige = -5
+	}
+	
+	option = {
+		name = gb_response_ignored.opt1 # This is WAR
+		add_prestige = 10
+		add_manpower = 10
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_annex
+		}
+	}
+}
+# Gurubashi Response for accepting demands
+country_event = {
+	id = gurubashiwar.6
+	title = gb_response_accepted.title
+	desc = gb_response_accepted.desc
+	picture = TROLL_BERSERKER_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = gb_response_accepted.opt1 # Good
+		add_prestige = 15
+		country_event = { id = gurubashiwar.1 days = 360 random = 90 }
+	}
+}

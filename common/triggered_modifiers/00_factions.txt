@@ -1,0 +1,31 @@
+# Faction Relations
+horde_enemy = {
+    potential = {
+        NOT = { has_country_modifier = alliance_member }
+    }
+
+    trigger = {
+        any_country = {
+            NOT = { has_opinion = { who = ROOT value = -100 } }
+            has_country_modifier = horde_member
+        }
+    }
+
+    prestige = 1
+}
+
+alliance_enemy = {
+    potential = {
+        NOT = { has_country_modifier = horde_member }
+    }
+
+    trigger = {
+        any_country = {
+            NOT = { has_opinion = { who = ROOT value = -100 } }
+            has_country_modifier = alliance_member
+        }
+    }
+
+    prestige = 1
+}
+

@@ -1,0 +1,156 @@
+#	Example:
+# 
+#	example_effect = {
+#		treasury = 100
+#		add_adm_power = 50
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_effect = yes
+#	}
+#
+
+opinions_joined_alliance = {
+    every_country = {
+        limit = {
+            has_country_modifier = alliance_member
+            NOT = { has_opinion_modifier = { who = ROOT modifier = alliance_alliance } }
+        }
+        add_opinion = { who = ROOT modifier = alliance_alliance }
+    }
+    every_country = {
+        limit = {
+            has_country_modifier = horde_member
+            NOT = { has_opinion_modifier = { who = ROOT modifier = alliance_horde } }
+        }
+        add_opinion = { who = ROOT modifier = alliance_horde }
+    }
+}
+
+opinions_joined_horde = {
+            every_country = {
+                limit = {
+                    has_country_modifier = alliance_member
+                    NOT = { has_opinion_modifier = { who = ROOT modifier = horde_alliance } }
+                }
+                add_opinion = { who = ROOT modifier = horde_alliance }
+            }
+            every_country = {
+                limit = {
+                    has_country_modifier = horde_member
+                    NOT = { has_opinion_modifier = { who = ROOT modifier = horde_horde } }
+                }
+                add_opinion = { who = ROOT modifier = horde_horde }
+            }
+}
+
+opinions_left_alliance = {
+            every_country = {
+                limit = {
+                    has_country_modifier = alliance_member
+                    has_opinion_modifier = { who = ROOT modifier = alliance_alliance }
+                }
+                remove_opinion = { who = ROOT modifier = alliance_alliance }
+            }
+            every_country = {
+                limit = {
+                    has_country_modifier = alliance_member
+                    reverse_has_opinion_modifier = { who = ROOT modifier = alliance_alliance }
+                }
+                reverse_remove_opinion = { who = ROOT modifier = alliance_alliance }
+            }
+            every_country = {
+                limit = {
+                    has_country_modifier = horde_member
+                    has_opinion_modifier = { who = ROOT modifier = alliance_horde }
+                }
+                remove_opinion = { who = ROOT modifier = alliance_horde }
+            }
+            every_country = {
+                limit = {
+                    has_country_modifier = horde_member
+                    reverse_has_opinion_modifier = { who = ROOT modifier = alliance_horde }
+                }
+                reverse_remove_opinion = { who = ROOT modifier = alliance_horde }
+            }
+}
+
+opinions_left_horde = {
+            every_country = {
+                limit = {
+                    has_country_modifier = alliance_member
+                    has_opinion_modifier = { who = ROOT modifier = horde_alliance }
+                }
+                remove_opinion = { who = ROOT modifier = horde_alliance }
+            }
+            every_country = {
+                limit = {
+                    has_country_modifier = alliance_member
+                    reverse_has_opinion_modifier = { who = ROOT modifier = horde_alliance }
+                }
+                reverse_remove_opinion = { who = ROOT modifier = horde_alliance }
+            }
+            every_country = {
+                limit = {
+                    has_country_modifier = horde_member
+                    has_opinion_modifier = { who = ROOT modifier = horde_horde }
+                }
+                remove_opinion = { who = ROOT modifier = horde_horde }
+            }
+            every_country = {
+                limit = {
+                    has_country_modifier = horde_member
+                    reverse_has_opinion_modifier = { who = ROOT modifier = horde_horde }
+                }
+                reverse_remove_opinion = { who = ROOT modifier = horde_horde }
+            }
+}
+
+## ALLIANCE - HORDE FACTIONS
+# These effects are used on_startup at on_actions file. Triggers used are set in scripted_triggers which lets game know which nations are Alliance, Horde and their respective leaders by age.
+set_faction_conflict = {
+	if = {
+		limit = {
+			historical_conflict_times = yes
+		}
+		#First leaders join
+		
+		#Then rest follows
+		every_country = {
+			limit = {
+				historical_alliance = yes
+			}
+			random_country = {
+				limit = { historical_alliance_head = yes }
+				add_country_modifier = { 
+					name = alliance_head
+					duration = -1
+				}
+				create_subject = {
+					subject_type = faction_alliance
+					subject = PREV
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				historical_horde = yes
+			}
+			random_country = {
+				limit = { historical_horde_head = yes }
+				add_country_modifier = { 
+					name = horde_head
+					duration = -1
+				}
+				create_subject = {
+					subject_type = faction_horde
+					subject = PREV
+				}
+			}
+		}
+		
+	}
+}

@@ -1,0 +1,613 @@
+#	Example:
+# 
+#	example_trigger = {
+#		tag = SWE
+#		ai = no
+#	}
+#
+#
+#	In a script file:
+#
+#	trigger = {
+#		exampel_trigger = yes
+#	}
+#
+
+# Used to determine style of random events
+is_great_leader = {
+	OR = {
+		AND = {
+			adm = 5
+			dip = 5
+			mil = 5
+		}
+		AND = {
+			adm = 6
+			dip = 6
+		}
+		AND = {
+			adm = 6
+			mil = 6
+		}
+		AND = {
+			dip = 6
+			mil = 6
+		}
+		adm = 7
+		dip = 7
+		mil = 7
+	}
+}
+
+is_civilized = {
+    OR = {
+        technology_group = tech_human
+        technology_group = tech_gnome
+        technology_group = tech_darnassian
+        technology_group = tech_thalassian
+        technology_group = tech_dwarven
+        technology_group = tech_draenei
+        technology_group = tech_goblin
+        technology_group = tech_tauren
+        technology_group = tech_undead
+        technology_group = tech_worgen
+        technology_group = tech_tuskarr
+        technology_group = tech_pandaren
+    }
+}
+
+is_savage = {
+    OR = {
+        technology_group = tech_orc
+        technology_group = tech_ogre
+        technology_group = tech_troll
+        technology_group = tech_scourge
+        technology_group = tech_undead
+        technology_group = tech_mogu
+        technology_group = tech_yaungol
+    }
+}
+
+is_pirate = {
+    OR = {
+        tag = A15
+        tag = A19
+        tag = A20
+        tag = A21
+        tag = A83
+    }
+}
+
+is_merchant = {
+    OR = {
+        culture_group = culture_group_goblin
+		culture_group = culture_group_ethereal
+		culture_group = culture_group_grummle
+    }
+}
+
+is_lesser = {
+    OR = {
+        technology_group = tech_depths
+        technology_group = tech_gnoll
+        technology_group = tech_centaur
+        technology_group = tech_furbolg
+        technology_group = tech_wolfvar
+        technology_group = tech_gorloc
+        technology_group = tech_kobold
+        technology_group = tech_harpy
+        technology_group = tech_quillboar
+        technology_group = tech_primitive
+        technology_group = tech_magnataur
+    }
+	NOT = { has_country_flag = was_lesser } # set this on a lesser race to make them lesser no more.
+}
+
+is_bug = {
+    OR = {
+        technology_group = tech_aqir
+        technology_group = tech_mantid
+    }
+}
+
+is_ancient = {
+    OR = {
+		technology_group = tech_vrykul
+		technology_group = tech_titan
+		technology_group = tech_aqir
+		technology_group = tech_old_god
+		technology_group = tech_dragonkin
+		technology_group = tech_elemental
+		technology_group = tech_darnassian
+		technology_group = tech_draenei
+	}
+}
+
+is_ancient_gov = {
+	OR = {
+		has_reform = ancient_dynasty_reform
+		has_reform = ancient_civilization_reform
+		has_reform = ancient_divinity_reform
+	}
+}
+
+is_honorable = {
+    OR = {
+	technology_group = tech_orc
+	technology_group = tech_tauren
+	technology_group = tech_human
+	technology_group = tech_vrykul
+	}
+}
+
+is_otherworld = {
+    OR = {
+        technology_group = tech_demonic
+        technology_group = tech_old_god
+		culture_group = culture_group_ethereal
+    }
+}
+
+is_outlander = {
+    OR = {
+		culture_group = culture_group_orc
+		culture_group = culture_group_draenei
+		culture_group = culture_group_ogre
+		culture_group = culture_group_arrakoa
+		culture_group = culture_group_zangar
+    }
+}
+
+is_pure_evil = {
+    OR = {
+        culture_group = culture_group_demonic
+		religion = religion_old_gods
+		religion = religion_the_damned
+    }
+}
+
+is_good = {
+  always = no
+}
+
+is_evil = {
+  always = no
+}
+has_school = {
+	custom_trigger_tooltip = {
+		tooltip = has_school_tt
+		OR = {
+			has_country_modifier = brotherhood_of_northshire_modifier
+			has_country_modifier = the_conclave_modifier
+			has_country_modifier = order_of_the_silver_hand_modifier
+			has_country_modifier = crimson_legion_modifier
+			has_country_modifier = blood_knights_modifier
+			has_country_modifier = argent_light_modifier
+			has_country_modifier = the_lightforged_modifier
+			has_country_modifier = the_sunwalkers_modifier
+		}
+	}
+}
+has_archaeologists = {
+	OR = {
+		accepted_culture = culture_high_elf
+		accepted_culture = culture_blood_elf
+		accepted_culture = culture_kezani
+		accepted_culture = culture_bilgewater
+		accepted_culture = culture_steamwheedle
+		accepted_culture = culture_wildhammer
+		accepted_culture = culture_dark_iron
+		accepted_culture = culture_ironforge
+	}
+}
+has_artifact = {
+	OR = {
+		has_country_modifier = apocalypse
+		has_country_modifier = twinblades_of_deceiver
+		has_country_modifier = scythe_of_elune
+		has_country_modifier = thasdorah
+		has_country_modifier = aluneth
+		has_country_modifier = sheilun
+		has_country_modifier = ashbringer
+		has_country_modifier = xalatath
+		has_country_modifier = doomhammer
+		has_country_modifier = skull_of_manari
+		has_country_modifier = warswords_of_valarjar
+	}
+}
+the_first_war_or_later = {
+	OR = {
+		current_age = the_first_war
+		current_age = the_second_war
+		current_age = the_third_war
+		current_age = the_frozen_throne
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+the_second_war_or_later = {
+	OR = {
+		current_age = the_second_war
+		current_age = the_third_war
+		current_age = the_frozen_throne
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+the_third_war_or_later = {
+	OR = {
+		current_age = the_third_war
+		current_age = the_frozen_throne
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+the_frozen_throne_or_later = {
+	OR = {
+		current_age = the_frozen_throne
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+rise_of_the_qiraji_or_later = {
+	OR = {
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+the_burning_crusade_or_later = {
+	OR = {
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+wrath_of_the_lich_king_or_later = {
+	OR = {
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+the_shattering_or_later = {
+	OR = {
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+mists_of_pandaria_or_later = { # Don't actually need that now but better stay here for future bookmark patch
+	current_age = mists_of_pandaria
+}
+historical_alliance = {
+	OR = {
+		AND = {
+			the_second_war_or_later = yes
+			tag = A01
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A08
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A10
+		}
+		AND = {
+			OR = {
+				AND = {
+					the_second_war_or_later = yes
+					NOT = { rise_of_the_qiraji_or_later = yes }
+				}
+				the_shattering_or_later = yes
+			}
+			tag = A12
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A14
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A16
+		}
+		AND = {
+			OR = {
+				AND = {
+					the_first_war_or_later = yes
+					NOT = { rise_of_the_qiraji_or_later = yes }
+				}
+				mists_of_pandaria_or_later = yes
+			}
+			tag = A18
+		}
+		AND = {
+			the_second_war_or_later = yes
+			OR = {
+				AND = {
+					the_second_war_or_later = yes
+					NOT = { rise_of_the_qiraji_or_later = yes }
+				}
+				the_shattering_or_later = yes
+			}
+			tag = A28
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A29
+		}
+		AND = {
+			the_shattering_or_later = yes
+			tag = A30
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A32
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = A56
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A90
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A94
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = F14
+		}
+		AND = {
+			mists_of_pandaria_or_later = yes
+			tag = P35
+		}
+	}
+}
+historical_horde = {
+	OR = {
+		# Old Horde (None of those ever made it to Thrall's modern Horde)
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A34
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A35
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A36
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A37
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A38
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A39
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A40
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A41
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_second_war_or_later = yes }
+			tag = A42
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_second_war_or_later = yes }
+			tag = A43
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A44
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A45
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A46
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A58
+		}
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_second_war_or_later = yes }
+			tag = B88
+		}
+		# Modern Horde (Most did not exist before vanilla but putting conditions in case of early forming)
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A48
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = A50
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A70
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = A91
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = F88
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = P14
+		}
+		AND = {
+			mists_of_pandaria_or_later = yes
+			tag = P36
+		}
+	}
+}
+historical_alliance_head = {
+	OR = {
+		AND = {
+			OR = {
+				AND = {
+					the_first_war_or_later = yes
+					NOT = { the_second_war_or_later = yes }
+				}
+				rise_of_the_qiraji_or_later = yes
+			}
+			tag = A01
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { the_frozen_throne_or_later = yes }
+			tag = A08
+		}
+	}
+}
+historical_horde_head = {
+	OR = {
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A41
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A48
+		}
+	}
+}
+historical_conflict_times = { # Specifies the time windows when Faction conflicts happened.
+	OR = {
+		AND = {
+			the_first_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+		}
+		rise_of_the_qiraji_or_later = yes
+	}
+}
+never_alliance = { # Specifies tags, cultures, religions or techs that will never join alliance (Except Pure Evils like Scourge, Demons and Old Gods which cannot join either)
+	OR = {
+		culture_group = culture_group_sand_troll
+		culture_group = culture_group_jungle_troll
+		culture_group = culture_group_forest_troll
+		culture_group = culture_group_orc
+		culture_group = culture_group_mogu
+	}
+}
+never_horde = { # Specifies tags, cultures, religions or techs that will never join horde (Except Pure Evils like Scourge, Demons and Old Gods which cannot join either)
+	OR = {
+		culture_group = culture_group_human
+		culture_group = culture_group_draenei
+		culture_group = culture_group_darnassian
+	}
+}
+
+highest_development = {
+	any_country = {
+		NOT = { tag = ROOT }
+		NOT = { total_development = ROOT }
+	}
+}
+
+is_organization = {
+	OR = {
+		has_reform = trade_company_reform
+		has_reform = independent_guild_reform
+		has_reform = criminal_organization_reform
+		has_reform = military_organization_reform
+		has_reform = religious_cult_reform
+	}
+}
+
+potential_refuge = { # Determines which country allows your country's refugees when it's annexed. Used in remnant events. Order of AND blocks in OR indicates priority.
+	is_at_war = no
+	is_subject = no
+	OR = {
+		AND = {
+			historical_friend_with = ROOT
+			primary_culture = ROOT
+			has_opinion = { who = ROOT value = 0 }
+		}
+		AND = {
+			NOT = { primary_culture = ROOT }
+			alliance_with = ROOT
+			trust = { who = ROOT value = 50 }
+		}
+		AND = {
+			historical_friend_with = ROOT
+			NOT = { primary_culture = ROOT }
+			has_opinion = { who = ROOT value = 50 }
+		}
+		AND = {
+			primary_culture = ROOT
+			alliance_with = ROOT
+		}
+		AND = {
+			historical_friend_with = ROOT
+			alliance_with = ROOT
+		}
+		AND = {
+			is_neighbor_of = ROOT
+			NOT = { primary_culture = ROOT }
+			has_opinion = { who = ROOT value = 150 }
+		}
+		AND = {
+			is_neighbor_of = ROOT
+			primary_culture = ROOT
+			has_opinion = { who = ROOT value = 50 }
+		}
+		AND = {
+			alliance_with = ROOT
+			trust = { who = ROOT value = 50 }
+		}
+	}
+}

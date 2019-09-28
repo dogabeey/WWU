@@ -1,0 +1,187 @@
+country_decisions = {
+
+	inspire_righteousness = {
+		potential = {
+			technology_group = tech_human
+            NOT = { has_country_modifier = inspire_righteousness_modifier }
+		}
+		allow =  {
+			technology_group = tech_human
+            adm_power = 100
+		}
+	  	effect = {
+			add_adm_power = -100
+            add_country_modifier = {
+                name = inspire_righteousness_modifier
+                duration = -1
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                religious_unity = 1.0
+            }
+            modifier = {
+                factor = 0
+                NOT = { adm_power = 400 }
+            }
+		}
+	}
+    
+    enact_civil_code = {
+        potential = {
+			technology_group = tech_human
+            NOT = { has_country_modifier = civil_code }
+		}
+		allow =  {
+			technology_group = tech_human
+            adm_power = 100
+            stability = 1
+		}
+	  	effect = {
+			add_adm_power = -100
+            add_country_modifier = {
+                name = civil_code
+                duration = -1
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                NOT = { adm_power = 400 }
+            }
+		}
+	}
+    
+    mobilise_workforces = {
+        potential = {
+			technology_group = tech_human
+            NOT = { has_country_modifier = mobilised_workforces }
+		}
+		allow =  {
+			technology_group = tech_human
+            dip_power = 100
+		}
+	  	effect = {
+			add_dip_power = -100
+            add_country_modifier = {
+                name = mobilised_workforces
+                duration = 3650
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                NOT = { dip_power = 400 }
+            }
+		}
+    }
+    
+    encourage_research = {
+        potential = {
+			technology_group = tech_human
+            NOT = { has_country_modifier = illusion_of_grandeur }
+            NOT = { has_country_modifier = enchanted_spyglass }
+            NOT = { has_country_modifier = scrying_orb }
+            NOT = { has_country_modifier = arcane_familiars }
+            NOT = { has_country_modifier = conjured_feasts }
+            NOT = { has_country_modifier = enchanted_broom }
+            NOT = { has_country_modifier = embued_tome }
+            NOT = { has_country_modifier = mana_shields }
+            NOT = { has_country_modifier = invisibility_cloaks }
+            NOT = { has_country_modifier = arcane_crystal }
+		}
+		allow =  {
+			technology_group = tech_human
+            adm_power = 100
+            dip_power = 100
+            mil_power = 100
+		}
+	  	effect = {
+			add_adm_power = -100
+            add_dip_power = -100
+            add_mil_power = -100
+            
+            random_list = {
+                10 = {
+                    add_country_modifier = {
+                        name = illusion_of_grandeur
+                        duration = 3650
+                    }
+                }
+                10 = {
+                    add_country_modifier = {
+                        name = enchanted_spyglass
+                        duration = 3650
+                    }
+                }
+                10 = {
+                    add_country_modifier = {
+                        name = scrying_orb
+                        duration = 3650
+                    }
+                }
+                10 = {
+                    add_country_modifier = {
+                        name = arcane_familiars
+                        duration = 3650
+                    }
+                }
+                10 = {
+                    add_country_modifier = {
+                        name = conjured_feasts
+                        duration = 3650
+                    }
+                }
+                10 = {
+                    add_country_modifier = {
+                        name = enchanted_broom
+                        duration = 3650
+                    }
+                }
+                10 = {
+                    add_country_modifier = {
+                        name = embued_tome
+                        duration = 3650
+                    }
+                }
+                10 = {
+                    add_country_modifier = {
+                        name = mana_shields
+                        duration = 3650
+                    }
+                }
+                10 = {
+                    add_country_modifier = {
+                        name = invisibility_cloaks
+                        duration = 3650
+                    }
+                }
+                10 = {
+                    add_country_modifier = {
+                        name = arcane_crystal
+                        duration = 3650
+                    }
+                }
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                OR = {
+                    NOT = { adm_power = 400 }
+                    NOT = { dip_power = 400 }
+                    NOT = { mil_power = 400 }
+                }
+            }
+		}
+    }
+}

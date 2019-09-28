@@ -1,0 +1,59 @@
+# Class order halls frm legion xpac
+
+warrior_order = {
+    icon = GFX_class_warrior
+    trigger = {
+		always = no # TODO: Do
+		any_country = {
+			NOT = { warrior_order = yes }
+		}
+		owner = { 
+			NOT = { is_lesser = yes }
+		}
+    }
+    cost = 150
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+		add_prestige = 1
+    }
+    per_province_abandon_effect = {
+	    add_base_manpower = -1
+		add_prestige = -1
+    }
+    modifier = {
+        garrison_growth = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+}
+paladin_order = {
+    icon = GFX_class_paladin
+    trigger = {
+		always = no # TODO: Do
+		any_country = {
+			NOT = { paladin_order = yes }
+		}
+		owner = { 
+			NOT = { is_lesser = yes }
+			NOT = { is_pure_evil = yes }
+		}
+    }
+    cost = 150
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_manpower = 1
+		add_prestige = 1
+    }
+    per_province_abandon_effect = {
+	    add_base_manpower = -1
+		add_prestige = -1
+    }
+    modifier = {
+        garrison_growth = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+}

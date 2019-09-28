@@ -1,0 +1,724 @@
+# INSTRUCTIONS:
+#
+# condition				A diplomatic action can have any number of condition blocks, each with its own
+#						tooltip, potential and allow section
+#
+# 	tooltip					Sets a custom text string similar to the hardcoded limits
+# 							If no tooltip is scripted, the tooltip for the actual trigger will be shown
+#							Note that the custom tooltip is only shown if the allow trigger is NOT met
+#
+# 	potential				Determines if the trigger is applicable or not
+# 	allow					Determines if the action is valid or not
+#
+# effect				A diplomatic action can only have one effect block
+
+# ROOT					actor
+# FROM					target
+
+########################################
+# DIPLOMATIC ACTIONS
+########################################
+# royal_marriage
+# declarewar
+# requestpeace
+# support_independence_action
+# allianceaction
+# embargoaction
+# annexationaction
+# integrationaction
+# vassalaction
+# guaranteeaction
+# warningaction
+# threaten_war
+# milaccess
+# fleet_access
+# offer_fleet_access
+# offermilaccess
+# insultaction
+# giftaction
+# claimaction
+# callaction
+# offerloan
+# warsubsidy
+# sellprov
+# imperial_relations_action
+# religious_unity_action
+# grant_electorate
+# remove_electorate
+# grant_freecity
+# remove_freecity
+# demand_unlawful_territory_action
+# call_crusade_action
+# excommunicate_action
+# enforce_peace
+# improve_relation
+# fabricate_claim
+# justify_trade_conflict
+# transfer_trade_power
+# infiltrate_administration
+# sabotage_reputation
+# support_rebels
+# sow_discontent
+# study_technology
+# agitate_for_liberty
+# form_coalition
+# request_to_join_federation
+# invite_to_federation
+# support_heir
+# break_marriage
+# designate_march
+# ask_for_march
+# sell_ships_action
+# counterespionage
+# abandon_union_action
+
+milaccess= {
+	condition = {
+        tooltip = DIP_INCOMP_PORTALNOTOPEN
+		
+		potential = {
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+				1586 = {
+					has_province_modifier = dark_portal_closed
+				}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+offermilaccess= {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+giftaction = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+guaranteeaction = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+sellprov = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+
+tributary_state_action = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+ask_for_tributary_state_action = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+threaten_war = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+improve_relation = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+declarewar = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+allianceaction = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				is_organization = yes
+				FROM = { is_organization = yes }
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+    condition = {
+        tooltip = DIP_INCOMP_EVIL
+        
+        potential = {
+			OR = {
+				AND = {
+					religion = religion_old_gods
+					FROM = {
+						NOT = { religion_group = religion_group_the_void }
+						NOT = { is_lesser = yes}
+					}
+				}
+				AND = {
+					religion_group = religion_group_disorder
+					FROM = {
+						NOT = { religion_group = religion_group_disorder }
+						NOT = { is_lesser = yes}
+					}
+				}
+				AND = {
+					NOT = { religion_group = religion_group_the_void }
+					FROM = {
+						religion = religion_old_gods
+					}
+				}
+				AND = {
+					NOT = { religion_group = religion_group_disorder }
+					FROM = {
+						religion_group = religion_group_disorder
+					}
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+    condition = {
+        tooltip = DIP_INCOMP_SCOURGE
+        
+        potential = {
+			OR = {
+				AND = {
+					religion = religion_the_damned
+					FROM = {
+						NOT = { religion_group = religion_group_the_void }
+					}
+				}
+				AND = {
+					NOT = { religion_group = religion_group_the_void }
+					FROM = {
+						religion = religion_the_damned
+					}
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+    condition = {
+        tooltip = DIP_INCOMP_LESSER
+        
+        potential = {
+			OR = {
+				AND = {
+					is_lesser = yes
+					FROM = {
+						NOT = { is_lesser = yes}
+					}
+				}
+				AND = {
+					NOT = { is_lesser = yes}
+					NOT = { is_savage = yes}
+					NOT = { religion_group = religion_group_the_void }
+					NOT = { religion_group = religion_group_disorder }
+					FROM = {
+						is_lesser = yes
+					}
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+    condition = {
+        tooltip = DIP_INCOMP_FACTION
+        
+        potential = {
+			OR = {
+				AND = {
+					OR = {
+						has_country_modifier = alliance_head
+						is_subject_of_type = faction_alliance
+					}
+					FROM = {
+						OR = {
+							has_country_modifier = horde_head
+							is_subject_of_type = faction_horde
+						}
+					}
+				}
+				AND = {
+					OR = {
+						has_country_modifier = horde_head
+						is_subject_of_type = faction_horde
+					}
+					FROM = {
+						OR = {
+							has_country_modifier = alliance_head
+							is_subject_of_type = faction_alliance
+						}
+					}
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+    condition = {
+        tooltip = DIP_INCOMP_HISTORICAL
+        
+        potential = {
+			OR = {
+				# Humans - Orcs
+				AND = {
+					culture_group = culture_group_human
+					FROM = { culture_group = culture_group_orc }
+					NOT = {
+						any_country = {
+							alliance_with = ROOT
+							alliance_with = FROM
+						}
+					}
+				}
+				AND = {
+					culture_group = culture_group_orc
+					FROM = { culture_group = culture_group_human }
+					NOT = {
+						any_country = {
+							alliance_with = ROOT
+							alliance_with = FROM
+						}
+					}
+				}
+				# Elves - Trolls
+				AND = {
+					OR = {
+						culture_group = culture_group_thalassian
+						culture_group = culture_group_darnassian
+					}
+					FROM = { 
+						OR = {
+							culture_group = culture_group_forest_troll 
+							culture_group = culture_group_jungle_troll 
+							culture_group = culture_group_dark_troll 
+							culture_group = culture_group_ice_troll
+							culture_group = culture_group_sand_troll
+							culture_group = culture_group_zandalar_troll
+						}
+					}
+					NOT = {
+						any_country = {
+							alliance_with = ROOT
+							alliance_with = FROM
+						}
+					}
+				}
+				AND = {
+					OR = {
+						culture_group = culture_group_forest_troll 
+						culture_group = culture_group_jungle_troll 
+						culture_group = culture_group_dark_troll 
+						culture_group = culture_group_ice_troll
+						culture_group = culture_group_sand_troll
+						culture_group = culture_group_zandalar_troll
+					}
+					FROM = { 
+						OR = {
+							culture_group = culture_group_thalassian
+							culture_group = culture_group_darnassian
+						}
+					}
+					NOT = {
+						any_country = {
+							alliance_with = ROOT
+							alliance_with = FROM
+						}
+					}
+				}
+				#Worgen - Undeads
+				AND = {
+					culture_group = culture_group_worgen
+					FROM = { 
+						culture_group = culture_group_undead
+					}
+					NOT = {
+						any_country = {
+							alliance_with = ROOT
+							alliance_with = FROM
+						}
+					}
+				}
+				AND = {
+					culture_group = culture_group_undead
+					FROM = { 
+						culture_group = culture_group_worgen
+					}
+					NOT = {
+						any_country = {
+							alliance_with = ROOT
+							alliance_with = FROM
+						}
+					}
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+
+royal_marriage = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+	condition = {
+		tooltip = MARWAR
+		potential = {
+		}
+		allow = {
+			NOT = { war_with = FROM }
+		}
+	}
+}
+
+
+
+annexationaction = {
+	condition = {
+		tooltip = ANNEX_TOO_LOW
+		potential = {
+			FROM = {
+				vassal_of = ROOT
+			}
+		}
+		allow = {
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+		}
+	}
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+	#condition = {
+	#	tooltip = ANNEXINVALID
+	#	potential = {
+	#		FROM = {
+	#			vassal_of = ROOT
+	#		}
+	#	}
+	#	allow = {
+	#		FROM = {
+	#			years_in_vassalage_under = {
+	#				who = ROOT
+	#				years = 10
+	#			}
+	#		}
+	#	}
+	#}
+}
+
+integrationaction = {
+	condition = {
+		tooltip = INTEGRATETOOLOWDESC
+		potential = {
+			senior_union_with = FROM
+		}
+		allow = {
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+		}
+	}
+	#condition = {
+	#	tooltip = INTEGRATEINVALID
+	#	potential = {
+	#		senior_union_with = FROM
+	#	}
+	#	allow = {
+	#		FROM = {
+	#			years_in_union_under = {
+	#				who = ROOT
+	#				years = 50
+	#			}
+	#		}
+	#	}
+	#}
+}
+
+vassalaction = {
+	condition = {
+		tooltip = DIP_INCOMP_ORG
+		potential = {
+			OR = {
+				is_organization = yes
+				NOT = { is_organization = yes }
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	
+	condition = {
+		tooltip = VASSALINVALID
+		potential = {
+		}
+		allow = {
+			alliance_with = FROM
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+			FROM = { is_at_war = no }
+		}
+	}
+	
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+	
+	condition = {
+        tooltip = DIP_INCOMP_REMNANT
+		
+		potential = {
+			OR = {
+				has_reform = remnant_basic_reform
+				FROM = {
+					has_reform = remnant_basic_reform
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+
+abandon_union_action = {
+	condition = {
+		tooltip = DIP_INCOMP_NOTAVAILABLE
+		potential = {
+		}
+		allow = {
+			ROOT = {
+				senior_union_with = FROM
+				is_at_war = no
+			}
+		}
+	}
+}
+
+
+
+
+form_coalition = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+	condition = {
+		tooltip = MINAGGRESSIVEEXPANSION
+		potential = {	
+		}
+		allow = {
+			has_opinion_modifier = {
+				modifier = aggressive_expansion
+				who = FROM
+				value = -50
+			}		
+			NOT = {
+				has_opinion_modifier = {
+					modifier = aggressive_expansion
+					who = FROM
+					value = -50
+				}
+			}
+		}
+	}
+}

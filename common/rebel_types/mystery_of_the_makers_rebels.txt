@@ -1,0 +1,245 @@
+#------------------------------------
+# mystery_of_the_makers Rebels
+#------------------------------------
+# religion_mystery_of_the_makers
+# religion_group_order
+# mystery_of_the_makers
+
+mystery_of_the_makers_rebels = {
+
+	color = { 150 1 12  }
+
+	area = nation_religion
+	government = theocracy 			# Desires Theocracy
+	religion = religion_mystery_of_the_makers
+	defection = religion
+	independence = religion
+	defect_delay = 60
+	unit_transfer = yes
+	gfx_type = culture_province
+	will_relocate = yes	
+	
+	resilient = no
+	reinforcing = yes
+	general = yes
+	smart = yes
+	
+	artillery = 0.0
+	infantry = 0.7
+	cavalry = 0.3
+	
+	morale = 0.75
+
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = yes
+	handle_action_build_core = yes
+	handle_action_send_missionary = yes		
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 1
+        
+        # Decrease so nationalists have priority when lots of conquering has occured
+        modifier = {
+			factor = 0.25
+			owner = { overextension_percentage = 0.25 }
+		}
+        
+		modifier = {
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 0.0
+			owner = { religion = ROOT }
+		}
+		modifier = {
+			factor = 0.0
+			NOT = { religion = religion_mystery_of_the_makers }
+		}
+		modifier = {
+			factor = 0.001
+			tolerance_to_this = 5
+		}
+		modifier = {
+			factor = 0.5
+			tolerance_to_this = 2
+		}
+		modifier = {
+			factor = 5.0
+			owner = { NOT = { religious_unity = 0.5 } }
+		}		
+		modifier = {
+			factor = 2000
+			has_missionary = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = 1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -2 }
+		}
+        modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -3 }
+		}
+        modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -4 }
+		}
+        modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -5 }
+		}
+        modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -6 }
+		}
+        modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -7 }
+		}
+        modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -8 }
+		}
+        modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -9 }
+		}
+        modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -10 }
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 0.0
+			religion = religion_mystery_of_the_makers
+			owner = { religion = religion_mystery_of_the_makers }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion = religion_mystery_of_the_makers }
+			any_neighbor_province = {
+	 			religion = religion_mystery_of_the_makers
+	 			NOT = { has_province_modifier = "forced_conversion" }
+	 		}
+	 	}
+		modifier = {
+			factor = 1.5
+			has_missionary = yes
+			religion = religion_mystery_of_the_makers
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+		NOT = { is_capital = yes }
+ 	}
+	siege_won_effect = {
+    add_local_autonomy = 20
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		religion_group = religion_group_order
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "mystery_of_the_makers_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+		if = {
+			limit = {
+				NOT = { religion = religion_mystery_of_the_makers }
+			}
+			add_prestige = -20
+      if = {
+        limit = { exists = REB }
+        every_owned_province = {
+          limit = { religion = religion_myster_of_the_makers }
+          if = {
+            limit = { NOT = { is_core = REB } }
+            add_core = REB
+          }
+          cede_province = REB
+        }
+      }
+      if = {
+        limit = { NOT = { exists = REB } }
+        every_owned_province = {
+          limit = {
+            religion = religion_mystery_of_the_makers
+            NOT = { is_core = REB }
+          }
+          add_core = REB
+        }
+        create_vassal = REB
+      }
+		}
+		if = {
+			limit = {
+				religion = religion_mystery_of_the_makers
+			}
+			add_country_modifier = {
+				name = "religious_intolerance_enforced"
+				duration = 3650
+			}
+		}
+		if = {
+			limit = {
+				religion = religion_mystery_of_the_makers
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+	}
+}

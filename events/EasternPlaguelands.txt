@@ -1,0 +1,39 @@
+namespace = WARCRAFT_EASTERNPLAGUELANDS
+
+country_event = {
+	id = WARCRAFT_EASTERNPLAGUELANDS.1			# Landing of Naxxramas
+	title = WARCRAFT_EASTERNPLAGUELANDS.1.title
+	desc = WARCRAFT_EASTERNPLAGUELANDS.1.desc
+	picture = NAXXRAMAS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		current_age = rise_of_the_qiraji
+		tag = P12		# Cult of the Damned
+		owns = 3075		# Reanimatory
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = WARCRAFT_EASTERNPLAGUELANDS.1.option.a	# Great!
+
+        ##if = { limit = { has_global_flag = enable_event_logging } }
+
+		ai_chance = { factor = 100 }
+		3075 = { # Reanimatory
+			add_base_tax = 6
+			add_base_production = 6
+			add_base_manpower = 7
+			change_trade_goods = army_supplies
+			change_culture = culture_cultist
+			change_province_name = "Naxxramas"
+			rename_capital = "Naxxramas"
+		}
+		add_prestige = 10
+		set_capital = 3075
+	}
+}

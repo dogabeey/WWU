@@ -1,0 +1,230 @@
+namespace = transition
+
+country_event = {
+	id = transition.1
+	title = transition.1.title
+	desc = transition.1.desc
+	picture = MAGI_eventPicture
+	hidden = yes
+	fire_only_once = yes
+	
+	
+	trigger = {
+		current_age = rise_of_the_horde
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = transition.1.option.a
+        country_event = { id = transition.11 days = 30000 }
+    }
+}
+
+country_event = {
+	id = transition.2
+	title = transition.1.title
+	desc = transition.1.desc
+	picture = MAGI_eventPicture
+	hidden = yes
+	fire_only_once = yes
+	
+	
+	trigger = {
+		current_age = the_first_war
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = transition.1.option.a
+        country_event = { id = transition.11 days = 20000 }
+    }
+}
+
+country_event = {
+	id = transition.3
+	title = transition.1.title
+	desc = transition.1.desc
+	picture = MAGI_eventPicture
+	hidden = yes
+	fire_only_once = yes
+	
+	
+	trigger = {
+		current_age = the_second_war
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = transition.1.option.a
+        country_event = { id = transition.11 days = 30000 }
+    }
+}
+
+country_event = {
+	id = transition.4
+	title = transition.1.title
+	desc = transition.1.desc
+	picture = MAGI_eventPicture
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		current_age = the_third_war
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = transition.1.option.a
+        country_event = { id = transition.11 days = 30000 }
+    }
+}
+
+country_event = {
+	id = transition.5
+	title = transition.1.title
+	desc = transition.1.desc
+	picture = MAGI_eventPicture
+	hidden = yes
+	fire_only_once = yes
+	
+	
+	trigger = {
+		current_age = the_frozen_throne
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = transition.1.option.a
+        country_event = { id = transition.11 days = 30000 }
+    }
+}
+
+country_event = {
+	id = transition.6
+	title = transition.1.title
+	desc = transition.1.desc
+	picture = MAGI_eventPicture
+	hidden = yes
+	fire_only_once = yes
+	
+	
+	trigger = {
+		current_age = rise_of_the_qiraji
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = transition.1.option.a
+        country_event = { id = transition.11 days = 30000 }
+    }
+}
+
+country_event = {
+	id = transition.7
+	title = transition.1.title
+	desc = transition.1.desc
+	picture = MAGI_eventPicture
+	hidden = yes
+	fire_only_once = yes
+	
+	
+	trigger = {
+		current_age = the_burning_crusade
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = transition.1.option.a
+        country_event = { id = transition.11 days = 30000 }
+    }
+}
+
+country_event = {
+	id = transition.8
+	title = transition.1.title
+	desc = transition.1.desc
+	picture = MAGI_eventPicture
+	hidden = yes
+	fire_only_once = yes
+	
+	
+	trigger = {
+		current_age = wrath_of_the_lich_king
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = transition.1.option.a
+        country_event = { id = transition.11 days = 30000 }
+    }
+}
+
+country_event = {
+	id = transition.9
+	title = transition.1.title
+	desc = transition.1.desc
+	picture = MAGI_eventPicture
+	hidden = yes
+	fire_only_once = yes
+	
+	
+	trigger = {
+		current_age = the_shattering
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = transition.1.option.a
+        country_event = { id = transition.11 days = 30000 }
+    }
+}
+
+country_event = {
+	id = transition.11
+	title = transition.1.title
+	desc = transition.1.desc
+	picture = MAGI_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	
+    
+	option = {
+		name = transition.11.option.a
+		if = { limit = { current_age = rise_of_the_horde } set_global_flag = the_first_war }
+		if = { limit = { current_age = the_first_war } set_global_flag = the_second_war }
+		if = { limit = { current_age = the_second_war } set_global_flag = the_third_war }
+		if = { limit = { current_age = the_third_war } set_global_flag = the_frozen_throne }
+		if = { limit = { current_age = the_frozen_throne } set_global_flag = rise_of_the_qiraji }
+		if = { limit = { current_age = rise_of_the_qiraji } set_global_flag = the_burning_crusade }
+		if = { limit = { current_age = the_burning_crusade } set_global_flag = wrath_of_the_lich_king }
+		if = { limit = { current_age = wrath_of_the_lich_king } set_global_flag = the_shattering }
+		if = { limit = { current_age = the_shattering } set_global_flag = mists_of_pandaria }
+    }
+}

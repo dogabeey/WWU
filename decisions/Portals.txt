@@ -1,0 +1,254 @@
+country_decisions = {
+    open_portal_menu = {
+		major = yes
+	
+        potential = {
+            NOT = { has_country_flag = portal_menu }
+			OR = {
+				calc_true_if = { all_owned_province = { has_building = wow_portal_red } amount = 2 }
+				calc_true_if = { all_owned_province = { has_building = wow_portal_yellow } amount = 2 }
+				calc_true_if = { all_owned_province = { has_building = wow_portal_green } amount = 2 }
+				calc_true_if = { all_owned_province = { has_building = wow_portal_blue } amount = 2 }
+			}
+        }
+        allow = {
+        }
+        effect = {
+			set_country_flag = portal_menu
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    close_portal_menu = {
+		major = yes
+	
+        potential = {
+            has_country_flag = portal_menu
+        }
+        allow = {
+        }
+        effect = {
+			clr_country_flag = portal_menu
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    red_portal_passage = {
+        potential = {
+            calc_true_if = { all_owned_province = { has_building = wow_portal_red } amount = 2 }
+			has_country_flag = portal_menu
+        }
+        allow = {
+			any_owned_province = {
+				has_building = wow_portal_red
+				num_of_units_in_province = {
+					who = ROOT
+					amount = 10
+				}
+			}
+        }
+        effect = {
+            random_owned_province = {
+				limit = {
+					has_building = wow_portal_red
+					num_of_units_in_province = {
+						who = ROOT
+						amount = 10
+					}
+				}
+				save_event_target_as = sender
+				set_province_flag = sender_province
+			}
+            random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = sender_province }
+					has_building = wow_portal_red
+				}
+				save_event_target_as = receiver
+				set_province_flag = sender_province
+			}
+			event_target:sender = {
+				kill_units = {
+					who = controller
+					amount = 10
+				}
+				clr_province_flag = sender_province
+			}
+			event_target:receiver = {
+				add_unit_construction = {
+					type = infantry
+					amount = 10
+					speed = 0.01
+					cost = 0
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    blue_portal_passage = {
+        potential = {
+            calc_true_if = { all_owned_province = { has_building = wow_portal_blue } amount = 2 }
+			has_country_flag = portal_menu
+        }
+        allow = {
+			any_owned_province = {
+				has_building = wow_portal_blue
+				num_of_units_in_province = {
+					who = ROOT
+					amount = 10
+				}
+			}
+        }
+        effect = {
+            random_owned_province = {
+				limit = {
+					has_building = wow_portal_blue
+					num_of_units_in_province = {
+						who = ROOT
+						amount = 10
+					}
+				}
+				save_event_target_as = sender
+				set_province_flag = sender_province
+			}
+            random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = sender_province }
+					has_building = wow_portal_blue
+				}
+				save_event_target_as = receiver
+				set_province_flag = sender_province
+			}
+			event_target:sender = {
+				kill_units = {
+					who = controller
+					amount = 10
+				}
+				clr_province_flag = sender_province
+			}
+			event_target:receiver = {
+				add_unit_construction = {
+					type = infantry
+					amount = 10
+					speed = 0.01
+					cost = 0
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    green_portal_passage = {
+        potential = {
+            calc_true_if = { all_owned_province = { has_building = wow_portal_green } amount = 2 }
+			has_country_flag = portal_menu
+        }
+        allow = {
+			any_owned_province = {
+				has_building = wow_portal_green
+				num_of_units_in_province = {
+					who = ROOT
+					amount = 10
+				}
+			}
+        }
+        effect = {
+            random_owned_province = {
+				limit = {
+					has_building = wow_portal_green
+					num_of_units_in_province = {
+						who = ROOT
+						amount = 10
+					}
+				}
+				save_event_target_as = sender
+				set_province_flag = sender_province
+			}
+            random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = sender_province }
+					has_building = wow_portal_green
+				}
+				save_event_target_as = receiver
+				set_province_flag = sender_province
+			}
+			event_target:sender = {
+				kill_units = {
+					who = controller
+					amount = 10
+				}
+				clr_province_flag = sender_province
+			}
+			event_target:receiver = {
+				add_unit_construction = {
+					type = infantry
+					amount = 10
+					speed = 0.01
+					cost = 0
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    yellow_portal_passage = {
+        potential = {
+            calc_true_if = { all_owned_province = { has_building = wow_portal_yellow } amount = 2 }
+			has_country_flag = portal_menu
+        }
+        allow = {
+			any_owned_province = {
+				has_building = wow_portal_yellow
+				num_of_units_in_province = {
+					who = ROOT
+					amount = 10
+				}
+			}
+        }
+        effect = {
+            random_owned_province = {
+				limit = {
+					has_building = wow_portal_yellow
+					num_of_units_in_province = {
+						who = ROOT
+						amount = 10
+					}
+				}
+				save_event_target_as = sender
+				set_province_flag = sender_province
+			}
+            random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = sender_province }
+					has_building = wow_portal_yellow
+				}
+				save_event_target_as = receiver
+				set_province_flag = sender_province
+			}
+			event_target:sender = {
+				kill_units = {
+					who = controller
+					amount = 10
+				}
+				clr_province_flag = sender_province
+			}
+			event_target:receiver = {
+				add_unit_construction = {
+					type = infantry
+					amount = 10
+					speed = 0.01
+					cost = 0
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+}

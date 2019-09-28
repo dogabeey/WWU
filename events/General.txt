@@ -1,0 +1,116 @@
+namespace = ge_economical
+
+
+country_event = {
+	id = ge_economical.11
+	title = ge_economical.11.t
+	desc = ge_economical.11.d
+	picture = GE_GOLD_COINS_eventPicture
+	
+	trigger = {
+		has_country_modifier = d_b 
+		NOT = { has_country_modifier = bonds_emission } 
+	}
+	
+	mean_time_to_happen = {
+		months = 1		
+	}
+	
+	option = {
+		name = ge_economical.11.a
+		
+		add_years_of_income = -5 
+		hidden_effect = {
+        remove_country_modifier = d_b
+		}
+	}
+	
+	option = {
+		name = ge_economical.11.b
+		
+		add_stability = -1
+		add_legitimacy = -25
+		add_devotion = -25
+		add_republican_tradition = -25
+		add_horde_unity = -25
+		add_meritocracy = -25
+		add_prestige = -25
+		add_country_modifier = {
+				name = "n_b"
+				duration = 1825
+			}
+		
+		hidden_effect = {
+        remove_country_modifier = d_b
+		}
+	}
+}
+
+country_event = {
+	id = ge_economical.15
+	title = ge_economical.11.t
+	desc = ge_economical.11.d
+	picture = GE_GOLD_COINS_eventPicture
+	
+	trigger = {
+		has_country_modifier = d_w
+		NOT = { has_country_modifier = war_emission } 
+	}
+	
+	mean_time_to_happen = {
+		months = 1		
+	}
+	
+	option = {
+		name = ge_economical.11.a
+		add_years_of_income = -2.5
+		
+		hidden_effect = {
+        remove_country_modifier = d_w
+        }		
+	}
+	
+	option = {
+		name = ge_economical.11.b
+		
+		add_war_exhaustion = 5
+		add_country_modifier = {
+				name = "n_w"
+				duration = 1825
+			}
+			
+		hidden_effect = {
+        remove_country_modifier = d_w
+        }		
+	}
+	
+}
+
+country_event = {
+	id = ge_economical.1
+	title = ge_economical.1.t
+	desc = ge_economical.1.d
+	picture = GE_HRE_CRUSADE_eventPicture
+	
+	trigger = {
+		OR = {
+		has_country_modifier = adm_dev
+		has_country_modifier = dip_dev
+		has_country_modifier = mil_dev
+		}
+		is_at_war = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 1		
+	}
+	
+	option = {
+		name = ge_economical.1.a
+
+        remove_country_modifier = adm_dev
+		remove_country_modifier = dip_dev
+		remove_country_modifier = mil_dev		
+	}
+	
+}

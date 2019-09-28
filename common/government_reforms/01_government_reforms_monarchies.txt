@@ -1,0 +1,494 @@
+monarchy_mechanic = {
+	monarchy = yes
+	heir = yes
+	queen = yes
+	basic_reform = yes # = invisible/does not take up a slot
+	valid_for_nation_designer = no
+	custom_attributes = {
+		enables_aristocratic_idea_group = yes
+	}
+}
+
+ancient_dynasty_reform = {
+	icon = "shogunate"
+	legacy_equivalent = ancient_dynasty_legacy
+	allow_normal_conversion = no
+	valid_for_new_country = yes
+	valid_for_nation_designer = no
+	maintain_dynasty = yes
+	nation_designer_cost = 0
+	monarchy = yes
+	heir = yes
+	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	potential = {
+		is_ancient = yes
+	}
+	militarised_society = yes
+	government_abilities = {  }
+	unique_government = yes
+	modifiers = {
+		monarch_military_power = 1
+		claim_duration = 1
+    	idea_cost = 0.15
+	}
+	ai = {
+		factor = 500
+	}
+}
+
+scourge_reform = {
+	icon = "undead_monarchy"
+	allow_normal_conversion = no
+	legacy_equivalent = scourge_legacy
+	royal_marriage = no
+	valid_for_nation_designer = no
+	allow_convert = no
+	maintain_dynasty = no
+	allow_vassal_war = no
+	heir = yes
+	nation_designer_cost = 0
+	unique_government = yes
+	custom_attributes = {
+		locked_government_type = yes
+        champion_system = yes
+	}
+	
+	potential = {
+		OR = {
+			primary_culture = culture_scourge
+			primary_culture = culture_forsaken
+		}
+	}
+	government_abilities = {  }
+	
+	
+	modifiers = {
+		land_attrition = -0.5
+		global_unrest = -3
+		years_of_nationalism = 5
+		free_leader_pool = 1
+	}
+	
+	ai = {
+		factor = 5
+	}
+}
+
+autocracy_reform = {
+	icon = "crown"
+	allow_normal_conversion = yes
+	legacy_equivalent = despotic_monarchy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	potential = {
+	    OR = {
+		NOT = { is_emperor_of_china = yes }
+		has_global_flag = empire_of_china_dismantled
+		}
+	}
+	government_abilities = {  }
+
+	factions = {
+		es_clergy
+		es_merchants
+		es_warriors
+	}
+	
+	modifiers = {
+		max_states = 1
+		harsh_treatment_cost = -0.10
+		unjustified_demands = -0.10
+		global_autonomy = -0.05
+		#max_absolutism = 5
+	}
+	
+	ai = {
+		factor = 5
+	}
+}
+
+admiralty_reform = {
+	icon = "admiralty"
+	allow_normal_conversion = no
+	legacy_equivalent = admiralty_legacy
+	valid_for_nation_designer = yes
+	heir = yes
+	force_admiral_leader = yes
+	nation_designer_cost = 0
+	potential = {
+		OR = {
+			all_owned_province = {
+				has_port = yes
+			}
+			all_owned_province = {
+				any_neighbor_province = {
+					has_port = yes
+				}
+			}
+		}
+	}
+	government_abilities = {  }
+	unique_government = yes
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	modifiers = {
+		global_ship_cost = -0.15
+		leader_naval_manuever = 1
+		leader_naval_shock = 1
+		leader_naval_fire = 1
+		free_leader_pool = 1
+	}
+	
+	ai = {
+		factor = 5
+	}
+}
+
+celestial_empire = {
+	icon = "celestial_empire"
+	allow_normal_conversion = yes
+	legacy_equivalent = celestial_empire_legacy
+	maintain_dynasty = yes
+	allow_force_tributary = no
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+	lock_level_when_selected = yes
+	potential = {
+		is_emperor_of_china = yes
+		NOT = { has_global_flag = empire_of_china_dismantled }
+	}
+	government_abilities = {  }
+
+factions = {
+		temples
+		enuchs
+		bureaucrats
+	}
+
+	fixed_rank = 10
+	start_territory_to_estates = 0.75
+
+	modifiers = {
+	    max_states = 1
+		prestige = 0.5
+		global_institution_spread = 0.10
+		embracement_cost = -0.10
+		global_autonomy = -0.05
+	}
+	
+	ai = {
+		factor = 1000
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		allow_banners = yes
+	}
+}
+
+english_monarchy = {
+	icon = "constitution"
+	allow_normal_conversion = no
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+	nation_designer_trigger = {
+		has_dlc = "Common Sense"
+	}
+	legacy_equivalent = english_monarchy_legacy
+	start_territory_to_estates = 0.35
+	government_abilities = {  }
+
+factions = {
+		es_clergy
+		es_merchants
+		es_warriors
+	}
+	
+	modifiers = {
+		max_states = 1
+		legitimacy = 0.25
+		global_unrest = -1
+		global_autonomy = -0.025
+		#max_absolutism = -30
+	}
+
+	conditional = {
+		allow = { always = no }
+		has_parliament = yes
+	}
+	
+	ai = {
+		factor = 5
+	}
+}
+
+elective_monarchy = {
+	icon = "ballot_box"
+	allow_normal_conversion = yes
+	legacy_equivalent = elective_monarchy_legacy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	government_abilities = {  }
+
+factions = {
+		es_clergy
+		es_merchants
+		es_warriors
+	}
+	
+	modifiers = {
+		land_morale = 0.10
+		diplomatic_reputation = 1
+		#max_absolutism = -30
+		max_states = 1
+		global_autonomy = -0.025
+	}
+
+	conditional = {
+		allow = { has_dlc = "Res Publica" }
+		is_elective = yes
+	}
+	
+	ai = {
+		factor = 5
+	}
+}
+
+mamluk_government = {
+	icon = "indian_crown"
+	allow_normal_conversion = no
+	legacy_equivalent = mamluk_government_legacy
+	heir = no
+	queen = no
+
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+	
+	government_abilities = {  }
+
+factions = {
+		es_clergy
+		es_merchants
+		es_warriors
+	}
+
+	modifiers = {
+		num_accepted_cultures = 1
+		global_autonomy = -0.025
+		monarch_admin_power = 1
+		same_culture_advisor_cost = -0.10
+		max_states = 1
+	}
+
+	conditional = {
+		allow = { always = no }
+		government_abilities = {
+			mamluk_mechanic
+		}
+		foreign_slave_rulers = yes
+	}
+	
+	ai = {
+		factor = 5
+	}
+}
+
+pirate_kingdom = {
+	icon = "pirate_king"
+	allow_normal_conversion = yes
+	legacy_equivalent = pirate_kingdom_legacy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	potential = {	
+		has_dlc = "Golden Century"
+	}
+	government_abilities = {  }
+
+factions = {
+		pr_buccaneers
+		pr_smugglers
+		pr_captains
+	}
+	
+	modifiers = {
+	    #max_absolutism = -50
+		naval_forcelimit_modifier = 0.10
+		capture_ship_chance = 0.10
+		ship_durability = 0.10
+		leader_naval_fire = 1
+		may_perform_slave_raid_on_same_religion = yes
+	}
+	
+	ai = {
+		factor = 5
+	}
+}
+
+ottoman_government = {
+	allow_normal_conversion = no
+	icon = "man_and_children"
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+	legacy_equivalent = ottoman_government_legacy
+	maintain_dynasty = yes
+	modifiers = {
+		core_creation = -0.10
+		diplomatic_annexation_cost = -0.10
+		#max_absolutism = 5
+		monarch_diplomatic_power = 1
+		max_states = 1
+	}
+	
+	government_abilities = {  }
+
+factions = {
+		temples
+		enuchs
+		bureaucrats
+	}
+	
+	ai = {
+		factor = 5
+	}
+}
+
+shogunate = {
+	icon = "strength_of_the_khalsa"
+	allow_normal_conversion = no
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+	legacy_equivalent = shogunate_legacy
+	maintain_dynasty = yes
+	allow_vassal_war = yes
+	allow_vassal_alliance = yes
+	
+	government_abilities = {  }
+
+factions = {
+		temples
+		enuchs
+		bureaucrats
+	}
+
+	modifiers = {
+		diplomats = 1
+		state_maintenance_modifier = -0.10
+		global_manpower_modifier = 0.10
+		reduced_liberty_desire = 10
+		#max_absolutism = 5
+	}
+
+	ai = {
+		factor = 5
+	}
+}
+
+mughal_government = {
+	icon = "indian_palace"
+	allow_normal_conversion = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	legacy_equivalent = mughal_government_legacy
+
+	
+	government_abilities = {  }
+
+factions = {
+		es_clergy
+		es_merchants
+		es_warriors
+	}
+
+	modifiers = {
+		tolerance_own = 1
+		max_states = 1
+		monarch_military_power = 1
+		global_autonomy = -0.025
+		num_accepted_cultures = 1
+	}
+
+	assimilation_cultures = {
+		culture_group_human = {
+			ship_durability = 0.10
+		}
+		culture_group_darnassian = {
+			free_leader_pool = 1
+		}
+		culture_group_vrykul = {
+			land_attrition = -0.1
+		}
+		culture_group_broken = {
+			state_maintenance_modifier = -0.10
+		}
+		culture_group_draenei = {
+			missionaries = 1
+		}
+		culture_group_furbolg = {
+			global_trade_goods_size_modifier = 0.10
+		}
+		culture_group_wolfvar = {
+			production_efficiency = 0.10
+		}
+		culture_group_gorloc = {
+			diplomats = 1
+		}
+		culture_group_kobold = {
+			global_institution_spread = 0.10
+		}
+		culture_group_harpy = {
+			core_creation = -0.1
+		}
+		culture_group_worgen = {
+			advisor_cost = -0.1
+		}
+		culture_group_pandaren = {
+			land_morale = 0.1
+		}
+		culture_group_tauren = {
+			idea_cost = -0.10
+		}
+		culture_group_orc = {
+			discipline = 0.05
+		}
+		culture_group_thalassian = {
+			merchants = 1
+		}
+		culture_group_withered = {
+			global_sailors_modifier = 0.1
+		}
+		culture_group_goblin = {
+			movement_speed = 0.1
+		}
+		culture_group_gnoll = {
+			mil_advisor_cost = -0.1
+		}
+		culture_group_centaur = {
+			caravan_power = 0.1
+		}
+		culture_group_naga = {
+			prestige_decay = -0.01
+		}
+		culture_group_dragonkin = {
+			global_autonomy = -0.01
+		}
+		culture_group_demonic = {
+			leader_land_fire = 1
+		}
+		culture_group_satyr = {
+			trade_efficiency = 0.10
+		}
+	}
+	
+	ai = {
+		factor = 5
+	}
+}

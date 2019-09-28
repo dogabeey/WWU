@@ -1,0 +1,213 @@
+namespace = lesser
+
+country_event = {
+	id = lesser.1
+	title = hostile_adventurers.title # Hostile Adventurers.
+	desc = hostile_adventurers.desc # Azerothians are hunting the races they see as lesser for millenias. Recently, foreign adventurers from a neighbor nation entered to our realm and they keep killing our officers and leaders, causing great harm to our people. This cannot continue. 
+	picture = ELF_TROLL_eventPicture
+	
+	mean_time_to_happen = {
+		months = 720
+	}
+	
+	trigger = {
+		is_lesser = yes
+		any_neighbor_country = {
+			NOT = { has_opinion = {
+				who = ROOT
+				value = 25
+			} }
+			NOT = { government = native }
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = hostile_adventurers.opt1
+		
+		random_list = {
+			2 = {
+				custom_tooltip = hostile_adventurers.opt1.tt_win
+				add_prestige = 20
+			}
+			3 = {
+				custom_tooltip = hostile_adventurers.opt1.tt_lose
+				kill_ruler = yes
+				add_prestige = 10
+			}
+		}
+	}
+	option = {
+		name = hostile_adventurers.opt2
+		
+		add_country_modifier = {
+			name = increase_security
+			duration = 1825
+		}
+	}
+	option = {
+		name = hostile_adventurers.opt3
+		add_prestige = -5
+	}
+}
+######################################################
+#		   Lesser countries coalition                #
+######################################################
+country_event = {
+	id = lesser.2
+	title = axis_of_awful_offer.title #
+	desc = axis_of_awful_offer.desc #
+	picture = ELF_TROLL_eventPicture
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	trigger = {
+		is_lesser = yes
+		NOT = { is_at_war = yes }
+		any_country = {
+			is_lesser = yes
+			NOT = { tag = ROOT }
+			NOT = {
+				border_distance = {
+					who = ROOT
+					distance = 75
+				}
+			}
+			has_opinion = {
+				who = ROOT
+				value = 0				
+			}
+		}
+		any_country = {
+			NOT = { coalition_target = THIS }
+			NOT = { is_lesser = yes }
+			NOT = { tag = ROOT }
+			NOT = {
+				border_distance = {
+					who = ROOT
+					distance = 75
+				}
+			}
+			NOT = { 
+				has_opinion = {
+					who = ROOT
+					value = 0				
+				} 
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					is_lesser = yes
+					NOT = { tag = ROOT }
+					NOT = {
+						border_distance = {
+							who = ROOT
+							distance = 75
+						}
+					}
+					has_opinion = {
+						who = ROOT
+						value = 0				
+					}
+				}
+				save_event_target_as = potential_ally
+			}
+			random_country = {
+				limit = {
+					NOT = { coalition_target = THIS }
+					NOT = { is_lesser = yes }
+					NOT = { tag = ROOT }
+					NOT = {
+						border_distance = {
+							who = ROOT
+							distance = 75
+						}
+					}
+					NOT = { 
+						has_opinion = {
+							who = ROOT
+							value = 0				
+						} 
+					}
+				}
+				save_global_event_target_as = potential_target
+			}
+		}
+	}
+	option = {
+		name = axis_of_awful_offer.opt1
+		event_target:potential_ally = {
+			country_event = { id = lesser.3 }
+		}
+	}
+	option = {
+		name = axis_of_awful_offer.opt2
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = lesser.3
+	title = axis_of_awful_question.title #
+	desc = axis_of_awful_question.desc #
+	picture = ELF_TROLL_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	option = {
+		name = axis_of_awful_question.opt1
+		form_coalition_against = event_target:potential_target
+		FROM = {
+			form_coalition_against = event_target:potential_target
+			country_event = { id = lesser.4 }
+		}
+		clear_global_event_target = potential_target
+	}
+	option = {
+		name = axis_of_awful_question.opt2
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = lesser.4
+	title = axis_of_awful_answer.title #
+	desc = axis_of_awful_answer.desc #
+	picture = ELF_TROLL_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	option = {
+		name = axis_of_awful_answer.opt1
+	}
+}
+
+country_event = {
+	id = lesser.5
+	title = axis_of_awful_reject.title #
+	desc = axis_of_awful_reject.desc #
+	picture = ELF_TROLL_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	option = {
+		name = axis_of_awful_reject.opt1
+	}
+}

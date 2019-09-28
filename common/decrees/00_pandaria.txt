@@ -1,0 +1,79 @@
+# cost is the Meritocracy cost
+# duration is in days
+# ai_will_do has to be 10 for AI to do it (with >=99 Meritocracy).
+
+# Pilgrimage to Yu'lon, the Jade Serpent
+yulon_pilgrimage = {
+	cost = 25
+	duration = 3650
+    
+	modifier = {
+		adm_tech_cost_modifier = -0.1
+        global_institution_spread = 0.25
+	}
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+# Pilgrimage to Chi-Ji, the Red Crane
+chiji_pilgrimage = {
+	cost = 25
+	duration = 3650
+    
+	modifier = {
+		stability_cost_modifier = -0.15
+        autonomy_change_time = -0.15
+	}
+	ai_will_do = {
+		factor = 100
+        
+        modifier = {
+			factor = 1.5
+			
+            NOT = { stability = 0 }
+		}
+	}
+}
+
+# Pilgrimage to Niuzao, the Black Ox
+niuzao_pilgrimage = {
+	cost = 25
+	duration = 3650
+    
+	modifier = {
+		shock_damage = 0.075
+        shock_damage_received = -0.15
+	}
+	ai_will_do = {
+		factor = 100
+
+        modifier = {
+			factor = 2
+			
+            NOT = { army_size_percentage = 0.5 }
+            is_at_war = yes
+		}
+	}
+}
+
+# Pilgrimage to Xuen, the White Tiger
+xuen_pilgrimage = {
+	cost = 25
+	duration = 3650
+    
+	modifier = {
+		movement_speed = 0.2
+        infantry_power = 0.05
+	}
+	ai_will_do = {
+		factor = 100
+        
+        modifier = {
+			factor = 2
+			
+            army_size_percentage = 0.5
+            is_at_war = yes
+		}
+	}
+}

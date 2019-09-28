@@ -1,0 +1,303 @@
+########################################
+# Revolution Events
+#
+# written by Aetherum
+########################################
+
+namespace = ge_revolution
+
+country_event = {
+	id = ge_revolution.2
+	title = ge_revolution.2.t
+	desc = ge_revolution.2.d
+	picture = REVOLUTION_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		months = 1		
+	}
+	
+	option = {
+		name = ge_revolution.2.a
+		ai_chance = { factor = 16 }
+		
+		if = {
+		limit = {
+		government = monarchy
+		}
+		add_stability = 1
+		add_prestige = 10
+		}
+		
+		if = {
+		limit = {
+		government = republic
+		}
+		add_stability = -1
+		add_prestige = -10
+		}
+		
+		if = {
+		limit = {
+		government = theocracy
+		}
+		add_prestige = -10
+		}
+		hidden_effect = {
+		random_list = {
+			50 = {
+			country_event = { id = ge_revolution.21 days = 31 tooltip = ge_revolution.21.a.tt } ### rev nob ###
+			}
+			20 = {
+			country_event = { id = ge_revolution.27 days = 31 tooltip = ge_revolution.27.a.tt } ### no rev ###
+			}
+			12 = {
+			country_event = { id = ge_revolution.26 days = 31 tooltip = ge_revolution.26.a.tt } ### rev ch+mer ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.22 days = 31 tooltip = ge_revolution.22.a.tt } ### rev ch ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.23 days = 31 tooltip = ge_revolution.23.a.tt } ### rev mer ###
+			}
+		}
+	}
+   }
+	option = {
+		name = ge_revolution.2.b
+		ai_chance = { factor = 16 }
+		
+		if = {
+		limit = {
+		government = monarchy
+		}
+		add_prestige = -10
+		}
+		
+		if = {
+		limit = {
+		government = republic
+		}
+		add_stability = -1
+		add_prestige = -10
+		}
+		
+		if = {
+		limit = {
+		government = theocracy
+		}
+		add_stability = 1
+		add_prestige = 10
+		}
+		hidden_effect = {
+		random_list = {
+			50 = {
+			country_event = { id = ge_revolution.22 days = 31 tooltip = ge_revolution.22.a.tt } ### rev chr ###
+			}
+			20 = {
+			country_event = { id = ge_revolution.27 days = 31 tooltip = ge_revolution.27.a.tt } ### no rev ###
+			}
+			12 = {
+			country_event = { id = ge_revolution.25 days = 31 tooltip = ge_revolution.25.a.tt } ### rev nob+mer ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.21 days = 31 tooltip = ge_revolution.21.a.tt } ### rev nor ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.23 days = 31 tooltip = ge_revolution.23.a.tt } ### rev mer ###
+			}
+		}
+	  }
+	}
+	option = {
+		name = ge_revolution.2.c
+		ai_chance = { factor = 16 }
+		
+		if = {
+		limit = {
+		government = monarchy
+		}
+		add_prestige = -10
+		add_stability = -1
+		}
+		
+		if = {
+		limit = {
+		government = republic
+		}
+		add_stability = 1
+		add_prestige = 10
+		}
+		
+		if = {
+		limit = {
+		government = theocracy
+		}
+		add_prestige = -10
+		}
+		hidden_effect = {
+		random_list = {
+			50 = {
+			country_event = { id = ge_revolution.23 days = 31 tooltip = ge_revolution.23.a.tt } ### rev bur ###
+			}
+			20 = {
+			country_event = { id = ge_revolution.27 days = 31 tooltip = ge_revolution.27.a.tt } ### no rev ###
+			}
+			12 = {
+			country_event = { id = ge_revolution.24 days = 31 tooltip = ge_revolution.24.a.tt } ### rev nob+chr ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.21 days = 31 tooltip = ge_revolution.21.a.tt } ### rev nob ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.22 days = 31 tooltip = ge_revolution.22.a.tt } ### rev chr ###
+			}
+		}
+	  }
+	}
+	
+	option = {
+		name = ge_revolution.2.g
+		ai_chance = { factor = 16 }
+		
+		if = {
+		limit = {
+		government = monarchy
+		}
+		add_prestige = 10
+		add_stability = 1
+		}
+		
+		if = {
+		limit = {
+		government = republic
+		}
+		add_stability = -1
+		add_prestige = -10
+		}
+		
+		if = {
+		limit = {
+		government = theocracy
+		}
+		add_stability = 1
+		add_prestige = 10
+		}
+		hidden_effect = {
+		random_list = {
+			50 = {
+			country_event = { id = ge_revolution.24 days = 31 tooltip = ge_revolution.24.a.tt } ### rev chr + nob ###
+			}
+			20 = {
+			country_event = { id = ge_revolution.27 days = 31 tooltip = ge_revolution.27.a.tt } ### no rev ###
+			}
+			12 = {
+			country_event = { id = ge_revolution.23 days = 31 tooltip = ge_revolution.23.a.tt } ### rev bur ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.21 days = 31 tooltip = ge_revolution.21.a.tt } ### rev nor ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.22 days = 31 tooltip = ge_revolution.22.a.tt } ### rev chr ###
+			}
+		}
+	  }
+	}
+	
+	option = {
+		name = ge_revolution.2.e
+		ai_chance = { factor = 16 }
+		
+		if = {
+		limit = {
+		government = monarchy
+		}
+		add_prestige = 10
+		add_stability = 1
+		}
+		
+		if = {
+		limit = {
+		government = republic
+		}
+		add_stability = 1
+		add_prestige = 10
+		}
+		
+		if = {
+		limit = {
+		government = theocracy
+		}
+		add_stability = -1
+		add_prestige = -10
+		}
+		hidden_effect = {
+		random_list = {
+			50 = {
+			country_event = { id = ge_revolution.25 days = 31 tooltip = ge_revolution.25.a.tt } ### rev bur + nob ###
+			}
+			20 = {
+			country_event = { id = ge_revolution.27 days = 31 tooltip = ge_revolution.27.a.tt } ### no rev ###
+			}
+			12 = {
+			country_event = { id = ge_revolution.22 days = 31 tooltip = ge_revolution.22.a.tt } ### rev chr ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.21 days = 31 tooltip = ge_revolution.21.a.tt } ### rev nor ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.23 days = 31 tooltip = ge_revolution.23.a.tt } ### rev bur ###
+			}
+		}
+	  }
+	}
+	
+	option = {
+		name = ge_revolution.2.f
+		ai_chance = { factor = 16 }
+		
+		if = {
+		limit = {
+		government = monarchy
+		}
+		add_prestige = -10
+		add_stability = -1
+		}
+		
+		if = {
+		limit = {
+		government = republic
+		}
+		add_stability = 1
+		add_prestige = 10
+		}
+		
+		if = {
+		limit = {
+		government = theocracy
+		}
+		add_stability = 1
+		add_prestige = 10
+		}
+		hidden_effect = {
+		random_list = {
+			50 = {
+			country_event = { id = ge_revolution.26 days = 31 tooltip = ge_revolution.26.a.tt } ### rev bur + chr ###
+			}
+			20 = {
+			country_event = { id = ge_revolution.27 days = 31 tooltip = ge_revolution.27.a.tt } ### no rev ###
+			}
+			12 = {
+			country_event = { id = ge_revolution.21 days = 31 tooltip = ge_revolution.21.a.tt } ### rev nob ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.22 days = 31 tooltip = ge_revolution.22.a.tt } ### rev chr ###
+			}
+			9 = {
+			country_event = { id = ge_revolution.23 days = 31 tooltip = ge_revolution.23.a.tt } ### rev bur ###
+			}
+		}
+	  }
+	}
+}

@@ -1,0 +1,39 @@
+country_decisions = {
+
+	hold_grand_tournament = {
+		potential = {
+			NOT = { has_country_modifier = grand_tournament }
+			mil_tech = 10
+		}
+		allow = {
+			is_at_war = no
+			mil_power = 20
+			mil_tech = 19
+		}
+		effect = {
+			add_mil_power = -20
+			add_prestige = 5
+			add_country_modifier = {
+				name = "grand_tournament"
+				duration = 3650
+			}
+			hidden_effect = {
+				change_variable = {
+					which = tournaments_held
+					value = 1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				check_variable = {
+					which = tournaments_held
+					value = 4
+				}
+			}
+		}
+	}
+
+}

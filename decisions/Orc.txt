@@ -1,0 +1,28 @@
+country_decisions = {
+    encourage_bloodlust = {
+        major = yes
+        potential = {
+            culture_group = culture_group_orc
+            NOT = { has_ruler_modifier = warlust }
+        }
+        allow = {
+            culture_group = culture_group_orc
+            mil_power = 100
+        }
+        effect = {
+            add_mil_power = -100
+            add_ruler_modifier = { 
+                name = warlust
+                duration = -1
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                NOT = { num_of_cities = 5 }
+            }
+        }
+    }
+}

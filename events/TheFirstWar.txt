@@ -1,0 +1,289 @@
+namespace = the_first_war
+
+# Add once Orcs need to be weakened
+# set_global_flag = azeroth_rout 
+
+# The First War
+#   Add CB for orcs against all states on Azeroth
+#   Add minor buff for orcs until they attack Stormwind
+country_event = {
+	id = the_first_war.1
+	title = the_first_war.1.title
+	desc = the_first_war.1.desc
+	picture = ORCISH_INVASION_eventPicture
+    #major = yes
+    
+	trigger = {
+        current_age = the_first_war
+        capital_scope = { continent = continent_outland }
+        culture_group = culture_group_orc
+		any_province = {
+			region = region_blasted_lands
+			is_empty = yes
+		}
+		NOT = {
+			any_owned_province = {
+                region = region_blasted_lands
+			}
+		}
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+    immediate = {
+    }
+    
+	option = {
+		name = the_first_war.1.option.a
+        
+        random_province = {
+            limit = {
+                region = region_blasted_lands
+                is_empty = yes
+            }
+
+            cede_province = ROOT
+            add_core = ROOT
+            change_culture = ROOT
+            change_religion = ROOT
+        }
+		region_elwynn_forest = {
+			add_permanent_claim = ROOT
+		}
+    }
+}
+
+# Gul'dan Instruments
+#   Spawn Twilight's Hammer in the Blasted Lands, 1 random province in the Blasted Lands
+country_event = {
+	id = the_first_war.2
+	title = the_first_war.2.title
+	desc = the_first_war.2.desc
+	picture = ORCISH_INVASION_eventPicture
+
+    #major = yes
+    
+	trigger = {
+        has_global_flag = the_first_war
+        tag = B88
+        NOT = { exists = A43 }
+	}
+	
+    mean_time_to_happen = {
+		months = 1
+    }
+    
+	option = {
+		name = the_first_war.2.option.a
+
+        random_province = {
+            limit = {
+                region = region_blasted_lands
+                is_empty = yes
+            }
+
+            cede_province = A43
+            add_core = A43
+            change_culture = culture_twilights_hammer
+            change_religion = religion_fel
+        }
+        
+        hidden_effect = {
+			B88 = {
+				create_subject = {
+					subject_type = faction_horde
+					subject = A43
+				}
+			}
+            A43 = {
+                set_country_flag = first_war_orc
+            }
+        }
+    }
+}
+
+# Assault on Human Lands
+#   Debuff for humans once a human capital is controlled by an orc
+country_event = {
+	id = the_first_war.3
+	title = the_first_war.3.title
+	desc = the_first_war.3.desc
+	picture = ORCISH_INVASION_eventPicture
+
+    #major = yes
+    
+	trigger = {
+        always = no
+        has_global_flag = the_first_war
+        NOT = { has_global_flag = capital_fall }
+        NOT = { has_global_flag = stormwind_attack } # Skip this if Stormwind is attacked before this occurs
+
+        # Any human whos capital has been sieged by an orc clan
+        any_country = {
+            has_country_modifier = first_war_human
+            capital_scope = {
+                controller = {
+                    has_country_modifier = first_war_orc
+                }
+            }
+        }
+	}
+	
+    mean_time_to_happen = {
+		months = 1
+    }
+    
+    immediate = {
+        hidden_effect = { set_global_flag = capital_fall }
+    }
+    
+	option = {
+		name = the_first_war.3.option.a
+
+        custom_tooltip = AZEROTHIAN_ALLIANCE_FALTERS
+        hidden_effect = {
+            every_country = {
+                limit = {
+                    has_country_modifier = first_war_human
+                }
+                add_country_modifier = {
+                    name = fall_of_capital
+                    duration = -1
+                }
+            }
+        }
+    }
+}
+
+# Assault on Stormwind
+#   Clear previous debuffs
+#   Buff for humans once Stormwind is attacked
+#   -> Stormwind loses, skip to Fall of Stormwind
+#   -> Stormwind wins, follow lore path
+country_event = {
+	id = the_first_war.4
+	title = the_first_war.4.title
+	desc = the_first_war.4.desc
+	picture = ORCISH_INVASION_eventPicture
+
+    #major = yes
+    
+	trigger = {
+        has_global_flag = the_first_war
+        NOT = { has_global_flag = stormwind_attack }
+        
+        # When a human that has a province in the Stormwind area sieged down by an orc clan
+        any_country = {
+            has_country_modifier = first_war_human
+            any_owned_province = {
+                area = area_stormwind # Grab the owner of a capital in Stormwind, normally A01
+                controller = {
+                    has_country_modifier = first_war_orc
+                }
+            }
+        }
+	}
+	
+    mean_time_to_happen = {
+		months = 1
+    }
+    
+    immediate = {
+    }
+    
+	option = {
+		name = the_first_war.4.option.a
+
+        custom_tooltip = AZEROTHIAN_ALLIANCE_RALLIES
+        hidden_effect = {
+            every_country = {
+                limit = {
+                    has_country_modifier = first_war_human
+                }
+                
+                if = {
+                    limit = {
+                        has_country_modifier = fall_of_capital
+                    }
+                    remove_country_modifier = fall_of_capital 
+                }
+                
+                add_country_modifier = {
+                    name = assault_on_stormwind
+                    duration = 1825
+                }
+            }
+        }
+    }
+}
+
+#---------------------------------------
+# Human Loss
+#---------------------------------------
+
+# Stormwind Falls!
+country_event = {
+	id = the_first_war.5
+	title = the_first_war.5.title
+	desc = the_first_war.5.desc
+	picture = ORCISH_INVASION_eventPicture
+
+    major = yes
+    
+	trigger = {
+        has_global_flag = the_first_war
+        area_stormwind = {
+			owner = {
+				culture_group = culture_group_orc
+			}
+        }
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+    immediate = {
+        hidden_effect = { clr_global_flag = the_first_war }
+        set_global_flag = the_second_war
+		set_global_flag = tfw_orc_victory_path
+		every_country = {
+			limit = {
+				has_country_modifier = first_war_orc
+			}
+			add_country_modifier = {
+				name = tfw_orc_victory
+				duration = 3650
+			}
+		}
+    }
+    
+    option = {
+		name = the_first_war.5.option.a
+    }
+}
+#---------------------------------------
+# Orc Loss
+#---------------------------------------
+# Dark Portal Falls!
+# Fall of the Dark Portal (Human)
+country_event = {
+	id = the_first_war.8
+	title = the_first_war.8.title
+	desc = the_first_war.8.desc
+	picture = ORCISH_INVASION_eventPicture
+
+    is_triggered_only = yes
+    
+	option = {
+		name = the_first_war.8.option.a
+		ai_chance = { factor = 1 }
+		set_global_flag = tfw_human_victory_path
+        add_country_modifier = {
+            name = tfw_human_victory
+            duration = 3650
+        }
+    }
+}

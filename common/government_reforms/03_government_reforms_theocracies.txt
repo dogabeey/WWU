@@ -1,0 +1,363 @@
+theocracy_mechanic = {
+	has_devotion = yes
+	rulers_can_be_generals = no
+	heirs_can_be_generals = no
+	royal_marriage = yes
+	different_religion_group_acceptance = -25
+	heir = yes
+	basic_reform = yes # = invisible/does not take up a slot
+	valid_for_nation_designer = no
+}
+
+leading_clergy_reform = {
+	allow_normal_conversion = yes
+	legacy_equivalent = theocratic_government
+	icon = "religious_leader"
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	
+	rulers_can_be_generals = no
+	
+	government_abilities = {  }
+
+factions = {
+		es_monks
+		es_priests
+		es_knights
+	}
+	
+	modifiers = {
+		max_states = 1
+		tolerance_own = 1
+		global_missionary_strength = 0.01
+		global_autonomy = -0.05
+		missionaries = 1
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+}
+
+
+ancient_divinity_reform = {
+	icon = "monks"
+	legacy_equivalent = ancient_divinity_legacy
+	allow_normal_conversion = no
+	valid_for_new_country = yes
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+	royal_marriage = yes
+	religion = yes
+	unique_government = yes
+	different_religion_group_acceptance = -25
+	
+	potential = {
+		is_ancient = yes
+	}
+	militarised_society = yes
+	government_abilities = { }
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	modifiers = {
+		monarch_admin_power = 1
+		claim_duration = 1
+    	idea_cost = 0.15
+	}
+	ai = {
+		factor = 500
+	}
+}
+
+monastic_order_reform = {
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	icon = "monks"
+	allow_normal_conversion = yes
+	legacy_equivalent = monastic_order_government
+	monastic = yes
+	fixed_rank = 4
+	
+	
+	government_abilities = {  }
+
+factions = {
+		es_monks
+		es_priests
+		es_knights
+	}
+	
+	modifiers = {
+		max_states = 1
+		global_heretic_missionary_strength = 0.01
+		fort_maintenance_modifier = -0.10
+		defensiveness = 0.10
+	    land_morale = 0.10
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+}
+
+papacy_reform = {
+    icon = "papacy"
+	valid_for_nation_designer = yes
+	allow_normal_conversion = yes
+	legacy_equivalent = papal_government
+	papacy = yes
+	rulers_can_be_generals = no
+	
+	different_religion_group_acceptance = -25
+	
+    government_abilities = {  }
+
+factions = {
+		es_monks
+		es_priests
+		es_knights
+	}
+	
+	modifiers = {
+		max_states = 1
+		global_unrest = -1
+		prestige = 0.5
+		diplomatic_reputation = 1
+		global_autonomy = -0.05
+	}
+
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+}
+
+holy_republic_reform = {
+	icon = "paper_money_map"
+	allow_normal_conversion = yes
+	
+	government_abilities = {  }
+
+factions = {
+		es_monks
+		es_priests
+		es_knights
+	}
+	
+	modifiers = {
+		#max_absolutism = -50
+		merchants = 1
+		global_own_trade_power = 0.1
+		global_trade_goods_size_modifier = 0.1
+		trade_steering = 0.10
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	legacy_equivalent = holy_republic_government
+	boost_income = yes
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+}
+
+religious_republic_reform = {
+	icon = "parliament"
+	allow_normal_conversion = yes
+	
+	government_abilities = {  }
+
+factions = {
+		es_monks
+		es_priests
+		es_knights
+	}
+	
+	modifiers = {
+		#max_absolutism = -50
+		religious_unity = 0.1
+		tolerance_heathen = 1
+        tolerance_heretic = 1
+		num_accepted_cultures = 1
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	legacy_equivalent = religious_republic_government
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+}
+
+college_of_mages_reform = {
+	icon = "clergyman"
+	allow_normal_conversion = yes
+	
+	government_abilities = {  }
+
+factions = {
+		es_monks
+		es_priests
+		es_knights
+	}
+	
+	modifiers = {
+		#max_absolutism = -35
+		technology_cost = -0.10
+		idea_cost = -0.10
+		advisor_cost = -0.1
+		advisor_pool = 1
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	legacy_equivalent = college_of_mages_government
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+}
+
+secret_order_reform = {
+	icon = "noble_muslim"
+	allow_normal_conversion = yes
+	
+	government_abilities = {  }
+
+factions = {
+		es_monks
+		es_priests
+		es_knights
+	}
+	
+	modifiers = {
+		diplomats = 1
+		improve_relation_modifier = 0.10
+		spy_offence = 0.1
+		rebel_support_efficiency = 0.1
+		discovered_relations_impact = -0.10
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	legacy_equivalent = secret_order_government
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+}
+
+holy_city_reform = {
+	icon = "states_general"
+	allow_normal_conversion = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	legacy_equivalent = holy_city_government
+	papacy = yes
+	
+	government_abilities = {  }
+
+factions = {
+		es_monks
+		es_priests
+		es_knights
+	}
+	
+	modifiers = {
+	    merchants = 1
+		trade_efficiency = 0.10
+		navy_tradition_decay = -0.01
+		army_tradition_decay = -0.01
+		naval_forcelimit = 0.10
+	}
+	
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+	}
+	
+	boost_income = yes
+	
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+}

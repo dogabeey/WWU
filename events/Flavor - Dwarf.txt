@@ -1,0 +1,560 @@
+namespace = dwarf
+
+country_event = {
+	id = dwarf.1
+	title = dun_morogh_territorial.title
+	desc = dun_morogh_territorial.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = no
+    
+	trigger = {
+		has_country_flag = unified_dwarf
+		tag = A29
+		any_province = {
+			region = region_dun_morogh
+			NOT = { owned_by = ROOT }
+		}
+	}
+	
+	immediate = {
+		random_province = {
+			limit = {
+				region = region_dun_morogh
+				NOT = { owned_by = ROOT }
+			}
+			save_global_event_target_as = dm_historical_claim # The province we will have a claim.
+		}
+		random_country = {
+			limit = {
+				has_country_flag = unified_dwarf
+				NOT = { tag = A29 }
+			}
+			save_global_event_target_as = dm_claim_helper # The country we will ask for help.
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 90
+	}
+	
+	option = {
+        name = dun_morogh_territorial.opt1 # Ask to back up claim.
+		custom_tooltip = dun_morogh_territorial_tt_claim
+		event_target:dm_claim_helper = {
+			country_event = { id = dwarf.2 } #dun_morogh_territorial_claim
+		}
+	}
+	option = {
+        name = dun_morogh_territorial.opt2 # Ask to join war together.
+		custom_tooltip = dun_morogh_territorial_tt_war
+		event_target:dm_claim_helper = {
+			country_event = { id = dwarf.3 } #dun_morogh_territorial_war
+		}
+	}
+	option = {
+        name = dun_morogh_territorial.opt3 # Try to forge a claim by yourself.
+		random_list = {
+			1 = {
+				event_target:dm_historical_claim = {
+					add_permanent_claim = ROOT
+				}
+			}
+			3 = {
+				event_target:dm_historical_claim = {
+					owner = {
+						add_opinion = {
+							who = ROOT
+							modifier = dishonorable_act
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+        name = dun_morogh_territorial.opt4 # Do not do anything for now.
+	}
+}
+country_event = {
+	id = dwarf.2
+	title = dun_morogh_territorial_claim.title
+	desc = dun_morogh_territorial_claim.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = yes
+    
+	trigger = {
+	}
+	
+	option = {
+        name = dun_morogh_territorial_claim.opt1 # Accept backing up the claim.
+		add_dip_power = -50
+		event_target:dm_historical_claim = {
+			add_permanent_claim = A29
+		}
+        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - dun_morogh_territorial_claim.opt1" }
+	}
+	option = {
+        name = dun_morogh_territorial_claim.opt2 # Refuse.
+		A29 = {
+			add_opinion = {
+				who = ROOT
+				modifier = dishonorable_act
+			}
+		}
+        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - dun_morogh_territorial_claim.opt1" }
+	}
+}
+country_event = {
+	id = dwarf.3
+	title = dun_morogh_territorial_war.title
+	desc = dun_morogh_territorial_war.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = yes
+    
+	trigger = {
+	}
+	
+	option = {
+        name = dun_morogh_territorial_war.opt1 # Join a rightful coalition by Ironforge's side.
+		add_mil_power = -50
+		event_target:dm_historical_claim = {
+			add_permanent_claim = A29
+		}
+		event_target:dm_historical_claim = {
+			owner = {
+				ROOT = {
+					form_coalition_against = PREV
+				}
+			}
+		}
+		event_target:dm_historical_claim = {
+			owner = {
+				A29 = {
+					form_coalition_against = PREV
+					add_casus_belli = {
+						target = PREV
+						type = cb_conquest
+						months = 12
+					}
+				}
+			}
+		}
+        #log = "[Root.GetName] - dun_morogh_territorial_war.opt1"
+	}
+	option = {
+        name = dun_morogh_territorial_war.opt2 # Refuse.
+		A29 = {
+			add_opinion = {
+				who = ROOT
+				modifier = dishonorable_act
+			}
+		}
+        #log = "[Root.GetName] - dun_morogh_territorial_war.opt2"
+	}
+}
+
+country_event = {
+	id = dwarf.4
+	title = twilight_highlands_territorial.title
+	desc = twilight_highlands_territorial.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = no
+    
+	trigger = {
+		has_country_flag = unified_dwarf
+		tag = A28
+		any_province = {
+			region = region_twilight_highlands
+			NOT = { owned_by = ROOT }
+		}
+	}
+	
+	immediate = {
+		random_province = {
+			limit = {
+				region = region_twilight_highlands
+				NOT = { owned_by = ROOT }
+			}
+			save_global_event_target_as = th_historical_claim # The province we will have a claim.
+		}
+		random_country = {
+			limit = {
+				has_country_flag = unified_dwarf
+				NOT = { tag = A29 }
+			}
+			save_global_event_target_as = th_claim_helper # The country we will ask for help.
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 90
+	}
+	
+	option = {
+        name = twilight_highlands_territorial.opt1 # Ask to back up claim.
+		custom_tooltip = twilight_highlands_territorial_tt_claim
+		hidden_effect = {
+			event_target:th_claim_helper = {
+				country_event = { id = dwarf.2 } #twilight_highlands_territorial_claim
+			}
+		}
+	}
+	option = {
+        name = twilight_highlands_territorial.opt2 # Ask to join war together.
+		custom_tooltip = twilight_highlands_territorial_tt_war
+		hidden_effect = {
+			event_target:th_claim_helper = {
+				country_event = { id = dwarf.3 } #twilight_highlands_territorial_war
+			}
+		}
+	}
+	option = {
+        name = twilight_highlands_territorial.opt3 # Try to forge a claim by yourself.
+		random_list = {
+			1 = {
+				event_target:th_historical_claim = {
+					add_permanent_claim = ROOT
+				}
+			}
+			3 = {
+				event_target:th_historical_claim = {
+					owner = {
+						add_opinion = {
+							who = ROOT
+							modifier = dishonorable_act
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+        name = twilight_highlands_territorial.opt4 # Do not do anything for now.
+	}
+}
+country_event = {
+	id = dwarf.5
+	title = twilight_highlands_territorial_claim.title
+	desc = twilight_highlands_territorial_claim.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = yes
+    
+	trigger = {
+	}
+	
+	option = {
+        name = twilight_highlands_territorial_claim.opt1 # Accept backing up the claim.
+		add_dip_power = -50
+		event_target:th_historical_claim = {
+			add_permanent_claim = A28
+		}
+        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - twilight_highlands_territorial_claim.opt1" }
+	}
+	option = {
+        name = twilight_highlands_territorial_claim.opt2 # Refuse.
+		A28 = {
+			add_opinion = {
+				who = ROOT
+				modifier = dishonorable_act
+			}
+		}
+        #log = "[Root.GetName] - twilight_highlands_territorial_claim.opt1"
+	}
+}
+country_event = {
+	id = dwarf.6
+	title = twilight_highlands_territorial_war.title
+	desc = twilight_highlands_territorial_war.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = yes
+    
+	trigger = {
+	}
+	
+	option = {
+        name = twilight_highlands_territorial_war.opt1 # Join a rightful coalition by Ironforge's side.
+		add_mil_power = -50
+		event_target:th_historical_claim = {
+			add_permanent_claim = A28
+		}
+		event_target:th_historical_claim = {
+			owner = {
+				ROOT = {
+					form_coalition_against = PREV
+				}
+			}
+		}
+		event_target:th_historical_claim = {
+			owner = {
+				A28 = {
+					form_coalition_against = PREV
+					add_casus_belli = {
+						target = PREV
+						type = cb_super_badboy 
+						months = 12
+					}
+				}
+			}
+		}
+        log = "[Root.GetName] - twilight_highlands_territorial_war.opt1"
+	}
+	option = {
+        name = twilight_highlands_territorial_war.opt2 # Refuse.
+		A28 = {
+			add_opinion = {
+				who = ROOT
+				modifier = dishonorable_act
+			}
+		}
+        log = "[Root.GetName] - twilight_highlands_territorial_war.opt2"
+	}
+}
+
+country_event = {
+	id = dwarf.7
+	title = burning_steppes_territorial.title
+	desc = burning_steppes_territorial.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = no
+    
+	trigger = {
+		has_country_flag = unified_dwarf
+		tag = A30
+		any_province = {
+			region = region_burning_steppes
+			NOT = { owned_by = ROOT }
+		}
+	}
+	
+	immediate = {
+		random_province = {
+			limit = {
+				region = region_burning_steppes
+				NOT = { owned_by = ROOT }
+			}
+			save_global_event_target_as = bs_historical_claim # The province we will have a claim.
+		}
+		random_country = {
+			limit = {
+				has_country_flag = unified_dwarf
+				NOT = { tag = A29 }
+			}
+			save_global_event_target_as = bs_claim_helper # The country we will ask for help.
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 90
+	}
+	
+	option = {
+        name = burning_steppes_territorial.opt1 # Ask to back up claim.
+		custom_tooltip = burning_steppes_territorial_tt_claim
+		hidden_effect = {
+			event_target:bs_claim_helper = {
+				country_event = { id = dwarf.2 } #burning_steppes_territorial_claim
+			}
+		}
+	}
+	option = {
+        name = burning_steppes_territorial.opt2 # Ask to join war together.
+		custom_tooltip = burning_steppes_territorial_tt_war
+		hidden_effect = {
+			event_target:bs_claim_helper = {
+				country_event = { id = dwarf.3 } #burning_steppes_territorial_war
+			}
+		}
+	}
+	option = {
+        name = burning_steppes_territorial.opt3 # Try to forge a claim by yourself.
+		random_list = {
+			1 = {
+				event_target:bs_historical_claim = {
+					add_permanent_claim = ROOT
+				}
+			}
+			3 = {
+				event_target:bs_historical_claim = {
+					owner = {
+						add_opinion = {
+							who = ROOT
+							modifier = dishonorable_act
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+        name = burning_steppes_territorial.opt4 # Do not do anything for now.
+	}
+}
+country_event = {
+	id = dwarf.8
+	title = burning_steppes_territorial_claim.title
+	desc = burning_steppes_territorial_claim.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = yes
+    
+	trigger = {
+	}
+	
+	option = {
+        name = burning_steppes_territorial_claim.opt1 # Accept backing up the claim.
+		add_dip_power = -50
+		event_target:bs_historical_claim = {
+			add_permanent_claim = A30
+		}
+        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - burning_steppes_territorial_claim.opt1" }
+	}
+	option = {
+        name = burning_steppes_territorial_claim.opt2 # Refuse.
+		A30 = {
+			add_opinion = {
+				who = ROOT
+				modifier = dishonorable_act
+			}
+		}
+        log = "[Root.GetName] - burning_steppes_territorial_claim.opt1"
+	}
+}
+country_event = {
+	id = dwarf.9
+	title = burning_steppes_territorial_war.title
+	desc = burning_steppes_territorial_war.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = yes
+    
+	trigger = {
+	}
+	
+	option = {
+        name = burning_steppes_territorial_war.opt1 # Join a rightful coalition by Ironforge's side.
+		add_mil_power = -50
+		event_target:bs_historical_claim = {
+			add_permanent_claim = A30
+		}
+		event_target:bs_historical_claim = {
+			owner = {
+				ROOT = {
+					form_coalition_against = PREV
+				}
+			}
+		}
+		event_target:bs_historical_claim = {
+			owner = {
+				A30 = {
+					form_coalition_against = PREV
+					add_casus_belli = {
+						target = PREV
+						type = cb_super_badboy 
+						months = 12
+					}
+				}
+			}
+		}
+        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - burning_steppes_territorial_war.opt1" }
+	}
+	option = {
+        name = burning_steppes_territorial_war.opt2 # Refuse.
+		A30 = {
+			add_opinion = {
+				who = ROOT
+				modifier = dishonorable_act
+			}
+		}
+        log = "[Root.GetName] - burning_steppes_territorial_war.opt2"
+	}
+}
+
+country_event = {
+	id = dwarf.10
+	title = dwarf_treasurer.title
+	desc = dwarf_treasurer.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = no
+    
+	trigger = {
+		has_country_flag = unified_dwarf
+	}
+	
+	immediate = {
+	}
+	
+	mean_time_to_happen = {
+		months = 90
+	}
+	
+	option = {
+        name = dwarf_treasurer.opt1
+		define_advisor = {
+			type = treasurer
+			skill = 3
+			discount = yes
+		}
+	}
+	option = {
+        name = dwarf_treasurer.opt2
+		random_owned_province = {
+			add_base_tax = 2
+		}
+	}
+}
+
+country_event = {
+	id = dwarf.11
+	title = dwarf_war.title
+	desc = dwarf_war.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = no
+    
+	trigger = {
+		has_country_flag = unified_dwarf
+		is_at_war = yes
+	}
+	
+	immediate = {
+	}
+	
+	mean_time_to_happen = {
+		months = 90
+	}
+	
+	option = {
+        name = dwarf_treasurer.opt1
+		add_manpower = 5
+	}
+}

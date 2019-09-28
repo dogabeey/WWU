@@ -1,0 +1,31 @@
+# Allow the player to remove Wrath of Fate if they pick a country with it
+
+country_decisions = {
+    remove_wrath_of_fate = {
+        major = yes
+        
+        potential = {
+            has_country_modifier = wrath_of_fate
+            ai = no
+        }
+        
+		allow = {
+            stability = 3
+            adm_power = 250
+            dip_power = 250
+            mil_power = 250
+		}
+        
+		effect = {
+            add_stability = -6
+            add_adm_power = -250
+            add_dip_power = -250
+            add_mil_power = -250
+            remove_country_modifier = wrath_of_fate
+		}		
+        
+		ai_will_do = {
+			factor = 1
+		}
+    }
+}

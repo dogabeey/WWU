@@ -1,0 +1,160 @@
+namespace = mf_negative_personality
+
+#Bastard Child
+country_event = {
+
+	id = mf_negative_personality.1
+	title = mf_negative_personality.EVTNAME1
+	desc = mf_negative_personality.EVTDESC1
+	picture = NEW_HEIR_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		has_heir = no
+		has_consort = yes
+		consort_has_personality = unfaithful_personality
+		NOT = { has_ruler_flag = mf_unfaithful_personality_bastard_child }
+	}
+
+	immediate = {
+		set_ruler_flag = mf_unfaithful_personality_bastard_child
+	}
+	
+	mean_time_to_happen = {
+		months = 3600
+		modifier = {
+			factor = 0.5
+			ruler_has_personality = infertile_personality
+		}
+	}
+
+	option = {
+		name = "mf_negative_personality.EVTOPTA1" #Tis simply court gossip
+		add_prestige = -10
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			claim = 25
+		}
+	}
+
+	option = {
+		name = "mf_negative_personality.EVTOPTB1" #We cannot let a bastard rule
+		add_prestige = -10
+	}
+	
+	option = {
+		name = "mf_negative_personality.EVTOPTC1" #Allay their suspicions
+		highlight = yes
+		trigger = {
+			OR = {
+				ruler_has_personality = calm_personality
+				ruler_has_personality = silver_tongue_personality
+				ruler_has_personality = charismatic_negotiator_personality
+			}
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			claim = 60
+		}
+	}
+}
+
+#An Inferior Castle
+country_event = {
+
+	id = mf_negative_personality.2
+	title = mf_negative_personality.EVTNAME2
+	desc = mf_negative_personality.EVTDESC2
+	picture = GREAT_BUILDING_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		ruler_has_personality = inferiority_complex_personality
+		NOT = { num_of_loans = 1 }
+		years_of_income = 0.25
+		NOT = { has_ruler_flag = mf_inferiority_complex_better_castle }
+	}
+	
+	immediate = {
+		set_ruler_flag = mf_inferiority_complex_better_castle
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+	}
+
+	option = {
+		name = "mf_negative_personality.EVTOPTA2" #This cannot stand!
+		add_years_of_income = -1.00
+		add_prestige = 5
+	}
+
+	option = {
+		name = "mf_negative_personality.EVTOPTB2" #A few additions shouldn't hurt...
+		add_years_of_income = -0.25
+	}
+	
+	option = {
+		name = "mf_negative_personality.EVTOPTC2" #Trivial things must be ignored
+		trigger = {
+			ruler_has_personality = calm_personality
+		}
+	}
+}
+
+#A Lax Military
+country_event = {
+
+	id = mf_negative_personality.3
+	title = mf_negative_personality.EVTNAME3
+	desc = mf_negative_personality.EVTDESC3
+	picture = CONQUEST_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		ruler_has_personality = easygoing_personality
+		NOT = { has_ruler_flag = mf_easygoing_lax_military }
+	}
+	
+	immediate = {
+		set_ruler_flag = mf_easygoing_lax_military
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+	}
+
+	option = {
+		name = "mf_negative_personality.EVTOPTA3" #Something must be done
+		add_mil_power = -150
+	}
+
+	option = {
+		name = "mf_negative_personality.EVTOPTB3" #It can't be helped
+		add_country_modifier = {
+			name = "mfp_lax_troops"
+			duration = 3650
+		}
+	}
+	
+	option = {
+		name = "mf_negative_personality.EVTOPTC3" #A perfect opportunity!
+		highlight = yes
+		trigger = {
+			OR = {
+				ruler_has_personality = bold_fighter_personality
+				ruler_has_personality = inspiring_leader_personality
+				ruler_has_personality = martial_educator_personality
+				ruler_has_personality = bishamonten_personality
+				ruler_has_personality = conqueror_personality
+			}
+		}
+		add_mil_power = -150
+		add_country_modifier = {
+			name = "mfp_disciplined_troops"
+			duration = 3650
+		}
+	}
+}

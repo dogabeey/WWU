@@ -1,0 +1,48 @@
+country_decisions = {
+	get_out_of_hiding = {
+	
+        potential = {
+			culture_group = culture_group_titan
+			NOT = { has_country_flag = revealed_to_world }
+        }
+        
+		allow = {
+			adm_tech = 5
+		}
+		
+		ai_importance = 200
+        
+		effect = {
+			set_country_flag = revealed_to_world
+			add_dip_power = -250
+			add_prestige = 5
+		}
+        
+		ai_will_do = {
+			factor = 0.5
+		}
+	}
+
+	go_into_hiding = {
+	
+        potential = {
+			culture_group = culture_group_titan
+			has_country_flag = revealed_to_world
+        }
+        
+		allow = {
+			adm_tech = 5
+		}
+        
+		effect = {
+			clr_country_flag = revealed_to_world
+			add_adm_power = -250
+			add_prestige = 5
+		}
+        
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}

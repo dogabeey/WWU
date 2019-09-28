@@ -1,0 +1,201 @@
+# Do not change tags in here without changing every other reference to them.
+# If adding new dieties, make sure they are uniquely named.
+
+#---------------------------------------------
+# Water
+#---------------------------------------------
+diety_neptulon = { 
+	siege_ability = 0.10
+	production_efficiency = 0.10
+	
+	allow = { religion = religion_water }
+	sprite = 4
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			primary_culture = culture_water
+		}	
+		modifier = {
+			factor = 2
+			OR = {
+                primary_culture = culture_kvaldir
+                primary_culture = culture_skadir
+			}
+		}		
+	}	
+}
+
+diety_hydromancy = { 
+	defensiveness = 0.10
+	trade_efficiency = 0.10
+	
+	allow = { religion = religion_water }
+	sprite = 8
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			OR = {
+                culture_group = culture_group_lobstrok
+                primary_culture = culture_gilblin
+			}
+		}			
+	}	
+}
+
+diety_deepmother = { 
+	defensiveness = 0.10
+	trade_efficiency = 0.10
+	
+	allow = { 
+        religion = religion_water
+        culture_group = culture_group_murloc
+    }
+	sprite = 9
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			primary_culture = culture_nerglish
+		}	
+	}	
+}
+
+#---------------------------------------------
+# Fire
+#---------------------------------------------
+diety_ragnaros = { 
+	siege_ability = 0.10
+	production_efficiency = 0.10
+	
+	allow = { religion = religion_fire }
+	sprite = 1
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			primary_culture = culture_fire
+		}	
+		modifier = {
+			factor = 2
+			primary_culture = culture_dark_iron
+		}		
+	}	
+}
+
+diety_ordos = { 
+	siege_ability = 0.10
+	production_efficiency = 0.10
+	
+	allow = { 
+        religion = religion_fire
+        culture_group = culture_group_yaungol
+    }
+	sprite = 5
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			culture_group = culture_group_yaungol
+		}	
+	}	
+}
+
+#---------------------------------------------
+# Earth
+#---------------------------------------------
+diety_therazane = { 
+	siege_ability = 0.10
+	production_efficiency = 0.10
+	
+	allow = { religion = religion_earth }
+	sprite = 2
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			primary_culture = culture_earth
+		}	
+		modifier = {
+			factor = 2
+			culture_group = culture_group_centaur
+		}		
+	}	
+}
+
+diety_gurok = { 
+	siege_ability = 0.10
+	production_efficiency = 0.10
+	
+	allow = { 
+        religion = religion_earth 
+        capital_scope = {
+            superregion = outland_superregion 
+        }
+	}
+	sprite = 6
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			capital_scope = {
+                superregion = outland_superregion
+            }
+		}	
+		modifier = {
+			factor = 2
+			culture_group = culture_group_ogre
+		}		
+	}	
+}
+
+#---------------------------------------------
+# Air
+#---------------------------------------------
+diety_al_akir = { 
+	siege_ability = 0.10
+	production_efficiency = 0.10
+	
+	allow = { religion = religion_air }
+	sprite = 3
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			primary_culture = culture_air
+		}	
+		modifier = {
+			factor = 2
+			culture_group = culture_group_tol_vir
+		}		
+	}	
+}
+
+diety_storm_magic = { 
+	siege_ability = 0.10
+	production_efficiency = 0.10
+	
+	allow = { 
+	      religion = religion_air 
+	}
+	sprite = 7
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			culture_group = culture_group_harpy
+		}			
+	}	
+}
+
+
