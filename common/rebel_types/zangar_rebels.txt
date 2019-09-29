@@ -166,12 +166,40 @@ zangar_rebels = {
 		NOT = { is_capital = yes }
  	}
 	siege_won_effect = {
-    add_local_autonomy = 20
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = religion_zangar
+						is_reformation_center = yes
+						owner = { religion = religion_zangar }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
+			}
+			if = {
+				limit = {
+					NOT = { religion = religion_zangar }
+					is_reformation_center = no
+					NOT = { owner = { religion = religion_zangar } }
+				}
+				change_religion = religion_zangar
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
+			}
+		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = religion_group_nature
+		
+		dominant_religion = religion_zangar
 	}
 	
 	# Country scope
@@ -186,33 +214,23 @@ zangar_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion = religion_zangar }
+				
 			}
-			add_prestige = -20
-      if = {
-        limit = { exists = REB }
-        every_owned_province = {
-          limit = { religion = religion_zangar }
-          if = {
-            limit = { NOT = { is_core = REB } }
-            add_core = REB
-          }
-          cede_province = REB
-        }
-      }
-      if = {
-        limit = { NOT = { exists = REB } }
-        every_owned_province = {
-          limit = {
-            religion = religion_zangar
-            NOT = { is_core = REB }
-          }
-          add_core = REB
-        }
-        create_vassal = REB
-      }
+			add_prestige = -50
+			every_owned_province = {
+				limit = {
+					has_rebel_faction = REB
+				}
+				add_local_autonomy = 20
+			}
 		}
 		if = {
+			limit = {
+				tag = PAP
+			}
+			add_stability = -1
+		}
+		else_if = {
 			limit = {
 				religion = religion_zangar
 			}
@@ -221,6 +239,28 @@ zangar_rebels = {
 				duration = 3650
 			}
 		}
+		
+		else_if = {
+			limit = {
+				NOT = { religion = religion_zangar }
+				dominant_religion = religion_zangar
+			}
+			change_religion = religion_zangar
+			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = religion_zangar }
+				NOT = { dominant_religion = religion_zangar }
+				
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
 		if = {
 			limit = {
 				religion = religion_zangar
