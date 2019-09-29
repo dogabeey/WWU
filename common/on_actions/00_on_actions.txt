@@ -2,10 +2,28 @@
 
 # country
 on_startup = {
-	dismantle_hre = yes
 
     if = { limit = { NOT = { has_country_flag = on_action_setup_flag } }
 	
+	# Religious and Cultural Unity for ALL NATIONS on start
+	# * * * TODO: THIS IS A TEMPORARY SOLUTION. DELETE THOSE LINES AFTER FIXING THEM IN HISTORY. * * *
+	# This will override history files
+	every_owned_province = {
+		limit = {
+			NOT = { religion = ROOT }
+		}
+		change_religion = ROOT
+	}
+	every_owned_province = {
+		limit = {
+			NOT = { primary_culture = ROOT }
+		}
+		change_culture = ROOT
+	}
+	
+	
+	# Misc
+	dismantle_hre = yes
 	set_faction_conflict = yes
 	
 	country_event = { id = setup.1 days = 1 }

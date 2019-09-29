@@ -4115,56 +4115,6 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Vatican infiltration							#
-#########################################################
-country_event = {
-	id = 6004
-	title = "EVTNAME6004"
-	desc = "EVTDESC6004"
-	picture = POPE_PREACHING_eventPicture
-
-	#is_triggered_only = yes
-
-	trigger = {
-		NOT = { has_reform = papacy_reform }
-	}
-
-	mean_time_to_happen = {
-		months = 1000
-		
-		modifier = {
-			factor = 2.0
-			has_idea_group = puppeteer_ideas
-		}
-		modifier = {
-			factor = 2.0
-			luck = yes
-		}
-		modifier = {
-			factor = 0.66
-			prestige = 2
-		}
-	}
-
-	option = {
-		name = "EVTOPTA6004"		# Instruct him to go forward
-		ai_chance = { factor = 30 }
-		add_papal_influence = 5
-	}
-	option = {
-		name = "EVTOPTB6004"		# Let the matter drop
-		ai_chance = { factor = 70 }
-		add_prestige = 5
-	}
-	option = {
-		name = "personality_options.6004.a"		# Our [Root.Monarch.GetTitle] will know how to get the most for our money.
-		highlight = yes
-		trigger = { ruler_has_personality = intricate_web_weaver_personality }
-		required_personality = intricate_web_weaver_personality
-		add_papal_influence = 10
-	}
-}
 
 #########################################################
 #		Exceptional Court Painter						#
