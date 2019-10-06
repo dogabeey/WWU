@@ -5,24 +5,24 @@
 # ROOT = country
 can_join_hre_league = {
 	condition = {
-		tooltip = WOW_CANNOT_JOIN_DIRECTLY
+		tooltip = "WOW_DRAGONKIN_ONLY"
 		potential = {
 		}
 		allow = {
-			always = no
+			culture_group = culture_group_dragonkin
+		}
+	}
+	condition = {
+		tooltip = "CANNOT_JOIN_LEAGUE_AT_WAR"
+		potential = {
+		}
+		allow = {
+			is_at_war = no
 		}
 	}
 }
 
 can_leave_hre_league = {
-	condition = {
-		tooltip = WOW_CANNOT_JOIN_DIRECTLY
-		potential = {
-		}
-		allow = {
-			always = no
-		}
-	}
 }
 
 can_harsh_treatment = {
@@ -43,7 +43,7 @@ can_release_colonial_nation = {
 		potential = {
 		}
 		allow = {
-			is_at_war = no
+			culture_group = culture_group_dragonkin
 		}
 	}
 }
@@ -60,7 +60,7 @@ can_increase_stability = {
 # ROOT = province, FROM = country
 can_add_province_to_hre = {
 	condition = {
-		tooltip = "CAN_RELEASE_CN_WE_ARE_AT_WAR"
+		tooltip = "WOW_DRAGONKIN_ONLY_PROVINCE"
 		potential = {
 		}
 		allow = {
@@ -154,11 +154,11 @@ can_expel_minority_from = {
 # Called by can_add_province_to_hre
 is_possible_hre_province = {
 	condition = {
-		tooltip = "APH_ONLY_EUROPE"
+		tooltip = "WOW_DRAGONKIN_ONLY"
 		potential = {
 		}
 		allow = {
-			always = yes
+			culture_group = culture_group_dragonkin
 		}
 	}
 }
