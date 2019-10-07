@@ -12,8 +12,26 @@ country_decisions = {
 		
 		allow = {
 			is_subject = no
-			total_development = 100
-			legitimacy_equivalent = 50
+			total_development = 150
+			OR = {
+				AND = {
+					historical_alliance_head = yes
+				}
+				AND = {
+					all_country = { 
+						historical_alliance_head = yes
+						NOT = { total_development = 150 }
+					}
+					historical_alliance = yes
+				}
+				AND = {
+					all_country = { 
+						historical_alliance = yes
+						NOT = { total_development = 150 }
+					}
+					culture_group = culture_group_human
+				}
+			}
 		}
 		
 		effect = {
@@ -38,8 +56,7 @@ country_decisions = {
 		
 		allow = {
 			is_subject = no
-			total_development = 100
-			legitimacy_equivalent = 50
+			total_development = 150
 		}
 		
 		effect = {
