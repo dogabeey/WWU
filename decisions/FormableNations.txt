@@ -427,60 +427,63 @@ country_decisions = {
 		}
 	}
 	
-	form_darnassian_empire = {
+	form_darnassus = {
 		major = yes
 		potential = {
-			always = no
-			NOT = { exists = U04 }
+			NOT = { exists = A94 }
 			culture_group = culture_group_darnassian
 		}
 		allow = {
 			is_at_war = no		
-			region_teldrassil = {
-				owned_by = ROOT
-			}
 			calc_true_if = {
-				all_ally = { 
-					culture_group = culture_group_darnassian
-					has_opinion = {
-						who = ROOT
-						value = 190
-					}
-					is_subject = no
-					ai = yes
+				all_country = {
+					region = region_teldrassil
+					owned_by = ROOT
 				}
-				amount = 2
+				amount = 8
+			}
+			dip_power = 200
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = A94
+			add_dip_power = -200
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		
+		ai_importance = 400
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	form_empire_of_arathor = {
+		major = yes
+		potential = {
+			NOT = { exists = FNA }
+			culture_group = culture_group_human
+		}
+		allow = {
+			total_development = 350
+			legitimacy = 100
+			prestige = 50
+			all_country = {
+				culture_group = culture_group_human
+				NOT = { total_development = ROOT }
 			}
 			dip_power = 400
 		}
 		effect = {
 			add_prestige = 25
-			change_tag = U04
+			change_tag = FNA
 			add_dip_power = -400
-			every_ally = {
-				limit = { 
-					culture_group = culture_group_darnassian
-					has_opinion = {
-						who = ROOT
-						value = 190
-					}
-					is_subject = no
-					ai = yes
-				}
-				ROOT = {
-					inherit = PREV
-				}
-			}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
-			}
-
-			if = {
-				limit = {
-					NOT = { government_rank = 10 }
-				}
-				set_government_rank = 10
 			}
 		}
 		

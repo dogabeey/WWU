@@ -110,18 +110,17 @@ province_event = {
 	mean_time_to_happen = { months = 1 }
     
 	trigger = {
-		NOT = { all_province = {
-			limit = { 
+		NOT = { 
+			all_province = {
 				NOT = { 
 					province_distance = {
 						who = ROOT
 						distance = 50
 					} 
 				}
-			}
-			
-			has_discovered = ROOT
-		} }
+				has_discovered = ROOT
+			} 
+		}
 	}
 	
 	immediate = {

@@ -19,7 +19,7 @@ rogue = {
 	OR = {
 		culture_group = culture_group_human
 		culture_group = culture_group_orc
-		culture_group = culture_group_troll
+		culture_group = culture_group_jungle_troll
 		culture_group = culture_group_gnomish
 		culture_group = culture_group_undead
 		culture_group = culture_group_darnassian
@@ -42,7 +42,7 @@ priest = {
 	religion_group = religion_group_the_light
 	OR = {
 		culture_group = culture_group_human
-		culture_group = culture_group_troll
+		culture_group = culture_group_jungle_troll
 		culture_group = culture_group_dwarven
 		culture_group = culture_group_undead
 		culture_group = culture_group_darnassian
@@ -90,7 +90,7 @@ warlock = {
 druid = {
 	religion = religion_druidic
 	OR = {
-		culture_group = culture_group_troll
+		culture_group = culture_group_jungle_troll
 		culture_group = culture_group_darnassian
 		culture_group = culture_group_tauren
 		culture_group = culture_group_worgen
@@ -101,7 +101,7 @@ shaman = {
 	religion = religion_ancestral
 	OR = {
 		culture_group = culture_group_orc
-		culture_group = culture_group_troll
+		culture_group = culture_group_jungle_troll
 		culture_group = culture_group_undead
 		culture_group = culture_group_tauren
 		culture_group = culture_group_draenei
@@ -119,5 +119,33 @@ ruler_has_class = {
 		ruler_has_personality = shaman_personality
 		ruler_has_personality = hunter_personality
 		ruler_has_personality = druid_personality
+	}
+}
+
+heir_has_class = {
+	OR = {
+		heir_has_personality = warrior_personality
+		heir_has_personality = paladin_personality
+		heir_has_personality = rogue_personality
+		heir_has_personality = mage_personality
+		heir_has_personality = warlock_personality
+		heir_has_personality = priest_personality
+		heir_has_personality = shaman_personality
+		heir_has_personality = hunter_personality
+		heir_has_personality = druid_personality
+	}
+}
+
+consort_has_class = {
+	OR = {
+		consort_has_personality = warrior_personality
+		consort_has_personality = paladin_personality
+		consort_has_personality = rogue_personality
+		consort_has_personality = mage_personality
+		consort_has_personality = warlock_personality
+		consort_has_personality = priest_personality
+		consort_has_personality = shaman_personality
+		consort_has_personality = hunter_personality
+		consort_has_personality = druid_personality
 	}
 }
