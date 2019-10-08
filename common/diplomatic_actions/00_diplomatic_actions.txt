@@ -245,12 +245,41 @@ declarewar = {
 }
 allianceaction = {
 	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
+        tooltip = DIP_INCOMP_ORG
 		
 		potential = {
 			OR = {
 				is_organization = yes
 				FROM = { is_organization = yes }
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+	condition = {
+        tooltip = DIP_INCOMP_DRAGONKIN
+		
+		potential = {
+			OR = {
+				AND = {
+					culture_group = culture_group_dragonkin
+					FROM = { 
+						OR = {
+							NOT = { culture_group = culture_group_dragonkin }
+							NOT = { is_ancient = yes }
+						}
+					}
+				}
+				AND = {
+					OR = {
+						NOT = { culture_group = culture_group_dragonkin }
+						NOT = { is_ancient = yes }
+					}
+					FROM = { 
+						culture_group = culture_group_dragonkin
+					}
+				}
 			}
 		}
         allow = {

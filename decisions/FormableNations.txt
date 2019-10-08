@@ -466,18 +466,34 @@ country_decisions = {
 		potential = {
 			NOT = { exists = FNA }
 			culture_group = culture_group_human
-			normal_or_historical_nations = yes
 		}
 		allow = {
-			total_development = 350
+			total_development = 500
 			legitimacy = 85
 			prestige = 85
-			dip_power = 400
+			num_of_diplomats = 3
+			dip = 5
+			dip_power = 500
+			custom_trigger_tooltip = {
+				tooltip = form_empire_of_arathor_tt
+				all_country = {
+					exists = yes
+					culture_group = culture_group_human
+					capital_scope = {
+						continent = continent_eastern_kingdoms
+					}
+					has_opinion = 
+						who = ROOT
+						value = 100
+					}
+				}
+			}
+			
 		}
 		effect = {
 			add_prestige = 25
 			change_tag = FNA
-			add_dip_power = -400
+			add_dip_power = -500
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
