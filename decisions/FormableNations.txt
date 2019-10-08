@@ -490,4 +490,76 @@ country_decisions = {
 			factor = 1
 		}
 	}
+	form_gurubashi_empire = {
+		potential = {
+			culture_group = culture_group_jungle_troll
+			NOT = { exists = FNG }
+		}
+		trigger = {
+			OR = {
+				all_province = {
+					region = region_stranglethorn_vale
+					owned_by = ROOT
+				}
+				all_province = {
+					region = region_swamp_of_sorrows
+					owned_by = ROOT
+				}
+				
+			}
+			is_subject = no
+			is_at_war = no
+			prestige = 0
+		}
+		effect = {
+			change_tag = FNG # Gurubashi Empire
+			change_government = monarchy
+			add_prestige = 35
+		}
+	}
+	summon_hakkar = {
+		potential = {
+			culture_group = culture_group_jungle_troll
+			NOT = {
+				any_country = {
+					has_country_modifier = blood_of_hakkari
+				}
+			}
+		}
+		trigger = {
+			has_idea_group = supremacist_ideas
+			mil_power = 250
+			years_of_income = 4 
+			calc_if_true = {
+				all_owned_provinces = {
+					religion = religion_hakkari
+				}
+				amount = 3
+			}
+			OR = {
+				owns = 783
+				owns = 949
+				owns = 1045
+			}
+		}
+		effect = {
+			change_religion = religion_hakkari
+			add_years_of_income = -4
+			add_mil_power = -250
+			every_owned_province = {
+				limit = {
+					religion = ROOT
+				}
+				change_religion = religion_hakkari
+				add_province_modifier = {
+					name = religious_zeal
+					duration = 3650
+				}
+			}
+			add_country_modifier = {
+				name = blood_of_hakkar
+				duration = 3650
+			}
+		}
+	}
 }
