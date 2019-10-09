@@ -618,3 +618,21 @@ potential_refuge = { # Determines which country allows your country's refugees w
 		}
 	}
 }
+
+owns_or_vassal_or_ally_of = {
+	OR = {
+		$country$ = {
+			owns = $province$
+		}
+		$country$ = {
+			any_subject_country = {
+				owns = $province$
+			}
+		}
+		$country$ = {
+			any_ally = {
+				owns = $province$
+			}
+		}
+	}
+}
