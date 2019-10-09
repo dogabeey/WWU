@@ -43,7 +43,7 @@ country_decisions = {
 		}
 		allow = {
 			owns_core_province = 1377
-			is_subject = no
+			NOT = { is_non_faction_subject = yes }
 			is_at_war = no
 			NOT = { exists = A48 }
 		}
@@ -105,7 +105,7 @@ country_decisions = {
 		}
 		allow = {
 			owns_core_province = 1473
-			is_subject = no
+			NOT = { is_non_faction_subject = yes }
 			is_at_war = no
 			NOT = { exists = F88 }
 		}
@@ -482,7 +482,7 @@ country_decisions = {
 					capital_scope = {
 						continent = continent_eastern_kingdoms
 					}
-					has_opinion = 
+					has_opinion = {
 						who = ROOT
 						value = 100
 					}
@@ -513,17 +513,11 @@ country_decisions = {
 		}
 		trigger = {
 			OR = {
-				all_province = {
-					region = region_stranglethorn_vale
+				region_stranglethorn_vale = {
 					owned_by = ROOT
-				}
-				all_province = {
-					region = region_swamp_of_sorrows
-					owned_by = ROOT
-				}
-				
+				}				
 			}
-			is_subject = no
+			NOT = { is_non_faction_subject = yes }
 			is_at_war = no
 			prestige = 0
 		}
@@ -538,7 +532,7 @@ country_decisions = {
 			culture_group = culture_group_jungle_troll
 			NOT = {
 				any_country = {
-					has_country_modifier = blood_of_hakkari
+					has_country_modifier = blood_of_hakkar
 				}
 			}
 		}
@@ -576,6 +570,9 @@ country_decisions = {
 				name = blood_of_hakkar
 				duration = 3650
 			}
+		}
+		ai_will_do = {
+			factor = 0
 		}
 	}
 }
