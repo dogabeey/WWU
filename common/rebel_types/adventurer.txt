@@ -1,8 +1,8 @@
 
 ######################################################################
-# Cossack rebels.
+# Adventurer rebels.
 ######################################################################
-worker_rebels = {
+adventurer_rebels = {
 	
 	color = { 190 55 55 }
 	
@@ -20,10 +20,10 @@ worker_rebels = {
 	unit_transfer = no				# Units do not remain after enforcing demands.
 	
 	artillery = 0.0
-	infantry = 0.4
-	cavalry = 0.6
+	infantry = 0.7
+	cavalry = 0.3
 	
-	morale = 0.95
+	morale = 0.75
 	
 	# Possible handle actions
 	handle_action_negotiate = yes
@@ -31,32 +31,14 @@ worker_rebels = {
 	
 	# The rebel type with the highest modifier for this province gets picked
 	spawn_chance = {
-		factor = 14		
-		modifier = {
-			factor = 0.2
-			is_core = owner
-		}
-		modifier = {
-			factor = 0.2
-			is_overseas = yes # Prefer other types overseas
-		}
-		modifier = {
-			factor = 0.5
-			owner = {
-				primary_culture = ROOT
-			}
-		}
-		modifier = {
-			factor = 0.8
-			religion = owner
-		}
+		factor = 15
 		modifier = {
 			factor = 0
-			NOT = { owner = { has_estate = estate_workers } }		
+			NOT = { owner = { has_country_modifier = is_evil } }		
 		}
 		modifier = {
-			factor = 15.0
-			has_estate = estate_workers
+			factor = 1.25
+			is_capital = yes		
 		}
 	}
  
@@ -74,11 +56,7 @@ worker_rebels = {
 		modifier = {
 			factor = 2.0
 			is_capital = yes
-		}
-		modifier = {
-			factor = 5.0
-			has_terrain = steppe
-		}		
+		}	
 		modifier = {
 			factor = 1.5
 			unrest = 2
@@ -104,7 +82,7 @@ worker_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		always = yes
+		always = no
 	}
 	
 	# Country scope
@@ -113,13 +91,30 @@ worker_rebels = {
 	}
 
 	# Localisation for their demands
-	demands_description = "worker_rebels_demand"
+	demands_description = "adventurer_rebels_demand"
 	
 	# Country scope
 	demands_enforced_effect = {
-		create_independent_estate = {
-			estate = estate_workers
-			play_as = no
+		if = {
+			limit = {
+				corruption = 15
+			}
+			exile_ruler_as = ruler_exiled_by_adventurers
+			set_country_flag = ruler_exiled_by_adventurers_flag
+		}
+		if = {
+			limit = {
+				overextension_percentage = 2
+			}
+			collapse_nation = yes
+		}
+		if = {
+			limit = {
+				religion = religion_old_gods
+			}
+			change_religion = religion_church_of_the_light
+			exile_ruler_as = ruler_exiled_by_adventurers
+			set_country_flag = ruler_exiled_by_adventurers_flag
 		}
 	}
 }

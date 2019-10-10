@@ -1,0 +1,27 @@
+namespace = wwu_random_monarch
+
+
+country_event = {
+	id = wwu_random_monarch.1
+	title = boar_hunting.title
+	desc = boar_hunting.desc
+	picture = ECONOMY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		government = monarchy
+	}
+
+	option = {
+		name = boar_hunting	.opt1	# Put into the treasury
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0
+				NOT = { num_of_cities = 5 }
+			}
+		}
+		add_years_of_income = 0.2
+	}
+}
