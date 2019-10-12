@@ -31,7 +31,7 @@ adventurer_rebels = {
 	
 	# The rebel type with the highest modifier for this province gets picked
 	spawn_chance = {
-		factor = 15
+		factor = 14
 		modifier = {
 			factor = 0
 			NOT = { owner = { has_country_modifier = is_evil } }		
@@ -99,13 +99,15 @@ adventurer_rebels = {
 			limit = {
 				corruption = 15
 			}
-			exile_ruler_as = ruler_exiled_by_adventurers
-			set_country_flag = ruler_exiled_by_adventurers_flag
 			while = {
 				limit = {
 					NOT = { corruption = 10 }
 				}
-				
+				random_owned_province = {
+					add_base_tax = -1
+					add_base_production = -1
+					add_base_manpower = -1
+				}
 				add_corruption = -1
 			}
 		}
@@ -117,11 +119,28 @@ adventurer_rebels = {
 		}
 		if = {
 			limit = {
-				religion = religion_old_gods
+				has_reform = criminal_organization_reform
 			}
-			change_religion = religion_church_of_the_light
 			exile_ruler_as = ruler_exiled_by_adventurers
 			set_country_flag = ruler_exiled_by_adventurers_flag
+			
+		}
+		if = {
+			limit = {
+				has_country_modifier = summoned_oldgod
+			}
+			remove_country_modifier = summoned_oldgod
+			add_stability = -1
+		}
+		if = {
+			limit = {
+				has_country_modifier = lich_kings_crown
+			}
+			remove_country_modifier = lich_kings_crown
+			1268 = {
+				cede_province = '---'
+			}
+			add_stability = -1
 		}
 	}
 }
