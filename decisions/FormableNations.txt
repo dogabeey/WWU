@@ -435,12 +435,8 @@ country_decisions = {
 		}
 		allow = {
 			is_at_war = no		
-			calc_true_if = {
-				all_country = {
-					region = region_teldrassil
-					owned_by = ROOT
-				}
-				amount = 8
+			region_teldrassil = {
+				owned_by = ROOT
 			}
 			dip_power = 200
 		}
@@ -511,7 +507,7 @@ country_decisions = {
 			culture_group = culture_group_jungle_troll
 			NOT = { exists = FNG }
 		}
-		trigger = {
+		allow = {
 			region_stranglethorn_vale = {
 				owned_by = ROOT
 			}	
@@ -540,7 +536,7 @@ country_decisions = {
 				}
 			}
 		}
-		trigger = {
+		allow = {
 			has_idea_group = supremacist_ideas
 			mil_power = 250
 			years_of_income = 4 

@@ -73,70 +73,11 @@ estate_church =
 	# Influence modifiers
 	base_influence = 20
 	influence_modifier = {
-		desc = EST_VAL_THEOCRACY
-		trigger = {
-			government = theocracy
-			NOT = { tag = RED }
-		}	
-		influence = 10
-	}
-	influence_modifier = {
-		desc = EST_VAL_PAPACY
-		trigger = {
-			tag = RED
-		}
-		influence = 30
-	}
-	influence_modifier = {
-		desc = EST_VAL_SHARIFS
-		trigger = {
-			tag = ALE
-			owns = 1206
-		}	
-		influence = 20
-	}
-	influence_modifier = {
 		desc = EST_VAL_STATE_RELIGIOUS_MINORITY
 		trigger = {
 			NOT = { dominant_religion = ROOT }
 		}	
 		influence = -15
-	}
-	influence_modifier = {
-		desc = EST_VAL_VERY_HIGH_PATRIARCH_AUTHORITY
-		trigger = {
-			religion = religion_sect_of_dragons
-			patriarch_authority = 0.75
-		}	
-		influence = 10
-	}
-	influence_modifier = {
-		desc = EST_VAL_HIGH_PATRIARCH_AUTHORITY
-		trigger = {
-			religion = dragon_cult
-			patriarch_authority = 0.5
-			NOT = { patriarch_authority = 0.75 }
-		}	
-		influence = 5
-	}
-	influence_modifier = {
-		desc = EST_VAL_VERY_HIGH_INTI_AUTHORITY
-		trigger = {
-			has_dlc = "El Dorado"
-			religion = kamal_pantheon
-			authority = 75
-		}	
-		influence = 15
-	}
-	influence_modifier = {
-		desc = EST_VAL_HIGH_INTI_AUTHORITY
-		trigger = {
-			has_dlc = "El Dorado"
-			religion = kamal_pantheon
-			authority = 50
-			NOT = { authority = 75 }
-		}	
-		influence = 10
 	}
 	influence_modifier = {
 		desc = EST_VAL_OTHER_ESTATE_IN_POWER
@@ -157,47 +98,6 @@ estate_church =
 	}
 	
 	# Loyalty modifiers
-	loyalty_modifier = {
-		desc = EST_VAL_PIOUS
-		trigger = {
-			religion = old_gods_cult
-			piety = 0.5
-			NOT = { piety = 0.75 }
-		}
-		loyalty = 5
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_VERY_PIOUS
-		trigger = {
-			religion = old_gods_cult
-			piety = 0.75
-		}
-		loyalty = 10
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_NOT_PIOUS
-		trigger = {
-			religion = old_gods_cult
-			NOT = { piety = -0.5 }
-			piety = -0.75
-		}
-		loyalty = -5
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_VERY_UNPIOUS
-		trigger = {
-			religion = old_gods_cult
-			NOT = { piety = -0.75 }
-		}
-		loyalty = -10
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_PROTESTANT
-		trigger = {
-			religion_group = daedric_group_1
-		}
-		loyalty = 10
-	}
 	loyalty_modifier = {
 		desc = EST_VAL_PAPAL_CONTROLLER
 		trigger = {
@@ -406,13 +306,13 @@ estate_church =
 			add_devotion = -3
 			add_piety = 0.05
 			if = {
-				limit = { religion_group = daedric_group_1 }
+				limit = { religion = religion_shadow }
 				add_church_power = 10
 			}
 			add_patriarch_authority = 0.05
 			if = {
-				limit = { religion = marukhism }
-				add_fervor = 10
+				limit = { religion = religion_druidic }
+				add_piety = 0.1
 			}
 			add_estate_influence_modifier = {
 				estate = estate_church
@@ -1013,39 +913,5 @@ estate_church =
 		ai_will_do = {
 			factor = 0			
 		}
-	}
-	interaction = {
-		name = "SEND_EMISSARY_TO_POPE"
-		icon = 14
-		
-		years_between_use = 20
-		
-		potential = {
-			religion = chimer_pantheon
-			NOT = { tag = RED }
-			NOT = { has_disaster = estate_nobility_disaster }
-			NOT = { has_disaster = estate_burghers_disaster }
-		}
-		
-		trigger = {
-			estate_influence = {
-				estate = estate_church
-				influence = 40
-			}
-		}
-		
-		effect = {
-			add_papal_influence = 10
-			add_estate_influence_modifier = {
-				estate = estate_church
-				desc = EST_VAL_EMISSARY_TO_POPE
-				influence = 10
-				duration = 7300
-			}
-		}
-	
-		ai_will_do = {
-			factor = 0			
-		}	
 	}
 }
