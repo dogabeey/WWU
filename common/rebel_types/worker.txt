@@ -2,12 +2,12 @@
 ######################################################################
 # Cossack rebels.
 ######################################################################
-cossack_rebels = {
+worker_rebels = {
 	
 	color = { 190 55 55 }
 	
 	area = nation 					# Stays within the nation
-	government = republic		# Don't care about gov type				
+	government = any		# Don't care about gov type				
 	defection = none				# Will not defect
 	independence = none				# Does not strive for independence
 	gfx_type = culture_province
@@ -52,15 +52,11 @@ cossack_rebels = {
 		}
 		modifier = {
 			factor = 0
-			NOT = { owner = { has_estate = estate_cossacks } }		
-		}	
-		modifier = {
-			factor = 0
-			NOT = { has_terrain = steppe }
+			NOT = { owner = { has_estate = estate_workers } }		
 		}
 		modifier = {
 			factor = 15.0
-			has_estate = estate_cossacks
+			has_estate = estate_workers
 		}
 	}
  
@@ -117,12 +113,12 @@ cossack_rebels = {
 	}
 
 	# Localisation for their demands
-	demands_description = "cossack_rebels_demand"
+	demands_description = "worker_rebels_demand"
 	
 	# Country scope
 	demands_enforced_effect = {
 		create_independent_estate = {
-			estate = estate_cossacks
+			estate = estate_workers
 			play_as = no
 		}
 	}

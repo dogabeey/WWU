@@ -63,4 +63,68 @@ country_decisions = {
 			factor = 0
 		}
 	}
+	construct_deeprun_tram = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				AND = {
+					treasury = 5000
+					owns_or_vassal_of = 2505
+				}
+			}
+			has_discovered = 2505
+			2505 = {
+				NOT = { has_great_project = deeprun_tram }
+				NOT = { has_construction = canal }
+			}
+			the_second_war_or_later = yes
+		}
+		allow = {
+			owns_or_vassal_or_ally_of = {
+				country = ROOT
+				province = 2505
+			}
+			adm_tech = 4
+			dip_tech = 4
+			treasury = 5000
+            2505 = { NOT = { has_province_flag = has_tram_construction } }
+		}
+		effect = {
+			add_treasury = -5000
+			2505 = {	# Deperun Tram
+				add_great_project = deeprun_tram
+			}
+            2505 = {
+                set_province_flag = has_tram_construction
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	cancel_deeprun_tram = {
+		major = yes
+		potential = {
+			ai = no
+			2505 = {
+				has_construction = canal
+			}
+		}
+		allow = {
+			2505 = {
+				has_construction = canal
+			}
+		}
+		effect = {
+			2505 = {	# Shrine of Ula-tek
+				cancel_construction = yes
+                clr_province_flag = has_tram_construction
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
 }

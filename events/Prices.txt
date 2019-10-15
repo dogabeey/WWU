@@ -2077,9 +2077,9 @@ country_event = {
 
 	trigger = {
 		has_country_flag = trade_control_flag
-		all_country = {
-			NOT = { has_country_modifier = crisis_time }
-		}
+		NOT = { any_country = {
+			has_country_modifier = crisis_time
+		} }
 	}
 	
 	mean_time_to_happen = {
@@ -2093,6 +2093,7 @@ country_event = {
 		duration = 36500
 		hidden = yes
 	}
+	if = { limit = { has_global_flag = enable_event_logging } log = "Global price increase happened" }
 	}
     }
 	
@@ -2101,164 +2102,167 @@ country_event = {
 		
 		hidden_effect = {
 		
+		every_country = {
+			country_event = { id = es_trade.5 }
+		}
 		change_price = {
 			trade_goods = grain
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = wine
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = wool
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = cloth
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = fish
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = fur
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = salt
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = naval_supplies
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = copper
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = iron
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = slaves
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = ivory
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = tea
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = chinaware
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = spices
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = coffee
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = cotton
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = sugar
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = tobacco
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = cocoa
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = silk
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = dyes
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = tropical_wood
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
@@ -2266,28 +2270,28 @@ country_event = {
 		change_price = {
 			trade_goods = ashenvale_lumber
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = lumber
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = kypari
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = oil
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
@@ -2301,210 +2305,210 @@ country_event = {
 		change_price = {
 			trade_goods = dark_iron
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = saronite
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = mithril
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = thorium
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = fel_iron
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = khorium
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = adamantite
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = titanium
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = elementium
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = ghost_iron
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = gemstones
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = grain_silo
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = ale
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = runecloth
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = netherweave
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = fossils
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 	
 		change_price = {
 			trade_goods = artifacts
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = crypts
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = smugglers
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = pirates
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = workshops
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = arcane
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = fel
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 	
 		change_price = {
 			trade_goods = army_supplies
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = mounts
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = flying_mounts
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = warbeasts
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = apexis
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = glowcap
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = moonwell
 			key = TRADE_CRISIS
-			value = -0.50
+			value = -0.25
 			duration = 9125
 		}
 		
@@ -2523,9 +2527,9 @@ country_event = {
 
 	trigger = {
 		has_country_flag = trade_control_flag
-		all_country = {
-			NOT = { has_country_modifier = rise_time }
-		}
+		NOT = { any_country = {
+			has_country_modifier = rise_time
+		} }
 	}
 	mean_time_to_happen = {
 		months = 1500
@@ -2538,6 +2542,7 @@ country_event = {
 		duration = 36500
 		hidden = yes
 	}
+	if = { limit = { has_global_flag = enable_event_logging } log = "Global price descrease happened" }
 	}
     }
 	
@@ -2545,11 +2550,13 @@ country_event = {
 		name = es_trade.3.a
 		
 		hidden_effect = {
-		
+		every_country = {
+			country_event = { id = es_trade.5 }
+		}
 		change_price = {
 			trade_goods = grain
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
@@ -2557,182 +2564,182 @@ country_event = {
 		change_price = {
 			trade_goods = wine
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = wool
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = cloth
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = fish
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = fur
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = salt
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = naval_supplies
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = copper
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = iron
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = slaves
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = ivory
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = tea
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = chinaware
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = spices
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = coffee
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = cotton
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = sugar
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = tobacco
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = cocoa
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = silk
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = dyes
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = tropical_wood
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = ashenvale_lumber
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = lumber
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = kypari
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = oil
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
@@ -2746,210 +2753,210 @@ country_event = {
 		change_price = {
 			trade_goods = dark_iron
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = saronite
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = mithril
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = thorium
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = fel_iron
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = khorium
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = adamantite
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = titanium
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = elementium
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = ghost_iron
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = gemstones
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = grain_silo
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = ale
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = runecloth
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = netherweave
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = fossils
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 	
 		change_price = {
 			trade_goods = artifacts
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = crypts
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = smugglers
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = pirates
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = workshops
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = arcane
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = fel
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 	
 		change_price = {
 			trade_goods = army_supplies
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = mounts
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = flying_mounts
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = warbeasts
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = apexis
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = glowcap
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		
 		change_price = {
 			trade_goods = moonwell
 			key = TRADE_RISE
-			value = 0.50
+			value = 0.25
 			duration = 9125
 		}
 		

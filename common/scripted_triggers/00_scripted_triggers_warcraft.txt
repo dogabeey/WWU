@@ -569,6 +569,12 @@ is_organization = {
 	}
 }
 
+is_non_faction_subject = {
+	NOT = { is_subject_of_type = faction_alliance }
+	NOT = { is_subject_of_type = faction_horde }
+	is_subject = yes
+}
+
 potential_refuge = { # Determines which country allows your country's refugees when it's annexed. Used in remnant events. Order of AND blocks in OR indicates priority.
 	is_at_war = no
 	is_subject = no
@@ -609,6 +615,24 @@ potential_refuge = { # Determines which country allows your country's refugees w
 		AND = {
 			alliance_with = ROOT
 			trust = { who = ROOT value = 50 }
+		}
+	}
+}
+
+owns_or_vassal_or_ally_of = {
+	OR = {
+		$country$ = {
+			owns = $province$
+		}
+		$country$ = {
+			any_subject_country = {
+				owns = $province$
+			}
+		}
+		$country$ = {
+			any_ally = {
+				owns = $province$
+			}
 		}
 	}
 }
