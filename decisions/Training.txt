@@ -1,0 +1,36 @@
+country_decisions = {
+	heir_training = {
+		potential = {
+			has_heir = yes
+			NOT = { heir_has_personality = warrior_personality }
+			NOT = { heir_has_personality = paladin_personality }
+			NOT = { heir_has_personality = priest_personality }
+			NOT = { heir_has_personality = rogue_personality }
+			NOT = { heir_has_personality = mage_personality }
+			NOT = { heir_has_personality = warlock_personality }
+			NOT = { heir_has_personality = druid_personality }
+			NOT = { heir_has_personality = hunter_personality }
+			NOT = { heir_has_personality = shaman_personality }
+			OR = {
+				warrior = yes
+				paladin = yes
+				priest = yes
+				rogue = yes
+				mage = yes
+				warlock = yes
+				druid = yes
+				hunter = yes
+				shaman = yes
+			}
+		}
+		allow = {
+			NOT = { heir_age = 30 }
+			years_of_income = 1
+		}
+		effect = {
+			add_years_of_income = -1
+			add_dip_power = -50
+			country_event = { id = training.1 }
+		}
+	}
+}

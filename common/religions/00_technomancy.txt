@@ -7,6 +7,33 @@ religion_group_technology = {
 	
 	crusade_name = CRUSADE
 	
+	religion_rationalism = {
+		color = { 77 27 76 }
+		icon = 29
+		
+		country = {
+			missionaries = -5
+			
+		}
+		country_as_secondary = {
+			development_cost = -0.1
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		on_convert = {
+			change_religion = religion_rationalism
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+	
 	religion_tech = {
 		color = { 0.45 0.45 0.45 }
 		icon = 30
