@@ -1,5 +1,5 @@
 name="World of Warcraft Universalis local"
-path="mod/WWU"
+path="mod/WWU-master"
 replace_path="common/bookmarks"
 replace_path="common/countries"
 replace_path="common/cultures"
