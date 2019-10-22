@@ -1,0 +1,532 @@
+shadow_council_missions = {
+    slot = 6                   # Which column the missions will appear in. 1 to 5.
+    generic = no             # Whether missions within this series are considered generic.
+    ai = yes                 # Whether the AI will claim missions in this series.
+    has_country_shield = no  # Whether to display the country shield on the icon.    
+    
+    # Determines whether a series is loaded at all. Used to limit series to DLC.
+    potential_on_load = {
+        always = yes
+    }
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+		NOT = { the_second_war_or_later = yes }
+		has_country_modifier = horde_head
+    }
+    
+    # The name of the mission, used for localization
+    tied_by_blood = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 1       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+            calc_true_if = {
+				all_country = {
+					is_subject_of_type = faction_horde
+					marriage_with = ROOT
+				}
+				amount = 2
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            add_army_tradition = 10
+			add_army_professionalism = 0.05
+        }
+    }
+    # The name of the mission, used for localization
+    strike_to_the_draenei = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 2       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			tied_by_blood
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+            any_country = {
+				culture_group = culture_group_draenei
+				war_with = ROOT
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            add_adm_power = 100
+            add_dip_power = 100
+            add_mil_power = 100
+        }
+    }
+    # The name of the mission, used for localization
+    weaken_draenei_clans = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 2       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			tied_by_blood
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			A54 = {
+				OR = {
+					NOT = { total_development = 45 } 
+					is_subject_of = ROOT
+				}
+			}
+			A55 = {
+				OR = {
+					NOT = { total_development = 45 } 
+					is_subject_of = ROOT
+				}
+			}
+			F49 = {
+				OR = {
+					NOT = { total_development = 45 } 
+					is_subject_of = ROOT
+				}
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            every_province = {
+				limit = {
+					OR = {
+						owned_by = A54
+						owned_by = A55
+						owned_by = F49
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+        }
+    }
+    # The name of the mission, used for localization
+    destroy_draenei_clans = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 3       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			weaken_draenei_clans
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			A54 = {
+				OR = {
+					NOT = { total_development = 15 } 
+					is_subject_of = ROOT
+				}
+			}
+			A55 = {
+				OR = {
+					NOT = { total_development = 15 } 
+					is_subject_of = ROOT
+				}
+			}
+			F49 = {
+				OR = {
+					NOT = { total_development = 15 } 
+					is_subject_of = ROOT
+				}
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+			add_country_modifier = {
+				name = "mfp_disciplined_troops"
+				duration = 3650
+			}
+        }
+    }
+    # The name of the mission, used for localization
+    move_capital_to_azeroth = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 4       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			destroy_draenei_clans
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			capital_scope = {
+				continent = continent_eastern_kingdoms
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            every_province = {
+				limit = {
+					region = region_blasted_lands
+				}
+				add_permanent_claim = ROOT
+			}
+        }
+    }
+    # The name of the mission, used for localization
+    establish_frontier_in_azeroth = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 5       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			move_capital_to_azeroth
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			region_blasted_lands = {
+				type = all
+				owns_or_subject_of = ROOT
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            every_province = {
+				limit = {
+					region = region_swamp_of_sorrows
+				}
+				add_permanent_claim = ROOT
+			}
+        }
+    # The name of the mission, used for localization
+    conquer_swamp_of_sorrows = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 6       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			establish_frontier_in_azeroth
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			calc_true_if = {
+				region_swamp_of_sorrows = {
+					type = all
+					owns_or_subject_of = ROOT
+				}
+				amount = 8
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            every_province = {
+				limit = {
+					region = region_deadwind_pass
+				}
+				add_permanent_claim = ROOT
+			}
+        }
+    }
+    # The name of the mission, used for localization
+    conquer_deadwind_pass = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 7       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			conquer_swamp_of_sorrows
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+			region = region_deadwind_pass
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			region_deadwind_pass = {
+				type = all
+				owns_or_subject_of = ROOT
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            every_province = {
+				limit = {
+					OR = {
+						area = area_darkshire
+						area = area_the_darkened_banks
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+        }
+    }
+    # The name of the mission, used for localization
+    conquer_darkshire = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 8       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			conquer_deadwind_pass
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+			area = area_darkshire
+			area = area_the_darkened_banks
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			area_darkshire = {
+				type = all
+				owns_or_subject_of = ROOT
+			}
+			area_the_darkened_banks = {
+				type = all
+				owns_or_subject_of = ROOT
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            every_province = {
+				limit = {
+					OR = {
+						area = area_eastvale
+						area = area_westvale
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+        }
+    }
+    # The name of the mission, used for localization
+    assault_to_elwynn = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 9       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			conquer_darkshire
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+			area = area_darkshire
+			area = area_the_darkened_banks
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			calc_true_if = {
+				region_elwynn_forest = {
+					type = all
+					owns_or_subject_of = ROOT
+				}
+				amount = 8
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            every_province = {
+				limit = {
+					OR = {
+						area = area_eastvale
+						area = area_westvale
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+        }
+    }
+    # The name of the mission, used for localization
+    assault_to_stormwind = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 10       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			assault_to_elwynn
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+			area = area_stormwind
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			area_stormwind = {
+				owns_or_subject_of = ROOT
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            random_province = {
+				limit = {
+					culture_group = culture_group_human
+				}
+				change_culture = ROOT
+			}
+            random_province = {
+				limit = {
+					culture_group = culture_group_human
+				}
+				change_culture = ROOT
+			}
+            random_province = {
+				limit = {
+					culture_group = culture_group_human
+				}
+				change_culture = ROOT
+			}
+        }
+    }
+    # The name of the mission, used for localization
+    purge_the_men = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 12       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			assault_to_stormwind
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+			area = area_stormwind
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			area_stormwind = {
+				type = all
+				NOT = { culture_group = culture_group_human }
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            every_province = {
+				limit = {
+					OR = {
+						area = area_eastvale
+						area = area_westvale
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+        }
+    }
+    # The name of the mission, used for localization
+    assault_to_burning_steppes = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 12       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			purge_the_men
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			calc_true_if = {
+				region_burning_steppes = {
+					type = all
+					owns_or_subject_of = ROOT
+				}
+				amount = 8
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            every_province = {
+				limit = {
+					region = region_burning_steppes
+				}
+				add_permanent_claim = ROOT
+			}
+        }
+    }
+    # The name of the mission, used for localization
+    claim_steppes_as_homeland = {
+        icon = mission_monarch_in_throne_room            # The icon to use for the mission
+        position = 13       # Which row the mission appears in. 1 is top.
+        
+        # Which missions must be completed before this mission is active.
+        required_missions = {
+			purge_the_men
+        }
+        
+        # Determines which provinces to highlight. Acts like all_province scope. Optional.
+        provinces_to_highlight = {
+			region = region_burning_steppes
+        }
+    
+        # Determines when the mission is completed. Country scope.
+        trigger = {
+			region_burning_steppes = {
+				type = all
+				owns_or_subject_of = ROOT
+			}
+        }
+        
+        # The effect executed when the mission is claimed. Country scope.
+        effect = {
+            area_blackrock_mountain = {
+				add_base_tax = 3
+				add_base_production = 3
+				add_base_manpower = 3
+			}
+        }
+    }
+}
