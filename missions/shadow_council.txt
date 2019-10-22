@@ -2,7 +2,7 @@ shadow_council_missions = {
     slot = 6                   # Which column the missions will appear in. 1 to 5.
     generic = no             # Whether missions within this series are considered generic.
     ai = yes                 # Whether the AI will claim missions in this series.
-    has_country_shield = no  # Whether to display the country shield on the icon.    
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
     
     # Determines whether a series is loaded at all. Used to limit series to DLC.
     potential_on_load = {
@@ -11,15 +11,16 @@ shadow_council_missions = {
     
     # Determines when a series appears for a country. Country scope.
     potential = {
-		NOT = { the_second_war_or_later = yes }
 		has_country_modifier = horde_head
+		NOT = { the_second_war_or_later = yes }
     }
     
     # The name of the mission, used for localization
     tied_by_blood = {
         icon = mission_monarch_in_throne_room            # The icon to use for the mission
         position = 1       # Which row the mission appears in. 1 is top.
-        
+        completed_by = 592
+		
         # Which missions must be completed before this mission is active.
         required_missions = {
         }
@@ -49,6 +50,7 @@ shadow_council_missions = {
     strike_to_the_draenei = {
         icon = mission_monarch_in_throne_room            # The icon to use for the mission
         position = 2       # Which row the mission appears in. 1 is top.
+        completed_by = 592
         
         # Which missions must be completed before this mission is active.
         required_missions = {
@@ -78,6 +80,7 @@ shadow_council_missions = {
     weaken_draenei_clans = {
         icon = mission_monarch_in_throne_room            # The icon to use for the mission
         position = 2       # Which row the mission appears in. 1 is top.
+        completed_by = 592
         
         # Which missions must be completed before this mission is active.
         required_missions = {
@@ -128,6 +131,7 @@ shadow_council_missions = {
     destroy_draenei_clans = {
         icon = mission_monarch_in_throne_room            # The icon to use for the mission
         position = 3       # Which row the mission appears in. 1 is top.
+        completed_by = 592
         
         # Which missions must be completed before this mission is active.
         required_missions = {
@@ -217,7 +221,7 @@ shadow_council_missions = {
         trigger = {
 			region_blasted_lands = {
 				type = all
-				owns_or_subject_of = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
         }
         
@@ -230,6 +234,7 @@ shadow_council_missions = {
 				add_permanent_claim = ROOT
 			}
         }
+	}
     # The name of the mission, used for localization
     conquer_swamp_of_sorrows = {
         icon = mission_monarch_in_throne_room            # The icon to use for the mission
@@ -249,7 +254,7 @@ shadow_council_missions = {
 			calc_true_if = {
 				region_swamp_of_sorrows = {
 					type = all
-					owns_or_subject_of = ROOT
+					country_or_non_sovereign_subject_holds = ROOT
 				}
 				amount = 8
 			}
@@ -284,7 +289,7 @@ shadow_council_missions = {
         trigger = {
 			region_deadwind_pass = {
 				type = all
-				owns_or_subject_of = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
         }
         
@@ -321,11 +326,11 @@ shadow_council_missions = {
         trigger = {
 			area_darkshire = {
 				type = all
-				owns_or_subject_of = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_the_darkened_banks = {
 				type = all
-				owns_or_subject_of = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
         }
         
@@ -363,7 +368,7 @@ shadow_council_missions = {
 			calc_true_if = {
 				region_elwynn_forest = {
 					type = all
-					owns_or_subject_of = ROOT
+					country_or_non_sovereign_subject_holds = ROOT
 				}
 				amount = 8
 			}
@@ -400,7 +405,7 @@ shadow_council_missions = {
         # Determines when the mission is completed. Country scope.
         trigger = {
 			area_stormwind = {
-				owns_or_subject_of = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
         }
         
@@ -481,7 +486,7 @@ shadow_council_missions = {
 			calc_true_if = {
 				region_burning_steppes = {
 					type = all
-					owns_or_subject_of = ROOT
+					country_or_non_sovereign_subject_holds = ROOT
 				}
 				amount = 8
 			}
@@ -516,7 +521,7 @@ shadow_council_missions = {
         trigger = {
 			region_burning_steppes = {
 				type = all
-				owns_or_subject_of = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
         }
         

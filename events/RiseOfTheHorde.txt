@@ -376,30 +376,65 @@ country_event = {
 				}
 				save_global_event_target_as = orc_player
 			}
-			
-            event_target:orc_player = {
-				country_event = { id = rise_of_the_horde.20 }
-                add_country_modifier = {
-                    name = the_shadow_council
-                    duration = -1
-                }
-				change_government = monarchy
-				add_government_reform = horde_reform
-                set_global_flag = set_blood_of_mannoroth
-                set_country_flag = drank_the_demonsblood
-            }
-			every_country = {
-				limit = { 
-					has_country_flag = joined_guldan
+			if = {
+				limit = {
+					any_country = {
+						ai = no
+						has_country_flag = joined_guldan
+					}
 				}
 				event_target:orc_player = {
+					country_event = { id = rise_of_the_horde.20 }
 					add_country_modifier = {
-						name = horde_head
+						name = the_shadow_council
 						duration = -1
 					}
-					create_subject = {
-						subject_type = faction_horde
-						subject = PREV
+					change_government = monarchy
+					add_government_reform = horde_reform
+					set_global_flag = set_blood_of_mannoroth
+					set_country_flag = drank_the_demonsblood
+				}
+				every_country = {
+					limit = { 
+						has_country_flag = joined_guldan
+					}
+					event_target:orc_player = {
+						add_country_modifier = {
+							name = horde_head
+							duration = -1
+						}
+						create_subject = {
+							subject_type = faction_horde
+							subject = PREV
+						}
+					}
+				}
+			}
+			else = {
+				B88 = {
+					country_event = { id = rise_of_the_horde.20 }
+					add_country_modifier = {
+						name = the_shadow_council
+						duration = -1
+					}
+					change_government = monarchy
+					add_government_reform = horde_reform
+					set_global_flag = set_blood_of_mannoroth
+					set_country_flag = drank_the_demonsblood
+				}
+				every_country = {
+					limit = { 
+						has_country_flag = joined_guldan
+					}
+					B88 = {
+						add_country_modifier = {
+							name = horde_head
+							duration = -1
+						}
+						create_subject = {
+							subject_type = faction_horde
+							subject = PREV
+						}
 					}
 				}
 			}
