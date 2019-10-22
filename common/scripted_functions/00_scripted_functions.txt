@@ -64,7 +64,7 @@ can_add_province_to_hre = {
 		potential = {
 		}
 		allow = {
-			always = no
+			culture_group = culture_group_dragonkin
 		}
 	}
 }
@@ -111,6 +111,15 @@ can_change_culture = {
 }
 
 can_move_capital = {
+	condition = {
+		tooltip = "WOW_CANT_MOVE_CAPITAL_OUTLAND"
+		potential = {
+		}
+		allow = {
+			ai = no
+			NOT = { capital_scope = { continent = continent_outland } }
+		}
+	}
 }
 
 can_move_trade_port = {
