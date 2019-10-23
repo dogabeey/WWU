@@ -1,5 +1,5 @@
 namespace = landless
-
+# Startup
 country_event = {
 	id = landless.1
 	title = landless.1.title
@@ -15,10 +15,95 @@ country_event = {
 		random_province = {
 			limit = { reserved_for_landless = yes }
 			cede_province = ROOT
+			add_core = ROOT
 		}
 		capital_scope = {
 			cede_province = '---'
 		}
-		
+		every_country = {
+			add_opinion = {
+				who = ROOT
+				modifier = landless_opinion
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = landless_opinion
+			}
+		}
+		define_ruler_to_general = {
+			fire = 3
+			shock = 3
+			manuever = 3
+			siege = 3
+		}
+	}
+}
+# Discovery
+country_event = {
+	id = landless.2
+	title = landless.2.title
+	desc = landless.2.desc
+	hidden = yes
+	
+	trigger = {
+		is_landless = yes
+		NOT = { any_province = {
+			num_of_units_in_province = {
+					who = ROOT 
+					amount = 1
+			}
+			all_neighbor_province = {
+				has_discovered = ROOT
+			}
+		} }
+	}
+	
+	mean_time_to_happen = {
+		days = 15
+	}
+	
+	option = {
+		name = landless.1.opt1
+		random_province = {
+			limit = {
+				num_of_units_in_province = {
+					who = ROOT 
+					amount = 1
+				}
+			}
+			every_neighbor_province = {
+				discover_country = ROOT 
+			}
+		}
+	}
+}
+# Un-Discovery
+country_event = {
+	id = landless.3
+	title = landless.3.title
+	desc = landless.3.desc
+	hidden = yes
+	
+	trigger = {
+		is_landless = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	option = {
+		name = landless.1.opt1
+		every_province = {
+			limit = {
+				num_of_units_in_province = {
+					who = ROOT 
+					amount = 1
+				}
+			}
+			every_neighbor_province = {
+				discover_country = ROOT 
+			}
+		}
 	}
 }

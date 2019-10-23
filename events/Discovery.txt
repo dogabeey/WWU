@@ -12,6 +12,7 @@ country_event = {
 	trigger = {
 		is_outlander = yes
         NOT = { has_country_flag = discovered_outland }
+		NOT = { is_landless = yes }
 	}
 	
 	immediate = {
@@ -37,6 +38,7 @@ country_event = {
     
 	trigger = {
         NOT = { has_country_flag = discovered_map_1 }
+		NOT = { is_landless = yes }
 	}
 	
 	immediate = {
@@ -110,6 +112,7 @@ province_event = {
 	mean_time_to_happen = { months = 1 }
     
 	trigger = {
+		NOT = { is_landless = yes }
 		NOT = { 
 			all_province = {
 				NOT = { 
