@@ -2151,7 +2151,11 @@ remnant_legacy = {
 	}
 }
 
-
+####################################
+#
+# Organizations
+#
+####################################
 trade_company_legacy = {
 	icon = "trade_company"
 	legacy_government = yes
@@ -2284,6 +2288,109 @@ religious_cult_legacy = {
 		tolerance_heathen = -1
 	}
 	
+	ai = {
+		factor = 1
+	}
+}
+####################################
+#
+# Landless
+#
+####################################
+
+
+
+adventuring_group_legacy = {
+	icon = "tribal_civil_society"
+	legacy_government = yes
+	royal_marriage = no
+	allow_normal_conversion = no
+	valid_for_new_country = yes
+	valid_for_nation_designer = yes
+	maintain_dynasty = no
+	boost_income = yes
+	nation_designer_cost = 0
+	
+	potential = {
+		NOT = { num_of_cities = 2 }
+	}
+	
+	nation_designer_trigger = {
+		NOT = { num_of_cities = 2 }
+	}
+	
+	government_abilities = {  }
+
+	modifiers = {
+		land_morale = 0.1
+		movement_speed = 0.2
+		discipline = -0.1
+		global_manpower_modifier = -0.2
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+warband_legacy = {
+	icon = "soldiers_4"
+	legacy_government = yes
+	royal_marriage = no
+	allow_normal_conversion = no
+	valid_for_new_country = yes
+	valid_for_nation_designer = yes
+	maintain_dynasty = no
+	boost_income = yes
+	nation_designer_cost = 0
+	
+	potential = {
+		NOT = { num_of_cities = 2 }
+	}
+	
+	nation_designer_trigger = {
+		NOT = { num_of_cities = 2 }
+	}
+	
+	government_abilities = {  }
+
+	modifiers = {
+		war_exhaustion = -0.1
+		reinforce_speed = 0.2
+		discipline = -0.1
+		global_manpower_modifier = -0.2
+	}
+	ai = {
+		factor = 1
+	}
+}
+landless_lord_legacy = {
+	icon = "soldiers_3"
+	legacy_government = yes
+	royal_marriage = yes
+	heir = yes
+	allow_normal_conversion = no
+	valid_for_new_country = yes
+	valid_for_nation_designer = yes
+	maintain_dynasty = yes
+	boost_income = yes
+	nation_designer_cost = 0
+	
+	potential = {
+		NOT = { num_of_cities = 2 }
+	}
+	
+	nation_designer_trigger = {
+		NOT = { num_of_cities = 2 }
+	}
+	
+	government_abilities = {  }
+
+	modifiers = {
+		land_morale = 0.1
+		reinforce_speed = -0.2
+		discipline = 0.1
+		heir_chance  = -0.2
+	}
 	ai = {
 		factor = 1
 	}

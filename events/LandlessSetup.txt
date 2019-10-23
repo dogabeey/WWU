@@ -1,0 +1,24 @@
+namespace = landless
+
+country_event = {
+	id = landless.1
+	title = landless.1.title
+	desc = landless.1.desc
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_landless = yes
+	}
+	option = {
+		name = landless.1.opt1
+		random_province = {
+			limit = { reserved_for_landless = yes }
+			cede_province = ROOT
+		}
+		capital_scope = {
+			cede_province = '---'
+		}
+		
+	}
+}

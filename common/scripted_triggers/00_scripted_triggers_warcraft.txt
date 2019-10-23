@@ -569,6 +569,15 @@ is_organization = {
 	}
 }
 
+is_landless = {
+	OR = {
+		has_reform = landless_basic_reform
+		has_reform = adventuring_group_reform
+		has_reform = warband_reform
+		has_reform = landless_lord_reform
+	}
+}
+
 is_non_faction_subject = {
 	NOT = { is_subject_of_type = faction_alliance }
 	NOT = { is_subject_of_type = faction_horde }
@@ -634,5 +643,19 @@ owns_or_vassal_or_ally_of = {
 				owns = $province$
 			}
 		}
+	}
+}
+
+reserved_for_landless = {
+	OR = {
+		province_id = 3082
+		province_id = 3083
+		province_id = 3084
+		province_id = 3085
+		province_id = 3086
+		province_id = 3087
+		province_id = 3088
+		province_id = 3089
+		province_id = 3090
 	}
 }
