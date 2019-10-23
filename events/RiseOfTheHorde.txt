@@ -369,19 +369,19 @@ country_event = {
                 change_culture = culture_horde
                 change_religion = religion_fel
             }
-            random_country = {
-				limit = {
-					ai = no
-					has_country_flag = joined_guldan
-				}
-				save_global_event_target_as = orc_player
-			}
 			if = {
 				limit = {
 					any_country = {
 						ai = no
 						has_country_flag = joined_guldan
 					}
+				}
+				random_country = {
+					limit = {
+						ai = no
+						has_country_flag = joined_guldan
+					}
+					save_global_event_target_as = orc_player
 				}
 				event_target:orc_player = {
 					country_event = { id = rise_of_the_horde.20 }
@@ -698,9 +698,6 @@ country_event = {
         clr_global_flag = rise_of_the_horde
         set_global_flag = the_first_war
         set_global_flag = dark_portal_built
-		enable_hre_leagues = yes
-		set_default_alliance = yes
-		set_default_horde = yes
 		set_faction_conflict = yes
     }
 }
@@ -752,7 +749,7 @@ country_event = {
     
 	option = {
 		name = rise_of_the_horde.20.option.a
-		tooltip = rise_of_the_horde.20.tt
+		custom_tooltip = rise_of_the_horde.20.tt
     }
 }
 
