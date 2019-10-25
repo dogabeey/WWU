@@ -17,9 +17,6 @@ country_event = {
 			cede_province = ROOT
 			add_core = ROOT
 		}
-		capital_scope = {
-			cede_province = '---'
-		}
 		every_country = {
 			add_opinion = {
 				who = ROOT
@@ -38,72 +35,22 @@ country_event = {
 		}
 	}
 }
-# Discovery
+# Defeat
 country_event = {
-	id = landless.2
-	title = landless.2.title
-	desc = landless.2.desc
+	id = landless.1
+	title = landless.1.title
+	desc = landless.1.desc
 	hidden = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		is_landless = yes
-		NOT = { any_province = {
-			num_of_units_in_province = {
-					who = ROOT 
-					amount = 1
-			}
-			all_neighbor_province = {
-				has_discovered = ROOT
-			}
-		} }
+		NOT = { army_size_percentage = 0.01 }
 	}
-	
-	mean_time_to_happen = {
-		days = 15
-	}
-	
 	option = {
 		name = landless.1.opt1
-		random_province = {
-			limit = {
-				num_of_units_in_province = {
-					who = ROOT 
-					amount = 1
-				}
-			}
-			every_neighbor_province = {
-				discover_country = ROOT 
-			}
-		}
-	}
-}
-# Un-Discovery
-country_event = {
-	id = landless.3
-	title = landless.3.title
-	desc = landless.3.desc
-	hidden = yes
-	
-	trigger = {
-		is_landless = yes
-	}
-	
-	mean_time_to_happen = {
-		months = 2
-	}
-	
-	option = {
-		name = landless.1.opt1
-		every_province = {
-			limit = {
-				num_of_units_in_province = {
-					who = ROOT 
-					amount = 1
-				}
-			}
-			every_neighbor_province = {
-				discover_country = ROOT 
-			}
+		every_owned_province = {
+			cede_province = '---'
 		}
 	}
 }
