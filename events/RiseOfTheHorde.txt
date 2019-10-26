@@ -23,7 +23,7 @@ country_event = {
 	}
 	
     mean_time_to_happen = {
-		months = 1
+		months = 6
 	}
     
 	option = {
@@ -80,7 +80,7 @@ country_event = {
 	}
     
     mean_time_to_happen = {
-		months = 1
+		months = 3
 	}
     
     immediate = {
@@ -165,7 +165,7 @@ country_event = {
 	}
 	
     mean_time_to_happen = {
-		months = 1
+		months = 6
 	}
     
     immediate = {
@@ -258,6 +258,9 @@ country_event = {
     
     immediate = {
         set_country_flag = set_side_for_guldan_event
+		A34 = {
+			set_country_flag = joined_guldan
+		}
     }
 	
     # Join
@@ -342,7 +345,7 @@ country_event = {
 	desc = rise_of_the_horde.5.desc
 	picture = ORCISH_INVASION_eventPicture
     
-    #major = yes
+    major = yes
     fire_only_once = yes
     
 	trigger = {
@@ -373,7 +376,10 @@ country_event = {
 				limit = {
 					any_country = {
 						not = { ai = yes }
-						has_country_flag = joined_guldan
+						OR = {
+							has_country_flag = joined_guldan
+							tag = A34
+						}
 					}
 				}
 				log = "Player will be leader of the Horde"
@@ -683,11 +689,6 @@ country_event = {
     
     #major = yes
     is_triggered_only = yes
-    
-	trigger = {
-        has_global_flag = rise_of_the_horde
-        tag = B88
-	}
 	
     mean_time_to_happen = {
 		months = 24
@@ -708,43 +709,6 @@ country_event = {
     }
 }
 
-# Fallback
-# If Shadowmoon is killed completely, the Dark Portal will eventually be completed by the 'leftovers'
-country_event = {
-	id = rise_of_the_horde.11
-	title = rise_of_the_horde.11.title
-	desc = rise_of_the_horde.11.desc
-	picture = ORCISH_INVASION_eventPicture
-    
-    #major = yes
-    
-	trigger = {
-        has_global_flag = rise_of_the_horde
-        
-        NOT = { exists = A34 }
-        NOT = { has_global_flag = the_first_war }
-        capital_scope = { continent = continent_outland }
-        culture_group = culture_group_orc
-	}
-	
-    mean_time_to_happen = {
-		months = 120
-    }
-    
-	option = {
-		name = rise_of_the_horde.11.option.a
-        
-        1586 = {
-            remove_province_modifier = dark_portal_closed
-        }
-        
-        clr_global_flag = the_dying_times
-        clr_global_flag = rise_of_the_horde
-        set_global_flag = the_first_war
-        set_global_flag = dark_portal_built
-    }
-}
-
 country_event = {
 	id = rise_of_the_horde.20
 	title = rise_of_the_horde.20.title
@@ -756,6 +720,7 @@ country_event = {
 	option = {
 		name = rise_of_the_horde.20.option.a
 		custom_tooltip = rise_of_the_horde.20.tt
+		swap_non_generic_missions = yes
     }
 }
 
