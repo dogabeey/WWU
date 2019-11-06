@@ -1,5 +1,4 @@
 name="World of Warcraft Universalis"
-archive="mod/world_of_warcraft_universalis.zip"
 replace_path="common/bookmarks"
 replace_path="common/countries"
 replace_path="common/decrees"
@@ -44,4 +43,6 @@ tags={
 	"Utilities"
 }
 picture="world_of_warcraft_universalis_logo.jpg"
-supported_version="1.28.*.*"
+version="1.1.8"
+supported_version="1.29.*.*"
+remote_file_id="1796527319"
