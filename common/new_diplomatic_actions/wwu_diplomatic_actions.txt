@@ -345,7 +345,6 @@ offer_contract = {
 		is_subject = no
 		tax_income_percentage = 0.0
 		is_at_war = no
-		total_development = FROM
 		FROM = {
 			is_subject = no
 			is_at_war = no
@@ -415,39 +414,6 @@ offer_contract = {
 			divide_variable = { which = ai_value value = 3 }
 			multiply_variable = { which = ai_value value = -1 }
 		}
-		add_entry = {
-			name = HAVE_LOANS
-			limit = {
-				FROM = { num_of_loans = 1 }
-				FROM = { NOT = { num_of_loans = 2 } }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = 20
-			}
-		}
-		add_entry = {
-			name = HAVE_LOANS
-			limit = {
-				FROM = { num_of_loans = 2 }
-				FROM = { NOT = { num_of_loans = 3 } }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = 30
-			}
-		}
-		add_entry = {
-			name = HAVE_LOANS
-			limit = {
-				FROM = { num_of_loans = 3 }
-				FROM = { NOT = { num_of_loans = 4 } }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = 40
-			}
-		}
 	}
 
 	ai_will_do = {
@@ -505,122 +471,6 @@ invite_to_alliance = {
 			}
 			subtract_variable = { which = ai_value value = 100 }
 		}
-		add_entry = {
-			name = INV_CIVILIZED
-			limit = {
-				FROM = { NOT = { is_civilized = yes } }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -50
-			}
-		}
-		add_entry = {
-			name = INV_LESSER
-			limit = {
-				is_lesser = yes
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -1000
-			}
-		}
-		add_entry = {
-			name = INV_TOOMANYVASSAL
-			limit = {
-				faction_alliance = 6
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -100
-			}
-		}
-		add_entry = {
-			name = INV_FARTOOMANYVASSAL
-			limit = {
-				faction_alliance = 8
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -175
-			}
-		}
-		add_entry = {
-			name = INV_FARFARTOOMANYVASSAL
-			limit = {
-				faction_alliance = 10
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -225
-			}
-		}
-		add_entry = {
-			name = INV_HISTORICALALLIANCE
-			limit = {
-				FROM = { historical_alliance = yes }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = 150
-			}
-		}
-		add_entry = {
-			name = INV_HISTORICALHORDE
-			limit = {
-				FROM = { historical_horde = yes }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -250
-			}
-		}
-		add_entry = {
-			name = INV_NOTHASALLIANCEFRIEND
-			limit = {
-				NOT = { 
-					any_country = {
-						OR = {
-							is_subject_of_type = faction_alliance
-							has_country_modifier = alliance_head
-						}
-						alliance_with = FROM
-					} 
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -200
-			}
-		}
-		add_entry = {
-			name = INV_HASHORDEFRIEND
-			limit = {
-				any_country = {
-					OR = {
-						is_subject_of_type = faction_horde
-						has_country_modifier = horde_head
-					}
-					alliance_with = FROM
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -100
-			}
-		}
-		add_entry = {
-			name = INV_NEVERALLIANCE
-			limit = {
-				FROM = {
-					never_alliance = yes
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -1000
-			}
-		}
 	}
 
 	ai_will_do = {
@@ -677,120 +527,6 @@ invite_to_horde = {
 			}
 			subtract_variable = { which = ai_value value = 100 }
 		}
-		add_entry = {
-			name = INV_LESSER
-			limit = {
-				is_lesser = yes
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -1000
-			}
-		}
-		add_entry = {
-			name = INV_TOOMANYVASSAL
-			limit = {
-				faction_horde = 6
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -100
-			}
-		}
-		add_entry = {
-			name = INV_FARTOOMANYVASSAL
-			limit = {
-				faction_horde = 8
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -175
-			}
-		}
-		add_entry = {
-			name = INV_FARFARTOOMANYVASSAL
-			limit = {
-				faction_horde = 10
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -225
-			}
-		}
-		add_entry = {
-			name = INV_SAVAGE
-			limit = {
-				FROM = { NOT = { is_savage = yes } }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -50
-			}
-		}
-		add_entry = {
-			name = INV_HISTORICALALLIANCE
-			limit = {
-				FROM = { historical_alliance = yes }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -1000
-			}
-		}
-		add_entry = {
-			name = INV_HISTORICALHORDE
-			limit = {
-				FROM = { historical_horde = yes }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = 50
-			}
-		}
-		add_entry = {
-			name = INV_HASALLIANCEFRIEND
-			limit = {
-				any_country = {
-					OR = {
-						is_subject_of_type = faction_alliance
-						has_country_modifier = alliance_head
-					}
-					alliance_with = FROM
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -100
-			}
-		}
-		add_entry = {
-			name = INV_NOTHASHORDEFRIEND
-			limit = {
-				NOT = { any_country = {
-					OR = {
-						is_subject_of_type = faction_horde
-						has_country_modifier = horde_head
-					}
-					alliance_with = FROM
-				} }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -200
-			}
-		}
-		add_entry = {
-			name = INV_NEVERHORDE
-			limit = {
-				FROM = {
-					never_horde = yes
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -1000
-			}
-		}
 	}
 
 	ai_will_do = {
@@ -845,124 +581,6 @@ join_the_alliance = {
 			}
 			subtract_variable = { which = ai_value value = 100 }
 		}
-		add_entry = {
-			name = INV_CIVILIZED
-			limit = {
-				NOT = { is_civilized = yes }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -50
-			}
-		}
-		add_entry = {
-			name = INV_LESSER
-			limit = {
-				is_lesser = yes
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -1000
-			}
-		}
-		add_entry = {
-			name = INV_TOOMANYVASSAL
-			limit = {
-				FROM = {
-					faction_alliance = 6
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -100
-			}
-		}
-		add_entry = {
-			name = INV_FARTOOMANYVASSAL
-			limit = {
-				FROM = {
-					faction_alliance = 8
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -175
-			}
-		}
-		add_entry = {
-			name = INV_FARFARTOOMANYVASSAL
-			limit = {
-				FROM = {
-					faction_alliance = 10
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -225
-			}
-		}
-		add_entry = {
-			name = INV_HISTORICALALLIANCE
-			limit = {
-				historical_alliance = yes
-			}
-			export_to_variable = {
-				which = ai_value
-				value = 150
-			}
-		}
-		add_entry = {
-			name = INV_HISTORICALHORDE
-			limit = {
-				historical_horde = yes
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -250
-			}
-		}
-		add_entry = {
-			name = INV_HASHORDEFRIEND
-			limit = {
-				any_country = {
-					OR = {
-						is_subject_of_type = faction_horde
-						has_country_modifier = horde_head
-					}
-					alliance_with = ROOT
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -100
-			}
-		}
-		add_entry = {
-			name = INV_NOTHASALLIANCEFRIEND
-			limit = {
-				NOT = { any_country = {
-					OR = {
-						is_subject_of_type = faction_alliance
-						has_country_modifier = alliance_head
-					}
-					alliance_with = ROOT
-				} }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -200
-			}
-		}
-		add_entry = {
-			name = INV_NEVERALLIANCE
-			limit = {
-				never_alliance = yes
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -1000
-			}
-		}
 	}
 
 	ai_will_do = {
@@ -1000,7 +618,7 @@ join_the_horde = {
 			}
 		}
 	}
-	on_decline = 	{ 
+	on_decline = { 
 	}
 	
 	ai_acceptance = {
@@ -1016,124 +634,6 @@ join_the_horde = {
 				with = ROOT
 			}
 			subtract_variable = { which = ai_value value = 100 }
-		}
-		add_entry = {
-			name = INV_SAVAGE
-			limit = {
-				NOT = { is_savage = yes }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -50
-			}
-		}
-		add_entry = {
-			name = INV_LESSER
-			limit = {
-				is_lesser = yes
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -1000
-			}
-		}
-		add_entry = {
-			name = INV_TOOMANYVASSAL
-			limit = {
-				FROM = {
-					faction_horde = 6
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -100
-			}
-		}
-		add_entry = {
-			name = INV_FARTOOMANYVASSAL
-			limit = {
-				FROM = {
-					faction_horde = 8
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -175
-			}
-		}
-		add_entry = {
-			name = INV_FARFARTOOMANYVASSAL
-			limit = {
-				FROM = {
-					faction_horde = 10
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -225
-			}
-		}
-		add_entry = {
-			name = INV_HISTORICALALLIANCE
-			limit = {
-				historical_alliance = yes
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -1000
-			}
-		}
-		add_entry = {
-			name = INV_HISTORICALHORDE
-			limit = {
-				historical_horde = yes
-			}
-			export_to_variable = {
-				which = ai_value
-				value = 50
-			}
-		}
-		add_entry = {
-			name = INV_HASALLIANCEFRIEND
-			limit = {
-				any_country = {
-					OR = {
-						is_subject_of_type = faction_alliance
-						has_country_modifier = alliance_head
-					}
-					alliance_with = ROOT
-				}
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -100
-			}
-		}
-		add_entry = {
-			name = INV_NOTHASHORDEFRIEND
-			limit = {
-				NOT = { any_country = {
-					OR = {
-						is_subject_of_type = faction_horde
-						has_country_modifier = horde_head
-					}
-					alliance_with = ROOT
-				} }
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -200
-			}
-		}
-		add_entry = {
-			name = INV_NEVERHORDE
-			limit = {
-				never_horde = yes
-			}
-			export_to_variable = {
-				which = ai_value
-				value = -1000
-			}
 		}
 	}
 
@@ -1178,7 +678,6 @@ kick_from_alliance = {
 
 	ai_will_do = {
 		OR = {
-			AND = {
 				FROM = {
 					liberty_desire = 100
 					army_strength = {
@@ -1186,8 +685,6 @@ kick_from_alliance = {
 						value = 1
 					}
 				}
-			}
-			AND = {
 				FROM = {
 					liberty_desire = 75
 					army_strength = {
@@ -1195,8 +692,6 @@ kick_from_alliance = {
 						value = 1.25
 					}
 				}
-			}
-			AND = {
 				FROM = {
 					liberty_desire = 50
 					army_strength = {
@@ -1204,7 +699,6 @@ kick_from_alliance = {
 						value = 1.50
 					}
 				}
-			}
 		}
 	}
 }
@@ -1245,7 +739,6 @@ kick_from_horde = {
 
 	ai_will_do = {
 		OR = {
-			AND = {
 				FROM = {
 					liberty_desire = 100
 					army_strength = {
@@ -1253,8 +746,6 @@ kick_from_horde = {
 						value = 1
 					}
 				}
-			}
-			AND = {
 				FROM = {
 					liberty_desire = 75
 					army_strength = {
@@ -1262,8 +753,6 @@ kick_from_horde = {
 						value = 1.25
 					}
 				}
-			}
-			AND = {
 				FROM = {
 					liberty_desire = 50
 					army_strength = {
@@ -1271,15 +760,12 @@ kick_from_horde = {
 						value = 1.50
 					}
 				}
-			}
-			AND = {
 				NOT = {
 					has_opinion = {
 						who = FROM
 						value = -25
 					}
 				}
-			}
 		}
 	}
 }
