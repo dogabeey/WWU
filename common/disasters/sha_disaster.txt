@@ -190,7 +190,6 @@ sha_of_fear_disaster = {
 	can_start = {
 		any_neighbor_country = {
 			is_rival = ROOT
-			num_of_allies = ROOT
 			army_size = ROOT
 		}
 	}
@@ -200,7 +199,6 @@ sha_of_fear_disaster = {
 				factor = 1
 			any_neighbor_country = {
 				is_rival = ROOT
-				num_of_allies = ROOT
 				army_size = ROOT
 			}
 		}
@@ -208,7 +206,6 @@ sha_of_fear_disaster = {
 				factor = 1
 				any_neighbor_country = {
 					is_rival = ROOT
-					num_of_allies = ROOT
 					war_with = ROOT
 				}
 		}
@@ -224,20 +221,14 @@ sha_of_fear_disaster = {
 	can_stop = {
 		any_neighbor_country = {
 			is_rival = ROOT
-			OR = {
-				NOT = { num_of_allies = ROOT }
-				NOT = { army_size = ROOT }
-			}
+			NOT = { army_size = ROOT }
 		}
 	}
 	
 	can_end = {
 		any_neighbor_country = {
 			is_rival = ROOT
-			OR = {
-				NOT = { num_of_allies = ROOT }
-				NOT = { army_size = ROOT }
-			}
+			NOT = { army_size = ROOT }
 		}
 	}
 	

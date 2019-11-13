@@ -46,12 +46,13 @@ stormwind_missions = {
         
         # The effect executed when the mission is claimed. Country scope.
         effect = {
-            area_stonecairn = {
-				type = all
-				change_culture = ROOT
-			}
-            area_eastvale = {
-				type = all
+		    every_province = {
+			    limit = {
+				    OR = {
+					    area = area_stonecairn
+						area = area_eastvale
+					}
+				}
 				change_culture = ROOT
 			}
         }
@@ -325,8 +326,10 @@ stormwind_missions = {
         
         # Determines which provinces to highlight. Acts like all_province scope. Optional.
         provinces_to_highlight = {
+		    OR = {
 			province_id = 601
 			province_id = 1997
+			}
 		}
     
         # Determines when the mission is completed. Country scope.

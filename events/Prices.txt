@@ -2093,7 +2093,6 @@ country_event = {
 		duration = 36500
 		hidden = yes
 	}
-	if = { limit = { has_global_flag = enable_event_logging } log = "Global price increase happened" }
 	}
     }
 	
@@ -2101,10 +2100,6 @@ country_event = {
 		name = es_trade.2.a
 		
 		hidden_effect = {
-		
-		every_country = {
-			country_event = { id = es_trade.5 }
-		}
 		change_price = {
 			trade_goods = grain
 			key = TRADE_CRISIS
@@ -2542,7 +2537,6 @@ country_event = {
 		duration = 36500
 		hidden = yes
 	}
-	if = { limit = { has_global_flag = enable_event_logging } log = "Global price descrease happened" }
 	}
     }
 	
@@ -2550,9 +2544,6 @@ country_event = {
 		name = es_trade.3.a
 		
 		hidden_effect = {
-		every_country = {
-			country_event = { id = es_trade.5 }
-		}
 		change_price = {
 			trade_goods = grain
 			key = TRADE_RISE

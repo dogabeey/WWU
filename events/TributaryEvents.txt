@@ -625,36 +625,6 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-		
-			#Province where this takes place:
-			random_owned_province = { #Fallback
-				limit = {
-					is_capital = yes
-				}
-				save_event_target_as = ningbo_province
-			}
-			random_owned_province = { #Better
-				limit = {
-					has_port = no
-					is_in_capital_area = yes
-				}
-				save_event_target_as = ningbo_province
-			}
-			random_owned_province = { #Good
-				limit = {
-					has_port = yes
-					is_in_capital_area = yes
-				}
-				save_event_target_as = ningbo_province
-			}
-			random_owned_province = { #Ideal situation
-				limit = {
-					is_capital = no
-					has_port = yes
-					is_in_capital_area = yes
-				}
-				save_event_target_as = ningbo_province
-			}
 			
 			#Country it happens to
 			
@@ -1799,13 +1769,6 @@ country_event = {
 					}
 				}
 				save_event_target_as = tributary_warring_rival
-				random_country = {
-					limit = {
-						is_enemy = ROOT
-						defensive_war_with = PREV
-					}
-					save_event_target_as = overlord_rival
-				}
 			}
 			set_country_flag = overlord_gave_military_mission
 		}

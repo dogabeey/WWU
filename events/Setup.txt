@@ -1,6 +1,5 @@
 namespace = setup
 
-# ##if = { limit = { has_global_flag = enable_event_logging } log = \1 }
 
 country_event = {
 	id = setup.1
@@ -24,11 +23,9 @@ country_event = {
         
         # --- Logging flags
         #   Comment these for release builds
-        #   Enabling these will spam the game.log
         set_global_flag = enable_onaction_logging
         set_global_flag = enable_event_logging
 
-        ##if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - Global Setup" }
 
         # Configure HRE
         hre_inheritable = yes
@@ -42,7 +39,6 @@ country_event = {
                 is_year = 592
             }
             set_global_flag = dark_portal_built
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: dark_portal_built" }
         }
         
         # Rise of the Horde
@@ -52,7 +48,6 @@ country_event = {
                 NOT = { is_year = 592 }
             }
             set_global_flag = rise_of_the_horde
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: rise_of_the_horde" }
         }
 
         # The First War
@@ -62,7 +57,6 @@ country_event = {
                 NOT = { is_year = 598 }
             }
             set_global_flag = the_first_war
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: the_first_war" }
         }
 
         # The Second War
@@ -72,7 +66,6 @@ country_event = {
                 NOT = { is_year = 617 }
             }
             set_global_flag = the_second_war
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: the_second_war" }
         }
 
         # The Third War
@@ -82,7 +75,6 @@ country_event = {
                 NOT = { is_year = 618 }
             }
             set_global_flag = the_third_war 
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: the_third_war" }
         }
 
         # The Frozen Throne
@@ -92,7 +84,6 @@ country_event = {
                 NOT = { is_year = 622 }
             }
             set_global_flag = the_frozen_throne
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: the_frozen_throne" }
         }
 
         # The Rise of the Qiraji
@@ -102,7 +93,6 @@ country_event = {
                 NOT = { is_year = 625 }
             }
             set_global_flag = rise_of_the_qiraji
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: rise_of_the_qiraji" }
         }
 
         # The Burning Crusade
@@ -112,7 +102,6 @@ country_event = {
                 NOT = { is_year = 626 }
             }
             set_global_flag = the_burning_crusade
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: the_burning_crusade" }
         }
 
         # Wrath of the Lich King
@@ -122,7 +111,6 @@ country_event = {
                 NOT = { is_year = 631 }
             }
             set_global_flag = wrath_of_the_lich_king
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: wrath_of_the_lich_king" }
         }
 
         # Cataclysm
@@ -132,7 +120,6 @@ country_event = {
                 NOT = { is_year = 632 }
             }
             set_global_flag = cataclysm
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: cataclysm" }
         }
 
         # Mists of Pandaria
@@ -142,15 +129,12 @@ country_event = {
                 NOT = { is_year = 700 }
             }
             set_global_flag = mists_of_pandaria
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: mists_of_pandaria" }
         }
         if = { 
             limit = {
                 is_year = 700
             }
             set_global_flag = doomed_world
-			launch_doomed_world_scenario = yes
-            if = { limit = { has_global_flag = enable_event_logging } log = "Game flag: mists_of_pandaria" }
         }
     }  
 }
@@ -175,10 +159,5 @@ country_event = {
 
     option = {
         name = setup.1.option.a
-
-        every_province = {
-			limit = { is_center_of_trade_1 = yes }
-			center_of_trade = 1
-		}
     }  
 }

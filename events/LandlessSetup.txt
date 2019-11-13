@@ -19,9 +19,6 @@ country_event = {
 			add_core = ROOT
 			change_religion = ROOT
 		}
-		capital_scope = {
-			cede_province = '---'
-		}
 		every_country = {
 			add_opinion = {
 				who = ROOT
@@ -39,24 +36,5 @@ country_event = {
 			siege = 3
 		}
 		set_meritocracy = 0
-	}
-}
-# Defeat
-country_event = {
-	id = landless_setup.2
-	title = landless_setup.2.title
-	desc = landless_setup.2.desc
-	hidden = yes
-	is_triggered_only = yes
-	
-	trigger = {
-		is_landless = yes
-		NOT = { army_size_percentage = 0.01 }
-	}
-	option = {
-		name = landless_setup.2.opt1
-		every_owned_province = {
-			cede_province = '---'
-		}
 	}
 }
