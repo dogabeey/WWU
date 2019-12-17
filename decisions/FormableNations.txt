@@ -301,10 +301,6 @@ country_decisions = {
 						NOT = { has_province_flag = exodar_ship }
 					}
 					remove_core = ROOT
-					cede_province = '---' # TODO: This is gonna be some sort of remnant nation later.
-					kill_units = {
-						who = ROOT
-					}
 				}
 			}
 			change_tag = A56
@@ -449,8 +445,8 @@ country_decisions = {
 			has_idea_group = supremacist_ideas
 			mil_power = 250
 			years_of_income = 4 
-			calc_if_true = {
-				all_owned_provinces = {
+			calc_true_if = {
+				all_owned_province = {
 					religion = religion_hakkari
 				}
 				amount = 3
