@@ -101,3 +101,34 @@ country_event = {
 		name = discovery.2.opt
 	}
 }
+
+country_event = {
+	id = discovery.3
+	title = discovery.3.title
+	desc = discovery.3.desc
+	picture = ASSASSINATION_eventPicture
+	
+    hidden = yes
+	mean_time_to_happen = { months = 1 }
+    
+	trigger = {
+		NOT = { is_landless = yes } 
+		NOT = { 
+			all_neighbor_country = {
+				knows_country = ROOT
+			} 
+		}
+	}
+	
+	immediate = {
+		every_neighbor_country = {
+			every_province = {
+				discover_country = ROOT
+			}
+		}
+    }
+	
+	option = {
+		name = discovery.3.opt
+	}
+}

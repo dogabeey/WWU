@@ -90,24 +90,64 @@ country_event = {
 			claim = 50
 			dynasty = "Proudmoore"
 		}
-		hidden_effect = {
-			set_variable = {
-				which = rebel_chance
-				value = 0
+		if = {
+			limit = { corruption = 10 }
+			random = { 
+				chance = 90 
+				
+				capital_scope = {
+					pretender_rebels = 2
+				}
 			}
-			export_to_variable = {
-				which = rebel_chance
-				value = corruption
-				who = ROOT
+		}
+		else_if = {
+			limit = { corruption = 8 }
+			random = { 
+				chance = 80 
+				
+				capital_scope = {
+					pretender_rebels = 2
+				}
 			}
-			multiply_variable = {
-				which = rebel_chance
-				value = 20
+		}
+		else_if = {
+			limit = { corruption = 6 }
+			random = { 
+				chance = 70 
+				
+				capital_scope = {
+					pretender_rebels = 2
+				}
 			}
-			change_variable = {
-				which = rebel_chance
-				value = 10
-			}	
+		}
+		else_if = {
+			limit = { corruption = 4 }
+			random = { 
+				chance = 60 
+				
+				capital_scope = {
+					pretender_rebels = 2
+				}
+			}
+		}
+		else_if = {
+			limit = { corruption = 2 }
+			random = { 
+				chance = 50 
+				
+				capital_scope = {
+					pretender_rebels = 2
+				}
+			}
+		}
+		else = {
+			random = { 
+				chance = 40 
+				
+				capital_scope = {
+					pretender_rebels = 2
+				}
+			}
 		}
 	}
 }

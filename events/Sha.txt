@@ -51,7 +51,7 @@ country_event = {
 		ROOT = { disband_rebels = sha_rebels }
 	}
 	option = {
-		# Mothball all residences in the area to stop spreading of Sha.
+		# Mothball all residences in the area to stop spreading of sha.
 		name = doubt.opt3
 		event_target:sha_province = {
 			add_devastation = 100
@@ -114,7 +114,7 @@ is_triggered_only = yes
 		ROOT = { disband_rebels = sha_rebels }
 	}
 	option = {
-		# Mothball all residences in the area to stop spreading of Sha.
+		# Mothball all residences in the area to stop spreading of sha.
 		name = despair.opt3
 		event_target:sha_province = {
 			add_devastation = 100
@@ -177,7 +177,7 @@ is_triggered_only = yes
 		ROOT = { disband_rebels = sha_rebels }
 	}
 	option = {
-		# Mothball all residences in the area to stop spreading of Sha.
+		# Mothball all residences in the area to stop spreading of sha.
 		name = violence.opt3
 		event_target:sha_province = {
 			add_devastation = 100
@@ -240,7 +240,7 @@ is_triggered_only = yes
 		ROOT = { disband_rebels = sha_rebels }
 	}
 	option = {
-		# Mothball all residences in the area to stop spreading of Sha.
+		# Mothball all residences in the area to stop spreading of sha.
 		name = fear.opt3
 		event_target:sha_province = {
 			add_devastation = 100
@@ -251,5 +251,131 @@ is_triggered_only = yes
 	option = {
 		# Deal with The Sha yourself
 		name = fear.opt4
+	}
+}
+country_event = {
+	id = sha.5
+	title = hatred.title
+	desc = hatred.desc
+	picture = SHA_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+is_triggered_only = yes
+	
+	immediate = {
+		random_owned_province = {
+			save_event_target_as = sha_province
+			limit = {
+				continent = continent_pandaria
+			}
+			spawn_rebels = {
+				size = 3
+				leader = "Sha of Hatred"
+				type = sha_rebels
+			}
+		}
+	}
+	option = {
+		# Get help from Shado-pan
+		name = hatred.opt1
+		highlight = yes
+		trigger = { 
+			P37 = {
+				NOT = { war_with = ROOT }
+				has_opinion = {
+					who = ROOT
+					value = 0
+				}
+			}
+		}
+		add_dip_power = -40
+		ROOT = { disband_rebels = sha_rebels }
+	}
+	option = {
+		# Get help from adventurers
+		name = hatred.opt2
+		highlight = yes
+		trigger = { 
+			has_country_modifier = adventurers_allowed
+		}
+		add_mil_power = -40
+		ROOT = { disband_rebels = sha_rebels }
+	}
+	option = {
+		# Mothball all residences in the area to stop spreading of sha.
+		name = hatred.opt3
+		event_target:sha_province = {
+			add_devastation = 100
+		}
+		add_adm_power = -40
+		ROOT = { disband_rebels = sha_rebels }
+	}
+	option = {
+		# Deal with The Sha yourself
+		name = hatred.opt4
+	}
+}
+country_event = {
+	id = sha.6
+	title = anger.title
+	desc = anger.desc
+	picture = SHA_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+is_triggered_only = yes
+	
+	immediate = {
+		random_owned_province = {
+			save_event_target_as = sha_province
+			limit = {
+				continent = continent_pandaria
+			}
+			spawn_rebels = {
+				size = 3
+				leader = "Sha of Anger"
+				type = sha_rebels
+			}
+		}
+	}
+	option = {
+		# Get help from Shado-pan
+		name = anger.opt1
+		highlight = yes
+		trigger = { 
+			P37 = {
+				NOT = { war_with = ROOT }
+				has_opinion = {
+					who = ROOT
+					value = 0
+				}
+			}
+		}
+		add_dip_power = -40
+		ROOT = { disband_rebels = sha_rebels }
+	}
+	option = {
+		# Get help from adventurers
+		name = anger.opt2
+		highlight = yes
+		trigger = { 
+			has_country_modifier = adventurers_allowed
+		}
+		add_mil_power = -40
+		ROOT = { disband_rebels = sha_rebels }
+	}
+	option = {
+		# Mothball all residences in the area to stop spreading of sha.
+		name = anger.opt3
+		event_target:sha_province = {
+			add_devastation = 100
+		}
+		add_adm_power = -40
+		ROOT = { disband_rebels = sha_rebels }
+	}
+	option = {
+		# Deal with The Sha yourself
+		name = anger.opt4
 	}
 }

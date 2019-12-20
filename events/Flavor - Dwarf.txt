@@ -97,6 +97,7 @@ country_event = {
 		event_target:dm_historical_claim = {
 			add_permanent_claim = A29
 		}
+        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - dun_morogh_territorial_claim.opt1" }
 	}
 	option = {
         name = dun_morogh_territorial_claim.opt2 # Refuse.
@@ -106,6 +107,7 @@ country_event = {
 				modifier = dishonorable_act
 			}
 		}
+        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - dun_morogh_territorial_claim.opt1" }
 	}
 }
 country_event = {
@@ -146,6 +148,7 @@ country_event = {
 				}
 			}
 		}
+        #log = "[Root.GetName] - dun_morogh_territorial_war.opt1"
 	}
 	option = {
         name = dun_morogh_territorial_war.opt2 # Refuse.
@@ -155,6 +158,7 @@ country_event = {
 				modifier = dishonorable_act
 			}
 		}
+        #log = "[Root.GetName] - dun_morogh_territorial_war.opt2"
 	}
 }
 
@@ -203,7 +207,7 @@ country_event = {
 		custom_tooltip = twilight_highlands_territorial_tt_claim
 		hidden_effect = {
 			event_target:th_claim_helper = {
-				country_event = { id = dwarf.2 } #twilight_highlands_territorial_claim
+				country_event = { id = dwarf.5 } #twilight_highlands_territorial_claim
 			}
 		}
 	}
@@ -212,7 +216,7 @@ country_event = {
 		custom_tooltip = twilight_highlands_territorial_tt_war
 		hidden_effect = {
 			event_target:th_claim_helper = {
-				country_event = { id = dwarf.3 } #twilight_highlands_territorial_war
+				country_event = { id = dwarf.6 } #twilight_highlands_territorial_war
 			}
 		}
 	}
@@ -238,6 +242,87 @@ country_event = {
 	}
 	option = {
         name = twilight_highlands_territorial.opt4 # Do not do anything for now.
+	}
+}
+country_event = {
+	id = dwarf.5
+	title = twilight_highlands_territorial_claim.title
+	desc = twilight_highlands_territorial_claim.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = yes
+    
+	trigger = {
+	}
+	
+	option = {
+        name = twilight_highlands_territorial_claim.opt1 # Accept backing up the claim.
+		add_dip_power = -50
+		event_target:th_historical_claim = {
+			add_permanent_claim = A28
+		}
+        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - twilight_highlands_territorial_claim.opt1" }
+	}
+	option = {
+        name = twilight_highlands_territorial_claim.opt2 # Refuse.
+		A28 = {
+			add_opinion = {
+				who = ROOT
+				modifier = dishonorable_act
+			}
+		}
+        #log = "[Root.GetName] - twilight_highlands_territorial_claim.opt1"
+	}
+}
+country_event = {
+	id = dwarf.6
+	title = twilight_highlands_territorial_war.title
+	desc = twilight_highlands_territorial_war.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = yes
+    
+	trigger = {
+	}
+	
+	option = {
+        name = twilight_highlands_territorial_war.opt1 # Join a rightful coalition by Ironforge's side.
+		add_mil_power = -50
+		event_target:th_historical_claim = {
+			add_permanent_claim = A28
+		}
+		event_target:th_historical_claim = {
+			owner = {
+				ROOT = {
+					form_coalition_against = PREV
+				}
+			}
+		}
+		event_target:th_historical_claim = {
+			owner = {
+				A28 = {
+					form_coalition_against = PREV
+					add_casus_belli = {
+						target = PREV
+						type = cb_super_badboy 
+						months = 12
+					}
+				}
+			}
+		}
+	}
+	option = {
+        name = twilight_highlands_territorial_war.opt2 # Refuse.
+		A28 = {
+			add_opinion = {
+				who = ROOT
+				modifier = dishonorable_act
+			}
+		}
 	}
 }
 
@@ -286,7 +371,7 @@ country_event = {
 		custom_tooltip = burning_steppes_territorial_tt_claim
 		hidden_effect = {
 			event_target:bs_claim_helper = {
-				country_event = { id = dwarf.2 } #burning_steppes_territorial_claim
+				country_event = { id = dwarf.8 } #burning_steppes_territorial_claim
 			}
 		}
 	}
@@ -295,7 +380,7 @@ country_event = {
 		custom_tooltip = burning_steppes_territorial_tt_war
 		hidden_effect = {
 			event_target:bs_claim_helper = {
-				country_event = { id = dwarf.3 } #burning_steppes_territorial_war
+				country_event = { id = dwarf.9 } #burning_steppes_territorial_war
 			}
 		}
 	}
@@ -321,6 +406,87 @@ country_event = {
 	}
 	option = {
         name = burning_steppes_territorial.opt4 # Do not do anything for now.
+	}
+}
+country_event = {
+	id = dwarf.8
+	title = burning_steppes_territorial_claim.title
+	desc = burning_steppes_territorial_claim.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = yes
+    
+	trigger = {
+	}
+	
+	option = {
+        name = burning_steppes_territorial_claim.opt1 # Accept backing up the claim.
+		add_dip_power = -50
+		event_target:bs_historical_claim = {
+			add_permanent_claim = A30
+		}
+        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - burning_steppes_territorial_claim.opt1" }
+	}
+	option = {
+        name = burning_steppes_territorial_claim.opt2 # Refuse.
+		A30 = {
+			add_opinion = {
+				who = ROOT
+				modifier = dishonorable_act
+			}
+		}
+	}
+}
+country_event = {
+	id = dwarf.9
+	title = burning_steppes_territorial_war.title
+	desc = burning_steppes_territorial_war.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = no
+    fire_only_once = no
+	is_triggered_only = yes
+    
+	trigger = {
+	}
+	
+	option = {
+        name = burning_steppes_territorial_war.opt1 # Join a rightful coalition by Ironforge's side.
+		add_mil_power = -50
+		event_target:bs_historical_claim = {
+			add_permanent_claim = A30
+		}
+		event_target:bs_historical_claim = {
+			owner = {
+				ROOT = {
+					form_coalition_against = PREV
+				}
+			}
+		}
+		event_target:bs_historical_claim = {
+			owner = {
+				A30 = {
+					form_coalition_against = PREV
+					add_casus_belli = {
+						target = PREV
+						type = cb_super_badboy 
+						months = 12
+					}
+				}
+			}
+		}
+        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - burning_steppes_territorial_war.opt1" }
+	}
+	option = {
+        name = burning_steppes_territorial_war.opt2 # Refuse.
+		A30 = {
+			add_opinion = {
+				who = ROOT
+				modifier = dishonorable_act
+			}
+		}
 	}
 }
 
