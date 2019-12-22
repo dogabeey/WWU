@@ -13,7 +13,7 @@ church_of_the_light_rebels = {
 	government = theocracy
 	religion = religion_church_of_the_light
 	defection = religion
-	independence = religion
+	independence = none
 	defect_delay = 60
 	unit_transfer = yes
 	gfx_type = culture_province
@@ -211,20 +211,9 @@ church_of_the_light_rebels = {
 	demands_description = "church_of_the_light_rebels_demand"
 	
 	# Country Scope	
-	demands_enforced_effect = {
-		if = {
-			limit = {
-				
-			}
-			add_prestige = -50
-			every_owned_province = {
-				limit = {
-					has_rebel_faction = REB
-				}
-				add_local_autonomy = 20
-			}
-		}
-		else_if = {
+	demands_enforced_effect = { 
+	
+if = {
 			limit = {
 				religion = religion_church_of_the_light
 			}
