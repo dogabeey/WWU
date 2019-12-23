@@ -3,29 +3,32 @@ country_decisions = {
 		major = yes
 		potential = {
 		    tag = B92
-			NOT = { has_country_flag = burning_legion_invasion_flag }
-			any_country = {
-				capital_scope = { NOT = { continent = continent_outland } }
-				NOT = { has_opinion = {
-					who = ROOT
-					value = 0
-				} }
-				NOT = { religion = religion_fel }
-				NOT = { has_country_modifier = is_evil }
-			}
 		}
 		allow =  {
 			mil_power = 150
-			OR = {
-				any_province = {
-					NOT = { continent = continent_outland }
-					owned_by = B92
-				}
-				1586 = { NOT = { has_province_modifier = dark_portal_closed } }
+			any_province = {
+				has_ruler_leader_from = ROOT
+				owner = { NOT = { tag = ROOT } }
+				NOT = { continent = continent_outland }
 			}
 		}
 		effect = {
-			set_country_flag = burning_legion_invasion_flag
+			random_province = {
+				limit = {
+					has_ruler_leader_from = ROOT
+					owner = { NOT = { tag = ROOT } }
+					NOT = { continent = continent_outland }
+				}
+				cede_province = ROOT
+				owner = {
+					ROOT = {
+						declare_war_with_cb = {
+							who = PREV
+							casus_belli = cb_legion_invasion
+						}
+					}
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 1
