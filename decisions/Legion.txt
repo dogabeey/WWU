@@ -1,0 +1,34 @@
+country_decisions = {
+	send_invasion_force = {
+		major = yes
+		potential = {
+		    tag = B92
+			NOT = { has_country_flag = burning_legion_invasion_flag }
+			any_country = {
+				capital_scope = { NOT = { continent = continent_outland } }
+				NOT = { has_opinion = {
+					who = ROOT
+					value = 0
+				} }
+				NOT = { religion = religion_fel }
+				NOT = { has_country_modifier = is_evil }
+			}
+		}
+		allow =  {
+			mil_power = 150
+			OR = {
+				any_province = {
+					NOT = { continent = continent_outland }
+					owned_by = B92
+				}
+				1586 = { NOT = { has_province_modifier = dark_portal_closed } }
+			}
+		}
+		effect = {
+			set_country_flag = burning_legion_invasion_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
