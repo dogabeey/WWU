@@ -276,6 +276,29 @@ country_event = {
 							country_event = { id = excavation.15 }
 						}
 					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = scythe_of_elune }
+								}
+							}
+							
+							country_event = { id = excavation.14 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = scythe_of_elune }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
 				}
 			}
 	}
@@ -502,6 +525,25 @@ country_event = {
 		
 		add_country_modifier = { 
 			name = warswords_of_valarjar
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.14
+	title = found_scythe_of_elune.title
+	desc = found_scythe_of_elune.desc
+	picture = SCYTHE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_scythe_of_elune.opt1
+		
+		add_country_modifier = { 
+			name = scythe_of_elune
 			duration = 7300
 			hidden = no
 		}
