@@ -1,0 +1,528 @@
+namespace = excavation
+
+# Add the EK portal once the Outland one is built
+country_event = {
+	id = excavation.1
+	title = e_l
+	desc = e_l
+	picture = ARCHAEOLOGY_eventPicture
+    hidden = yes
+	trigger = {
+		has_country_flag = archaeological_project_started
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		clr_country_flag = archaeological_project_started
+		
+			hidden_effect = {
+				random_list = {
+					10 = {
+							country_event = { id = excavation.2 }
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = apocalypse }
+								}
+							}
+							
+							country_event = { id = excavation.3 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = apocalypse }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = twinblades_of_deceiver }
+								}
+							}
+							
+							country_event = { id = excavation.4 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = twinblades_of_deceiver }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = thasdorah }
+								}
+							}
+							
+							country_event = { id = excavation.5 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = thasdorah }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = aluneth }
+								}
+							}
+							
+							country_event = { id = excavation.6 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = aluneth }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = sheilun }
+								}
+							}
+							
+							country_event = { id = excavation.7 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = sheilun }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = ashbringer }
+								}
+							}
+							
+							country_event = { id = excavation.8 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = ashbringer }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = xalatath }
+								}
+							}
+							
+							country_event = { id = excavation.9 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = xalatath }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = doomhammer }
+								}
+							}
+							
+							country_event = { id = excavation.10 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = doomhammer }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = the_dreadblades }
+								}
+							}
+							
+							country_event = { id = excavation.11 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = the_dreadblades }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = skull_of_manari }
+								}
+							}
+							
+							country_event = { id = excavation.12 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = skull_of_manari }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = warswords_of_valarjar }
+								}
+							}
+							
+							country_event = { id = excavation.13 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = warswords_of_valarjar }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = excavation.15 }
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+        name = e_l
+		
+	}
+}
+
+country_event = {
+	id = excavation.2
+	title = excavation_failure.title
+	desc = excavation_failure.desc
+	picture = ARCHAEOLOGY_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = excavation_failure.opt1
+	}
+}
+
+country_event = {
+	id = excavation.3
+	title = found_apocalypse.title
+	desc = found_apocalypse.desc
+	picture = APOCALYPSE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_apocalypse.opt1
+		
+		add_country_modifier = { 
+			name = apocalypse
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.4
+	title = found_twinblades_of_deceiver.title
+	desc = found_twinblades_of_deceiver.desc
+	picture = TWINBLADES_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_apocalypse.opt1
+		
+		add_country_modifier = { 
+			name = twinblades_of_deceiver
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.5
+	title = found_thasdorah.title
+	desc = found_thasdorah.desc
+	picture = THASDORAH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_thasdorah.opt1
+		
+		add_country_modifier = { 
+			name = thasdorah
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.6
+	title = found_aluneth.title
+	desc = found_aluneth.desc
+	picture = ALUNETH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_aluneth.opt1
+		
+		add_country_modifier = { 
+			name = aluneth
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.7
+	title = found_sheilun.title
+	desc = found_sheilun.desc
+	picture = SHEILUN_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_sheilun.opt1
+		
+		add_country_modifier = { 
+			name = sheilun
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.8
+	title = found_ashbringer.title
+	desc = found_ashbringer.desc
+	picture = ASHBRINGER_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_ashbringer.opt1
+		
+		add_country_modifier = { 
+			name = ashbringer
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.9
+	title = found_xalatath.title
+	desc = found_xalatath.desc
+	picture = XALATATH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_ashbringer.opt1
+		
+		add_country_modifier = { 
+			name = xalatath
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.10
+	title = found_doomhammer.title
+	desc = found_doomhammer.desc
+	picture = DOOMHAMMER_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_doomhammer.opt1
+		
+		add_country_modifier = { 
+			name = doomhammer
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.11
+	title = found_the_dreadblades.title
+	desc = found_the_dreadblades.desc
+	picture = DREADBLADES_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_the_dreadblades.opt1
+		
+		add_country_modifier = { 
+			name = the_dreadblades
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.12
+	title = found_skull_of_manari.title
+	desc = found_skull_of_manari.desc
+	picture = SKULL_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_skull_of_manari.opt1
+		
+		add_country_modifier = { 
+			name = skull_of_manari
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.13
+	title = found_warswords_of_valarjar.title
+	desc = found_warswords_of_valarjar.desc
+	picture = WARSWORDS_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_warswords_of_valarjar.opt1
+		
+		add_country_modifier = { 
+			name = warswords_of_valarjar
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+country_event = {
+	id = excavation.15
+	title = found_archaeology_fragment.title
+	desc = found_archaeology_fragment.desc
+	picture = FRAGMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = found_archaeology_fragment.opt1
+		
+		add_country_modifier = { 
+			name = archaeology_fragment
+			duration = 7300
+			hidden = no
+		}
+	}
+}

@@ -35,3 +35,28 @@ country_event = {
 	}
 }
 
+# Instantly remove any rebels in Dark Portal country.
+country_event = {
+	id = dark_portal.2
+	title = dark_portal.1.title
+	desc = dark_portal.1.desc
+	picture = DIPLOMACY_eventPicture
+    
+	hidden = yes
+    
+	trigger = {
+		num_of_rebel_armies = 3
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+        name = dark_portal.1.option.a
+        
+        disband_rebels = anti_tax_rebels
+        disband_rebels = adventurer_rebels
+        disband_rebels = pretender_rebels
+	}
+}
