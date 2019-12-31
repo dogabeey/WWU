@@ -8,11 +8,13 @@ has_transport = {
 		AND = { province_id = 1375 rise_of_the_qiraji_or_later = yes } # Ratchet
 		province_id = 1065 # Rutheran Village
 		province_id = 1088 # Emberglade
-		province_id = 1052 # Valiance Keep
-		province_id = 510 # Warsong Hold
-		province_id = 1720 # Paw'don Village
-		province_id = 2075 # Greenstone
+		AND = { province_id = 1052 the_third_war_or_later = yes } # Valiance Keep
+		AND = { province_id = 510 the_third_war_or_later = yes } # Warsong Hold
+		AND = { province_id = 583 NOT = { the_third_war_or_later = yes } } # Forgotten Shore
+		AND = { province_id = 1720 mists_of_pandaria_or_later = yes } # Paw'don Village
+		AND = { province_id = 2075 mists_of_pandaria_or_later = yes } # Greenstone
 		province_id = 2471 # Port Zul
+		province_id = 1301 # Aurbendieieieyy
 	}
 }
 
@@ -21,9 +23,12 @@ province_has_transport_to_province = {
 		AND = {
 			$ARG1$ = {
 				province_id = 2141
+				wrath_of_the_lich_king_or_later = yes
 			}
 			$ARG2$ = {
-				province_id = 2141
+				OR = {
+					province_id = 2141
+				}
 			}
 		}
 	}
