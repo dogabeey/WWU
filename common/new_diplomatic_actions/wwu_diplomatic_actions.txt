@@ -423,7 +423,7 @@ offer_contract = {
 			}
 			export_to_variable = {
 				which = ai_value
-				value = 20
+				value = 10
 			}
 		}
 		add_entry = {
@@ -434,7 +434,7 @@ offer_contract = {
 			}
 			export_to_variable = {
 				which = ai_value
-				value = 30
+				value = 20
 			}
 		}
 		add_entry = {
@@ -445,7 +445,137 @@ offer_contract = {
 			}
 			export_to_variable = {
 				which = ai_value
-				value = 40
+				value = 30
+			}
+		}
+	}
+
+	ai_will_do = {
+		NOT = { contract = 1 }
+		tax_income_percentage = 0.2
+	}
+}
+
+suggest_contract = {
+	category = influence
+	
+	alert_index = 40
+	alert_tooltip = suggest_contract_tooltip
+	
+	require_acceptance = yes # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		is_subject = no
+		is_organization = yes
+		FROM = {
+			is_subject = no
+			NOT = { is_organization = yes }
+		}
+	}
+	is_allowed = {
+		is_subject = no
+		is_at_war = no
+		NOT = { total_development = FROM }
+		FROM = {
+			is_subject = no
+			is_at_war = no
+			has_opinion = {
+				who = ROOT
+				value = 0
+			}
+		}
+	}
+	on_accept = {
+		FROM = {
+			create_subject = {
+				subject_type = contract
+				subject = ROOT
+			}
+		}
+		ROOT = {
+			country_event = {
+				id = contracts.1
+				days = 1825
+			}
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = {
+		add_entry = {
+			name = INV_OPINION
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = ROOT
+				with = FROM
+			}
+			subtract_variable = { which = ai_value value = 50 }
+		}
+		add_entry = {
+			name = TRUST
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = trust
+				who = ROOT
+				with = FROM
+			}
+			subtract_variable = { which = ai_value value = 40 }
+			divide_variable = { which = ai_value value = 3 }
+		}
+		add_entry = {
+			name = DISTANCE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = border_distance
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 50 }
+			divide_variable = { which = ai_value value = 3 }
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = HAVE_LOANS
+			limit = {
+				FROM = { num_of_loans = 1 }
+				FROM = { NOT = { num_of_loans = 2 } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -20
+			}
+		}
+		add_entry = {
+			name = HAVE_LOANS
+			limit = {
+				FROM = { num_of_loans = 2 }
+				FROM = { NOT = { num_of_loans = 3 } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -30
+			}
+		}
+		add_entry = {
+			name = HAVE_LOANS
+			limit = {
+				FROM = { num_of_loans = 3 }
+				FROM = { NOT = { num_of_loans = 4 } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -40
 			}
 		}
 	}
