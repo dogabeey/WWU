@@ -347,6 +347,98 @@ religion_group_disorder = {
 		
 		has_patriarchs = yes
 		
+		orthodox_icons = {
+			# If no icon has ai_will_do above 1 - <current patriarch authority> , the AI will not enact it. (60% PA = 0.6 -> ai_will_do has to be at least 0.4)
+
+			spec_affliction = {
+				hostile_attrition = 1
+				
+				allow = {
+					ruler_has_personality = warlock_personality
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_destruction = {
+				loot_amount = 0.1
+				
+				allow = {
+					ruler_has_personality = warlock_personality
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_demonology = {
+				global_manpower_modifier = 0.1
+				
+				allow = {
+					ruler_has_personality = warlock_personality
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+	
+			spec_arcane = {
+				siege_ability = 0.1
+				
+				allow = {
+					ruler_has_personality = mage_personality
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_frost = {
+				core_decay_on_your_own = -0.2
+				
+				allow = {
+					ruler_has_personality = mage_personality
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_fire = {
+				land_attrition = -0.1
+				
+				allow = {
+					ruler_has_personality = mage_personality
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_havoc = {
+				global_institution_spread = 0.2
+				
+				allow = {
+					ruler_has_personality = demon_hunter_personality
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_vengeance = {
+				war_taxes_cost_modifier = -0.2
+				
+				allow = {
+					ruler_has_personality = demon_hunter_personality
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+		}
+		
 		on_convert = {
 			change_religion = religion_fel
 			add_prestige = -100
