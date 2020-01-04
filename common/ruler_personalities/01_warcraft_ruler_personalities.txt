@@ -83,7 +83,6 @@ paladin_personality = {
 	}
 
 	fair_fights = yes
-	different_religion_war_multiplier = 1.2
 	
 	tolerance_own = 2
 }
@@ -399,6 +398,52 @@ shaman_personality = {
 	wants_avoid_debase = yes
 	
 	prestige_decay = -0.01
-	stability_cost_modifier = -0.2
+	stability_cost_modifier = -0.1
+}
+demon_hunter_personality = {
+	ruler_allow = {
+		allow = {
+			NOT = { ruler_has_class = yes }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 1
+				demon_hunter = yes
+			}
+		}
+	}
+
+	heir_allow = {
+		allow = {
+			NOT = { heir_has_class = yes }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 1
+				demon_hunter = yes
+			}
+		}
+	}
+	
+	consort_allow = {
+		allow = {
+			NOT = { consort_has_class = yes }
+		}
+
+		chance = {
+			modifier = {
+				factor = 1
+				demon_hunter = yes
+			}
+		}
+	}
+
+	different_religion_war_multiplier = 1.2
+	heretic_ally_acceptance = -50
+	
+	global_spy_defence = 0.25
+	tolerance_own = 1
 }
 

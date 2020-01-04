@@ -1,0 +1,62 @@
+namespace = chaos
+
+country_event = {
+	id = chaos.1
+	title = chaos_disaster_start.title
+	desc = chaos_disaster_start.desc
+	picture = LEGION_eventPicture
+
+	is_triggered_only = yes
+
+
+	option = {
+		name = chaos_disaster_start.opt1
+		
+	}
+}
+
+country_event = {
+	id = chaos.2
+	title = chaos_disaster_end.title
+	desc = chaos_disaster_end.desc
+	picture = LEGION_eventPicture
+
+	is_triggered_only = yes
+
+
+	option = {
+		name = chaos_disaster_end.opt1
+		change_religion = religion_fel
+	}
+}
+
+country_event = {
+	id = chaos.3
+	title = chaos_disaster_progress.title
+	desc = chaos_disaster_progress.desc
+	picture = LEGION_eventPicture
+
+	is_triggered_only = yes
+
+
+	option = {
+		name = chaos_disaster_progress.opt1
+		random_owned_province = {
+			change_religion = religion_fel
+		}
+	}
+
+	option = {
+		name = chaos_disaster_progress.opt2
+		add_adm_power = -50
+		add_dip_power = -50
+		add_mil_power = -50
+	}
+
+	option = {
+		name = chaos_disaster_progress.opt3
+		every_owned_province = {
+			change_religion = religion_fel
+		}
+	}
+}

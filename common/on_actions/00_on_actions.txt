@@ -2,318 +2,323 @@
 
 # country
 on_startup = {
-
-    if = { limit = { NOT = { has_country_flag = on_action_setup_flag } }
-	
-	# Religious and Cultural Unity for ALL NATIONS on start
-	# * * * TODO: THIS IS A TEMPORARY SOLUTION. DELETE THOSE LINES AFTER FIXING THEM IN HISTORY. * * *
-	# This will override history files
-	every_owned_province = {
-		limit = {
-			NOT = { religion = ROOT }
-		}
-		change_religion = ROOT
-	}
-	every_owned_province = {
-		limit = {
-			NOT = { culture = ROOT }
-		}
-		change_culture = ROOT
-	}
-	
-	
-	# Misc
-	add_historical_friend = Z99
-	Z99 = {
-		add_historical_friend = PREV
-	}
-	set_faction_conflict = yes
-	
-	country_event = { id = setup.1 days = 1 }
-	country_event = { id = landless_setup.1 days = 1 }
-    ################################
-	#	Government Ranks
-	################################
-    if = { 
-		limit = { 
-			total_development = 1
-			NOT = { total_development = 100 }
-		}
-		set_government_rank = 1
-	}
-    if = { 
-		limit = { 
-			total_development = 100
-			NOT = { total_development = 200 }
-		}
-		set_government_rank = 2
-	}
-    if = { 
-		limit = { 
-			total_development = 200
-			NOT = { total_development = 300 }
-		}
-		set_government_rank = 3
-	}
-    if = { 
-		limit = { 
-			total_development = 300
-			NOT = { total_development = 400 }
-		}
-		set_government_rank = 4
-	}
-    if = { 
-		limit = { 
-			total_development = 400
-			NOT = { total_development = 500 }
-		}
-		set_government_rank = 5
-	}
-    if = { 
-		limit = { 
-			total_development = 500
-			NOT = { total_development = 600 }
-		}
-		set_government_rank = 6
-	}
-    if = { 
-		limit = { 
-			total_development = 600
-			NOT = { total_development = 700 }
-		}
-		set_government_rank = 7
-	}
-    if = { 
-		limit = { 
-			total_development = 700
-			NOT = { total_development = 800 }
-		}
-		set_government_rank = 8
-	}
-    if = { 
-		limit = { 
-			total_development = 800
-			NOT = { total_development = 900 }
-		}
-		set_government_rank = 9
-	}
-    if = { 
-		limit = { 
-			total_development = 900
-		}
-		set_government_rank = 10
-	}
-    ################################
-	#	Government Settings
-	################################
 	if = {
-		limit = {
-			government = tribal
-			has_dlc = "Dharma"
-		}
-		if  = { limit = { culture_group = culture_group_orc } add_government_reform = steppe_horde }
-		else_if = { limit = { is_pure_evil = yes } add_government_reform = war_against_the_world_reform }
-		else_if = { limit = { is_savage = yes } add_government_reform = tribal_despotism }
-		else_if = { limit = { is_pirate = yes } add_government_reform = tribal_federation }
-		else_if = { limit = { is_lesser = yes } add_government_reform = nomad_state_reform }
-		else = {
-			random_list = {
-				35 = {
-				add_government_reform = steppe_horde
-				}
-				15 = {
-				add_government_reform = tribal_federation
-				}
-				15 = {
-				add_government_reform = tribal_kingdom
-				}
-				15 = {
-				add_government_reform = tribal_despotism
-				}
-				5 = {
-				add_government_reform = nomad_state_reform
-				}
-				5 = {
-				add_government_reform = war_against_the_world_reform
-				}
-				5 = {
-				add_government_reform = tribal_republic
-				}
-				5 = {
-				add_government_reform = tribal_theocratic_state
-				}
+		limit = { NOT = { has_global_flag = on_action_setup_global_flag } }
+		
+		set_faction_conflict = yes
+		
+		set_global_flag = on_action_setup_global_flag
+	}
+    if = { 
+	
+		# Religious and Cultural Unity for ALL NATIONS on start
+		# * * * TODO: THIS IS A TEMPORARY SOLUTION. DELETE THOSE LINES AFTER FIXING THEM IN HISTORY. * * *
+		# This will override history files
+		every_owned_province = {
+			limit = {
+				NOT = { religion = ROOT }
 			}
+			change_religion = ROOT
 		}
-	}
-	
-	if = {
-		limit = {
-			government = tribal
-			NOT = { 
+		every_owned_province = {
+			limit = {
+				NOT = { culture = ROOT }
+			}
+			change_culture = ROOT
+		}
+		
+		
+		# Misc
+		add_historical_friend = Z99
+		Z99 = {
+			add_historical_friend = PREV
+		}
+		
+		country_event = { id = setup.1 days = 1 }
+		country_event = { id = landless_setup.1 days = 1 }
+		################################
+		#	Government Ranks
+		################################
+		if = { 
+			limit = { 
+				total_development = 1
+				NOT = { total_development = 100 }
+			}
+			set_government_rank = 1
+		}
+		if = { 
+			limit = { 
+				total_development = 100
+				NOT = { total_development = 200 }
+			}
+			set_government_rank = 2
+		}
+		if = { 
+			limit = { 
+				total_development = 200
+				NOT = { total_development = 300 }
+			}
+			set_government_rank = 3
+		}
+		if = { 
+			limit = { 
+				total_development = 300
+				NOT = { total_development = 400 }
+			}
+			set_government_rank = 4
+		}
+		if = { 
+			limit = { 
+				total_development = 400
+				NOT = { total_development = 500 }
+			}
+			set_government_rank = 5
+		}
+		if = { 
+			limit = { 
+				total_development = 500
+				NOT = { total_development = 600 }
+			}
+			set_government_rank = 6
+		}
+		if = { 
+			limit = { 
+				total_development = 600
+				NOT = { total_development = 700 }
+			}
+			set_government_rank = 7
+		}
+		if = { 
+			limit = { 
+				total_development = 700
+				NOT = { total_development = 800 }
+			}
+			set_government_rank = 8
+		}
+		if = { 
+			limit = { 
+				total_development = 800
+				NOT = { total_development = 900 }
+			}
+			set_government_rank = 9
+		}
+		if = { 
+			limit = { 
+				total_development = 900
+			}
+			set_government_rank = 10
+		}
+		################################
+		#	Government Settings
+		################################
+		if = {
+			limit = {
+				government = tribal
 				has_dlc = "Dharma"
 			}
-		}
-		if = { limit = { culture_group = culture_group_orc } set_legacy_government = steppe_horde_legacy }
-		else_if = { limit = { is_pure_evil = yes } set_legacy_government = war_against_the_world_legacy }
-		else_if = { limit = { is_savage = yes } set_legacy_government = tribal_despotism_legacy }
-		else_if = { limit = { is_pirate = yes } set_legacy_government = tribal_federation_legacy }
-		else_if = { limit = { is_lesser = yes } set_legacy_government = tribal_kingdom_legacy }
-		else = {
-			random_list = {
-				35 = {
-				set_legacy_government = steppe_horde_legacy
-				}
-				15 = {
-				set_legacy_government = tribal_federation_legacy
-				}
-				15 = {
-				set_legacy_government = tribal_kingdom_legacy
-				}
-				15 = {
-				set_legacy_government = tribal_despotism_legacy
-				}
-				5 = {
-				set_legacy_government = nomad_state_legacy
-				}
-				5 = {
-				set_legacy_government = war_against_the_world_legacy
-				}
-				5 = {
-				set_legacy_government = tribal_republic_legacy
-				}
-				5 = {
-				set_legacy_government = tribal_theocratic_state_legacy
-				}
-			}
-		}
-	}	
-##########################################	
-	if = {
-		limit = {
-			government = monarchy
-			has_dlc = "Dharma"
-		}
-		if = { limit = { is_pirate = yes } add_government_reform = pirate_kingdom }
-		else_if = { limit = { is_ancient = yes } add_government_reform = ancient_dynasty_reform }
-		else_if = { limit = { tag = A14 } add_government_reform = admiralty_reform }
-		else_if = { limit = { OR = { culture_group = culture_group_scourge culture_group = culture_group_undead } } add_government_reform = scourge_reform }
-		else = {
-			random_list = {
-				100 = {
-					add_government_reform = autocracy_reform
+			if  = { limit = { culture_group = culture_group_orc } add_government_reform = steppe_horde }
+			else_if = { limit = { is_pure_evil = yes } add_government_reform = war_against_the_world_reform }
+			else_if = { limit = { is_savage = yes } add_government_reform = tribal_despotism }
+			else_if = { limit = { is_pirate = yes } add_government_reform = tribal_federation }
+			else_if = { limit = { is_lesser = yes } add_government_reform = nomad_state_reform }
+			else = {
+				random_list = {
+					35 = {
+					add_government_reform = steppe_horde
+					}
+					15 = {
+					add_government_reform = tribal_federation
+					}
+					15 = {
+					add_government_reform = tribal_kingdom
+					}
+					15 = {
+					add_government_reform = tribal_despotism
+					}
+					5 = {
+					add_government_reform = nomad_state_reform
+					}
+					5 = {
+					add_government_reform = war_against_the_world_reform
+					}
+					5 = {
+					add_government_reform = tribal_republic
+					}
+					5 = {
+					add_government_reform = tribal_theocratic_state
+					}
 				}
 			}
 		}
-	}
-	
-	if = {
-		limit = {
-			government = monarchy
-			NOT = { 
+		
+		if = {
+			limit = {
+				government = tribal
+				NOT = { 
+					has_dlc = "Dharma"
+				}
+			}
+			if = { limit = { culture_group = culture_group_orc } set_legacy_government = steppe_horde_legacy }
+			else_if = { limit = { is_pure_evil = yes } set_legacy_government = war_against_the_world_legacy }
+			else_if = { limit = { is_savage = yes } set_legacy_government = tribal_despotism_legacy }
+			else_if = { limit = { is_pirate = yes } set_legacy_government = tribal_federation_legacy }
+			else_if = { limit = { is_lesser = yes } set_legacy_government = tribal_kingdom_legacy }
+			else = {
+				random_list = {
+					35 = {
+					set_legacy_government = steppe_horde_legacy
+					}
+					15 = {
+					set_legacy_government = tribal_federation_legacy
+					}
+					15 = {
+					set_legacy_government = tribal_kingdom_legacy
+					}
+					15 = {
+					set_legacy_government = tribal_despotism_legacy
+					}
+					5 = {
+					set_legacy_government = nomad_state_legacy
+					}
+					5 = {
+					set_legacy_government = war_against_the_world_legacy
+					}
+					5 = {
+					set_legacy_government = tribal_republic_legacy
+					}
+					5 = {
+					set_legacy_government = tribal_theocratic_state_legacy
+					}
+				}
+			}
+		}	
+	##########################################	
+		if = {
+			limit = {
+				government = monarchy
 				has_dlc = "Dharma"
 			}
-		}
-		if = { limit = { is_pirate = yes } set_legacy_government = pirate_kingdom_legacy }
-		else_if = { limit = { is_ancient = yes } set_legacy_government = ancient_dynasty_legacy }
-		else_if = { limit = { tag = A14 } set_legacy_government = admiralty_legacy }
-		else_if = { limit = { OR = { culture_group = culture_group_scourge culture_group = culture_group_undead } } set_legacy_government = scourge_legacy }
-		else = {
-			random_list = {
-				100 = {
-					set_legacy_government = despotic_monarchy
+			if = { limit = { is_pirate = yes } add_government_reform = pirate_kingdom }
+			else_if = { limit = { is_ancient = yes } add_government_reform = ancient_dynasty_reform }
+			else_if = { limit = { tag = A14 } add_government_reform = admiralty_reform }
+			else_if = { limit = { OR = { culture_group = culture_group_scourge culture_group = culture_group_undead } } add_government_reform = scourge_reform }
+			else = {
+				random_list = {
+					100 = {
+						add_government_reform = autocracy_reform
+					}
 				}
 			}
 		}
-	}
-##########################################	
-	if = {
-		limit = {
-			government = theocracy
-			has_dlc = "Dharma"
-		}
-		if = { limit = { is_ancient = yes } add_government_reform = ancient_divinity_reform }
-		random_list = {
-			100 = {
-				add_government_reform = leading_clergy_reform
+		
+		if = {
+			limit = {
+				government = monarchy
+				NOT = { 
+					has_dlc = "Dharma"
+				}
+			}
+			if = { limit = { is_pirate = yes } set_legacy_government = pirate_kingdom_legacy }
+			else_if = { limit = { is_ancient = yes } set_legacy_government = ancient_dynasty_legacy }
+			else_if = { limit = { tag = A14 } set_legacy_government = admiralty_legacy }
+			else_if = { limit = { OR = { culture_group = culture_group_scourge culture_group = culture_group_undead } } set_legacy_government = scourge_legacy }
+			else = {
+				random_list = {
+					100 = {
+						set_legacy_government = despotic_monarchy
+					}
+				}
 			}
 		}
-	}
-	
-	if = {
-		limit = {
-			government = theocracy
-			NOT = { 
+	##########################################	
+		if = {
+			limit = {
+				government = theocracy
 				has_dlc = "Dharma"
 			}
-		}
-		if = { limit = { is_ancient = yes } set_legacy_government = ancient_divinity_legacy }
-		random_list = {
-			100 = {
-				set_legacy_government = theocratic_government
-			}
-		}
-	}
-##########################################	
-	if = {
-		limit = {
-			has_country_modifier = alliance_head
-		}
-		change_government = monarchy
-		add_government_reform = alliance_reform
-	}
-	if = {
-		limit = {
-			has_country_modifier = horde_head
-		}
-		change_government = monarchy
-		add_government_reform = horde_reform
-	}
-##########################################	
-	if = {
-		limit = {
-			government = republic
-			has_dlc = "Dharma"
-		}
-		if = { limit = { is_pirate = yes } add_government_reform = pirate_republic_reform }
-		else_if = { limit = { is_savage = yes } add_government_reform = presidential_despot_reform }
-		else_if = { limit = { is_merchant = yes } add_government_reform = merchants_reform }
-		else_if = { limit = { is_ancient = yes } add_government_reform = ancient_civilization_reform }
-		else = {
+			if = { limit = { is_ancient = yes } add_government_reform = ancient_divinity_reform }
 			random_list = {
 				100 = {
-					add_government_reform = oligarchy_reform
+					add_government_reform = leading_clergy_reform
 				}
 			}
 		}
-	}
-	
-	if = {
-		limit = {
-			government = republic
-			NOT = { 
+		
+		if = {
+			limit = {
+				government = theocracy
+				NOT = { 
+					has_dlc = "Dharma"
+				}
+			}
+			if = { limit = { is_ancient = yes } set_legacy_government = ancient_divinity_legacy }
+			random_list = {
+				100 = {
+					set_legacy_government = theocratic_government
+				}
+			}
+		}
+	##########################################	
+		if = {
+			limit = {
+				has_country_modifier = alliance_head
+			}
+			change_government = monarchy
+			add_government_reform = alliance_reform
+		}
+		if = {
+			limit = {
+				has_country_modifier = horde_head
+			}
+			change_government = monarchy
+			add_government_reform = horde_reform
+		}
+	##########################################	
+		if = {
+			limit = {
+				government = republic
 				has_dlc = "Dharma"
 			}
-		}
-		if = { limit = { is_pirate = yes } set_legacy_government = pirate_republic }
-		else_if = { limit = { is_ancient = yes } set_legacy_government = ancient_civilization_legacy }
-		else_if = { limit = { is_savage = yes } set_legacy_government = republican_dictatorship }
-		else_if = { limit = { is_merchant = yes } set_legacy_government = merchant_republic }
-		else = {
-			random_list = {
-				100 = {
-					set_legacy_government = oligarchic_republic
+			if = { limit = { is_pirate = yes } add_government_reform = pirate_republic_reform }
+			else_if = { limit = { is_savage = yes } add_government_reform = presidential_despot_reform }
+			else_if = { limit = { is_merchant = yes } add_government_reform = merchants_reform }
+			else_if = { limit = { is_ancient = yes } add_government_reform = ancient_civilization_reform }
+			else = {
+				random_list = {
+					100 = {
+						add_government_reform = oligarchy_reform
+					}
 				}
 			}
 		}
-	}
-	
-	swap_non_generic_missions = yes
-	add_legitimacy = 100
-	add_republican_tradition = 100
-	add_devotion = 100
-	add_horde_unity = 100
-	
-	set_country_flag = on_action_setup_flag
+		
+		if = {
+			limit = {
+				government = republic
+				NOT = { 
+					has_dlc = "Dharma"
+				}
+			}
+			if = { limit = { is_pirate = yes } set_legacy_government = pirate_republic }
+			else_if = { limit = { is_ancient = yes } set_legacy_government = ancient_civilization_legacy }
+			else_if = { limit = { is_savage = yes } set_legacy_government = republican_dictatorship }
+			else_if = { limit = { is_merchant = yes } set_legacy_government = merchant_republic }
+			else = {
+				random_list = {
+					100 = {
+						set_legacy_government = oligarchic_republic
+					}
+				}
+			}
+		}
+		
+		swap_non_generic_missions = yes
+		add_legitimacy = 100
+		add_republican_tradition = 100
+		add_devotion = 100
+		add_horde_unity = 100
+		
+		set_country_flag = on_action_setup_flag
 	}
 	
 }
