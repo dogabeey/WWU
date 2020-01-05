@@ -191,6 +191,14 @@ rogue_personality = {
 				factor = 2
 				rogue = yes
 			}
+			modifier = {
+				factor = 1.5
+				has_country_modifier = is_evil
+			}
+			modifier = {
+				factor = 1.25
+				religion = religion_shadow
+			}
 		}
 	}
 
@@ -204,6 +212,14 @@ rogue_personality = {
 				factor = 2
 				rogue = yes
 			}
+			modifier = {
+				factor = 1.5
+				has_country_modifier = is_evil
+			}
+			modifier = {
+				factor = 1.25
+				religion = religion_shadow
+			}
 		}
 	}
 	
@@ -216,6 +232,14 @@ rogue_personality = {
 			modifier = {
 				factor = 2
 				rogue = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_country_modifier = is_evil
+			}
+			modifier = {
+				factor = 1.25
+				religion = religion_shadow
 			}
 		}
 	}
@@ -230,11 +254,18 @@ mage_personality = {
 		allow = {
 			NOT = { ruler_has_class = yes }
 		}
-	
 		chance = {
 			modifier = {
 				factor = 2
 				mage = yes
+			}
+			modifier = {
+				factor = 1.5
+				religion = religion_arcane
+			}
+			modifier = {
+				factor = 1.5
+				has_reform = college_of_mages_reform
 			}
 		}
 	}
@@ -243,11 +274,19 @@ mage_personality = {
 		allow = {
 			NOT = { heir_has_class = yes }
 		}
-	
+		
 		chance = {
 			modifier = {
 				factor = 2
 				mage = yes
+			}
+			modifier = {
+				factor = 1.5
+				religion = religion_arcane
+			}
+			modifier = {
+				factor = 1.5
+				has_reform = college_of_mages_reform
 			}
 		}
 	}
@@ -261,6 +300,14 @@ mage_personality = {
 			modifier = {
 				factor = 2
 				mage = yes
+			}
+			modifier = {
+				factor = 1.5
+				religion = religion_arcane
+			}
+			modifier = {
+				factor = 1.5
+				has_reform = college_of_mages_reform
 			}
 		}
 	}
@@ -280,6 +327,19 @@ warlock_personality = {
 				factor = 2
 				warlock = yes
 			}
+			modifier = {
+				factor = 1.75
+				religion = religion_fel
+			}
+			modifier = {
+				factor = 1.25
+				religion = religion_chaos
+			}
+			modifier = {
+				factor = 1.25
+				has_country_modifier = is_evil
+				NOT = { religion = religion_fel }
+			}
 		}
 	}
 
@@ -293,6 +353,19 @@ warlock_personality = {
 				factor = 2
 				warlock = yes
 			}
+			modifier = {
+				factor = 1.75
+				religion = religion_fel
+			}
+			modifier = {
+				factor = 1.25
+				religion = religion_chaos
+			}
+			modifier = {
+				factor = 1.25
+				has_country_modifier = is_evil
+				NOT = { religion = religion_fel }
+			}
 		}
 	}
 	
@@ -300,11 +373,24 @@ warlock_personality = {
 		allow = {
 			NOT = { consort_has_class = yes }
 		}
-
+	
 		chance = {
 			modifier = {
 				factor = 2
 				warlock = yes
+			}
+			modifier = {
+				factor = 1.75
+				religion = religion_fel
+			}
+			modifier = {
+				factor = 1.25
+				religion = religion_chaos
+			}
+			modifier = {
+				factor = 1.25
+				has_country_modifier = is_evil
+				NOT = { religion = religion_fel }
 			}
 		}
 	}
@@ -324,6 +410,10 @@ druid_personality = {
 				factor = 2
 				druid = yes
 			}
+			modifier = {
+				factor = 10
+				religion = religion_druidic
+			}
 		}
 	}
 
@@ -337,6 +427,10 @@ druid_personality = {
 				factor = 2
 				druid = yes
 			}
+			modifier = {
+				factor = 10
+				religion = religion_druidic
+			}
 		}
 	}
 	
@@ -344,11 +438,15 @@ druid_personality = {
 		allow = {
 			NOT = { consort_has_class = yes }
 		}
-
+	
 		chance = {
 			modifier = {
 				factor = 2
 				druid = yes
+			}
+			modifier = {
+				factor = 10
+				religion = religion_druidic
 			}
 		}
 	}
@@ -369,6 +467,20 @@ hunter_personality = {
 				factor = 2
 				hunter = yes
 			}
+			modifier = {
+				factor = 1.25
+				culture_group = culture_group_thalassian
+				is_female = yes
+			}
+			modifier = {
+				factor = 1.25
+				culture_group = culture_group_darnassian
+				is_female = yes
+			}
+			modifier = {
+				factor = 1.25
+				religion = religion_primitive
+			}
 		}
 	}
 
@@ -382,6 +494,20 @@ hunter_personality = {
 				factor = 2
 				hunter = yes
 			}
+			modifier = {
+				factor = 1.25
+				culture_group = culture_group_thalassian
+				has_female_heir = yes
+			}
+			modifier = {
+				factor = 1.25
+				culture_group = culture_group_darnassian
+				has_female_heir = yes
+			}
+			modifier = {
+				factor = 1.25
+				religion = religion_primitive
+			}
 		}
 	}
 	
@@ -389,11 +515,25 @@ hunter_personality = {
 		allow = {
 			NOT = { consort_has_class = yes }
 		}
-
+	
 		chance = {
 			modifier = {
 				factor = 2
 				hunter = yes
+			}
+			modifier = {
+				factor = 1.50
+				culture_group = culture_group_thalassian
+				has_female_consort = yes
+			}
+			modifier = {
+				factor = 1.25
+				culture_group = culture_group_darnassian
+				has_female_consort = yes
+			}
+			modifier = {
+				factor = 1.25
+				religion = religion_primitive
 			}
 		}
 	}
@@ -413,6 +553,14 @@ shaman_personality = {
 				factor = 2
 				shaman = yes
 			}
+			modifier = {
+				factor = 1.5
+				religion = religion_ancestral
+			}
+			modifier = {
+				factor = 1.5
+				culture_group = culture_group_orc
+			}
 		}
 	}
 
@@ -426,6 +574,14 @@ shaman_personality = {
 				factor = 2
 				shaman = yes
 			}
+			modifier = {
+				factor = 1.5
+				religion = religion_ancestral
+			}
+			modifier = {
+				factor = 1.5
+				culture_group = culture_group_orc
+			}
 		}
 	}
 	
@@ -438,6 +594,14 @@ shaman_personality = {
 			modifier = {
 				factor = 2
 				shaman = yes
+			}
+			modifier = {
+				factor = 1.5
+				religion = religion_ancestral
+			}
+			modifier = {
+				factor = 1.5
+				culture_group = culture_group_orc
 			}
 		}
 	}
@@ -459,6 +623,10 @@ demon_hunter_personality = {
 				factor = 2
 				demon_hunter = yes
 			}
+			modifier = {
+				factor = 5
+				technology_group = tech_illidari
+			}
 		}
 	}
 
@@ -472,6 +640,10 @@ demon_hunter_personality = {
 				factor = 2
 				demon_hunter = yes
 			}
+			modifier = {
+				factor = 5
+				technology_group = tech_illidari
+			}
 		}
 	}
 	
@@ -479,11 +651,15 @@ demon_hunter_personality = {
 		allow = {
 			NOT = { consort_has_class = yes }
 		}
-
+	
 		chance = {
 			modifier = {
 				factor = 2
 				demon_hunter = yes
+			}
+			modifier = {
+				factor = 5
+				technology_group = tech_illidari
 			}
 		}
 	}
