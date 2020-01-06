@@ -1,134 +1,86 @@
 namespace = discovery
 
-country_event = {
-	id = discovery.1
-	title = discovery.1.title
-	desc = discovery.1.desc
-	picture = ASSASSINATION_eventPicture
+# country_event = {
+	# id = discovery.1
+	# title = discovery.1.title
+	# desc = discovery.1.desc
+	# picture = ASSASSINATION_eventPicture
 	
-    hidden = yes
-	mean_time_to_happen = { days = 1 }
+    # hidden = yes
+	# mean_time_to_happen = { days = 1 }
     
-	trigger = {
-		is_outlander = yes
-        NOT = { has_country_flag = discovered_outland }
-		NOT = { is_landless = yes }
-	}
+	# trigger = {
+		# is_outlander = yes
+        # NOT = { has_country_flag = discovered_outland }
+		# NOT = { is_landless = yes }
+	# }
 	
-	immediate = {
-        set_country_flag = discovered_outland
-		continent_outland = {
-			discover_country = ROOT
-		}
-    }
+	# immediate = {
+        # set_country_flag = discovered_outland
+		# continent_outland = {
+			# discover_country = ROOT
+		# }
+    # }
 	
-	option = {
-		name = discovery.2.opt
-	}
-}
+	# option = {
+		# name = discovery.2.opt
+	# }
+# }
 
-country_event = {
-	id = discovery.2
-	title = discovery.2.title
-	desc = discovery.2.desc
-	picture = ASSASSINATION_eventPicture
+# country_event = {
+	# id = discovery.2
+	# title = discovery.2.title
+	# desc = discovery.2.desc
+	# picture = ASSASSINATION_eventPicture
 	
-    hidden = yes
-	mean_time_to_happen = { days = 1 }
+    # hidden = yes
+	# mean_time_to_happen = { days = 1 }
     
-	trigger = {
-        NOT = { has_country_flag = discovered_map_1 }
-		NOT = { is_landless = yes }
-	}
+	# trigger = {
+        # NOT = { has_country_flag = discovered_map_1 }
+		# NOT = { is_landless = yes }
+	# }
 	
-	immediate = {
-        set_country_flag = discovered_map_1
-		every_province = {
-			limit = { same_continent = ROOT }
-			discover_country = ROOT
-		}
-		if = {
-			limit = { any_owned_province = { continent = continent_eastern_kingdoms } }
-			
-			eastern_seas = {
-				discover_country = ROOT
-			}
-			continent_outland = {
-				discover_country = ROOT
-			}
-		}
-		if = {
-			limit = { any_owned_province = { continent = continent_outland } }
-			
-			eastern_seas = {
-				discover_country = ROOT
-			}
-			continent_eastern_kingdoms = {
-				discover_country = ROOT
-			}
-		}
-		if = {
-			limit = { any_owned_province = { continent = continent_kalimdor } }
-			
-			western_seas = {
-				discover_country = ROOT
-			}
-		}
-		if = {
-			limit = { any_owned_province = { continent = continent_northrend } }
-			
-			northern_seas = {
-				discover_country = ROOT
-			}
-		}
-		if = {
-			limit = { any_owned_province = { continent = continent_pandaria } }
-			
-			southern_seas = {
-				discover_country = ROOT
-			}
-		}
-		if = {
-			limit = { any_owned_province = { continent = continent_maelstrom } }
-			
-			central_seas = {
-				discover_country = ROOT
-			}
-		}
-    }
+	# immediate = {
+        # set_country_flag = discovered_map_1
+		# every_province = {
+			# limit = { same_continent = ROOT }
+			# discover_country = ROOT
+		# }
+    # }
 	
-	option = {
-		name = discovery.2.opt
-	}
-}
+	# option = {
+		# name = discovery.2.opt
+	# }
+# }
 
-country_event = {
-	id = discovery.3
-	title = discovery.3.title
-	desc = discovery.3.desc
-	picture = ASSASSINATION_eventPicture
+# country_event = {
+	# id = discovery.3
+	# title = discovery.3.title
+	# desc = discovery.3.desc
+	# picture = ASSASSINATION_eventPicture
 	
-    hidden = yes
-	mean_time_to_happen = { months = 1 }
+    # hidden = yes
+	# mean_time_to_happen = { months = 1 }
     
-	trigger = {
-		NOT = { is_landless = yes } 
-		NOT = { 
-			all_neighbor_country = {
-				knows_country = ROOT
-			} 
-		}
-	}
+	# trigger = {
+		# NOT = { is_landless = yes } 
+		# NOT = { 
+			# all_neighbor_country = {
+				# knows_country = ROOT
+			# } 
+		# }
+	# }
 	
-	immediate = {
-		every_neighbor_country = {
-			every_province = {
-				discover_country = ROOT
-			}
-		}
-    }
+	# immediate = {
+		# every_neighbor_country = {
+			# every_province = {
+				# discover_country = ROOT
+			# }
+		# }
+    # }
 	
-	option = {
-		name = discovery.3.opt
-	}
-}
+	# option = {
+		# name = discovery.3.opt
+	# }
+# }

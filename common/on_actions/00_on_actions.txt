@@ -10,7 +10,10 @@ on_startup = {
 		set_global_flag = on_action_setup_global_flag
 	}
     if = { 
-	
+		limit = { NOT = { has_country_flag = on_action_setup_flag } }
+		
+		discover_home_continent = yes # Discovers main continent and its shores for every country.
+		
 		# Religious and Cultural Unity for ALL NATIONS on start
 		# * * * TODO: THIS IS A TEMPORARY SOLUTION. DELETE THOSE LINES AFTER FIXING THEM IN HISTORY. * * *
 		# This will override history files

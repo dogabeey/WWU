@@ -12,6 +12,106 @@
 #		example_effect = yes
 #	}
 #
+discover_home_continent = {
+	capital_scope = {
+		every_province = {
+			limit = { continent = PREV }
+			discover_country = ROOT
+		}
+	}
+	every_owned_province = {
+		every_province = {
+			limit = { region = PREV }
+			discover_country = ROOT
+		}
+		every_neighbor_province = {
+			discover_country = ROOT
+		}
+	}
+	every_subject_country = {
+		every_owned_province = {
+			every_province = {
+				limit = { region = PREV }
+				discover_country = ROOT
+			}
+			every_neighbor_province = {
+				discover_country = ROOT
+			}
+		}
+	}
+	if = {
+		limit = { capital_scope = { continent = continent_eastern_kingdoms } }
+		
+		eastern_seas = {
+			discover_country = ROOT
+		}
+		ek_wasteland_region = {
+			discover_country = ROOT
+		}
+		outland_wasteland_region = {
+			discover_country = ROOT
+		}
+		continent_outland = {
+			discover_country = ROOT
+		}
+	}
+	if = {
+		limit = { capital_scope = { continent = continent_outland } }
+		
+		eastern_seas = {
+			discover_country = ROOT
+		}
+		ek_wasteland_region = {
+			discover_country = ROOT
+		}
+		outland_wasteland_region = {
+			discover_country = ROOT
+		}
+		continent_eastern_kingdoms = {
+			discover_country = ROOT
+		}
+	}
+	if = {
+		limit = { capital_scope = { continent = continent_kalimdor } }
+		
+		western_seas = {
+			discover_country = ROOT
+		}
+		kalimdor_wasteland_region = {
+			discover_country = ROOT
+		}
+	}
+	if = {
+		limit = { capital_scope = { continent = continent_northrend } }
+		
+		northern_seas = {
+			discover_country = ROOT
+		}
+		northrend_wasteland_region = {
+			discover_country = ROOT
+		}
+	}
+	if = {
+		limit = { capital_scope = { continent = continent_pandaria } }
+		
+		southern_seas = {
+			discover_country = ROOT
+		}
+		pandaria_wasteland_region = {
+			discover_country = ROOT
+		}
+	}
+	if = {
+		limit = { capital_scope = { continent = continent_maelstrom } }
+		
+		central_seas = {
+			discover_country = ROOT
+		}
+		maelstrom_wasteland_region = {
+			discover_country = ROOT
+		}
+	}
+}
 
 opinions_joined_alliance = {
     every_country = {
