@@ -60,3 +60,68 @@ country_event = {
 		}
 	}
 }
+# Random Events ( On Battle Win )
+country_event = {
+	id = chaos.4
+	title = chaos_battle_win.1.title
+	desc = chaos_battle_win.1.desc
+	picture = LEGION_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = religion_chaos
+	}
+	
+	option = {
+		name = chaos_battle_win.1.opt1
+		add_patriarch_authority = 0.1
+	}
+
+	option = {
+		name = chaos_battle_win.1.opt2
+		add_country_modifier = {
+			name = gained_leverage
+			duration = 365
+		}
+	}
+
+	option = {
+		name = chaos_battle_win.1.opt2
+		
+		add_country_modifier = {
+			name = gained_leverage
+			duration = 1825
+		}
+		add_patriarch_authority = -0.1
+	}
+}
+country_event = {
+	id = chaos.5
+	title = chaos_battle_win.2.title
+	desc = chaos_battle_win.2.desc
+	picture = LEGION_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = religion_chaos
+	}
+	
+	option = {
+		name = chaos_battle_win.2.opt1
+		add_patriarch_authority = -0.1
+		create_general = {
+			tradition = 60
+			culture = culture_pit_lord
+		}
+	}
+
+	option = {
+		name = chaos_battle_win.2.opt2
+		add_country_modifier = {
+			name = enslaved_demonlord
+			duration = 1825
+		}
+	}
+}

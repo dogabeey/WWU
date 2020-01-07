@@ -8,19 +8,16 @@ country_decisions = {
 			mil_power = 150
 			any_province = {
 				has_ruler_leader_from = ROOT
-				owner = { NOT = { tag = ROOT } }
-				NOT = { continent = continent_outland }
+				NOT = { owned_by = ROOT }
 			}
 		}
 		effect = {
-			mil_power = -150
+			add_mil_power = -150
 			random_province = {
 				limit = {
 					has_ruler_leader_from = ROOT
 					owner = { NOT = { tag = ROOT } }
-					NOT = { continent = continent_outland }
 				}
-				cede_province = ROOT
 				owner = {
 					ROOT = {
 						declare_war_with_cb = {
@@ -29,6 +26,7 @@ country_decisions = {
 						}
 					}
 				}
+				cede_province = ROOT
 			}
 		}
 		ai_will_do = {
