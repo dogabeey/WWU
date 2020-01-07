@@ -87,13 +87,19 @@ country_event = {
 	}
 
 	option = {
-		name = chaos_battle_win.1.opt2
+		name = chaos_battle_win.1.opt3
 		
 		add_country_modifier = {
 			name = gained_leverage
 			duration = 1825
 		}
 		add_patriarch_authority = -0.1
+	}
+
+	option = {
+		name = chaos_battle_win.1.opt4
+		
+		add_prestige = 10
 	}
 }
 country_event = {
@@ -123,5 +129,95 @@ country_event = {
 			name = enslaved_demonlord
 			duration = 1825
 		}
+	}
+
+	option = {
+		name = chaos_battle_win.2.opt3
+		add_patriarch_authority = 0.1
+	}
+}
+country_event = {
+	id = chaos.6
+	title = chaos_battle_win.3.title
+	desc = chaos_battle_win.3.desc
+	picture = LEGION_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = religion_chaos
+	}
+	
+	option = {
+		name = chaos_battle_win.3.opt1
+		add_patriarch_authority = 0.1
+	}
+}
+# Random Events ( On Battle Lost )
+country_event = {
+	id = chaos.7
+	title = chaos_battle_lost.1.title
+	desc = chaos_battle_lost.1.desc
+	picture = LEGION_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = religion_chaos
+	}
+	
+	option = {
+		name = chaos_battle_lost.1.opt1
+		add_patriarch_authority = -0.15
+	}
+}
+country_event = {
+	id = chaos.8
+	title = chaos_battle_lost.2.title
+	desc = chaos_battle_lost.2.desc
+	picture = LEGION_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = religion_chaos
+	}
+	
+	option = {
+		name = chaos_battle_lost.2.opt1
+		add_patriarch_authority = -0.1
+		create_general = {
+			tradition = 50
+			culture = culture_pit_lord
+		}
+	}
+	
+	option = {
+		name = chaos_battle_lost.2.opt2
+		add_prestige = 5
+	}
+}
+country_event = {
+	id = chaos.9
+	title = chaos_battle_lost.3.title
+	desc = chaos_battle_lost.3.desc
+	picture = LEGION_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = religion_chaos
+	}
+	
+	option = {
+		name = chaos_battle_lost.3.opt1
+		add_patriarch_authority = 0.1
+		add_mil_power = -50
+		add_yearly_manpower = -0.1
+	}
+	
+	option = {
+		name = chaos_battle_lost.3.opt2
+		add_patriarch_authority = -0.1
 	}
 }
