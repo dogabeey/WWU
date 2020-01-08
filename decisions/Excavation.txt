@@ -1,7 +1,6 @@
 country_decisions = {
     start_archeological_project = {
         potential = {
-			ROOT = { has_archaeologists = yes }
 			NOT = { has_country_flag = archaeological_project_started }
 			NOT = { OR = {
 				has_country_modifier = apocalypse
@@ -23,12 +22,12 @@ country_decisions = {
 				AND = {
 					has_country_modifier = archaeology_fragment
 					adm_power = 15
-					treasury = 100
+					treasury = 500
 				}
 				AND = {
 					NOT = { has_country_modifier = archaeology_fragment }
 					adm_power = 30
-					treasury = 200
+					treasury = 1000
 				}
 			}
         }
@@ -52,7 +51,7 @@ country_decisions = {
 			}
 			modifier = {
 				factor = 0
-				NOT = { treasury = 500 }
+				NOT = { treasury = 2500 }
 			}
         }
     }
