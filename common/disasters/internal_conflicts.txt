@@ -1,5 +1,6 @@
 internal_conflicts = {
 	potential = {
+		NOT = { has_country_modifier = complete_stasis }
 		num_of_cities = 10
 		is_free_or_tributary_trigger = yes
 		uses_doom = no
@@ -24,6 +25,10 @@ internal_conflicts = {
 		OR = {
 			has_any_disaster = yes
 			NOT = { unrest = 0 }
+			had_country_flag = {
+				flag = had_internal_conflicts
+				days = 730
+			}
 		}
 	}
 	
