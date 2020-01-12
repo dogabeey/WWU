@@ -380,22 +380,41 @@ cb_crusade = {
 	prerequisites = {
 		OR = {
 			AND = {
-				religion = religion_argent_light
-				is_neighbor_of = FROM
-				FROM = {
-					OR = { 
-						religion = religion_fel
-						religion = religion_the_damned 
-					}
-				}
-			}
-			AND = {
-				religion = religion_scarlet_light
+				religion_group = religion_group_the_light
 				is_neighbor_of = FROM
 				FROM = {
 					OR = { 
 						religion_group = religion_group_the_void
 						religion_group = religion_group_disorder
+					}
+				}
+			}
+			AND = {
+				religion_group = religion_group_the_void
+				is_neighbor_of = FROM
+				FROM = {
+					OR = { 
+						religion_group = religion_group_the_light
+						religion_group = religion_group_disorder
+					}
+				}
+			}
+			AND = {
+				religion_group = religion_group_disorder
+				is_neighbor_of = FROM
+				FROM = {
+					OR = { 
+						religion_group = religion_group_the_light
+						religion_group = religion_group_the_void
+					}
+				}
+			}
+			AND = {
+				religion = religion_scarlet_light
+				FROM = {
+					OR = { 
+						religion_group = religion_group_the_light
+						religion_group = religion_group_the_void
 					}
 				}
 			}
