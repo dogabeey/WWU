@@ -7,47 +7,6 @@
 ###########################################
 # Just random test modifier
 ###########################################
-cut_out_from_mainland = {
-	potential = {
-		always = yes
-	}
-
-	trigger = {
-		1586 = {
-            has_province_modifier = dark_portal_closed
-        }
-		OR = {
-			AND = {
-				owner = {
-					capital_scope = { continent = continent_outland }
-				}
-				NOT = { continent = continent_outland }
-			}
-			AND = {
-				owner = {
-					NOT = { capital_scope = { continent = continent_outland } }
-				}
-				continent = continent_outland
-			}
-		}
-	}
-
-	local_core_creation = 100
-	local_build_time = 500
-	local_build_cost = 500
-	local_tax_modifier = -1
-	local_manpower_modifier = -1
-	local_production_efficiency = -1
-	
-	#Province scope
-	on_activation = {
-	}
-	
-	on_deactivation = {
-	
-	}
-	
-}
 landless_province = {
 	potential = {
 		owner = { is_landless = yes }

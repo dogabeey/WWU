@@ -1,0 +1,123 @@
+namespace = vassal_break
+
+country_event = {
+	id = vassal_break.1
+	title = vassal_break_disaster.title
+	desc = vassal_break_disaster.desc
+	picture = BRAWL_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+	
+    }
+	
+	option = {
+		name = vassal_break_disaster.opt1
+		
+		every_subject_country = {
+			limit = { liberty_desire = 75 is_subject_of_type = vassal }
+			
+			country_event = { id = vassal_break.4 tooltip = vassal_break_disaster.opt1.tt }
+		}
+	}
+}
+country_event = {
+	id = vassal_break.2
+	title = e_l
+	desc = e_l
+	picture = BRAWL_eventPicture
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+	
+    }
+	
+	option = {
+		name = e_l
+	}
+}
+country_event = {
+	id = vassal_break.3
+	title = e_l
+	desc = e_l
+	picture = BRAWL_eventPicture
+
+	hidden = yes
+	
+	trigger = {
+		vassal = 3
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	immediate = {
+		# Set variables
+		set_variable = {
+			which = angry_subjects
+			value = 0		
+		}
+		set_variable = {
+			which = all_subjects
+			value = 0		
+		}
+		# Find numbers of angry subjects and all subjects
+		every_subject_country = {
+			limit = { liberty_desire = 75 is_subject_of_type = vassal }
+			ROOT = {
+				change_variable = {
+					which = angry_subjects
+					value = 1
+				}
+			}
+		}
+		every_subject_country = {
+			ROOT = {
+				change_variable = {
+					which = all_subjects
+					value = 1
+				}
+			}
+		}
+		# Double the angry subject
+		multiply_variable = {
+			which = angry_subjects
+			value = 2
+		}
+    }
+	
+	option = {
+		name = e_l
+	}
+}
+country_event = {
+	id = vassal_break.4
+	title = vassal_break_disaster_subject.title
+	desc = vassal_break_disaster_subject.desc
+	picture = BRAWL_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+	
+    }
+	
+	option = {
+		name = vassal_break_disaster_subject.opt1
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_independence_war
+		}
+		ai_chance = { factor = 75 }
+	}
+	
+	option = {
+		name = vassal_break_disaster_subject.opt2
+		add_prestige = -20
+		ai_chance = { factor = 25 }
+	}
+}
