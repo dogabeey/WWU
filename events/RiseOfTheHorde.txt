@@ -663,18 +663,7 @@ country_event = {
     
 	option = {
 		name = rise_of_the_horde.9.option.a
-        
-        add_adm_power = -100
-        add_dip_power = -100
-        add_mil_power = -100
-        
-        country_event = { id = rise_of_the_horde.10 days = 30 random = 90 }
-    }
-    
-    option = {
-		name = rise_of_the_horde.9.option.b
-        
-        country_event = { id = rise_of_the_horde.10 days = 90 random = 270 }
+		set_global_flag = dark_portal_can_be_built
     }
 }
 
@@ -687,20 +676,27 @@ country_event = {
 	desc = rise_of_the_horde.10.desc
 	picture = ORCISH_INVASION_eventPicture
     
-    #major = yes
-    is_triggered_only = yes
+    major = yes
+	fire_only_once = yes
+	
+    trigger = {
+		1008 = {
+			has_great_project = dark_portal_1
+		}
+		OR = {
+			has_country_modifier = horde_head
+			tag = B88
+			tag = U03
+		}
+	}
 	
     mean_time_to_happen = {
-		months = 24
+		months = 1
     }
     
 	option = {
 		name = rise_of_the_horde.10.option.a
-        
-        1586 = {
-            remove_province_modifier = dark_portal_closed
-        }
-        
+		
         clr_global_flag = the_dying_times
         clr_global_flag = rise_of_the_horde
         set_global_flag = the_first_war
