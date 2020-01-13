@@ -38,13 +38,15 @@ country_decisions = {
 		}
 		
 		allow = {
-			any_owned_province = {
-				any_neighbor_province = {
-					controlled_by = ROOT
-					NOT = { owned_by = ROOT }
-					owner = {
-						ai = yes
-					}
+			any_province = {
+				controlled_by = ROOT
+				NOT = { owned_by = ROOT }
+				owner = {
+					ai = yes
+				}
+				num_of_units_in_province = {
+					who = ROOT
+					amount = 5
 				}
 			}
 			mil_power = 100
@@ -56,17 +58,22 @@ country_decisions = {
 			add_mil_power = -100
 			add_years_of_income = -0.2
 			add_manpower = -3
-			random_owned_province = {
-				random_neighbor_province = {
+			random_province = {
 				limit = {
 					controlled_by = ROOT
 					NOT = { owned_by = ROOT }
+					owner = {
+						ai = yes
+					}
+					num_of_units_in_province = {
+						who = ROOT
+						amount = 5
+					}
 				}
 				cede_province = ROOT
 				add_province_modifier = {
 					name = rebellious_population
 					duration = 3650
-				}
 				}
 			}
 		}
