@@ -230,13 +230,18 @@ country_event = {
     immediate = {
 		set_country_flag = shadowmoon_revealed
 		B88 = { clr_country_flag = complete_stasis } # Shadow council is no longer immune.
+		random_country = {
+			limit = { faction_horde = 1 }
+			remove_country_modifier = the_shadow_council
+			save_event_target_as = horde_leader
+		}
     }
     
 	option = {
 		name = council_revelation.opt1
 		custom_tooltip = council_revelation.opt1.tt
 		add_casus_belli = {
-			target = B88
+			target = event_target:horde_leader
 			type = cb_insult
 			months = 36
 		}
