@@ -4,6 +4,49 @@ estate_nobles =
 	
 	color = { 200 0 50 }
 	
+    custom_name = {
+        desc = estate_nobles_tribal
+        trigger = {
+            government = tribal
+        }
+    }
+    custom_name = {
+        desc = estate_nobles_republic
+        trigger = {
+            government = republic
+        }
+    }
+    custom_name = {
+        desc = estate_nobles_theocracy_good
+        trigger = {
+            government = theocracy
+			OR = {
+				religion_group = religion_group_the_light
+				religion_group = religion_group_nature
+			}
+        }
+    }
+    custom_name = {
+        desc = estate_nobles_theocracy_neutral
+        trigger = {
+            government = theocracy
+			OR = {
+				religion_group = religion_group_order
+				religion_group = religion_group_elemental
+			}
+        }
+    }
+    custom_name = {
+        desc = estate_nobles_theocracy_bad
+        trigger = {
+            government = theocracy
+			OR = {
+				religion_group = religion_group_disorder
+				religion_group = religion_group_the_void
+			}
+        }
+    }
+	
 	# Is estate kept in control of province on conquest?
 	keep_on_conquest = no
 	
@@ -11,7 +54,6 @@ estate_nobles =
 	trigger = {
 		NOT = { is_landless = yes }
 		NOT = { has_reform = pirate_republic_reform }
-		NOT = { is_ancient_gov = yes }
 		OR = {
 			NOT = { has_reform = celestial_empire }
 			has_dlc = "Mandate of Heaven"
