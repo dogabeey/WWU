@@ -30,11 +30,10 @@ the_power_of_fel = {
         culture_group = culture_group_orc
         religion = religion_fel
 	}
-
-	manpower_recovery_speed = 0.5 
+	
     discipline = 0.2
     land_morale = 0.2
-	range = 2
+	ae_impact = -0.2
 }
 first_war_human = {
     potential = {
@@ -48,8 +47,6 @@ first_war_human = {
 		current_age = the_first_war
 		culture_group = culture_group_human
 	}
-
-	manpower_recovery_speed = -0.2
     land_morale = -0.2
     discipline = -0.2
 }
@@ -66,21 +63,8 @@ first_war_orc = {
 		culture_group = culture_group_orc
 	}
 
-	manpower_recovery_speed = 0.2
-}
-occupation_of_the_blasted_lands = {
-    potential = {
-        has_global_flag = the_first_war
-        culture_group = culture_group_orc
-        religion = religion_fel
-    }
-	trigger = {
-        region_blasted_lands = {
-            is_empty = yes
-        }
-	}
-
-	colonists = 1
+	province_warscore_cost = -0.25
+	unjustified_demands = -0.25
 }
 
 
@@ -88,38 +72,6 @@ occupation_of_the_blasted_lands = {
 #-----------------------------------------------------
 # Other
 #-----------------------------------------------------
-scourge_mindlessness = {
-	potential = {
-		primary_culture = culture_scourge
-	}
-	
-	trigger = {
-		primary_culture = culture_scourge
-	}
-	
-	tolerance_own = 10
-    global_unrest = -10
-}
-
-power_of_the_dragons = {
-	potential = {
-		technology_group = tech_dragonkin
-	}
-
-	trigger = {
-		technology_group = tech_dragonkin
-        num_of_provinces_in_states = 10
-	}
-
-	discipline = 0.1
-    land_morale = 0.1
-    infantry_power = 0.1
-    artillery_power = 0.1
-    cavalry_power = 0.1
-    siege_ability = 0.25
-
-    global_tax_income = 64
-}
 power_of_the_sunwell = {
     potential = {
         OR = {
