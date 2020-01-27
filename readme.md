@@ -17,8 +17,8 @@ ________________________________________________________________________________
 Important Note: Github version is actively developing version and should not be used except for testing purposes. It's very likely unstable, unfinished and may not work at all.
 
 1) Download the repository using "Clone or Download" button at right-top.
-2) Move the folder in archive to c:/<User Name>/Documents/Paradox Interactive/Europa Universalis IV/mod/
-3) Move world_of_warcraft_universalis.mod in WWU folder back to /mod/ folder (The previous folder).
+2) Move WWU-Master folder in archive to c:/<User Name>/Documents/Paradox Interactive/Europa Universalis IV/mod/
+3) Move world_of_warcraft_universalis.mod in WWU-Master folder back to /mod/ folder (The previous folder).
 4) Launch the mod using "World of Warcraft Universalis local" in launcher.
 
 ### Follow World of Warcraft Universalis:
