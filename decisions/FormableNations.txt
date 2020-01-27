@@ -383,14 +383,19 @@ country_decisions = {
 			custom_trigger_tooltip = {
 				tooltip = form_empire_of_arathor_tt
 				all_country = {
-					exists = yes
-					culture_group = culture_group_human
-					capital_scope = {
-						continent = continent_eastern_kingdoms
-					}
-					has_opinion = {
-						who = ROOT
-						value = 100
+					OR = {
+						AND = {
+							culture_group = culture_group_human
+							capital_scope = {
+								continent = continent_eastern_kingdoms
+							}
+							has_opinion = {
+								who = ROOT
+								value = 100
+							}
+						}
+						NOT = { culture_group = culture_group_human }
+						NOT = { capital_scope = { continent = continent_eastern_kingdoms } }
 					}
 				}
 			}
@@ -399,11 +404,14 @@ country_decisions = {
 		effect = {
 			add_prestige = 25
 			change_tag = FNA
+			change_primary_culture = culture_arathorian
+			hidden_effect = { every_owned_province = { change_culture = culture_arathorian } }
 			add_dip_power = -500
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
+			swap_free_idea_group = yes
 		}
 		
 		ai_importance = 400
