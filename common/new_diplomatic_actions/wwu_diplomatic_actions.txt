@@ -63,6 +63,7 @@ form_raid = {
 		#has_reform_or_has_subject_with_reform = { ARG1 = independent_guild_reform }
 		OR = {
 			has_reform = independent_guild_reform
+			has_country_flag = has_independent_guild
 			any_subject_country = { has_reform = independent_guild_reform }
 		}
 		OR = {
@@ -117,6 +118,7 @@ assasinate_ruler = {
 		#has_reform_or_has_subject_with_reform = { ARG1 = criminal_organization_reform }
 		OR = {
 			has_reform = criminal_organization_reform
+            has_country_flag = has_criminal_guild
 			any_subject_country = { has_reform = criminal_organization_reform }
 		}
 		OR = {
@@ -162,6 +164,7 @@ recruit_manpower = {
 		#has_reform_or_has_subject_with_reform = { ARG1 = military_organization_reform }
 		OR = {
 			has_reform = military_organization_reform
+            has_country_flag = has_military_guild
 			any_subject_country = { has_reform = military_organization_reform }
 		}
 		FROM = {
@@ -212,6 +215,7 @@ spread_religion = {
 		#has_reform_or_has_subject_with_reform = { ARG1 = religious_cult_reform }
 		OR = {
 			has_reform = religious_cult_reform
+            has_country_flag = has_cult_guild
 			any_subject_country = { has_reform = religious_cult_reform }
 		}
 		FROM = {
@@ -227,7 +231,11 @@ spread_religion = {
 		}
 		FROM = {
 			random_owned_province = {
-				limit = { NOT = { religion = FROM } }
+				limit = { NOT = { religion = ROOT } }
+				change_religion = ROOT
+			}
+			random_owned_province = {
+				limit = { NOT = { religion = ROOT } }
 				change_religion = ROOT
 			}
 		}
