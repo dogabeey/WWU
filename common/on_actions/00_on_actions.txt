@@ -461,7 +461,6 @@ on_battle_won_unit = {
 
 # #Unit Scope OnAction for Battle Lost
 on_battle_lost_unit = {
-
 }
 
 # province
@@ -491,8 +490,17 @@ on_company_disolved ={
 # province
 # root = location, from = winner country
 on_battle_lost_province = {
-	random_events = {
-		1000 = 0
+	if = {
+		limit = {
+			culture_group = culture_group_human
+		}
+		random = {
+			chance = 50
+			
+			owner = {
+				add_manpower = 1
+			}
+		}
 	}
 }
 
