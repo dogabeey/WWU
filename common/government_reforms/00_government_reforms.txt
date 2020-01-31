@@ -84,7 +84,7 @@ alliance_legacy = {
 		locked_government_type = yes
 	}
 	potential = {
-		has_country_modifier = alliance_head
+		faction_alliance = 1
 	}
 	militarised_society = yes
 	government_abilities = {  }
@@ -106,14 +106,15 @@ horde_legacy = {
 	maintain_dynasty = no
 	nation_designer_cost = 0
 	nomad = yes
-	heir = yes
+	heir = no
 	allow_vassal_alliance = yes
+	generals_become_rulers = yes
 	
 	custom_attributes = {
 		locked_government_type = yes
 	}
 	potential = {
-		has_country_modifier = horde_head
+		faction_horde = 1
 	}
 	militarised_society = yes
 	government_abilities = {  }
@@ -241,7 +242,6 @@ admiralty_legacy = {
 	valid_for_nation_designer = yes
 	allow_convert = yes
 	heir = yes
-	force_admiral_leader = yes
 	nation_designer_cost = 0
 	potential = {
 		OR = {
@@ -256,6 +256,9 @@ admiralty_legacy = {
 		}
 	}
 	government_abilities = {  }
+	
+	custom_attributes = {
+	}
 	
 	modifiers = {
 		global_ship_cost = -0.15
@@ -1804,6 +1807,8 @@ steppe_horde_legacy = {
 	allow_convert = yes
 	tribal = yes
 	nomad = yes
+	heir = no
+	generals_become_rulers = yes
 
 	nation_designer_cost = 0
 
@@ -1993,6 +1998,7 @@ war_against_the_world_legacy = {
 	allow_convert = yes
 	tribal = yes
 	republic = yes
+	generals_become_rulers = yes
 
 	nation_designer_cost = 0
 
