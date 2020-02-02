@@ -18,24 +18,10 @@ country_decisions = {
 		
 		effect = {
 			set_global_flag = lich_king_awakened
-			every_country = {
-				limit = {
-					has_country_modifier = lich_kings_crown
-				}
-				remove_country_modifier = lich_kings_crown
-			}
 			add_country_modifier = { 
 				name = lich_kings_crown
 				duration = -1
 				hidden = no
-			}
-			every_country = {
-				limit = {
-					culture_group = culture_group_scourge
-				}
-				ROOT = {
-					create_march = PREV
-				}
 			}
 		}
 		
@@ -53,8 +39,7 @@ country_decisions = {
 			}
 		}
 		
-		allow = 
-		{
+		allow = {
 			any_country = {
 				has_country_modifier = lich_kings_crown
 				war_with = ROOT
@@ -73,6 +58,7 @@ country_decisions = {
 					has_country_modifier = lich_kings_crown
 				}
 				remove_country_modifier = lich_kings_crown
+				save_event_target_as = old_owner_of_crown
 			}
 			add_country_modifier = { 
 				name = lich_kings_crown
@@ -82,6 +68,7 @@ country_decisions = {
 			every_country = {
 				limit = {
 					culture_group = culture_group_scourge
+					is_subject_of = event_target:old_owner_of_crown
 				}
 				ROOT = {
 					create_march = PREV
