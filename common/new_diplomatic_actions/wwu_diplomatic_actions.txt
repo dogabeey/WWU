@@ -66,10 +66,6 @@ form_raid = {
 			has_country_flag = has_independent_guild
 			any_subject_country = { has_reform = independent_guild_reform }
 		}
-		OR = {
-			contract = 1
-			is_organization = yes
-		}
 		FROM = {
 			has_country_modifier = is_evil
 		}
@@ -121,10 +117,6 @@ assasinate_ruler = {
             has_country_flag = has_criminal_guild
 			any_subject_country = { has_reform = criminal_organization_reform }
 		}
-		OR = {
-			contract = 1
-			is_organization = yes
-		}
 	}
 	on_accept = {
 		add_spy_network_in = {
@@ -171,11 +163,8 @@ recruit_manpower = {
 			OR = {
 				primary_culture = ROOT
 				religion = ROOT
+				technology_group = ROOT
 			}
-		}
-		OR = {
-			contract = 1
-			is_organization = yes
 		}
 	}
 	on_accept = {
@@ -271,7 +260,7 @@ integrate_same_culture = {
 			has_reform = remnant_basic_reform
 			has_opinion = {
 				who = ROOT
-				value = 170
+				value = 100
 			}
 		}
 	}
