@@ -221,3 +221,137 @@ country_event = {
 		add_patriarch_authority = -0.1
 	}
 }
+# Random Events (Chaos)
+country_event = {
+	id = chaos.10
+	title = end_justifies_means.title
+	desc = end_justifies_means.desc
+	picture = CHAOS_eventPicture
+	
+	trigger = {
+		uses_patriarch_authority = yes
+		religion = religion_chaos
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = end_justifies_means.opt1
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
+		add_patriarch_authority = -0.1
+	}
+	
+	option = {
+		name = end_justifies_means.opt2
+		add_adm_power = -35
+		add_dip_power = -35
+		add_mil_power = -35
+		add_patriarch_authority = 0.1
+	}
+}
+country_event = {
+	id = chaos.11
+	title = illidari_rituals.title
+	desc = illidari_rituals.desc
+	picture = CHAOS_eventPicture
+	
+	trigger = {
+		uses_patriarch_authority = yes
+		religion = religion_chaos
+		technology_group = tech_illidari
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = illidari_rituals.opt1
+		add_mil_power = -50
+		random_list = {
+			75 = {
+				capital_scope = { add_unrest = 10 }
+			}
+			25 = {
+				add_patriarch_authority = -0.1
+			}
+		}
+	}
+	
+	option = {
+		name = illidari_rituals.opt2
+		add_dip_power = -50
+		random_list = {
+			75 = {
+				add_prestige = -5
+			}
+			25 = {
+				add_patriarch_authority = -0.1
+			}
+		}
+	}
+	
+	option = {
+		name = illidari_rituals.opt3
+		add_adm_power = -50
+		random_list = {
+			75 = {
+				add_corruption = 2
+			}
+			25 = {
+				add_patriarch_authority = -0.1
+			}
+		}
+	}
+}
+country_event = {
+	id = chaos.12
+	title = impossible_sacrifice.title
+	desc = impossible_sacrifice.desc
+	picture = CHAOS_eventPicture
+	
+	trigger = {
+		uses_patriarch_authority = yes
+		religion = religion_chaos
+		has_advisor = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = impossible_sacrifice.opt1
+		kill_advisor = random
+		random_list = {
+			75 = {
+				custom_tooltip = impossible_sacrifice.opt1.tt1
+				add_prestige = 10
+			}
+			25 = {
+				custom_tooltip = impossible_sacrifice.opt1.tt2
+				add_patriarch_authority = -0.05
+				add_prestige = -5
+			}
+		}
+	}
+	
+	option = {
+		name = impossible_sacrifice.opt2
+		add_corruption = 2
+		random_list = {
+			75 = {
+				custom_tooltip = impossible_sacrifice.opt1.tt1
+				add_patriarch_authority = -0.1
+			}
+			25 = {
+				custom_tooltip = impossible_sacrifice.opt1.tt2
+				add_prestige = 5
+			}
+		}
+	}
+}
