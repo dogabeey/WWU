@@ -519,6 +519,173 @@ the_second_war = {
 	}
 }
 
+beyond_the_dark_portal = {
+	start = 600
+	
+	can_start = {
+		custom_trigger_tooltip = {
+			tooltip = beyond_the_dark_portal_condition
+			has_global_flag = beyond_the_dark_portal
+		}
+	}
+	
+	religious_conflicts = yes
+	
+    absolutism = {
+        harsh_treatment = 1 stability = 1 decrease_autonomy_command = 1 strengthen_government = 1 increase_autonomy_command = -1 debase_currency = -1 execute_rebel_acceptance_command = -10 seat_in_parliament = -5 war_exhaustion = -1
+	}
+    
+	objectives = {
+        # Prestigious Capital
+		obj_remnants = {
+            any_subject_country = {
+				has_reform = remnant_basic_reform
+			}
+        }
+        # Wise Ruler
+		obj_times_of_unity = {
+            num_of_allies = 3
+        }
+        # Religious Defender
+        obj_closed_the_portal = {
+            has_country_modifier = closed_the_dark_portal
+        }
+        obj_opened_the_portal = {
+            has_country_modifier = opened_the_dark_portal
+        }
+        obj_barracks = {
+            wow_barracks = 8
+        }
+        obj_swift_fleet = {
+			has_leader_with = {
+				admiral = yes
+				manuever = 4
+			}
+            naval_forcelimit = 30
+        }
+        obj_factions = {
+			OR = {
+				faction_alliance = 1
+				faction_horde = 1
+				is_subject_of_type = faction_alliance
+				is_subject_of_type = faction_horde
+			}
+        }
+	}		
+
+	abilities = {
+        # Regimented Infantry
+        ab_regimented_infantry3 = {
+			modifier = {
+				infantry_power = 0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+		}
+        
+        # Regimented Cavalry
+        ab_regimented_cavalry3 = {
+			modifier = {
+				cavalry_power = 0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+		}
+        
+        # Regimented Siege Engines
+        ab_regimented_siege_engines3 = {
+			modifier = {
+				artillery_power = 0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+		}
+        
+        # Ancient Tomes
+        ab_ancient_tomes3 = {
+			modifier = {
+				technology_cost = -0.1
+			}
+			ai_will_do = {
+				factor = 50
+			}
+		}
+        
+        # Familiar Terrain
+        ab_familiar_terrain3 = {
+			rule = {
+				attack_bonus_in_capital_terrain = yes
+			}
+			ai_will_do = {
+				factor = 10
+			}
+		}
+        
+        # Soldiers of Fortune
+        ab_soldiers_of_fortune3 = {
+			modifier = {
+				possible_mercenaries = 1.0
+			}
+			ai_will_do = {
+				factor = 5
+			}
+		}
+        
+        # Purifying Flames
+        ab_purifying_flames3 = {
+			modifier = {
+				global_missionary_strength = 0.01
+			}
+			ai_will_do = {
+				factor = 10
+			}
+		}
+        
+        # Wheel and Deal
+        ab_wheel_and_deal3 = {
+			modifier = {
+				global_own_trade_power = 0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+		}
+        
+        # Hostile Occupation
+        ab_hostile_occupation3 = {
+			modifier = {
+				years_of_nationalism = -10
+			}
+			ai_will_do = {
+				factor = 20
+			}
+		}
+        
+        # Seaborne
+        ab_seaborne3 = {
+			modifier = {
+				naval_morale = 0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+		}
+        
+        # Regional Expeditions
+        ab_regional_expeditions3 = {
+			rule = {
+				ignore_coring_distance = yes
+			}
+			ai_will_do = {
+				factor = 50
+			}
+		}
+	}
+}
+
 the_third_war = {
 	start = 617
 	
