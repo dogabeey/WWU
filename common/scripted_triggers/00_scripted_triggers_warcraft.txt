@@ -310,7 +310,10 @@ mists_of_pandaria_or_later = { # Don't actually need that now but better stay he
 historical_alliance = {
 	OR = {
 		AND = {
-			the_second_war_or_later = yes
+			OR = {
+				current_age = the_second_war
+				rise_of_the_qiraji_or_later = yes
+			}
 			tag = A01
 		}
 		AND = {
@@ -520,7 +523,7 @@ historical_alliance_head = {
 		}
 		AND = {
 			the_second_war_or_later = yes
-			NOT = { the_frozen_throne_or_later = yes }
+			NOT = { the_third_war_or_later = yes }
 			tag = A08
 		}
 	}
