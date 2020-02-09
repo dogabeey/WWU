@@ -536,15 +536,22 @@ beyond_the_dark_portal = {
 	}
     
 	objectives = {
-        # Prestigious Capital
-		obj_remnants = {
-            any_subject_country = {
-				has_reform = remnant_basic_reform
+        # Enslavement
+		obj_enslavement = {
+			OR = {
+				enslavement = 1
+				magical_enslavement = 1
 			}
         }
         # Wise Ruler
-		obj_times_of_unity = {
-            num_of_allies = 3
+		obj_rise_of_guilds = {
+			OR = {
+				has_country_flag = has_trade_company_guild
+				has_country_flag = has_cult_guild
+				has_country_flag = has_independent_guild
+				has_country_flag = has_criminal_guild
+				has_country_flag = has_military_guild
+			}
         }
         # Religious Defender
         obj_closed_the_portal = {
@@ -575,7 +582,7 @@ beyond_the_dark_portal = {
 
 	abilities = {
         # Regimented Infantry
-        ab_regimented_infantry3 = {
+        ab_regimented_infantry30 = {
 			modifier = {
 				infantry_power = 0.1
 			}
@@ -585,7 +592,7 @@ beyond_the_dark_portal = {
 		}
         
         # Regimented Cavalry
-        ab_regimented_cavalry3 = {
+        ab_regimented_cavalry30 = {
 			modifier = {
 				cavalry_power = 0.1
 			}
@@ -595,7 +602,7 @@ beyond_the_dark_portal = {
 		}
         
         # Regimented Siege Engines
-        ab_regimented_siege_engines3 = {
+        ab_regimented_siege_engines30 = {
 			modifier = {
 				artillery_power = 0.1
 			}
@@ -605,7 +612,7 @@ beyond_the_dark_portal = {
 		}
         
         # Ancient Tomes
-        ab_ancient_tomes3 = {
+        ab_ancient_tomes30 = {
 			modifier = {
 				technology_cost = -0.1
 			}
@@ -615,7 +622,7 @@ beyond_the_dark_portal = {
 		}
         
         # Familiar Terrain
-        ab_familiar_terrain3 = {
+        ab_familiar_terrain30 = {
 			rule = {
 				attack_bonus_in_capital_terrain = yes
 			}
@@ -625,7 +632,7 @@ beyond_the_dark_portal = {
 		}
         
         # Soldiers of Fortune
-        ab_soldiers_of_fortune3 = {
+        ab_soldiers_of_fortune30 = {
 			modifier = {
 				possible_mercenaries = 1.0
 			}
@@ -635,7 +642,7 @@ beyond_the_dark_portal = {
 		}
         
         # Purifying Flames
-        ab_purifying_flames3 = {
+        ab_purifying_flames30 = {
 			modifier = {
 				global_missionary_strength = 0.01
 			}
@@ -645,7 +652,7 @@ beyond_the_dark_portal = {
 		}
         
         # Wheel and Deal
-        ab_wheel_and_deal3 = {
+        ab_wheel_and_deal30 = {
 			modifier = {
 				global_own_trade_power = 0.1
 			}
@@ -655,7 +662,7 @@ beyond_the_dark_portal = {
 		}
         
         # Hostile Occupation
-        ab_hostile_occupation3 = {
+        ab_hostile_occupation30 = {
 			modifier = {
 				years_of_nationalism = -10
 			}
@@ -665,7 +672,7 @@ beyond_the_dark_portal = {
 		}
         
         # Seaborne
-        ab_seaborne3 = {
+        ab_seaborne30 = {
 			modifier = {
 				naval_morale = 0.1
 			}
@@ -675,7 +682,7 @@ beyond_the_dark_portal = {
 		}
         
         # Regional Expeditions
-        ab_regional_expeditions3 = {
+        ab_regional_expeditions30 = {
 			rule = {
 				ignore_coring_distance = yes
 			}
