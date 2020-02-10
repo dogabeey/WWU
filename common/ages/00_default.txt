@@ -545,38 +545,43 @@ beyond_the_dark_portal = {
         }
         # Wise Ruler
 		obj_rise_of_guilds = {
-			OR = {
-				has_country_flag = has_trade_company_guild
-				has_country_flag = has_cult_guild
-				has_country_flag = has_independent_guild
-				has_country_flag = has_criminal_guild
-				has_country_flag = has_military_guild
+			custom_trigger_tooltip = {
+				tooltip = obj_rise_of_guilds_tt
+				OR = {
+					has_country_flag = has_trade_company_guild
+					has_country_flag = has_cult_guild
+					has_country_flag = has_independent_guild
+					has_country_flag = has_criminal_guild
+					has_country_flag = has_military_guild
+				}
 			}
         }
         # Religious Defender
-        obj_closed_the_portal = {
-            has_country_modifier = closed_the_dark_portal
-        }
-        obj_opened_the_portal = {
-            has_country_modifier = opened_the_dark_portal
-        }
-        obj_barracks = {
-            wow_barracks = 8
-        }
-        obj_swift_fleet = {
-			has_leader_with = {
-				admiral = yes
-				manuever = 4
+        obj_internment_camps = {
+			calc_true_if = {
+				all_owned_province = {
+					OR = {
+						has_building = wow_court
+						has_building = wow_regional_court
+					}
+				}
+				amount = 10
 			}
-            naval_forcelimit = 30
         }
-        obj_factions = {
-			OR = {
-				faction_alliance = 1
-				faction_horde = 1
-				is_subject_of_type = faction_alliance
-				is_subject_of_type = faction_horde
+        obj_personal_union = {
+            personal_union = 1
+        }
+        obj_time_of_reconstruction = {
+            is_at_war = no
+			capital_scope = {
+				NOT = { devastation = 0.1 }
 			}
+        }
+        obj_changing_the_the_ways = {
+			has_country_flag = has_different_gov_then_start
+        }
+        obj_free_of_allegiances = {
+			is_subject = no
         }
 	}		
 
