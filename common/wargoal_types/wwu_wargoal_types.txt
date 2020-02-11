@@ -14,7 +14,7 @@ change_overlord = {
 	war_name = FACTIONS_WAR_NAME	
 }
 
-forced_vassalization_goal = {
+forced_enslavement_goal = {
 	type = take_capital
 	
 	badboy_factor = 1.5
@@ -22,7 +22,23 @@ forced_vassalization_goal = {
 	peace_cost_factor = 1.5
 	
 	peace_options = {
-		po_become_vassal
+		po_enslave
+		po_gold
+		po_concede_defeat
+	}
+	
+	war_name = ENSLAVE_WAR_NAME	
+}
+
+forced_magical_enslavement_goal = {
+	type = take_capital
+	
+	badboy_factor = 1.5
+	prestige_factor = 1.0
+	peace_cost_factor = 1.5
+	
+	peace_options = {
+		po_enslave_magically
 		po_gold
 		po_concede_defeat
 	}
