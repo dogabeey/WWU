@@ -40,42 +40,45 @@ country_decisions = {
 		}
 		
 		allow = {
-			any_country = {
-				has_country_modifier = lich_kings_crown
-				war_with = ROOT
-			}
 			1268 = {
 				has_ruler_leader_from = ROOT
 				controlled_by = ROOT
 			}
-			has_heir = yes
 		}
 		
 		effect = {
 			exile_ruler_as = lich_king
-			every_country = {
-				limit = {
-					has_country_modifier = lich_kings_crown
+			custom_tooltip = claim_throne_tt
+			hidden_effect = {
+				every_country = {
+					limit = {
+						has_country_modifier = lich_kings_crown
+					}
+					remove_country_modifier = lich_kings_crown
+					save_event_target_as = old_owner_of_crown
 				}
-				remove_country_modifier = lich_kings_crown
-				save_event_target_as = old_owner_of_crown
-			}
-			add_country_modifier = { 
-				name = lich_kings_crown
-				duration = -1
-				hidden = no
-			}
-			every_country = {
-				limit = {
-					culture_group = culture_group_scourge
-					is_subject_of = event_target:old_owner_of_crown
+				add_country_modifier = { 
+					name = lich_kings_crown
+					duration = -1
+					hidden = no
 				}
-				ROOT = {
-					create_march = PREV
+				every_country = {
+					limit = {
+						culture_group = culture_group_scourge
+						primary_culture = culture_cultist
+						is_subject_of = event_target:old_owner_of_crown
+					}
+					ROOT = {
+						create_march = PREV
+					}
+					event_target:old_owner_of_crown = {
+						create_march = PREV
+					}
 				}
 			}
 			P11 = {
 				set_ruler = lich_king
+				set_ruler_culture = P11
 			}
 		}
 		
