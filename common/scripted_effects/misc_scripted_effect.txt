@@ -1,5 +1,35 @@
-# Exile a country's ruler for x days.
-# Usage:
-# exile_ruler_for_days = {
-# 	days_of_exile = 365
-# }
+get_smallest_city = {
+	set_variable = {
+		which = prov_dev
+		value = 0
+	}
+	set_variable = {
+		which = min_dev
+		value = 0
+	}
+	every_owned_province = {
+		export_to_variable = {
+			which = prov_dev
+			value = development
+			who = ROOT
+		}
+		if = {
+			limit = {
+				NOT = { check_variable = {
+					which = min_dev
+					value = 1
+				} }
+				check_variable = {
+					which = min_dev
+					value = prov_dev
+				}
+			}
+			change_variable = {            
+				which = min_dev
+				which = prov_dev
+			}
+			save_event_target_as = smallest_city
+		}
+	}
+	log = "[smallest_city.GetName]"
+}
