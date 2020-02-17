@@ -234,20 +234,18 @@ create_personal_union = {
 		government = monarchy
 	}
 	is_allowed = {
-	NOT = { has_country_modifier = ge_2_timer }
-    FROM = {
-	has_opinion = {
-	who = ROOT
-	value = 190
-    }
-	num_of_cities = FROM
-	prestige = FROM
-	dynasty = ROOT
-	government = monarchy
-	NOT = { is_subject_of_type = personal_union }
-	NOT = { is_subject_of_type = march }
-	NOT = { is_subject_of_type = client_march }
-	}
+		NOT = { has_country_modifier = ge_2_timer }
+		num_of_cities = FROM
+		prestige = FROM
+		FROM = {
+			has_opinion = {
+			who = ROOT
+			value = 190
+			}
+			dynasty = ROOT
+			government = monarchy
+			NOT = { is_subject = personal_union }
+		}
 	}
 	on_accept = {
 		create_subject = {
