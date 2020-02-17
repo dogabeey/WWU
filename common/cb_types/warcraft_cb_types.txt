@@ -233,7 +233,7 @@ cb_enslavement = {
 	valid_for_subject = no
 	
 	prerequisites = {
-		can_enslave = yes
+		NOT = { enslavement = 1 }
 		FROM = {
 			is_neighbor_of = ROOT
 			NOT = { total_development = 75 }
@@ -248,6 +248,7 @@ cb_magical_enslavement = {
 	valid_for_subject = no
 	
 	prerequisites = {
+		NOT = { magical_enslavement = 1 }
 		OR = {
 			religion = religion_old_gods
 			religion = religion_fel

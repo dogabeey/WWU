@@ -476,7 +476,7 @@ NDefines.NCountry.PIETY_INCREASE_AT_GOOD_WAR = 0
 NDefines.NCountry.PIETY_DECREASE_AT_BAD_WAR = -0.33
 NDefines.NCountry.ADVISOR_COST_INCREASE_PER_YEAR = 0.0005			-- yearly increase in price in percent
 NDefines.NCountry.SCRIPTED_ADVISOR_DISCOUNT = 0.5				-- Multiplier on cost for advisors scripted with discount=yes
-NDefines.NCountry.MINIMUM_ADVISOR_DURATION = 10 					-- _CDEF_MINIMUM_ADVISOR_DURATION_
+NDefines.NCountry.MINIMUM_ADVISOR_DURATION = 20					-- _CDEF_MINIMUM_ADVISOR_DURATION_
 NDefines.NCountry.MINIMUM_ADVISOR_DURATION_CHANCE_VALUE = 15		-- Higher value here gives lower daily death chance after MINIMUM_ADVISOR_DURATION
 NDefines.NCountry.ADVISOR_CUT_OFF_AGE = 30 						-- _CDEF_ADVISOR_CUT_OFF_AGE = 10
 NDefines.NCountry.MAXIMUM_ADVISOR_SKILL = 5						-- Maximum advisor skill reachable through promotion

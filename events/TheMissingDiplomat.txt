@@ -1,0 +1,614 @@
+namespace = the_missing_diplomat
+
+# Rise of The Qiraji
+# Varian Wrynn is abducted by Defias Brotherhood. In his absence, Lady Katrana Prestor, who is Onyxia in disguise manipulated the court for her sinister plans.
+# If Varian isn't present, whoever is present will be abducted and will act as Varian from then on.
+country_event = {
+	id = the_missing_diplomat.1
+	title = the_missing_diplomat.1.title
+	desc = the_missing_diplomat.1.desc
+	picture = STORMWIND_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = A01
+		current_age = rise_of_the_qiraji
+		NOT = { heir_age = 13 }
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	immediate = {
+		set_country_flag = varian_wrynn_lost # Clear this when either 'Varian' is found
+		set_country_flag = missing_diplomat_storyline # 'Missng Diplomat' questline from WoW. This flag is used certain on_action events to prevent event spamming and instant heirs.
+	}
+	
+	option = {
+		name = the_missing_diplomat.1.opt1
+		exile_ruler_as = varian_wrynn
+		hidden_effect = {
+			country_event = { id = the_missing_diplomat.2 days = 15 tooltip = the_missing_diplomat.1.opt1.tt1 }
+			country_event = { id = the_missing_diplomat.11 days = 365 tooltip = the_missing_diplomat.1.opt1.tt1 } # If you don't find Varian in a year, he will die!
+		}
+	}
+}
+# Absence of The King causes nobles to panic.
+# Take 4 different person from certain estates into questioning. Random one is 'correct', which will be set in immediate = { }
+# If selected correct one, It will continue as normal. If selected wrong choice, it will show a failure event and loop back to this event.
+country_event = {
+	id = the_missing_diplomat.2
+	title = the_missing_diplomat.2.title
+	desc = the_missing_diplomat.2.desc
+	picture = STORMWIND_eventPicture
+	
+	is_triggered_only = yes
+		
+	trigger = {
+		has_country_flag = missing_diplomat_storyline
+	}
+	
+	immediate = {
+		hidden_effect = {
+			# Clean temp flags before execution. Those are used in the_missing_diplomat.4 for determining description and aftermath effects.
+			clr_country_flag = option_1_is_selected_temp
+			clr_country_flag = option_2_is_selected_temp
+			clr_country_flag = option_3_is_selected_temp
+			clr_country_flag = option_4_is_selected_temp
+		
+			if = { # Should not fire again if already decided.
+				limit = {
+					NOT = { has_country_flag = option_1_is_true }
+					NOT = { has_country_flag = option_2_is_true }
+					NOT = { has_country_flag = option_3_is_true }
+					NOT = { has_country_flag = option_4_is_true }
+				}
+				random_list = {
+					25 = {
+						set_country_flag = option_1_is_true
+					}
+					25 = {
+						set_country_flag = option_2_is_true
+					}
+					25 = {
+						set_country_flag = option_3_is_true
+					}
+					25 = {
+						set_country_flag = option_4_is_true
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = the_missing_diplomat.2.opt1 # Bring Merchants Guild's Headmaster into questioning
+		trigger = {
+			NOT = { has_country_flag = option_1_is_selected }
+		}
+		
+		custom_tooltip = the_missing_diplomat.2.opt1.tt
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = option_1_is_true
+				}
+				country_event = { id = the_missing_diplomat.3 days = 30 } # Success
+			}
+			else = {
+				country_event = { id = the_missing_diplomat.4 days = 30 } # Fail
+			}
+		}
+		
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -5
+		}
+		add_dip_power = -25
+		
+		set_country_flag = option_1_is_selected
+		set_country_flag = option_1_is_selected_temp
+	}
+	
+	option = {
+		name = the_missing_diplomat.2.opt2 # Bring leader of one of the noble families into questioning.
+		trigger = {
+			NOT = { has_country_flag = option_2_is_selected }
+		}
+		
+		custom_tooltip = the_missing_diplomat.2.opt2.tt
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = option_2_is_true
+				}
+				country_event = { id = the_missing_diplomat.3 days = 30 } # Success
+			}
+			else = {
+				country_event = { id = the_missing_diplomat.4 days = 30 } # Fail
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -5
+		}
+		add_mil_power = -25
+		
+		set_country_flag = option_2_is_selected
+		set_country_flag = option_2_is_selected_temp
+	}
+	
+	option = {
+		name = the_missing_diplomat.2.opt3 # Bring the archbishop into questioning.
+		trigger = {
+			NOT = { has_country_flag = option_3_is_selected }
+		}
+		
+		custom_tooltip = the_missing_diplomat.2.opt3.tt
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = option_3_is_true
+				}
+				country_event = { id = the_missing_diplomat.3 days = 30 } # Success
+			}
+			else = {
+				country_event = { id = the_missing_diplomat.4 days = 30 } # Fail
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -5
+		}
+		add_adm_power = -25
+		
+		set_country_flag = option_3_is_selected
+		set_country_flag = option_3_is_selected_temp
+	}
+	
+	option = {
+		name = the_missing_diplomat.2.opt4 # Bring one of the old officers from old Stonemasons Guild into questioning.
+		trigger = {
+			NOT = { has_country_flag = option_4_is_selected }
+		}
+		
+		custom_tooltip = the_missing_diplomat.2.opt4.tt
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = option_4_is_true
+				}
+				country_event = { id = the_missing_diplomat.3 days = 30 } # Success
+			}
+			else = {
+				country_event = { id = the_missing_diplomat.4 days = 30 } # Fail
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_workers
+			loyalty = -5
+		}
+		add_years_of_income = -0.2
+		
+		set_country_flag = option_4_is_selected
+		set_country_flag = option_4_is_selected_temp
+	}
+}
+# Success. We will learn the king escaped Defias custody, but was suffering memory loss before then. 
+country_event = {
+	id = the_missing_diplomat.3
+	title = the_missing_diplomat.3.title
+	desc = the_missing_diplomat.3.desc
+	picture = STORMWIND_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = missing_diplomat_storyline
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = the_missing_diplomat.3.opt1
+		add_yearly_manpower = -0.1
+		add_mil_power = -50
+		country_event = { id = the_missing_diplomat.5 days = 30 random = 15 tooltip = the_missing_diplomat.3.opt1.tt }
+	}
+	
+	option = {
+		name = the_missing_diplomat.3.opt2
+		add_treasury = -50
+		add_dip_power = -40
+		country_event = { id = the_missing_diplomat.5 days = 60 random = 20 tooltip = the_missing_diplomat.3.opt2.tt }
+	}
+	
+	option = {
+		name = the_missing_diplomat.3.opt3
+		add_adm_power = -30
+		country_event = { id = the_missing_diplomat.5 days = 90 random = 30 tooltip = the_missing_diplomat.3.opt3.tt }
+	}
+	
+	option = {
+		name = the_missing_diplomat.3.opt4
+		custom_tooltip = the_missing_diplomat.3.opt4.tt
+		add_prestige = -15
+		clr_country_flag = missing_diplomat_storyline
+	}
+}
+# Failure
+country_event = {
+	id = the_missing_diplomat.4
+	title = the_missing_diplomat.4.title
+	desc = {
+		trigger = { 
+			has_country_flag = option_1_is_selected_temp
+		}
+		desc = "the_missing_diplomat.4.desc.1"
+	}
+	desc = {
+		trigger = { 
+			has_country_flag = option_2_is_selected_temp
+		}
+		desc = "the_missing_diplomat.4.desc.2"
+	}
+	desc = {
+		trigger = { 
+			has_country_flag = option_3_is_selected_temp
+		}
+		desc = "the_missing_diplomat.4.desc.3"
+	}
+	desc = {
+		trigger = { 
+			has_country_flag = option_4_is_selected_temp
+		}
+		desc = "the_missing_diplomat.4.desc.4"
+	}
+	picture = STORMWIND_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = missing_diplomat_storyline
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = the_missing_diplomat.4.opt1
+		if = {
+			limit = {
+				has_country_flag = option_1_is_selected_temp
+			}
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = -5
+			}
+			add_dip_power = -25
+			country_event = { id = the_missing_diplomat.2 }
+		}
+		else_if = {
+			limit = {
+				has_country_flag = option_2_is_selected_temp
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -5
+			}
+			add_mil_power = -25
+			country_event = { id = the_missing_diplomat.2 }
+		}
+		else_if = {
+			limit = {
+				has_country_flag = option_3_is_selected_temp
+			}
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = -5
+			}
+			add_adm_power = -25
+			country_event = { id = the_missing_diplomat.2 }
+		}
+		else = {
+			add_estate_loyalty = {
+				estate = estate_workers
+				loyalty = -5
+			}
+			country_event = { id = the_missing_diplomat.2 }
+		}
+	}
+}
+# Choice to search for Varian either at Durotar or at deepsea.
+country_event = {
+	id = the_missing_diplomat.5
+	title = the_missing_diplomat.5.title
+	desc = the_missing_diplomat.5.desc
+	picture = STORMWIND_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = missing_diplomat_storyline
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = the_missing_diplomat.5.opt1
+		add_yearly_manpower = -0.5
+		country_event = { id = the_missing_diplomat.6 days = 60 random = 15 tooltip = the_missing_diplomat.5.opt1.tt }
+	}
+	
+	option = {
+		name = the_missing_diplomat.5.opt2
+		add_yearly_sailors = -1
+		country_event = { id = the_missing_diplomat.7 days = 60 random = 15 tooltip = the_missing_diplomat.5.opt2.tt }
+	}
+}
+
+country_event = {
+	id = the_missing_diplomat.6
+	title = the_missing_diplomat.6.title
+	desc = the_missing_diplomat.6.desc
+	picture = STORMWIND_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = missing_diplomat_storyline
+	}
+	
+	immediate = {
+		set_ruler = varian_wrynn
+	}
+	
+	option = {
+		name = the_missing_diplomat.6.opt1
+		custom_tooltip = the_missing_diplomat.6.opt1.tt
+		add_prestige = 20
+		change_adm = -4
+		change_dip = -3
+		change_mil = -2
+		hidden_effect = { 
+			clr_country_flag = varian_wrynn_lost
+			country_event = { id = the_missing_diplomat.8 days = 90 random = 25 }
+		}
+	}
+	
+	option = {
+		name = the_missing_diplomat.6.opt2
+		kill_ruler = yes
+		add_prestige = -20
+		hidden_effect = { clr_country_flag = missing_diplomat_storyline }
+	}
+}
+
+country_event = {
+	id = the_missing_diplomat.7
+	title = the_missing_diplomat.7.title
+	desc = the_missing_diplomat.7.desc
+	picture = STORMWIND_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = missing_diplomat_storyline
+	}
+	
+	immediate = {
+		set_ruler = varian_wrynn
+		add_stability = 1
+	}
+	
+	option = {
+		name = the_missing_diplomat.7.opt1
+		custom_tooltip = the_missing_diplomat.7.opt1.tt
+		add_years_of_income = -3
+		add_prestige = 10
+		change_adm = -3
+		change_dip = -4
+		change_mil = -3
+		hidden_effect = { 
+			clr_country_flag = varian_wrynn_lost
+			country_event = { id = the_missing_diplomat.9 days = 90 random = 25 }
+		}
+	}
+	
+	option = {
+		name = the_missing_diplomat.7.opt2
+		custom_tooltip = the_missing_diplomat.7.opt1.tt
+		add_mil_power = -100
+		add_yearly_manpower = -0.1
+		add_prestige = 20
+		change_adm = -3
+		change_dip = -4
+		change_mil = -3
+		hidden_effect = { 
+			clr_country_flag = varian_wrynn_lost
+			country_event = { id = the_missing_diplomat.9 days = 90 random = 25 }
+		}
+	}
+	
+	option = {
+		name = the_missing_diplomat.7.opt3
+		kill_ruler = yes
+		add_prestige = -20
+		hidden_effect = { clr_country_flag = missing_diplomat_storyline }
+	}
+}
+
+country_event = {
+	id = the_missing_diplomat.8
+	title = the_missing_diplomat.8.title
+	desc = the_missing_diplomat.8.desc
+	picture = STORMWIND_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = missing_diplomat_storyline
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = the_missing_diplomat.8.opt1
+		custom_tooltip = the_missing_diplomat.8.opt1.tt
+		add_prestige = 10
+		change_adm = 4
+		change_dip = 3
+		change_mil = 2
+		capital_scope = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_in_capital_area = yes
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_in_capital_area = yes
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = the_missing_diplomat.9
+	title = the_missing_diplomat.9.title
+	desc = the_missing_diplomat.9.desc
+	picture = STORMWIND_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = missing_diplomat_storyline
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = the_missing_diplomat.9.opt1
+		custom_tooltip = the_missing_diplomat.9.opt1.tt
+		set_country_flag = battle_of_stormwind_begins
+		add_prestige = 10
+		change_adm = 3
+		change_dip = 4
+		change_mil = 3
+		capital_scope = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_in_capital_area = yes
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_in_capital_area = yes
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = the_missing_diplomat.10
+	title = the_missing_diplomat.10.title
+	desc = the_missing_diplomat.10.desc
+	picture = STORMWIND_eventPicture
+	
+	trigger = {
+		has_country_flag = missing_diplomat_storyline
+		has_country_flag = battle_of_stormwind_begins
+		NOT = { has_rebel_faction = pretender_rebels }
+		NOT = { num_of_revolts = 1 }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		clr_country_flag = battle_of_stormwind_begins
+	}
+	
+	option = {
+		name = the_missing_diplomat.10.opt1
+		prestige = 10
+	}
+}
+# Game over!
+country_event = {
+	id = the_missing_diplomat.11
+	title = the_missing_diplomat.11.title
+	desc = the_missing_diplomat.11.desc
+	picture = STORMWIND_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = missing_diplomat_storyline
+		has_country_flag = varian_wrynn_lost
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = the_missing_diplomat.11.opt1
+		add_prestige = -10
+		remove_advisor = diplomat_katrana_prestor
+		define_ruler = {
+			name = "Katrana"
+			dynasty = "Prestor"
+			adm = 3
+			dip = 5
+			mil = 4
+			age = 50
+			claim = 35
+			culture = culture_black
+			religion = religion_old_gods
+		}
+		capital_scope = {
+			change_culture = culture_black
+			change_religion = religion_old_gods
+		}
+		clr_country_flag = the_missing_diplomat
+	}
+}

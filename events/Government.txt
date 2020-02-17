@@ -12,9 +12,10 @@ country_event = {
     is_triggered_only = yes
     
 	trigger = {
-       NOT = { government = tribal }
-	   NOT = { government = native }
-	   NOT = { primary_culture = culture_kul_tiran }
+	    NOT = { government = tribal }
+	    NOT = { government = native }
+	    NOT = { primary_culture = culture_kul_tiran }
+	    NOT = { has_country_flag = missing_diplomat_storyline }
 	}
 
 	option = {
@@ -135,10 +136,11 @@ country_event = {
     is_triggered_only = yes
     
 	trigger = {
-       OR = {
-	   government = tribal
-	   government = native
+	   OR = {
+		   government = tribal
+		   government = native
 	   }
+		NOT = { has_country_flag = missing_diplomat_storyline }
 	}
 
     option = {
