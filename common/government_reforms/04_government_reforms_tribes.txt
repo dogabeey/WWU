@@ -4,11 +4,8 @@ tribe_mechanic = {
 	valid_for_nation_designer = no
 	
 	modifiers = {
-	embracement_cost = 0.15
-    global_institution_spread = -0.15
-	technology_cost = 0.15
-	idea_cost = 0.15
-	advisor_cost = 0.15
+		idea_cost = 0.15
+		advisor_cost = 0.15
 	}
 }
 
@@ -115,42 +112,6 @@ factions = {
 	}
 }
 
-tribal_kingdom = {
-	icon = "noble_indian"
-	allow_normal_conversion = yes
-
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-	legacy_equivalent = tribal_kingdom_legacy
-	
-	monarchy = yes
-	heir = yes
-	queen = yes
-
-	modifiers = {
-		max_states = 1
-		monarch_diplomatic_power = 1
-		diplomatic_reputation = 1
-		unjustified_demands = -0.10
-		diplomatic_annexation_cost = -0.10
-	}
-	
-	government_abilities = {  }
-
-factions = {
-		es_clergy
-		es_merchants
-		es_warriors
-	}
-
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			
-		}
-	}
-}
-
 tribal_despotism = {
 	icon = "chieftain"
 	allow_normal_conversion = yes
@@ -198,12 +159,18 @@ nomad_state_reform = {
 	nomad = yes
 	nation_designer_cost = 0
 	
+	maintain_dynasty = yes
+	
 	monarchy = yes
 	heir = yes
 	queen = yes
 	
+	potential = {
+		is_ancient = yes
+	}
+	
 	modifiers = {
-	    max_states = 1
+	    colonists = 1
 		culture_conversion_cost = -0.10
         monarch_military_power = 1
 		reinforce_cost_modifier = -0.10
