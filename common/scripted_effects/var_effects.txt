@@ -1,0 +1,95 @@
+add_adm_power_var = { #var
+	if = {
+		limit = {
+			check_variable = { which = $var$ value = 0 }
+		}
+		effect_var_1_2048 = { var=$var$ effect=add_dip_power sign=+ }
+	}
+	else = {
+		effect_var_1_2048 = { var=$var$ effect=add_dip_power sign=- }
+	}
+}
+add_dip_power_var = { #var
+	if = {
+		limit = {
+			check_variable = { which = $var$ value = 0 }
+		}
+		effect_var_1_2048 = { var=$var$ effect=add_dip_power sign=+ }
+	}
+	else = {
+		effect_var_1_2048 = { var=$var$ effect=add_dip_power sign=- }
+	}
+}
+add_mil_power_var = { #var
+	if = {
+		limit = {
+			check_variable = { which = $var$ value = 0 }
+		}
+		effect_var_1_2048 = { var=$var$ effect=add_mil_power sign=+ }
+	}
+	else = {
+		effect_var_1_2048 = { var=$var$ effect=add_mil_power sign=- }
+	}
+}
+add_treasury_var = { #var
+	if = {
+		limit = {
+			check_variable = { which = $var$ value = 0 }
+		}
+		effect_var_0.1_500k = { var=$var$ effect=add_treasury sign=+ }
+	}
+	else = {
+		effect_var_0.1_500k = { var=$var$ effect=add_treasury sign=- }
+	}
+}
+
+#helper effects
+
+effect_var_0.1_500k = { #var #sign #effect
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=532288 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=266144 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=133072 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=66536 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=32768 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=16384 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=8192 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=4096 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=2048 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=1024 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=51.2 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=25.6 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=12.8 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=6.4 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=3.2 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=1.6 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=0.8 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=0.4 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=0.2 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=0.1 }
+	set_variable = { which = $var$ value = 0 }
+}
+
+effect_var_1_2048 = { #var #sign #effect
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=2048 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=1024 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=512 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=256 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=128 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=64 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=32 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=16 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=8 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=4 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=2 }
+	effect_var_helper = { effect=$effect$ var=$var$ sign=$sign$ num=1 }
+	set_variable = { which = $var$ value = 0 }
+}
+effect_var_helper = { #var #num #sign #effect
+	if = {
+		limit = {
+			check_variable = { which = $var$ value = $num$ }
+		}
+		subtract_variable = { which = $var$ value = $num$ }
+		$effect$ = $sign$$num$
+	}
+}

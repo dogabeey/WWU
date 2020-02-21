@@ -64,34 +64,15 @@ country_decisions = {
 			random_owned_province = {
 				limit = { NOT = { culture = ROOT } }
 				#### Complicated calculation ####
-				# Declare variables
-				set_variable = {
-					which = province_dev
-					value = 0
-				}
-				set_variable = {
-					which = adj_bonus
-					value = 0
-				}
-				set_variable = {
-					which = overseas_bonus
-					value = 0
-				}
-				#Assign variables
 				if = {
 					limit = {
 						development = 30
 					}
-					export_to_variable = {
-						which = province_dev
-						value = development
-					}
+					export_to_variable = { which = purge_cost value = development }
+					multiply_variable = { which = purge_cost value = -1 }
 				}
 				else = {
-					set_variable = {
-						which = province_dev
-						value = 30
-					}
+					set_variable = { which = purge_cost value = -30 }
 				}
 				if = {
 					limit = {
@@ -99,47 +80,20 @@ country_decisions = {
 							culture = ROOT
 						}
 					}
-					set_variable = {
-						which = adj_bonus
-						value = 0.5
-					}
-				}
-				else = {
-					set_variable = {
-						which = adj_bonus
-						value = 1
-					}
+					multiply_variable = { which = purge_cost value = 0.5 }
 				}
 				if = {
 					limit = {
 						is_overseas = yes
 						religion = ROOT
 					}
-					set_variable = {
-						which = overseas_bonus
-						value = 0.2
-					}
+					multiply_variable = { which = purge_cost value = 0.2 }
 				}
-				else = {
-					set_variable = {
-						which = overseas_bonus
-						value = 1
-					}
+				ROOT = {
+					set_variable = { which = purge_cost which = PREV } #transfer variable from province
+					add_mil_power_var = { var=purge_cost } #add mil power according to cost
 				}
-				# Calculate
-				multiply_variable = {
-					which = province_dev
-					which = adj_bonus
-				}
-				multiply_variable = {
-					which = province_dev
-					which = overseas_bonus
-				}
-				multiply_variable = {
-					which = province_dev
-					which = -1
-				}
-				ROOT = { add_mil_power = province_dev }
+				set_variable = { which = purge_cost value = 0 } #clear variable in province
 				add_devastation = 20
 				every_country = {
 					limit = {
