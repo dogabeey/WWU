@@ -125,9 +125,8 @@ on_startup = {
 			}
 			if  = { limit = { culture_group = culture_group_orc } add_government_reform = steppe_horde }
 			else_if = { limit = { is_pure_evil = yes } add_government_reform = war_against_the_world_reform }
-			else_if = { limit = { is_savage = yes } add_government_reform = tribal_despotism }
 			else_if = { limit = { is_pirate = yes } add_government_reform = tribal_federation }
-			else_if = { limit = { is_lesser = yes } add_government_reform = nomad_state_reform }
+			else_if = { limit = { is_lesser = yes } add_government_reform = expeditionary_tribe_reform }
 			else = {
 				random_list = {
 					35 = {
@@ -139,11 +138,8 @@ on_startup = {
 					15 = {
 					add_government_reform = tribal_kingdom
 					}
-					15 = {
-					add_government_reform = tribal_despotism
-					}
 					5 = {
-					add_government_reform = nomad_state_reform
+					add_government_reform = expeditionary_tribe_reform
 					}
 					5 = {
 					add_government_reform = war_against_the_world_reform
@@ -167,7 +163,6 @@ on_startup = {
 			}
 			if = { limit = { culture_group = culture_group_orc } set_legacy_government = steppe_horde_legacy }
 			else_if = { limit = { is_pure_evil = yes } set_legacy_government = war_against_the_world_legacy }
-			else_if = { limit = { is_savage = yes } set_legacy_government = tribal_despotism_legacy }
 			else_if = { limit = { is_pirate = yes } set_legacy_government = tribal_federation_legacy }
 			else_if = { limit = { is_lesser = yes } set_legacy_government = tribal_kingdom_legacy }
 			else = {
@@ -181,11 +176,8 @@ on_startup = {
 					15 = {
 					set_legacy_government = tribal_kingdom_legacy
 					}
-					15 = {
-					set_legacy_government = tribal_despotism_legacy
-					}
 					5 = {
-					set_legacy_government = nomad_state_legacy
+					set_legacy_government = expeditionary_tribe_legacy
 					}
 					5 = {
 					set_legacy_government = war_against_the_world_legacy

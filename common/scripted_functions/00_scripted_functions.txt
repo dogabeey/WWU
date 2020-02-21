@@ -144,6 +144,28 @@ can_colonize_province = {
 			always = no
 		}
 	}
+	condition = {
+		tooltip = "WOW_UNCOLONIZABLE_TELDRASSIL"
+		potential = {
+			region = region_teldrassil
+			NOT = { the_third_war_or_later = yes }
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = "WOW_UNCOLONIZABLE_MIGRATION_CD"
+		potential = {
+			has_reform = expeditionary_tribe_reform
+			all_owned_province = {
+				has_province_modifier = newly_established_province
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
 }
 
 can_colonize_province_siberian_frontier = {
