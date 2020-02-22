@@ -24,12 +24,14 @@ on_startup = {
 		every_owned_province = {
 			limit = {
 				NOT = { religion = ROOT }
+				NOT = { has_province_flag = override_country_religion }  # Put this flag to province histories if you don't want to force province have country religion.
 			}
 			change_religion = ROOT
 		}
 		every_owned_province = {
 			limit = {
 				NOT = { culture = ROOT }
+				NOT = { has_province_flag = override_country_culture }  # Put this flag to province histories if you don't want to force province have country culture.
 			}
 			change_culture = ROOT
 		}
@@ -135,9 +137,6 @@ on_startup = {
 					15 = {
 					add_government_reform = tribal_federation
 					}
-					15 = {
-					add_government_reform = tribal_kingdom
-					}
 					5 = {
 					add_government_reform = war_against_the_world_reform
 					}
@@ -160,7 +159,7 @@ on_startup = {
 			}
 			if = { limit = { culture_group = culture_group_orc } set_legacy_government = steppe_horde_legacy }
 			else_if = { limit = { is_pure_evil = yes } set_legacy_government = war_against_the_world_legacy }
-			else_if = { limit = { is_pirate = yes } set_legacy_government = tribal_federation_legacy }}
+			else_if = { limit = { is_pirate = yes } set_legacy_government = tribal_federation_legacy }
 			else_if = { limit = { is_ancient = yes } add_government_reform = nomad_state_reform }
 			else = {
 				random_list = {
@@ -313,7 +312,7 @@ on_startup = {
 		
 		set_country_flag = on_action_setup_flag
 	}
-	
+
 }
 
 # country
@@ -476,18 +475,6 @@ on_company_disolved ={
 # province
 # root = location, from = winner country
 on_battle_lost_province = {
-	if = {
-		limit = {
-			culture_group = culture_group_human
-		}
-		random = {
-			chance = 40
-			
-			owner = {
-				add_manpower = 1
-			}
-		}
-	}
 }
 
 # country

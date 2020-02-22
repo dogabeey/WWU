@@ -13,9 +13,19 @@ country_event = {
 		}
 		OR = {
 			has_reform = expeditionary_tribe_reform
-			has_reform = ancient_tribe_reform
+			has_reform = nomad_state_reform
 		}
-		NOT = { all_owned_province = { has_province_modifier = newly_established_province } }
+		NOT = { 
+			all_owned_province = {
+				OR = {
+					AND = {
+						has_province_modifier = newly_established_province
+						is_city = yes
+					}
+					is_city = no
+				}
+			} 
+		}
 	}
 	
 	mean_time_to_happen = {
@@ -62,9 +72,9 @@ country_event = {
 		}
 		event_target:smallest_city = {
 			cede_province = XXX
-		}
-		event_target:new_colony = {
-			add_colonysize = 1000
+			event_target:new_colony = {
+				add_colonysize = 1000
+			}
 		}
 	}
 }

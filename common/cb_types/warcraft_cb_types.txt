@@ -233,6 +233,12 @@ cb_enslavement = {
 	valid_for_subject = no
 	
 	prerequisites = {
+		OR = {
+			has_reform = tribal_despotism
+			has_reform = war_against_the_world_reform
+			has_reform = pirate_kingdom
+			has_reform = scourge_reform
+		}
 		NOT = { enslavement = 1 }
 		FROM = {
 			is_neighbor_of = ROOT
@@ -248,15 +254,25 @@ cb_magical_enslavement = {
 	valid_for_subject = no
 	
 	prerequisites = {
-		NOT = { magical_enslavement = 1 }
 		OR = {
-			religion = religion_old_gods
-			religion = religion_fel
-		}
-		FROM = {
-			is_neighbor_of = ROOT
-			NOT = { total_development = 75 }
-			NOT = { num_of_cities = 4 }
+			AND = {
+				NOT = { magical_enslavement = 1 }
+				OR = {
+					religion = religion_old_gods
+					religion = religion_fel
+				}
+				FROM = {
+					is_neighbor_of = ROOT
+					NOT = { total_development = 75 }
+					NOT = { num_of_cities = 4 }
+				}
+			}
+			AND = {
+				has_country_modifier = lich_kings_crown
+				FROM = {
+					culture_group = ROOT
+				}
+			}
 		}
 	}
 	
