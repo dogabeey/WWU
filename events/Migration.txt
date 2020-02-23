@@ -22,14 +22,14 @@ country_event = {
 						has_province_modifier = newly_established_province
 						is_city = yes
 					}
-					is_city = no
+					is_colony = yes
 				}
 			} 
 		}
 	}
 	
 	mean_time_to_happen = {
-		days = 1
+		months = 2
 	}
 	
 	immediate = {
@@ -52,6 +52,7 @@ country_event = {
 		every_owned_province = {
 			limit = {
 				NOT = { has_province_modifier = newly_established_province }
+				NOT = { is_colony = yes }
 			}
 			export_to_variable = {
 				which = min_prov_dev
