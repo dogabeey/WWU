@@ -1,0 +1,94 @@
+portal_energies_disaster = {
+	potential = {
+		current_age = beyond_the_dark_portal
+		any_owned_province = {
+			OR = {
+				region = region_blasted_lands
+				region = region_swamp_of_sorrows
+				region = region_deadwind_pass
+				region = region_elwynn_forest
+				region = region_duskwood
+				region = region_stranglethorn_vale
+			}
+		}
+	}
+
+
+	can_start = {
+		always = no # Not ready yet
+	}
+	
+	can_stop = {
+		has_global_flag = dark_portal_connection_broken
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			always = yes
+		}
+	}
+	
+	can_end = {
+		has_global_flag = dark_portal_connection_broken
+	}
+	
+	modifier = {
+	
+	}
+
+	on_start = portal_energies_disaster.1
+	on_end = portal_energies_disaster.2
+	
+	on_monthly = {
+		1035 = {
+			if = {
+				limit = { NOT = { has_province_modifier = devastation_is_nigh } }
+				add_permanent_province_modifier = { 
+					name = devastation_is_nigh
+					duration = -1  
+					desc = devastation_is_nigh_desc
+				}
+			}
+		}
+		every_province = {
+			limit = {
+				NOT = { has_province_modifier = devastated_by_portal }
+				has_province_modifier = devastation_is_nigh
+				OR = {
+					region = region_blasted_lands
+					region = region_swamp_of_sorrows
+					region = region_deadwind_pass
+					region = region_elwynn_forest
+					region = region_duskwood
+					region = region_stranglethorn_vale
+				}
+			}
+			remove_province_modifier = devastation_is_nigh
+			add_permanent_province_modifier = { 
+				name = devastated_by_portal
+				duration = -1  
+				desc = devastated_by_portal_desc
+			}
+			every_neighbor_province = {
+				limit = {
+					NOT = { has_province_modifier = devastation_is_nigh }
+					OR = {
+						region = region_blasted_lands
+						region = region_swamp_of_sorrows
+						region = region_deadwind_pass
+						region = region_elwynn_forest
+						region = region_duskwood
+						region = region_stranglethorn_vale
+					}
+				}
+				add_permanent_province_modifier = { 
+					name = devastation_is_nigh
+					duration = -1  
+					desc = devastation_is_nigh_desc
+				}
+			}
+		}
+	}
+}
+
