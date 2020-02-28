@@ -22,14 +22,14 @@ country_event = {
 	}
 	
 	immediate = {
-		set_country_flag = varian_wrynn_lost # Clear this when either 'Varian' is found
-		set_country_flag = missing_diplomat_storyline # 'Missng Diplomat' questline from WoW. This flag is used certain on_action events to prevent event spamming and instant heirs.
 	}
 	
 	option = {
 		name = the_missing_diplomat.1.opt1
 		exile_ruler_as = varian_wrynn
 		hidden_effect = {
+			set_country_flag = varian_wrynn_lost # Clear this when either 'Varian' is found
+			set_country_flag = missing_diplomat_storyline # 'Missng Diplomat' questline from WoW. This flag is used certain on_action events to prevent event spamming and instant heirs.
 			country_event = { id = the_missing_diplomat.2 days = 15 tooltip = the_missing_diplomat.1.opt1.tt1 }
 			country_event = { id = the_missing_diplomat.11 days = 365 tooltip = the_missing_diplomat.1.opt1.tt1 } # If you don't find Varian in a year, he will die!
 		}
@@ -458,7 +458,6 @@ country_event = {
 	}
 	
 	immediate = {
-		set_country_flag = battle_of_stormwind_begins
 	}
 	
 	option = {
@@ -492,6 +491,7 @@ country_event = {
 				size = 2
 			}
 		}
+		set_country_flag = battle_of_stormwind_begins
 	}
 }
 
@@ -508,7 +508,6 @@ country_event = {
 	}
 	
 	immediate = {
-		set_country_flag = battle_of_stormwind_begins
 	}
 	
 	option = {
@@ -542,6 +541,7 @@ country_event = {
 				size = 2
 			}
 		}
+		set_country_flag = battle_of_stormwind_begins
 	}
 }
 
@@ -555,10 +555,11 @@ country_event = {
 		has_country_flag = missing_diplomat_storyline
 		has_country_flag = battle_of_stormwind_begins
 		NOT = { num_of_revolts = 1 }
+		NOT = { has_spawned_rebels = pretender_rebels }
 	}
 	
 	mean_time_to_happen = {
-		days = 1
+		days = 15
 	}
 	
 	immediate = {
