@@ -16,10 +16,11 @@ ________________________________________________________________________________
 ## Installing via GitHub
 Important Note: Github version is actively developing version and should not be used except for testing purposes. It's very likely unstable, unfinished and may not work at all.
 
-1) Download the repository using "Clone or Download" button at right-top.
-2) Move WWU-Master folder in archive to c:/<User Name>/Documents/Paradox Interactive/Europa Universalis IV/mod/
-3) Move world_of_warcraft_universalis.mod in WWU-Master folder back to /mod/ folder (The previous folder).
-4) Launch the mod using "World of Warcraft Universalis local" in launcher.
+1. Download the file from https://github.com/dogabeey/WWU/archive/master.zip
+2. Unzip the WWU-master folder to C:\Users<user name>\Documents\Paradox Interactive\Europa Universalis IV\mod 
+3. Open EU4 Launcher and and click Mod Tools->Create a Mod
+4. Enter mod name and version as you wish and enter mod path as mod/WWU-Master (or your folder's name if you renamed it).
+5. Mod will show up  in mod list as local mod.
 
 ### Follow World of Warcraft Universalis:
 
