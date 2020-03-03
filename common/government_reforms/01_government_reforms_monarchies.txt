@@ -159,7 +159,7 @@ autocracy_reform = {
 		harsh_treatment_cost = -0.10
 		unjustified_demands = -0.10
 		global_autonomy = -0.05
-		#max_absolutism = 5
+		max_absolutism = 5
 	}
 	
 	ai = {
@@ -250,35 +250,25 @@ factions = {
 	}
 }
 
-english_monarchy = {
-	icon = "constitution"
+hereditary_monarchy = {
+	icon = "ballot_box"
 	allow_normal_conversion = no
 	valid_for_nation_designer = no
 	nation_designer_cost = 0
+	
 	nation_designer_trigger = {
-		has_dlc = "Common Sense"
+		always = no
 	}
-	legacy_equivalent = english_monarchy_legacy
+	legacy_equivalent = hereditary_monarchy_legacy
 	start_territory_to_estates = 0.35
 	government_abilities = {  }
-
-factions = {
-		es_clergy
-		es_merchants
-		es_warriors
-	}
 	
 	modifiers = {
 		max_states = 1
-		legitimacy = 0.25
-		global_unrest = -1
+		legitimacy = 0.5
+		global_unrest = -2
+		stability_cost_modifier = -0.25
 		global_autonomy = -0.025
-		#max_absolutism = -30
-	}
-
-	conditional = {
-		allow = { always = no }
-		has_parliament = yes
 	}
 	
 	ai = {
@@ -293,17 +283,11 @@ elective_monarchy = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
 	government_abilities = {  }
-
-factions = {
-		es_clergy
-		es_merchants
-		es_warriors
-	}
 	
 	modifiers = {
 		land_morale = 0.10
 		diplomatic_reputation = 1
-		#max_absolutism = -30
+		max_absolutism = -30
 		max_states = 1
 		global_autonomy = -0.025
 	}
@@ -378,7 +362,7 @@ factions = {
 	}
 	
 	modifiers = {
-	    #max_absolutism = -50
+	    max_absolutism = -50
 		naval_forcelimit_modifier = 0.10
 		capture_ship_chance = 0.10
 		ship_durability = 0.10
@@ -401,7 +385,7 @@ ottoman_government = {
 	modifiers = {
 		core_creation = -0.10
 		diplomatic_annexation_cost = -0.10
-		#max_absolutism = 5
+		max_absolutism = 5
 		monarch_diplomatic_power = 1
 		max_states = 1
 	}
@@ -442,7 +426,7 @@ factions = {
 		state_maintenance_modifier = -0.10
 		global_manpower_modifier = 0.10
 		reduced_liberty_desire = 10
-		#max_absolutism = 5
+		max_absolutism = 5
 	}
 
 	ai = {

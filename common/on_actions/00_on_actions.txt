@@ -9,6 +9,14 @@ on_startup = {
 		
 		set_global_flag = on_action_setup_global_flag
 	}
+	if = {
+		limit = {
+			has_reform = hereditary_monarchy
+			has_heir = no
+		}
+		set_country_flag = country_has_no_heir
+		log = "[Root.GetName] started with no valid heir."
+	}
     if = { 
 		limit = { NOT = { has_country_flag = on_action_setup_flag } }
 		
@@ -143,6 +151,7 @@ on_startup = {
 			if = { limit = { is_pirate = yes } add_government_reform = pirate_kingdom }
 			else_if = { limit = { is_ancient = yes } add_government_reform = ancient_dynasty_reform }
 			else_if = { limit = { tag = A14 } add_government_reform = admiralty_reform }
+			else_if = { limit = { OR = { tag = A90 tag = A91 } } add_government_reform = hereditary_monarchy }
 			else_if = { limit = { OR = { culture_group = culture_group_scourge culture_group = culture_group_undead } } add_government_reform = scourge_reform }
 			else = {
 				random_list = {
@@ -163,6 +172,7 @@ on_startup = {
 			if = { limit = { is_pirate = yes } set_legacy_government = pirate_kingdom_legacy }
 			else_if = { limit = { is_ancient = yes } set_legacy_government = ancient_dynasty_legacy }
 			else_if = { limit = { tag = A14 } set_legacy_government = admiralty_legacy }
+			else_if = { limit = { OR = { tag = A90 tag = A91 } } set_legacy_government = hereditary_monarchy_legacy }
 			else_if = { limit = { OR = { culture_group = culture_group_scourge culture_group = culture_group_undead } } set_legacy_government = scourge_legacy }
 			else = {
 				random_list = {
@@ -486,6 +496,14 @@ on_abandon_colony = {
 # country
 on_new_monarch = {
 
+	if = {
+		limit = {
+			has_reform = hereditary_monarchy
+		}
+		set_country_flag = country_has_no_heir
+		log = "[Root.Monarch.GetName] is no longer a heir and became monarch."
+	}
+	
     events = {
         wow_government.1    # The Education of [Root.Monarch.GetName]
         wow_government.2    # Ascension of [Root.Monarch.GetName]
@@ -496,6 +514,7 @@ on_new_monarch = {
 		1000 = 0
 		50 = dynastic_events.4
 	}
+	
 }
 
 on_new_consort = {
@@ -624,6 +643,13 @@ on_heir_death = {
 		limit = { has_ruler_flag = returned_from_sancaga_sikma_province }
 		clr_ruler_flag = returned_from_sancaga_sikma_province
 	}
+	if = {
+		limit = {
+			has_reform = hereditary_monarchy
+		}
+		set_country_flag = country_has_no_heir
+		log = "[Root.GetName]'s heir died"
+	}
 }
 
 # country
@@ -704,7 +730,13 @@ on_queen_death = {
 
 # country
 on_new_heir = {
-
+	if = {
+		limit = {
+			has_reform = hereditary_monarchy
+		}
+		clr_country_flag = country_has_no_heir
+		log = "[Root.GetName] has a new heir."
+	}
 }
 
 # country

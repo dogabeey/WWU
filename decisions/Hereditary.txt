@@ -1,0 +1,29 @@
+country_decisions = {
+
+	raise_heir = {
+		potential = {
+			has_wrong_dynasty = yes
+		}
+		allow = {
+			OR = {
+				AND = {
+					adm_power = 100
+					has_heir = no
+				}
+				AND = {
+					adm_power = 200
+					has_heir = yes
+					prestige = 0
+				}
+			}
+		}
+		effect = {
+			add_prestige = -25
+			add_corruption = 1
+			set_correct_dynasty = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+}
