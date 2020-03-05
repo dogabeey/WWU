@@ -259,6 +259,11 @@ hereditary_monarchy = {
 	nation_designer_trigger = {
 		always = no
 	}
+	
+	potential = {
+		can_be_hereditary = yes
+	}
+	
 	legacy_equivalent = hereditary_monarchy_legacy
 	start_territory_to_estates = 0.35
 	government_abilities = {  }
@@ -276,11 +281,13 @@ hereditary_monarchy = {
 	}
 }
 
-elective_monarchy = {
+kingdom_of_magic = {
 	icon = "ballot_box"
 	allow_normal_conversion = yes
-	legacy_equivalent = elective_monarchy_legacy
+	legacy_equivalent = kingdom_of_magic_legacy
 	valid_for_nation_designer = yes
+	queen = yes
+	
 	nation_designer_cost = 0
 	government_abilities = {  }
 	
@@ -289,51 +296,27 @@ elective_monarchy = {
 		diplomatic_reputation = 1
 		max_absolutism = -30
 		max_states = 1
+		advisor_cost = -0.25
+		
 		global_autonomy = -0.025
 	}
 
-	conditional = {
-		allow = { has_dlc = "Res Publica" }
-		is_elective = yes
-	}
-	
-	ai = {
-		factor = 5
-	}
-}
-
-mamluk_government = {
-	icon = "indian_crown"
-	allow_normal_conversion = no
-	legacy_equivalent = mamluk_government_legacy
-	heir = no
-	queen = no
-
-	valid_for_nation_designer = no
-	nation_designer_cost = 0
-	
-	government_abilities = {  }
-
-factions = {
-		es_clergy
-		es_merchants
-		es_warriors
-	}
-
-	modifiers = {
-		num_accepted_cultures = 1
-		global_autonomy = -0.025
-		monarch_admin_power = 1
-		same_culture_advisor_cost = -0.10
-		max_states = 1
-	}
 
 	conditional = {
-		allow = { always = no }
+		allow = { has_dlc = "Cradle of Civilization" }
 		government_abilities = {
 			mamluk_mechanic
 		}
+		heir = no
 		foreign_slave_rulers = yes
+	}
+	potential = {
+		has_dlc = "Cradle of Civilization"
+		OR = {
+			religion = religion_arcane
+			religion = religion_chaos
+			religion = religion_fel
+		}
 	}
 	
 	ai = {
@@ -375,33 +358,6 @@ factions = {
 	}
 }
 
-ottoman_government = {
-	allow_normal_conversion = no
-	icon = "man_and_children"
-	valid_for_nation_designer = no
-	nation_designer_cost = 0
-	legacy_equivalent = ottoman_government_legacy
-	maintain_dynasty = yes
-	modifiers = {
-		core_creation = -0.10
-		diplomatic_annexation_cost = -0.10
-		max_absolutism = 5
-		monarch_diplomatic_power = 1
-		max_states = 1
-	}
-	
-	government_abilities = {  }
-
-factions = {
-		temples
-		enuchs
-		bureaucrats
-	}
-	
-	ai = {
-		factor = 5
-	}
-}
 
 shogunate = {
 	icon = "strength_of_the_khalsa"

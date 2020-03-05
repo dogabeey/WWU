@@ -1,0 +1,396 @@
+
+save_dominant_advisor_religion_as_var = {
+	set_variable = {
+		which = $var$
+		value = 0
+	}
+	set_variable = {
+		which = adm_religion
+		value = 0
+	}
+	set_variable = {
+		which = dip_religion
+		value = 0
+	}
+	set_variable = {
+		which = mil_religion
+		value = 0
+	}
+	export_to_variable = {
+		which = adm_religion
+		value = adm_advisor_religion
+	}
+	export_to_variable = {
+		which = dip_religion
+		value = dip_advisor_religion
+	}
+	export_to_variable = {
+		which = mil_religion
+		value = mil_advisor_religion
+	}
+	if = {
+		limit = {
+			OR = {
+				is_variable_equal = {
+					which = adm_religion
+					which = dip_religion
+				}
+				is_variable_equal = {
+					which = adm_religion
+					which = mil_religion
+				}
+			}
+		}
+		set_variable = {
+			which = $var$
+			value = adm_religion
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				is_variable_equal = {
+					which = dip_religion
+					which = adm_religion
+				}
+				is_variable_equal = {
+					which = dip_religion
+					which = mil_religion
+				}
+			}
+		}
+		set_variable = {
+			which = $var$
+			value = dip_religion
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				is_variable_equal = {
+					which = mil_religion
+					which = adm_religion
+				}
+				is_variable_equal = {
+					which = mil_religion
+					which = dip_religion
+				}
+			}
+		}
+		set_variable = {
+			which = $var$
+			value = mil_religion
+		}
+	}
+	else = {
+		random_list = {
+			1 = {
+				set_variable = {
+					which = $var$
+					value = adm_religion
+				}
+			}
+			1 = {
+				set_variable = {
+					which = $var$
+					value = dip_religion
+				}
+			}
+			1 = {
+				set_variable = {
+					which = $var$
+					value = mil_religion
+				}
+			}
+		}
+	}
+}
+
+save_dominant_advisor_culture_as_var = {
+	set_variable = {
+		which = $var$
+		value = 0
+	}
+	set_variable = {
+		which = adm_culture
+		value = 0
+	}
+	set_variable = {
+		which = dip_culture
+		value = 0
+	}
+	set_variable = {
+		which = mil_culture
+		value = 0
+	}
+	export_to_variable = {
+		which = adm_culture
+		value = adm_advisor_culture
+	}
+	export_to_variable = {
+		which = dip_culture
+		value = dip_advisor_culture
+	}
+	export_to_variable = {
+		which = mil_culture
+		value = mil_advisor_culture
+	}
+	if = {
+		limit = {
+			OR = {
+				is_variable_equal = {
+					which = adm_culture
+					which = dip_culture
+				}
+				is_variable_equal = {
+					which = adm_culture
+					which = mil_culture
+				}
+			}
+		}
+		set_variable = {
+			which = $var$
+			value = adm_culture
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				is_variable_equal = {
+					which = dip_culture
+					which = adm_culture
+				}
+				is_variable_equal = {
+					which = dip_culture
+					which = mil_culture
+				}
+			}
+		}
+		set_variable = {
+			which = $var$
+			value = dip_culture
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				is_variable_equal = {
+					which = mil_culture
+					which = adm_culture
+				}
+				is_variable_equal = {
+					which = mil_culture
+					which = dip_culture
+				}
+			}
+		}
+		set_variable = {
+			which = $var$
+			value = mil_culture
+		}
+	}
+	else = {
+		random_list = {
+			1 = {
+				set_variable = {
+					which = $var$
+					value = adm_culture
+				}
+			}
+			1 = {
+				set_variable = {
+					which = $var$
+					value = dip_culture
+				}
+			}
+			1 = {
+				set_variable = {
+					which = $var$
+					value = mil_culture
+				}
+			}
+		}
+	}
+}
+use_advisor_talent_on_country = {
+	if = {
+		limit = {
+			advisor = philosopher
+		}
+		add_prestige = 5
+	}
+	if = {
+		limit = {
+			advisor = natural_scientist
+		}
+		capital_scope = {
+			add_base_production = 2
+		}
+	}
+	if = {
+		limit = {
+			advisor = artist
+		}
+		add_stability = 1
+	}
+	if = {
+		limit = {
+			advisor = treasurer
+		}
+		capital_scope = {
+			add_base_tax = 2
+		}
+	}
+	if = {
+		limit = {
+			advisor = theologian
+		}
+		every_owned_province = {
+			limit = {
+				unrest = 2
+			}
+			add_unrest = -2
+		}
+	}
+	if = {
+		limit = {
+			advisor = master_of_mint
+		}
+		add_inflation = -3
+	}
+	if = {
+		limit = {
+			advisor = inquisitor
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { religion = ROOT }
+			}
+			change_religion = ROOT
+		}
+	}
+	if = {
+		limit = {
+			advisor = statesman
+		}
+		every_ally = {
+			add_trust = {
+				who = ROOT
+				value = 20
+				mutual = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			advisor = naval_reformer
+		}
+		random_owned_province = {
+			limit = { has_port = yes }
+			ROOT = {
+				heavy_ship = PREV
+				light_ship = PREV
+				galley = PREV
+				transport = PREV
+			}
+		}
+	}
+	if = {
+		limit = {
+			advisor = trader
+		}
+		capital_scope = { 
+			add_trade_node_income = 3
+		}
+	}
+	if = {
+		limit = {
+			advisor = spymaster
+		}
+		random_country = { 
+			limit = {
+				has_spy_network_from = {
+					who = ROOT
+					value = 0
+				}
+			}
+			add_spy_network_from = {
+				who = ROOT
+				value = 25
+			}
+		}
+	}
+	if = {
+		limit = {
+			advisor = colonial_governor
+		}
+		random_owned_province = {
+			limit = { is_colony = yes }
+			add_colonysize = 200
+		}
+	}
+	if = {
+		limit = {
+			advisor = diplomat
+		}
+		add_dip_power = 75
+	}
+	if = {
+		limit = {
+			advisor = navigator
+		}
+		create_explorer = 50
+	}
+	if = {
+		limit = {
+			advisor = army_organiser
+		}
+		add_yearly_manpower = 0.5
+	}
+	if = {
+		limit = {
+			advisor = army_reformer
+		}
+		add_army_professionalism = 0.05
+	}
+	if = {
+		limit = {
+			advisor = commandant
+		}
+		add_army_tradition = 5
+	}
+	if = {
+		limit = {
+			advisor = quartermaster
+		}
+		create_general = { tradition = 50 }
+	}
+	if = {
+		limit = {
+			advisor = recruitmaster
+		}
+		random_owned_province = {
+			add_unit_construction = {
+				type = cavalry
+				amount = 5
+				speed = 0.01
+				cost = 0
+			}
+		}
+	}
+	if = {
+		limit = {
+			advisor = fortification_expert
+		}
+		random_owned_province = {
+			limit = { NOT = { has_building = wow_fort_1 } }
+			add_building = wow_fort_1
+		}
+	}
+	if = {
+		limit = {
+			advisor = grand_captain
+		}
+		add_mil_power = 75
+	}
+}
