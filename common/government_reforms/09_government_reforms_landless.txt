@@ -2,9 +2,16 @@ landless_basic_reform = {
 	heir = no
 	queen = no
 	basic_reform = yes # = invisible/does not take up a slot
-	valid_for_nation_designer = yes
+	valid_for_nation_designer = no
 	can_form_trade_league = no
-	has_meritocracy = yes
+	
+	modifiers = {
+		# Common modifiers for all landless governments
+		global_tax_income = 24
+		envoy_travel_time = -20
+		diplomats = 4
+		global_manpower = -10
+	}
 }
 
 adventuring_group_reform = {
@@ -32,11 +39,6 @@ adventuring_group_reform = {
 		land_morale = 0.1
 		movement_speed = 0.2
 		discipline = -0.1
-		global_manpower_modifier = -0.2
-		
-		# Common modifiers for all landless governments
-		global_tax_income = 24
-		envoy_travel_time = 25
 	}
 	ai = {
 		factor = 1
@@ -68,11 +70,6 @@ warband_reform = {
 		war_exhaustion = -0.1
 		reinforce_speed = 0.2
 		discipline = -0.1
-		global_manpower_modifier = -0.2
-		
-		# Common modifiers for all landless governments
-		global_tax_income = 24
-		envoy_travel_time = 25
 	}
 	ai = {
 		factor = 1
@@ -106,10 +103,6 @@ landless_lord_reform = {
 		reinforce_speed = -0.2
 		discipline = 0.1
 		heir_chance  = -0.2
-		
-		# Common modifiers for all landless governments
-		global_tax_income = 24
-		envoy_travel_time = 25
 	}
 	ai = {
 		factor = 1

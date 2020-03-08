@@ -1,47 +1,40 @@
 country_decisions = {
-	get_out_of_hiding = {
+	recruit_manpower = {
 	
         potential = {
-			culture_group = culture_group_titan
-			NOT = { has_country_flag = revealed_to_world }
+			is_landless = yes
         }
         
 		allow = {
-			adm_tech = 5
+			mil_power = 25
+			any_province = {
+				NOT = { owned_by = ROOT }
+				has_ruler_leader_from = ROOT
+				NOT = { has_province_modifier = recruited_recently }
+			}
 		}
 		
-		ai_importance = 200
-        
 		effect = {
-			set_country_flag = revealed_to_world
-			add_dip_power = -250
-			add_prestige = 5
+			add_mil_power = -25
+			random_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					has_ruler_leader_from = ROOT
+					NOT = { has_province_modifier = recruited_recently }
+				}
+				add_province_modifier = {
+					name = recruited_recently
+					desc = desc_recruited_recently
+					duration = 720
+				}
+				ROOT = {
+					infantry = PREV
+				}
+			}
 		}
         
 		ai_will_do = {
 			factor = 0.5
-		}
-	}
-
-	go_into_hiding = {
-	
-        potential = {
-			culture_group = culture_group_titan
-			has_country_flag = revealed_to_world
-        }
-        
-		allow = {
-			adm_tech = 5
-		}
-        
-		effect = {
-			clr_country_flag = revealed_to_world
-			add_adm_power = -250
-			add_prestige = 5
-		}
-        
-		ai_will_do = {
-			factor = 0
 		}
 	}
 
