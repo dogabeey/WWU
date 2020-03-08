@@ -355,89 +355,6 @@ country_event = {
         set_country_flag = set_blood_of_mannoroth
         set_country_flag = drank_the_demonsblood
         
-        hidden_effect = {
-            1671 = {
-				remove_core = A55
-                cede_province = B88
-                add_core = B88
-                change_culture = culture_horde
-                change_religion = religion_fel
-            }
-			if = {
-				limit = {
-					any_country = {
-						not = { ai = yes }
-						OR = {
-							has_country_flag = joined_guldan
-							tag = A34
-						}
-					}
-				}
-				#log = "Player will be leader of the Horde"
-				random_country = {
-					limit = {
-						not = { ai = yes }
-						has_country_flag = joined_guldan
-					}
-					save_global_event_target_as = orc_player
-				}
-				event_target:orc_player = {
-					country_event = { id = rise_of_the_horde.20 }
-					add_country_modifier = {
-						name = the_shadow_council
-						duration = -1
-					}
-					change_government = monarchy
-					add_government_reform = horde_reform
-					set_global_flag = set_blood_of_mannoroth
-					set_country_flag = drank_the_demonsblood
-				}
-				every_country = {
-					limit = { 
-						has_country_flag = joined_guldan
-					}
-					event_target:orc_player = {
-						add_country_modifier = {
-							name = horde_head
-							duration = -1
-						}
-						create_subject = {
-							subject_type = faction_horde
-							subject = PREV
-						}
-					}
-				}
-			}
-			else = {
-				#log = "Shadow Council will be leader of the Horde"
-				B88 = {
-					country_event = { id = rise_of_the_horde.20 }
-					add_country_modifier = {
-						name = the_shadow_council
-						duration = -1
-					}
-					change_government = monarchy
-					add_government_reform = horde_reform
-					set_global_flag = set_blood_of_mannoroth
-					set_country_flag = drank_the_demonsblood
-				}
-				every_country = {
-					limit = { 
-						has_country_flag = joined_guldan
-					}
-					B88 = {
-						add_country_modifier = {
-							name = horde_head
-							duration = -1
-						}
-						create_subject = {
-							subject_type = faction_horde
-							subject = PREV
-						}
-					}
-				}
-			}
-        }
         
         if = { 
             limit = { NOT = { religion = religion_fel } }
@@ -708,7 +625,68 @@ country_event = {
 		name = rise_of_the_horde.20.option.a
 		custom_tooltip = rise_of_the_horde.20.tt
 		swap_non_generic_missions = yes
+		hidden_effect = {
+			ROOT = {
+				add_country_modifier = {
+					name = the_shadow_council
+					duration = -1
+				}
+				change_government = monarchy
+				add_government_reform = horde_reform
+				set_global_flag = set_blood_of_mannoroth
+				set_country_flag = drank_the_demonsblood
+			}
+			every_country = {
+				limit = { 
+					has_country_flag = joined_guldan
+				}
+				ROOT = {
+					add_country_modifier = {
+						name = horde_head
+						duration = -1
+					}
+					create_subject = {
+						subject_type = faction_horde
+						subject = PREV
+					}
+				}
+			}
+		}
+	}
+    
+	option = {
+		name = rise_of_the_horde.20.option.b
+		custom_tooltip = rise_of_the_horde.20.tt2
+		swap_non_generic_missions = yes
+		hidden_effect = {
+			B88 = {
+				add_country_modifier = {
+					name = the_shadow_council
+					duration = -1
+				}
+				change_government = monarchy
+				add_government_reform = horde_reform
+				set_global_flag = set_blood_of_mannoroth
+				set_country_flag = drank_the_demonsblood
+			}
+			every_country = {
+				limit = { 
+					has_country_flag = joined_guldan
+				}
+				B88 = {
+					add_country_modifier = {
+						name = horde_head
+						duration = -1
+					}
+					create_subject = {
+						subject_type = faction_horde
+						subject = PREV
+					}
+				}
+			}
+		}
     }
+	
 }
 
 # The Exodar
