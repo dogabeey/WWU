@@ -38,4 +38,283 @@ country_decisions = {
 		}
 	}
 
+	buy_menu_open = {
+		major = yes
+		
+        potential = {
+			is_landless = yes
+			NOT = { has_country_flag = opened_buy_menu }
+        }
+        
+		allow = {
+			is_landless = yes
+			NOT = { has_country_flag = opened_buy_menu } 
+		}
+		
+		effect = {
+			set_country_flag = opened_buy_menu
+		}
+        
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	buy_menu_close = {
+		major = yes
+		
+        potential = {
+			is_landless = yes
+			has_country_flag = opened_buy_menu
+        }
+        
+		allow = {
+			is_landless = yes
+			has_country_flag = opened_buy_menu 
+		}
+		
+		effect = {
+			clr_country_flag = opened_buy_menu
+		}
+        
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	buy_forge = {
+		potential = {
+			is_landless = yes
+			has_country_flag = opened_buy_menu
+        }
+        
+		allow = {
+			treasury = 500
+			any_province = {
+				treasury
+				has_ruler_leader_from = ROOT
+				owner = {
+					has_opinion = 
+						who = ROOT
+						value = 50
+					}
+				}
+				NOT = { has_province_modifier = guild_has_forge_local }
+			}
+		}
+		
+		effect = {
+			add_treasury = -500
+			clr_country_flag = opened_buy_menu
+			random_province = {
+				limit = {
+					has_ruler_leader_from = ROOT
+					NOT = { has_province_modifier = guild_has_forge_local }
+				}
+				set_province_flag = guild_has_forge_flag@ROOT
+				add_permanent_province_modifier = {
+					name = guild_has_forge_local
+					desc = desc_guild_has_forge_local
+					duration = -1
+				}
+				add_country_modifier = {
+					name = guild_has_forge_global
+					desc = desc_guild_has_forge_global
+					duration = -1
+				}
+			}
+		}
+        
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	buy_recruitment_office = {
+		potential = {
+			is_landless = yes
+			has_country_flag = opened_buy_menu
+        }
+        
+		allow = {
+			treasury = 500
+			any_province = {
+				has_ruler_leader_from = ROOT
+				owner = {
+					has_opinion = 
+						who = ROOT
+						value = 50
+					}
+				}
+				NOT = { has_province_modifier = guild_has_recruitment_office_local }
+			}
+		}
+		
+		effect = {
+			add_treasury = -500
+			clr_country_flag = opened_buy_menu
+			random_province = {
+				limit = {
+					has_ruler_leader_from = ROOT
+					NOT = { has_province_modifier = guild_has_recruitment_office_local }
+				}
+				set_province_flag = guild_has_recruitment_office_flag@ROOT
+				add_permanent_province_modifier = {
+					name = guild_has_recruitment_office_local
+					desc = desc_guild_has_recruitment_office_local
+					duration = -1
+				}
+				add_country_modifier = {
+					name = guild_has_recruitment_office_global
+					desc = desc_guild_has_recruitment_office_global
+					duration = -1
+				}
+			}
+		}
+        
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	buy_workshop = {
+		potential = {
+			is_landless = yes
+			has_country_flag = opened_buy_menu
+        }
+        
+		allow = {
+			treasury = 500
+			any_province = {
+				has_ruler_leader_from = ROOT
+				owner = {
+					has_opinion = 
+						who = ROOT
+						value = 50
+					}
+				}
+				NOT = { has_province_modifier = guild_has_workshop_local }
+			}
+		}
+		
+		effect = {
+			add_treasury = -500
+			clr_country_flag = opened_buy_menu
+			random_province = {
+				limit = {
+					has_ruler_leader_from = ROOT
+					NOT = { has_province_modifier = guild_has_workshop_local }
+				}
+				set_province_flag = guild_has_workshop_flag@ROOT
+				add_permanent_province_modifier = {
+					name = guild_has_workshop_local
+					desc = desc_guild_has_workshop_local
+					duration = -1
+				}
+				add_country_modifier = {
+					name = guild_has_workshop_global
+					desc = desc_guild_has_workshop_global
+					duration = -1
+				}
+			}
+		}
+        
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	buy_lounge = {
+		potential = {
+			is_landless = yes
+			has_country_flag = opened_buy_menu
+        }
+        
+		allow = {
+			treasury = 500
+			any_province = {
+				has_ruler_leader_from = ROOT
+				owner = {
+					has_opinion = 
+						who = ROOT
+						value = 50
+					}
+				}
+				NOT = { has_province_modifier = guild_has_lounge_local }
+			}
+		}
+		
+		effect = {
+			add_treasury = -500
+			clr_country_flag = opened_buy_menu
+			random_province = {
+				limit = {
+					has_ruler_leader_from = ROOT
+					NOT = { has_province_modifier = guild_has_lounge_local }
+				}
+				set_province_flag = guild_has_lounge_flag@ROOT
+				add_permanent_province_modifier = {
+					name = guild_has_lounge_local
+					desc = desc_guild_has_lounge_local
+					duration = -1
+				}
+				add_country_modifier = {
+					name = guild_has_lounge_global
+					desc = desc_guild_has_lounge_global
+					duration = -1
+				}
+			}
+		}
+        
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	buy_military_post = {
+		potential = {
+			is_landless = yes
+			has_country_flag = opened_buy_menu
+        }
+        
+		allow = {
+			treasury = 500
+			any_province = {
+				has_ruler_leader_from = ROOT
+				owner = {
+					has_opinion = 
+						who = ROOT
+						value = 50
+					}
+				}
+				NOT = { has_province_modifier = guild_has_military_post_local }
+			}
+		}
+		
+		effect = {
+			add_treasury = -500
+			clr_country_flag = opened_buy_menu
+			random_province = {
+				limit = {
+					has_ruler_leader_from = ROOT
+					NOT = { has_province_modifier = guild_has_military_post_local }
+				}
+				set_province_flag = guild_has_military_post_flag@ROOT
+				add_permanent_province_modifier = {
+					name = guild_has_military_post_local
+					desc = desc_guild_has_military_post_local
+					duration = -1
+				}
+				add_country_modifier = {
+					name = guild_has_military_post_global
+					desc = desc_guild_has_military_post_global
+					duration = -1
+				}
+			}
+		}
+        
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
 }
