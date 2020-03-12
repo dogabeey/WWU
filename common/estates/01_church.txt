@@ -5,6 +5,13 @@ estate_church =
 	color = { 200 150 0 }
 	
     custom_name = {
+        desc = estate_tidesages
+        trigger = {
+            has_reform = admiralty_reform
+        }
+    }
+	
+    custom_name = {
         desc = estate_church_light
         trigger = {
             religion_group = religion_group_the_light
@@ -54,7 +61,6 @@ estate_church =
 	
 	# If true, country will get estate
 	trigger = {
-		NOT = { religion = religion_water }
 		NOT = { is_pure_evil = yes }
 		NOT = { is_landless = yes }
 		NOT = { has_reform = pirate_republic_reform }

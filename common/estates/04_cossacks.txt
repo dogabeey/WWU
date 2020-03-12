@@ -3,6 +3,13 @@ estate_cossacks = {
 	color = { 200 150 150 }
 	
     custom_name = {
+        desc = estate_order
+        trigger = {
+            has_reform = admiralty_reform
+        }
+    }
+	
+    custom_name = {
         desc = trade_company_reform
         trigger = {
             has_country_flag = has_trade_company_guild
@@ -54,7 +61,6 @@ estate_cossacks = {
 	trigger = {	
 		NOT = { is_landless = yes }
 		NOT = { has_reform = pirate_republic_reform }
-		NOT = { has_reform = admiralty_reform }
 		has_country_modifier = adventurers_allowed
 	}
 	

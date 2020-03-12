@@ -1,0 +1,68 @@
+#AVIALABLE CUSTOM LOCALISATION KEYS
+#When adding new custom loc keys, add them to the appropriate category (or add a new one) and describe them. Name the strings "String_X" where x is its content.
+# To not display anything, you can use 'localisation_key = ""'
+# Please add one example sentence for each key.
+
+#As this list grow organize with categories.
+#Current loc keys in this file:
+#GetLocalPowerStructure
+#GetGovernmentSupporters
+#GetNoblesReplacementForOtherGovernments
+
+#A local power structure, such as a court or local parliament
+#Ex: "The Court refused our request to hand over the culprits"
+#TODO: ADD MORE
+
+# GetElementalType
+# GetElementalTypeAdj
+# GetElementalTypeCapitalized
+# GetElementalTypeAdjCapitalized
+# GetElementalLord
+defined_text = {
+    name = EstateGuildDesc
+
+    text = {
+        localisation_key = def_estate_cossacks_desc
+        trigger = {
+            NOT = { has_reform = admiralty_reform }
+        }
+    }
+    text = {
+        localisation_key = estate_order_desc
+        trigger = {
+            has_reform = admiralty_reform
+        }
+    }
+}
+defined_text = {
+    name = EstateClergyDesc
+
+    text = {
+        localisation_key = def_estate_clergy_desc
+        trigger = {
+            NOT = { has_reform = admiralty_reform }
+        }
+    }
+    text = {
+        localisation_key = estate_tidesages_desc
+        trigger = {
+            has_reform = admiralty_reform
+        }
+    }
+}
+defined_text = {
+    name = EstateTradersDesc
+
+    text = {
+        localisation_key = def_estate_burghers_desc
+        trigger = {
+            NOT = { has_reform = admiralty_reform }
+        }
+    }
+    text = {
+        localisation_key = estate_traders_desc
+        trigger = {
+            has_reform = admiralty_reform
+        }
+    }
+}

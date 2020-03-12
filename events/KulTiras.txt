@@ -10,10 +10,10 @@ country_event = {
 		primary_culture = culture_kul_tiran
 		religion = religion_water
 		OR = { 
-			has_country_modifier = kul_tiras_proudmoore
-			has_country_modifier = kul_tiras_stormsong
-			has_country_modifier = kul_tiras_waycrest
-			has_country_modifier = kul_tiras_ashvane
+			and = { has_country_modifier = kul_tiras_proudmoore not = { dynasty = "Proudmoore" } }
+			and = { has_country_modifier = kul_tiras_waycrest not = { dynasty = "Waycrest" } }
+			and = { has_country_modifier = kul_tiras_stormsong not = { dynasty = "Stormsong" } }
+			and = { has_country_modifier = kul_tiras_ashvane not = { dynasty = "Ashvane" } }
 		}
 		has_heir = no
 	}
