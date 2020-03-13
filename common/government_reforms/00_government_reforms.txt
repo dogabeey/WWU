@@ -88,6 +88,74 @@ alliance_legacy = {
 	}
 	militarised_society = yes
 	government_abilities = {  }
+	assimilation_cultures = {
+		culture_group_human = {
+			ship_durability = 0.10
+		}
+		culture_group_darnassian = {
+			free_leader_pool = 1
+		}
+		culture_group_vrykul = {
+			land_attrition = -0.1
+		}
+		culture_group_broken = {
+			state_maintenance_modifier = -0.10
+		}
+		culture_group_draenei = {
+			missionaries = 1
+		}
+		culture_group_furbolg = {
+			global_trade_goods_size_modifier = 0.10
+		}
+		culture_group_wolfvar = {
+			production_efficiency = 0.10
+		}
+		culture_group_gorloc = {
+			diplomats = 1
+		}
+		culture_group_kobold = {
+			global_institution_spread = 0.10
+		}
+		culture_group_harpy = {
+			core_creation = -0.1
+		}
+		culture_group_worgen = {
+			advisor_cost = -0.1
+		}
+		culture_group_pandaren = {
+			land_morale = 0.1
+		}
+		culture_group_tauren = {
+			idea_cost = -0.10
+		}
+		culture_group_orc = {
+			discipline = 0.05
+		}
+		culture_group_thalassian = {
+			merchants = 1
+		}
+		culture_group_goblin = {
+			movement_speed = 0.1
+		}
+		culture_group_gnoll = {
+			mil_advisor_cost = -0.1
+		}
+		culture_group_centaur = {
+			caravan_power = 0.1
+		}
+		culture_group_naga = {
+			prestige_decay = -0.01
+		}
+		culture_group_dragonkin = {
+			global_autonomy = -0.01
+		}
+		culture_group_demonic = {
+			leader_land_fire = 1
+		}
+		culture_group_satyr = {
+			trade_efficiency = 0.10
+		}
+	}
 	modifiers = {
 		monarch_military_power = 1
 		claim_duration = 1
@@ -503,145 +571,7 @@ factions = {
 	}
 }
 
-shogunate_legacy = {
-	icon = "crown"
-	legacy_government = yes
-	allow_normal_conversion = yes
 
-	valid_for_new_country = yes
-	allow_convert = yes
-
-	maintain_dynasty = yes
-
-	allow_vassal_war = yes
-	allow_vassal_alliance = yes
-
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-
-	monarchy = yes
-	government_abilities = {  }
-
-factions = {
-		temples
-		enuchs
-		bureaucrats
-	}
-
-	modifiers = {
-		diplomats = 1
-		state_maintenance_modifier = -0.10
-		global_manpower_modifier = 0.10
-		reduced_liberty_desire = 10
-		max_absolutism = 5
-	}
-	
-	ai = {
-		factor = 5
-	}
-}
-
-mughal_government_legacy = {
-	icon = "crown"
-	legacy_government = yes
-	allow_normal_conversion = yes
-
-	valid_for_new_country = yes
-	allow_convert = yes
-
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-
-	monarchy = yes
-	government_abilities = {  }
-
-factions = {
-		es_clergy
-		es_merchants
-		es_warriors
-	}
-
-	modifiers = {
-		tolerance_own = 1
-		max_states = 1
-		monarch_military_power = 1
-		global_autonomy = -0.025
-		num_accepted_cultures = 1
-	}
-	
-	assimilation_cultures = {
-		culture_group_human = {
-			ship_durability = 0.10
-		}
-		culture_group_darnassian = {
-			free_leader_pool = 1
-		}
-		culture_group_vrykul = {
-			land_attrition = -0.1
-		}
-		culture_group_broken = {
-			state_maintenance_modifier = -0.10
-		}
-		culture_group_draenei = {
-			missionaries = 1
-		}
-		culture_group_furbolg = {
-			global_trade_goods_size_modifier = 0.10
-		}
-		culture_group_wolfvar = {
-			production_efficiency = 0.10
-		}
-		culture_group_gorloc = {
-			diplomats = 1
-		}
-		culture_group_kobold = {
-			global_institution_spread = 0.10
-		}
-		culture_group_harpy = {
-			core_creation = -0.1
-		}
-		culture_group_worgen = {
-			advisor_cost = -0.1
-		}
-		culture_group_pandaren = {
-			land_morale = 0.1
-		}
-		culture_group_tauren = {
-			idea_cost = -0.10
-		}
-		culture_group_orc = {
-			discipline = 0.05
-		}
-		culture_group_thalassian = {
-			merchants = 1
-		}
-		culture_group_goblin = {
-			movement_speed = 0.1
-		}
-		culture_group_gnoll = {
-			mil_advisor_cost = -0.1
-		}
-		culture_group_centaur = {
-			caravan_power = 0.1
-		}
-		culture_group_naga = {
-			prestige_decay = -0.01
-		}
-		culture_group_dragonkin = {
-			global_autonomy = -0.01
-		}
-		culture_group_demonic = {
-			leader_land_fire = 1
-		}
-		culture_group_satyr = {
-			trade_efficiency = 0.10
-		}
-	}
-	
-	ai = {
-		factor = 5
-	}
-}
 
 ####################################
 #
@@ -1235,15 +1165,6 @@ factions = {
 	ai = {
 		factor = 5
 	}
-	
-	conditional = {
-		allow = {
-			has_dlc = "Third Rome"
-		}
-		government_abilities = {
-			russian_mechanic
-		}
-	}
 }
 
 ####################################
@@ -1431,93 +1352,12 @@ factions = {
 		has_devotion = yes
 	}
 	
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			NOT = { has_dlc = "Mare Nostrum" }
-		}
-		can_use_trade_post = yes
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Mare Nostrum"
-			NOT = { has_dlc = "Res Publica" }
-		}
-		can_form_trade_league = yes
-		trade_city_reform = trading_city
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			has_dlc = "Mare Nostrum"
-		}
-		can_use_trade_post = yes
-		can_form_trade_league = yes
-		trade_city_reform = trading_city
-	}
-	
 	ai = {
 		factor = 5
 	}
 
 }
 
-religious_republic_government = {
-	icon = "religious_leader"
-	allow_normal_conversion = yes
-	legacy_government = yes
-	valid_for_new_country = yes
-
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-
-	royal_marriage = yes
-
-	different_religion_group_acceptance = -25
-
-	religion = yes
-	government_abilities = {  }
-
-factions = {
-		es_monks
-		es_priests
-		es_knights
-	}
-	modifiers = {
-		max_absolutism = -50
-		religious_unity = 0.1
-		tolerance_heathen = 1
-        tolerance_heretic = 1
-		num_accepted_cultures = 1
-	}
-
-	conditional = {
-		allow = {
-			has_dlc = "Common Sense"
-		}
-
-		has_devotion = yes
-	}
-	
-	conditional = {
-		allow = {
-			has_dlc = "Common Sense"
-		}
-		has_parliament = yes
-	}
-	
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			feudal_theocracy_mechanic
-		}
-	}
-	
-	ai = {
-		factor = 5
-	}
-
-}
 
 college_of_mages_government = {
 	icon = "religious_leader"
@@ -1744,6 +1584,74 @@ expeditionary_tribe_legacy = {
 	heir = yes
 	queen = yes
 	
+	assimilation_cultures = {
+		culture_group_human = {
+			ship_durability = 0.10
+		}
+		culture_group_darnassian = {
+			free_leader_pool = 1
+		}
+		culture_group_vrykul = {
+			land_attrition = -0.1
+		}
+		culture_group_broken = {
+			state_maintenance_modifier = -0.10
+		}
+		culture_group_draenei = {
+			missionaries = 1
+		}
+		culture_group_furbolg = {
+			global_trade_goods_size_modifier = 0.10
+		}
+		culture_group_wolfvar = {
+			production_efficiency = 0.10
+		}
+		culture_group_gorloc = {
+			diplomats = 1
+		}
+		culture_group_kobold = {
+			global_institution_spread = 0.10
+		}
+		culture_group_harpy = {
+			core_creation = -0.1
+		}
+		culture_group_worgen = {
+			advisor_cost = -0.1
+		}
+		culture_group_pandaren = {
+			land_morale = 0.1
+		}
+		culture_group_tauren = {
+			idea_cost = -0.10
+		}
+		culture_group_orc = {
+			discipline = 0.05
+		}
+		culture_group_thalassian = {
+			merchants = 1
+		}
+		culture_group_goblin = {
+			movement_speed = 0.1
+		}
+		culture_group_gnoll = {
+			mil_advisor_cost = -0.1
+		}
+		culture_group_centaur = {
+			caravan_power = 0.1
+		}
+		culture_group_naga = {
+			prestige_decay = -0.01
+		}
+		culture_group_dragonkin = {
+			global_autonomy = -0.01
+		}
+		culture_group_demonic = {
+			leader_land_fire = 1
+		}
+		culture_group_satyr = {
+			trade_efficiency = 0.10
+		}
+	}
 	modifiers = {
 		global_manpower_modifier = 0.10
 		trade_efficiency = 0.10

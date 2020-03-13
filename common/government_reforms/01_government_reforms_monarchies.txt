@@ -10,7 +10,7 @@ monarchy_mechanic = {
 }
 
 ancient_dynasty_reform = {
-	icon = "shogunate"
+	icon = "ancient_dynasty"
 	legacy_equivalent = ancient_dynasty_legacy
 	allow_normal_conversion = no
 	valid_for_new_country = yes
@@ -39,7 +39,7 @@ ancient_dynasty_reform = {
 }
 
 horde_reform = {
-	icon = "crown"
+	icon = "horde"
 	legacy_equivalent = horde_legacy
 	allow_normal_conversion = no
 	valid_for_new_country = no
@@ -51,6 +51,74 @@ horde_reform = {
 	heir = no
 	generals_become_rulers = yes
 	
+	assimilation_cultures = {
+		culture_group_human = {
+			ship_durability = 0.10
+		}
+		culture_group_darnassian = {
+			free_leader_pool = 1
+		}
+		culture_group_vrykul = {
+			land_attrition = -0.1
+		}
+		culture_group_broken = {
+			state_maintenance_modifier = -0.10
+		}
+		culture_group_draenei = {
+			missionaries = 1
+		}
+		culture_group_furbolg = {
+			global_trade_goods_size_modifier = 0.10
+		}
+		culture_group_wolfvar = {
+			production_efficiency = 0.10
+		}
+		culture_group_gorloc = {
+			diplomats = 1
+		}
+		culture_group_kobold = {
+			global_institution_spread = 0.10
+		}
+		culture_group_harpy = {
+			core_creation = -0.1
+		}
+		culture_group_worgen = {
+			advisor_cost = -0.1
+		}
+		culture_group_pandaren = {
+			land_morale = 0.1
+		}
+		culture_group_tauren = {
+			idea_cost = -0.10
+		}
+		culture_group_orc = {
+			discipline = 0.05
+		}
+		culture_group_thalassian = {
+			merchants = 1
+		}
+		culture_group_goblin = {
+			movement_speed = 0.1
+		}
+		culture_group_gnoll = {
+			mil_advisor_cost = -0.1
+		}
+		culture_group_centaur = {
+			caravan_power = 0.1
+		}
+		culture_group_naga = {
+			prestige_decay = -0.01
+		}
+		culture_group_dragonkin = {
+			global_autonomy = -0.01
+		}
+		culture_group_demonic = {
+			leader_land_fire = 1
+		}
+		culture_group_satyr = {
+			trade_efficiency = 0.10
+		}
+	}
 	custom_attributes = {
 		locked_government_type = yes
 	}
@@ -68,7 +136,7 @@ horde_reform = {
 	}
 }
 alliance_reform = {
-	icon = "crown"
+	icon = "alliance"
 	legacy_equivalent = alliance_legacy
 	allow_normal_conversion = no
 	valid_for_new_country = no
@@ -86,6 +154,75 @@ alliance_reform = {
 		faction_alliance = 1
 	}
 	government_abilities = {  }
+	
+	assimilation_cultures = {
+		culture_group_human = {
+			ship_durability = 0.10
+		}
+		culture_group_darnassian = {
+			free_leader_pool = 1
+		}
+		culture_group_vrykul = {
+			land_attrition = -0.1
+		}
+		culture_group_broken = {
+			state_maintenance_modifier = -0.10
+		}
+		culture_group_draenei = {
+			missionaries = 1
+		}
+		culture_group_furbolg = {
+			global_trade_goods_size_modifier = 0.10
+		}
+		culture_group_wolfvar = {
+			production_efficiency = 0.10
+		}
+		culture_group_gorloc = {
+			diplomats = 1
+		}
+		culture_group_kobold = {
+			global_institution_spread = 0.10
+		}
+		culture_group_harpy = {
+			core_creation = -0.1
+		}
+		culture_group_worgen = {
+			advisor_cost = -0.1
+		}
+		culture_group_pandaren = {
+			land_morale = 0.1
+		}
+		culture_group_tauren = {
+			idea_cost = -0.10
+		}
+		culture_group_orc = {
+			discipline = 0.05
+		}
+		culture_group_thalassian = {
+			merchants = 1
+		}
+		culture_group_goblin = {
+			movement_speed = 0.1
+		}
+		culture_group_gnoll = {
+			mil_advisor_cost = -0.1
+		}
+		culture_group_centaur = {
+			caravan_power = 0.1
+		}
+		culture_group_naga = {
+			prestige_decay = -0.01
+		}
+		culture_group_dragonkin = {
+			global_autonomy = -0.01
+		}
+		culture_group_demonic = {
+			leader_land_fire = 1
+		}
+		culture_group_satyr = {
+			trade_efficiency = 0.10
+		}
+	}
 	modifiers = {
 		monarch_military_power = 1
 		claim_duration = 1
@@ -94,6 +231,7 @@ alliance_reform = {
 	ai = {
 		factor = 5
 	}
+	
 }
 
 scourge_reform = {
@@ -358,132 +496,3 @@ factions = {
 	}
 }
 
-
-shogunate = {
-	icon = "strength_of_the_khalsa"
-	allow_normal_conversion = no
-	valid_for_nation_designer = no
-	nation_designer_cost = 0
-	legacy_equivalent = shogunate_legacy
-	maintain_dynasty = yes
-	allow_vassal_war = yes
-	allow_vassal_alliance = yes
-	
-	government_abilities = {  }
-
-factions = {
-		temples
-		enuchs
-		bureaucrats
-	}
-
-	modifiers = {
-		diplomats = 1
-		state_maintenance_modifier = -0.10
-		global_manpower_modifier = 0.10
-		reduced_liberty_desire = 10
-		max_absolutism = 5
-	}
-
-	ai = {
-		factor = 5
-	}
-}
-
-mughal_government = {
-	icon = "indian_palace"
-	allow_normal_conversion = yes
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-	legacy_equivalent = mughal_government_legacy
-
-	
-	government_abilities = {  }
-
-factions = {
-		es_clergy
-		es_merchants
-		es_warriors
-	}
-
-	modifiers = {
-		tolerance_own = 1
-		max_states = 1
-		monarch_military_power = 1
-		global_autonomy = -0.025
-		num_accepted_cultures = 1
-	}
-
-	assimilation_cultures = {
-		culture_group_human = {
-			ship_durability = 0.10
-		}
-		culture_group_darnassian = {
-			free_leader_pool = 1
-		}
-		culture_group_vrykul = {
-			land_attrition = -0.1
-		}
-		culture_group_broken = {
-			state_maintenance_modifier = -0.10
-		}
-		culture_group_draenei = {
-			missionaries = 1
-		}
-		culture_group_furbolg = {
-			global_trade_goods_size_modifier = 0.10
-		}
-		culture_group_wolfvar = {
-			production_efficiency = 0.10
-		}
-		culture_group_gorloc = {
-			diplomats = 1
-		}
-		culture_group_kobold = {
-			global_institution_spread = 0.10
-		}
-		culture_group_harpy = {
-			core_creation = -0.1
-		}
-		culture_group_worgen = {
-			advisor_cost = -0.1
-		}
-		culture_group_pandaren = {
-			land_morale = 0.1
-		}
-		culture_group_tauren = {
-			idea_cost = -0.10
-		}
-		culture_group_orc = {
-			discipline = 0.05
-		}
-		culture_group_thalassian = {
-			merchants = 1
-		}
-		culture_group_goblin = {
-			movement_speed = 0.1
-		}
-		culture_group_gnoll = {
-			mil_advisor_cost = -0.1
-		}
-		culture_group_centaur = {
-			caravan_power = 0.1
-		}
-		culture_group_naga = {
-			prestige_decay = -0.01
-		}
-		culture_group_dragonkin = {
-			global_autonomy = -0.01
-		}
-		culture_group_demonic = {
-			leader_land_fire = 1
-		}
-		culture_group_satyr = {
-			trade_efficiency = 0.10
-		}
-	}
-	
-	ai = {
-		factor = 5
-	}
-}

@@ -111,39 +111,6 @@ factions = {
 	}
 }
 
-papacy_reform = {
-    icon = "papacy"
-	valid_for_nation_designer = yes
-	allow_normal_conversion = yes
-	legacy_equivalent = papal_government
-	#papacy = yes
-	rulers_can_be_generals = no
-	
-	different_religion_group_acceptance = -25
-	
-    government_abilities = {  }
-
-factions = {
-		es_monks
-		es_priests
-		es_knights
-	}
-	
-	modifiers = {
-		max_states = 1
-		global_unrest = -1
-		prestige = 0.5
-		diplomatic_reputation = 1
-		global_autonomy = -0.05
-	}
-
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			feudal_theocracy_mechanic
-		}
-	}
-}
 
 holy_republic_reform = {
 	icon = "paper_money_map"
@@ -168,73 +135,7 @@ factions = {
 	nation_designer_cost = 0
 	legacy_equivalent = holy_republic_government
 	boost_income = yes
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			NOT = { has_dlc = "Mare Nostrum" }
-		}
-		can_use_trade_post = yes
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Mare Nostrum"
-			NOT = { has_dlc = "Res Publica" }
-		}
-		can_form_trade_league = yes
-		trade_city_reform = trading_city
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			has_dlc = "Mare Nostrum"
-		}
-		can_use_trade_post = yes
-		can_form_trade_league = yes
-		trade_city_reform = trading_city
-	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			feudal_theocracy_mechanic
-		}
-	}
-}
-
-religious_republic_reform = {
-	icon = "parliament"
-	allow_normal_conversion = yes
 	
-	government_abilities = {  }
-
-factions = {
-		es_monks
-		es_priests
-		es_knights
-	}
-	
-	modifiers = {
-		max_absolutism = -50
-		religious_unity = 0.1
-		tolerance_heathen = 1
-        tolerance_heretic = 1
-		num_accepted_cultures = 1
-	}
-	
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-	legacy_equivalent = religious_republic_government
-	conditional = {
-		allow = {
-			has_dlc = "Common Sense"
-		}
-		has_parliament = yes
-	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			feudal_theocracy_mechanic
-		}
-	}
 }
 
 college_of_mages_reform = {
