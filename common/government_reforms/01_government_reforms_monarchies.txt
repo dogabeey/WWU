@@ -461,34 +461,41 @@ kingdom_of_magic = {
 		factor = 5
 	}
 }
+council_monarchy_reform = {
+	icon = "council"
+	allow_normal_conversion = no
+		
+	valid_for_nation_designer = yes
+	nation_designer_cost = 15
+	
+	legacy_equivalent = dwarven_monarchy_legacy
+	start_territory_to_estates = 0.3
+	modifiers = {
+		max_states = 1
+		global_unrest = -1
+	}
 
-pirate_kingdom = {
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+}
+trade_kingdom = {
 	icon = "pirate_king"
 	allow_normal_conversion = yes
-	legacy_equivalent = pirate_kingdom_legacy
+	legacy_equivalent = trade_kingdom_legacy
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
+	boost_income = yes
 	potential = {	
 		has_dlc = "Golden Century"
 	}
-	custom_attributes = {
-		can_enslave = yes
-	}
 	government_abilities = {  }
-
-factions = {
-		pr_buccaneers
-		pr_smugglers
-		pr_captains
-	}
 	
 	modifiers = {
-	    max_absolutism = -50
-		naval_forcelimit_modifier = 0.10
-		capture_ship_chance = 0.10
-		ship_durability = 0.10
-		leader_naval_fire = 1
-		may_perform_slave_raid_on_same_religion = yes
+		merchants = 1
+		trade_steering = 0.25
+		adm_tech_cost_modifier = -0.1
 	}
 	
 	ai = {
