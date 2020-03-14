@@ -96,101 +96,126 @@ country_event = {
 			save_event_target_as = warchief_7
 			set_ruler_flag = warchief_candidate
 		}
+		every_subject_country = {
+			clr_ruler_flag = warchief_candidate
+		}
 	}
 	
 	option = {
 		name = factions.3.opt1
-		event_target:warchief_1 = {
-			exile_ruler_as = warchief_candidate
-			add_opinion = {
-				who = ROOT
-				modifier = ruler_became_warchief
+		trigger = { event_target:warchief_1 = { exists = yes } }
+		hidden_effect = {
+			event_target:warchief_1 = {
+				exile_ruler_as = warchief_candidate
+				add_opinion = {
+					who = ROOT
+					modifier = ruler_became_warchief
+				}
 			}
+			set_ruler = warchief_candidate
 		}
-		set_ruler = warchief_candidate
+		custom_tooltip = factions.3.opt1.tt
 	}
 	
 	option = {
 		name = factions.3.opt2
 		trigger = { event_target:warchief_2 = { exists = yes } }
-		event_target:warchief_2 = {
-			exile_ruler_as = warchief_candidate
-			add_opinion = {
-				who = ROOT
-				modifier = ruler_became_warchief
+		hidden_effect = {
+			event_target:warchief_2 = {
+				exile_ruler_as = warchief_candidate
+				add_opinion = {
+					who = ROOT
+					modifier = ruler_became_warchief
+				}
 			}
+			set_ruler = warchief_candidate
 		}
-		set_ruler = warchief_candidate
+		custom_tooltip = factions.3.opt2.tt
 	}
 	
 	option = {
 		name = factions.3.opt3
 		trigger = { event_target:warchief_3 = { exists = yes } }
-		event_target:warchief_3 = {
-			exile_ruler_as = warchief_candidate
-			add_opinion = {
-				who = ROOT
-				modifier = ruler_became_warchief
+		hidden_effect = {
+			event_target:warchief_3 = {
+				exile_ruler_as = warchief_candidate
+				add_opinion = {
+					who = ROOT
+					modifier = ruler_became_warchief
+				}
 			}
+			set_ruler = warchief_candidate
 		}
-		set_ruler = warchief_candidate
+		custom_tooltip = factions.3.opt3.tt
 	}
 	
 	option = {
 		name = factions.3.opt4
 		trigger = { event_target:warchief_4 = { exists = yes } }
-		event_target:warchief_4 = {
-			exile_ruler_as = warchief_candidate
-			add_opinion = {
-				who = ROOT
-				modifier = ruler_became_warchief
+		hidden_effect = {
+			event_target:warchief_4 = {
+				exile_ruler_as = warchief_candidate
+				add_opinion = {
+					who = ROOT
+					modifier = ruler_became_warchief
+				}
 			}
+			set_ruler = warchief_candidate
 		}
-		set_ruler = warchief_candidate
+		custom_tooltip = factions.3.opt4.tt
 	}
 	
 	option = {
 		name = factions.3.opt5
 		trigger = { event_target:warchief_5 = { exists = yes } }
-		event_target:warchief_5 = {
-			exile_ruler_as = warchief_candidate
-			add_opinion = {
-				who = ROOT
-				modifier = ruler_became_warchief
+		hidden_effect = {
+			event_target:warchief_5 = {
+				exile_ruler_as = warchief_candidate
+				add_opinion = {
+					who = ROOT
+					modifier = ruler_became_warchief
+				}
 			}
+			set_ruler = warchief_candidate
 		}
-		set_ruler = warchief_candidate
+		custom_tooltip = factions.3.opt5.tt
 	}
 	
 	option = {
 		name = factions.3.opt6
 		trigger = { event_target:warchief_6 = { exists = yes } }
-		event_target:warchief_6 = {
-			exile_ruler_as = warchief_candidate
-			add_opinion = {
-				who = ROOT
-				modifier = ruler_became_warchief
+		hidden_effect = {
+			event_target:warchief_6 = {
+				exile_ruler_as = warchief_candidate
+				add_opinion = {
+					who = ROOT
+					modifier = ruler_became_warchief
+				}
 			}
+			set_ruler = warchief_candidate
 		}
-		set_ruler = warchief_candidate
+		custom_tooltip = factions.3.opt6.tt
 	}
 	
 	option = {
 		name = factions.3.opt7
 		trigger = { event_target:warchief_7 = { exists = yes } }
-		event_target:warchief_7 = {
-			exile_ruler_as = warchief_candidate
-			add_opinion = {
-				who = ROOT
-				modifier = ruler_became_warchief
+		hidden_effect = {
+			event_target:warchief_7 = {
+				exile_ruler_as = warchief_candidate
+				add_opinion = {
+					who = ROOT
+					modifier = ruler_became_warchief
+				}
 			}
+			set_ruler = warchief_candidate
 		}
-		set_ruler = warchief_candidate
+		custom_tooltip = factions.3.opt7.tt
 	}
 	
 	option = {
 		name = factions.3.opt8
-		define_heir = {
+		define_ruler = {
 			adm = 2
 			dip = 2
 			mil = 2
@@ -222,12 +247,17 @@ country_event = {
 	
 	option = {
 		name = factions.5.opt1
+		trigger = {
+			ai = no
+			FROM = {
+				ai = yes
+			}
+		}
 		switch_tag = FROM
 	}
 	
 	option = {
 		name = factions.5.opt2
-		
 	}
 }
 # Leadership Notice (Horde)
