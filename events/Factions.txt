@@ -25,7 +25,7 @@ country_event = {
 		name = factions.2.opt1
 	}
 }
-# Leadership Transfer (Ally)
+# Leadership Transfer (Overlord)
 country_event = {
 	id = factions.3
 	title = factions.3.title
@@ -35,52 +35,166 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		always = no
-		faction_alliance = 1
-		any_country = {
-			is_subject_of_type = faction_alliance
-			num_of_cities = ROOT
+		faction_horde = 1
+		NOT = { has_country_modifier = shadow_council } # Shouldn't happen at the first Horde.
+	}
+	
+	immediate = {
+		random_subject_country = {
+			limit = {
+				is_subject_of_type = faction_horde
+				NOT = { has_ruler_flag = warchief_candidate }
+			}
+			save_event_target_as = warchief_1
+			set_ruler_flag = warchief_candidate
+		}
+		random_subject_country = {
+			limit = {
+				is_subject_of_type = faction_horde
+				NOT = { has_ruler_flag = warchief_candidate }
+			}
+			save_event_target_as = warchief_2
+			set_ruler_flag = warchief_candidate
+		}
+		random_subject_country = {
+			limit = {
+				is_subject_of_type = faction_horde
+				NOT = { has_ruler_flag = warchief_candidate }
+			}
+			save_event_target_as = warchief_3
+			set_ruler_flag = warchief_candidate
+		}
+		random_subject_country = {
+			limit = {
+				faction_horde = 1
+				NOT = { has_ruler_flag = warchief_candidate }
+			}
+			save_event_target_as = warchief_4
+			set_ruler_flag = warchief_candidate
+		}
+		random_subject_country = {
+			limit = {
+				is_subject_of_type = faction_horde
+				NOT = { has_ruler_flag = warchief_candidate }
+			}
+			save_event_target_as = warchief_5
+			set_ruler_flag = warchief_candidate
+		}
+		random_subject_country = {
+			limit = {
+				is_subject_of_type = faction_horde
+				NOT = { has_ruler_flag = warchief_candidate }
+			}
+			save_event_target_as = warchief_6
+			set_ruler_flag = warchief_candidate
+		}
+		random_subject_country = {
+			limit = {
+				is_subject_of_type = faction_horde
+				NOT = { has_ruler_flag = warchief_candidate }
+			}
+			save_event_target_as = warchief_7
+			set_ruler_flag = warchief_candidate
 		}
 	}
 	
 	option = {
 		name = factions.3.opt1
-		remove_country_modifier = alliance_head
-		every_country = {
-			limit = {
-				OR = {
-					faction_alliance = 1
-					is_subject_of_type = faction_alliance
-				}
-			}
-			grant_independence = yes
-			set_country_flag = potential_alliance_vassal
-		}
-		random_country = {
-			limit = {
-				is_subject_of_type = faction_alliance
-				num_of_cities = ROOT
-			}
-			set_country_flag = potential_alliance_overlord
-			country_event = { id = factions.4 }
-			add_country_modifier = {
-				name = alliance_head
-				duration = -1
+		event_target:warchief_1 = {
+			exile_ruler_as = warchief_candidate
+			add_opinion = {
+				who = ROOT
+				modifier = ruler_became_warchief
 			}
 		}
-		every_country = {
-			limit = {
-				has_country_flag = potential_vassal
+		set_ruler = warchief_candidate
+	}
+	
+	option = {
+		name = factions.3.opt2
+		trigger = { event_target:warchief_2 = { exists = yes } }
+		event_target:warchief_2 = {
+			exile_ruler_as = warchief_candidate
+			add_opinion = {
+				who = ROOT
+				modifier = ruler_became_warchief
 			}
-			random_country = {
-				limit = {
-					has_country_flag = potential_alliance_overlord
-				}
-				create_subject = {
-					subject_type = faction_alliance
-					subject = PREV
-				}
+		}
+		set_ruler = warchief_candidate
+	}
+	
+	option = {
+		name = factions.3.opt3
+		trigger = { event_target:warchief_3 = { exists = yes } }
+		event_target:warchief_3 = {
+			exile_ruler_as = warchief_candidate
+			add_opinion = {
+				who = ROOT
+				modifier = ruler_became_warchief
 			}
+		}
+		set_ruler = warchief_candidate
+	}
+	
+	option = {
+		name = factions.3.opt4
+		trigger = { event_target:warchief_4 = { exists = yes } }
+		event_target:warchief_4 = {
+			exile_ruler_as = warchief_candidate
+			add_opinion = {
+				who = ROOT
+				modifier = ruler_became_warchief
+			}
+		}
+		set_ruler = warchief_candidate
+	}
+	
+	option = {
+		name = factions.3.opt5
+		trigger = { event_target:warchief_5 = { exists = yes } }
+		event_target:warchief_5 = {
+			exile_ruler_as = warchief_candidate
+			add_opinion = {
+				who = ROOT
+				modifier = ruler_became_warchief
+			}
+		}
+		set_ruler = warchief_candidate
+	}
+	
+	option = {
+		name = factions.3.opt6
+		trigger = { event_target:warchief_6 = { exists = yes } }
+		event_target:warchief_6 = {
+			exile_ruler_as = warchief_candidate
+			add_opinion = {
+				who = ROOT
+				modifier = ruler_became_warchief
+			}
+		}
+		set_ruler = warchief_candidate
+	}
+	
+	option = {
+		name = factions.3.opt7
+		trigger = { event_target:warchief_7 = { exists = yes } }
+		event_target:warchief_7 = {
+			exile_ruler_as = warchief_candidate
+			add_opinion = {
+				who = ROOT
+				modifier = ruler_became_warchief
+			}
+		}
+		set_ruler = warchief_candidate
+	}
+	
+	option = {
+		name = factions.3.opt8
+		define_heir = {
+			adm = 2
+			dip = 2
+			mil = 2
+			claim = 70
 		}
 	}
 }
@@ -97,7 +211,7 @@ country_event = {
 		name = factions.4.opt1
 	}
 }
-# Leadership Transfer (Horde)
+# Leadership Transfer (Subject)
 country_event = {
 	id = factions.5
 	title = factions.5.title
@@ -106,53 +220,14 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	trigger = {
-		always = no
-		faction_horde = 1
-		any_country = {
-			is_subject_of_type = faction_horde
-			num_of_cities = ROOT
-		}
+	option = {
+		name = factions.5.opt1
+		switch_tag = FROM
 	}
 	
 	option = {
-		name = factions.5.opt1
-		remove_country_modifier = horde_head
-		every_country = {
-			limit = {
-				OR = {
-					faction_horde = 1
-					is_subject_of_type = faction_horde
-				}
-			}
-			set_country_flag = potential_horde_vassal
-		}
-		random_country = {
-			limit = {
-				is_subject_of_type = faction_horde
-				num_of_cities = ROOT
-			}
-			set_country_flag = potential_horde_overlord
-			country_event = { id = factions.4 }
-			add_country_modifier = {
-				name = horde_head
-				duration = -1
-			}
-		}
-		every_country = {
-			limit = {
-				has_country_flag = potential_vassal
-			}
-			random_country = {
-				limit = {
-					has_country_flag = potential_horde_overlord
-				}
-				create_subject = {
-					subject_type = faction_horde
-					subject = PREV
-				}
-			}
-		}
+		name = factions.5.opt2
+		
 	}
 }
 # Leadership Notice (Horde)

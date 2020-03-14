@@ -15,14 +15,92 @@ country_event = {
 	}
 	
 	immediate = {
-		use_advisor_talent_on_country = yes
 	}
 	
 	option = {
 		name = "council_events.1.opt1"
+		trigger = {
+			has_adm_advisor = yes
+		}
+		use_adm_talent_on_country = yes
+		export_to_variable = {
+			which = adv_rel
+			value = adm_advisor_religion
+		}
+		export_to_variable = {
+			which = adv_cul
+			value = adm_advisor_culture
+		}
 		define_ruler = {
-			culture = variable:dom_rel
-			religion = variable:dom_cul
+			adm = 3
+			religion = variable:adv_rel
+			culture = variable:adv_cul
+			claim = 75
+		}
+	}
+	
+	option = {
+		name = "council_events.1.opt2"
+		trigger = {
+			has_dip_advisor = yes
+		}
+		use_dip_talent_on_country = yes
+		export_to_variable = {
+			which = adv_rel
+			value = dip_advisor_religion
+		}
+		export_to_variable = {
+			which = adv_cul
+			value = dip_advisor_culture
+		}
+		define_ruler = {
+			dip = 3
+			religion = variable:adv_rel
+			culture = variable:adv_cul
+			claim = 75
+		}
+	}
+	
+	option = {
+		name = "council_events.1.opt3"
+		trigger = {
+			has_mil_advisor = yes
+		}
+		export_to_variable = {
+			which = adv_rel
+			value = mil_advisor_religion
+		}
+		export_to_variable = {
+			which = adv_cul
+			value = mil_advisor_culture
+		}
+		define_ruler = {
+			mil = 3
+			religion = variable:adv_rel
+			culture = variable:adv_cul
+			claim = 75
+		}
+	}
+	
+	option = {
+		name = "council_events.1.opt4"
+		trigger = {
+			NOT = { has_adm_advisor = yes }
+			NOT = { has_dip_advisor = yes }
+			NOT = { has_mil_advisor = yes }
+		}
+		export_to_variable = {
+			which = adv_rel
+			value = mil_advisor_religion
+		}
+		export_to_variable = {
+			which = adv_cul
+			value = mil_advisor_culture
+		}
+		define_ruler = {
+			mil = 3
+			religion = variable:adv_rel
+			culture = variable:adv_cul
 			claim = 75
 		}
 	}

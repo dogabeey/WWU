@@ -174,10 +174,21 @@ horde_legacy = {
 	maintain_dynasty = no
 	nation_designer_cost = 0
 	nomad = yes
-	heir = no
 	allow_vassal_alliance = yes
 	generals_become_rulers = yes
 	
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+		heir = no
+		foreign_slave_rulers = yes
+	}
+	conditional = {
+		allow = { NOT = { has_dlc = "Cradle of Civilization" } }
+		generals_become_rulers = yes
+	}
 	custom_attributes = {
 		locked_government_type = yes
 	}
@@ -1087,6 +1098,14 @@ magocracy_legacy = {
 	republican_name = yes
 	royal_marriage = no
 
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+		heir = no
+		foreign_slave_rulers = yes
+	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
 
@@ -1354,6 +1373,14 @@ college_of_mages_government = {
 	religion = yes
 	government_abilities = {  }
 
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+		heir = no
+		foreign_slave_rulers = yes
+	}
 factions = {
 		es_monks
 		es_priests

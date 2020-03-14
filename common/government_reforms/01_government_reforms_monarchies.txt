@@ -51,73 +51,18 @@ horde_reform = {
 	heir = no
 	generals_become_rulers = yes
 	
-	assimilation_cultures = {
-		culture_group_human = {
-			ship_durability = 0.10
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
 		}
-		culture_group_darnassian = {
-			free_leader_pool = 1
-		}
-		culture_group_vrykul = {
-			land_attrition = -0.1
-		}
-		culture_group_broken = {
-			state_maintenance_modifier = -0.10
-		}
-		culture_group_draenei = {
-			missionaries = 1
-		}
-		culture_group_furbolg = {
-			global_trade_goods_size_modifier = 0.10
-		}
-		culture_group_wolfvar = {
-			production_efficiency = 0.10
-		}
-		culture_group_gorloc = {
-			diplomats = 1
-		}
-		culture_group_kobold = {
-			global_institution_spread = 0.10
-		}
-		culture_group_harpy = {
-			core_creation = -0.1
-		}
-		culture_group_worgen = {
-			advisor_cost = -0.1
-		}
-		culture_group_pandaren = {
-			land_morale = 0.1
-		}
-		culture_group_tauren = {
-			idea_cost = -0.10
-		}
-		culture_group_orc = {
-			discipline = 0.05
-		}
-		culture_group_thalassian = {
-			merchants = 1
-		}
-		culture_group_goblin = {
-			movement_speed = 0.1
-		}
-		culture_group_gnoll = {
-			mil_advisor_cost = -0.1
-		}
-		culture_group_centaur = {
-			caravan_power = 0.1
-		}
-		culture_group_naga = {
-			prestige_decay = -0.01
-		}
-		culture_group_dragonkin = {
-			global_autonomy = -0.01
-		}
-		culture_group_demonic = {
-			leader_land_fire = 1
-		}
-		culture_group_satyr = {
-			trade_efficiency = 0.10
-		}
+		heir = no
+		foreign_slave_rulers = yes
+	}
+	
+	conditional = {
+		allow = { NOT = { has_dlc = "Cradle of Civilization" } }
+		generals_become_rulers = yes
 	}
 	custom_attributes = {
 		locked_government_type = yes
@@ -446,7 +391,6 @@ kingdom_of_magic = {
 		
 		global_autonomy = -0.025
 	}
-
 
 	conditional = {
 		allow = { has_dlc = "Cradle of Civilization" }
