@@ -20,6 +20,7 @@ has_council = {
 	}
 }
 
+#Change has_wrong_dynasty and set_correct_dynasty values accordingly whenever you change those
 can_be_hereditary = {
 	OR = {
 		tag = A01
@@ -28,6 +29,7 @@ can_be_hereditary = {
 	}
 }
 
+#Change can_be_hereditary and set_correct_dynasty values accordingly whenever you change those
 has_wrong_dynasty = {
 	has_reform = hereditary_monarchy
 	OR = {
@@ -50,6 +52,14 @@ has_wrong_dynasty = {
 		AND = {
 			tag = A90
 			NOT = { dynasty = "Sunstrider" }
+		}
+		AND = {
+			tag = A91
+			NOT = { dynasty = "Sunstrider" }
+		}
+		AND = {
+			tag = A01
+			NOT = { dynasty = "Wrynn" }
 		}
 	}
 }

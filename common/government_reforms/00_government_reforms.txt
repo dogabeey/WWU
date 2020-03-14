@@ -196,7 +196,7 @@ horde_legacy = {
 	}
 }
 council_monarchy_legacy = {
-	icon = "council"
+	icon = "ballot_boxl"
 	allow_normal_conversion = no
 		
 	valid_for_nation_designer = yes
@@ -209,6 +209,10 @@ council_monarchy_legacy = {
 		global_unrest = -1
 	}
 
+	custom_attributes = {
+		council_system = yes
+	}
+	
 	conditional = {
 		allow = { has_dlc = "Common Sense" }
 		has_parliament = yes
@@ -395,7 +399,7 @@ scourge_legacy = {
 }
 
 hereditary_monarchy_legacy = {
-	icon = "crown"
+	icon = "man_and_children"
 	allow_normal_conversion = yes
 	legacy_government = yes
 	valid_for_new_country = no
@@ -411,7 +415,9 @@ hereditary_monarchy_legacy = {
 	start_territory_to_estates = 0.3
 	government_abilities = {  }
 	
-
+	custom_attributes = {
+		absolute_hereditary = yes
+	}
 	modifiers = {
 		max_states = 1
 		legitimacy = 0.5
@@ -429,7 +435,7 @@ hereditary_monarchy_legacy = {
 kingdom_of_magic_legacy = {
 	allow_normal_conversion = yes
 	legacy_government = yes
-	icon = "crown"
+	icon = "clergyman"
 
 	valid_for_new_country = yes
 	allow_convert = yes
@@ -441,7 +447,10 @@ kingdom_of_magic_legacy = {
 	queen = yes
 	government_abilities = {  }
 	
-
+	custom_attributes = {
+		council_system = yes
+	}
+	
 	conditional = {
 		allow = { has_dlc = "Cradle of Civilization" }
 		government_abilities = {
@@ -513,7 +522,7 @@ factions = {}
 	}
 }
 
-trade_kingdom_legacy = {
+opportunism_legacy = {
 	icon = "crown"
 	allow_normal_conversion = yes
 	legacy_government = yes
@@ -523,6 +532,9 @@ trade_kingdom_legacy = {
 	boost_income = yes
 	government_abilities = {  }
 		
+	custom_attributes = {
+		can_enslave = yes
+	}
 	modifiers = {
 		merchants = 1
 		trade_steering = 0.25
@@ -1177,43 +1189,6 @@ factions = {
 #
 ####################################
 
-theocratic_government = {
-	icon = "religious_leader"
-	allow_normal_conversion = yes
-	legacy_government = yes
-	#valid_for_new_country = yes
-
-	rulers_can_be_generals = no
-
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-
-	royal_marriage = yes
-
-	different_religion_group_acceptance = -25
-
-	religion = yes
-	has_devotion = yes
-	government_abilities = {  }
-
-factions = {
-		es_monks
-		es_priests
-		es_knights
-	}
-	modifiers = {
-		max_states = 1
-		tolerance_own = 1
-		global_missionary_strength = 0.01
-		global_autonomy = -0.05
-		missionaries = 1
-	}
-	
-	ai = {
-		factor = 5
-	}
-
-}
 
 monastic_order_government = {
 	icon = "religious_leader"
@@ -1588,73 +1563,8 @@ expeditionary_tribe_legacy = {
 	heir = yes
 	queen = yes
 	
-	assimilation_cultures = {
-		culture_group_human = {
-			ship_durability = 0.10
-		}
-		culture_group_darnassian = {
-			free_leader_pool = 1
-		}
-		culture_group_vrykul = {
-			land_attrition = -0.1
-		}
-		culture_group_broken = {
-			state_maintenance_modifier = -0.10
-		}
-		culture_group_draenei = {
-			missionaries = 1
-		}
-		culture_group_furbolg = {
-			global_trade_goods_size_modifier = 0.10
-		}
-		culture_group_wolfvar = {
-			production_efficiency = 0.10
-		}
-		culture_group_gorloc = {
-			diplomats = 1
-		}
-		culture_group_kobold = {
-			global_institution_spread = 0.10
-		}
-		culture_group_harpy = {
-			core_creation = -0.1
-		}
-		culture_group_worgen = {
-			advisor_cost = -0.1
-		}
-		culture_group_pandaren = {
-			land_morale = 0.1
-		}
-		culture_group_tauren = {
-			idea_cost = -0.10
-		}
-		culture_group_orc = {
-			discipline = 0.05
-		}
-		culture_group_thalassian = {
-			merchants = 1
-		}
-		culture_group_goblin = {
-			movement_speed = 0.1
-		}
-		culture_group_gnoll = {
-			mil_advisor_cost = -0.1
-		}
-		culture_group_centaur = {
-			caravan_power = 0.1
-		}
-		culture_group_naga = {
-			prestige_decay = -0.01
-		}
-		culture_group_dragonkin = {
-			global_autonomy = -0.01
-		}
-		culture_group_demonic = {
-			leader_land_fire = 1
-		}
-		culture_group_satyr = {
-			trade_efficiency = 0.10
-		}
+	custom_attributes = {
+		can_mass_migrate = yes
 	}
 	modifiers = {
 		global_manpower_modifier = 0.10
@@ -1762,6 +1672,9 @@ nomad_state_legacy = { # ANCIENT CLAN
 	heir = yes
 	queen = yes
 	
+	custom_attributes = {
+		can_mass_migrate = yes
+	}
 	modifiers = {
 	    max_states = 1
 		culture_conversion_cost = -0.10

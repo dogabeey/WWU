@@ -14,7 +14,7 @@ republic_mechanic = {
 }
 
 ancient_civilization_reform = {
-	icon = "assembly_hall"
+	icon = "ancient_dynasty"
 	legacy_equivalent = ancient_civilization_legacy
 	allow_normal_conversion = no
 	valid_for_new_country = yes
@@ -69,49 +69,6 @@ magocracy = {
 		enables_aristocratic_idea_group = no
 	}
 	duration = 5
-}
-
-oligarchy_reform = {
-	icon = "people_walking"
-	allow_normal_conversion = yes
-	duration = 4
-	legacy_equivalent = oligarchic_republic
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-	
-	potential = {
-		NOT = { has_reform = presidential_despot_reform }
-		NOT = { has_reform = colonial_government }
-	}
-	
-	government_abilities = {  }
-
-factions = {
-		mr_aristocrats
-		mr_traders
-		mr_guilds
-	}
-	
-	modifiers = {
-		max_states = 1
-		years_of_nationalism = -5
-		stability_cost_modifier = -0.10
-		global_autonomy = -0.10
-		max_absolutism = -30
-	}
-	
-	conditional = {
-		allow = {
-			has_dlc = "Common Sense"
-		}
-		has_parliament = yes
-	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			iqta_mechanic
-		}
-	}
 }
 
 merchants_reform = {
