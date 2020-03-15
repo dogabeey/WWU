@@ -239,11 +239,6 @@ despotic_monarchy = {
 	monarchy = yes
 	government_abilities = {  }
 
-	factions = {
-		es_clergy
-		es_merchants
-		es_warriors
-	}
 	modifiers = {
     	max_states = 1
 		global_unrest = -1
@@ -921,50 +916,6 @@ bureaucratic_despotism = {
 	}
 }
 
-consortium_republic = {
-	icon = "parliament"
-	allow_normal_conversion = yes
-	legacy_government = yes
-	valid_for_new_country = yes
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-	duration = 10
-
-	republican_name = yes
-	royal_marriage = yes
-
-	republic = yes
-	government_abilities = {  }
-
-factions = {
-		mr_aristocrats
-		mr_traders
-		mr_guilds
-	}
-	
-	modifiers = {
-		spy_offence = 0.10
-		global_spy_defence = 0.10
-		production_efficiency = 0.10
-		global_autonomy = -0.10
-		max_absolutism = -35
-	}
-	custom_attributes = {
-		enables_plutocratic_idea_group = yes
-		enables_aristocratic_idea_group = no
-	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			iqta_mechanic
-		}
-	}
-	
-	ai = {
-		factor = 5
-	}
-}
-
 imperial_city_legacy = {
 	icon = "parliament"
 	allow_normal_conversion = no
@@ -1586,19 +1537,11 @@ expeditionary_tribe_legacy = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
 	
-	monarchy = yes
-	heir = yes
-	queen = yes
-	
-	custom_attributes = {
-		can_mass_migrate = yes
-	}
 	modifiers = {
-		global_manpower_modifier = 0.10
-		trade_efficiency = 0.10
-		development_cost = -0.10
 		colonists = 1
 		range = -0.5
+		colonist_placement_chance = -0.5
+		ae_impact = -0.2
 	}
 	
 	government_abilities = {  }
@@ -1693,31 +1636,22 @@ nomad_state_legacy = { # ANCIENT CLAN
 	tribal = yes
 	nomad = yes
 
+	potential = {
+		is_ancient = yes
+	}
 	nation_designer_cost = 0
 
 	monarchy = yes
 	heir = yes
 	queen = yes
-	
-	custom_attributes = {
-		can_mass_migrate = yes
-	}
 	modifiers = {
-	    max_states = 1
 		culture_conversion_cost = -0.10
         monarch_military_power = 1
 		reinforce_cost_modifier = -0.10
 		build_time = -0.10
-		colonists = 1
-		range = -0.5
 	}
 	government_abilities = {  }
-
-factions = {
-		es_clergy
-		es_merchants
-		es_warriors
-	}
+	
 	conditional = {
 		allow = { has_dlc = "Mandate of Heaven" }
 		allow_banners = yes
