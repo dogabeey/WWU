@@ -69,6 +69,7 @@ has_council = {
 can_be_hereditary = {
 	OR = {
 		tag = A01
+		tag = A29
 		tag = A90
 		tag = A91
 	}
@@ -78,6 +79,22 @@ can_be_hereditary = {
 has_wrong_dynasty = {
 	has_reform = hereditary_monarchy
 	OR = {
+		AND = {
+			tag = A01
+			NOT = { dynasty = "Wrynn" }
+		}
+		AND = {
+			tag = A29
+			NOT = { dynasty = "Bronzebeard" }
+		}
+		AND = {
+			tag = A90
+			NOT = { dynasty = "Sunstrider" }
+		}
+		AND = {
+			tag = A91
+			NOT = { dynasty = "Sunstrider" }
+		}
 		AND = {
 			tag = B01
 			NOT = { dynasty = "the Spellweaver" }
@@ -93,18 +110,6 @@ has_wrong_dynasty = {
 		AND = {
 			tag = B04
 			NOT = { dynasty = "the Dreamer" }
-		}
-		AND = {
-			tag = A90
-			NOT = { dynasty = "Sunstrider" }
-		}
-		AND = {
-			tag = A91
-			NOT = { dynasty = "Sunstrider" }
-		}
-		AND = {
-			tag = A01
-			NOT = { dynasty = "Wrynn" }
 		}
 	}
 }

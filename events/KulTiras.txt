@@ -7,8 +7,8 @@ country_event = {
 	picture = ELECTION_REPUBLICAN_eventPicture
 	
 	trigger = {
-		primary_culture = culture_kul_tiran
-		religion = religion_water
+		tag = A14
+		has_reform = admiralty_reform
 		OR = { 
 			and = { has_country_modifier = kul_tiras_proudmoore not = { dynasty = "Proudmoore" } }
 			and = { has_country_modifier = kul_tiras_waycrest not = { dynasty = "Waycrest" } }
@@ -148,6 +148,131 @@ country_event = {
 					pretender_rebels = 2
 				}
 			}
+		}
+	}
+}
+country_event = {
+	id = kul_tiras.2
+	title = dynasty_change_admiralty.title
+	desc = dynasty_change_admiralty.desc
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	trigger = {
+		NOT = { tag = A14 }
+		has_reform = admiralty_reform
+		has_heir = no
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = dynasty_change_admiralty.opt1
+		trigger = { has_estate = estate_nobles }
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			desc = ESTATE_RULE_POWER
+			influence = 20
+			duration = 7300
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 15
+		}
+		#
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_cossacks
+			loyalty = -10
+		}
+	}
+	option = {
+		name = dynasty_change_admiralty.opt2
+		trigger = { has_estate = estate_church }
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			desc = ESTATE_RULE_POWER
+			influence = 20
+			duration = 7300
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 15
+		}
+		#
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_cossacks
+			loyalty = -10
+		}
+	}
+	option = {
+		name = dynasty_change_admiralty.opt3
+		trigger = { has_estate = estate_burghers }
+		add_estate_influence_modifier = {
+			estate = estate_burghers
+			desc = ESTATE_RULE_POWER
+			influence = 20
+			duration = 7300
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 15
+		}
+		#
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_cossacks
+			loyalty = -10
+		}
+	}
+	option = {
+		name = dynasty_change_admiralty.opt4
+		trigger = { has_estate = estate_cossacks }
+		add_estate_influence_modifier = {
+			estate = estate_cossacks
+			desc = ESTATE_RULE_POWER
+			influence = 20
+			duration = 7300
+		}
+		add_estate_loyalty = {
+			estate = estate_cossacks
+			loyalty = 15
+		}
+		#
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -10
 		}
 	}
 }
