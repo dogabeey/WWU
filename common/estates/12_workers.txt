@@ -1,6 +1,6 @@
 estate_workers =
 {
-	icon = 3
+	icon = 10
 	color = { 35 35 150 }
 	
     custom_name = {
@@ -22,11 +22,10 @@ estate_workers =
 
 	# If true, country will get estate
 	trigger = {	
-		NOT = { is_landless = yes }
-		NOT = { has_reform = pirate_republic_reform }
-		NOT = { has_reform = admiralty_reform }
-		is_civilized = yes
-		is_colonial_nation = no
+		OR = {
+			has_reform = alliance_reform
+			has_reform = tribal_federation
+		}
 	}
 	
 	# If true, province can be granted to estate

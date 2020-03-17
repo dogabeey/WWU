@@ -1,9 +1,87 @@
 country_decisions = {
 
+    points_menu_open = {
+	    major = yes
+		potential = {
+		NOT = { is_landless = yes }
+            ai = no
+			NOT = { has_country_modifier = points_1 }
+		}
+		allow = {
+			always = yes
+            ai = no
+		}
+		effect = {
+		    
+		    add_country_modifier = {
+				name = "points_1"
+				duration = -1
+				hidden = yes
+			}
+		  
+		}
+	}
+	
+	points_menu_close = {
+	    major = yes
+		potential = {
+		NOT = { is_landless = yes }
+		   ai = no
+	       has_country_modifier = points_1
+		}
+		allow = {
+			has_country_modifier = points_1
+		}
+		effect = {
+		    hidden_effect = {
+			remove_country_modifier = points_1
+		    }
+		}
+	}
+	
+    economical_menu_open = {
+	    major = yes
+		potential = {
+		NOT = { is_landless = yes }
+            ai = no
+			NOT = { has_country_modifier = points_2 }
+		}
+		allow = {
+            ai = no
+		}
+		effect = {
+		    hidden_effect = {
+		    add_country_modifier = {
+				name = "points_2"
+				duration = -1
+				hidden = yes
+			}
+		  }
+		}
+	}
+	
+	economical_menu_close = {
+	    major = yes
+		potential = {
+		NOT = { is_landless = yes }
+		   ai = no
+	       has_country_modifier = points_2
+		}
+		allow = {
+			has_country_modifier = points_2
+		}
+		effect = {
+		    hidden_effect = {
+			remove_country_modifier = points_2
+		    }
+		}
+	}
+
     ge_increase_support = {
 	    major = yes
 		potential = {
           ai = no
+	      has_country_modifier = points_2
 		  NOT = { has_dlc = "Rights of Man" }
 		}
 		allow = {
@@ -56,6 +134,7 @@ country_decisions = {
 	adm_points = {
 		potential = {
 		    ai = no
+			has_country_modifier = points_1
 		}
 		allow = {
 			dip_power = 100
@@ -71,6 +150,7 @@ country_decisions = {
     dip_points = {
 		potential = {
 		    ai = no
+			has_country_modifier = points_1
 		}
 		allow = {
 			adm_power = 100
@@ -86,6 +166,7 @@ country_decisions = {
     mil_points = {
 		potential = {
 		    ai = no
+			has_country_modifier = points_1
 		}
 		allow = {
 			adm_power = 100
@@ -101,6 +182,7 @@ country_decisions = {
 	land_manpower_points = {
 		potential = {
 		    ai = no
+			has_country_modifier = points_1
 		}
 		allow = {
 			mil_power = 150
@@ -114,6 +196,7 @@ country_decisions = {
     debasement = {
 		potential = {
 			ai = no
+			has_country_modifier = points_2
 		}
 		allow = {
             ai = no
@@ -171,6 +254,7 @@ country_decisions = {
 	inflation_reduction_decision = {
 		potential = {
             ai = no
+			has_country_modifier = points_2
 		}
 		allow = {
             ai = no
@@ -186,6 +270,7 @@ country_decisions = {
 	es_village_development = {
 		potential = {
 		ai = no
+			has_country_modifier = points_2
 		}
 		allow = {
 			#treasury = 500

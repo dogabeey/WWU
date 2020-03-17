@@ -20,15 +20,12 @@ ancient_civilization_reform = {
 	valid_for_new_country = yes
 	valid_for_nation_designer = no
 	nation_designer_cost = 0
-	republic = yes
-	republican_name = yes
+	has_term_election = no
 	
-	custom_attributes = {
-		locked_government_type = yes
-	}
 	potential = {
 		is_ancient = yes
 	}
+	
 	militarised_society = yes
 	government_abilities = {  }
 	modifiers = {
@@ -37,7 +34,7 @@ ancient_civilization_reform = {
     	idea_cost = 0.15
 	}
 	ai = {
-		factor = 500
+		factor = 5
 	}
 }
 
@@ -48,6 +45,9 @@ magocracy = {
 	valid_for_nation_designer = no
 	nation_designer_cost = 0
 	royal_marriage = no
+	has_term_election = yes
+	election_on_death = no
+	duration = 10
 	
 	potential = {
 		NOT = { has_reform = presidential_despot_reform }
@@ -71,11 +71,7 @@ magocracy = {
 		global_autonomy = -0.10
 		max_absolutism = -30
 	}
-
-	custom_attributes = {
-		enables_plutocratic_idea_group = yes
-		enables_aristocratic_idea_group = no
-	}
+	
 	duration = 5
 }
 
@@ -92,7 +88,6 @@ merchants_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
 	legacy_equivalent = merchant_republic
-	boost_income = yes
 	duration = 7
 	potential = {
 		NOT = { has_reform = presidential_despot_reform }
@@ -101,52 +96,20 @@ merchants_reform = {
 		NOT = { has_reform = colonial_government }
 	}
 	government_abilities = {  }
-
-factions = {
-		mr_aristocrats
-		mr_traders
-		mr_guilds
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			NOT = { has_dlc = "Mare Nostrum" }
-		}
-		can_use_trade_post = yes
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Mare Nostrum"
-			NOT = { has_dlc = "Res Publica" }
-		}
-		can_form_trade_league = yes
-		trade_city_reform = trading_city
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			has_dlc = "Mare Nostrum"
-		}
-		can_use_trade_post = yes
-		can_form_trade_league = yes
-		trade_city_reform = trading_city
-	}
+	
+	can_use_trade_post = yes
+	boost_income = yes
+	trade_city_reform = trading_city
+		
 	custom_attributes = {
-		enables_plutocratic_idea_group = yes
-		enables_aristocratic_idea_group = no
 		is_merchant_republic = yes
-	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			iqta_mechanic
-		}
 	}
 }
 
 pirate_republic_reform = {
 	icon = "pirate_republic"
 	allow_normal_conversion = yes
+	
 	legacy_equivalent = pirate_republic
 	modifiers = {
 		max_absolutism = -50
@@ -158,11 +121,12 @@ pirate_republic_reform = {
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
-	can_form_trade_league = yes
 	has_term_election = no
 	
 	potential = {
-		has_dlc = "Golden Century"
+		any_owned_province = {
+			has_port = yes
+		}
 		NOT = { has_reform = presidential_despot_reform }
 		NOT = { has_reform = free_city }
 		NOT = { has_reform = trading_city }
@@ -181,39 +145,8 @@ factions = {
 		force_admiral_leader = yes
 		lottery_election = yes
 		election_on_death = yes
-		is_merchant_republic = yes
 	}
 	
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			NOT = { has_dlc = "Mare Nostrum" }
-		}
-		can_use_trade_post = yes
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Mare Nostrum"
-			NOT = { has_dlc = "Res Publica" }
-		}
-		can_form_trade_league = yes
-		trade_city_reform = trading_city
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			has_dlc = "Mare Nostrum"
-		}
-		can_use_trade_post = yes
-		can_form_trade_league = yes
-		trade_city_reform = trading_city
-	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			iqta_mechanic
-		}
-	}
 	
 	boost_income = yes
 	
@@ -228,7 +161,7 @@ noble_elite_reform = {
 	
 	government_abilities = {  }
 
-factions = {
+	factions = {
 		mr_aristocrats
 		mr_traders
 		mr_guilds
@@ -252,10 +185,6 @@ factions = {
 
 	royal_marriage = yes
 	
-	custom_attributes = {
-		enables_plutocratic_idea_group = no
-		enables_aristocratic_idea_group = yes
-	}
 	conditional = {
 		allow = {
 			has_dlc = "Third Rome"
@@ -272,7 +201,10 @@ bureaucratic_despotism_reform = {
 	legacy_equivalent = bureaucratic_despotism
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
-	has_term_election = no
+	
+	generals_become_rulers = yes
+	election_on_death = no
+	duration = 10
 	
 	potential = {
 		NOT = { has_reform = presidential_despot_reform }
@@ -282,12 +214,6 @@ bureaucratic_despotism_reform = {
 	}
 	
 	government_abilities = {  }
-
-	factions = {
-		mr_aristocrats
-		mr_traders
-		mr_guilds
-	}
 	
 	modifiers = {
 		max_states = 1
@@ -296,16 +222,7 @@ bureaucratic_despotism_reform = {
 		global_unrest = -1
 		harsh_treatment_cost = -0.10
 	}
-	custom_attributes = {
-		enables_plutocratic_idea_group = yes
-		enables_aristocratic_idea_group = no
-	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			iqta_mechanic
-		}
-	}
+	
 }
 peasants_republic = {
 	allow_normal_conversion = yes

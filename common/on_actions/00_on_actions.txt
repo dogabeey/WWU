@@ -104,12 +104,6 @@ on_startup = {
 						5 = {
 						add_government_reform = war_against_the_world_reform
 						}
-						5 = {
-						add_government_reform = tribal_republic
-						}
-						5 = {
-						add_government_reform = tribal_theocratic_state
-						}
 					}
 				}
 			}
@@ -134,16 +128,7 @@ on_startup = {
 						set_legacy_government = tribal_federation_legacy
 						}
 						5 = {
-						set_legacy_government = expeditionary_tribe_legacy
-						}
-						5 = {
 						set_legacy_government = war_against_the_world_legacy
-						}
-						5 = {
-						set_legacy_government = tribal_republic_legacy
-						}
-						5 = {
-						set_legacy_government = tribal_theocratic_state_legacy
 						}
 					}
 				}
@@ -199,7 +184,7 @@ on_startup = {
 				if = { limit = { is_ancient = yes } add_government_reform = ancient_divinity_reform }
 				random_list = {
 					100 = {
-						add_government_reform = leading_clergy_reform
+						add_government_reform = holy_republic_reform
 					}
 				}
 			}
@@ -214,7 +199,7 @@ on_startup = {
 				if = { limit = { is_ancient = yes } set_legacy_government = ancient_divinity_legacy }
 				random_list = {
 					100 = {
-						set_legacy_government = theocratic_government
+						set_legacy_government = holy_republic_government
 					}
 				}
 			}
@@ -240,7 +225,6 @@ on_startup = {
 					has_dlc = "Dharma"
 				}
 				if = { limit = { is_pirate = yes } add_government_reform = pirate_republic_reform }
-				else_if = { limit = { is_savage = yes } add_government_reform = presidential_despot_reform }
 				else_if = { limit = { is_merchant = yes } add_government_reform = merchants_reform }
 				else_if = { limit = { is_ancient = yes } add_government_reform = ancient_civilization_reform }
 				else = {
@@ -266,7 +250,6 @@ on_startup = {
 					}
 				}
 				if = { limit = { is_pirate = yes } set_legacy_government = pirate_republic }
-				else_if = { limit = { is_savage = yes } set_legacy_government = republican_dictatorship }
 				else_if = { limit = { is_merchant = yes } set_legacy_government = merchant_republic }
 				else_if = { limit = { is_ancient = yes } set_legacy_government = ancient_civilization_legacy }
 				else = {
@@ -578,14 +561,6 @@ on_new_term_election = {
 
 # country
 on_death_election = {
-	if = {
-		limit = { has_reform = presidential_despot_reform }
-		remove_government_reform = presidential_despot_reform
-		if = {
-			limit = { NOT = { has_dlc = "Dharma" } }
-			set_legacy_government = oligarchic_republic
-		}
-	}
 	if = {
 		limit = {
 			has_reform = pirate_republic_reform
@@ -1414,16 +1389,6 @@ on_four_year_pulse = {
 		100 = pirates.17
 		100 = pirates.18
 		100 = pirates.19
-
-		# Republican Dictatorship
-		100 = republican_dictatorship.1
-		100 = republican_dictatorship.2
-		100 = republican_dictatorship.3
-		100 = republican_dictatorship.4
-		100 = republican_dictatorship.5
-		100 = republican_dictatorship.6
-		100 = republican_dictatorship.7
-		100 = republican_dictatorship.8
 
 		# Elective Monarchy
 		150 = kingdom_of_magic.1

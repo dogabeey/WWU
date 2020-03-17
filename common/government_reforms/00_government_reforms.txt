@@ -174,8 +174,7 @@ horde_legacy = {
 	maintain_dynasty = no
 	nation_designer_cost = 0
 	nomad = yes
-	allow_vassal_alliance = yes
-	generals_become_rulers = yes
+	allow_vassal_war = yes
 	
 	conditional = {
 		allow = { has_dlc = "Cradle of Civilization" }
@@ -632,43 +631,15 @@ factions = {
 		max_absolutism = -50
     	max_states = 1
 	}
-
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			NOT = { has_dlc = "Mare Nostrum" }
-		}
-		can_use_trade_post = yes
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Mare Nostrum"
-			NOT = { has_dlc = "Res Publica" }
-		}
-		can_form_trade_league = yes
-		trade_city_reform = trading_city_legacy
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			has_dlc = "Mare Nostrum"
-		}
-		can_use_trade_post = yes
-		can_form_trade_league = yes
-		trade_city_reform = trading_city_legacy
-	}
 	
+	can_use_trade_post = yes
+	boost_income = yes
+	trade_city_reform = trading_city
+		
 	custom_attributes = {
 		is_merchant_republic = yes
 	}
 	
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			iqta_mechanic
-		}
-	}
-
 	ai = {
 		factor = 5
 	}
@@ -727,16 +698,10 @@ pirate_republic = {
 	has_term_election = no
 	
 	republic = yes
-	can_form_trade_league = yes
-	
-	potential = {	
-		has_dlc = "Golden Century"
-	}
-	
 	factions_frame = 9
 	government_abilities = {  }
 
-factions = {
+	factions = {
 		pr_buccaneers
 		pr_smugglers
 		pr_captains
@@ -755,41 +720,7 @@ factions = {
 		force_admiral_leader = yes
 		lottery_election = yes
 		election_on_death = yes
-		is_merchant_republic = yes
 	}
-	
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			NOT = { has_dlc = "Mare Nostrum" }
-		}
-		can_use_trade_post = yes
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Mare Nostrum"
-			NOT = { has_dlc = "Res Publica" }
-		}
-		can_form_trade_league = yes
-		trade_city_reform = trading_city
-	}
-	conditional = {
-		allow = {
-			has_dlc = "Res Publica"
-			has_dlc = "Mare Nostrum"
-		}
-		can_use_trade_post = yes
-		can_form_trade_league = yes
-		trade_city_reform = trading_city
-	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			iqta_mechanic
-		}
-	}
-	
-	boost_income = yes
 	
 	ai = {
 		factor = 5
@@ -887,8 +818,11 @@ bureaucratic_despotism = {
 	valid_for_new_country = yes
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
-	has_term_election = no
-
+	has_term_election = yes
+	
+	generals_become_rulers = yes
+	election_on_death = no
+	duration = 10
 	republican_name = yes
 	royal_marriage = no
 
@@ -899,16 +833,6 @@ bureaucratic_despotism = {
 		stability_cost_modifier = -0.10
 		global_unrest = -1
 		harsh_treatment_cost = -0.10
-	}
-	custom_attributes = {
-		enables_plutocratic_idea_group = yes
-		enables_aristocratic_idea_group = no
-	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			iqta_mechanic
-		}
 	}
 
 	ai = {
@@ -1044,8 +968,9 @@ magocracy_legacy = {
 	legacy_government = yes
 	valid_for_new_country = yes
 
-	duration = 5
-
+	has_term_election = yes
+	election_on_death = no
+	duration = 10
 	republican_name = yes
 	royal_marriage = no
 
@@ -1321,6 +1246,10 @@ college_of_mages_government = {
 
 	different_religion_group_acceptance = -25
 
+	generals_become_rulers = yes
+	heir = no
+	queen = no
+	
 	religion = yes
 	government_abilities = {  }
 
@@ -1329,14 +1258,9 @@ college_of_mages_government = {
 		government_abilities = {
 			mamluk_mechanic
 		}
-		heir = no
 		foreign_slave_rulers = yes
 	}
-factions = {
-		es_monks
-		es_priests
-		es_knights
-	}
+	
 	modifiers = {
 		max_absolutism = -35
 		technology_cost = -0.10
