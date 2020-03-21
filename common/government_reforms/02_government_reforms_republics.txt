@@ -10,6 +10,10 @@ republic_mechanic = {
 		enables_aristocratic_idea_group = no
 	}
 
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
 	valid_for_nation_designer = no
 }
 
@@ -46,12 +50,17 @@ magocracy = {
 	nation_designer_cost = 0
 	royal_marriage = no
 	has_term_election = yes
-	election_on_death = no
+	election_on_death = yes
 	duration = 10
 	
 	potential = {
-		NOT = { has_reform = presidential_despot_reform }
+		#NOT = { has_reform = presidential_despot_reform }
 		NOT = { has_reform = colonial_government }
+		OR = {
+			religion = religion_arcane
+			religion = religion_chaos
+			religion = religion_fel
+		}
 	}
 	
 	conditional = {
@@ -59,7 +68,7 @@ magocracy = {
 		government_abilities = {
 			mamluk_mechanic
 		}
-		heir = no
+		election_on_death = no
 		foreign_slave_rulers = yes
 	}
 	government_abilities = {  }
@@ -90,7 +99,7 @@ merchants_reform = {
 	legacy_equivalent = merchant_republic
 	duration = 7
 	potential = {
-		NOT = { has_reform = presidential_despot_reform }
+		#NOT = { has_reform = presidential_despot_reform }
 		NOT = { has_reform = free_city }
 		NOT = { has_reform = trading_city }
 		NOT = { has_reform = colonial_government }
@@ -123,11 +132,16 @@ pirate_republic_reform = {
 	nation_designer_cost = 0
 	has_term_election = no
 	
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = no
+	}
+	
 	potential = {
 		any_owned_province = {
 			has_port = yes
 		}
-		NOT = { has_reform = presidential_despot_reform }
+		#NOT = { has_reform = presidential_despot_reform }
 		NOT = { has_reform = free_city }
 		NOT = { has_reform = trading_city }
 		NOT = { has_reform = colonial_government }
@@ -168,7 +182,7 @@ noble_elite_reform = {
 	}
 	
 	potential = {
-		NOT = { has_reform = presidential_despot_reform }
+		#NOT = { has_reform = presidential_despot_reform }
 		NOT = { has_reform = free_city }
 		NOT = { has_reform = trading_city }
 		NOT = { has_reform = colonial_government }
@@ -207,7 +221,7 @@ bureaucratic_despotism_reform = {
 	duration = 10
 	
 	potential = {
-		NOT = { has_reform = presidential_despot_reform }
+		#NOT = { has_reform = presidential_despot_reform }
 		NOT = { has_reform = free_city }
 		NOT = { has_reform = trading_city }
 		NOT = { has_reform = colonial_government }
@@ -240,7 +254,7 @@ factions = {
 	}
 	
 	potential = {
-		NOT = { has_reform = presidential_despot_reform }
+		#NOT = { has_reform = presidential_despot_reform }
 		NOT = { has_reform = free_city }
 		NOT = { has_reform = trading_city }
 		NOT = { has_reform = colonial_government }

@@ -5,7 +5,7 @@ tribe_mechanic = {
 	
 	modifiers = {
 		idea_cost = 0.15
-		advisor_cost = 0.15
+		advisor_cost = 0.25
 	}
 }
 
@@ -17,32 +17,17 @@ steppe_horde = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
 	
-	heir = yes
+	heir = no
 	queen = yes
 	generals_become_rulers = yes
 	
 	modifiers = {
-	    max_states = 1
-		global_manpower_modifier = 0.10
 		land_forcelimit_modifier = 0.10
 		years_of_nationalism = -5
 		movement_speed = 0.10
 	}
 	
 	government_abilities = {  }
-
-	factions = {
-		es_clergy
-		es_merchants
-		es_warriors
-	}
-	
-	conditional = {
-		allow = { has_dlc = "The Cossacks" }
-		government_abilities = {
-			cossacks_mechanic
-		}
-	}
 	conditional = {
 		allow = { has_dlc = "Mandate of Heaven" }
 		allow_banners = yes
@@ -61,7 +46,8 @@ expeditionary_tribe_reform = {
 	modifiers = {
 		colonists = 1
 		range = -0.5
-		colonist_placement_chance = -0.25
+		colonist_placement_chance = -0.5
+		development_cost = 0.2
 		ae_impact = -0.2
 	}
 	
@@ -76,32 +62,21 @@ tribal_federation = {
 	nation_designer_cost = 0
 	legacy_equivalent = tribal_federation_legacy
 	
-	nomad = yes
-	
-	monarchy = yes
 	heir = yes
 	queen = yes
 
 	modifiers = {
 		max_states = 1
 		monarch_admin_power = 1
-		stability_cost_modifier = -0.10
-		reduced_liberty_desire = 10
 		reinforce_speed = 0.10
 	}
 	
 	government_abilities = {  }
-
-factions = {
-		mr_aristocrats
-		mr_traders
-		mr_guilds
-	}
-
+	
 	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
+		allow = { has_dlc = "The Cossacks" }
 		government_abilities = {
-			
+			cossacks_mechanic
 		}
 	}
 }
@@ -114,7 +89,6 @@ tribal_despotism = {
 	nation_designer_cost = 0
 	legacy_equivalent = tribal_despotism_legacy
 	
-	monarchy = yes
 	heir = yes
 	queen = yes
 	
@@ -122,27 +96,12 @@ tribal_despotism = {
 		can_enslave = yes
 	}
 	modifiers = {
-	    max_states = 1
-	    monarch_military_power = 1
 		global_unrest = -1
 		core_creation = -0.1
-		harsh_treatment_cost = -0.10
+		harsh_treatment_cost = -0.20
 	}
 	
 	government_abilities = {  }
-
-factions = {
-		es_clergy
-		es_merchants
-		es_warriors
-	}
-	
-	conditional = {
-		allow = { has_dlc = "The Cossacks" }
-		government_abilities = {
-			cossacks_mechanic
-		}
-	}
 }
 
 nomad_state_reform = {
@@ -156,7 +115,7 @@ nomad_state_reform = {
 	maintain_dynasty = yes
 	heir = yes
 	queen = yes
-	
+	militarised_society = yes
 	potential = {
 		is_ancient = yes
 	}
@@ -169,16 +128,6 @@ nomad_state_reform = {
 	}
 	government_abilities = {  }
 
-	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
-		allow_banners = yes
-	}
-	conditional = {
-		allow = { has_dlc = "The Cossacks" }
-		government_abilities = {
-			cossacks_mechanic
-		}
-	}
 }
 
 war_against_the_world_reform = {
@@ -187,18 +136,15 @@ war_against_the_world_reform = {
 	legacy_equivalent = war_against_the_world_legacy
 	valid_for_nation_designer = yes
 	
+	generals_become_rulers = yes
 	nation_designer_cost = 0
 	
-	republic = yes
 	republican_name = yes
 	royal_marriage = no
-	has_term_election = no
-	admirals_become_rulers = yes
+	
 	
 	modifiers = {
-		merc_maintenance_modifier = -0.10
-		loot_amount = 0.10
-		naval_forcelimit_modifier = 0.10
+	
 		land_forcelimit_modifier = 0.10
 		possible_mercenaries = 0.10
 		may_perform_slave_raid_on_same_religion = yes
@@ -213,12 +159,6 @@ factions = {
 	custom_attributes = {
 		can_enslave = yes
 		gives_war_against_the_world_tooltip_dummy = yes
-	}
-	conditional = {
-		allow = { has_dlc = "The Cossacks" }
-		government_abilities = {
-			cossacks_mechanic
-		}
 	}
 }
 
