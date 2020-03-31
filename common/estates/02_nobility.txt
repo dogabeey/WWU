@@ -22,6 +22,12 @@ estate_nobles =
             government = theocracy
         }
     }
+    custom_name = {
+        desc = estate_nobles_dragonkin
+        trigger = {
+            culture_group = culture_group_dragonkin
+        }
+    }
 	
 	
 	# Is estate kept in control of province on conquest?
@@ -35,7 +41,10 @@ estate_nobles =
 			NOT = { has_reform = celestial_empire }
 			has_dlc = "Mandate of Heaven"
 		}
-		is_nomad = no
+		OR = {
+			is_nomad = no
+			has_reform = nomad_state_reform
+		}
 		is_colonial_nation = no
 	}
 	
