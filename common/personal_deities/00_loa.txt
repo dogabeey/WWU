@@ -3,53 +3,153 @@
 #---------------------------------------------
 # Loa
 #---------------------------------------------
+
+
+# FOREST TROLLS
 deity_shadra = { 
 	siege_ability = 0.10
 	production_efficiency = 0.10
 	
 	allow = {
-        OR = {
-            religion = religion_loa
-            religion = religion_voodoo
-        }
+        religion = religion_loa
+        culture_group = culture_group_forest_troll
     }
 	sprite = 14
 	
 	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 2
-			personality = ai_capitalist
-		}	
-		modifier = {
-			factor = 2
-			personality = ai_diplomat
-		}		
+		factor = 1		
+	}	
+}
+deity_akildarah = { 
+	siege_ability = 0.10
+	production_efficiency = 0.10
+	
+	allow = {
+        religion = religion_loa
+        culture_group = culture_group_forest_troll
+    }
+	sprite = 14
+	
+	ai_will_do = {
+		factor = 1	
 	}	
 }
 
-deity_gahzrilla = 
-{  
+# SAND TROLLS
+deity_gahzrilla = {  
 	defensiveness = 0.10
 	trade_efficiency = 0.10
 
 	allow = {
-        OR = {
-            religion = religion_loa
-            religion = religion_voodoo
-        }
+        religion = religion_loa
+        culture_group = culture_group_sand_troll
     }
 	sprite = 15
 	
 	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 2
-			personality = ai_capitalist
-		}	
-		modifier = {
-			factor = 2
-			personality = ai_diplomat
-		}		
+		factor = 1	
+	}	
+}
+
+# ICE TROLLS
+deity_akali = {  
+	defensiveness = 0.10
+	trade_efficiency = 0.10
+
+	allow = {
+        religion = religion_loa
+        culture_group = culture_group_ice_troll
+    }
+	sprite = 15
+	
+	ai_will_do = {
+		factor = 1		
+	}	
+}
+
+# JUNGLE
+
+# ZANDALARI
+deity_akunda = {  
+	defensiveness = 0.10
+	trade_efficiency = 0.10
+
+	allow = {
+        religion = religion_loa
+        culture_group = culture_group_zandalar_troll
+    }
+	sprite = 15
+	
+	ai_will_do = {
+		factor = 1	
+	}	
+}
+deity_bethekk = { # panther loa
+	defensiveness = 0.10
+	trade_efficiency = 0.10
+
+	allow = {
+        religion = religion_loa
+		OR = {
+			culture_group = culture_group_zandalar_troll
+			culture_group = culture_group_jungle_troll
+		}
+    }
+	sprite = 15
+	
+	ai_will_do = {
+		factor = 1		
+	}	
+}
+deity_bwonsamdi = { # loa of uWu
+	defensiveness = 0.10
+	trade_efficiency = 0.10
+
+	allow = {
+        religion = religion_loa
+		OR = {
+			culture_group = culture_group_zandalar_troll
+			culture_group = culture_group_ice_troll
+			culture_group = culture_group_forest_troll
+			culture_group = culture_group_dark_troll
+			culture_group = culture_group_jungle_troll
+			culture_group = culture_group_sand_troll
+		}
+    }
+	sprite = 15
+	
+	ai_will_do = {
+		factor = 1		
+	}	
+}
+deity_gonk = { # raptor loa
+	defensiveness = 0.10
+	trade_efficiency = 0.10
+
+	allow = {
+        religion = religion_loa
+		OR = {
+			culture_group = culture_group_zandalar_troll
+			culture = culture_darkspear
+		}
+    }
+	sprite = 15
+	
+	ai_will_do = {
+		factor = 1		
+	}	
+}
+deity_gral = { # shark
+	defensiveness = 0.10
+	trade_efficiency = 0.10
+
+	allow = {
+        religion = religion_loa
+		culture_group = culture_group_zandalar_troll
+    }
+	sprite = 15
+	
+	ai_will_do = {
+		factor = 1		
 	}	
 }

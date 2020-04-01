@@ -1,7 +1,7 @@
 #------------------------------------
 # voodoo Rebels
 #------------------------------------
-# religion_voodoo
+# religion_loa
 # religion_group_the_void
 # voodoo
 
@@ -11,7 +11,7 @@ voodoo_rebels = {
 
 	area = nation_religion
 	government = theocracy 			# Desires Theocracy
-	religion = religion_voodoo
+	religion = religion_loa
 	defection = religion
 	independence = none
 	defect_delay = 60
@@ -56,7 +56,7 @@ voodoo_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = religion_voodoo }
+			NOT = { religion = religion_loa }
 		}
 		modifier = {
 			factor = 0.001
@@ -133,21 +133,21 @@ voodoo_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = religion_voodoo
-			owner = { religion = religion_voodoo }
+			religion = religion_loa
+			owner = { religion = religion_loa }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = religion_voodoo }
+			NOT = { religion = religion_loa }
 			any_neighbor_province = {
-	 			religion = religion_voodoo
+	 			religion = religion_loa
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
 		modifier = {
 			factor = 1.5
 			has_missionary = yes
-			religion = religion_voodoo
+			religion = religion_loa
 		}
 		modifier = {
 			factor = 1.5
@@ -188,13 +188,13 @@ voodoo_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion = religion_voodoo }
+				NOT = { religion = religion_loa }
 			}
 			add_prestige = -20
       if = {
         limit = { exists = REB }
         every_owned_province = {
-          limit = { religion = religion_voodoo }
+          limit = { religion = religion_loa }
           if = {
             limit = { NOT = { is_core = REB } }
             add_core = REB
@@ -206,7 +206,7 @@ voodoo_rebels = {
         limit = { NOT = { exists = REB } }
         every_owned_province = {
           limit = {
-            religion = religion_voodoo
+            religion = religion_loa
             NOT = { is_core = REB }
           }
           add_core = REB
@@ -216,7 +216,7 @@ voodoo_rebels = {
 		}
 		if = {
 			limit = {
-				religion = religion_voodoo
+				religion = religion_loa
 			}
 			add_country_modifier = {
 				name = "religious_intolerance_enforced"
@@ -225,7 +225,7 @@ voodoo_rebels = {
 		}
 		if = {
 			limit = {
-				religion = religion_voodoo
+				religion = religion_loa
 				has_estate = estate_church
 				NOT = {
 					has_estate_influence_modifier = {
