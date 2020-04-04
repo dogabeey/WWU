@@ -5,13 +5,29 @@
 #---------------------------------------------
 
 
+# UNUSED
+deity_nothing = { 
+	power_projection_from_insults = 0.1
+	spy_offence = 0.1
+	
+	allow = {
+		always = no
+    }
+	sprite = 14
+	
+	ai_will_do = {
+		factor = 1		
+	}	
+}
+
 # FOREST TROLLS
 deity_shadra = { 
 	power_projection_from_insults = 0.1
 	spy_offence = 0.1
 	
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_shadra }
+		religion = religion_loa
         culture_group = culture_group_forest_troll
     }
 	sprite = 14
@@ -25,7 +41,8 @@ deity_akildarah = {
 	dip_advisor_cost = -0.1
 	
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_akildarah }
+		religion = religion_loa
         culture_group = culture_group_forest_troll
     }
 	sprite = 27
@@ -39,7 +56,8 @@ deity_halazi = {
 	mil_advisor_cost = -0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_halazi }
+		religion = religion_loa
 		culture_group = culture_group_forest_troll
     }
 	sprite = 28
@@ -53,7 +71,8 @@ deity_janalai = {
 	adm_advisor_cost = -0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_janalai }
+		religion = religion_loa
 		culture_group = culture_group_forest_troll
     }
 	sprite = 29
@@ -67,7 +86,8 @@ deity_nalarokk = {
 	hostile_attrition = 1
 	
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_nalarokk }
+		religion = religion_loa
         culture_group = culture_group_forest_troll
     }
 	sprite = 30
@@ -83,7 +103,8 @@ deity_gahzrilla = {
 	culture_conversion_cost = -0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_gahzrilla }
+		religion = religion_loa
         culture_group = culture_group_sand_troll
     }
 	sprite = 15
@@ -97,7 +118,8 @@ deity_kimbul = {
 	movement_speed = 0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_kimbul }
+		religion = religion_loa
         culture_group = culture_group_sand_troll
     }
 	sprite = 31
@@ -111,7 +133,8 @@ deity_muehzala = {
 	tolerance_own = 1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_muehzala }
+		religion = religion_loa
         culture_group = culture_group_sand_troll
     }
 	sprite = 32
@@ -127,7 +150,8 @@ deity_akali = {
 	trade_efficiency = 0.10
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_akali }
+		religion = religion_loa
         culture_group = culture_group_ice_troll
     }
 	sprite = 26
@@ -137,11 +161,12 @@ deity_akali = {
 	}	
 }
 deity_harkoa = {  
-	loot_amount = 0.1
+	same_culture_advisor_cost = -0.5
 	land_attrition = -0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_harkoa }
+		religion = religion_loa
         culture_group = culture_group_ice_troll
     }
 	sprite = 33
@@ -155,7 +180,8 @@ deity_mamtoth = {
 	reserves_organisation = 0.10
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_mamtoth }
+		religion = religion_loa
         culture_group = culture_group_ice_troll
     }
 	sprite = 34
@@ -169,7 +195,8 @@ deity_rhunok = {
 	general_cost = -0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_rhunok }
+		religion = religion_loa
         culture_group = culture_group_ice_troll
     }
 	sprite = 35
@@ -180,10 +207,11 @@ deity_rhunok = {
 }
 deity_quetzlun = {  
 	spy_offence = 0.10
-	global_spy_defence = 0.10
+	reduced_liberty_desire = 10
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_quetzlun }
+		religion = religion_loa
         culture_group = culture_group_ice_troll
     }
 	sprite = 36
@@ -197,7 +225,8 @@ deity_sseratus = {
 	envoy_travel_time = -0.2
 	
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_sseratus }
+		religion = religion_loa
         culture_group = culture_group_ice_troll
     }
 	sprite = 37
@@ -211,7 +240,8 @@ deity_tharonja = {
 	culture_conversion_cost = 0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_tharonja }
+		religion = religion_loa
         culture_group = culture_group_ice_troll
     }
 	sprite = 38
@@ -227,7 +257,8 @@ deity_hakkar = { # hakkar, selecting this has a chance to convert you to hakkari
 	development_cost = -0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_hakkar }
+		religion = religion_loa
 		culture_group = culture_group_jungle_troll
     }
 	sprite = 39
@@ -241,7 +272,8 @@ deity_hethiss = {
 	global_institution_spread = 0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_hethiss }
+		religion = religion_loa
 		culture_group = culture_group_jungle_troll
     }
 	sprite = 40
@@ -255,7 +287,8 @@ deity_hireek = {
 	hostile_attrition = 1
 	
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_hireek }
+		religion = religion_loa
 		culture_group = culture_group_jungle_troll
     }
 	sprite = 41
@@ -269,7 +302,8 @@ deity_shirvallah = {
 	prestige_from_land = -0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_shirvallah }
+		religion = religion_loa
 		culture_group = culture_group_jungle_troll
     }
 	sprite = 42
@@ -285,7 +319,8 @@ deity_akunda = {
 	trade_efficiency = 0.10
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_akunda }
+		religion = religion_loa
         culture_group = culture_group_zandalar_troll
     }
 	sprite = 43
@@ -299,7 +334,8 @@ deity_bethekk = { # panther loa
 	ae_impact = -0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_bethekk }
+		religion = religion_loa
 		OR = {
 			culture_group = culture_group_zandalar_troll
 			culture_group = culture_group_jungle_troll
@@ -312,11 +348,12 @@ deity_bethekk = { # panther loa
 	}	
 }
 deity_bwonsamdi = { # loa of uWu
-	defensiveness = 0.10
-	trade_efficiency = 0.10
+	manpower_recovery_speed = 0.1
+	war_exhaustion = -0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_bwonsamdi }
+		religion = religion_loa
 		OR = {
 			culture_group = culture_group_zandalar_troll
 			culture_group = culture_group_ice_troll
@@ -332,12 +369,13 @@ deity_bwonsamdi = { # loa of uWu
 		factor = 1		
 	}	
 }
-deity_gonk = { # raptor loa
-	leader_naval_manuever = 1
-	global_naval_barrage_cost = -0.2
+deity_gonk = { # raptor
+	global_autonomy = -0.05
+	leader_land_manuever = 1
 	
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_gonk }
+		religion = religion_loa
 		OR = {
 			culture_group = culture_group_zandalar_troll
 			primary_culture = culture_darkspear
@@ -354,7 +392,8 @@ deity_gral = { # shark
 	province_warscore_cost = -0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_gral }
+		religion = religion_loa
 		culture_group = culture_group_zandalar_troll
     }
 	sprite = 47
@@ -365,10 +404,11 @@ deity_gral = { # shark
 }
 deity_paku = { # parrot?
 	global_autonomy = -0.05
-	rival_change_cost = -0.25
+	leader_naval_manuever = 1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_paku }
+		religion = religion_loa
 		culture_group = culture_group_zandalar_troll
     }
 	sprite = 48
@@ -378,11 +418,12 @@ deity_paku = { # parrot?
 	}	
 }
 deity_jani = {
-	same_culture_advisor_cost = -0.5
+	loot_amount = 0.1
 	hostile_attrition = 1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_jani }
+		religion = religion_loa
 		culture_group = culture_group_zandalar_troll
     }
 	sprite = 49
@@ -396,7 +437,8 @@ deity_torga = {
 	global_institution_spread = 0.1
 
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_torga }
+		religion = religion_loa
 		culture_group = culture_group_zandalar_troll
     }
 	sprite = 50
@@ -407,9 +449,11 @@ deity_torga = {
 }
 deity_rezan = {
 	free_leader_pool = 1
-
+	sunk_ship_morale_hit_recieved  = -0.2
+	
 	allow = {
-        religion = religion_loa
+		NOT = { has_country_flag = sacrificed_rezan }
+		religion = religion_loa
 		culture_group = culture_group_zandalar_troll
     }
 	sprite = 51
