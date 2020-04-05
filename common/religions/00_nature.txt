@@ -71,7 +71,7 @@ religion_group_nature = {
 	
 	
 	religion_loa = {
-		color = { 0.25 0.15 0.25 }
+		color = { 25 15 25 }
 		icon = 6
 
 		country = {
@@ -97,6 +97,34 @@ religion_group_nature = {
 		}
 
         personal_deity = yes
+        
+		heretic = { }
+	}
+	
+	religion_blood = {
+		color = { 200 50 50 }
+		icon = 21
+
+		country = {
+			discipline = 0.1
+		}
+		country_as_secondary = {
+			discipline = 0.1
+		}
+		province = {
+			hostile_attrition = 1
+		}
+
+		on_convert = {
+			change_religion = religion_loa
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
         
 		heretic = { }
 	}
