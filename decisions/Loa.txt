@@ -143,12 +143,6 @@ country_decisions = {
 					}
 				}
 				if = {
-					limit = { has_personal_deity = deity_hireek }
-					set_sacrifice_loa_flag = {
-						loa = hireek
-					}
-				}
-				if = {
 					limit = { has_personal_deity = deity_bwonsamdi }
 					set_sacrifice_loa_flag = {
 						loa = bwonsamdi
@@ -185,7 +179,7 @@ country_decisions = {
 					}
 				}
 				change_religion = religion_hakkari
-				change_religion = religion_loa
+				ROOT = { change_religion = religion_loa }
 			}
 			add_stability = -1
 			add_adm_power = 200
@@ -196,6 +190,34 @@ country_decisions = {
 				duration = -1
 			}
 			custom_tooltip = EVIL_ACTION_TOOLTIP
+		}
+	
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 0
+				NOT = { stability = 1 }
+			}
+			modifier = {
+				factor = 0
+				OR = { 
+					adm = 6
+					dip = 6
+					mil = 6
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { 
+					any_neighbor_country = {
+						tech_difference = 2
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_ruler_modifier = sacrificed_a_loa
+			}
 		}
 	}
 }

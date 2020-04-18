@@ -1,3 +1,53 @@
+increase_influence = {
+	if = {
+		limit = { has_country_modifier = loa_low_influence }
+		remove_country_modifier = loa_low_influence
+		add_country_modifier = {
+			name = loa_mid_influence
+			duration = -1
+		}
+		country_event = { id = loa.3 }
+	}
+	if = {
+		limit = { has_country_modifier = loa_mid_influence }
+		remove_country_modifier = loa_mid_influence
+		add_country_modifier = {
+			name = loa_high_influence
+			duration = -1
+		}
+		country_event = { id = loa.3 }
+	}
+}
+decrease_influence = {
+	if = {
+		limit = { has_country_modifier = loa_high_influence }
+		remove_country_modifier = loa_high_influence
+		add_country_modifier = {
+			name = loa_mid_influence
+			duration = -1
+		}
+		country_event = { id = loa.4 }
+	}
+	if = {
+		limit = { has_country_modifier = loa_mid_influence }
+		remove_country_modifier = loa_mid_influence
+		add_country_modifier = {
+			name = loa_low_influence
+			duration = -1
+		}
+		country_event = { id = loa.4 }
+	}
+}
+kill_ruler_keep_loa = {
+	export_loa_to_variable = {
+		variable_name = current_loa
+	}
+	kill_ruler = yes
+	import_loa_from_variable = {
+		variable_name = current_loa
+	}
+}
+
 #Write loa's name without deity_ part
 # USE:  set_sacrifice_loa_flag = { loa = shadra }
 set_sacrifice_loa_flag = {
@@ -94,10 +144,6 @@ export_loa_to_variable = {
 		set_variable = { which = $variable_name$ value = 22 }
 	}
 	if = {
-		limit = { has_personal_deity = deity_hireek }
-		set_variable = { which = $variable_name$ value = 23 }
-	}
-	if = {
 		limit = { has_personal_deity = deity_bwonsamdi }
 		set_variable = { which = $variable_name$ value = 24 }
 	}
@@ -185,10 +231,6 @@ import_loa_from_variable = {
 		change_personal_deity = deity_tharonja
 	}
 	if = {
-		limit = { check_variable = { which = $variable_name$ value = 16 } }
-		change_personal_deity = deity_rhunok
-	}
-	if = {
 		limit = { check_variable = { which = $variable_name$ value = 17 } }
 		change_personal_deity = deity_hakkar
 	}
@@ -211,10 +253,6 @@ import_loa_from_variable = {
 	if = {
 		limit = { check_variable = { which = $variable_name$ value = 22 } }
 		change_personal_deity = deity_bethekk
-	}
-	if = {
-		limit = { check_variable = { which = $variable_name$ value = 23 } }
-		change_personal_deity = deity_hireek
 	}
 	if = {
 		limit = { check_variable = { which = $variable_name$ value = 24 } }
