@@ -40,10 +40,6 @@ heretic_rebels = {
 			NOT = { owner = { religion = ROOT } }
 		}
 		modifier = {
-			factor = 0.5
-			is_year = 1700
-		}
-		modifier = {
 			factor = 0.01
 			is_overseas = yes
 		}
@@ -117,6 +113,12 @@ heretic_rebels = {
 				government = theocracy
 			}
 			add_devotion = -35
+		}
+		if = {
+			limit = {
+				religion = religion_loa
+			}
+			sacrifice_own_loa = yes
 		}
 		every_owned_province = {
 			limit = {
