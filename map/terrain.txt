@@ -616,7 +616,7 @@ categories =  {
         # Modifiers
 		movement_cost = 1.00
 		defence = 2
-		supply_limit = 10
+		supply_limit = 8
         
 		local_defensiveness = 0.5
 		local_development_cost = -0.1
@@ -650,6 +650,47 @@ categories =  {
 
 		terrain_override = {
 			1561 1560 1271 2344 1026
+		}
+    }
+    
+    #
+    underwater = {
+        color = { 0 25 160 }
+        
+        # Map
+        sound_type = sea
+        
+        # Modifiers
+		movement_cost = 2.00
+		defence = 3
+		supply_limit = 1
+        
+		regiment_recruit_speed = 0.25
+		
+        nation_designer_cost_multiplier = 1
+
+		terrain_override = {
+			3171 3172 3173 3174 3175 3176 3177
+		}
+    }
+    #
+    underground = {
+        color = { 150 25 160 }
+        
+        # Map
+        sound_type = sea
+        
+        # Modifiers
+		movement_cost = 1.50
+		defence = 4
+		supply_limit = 1
+        
+		regiment_recruit_speed = 0.25
+		
+        nation_designer_cost_multiplier = 1
+
+		terrain_override = {
+			2700 3157 3158 3159 3160
 		}
     }
 }
@@ -704,6 +745,9 @@ terrain = {
     feltouched   = { type = feltouched    color = { 	30	 } }
     nethertouched   = { type = nethertouched    color = { 	31	 } }
     arcanetouched   = { type = arcanetouched    color = { 	32	 } }
+    underwater   = { type = underwater    color = { 	33	 } }
+    underground   = { type = underground    color = { 	34	 } }
+	
 }
 
 ##################################################################
