@@ -250,6 +250,7 @@ country_event = {
 			limit = { faction_horde = 1 }
 			remove_country_modifier = the_shadow_council
 			save_event_target_as = horde_leader
+			country_event = { id = the_second_war.20 }
 		}
     }
     
@@ -535,5 +536,34 @@ country_event = {
 				}
 			}
 		}
+    }
+}
+
+country_event = {
+	id = the_second_war.20
+	title = shadow_council_reveal.title
+	desc = shadow_council_reveal.title
+	picture = ORCISH_INVASION_eventPicture
+
+	major = no
+    is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = shadow_council_reveal_notified }
+	}
+	
+    immediate = {
+		hidden_effect = {
+			set_country_flag = shadow_council_reveal_notified
+		}
+    }
+    
+	option = {
+		name = shadow_council_reveal.opt1
+		add_country_modifier = {
+			name = council_is_revealed
+			duration = 3650
+		}
+		#log = "end_of_second_war_horde_won.opt1"
     }
 }
