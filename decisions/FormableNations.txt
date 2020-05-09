@@ -450,51 +450,32 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	summon_hakkar = {
+	form_defias_brotherhood = {
+		major = yes
 		potential = {
-			culture_group = culture_group_jungle_troll
-			NOT = {
-				any_country = {
-					has_country_modifier = blood_of_hakkar
-				}
-			}
+			NOT = { exists = A07 }
+			religion = religion_shadow
+			primary_culture = culture_azerothian
 		}
 		allow = {
-			has_idea_group = supremacist_ideas
-			mil_power = 250
-			years_of_income = 4 
-			calc_true_if = {
-				all_owned_province = {
-					religion = religion_hakkari
-				}
-				amount = 3
-			}
-			OR = {
-				owns = 783
-				owns = 949
-				owns = 1045
-			}
+			num_of_cities = 20
+			total_development = 150
 		}
 		effect = {
-		
-			change_religion = religion_hakkari
-			add_years_of_income = -4
-			add_mil_power = -250
-			hidden_effect = {
-				every_owned_province = {
-					limit = {
-						religion = ROOT
-					}
-					change_religion = religion_hakkari
-				}
-			}
+			add_prestige = 25
+			change_tag = A07
+			add_dip_power = -200
 			add_country_modifier = {
-				name = blood_of_hakkar
-				duration = 3650
+				name = "centralization_modifier"
+				duration = 7300
 			}
 		}
+		
+		ai_importance = 400
+		
 		ai_will_do = {
-			factor = 0
+			factor = 1
 		}
 	}
+	
 }
