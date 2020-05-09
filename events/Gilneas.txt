@@ -32,9 +32,10 @@ country_event = {
 	}
 	
 	option = {
-		name = gilneas.1.option.a #We care for ourselves and only ourselves.
+		name = gilneas.1.option.a
+		#log = "gilneas.1.option.a" #We care for ourselves and only ourselves.
 
-        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - gilneas.1.option.a" }
+        #if = { limit = { has_global_flag = enable_event_logging } #log = "[Root.GetName] - gilneas.1.option.a" }
 		ai_chance = { factor = 100 }
 		add_prestige = -20
 		every_owned_province = {
@@ -52,9 +53,10 @@ country_event = {
 	}
 	
 	option = {
-		name = gilneas.1.option.b #We mustn't let our fellow humans stand alone.
+		name = gilneas.1.option.b
+		#log = "gilneas.1.option.b" #We mustn't let our fellow humans stand alone.
 
-        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - gilneas.1.option.b" }
+        #if = { limit = { has_global_flag = enable_event_logging } #log = "[Root.GetName] - gilneas.1.option.b" }
 		ai_chance = { factor = 0 }
 		add_prestige = 20
 	}
@@ -84,7 +86,8 @@ country_event = {
 	}
 	
 	option = {
-		name = scourge_invasion_of_gilneas.opt1 # Accept Arugal's offer
+		name = scourge_invasion_of_gilneas.opt1
+		#log = "scourge_invasion_of_gilneas.opt1" # Accept Arugal's offer
 		add_manpower = 25
 		add_country_modifier = { 
 			name = curse_of_the_worgen
@@ -109,7 +112,8 @@ country_event = {
 	}
 	
 	option = {
-		name = scourge_invasion_of_gilneas.opt2 # That deal smells furry
+		name = scourge_invasion_of_gilneas.opt2
+		#log = "scourge_invasion_of_gilneas.opt2" # That deal smells furry
 		add_prestige = 5
 	}
 }
@@ -133,6 +137,7 @@ country_event = {
 	
 	option = {
 		name = worgen_unleashed.opt1
+		#log = "worgen_unleashed.opt1"
 		
 		#remove_country_modifier = curse_of_the_worgen
 	}
@@ -157,6 +162,7 @@ country_event = {
 	
 	option = {
 		name = worgen_convert.opt1
+		#log = "worgen_convert.opt1"
 		remove_country_modifier = curse_of_the_worgen
 		change_primary_culture = culture_gilnean_worgen
 		change_technology_group = tech_worgen

@@ -41,21 +41,24 @@ country_event = {
 	}
 	
 	option = {
-        name = dun_morogh_territorial.opt1 # Ask to back up claim.
+		name = dun_morogh_territorial.opt1
+		#log = "dun_morogh_territorial.opt1" # Ask to back up claim.
 		custom_tooltip = dun_morogh_territorial_tt_claim
 		event_target:dm_claim_helper = {
 			country_event = { id = dwarf.2 } #dun_morogh_territorial_claim
 		}
 	}
 	option = {
-        name = dun_morogh_territorial.opt2 # Ask to join war together.
+		name = dun_morogh_territorial.opt2
+		#log = "dun_morogh_territorial.opt2" # Ask to join war together.
 		custom_tooltip = dun_morogh_territorial_tt_war
 		event_target:dm_claim_helper = {
 			country_event = { id = dwarf.3 } #dun_morogh_territorial_war
 		}
 	}
 	option = {
-        name = dun_morogh_territorial.opt3 # Try to forge a claim by yourself.
+		name = dun_morogh_territorial.opt3
+		#log = "dun_morogh_territorial.opt3" # Try to forge a claim by yourself.
 		random_list = {
 			1 = {
 				event_target:dm_historical_claim = {
@@ -75,7 +78,8 @@ country_event = {
 		}
 	}
 	option = {
-        name = dun_morogh_territorial.opt4 # Do not do anything for now.
+		name = dun_morogh_territorial.opt4
+		#log = "dun_morogh_territorial.opt4" # Do not do anything for now.
 	}
 }
 country_event = {
@@ -92,22 +96,24 @@ country_event = {
 	}
 	
 	option = {
-        name = dun_morogh_territorial_claim.opt1 # Accept backing up the claim.
+		name = dun_morogh_territorial_claim.opt1
+		#log = "dun_morogh_territorial_claim.opt1" # Accept backing up the claim.
 		add_dip_power = -50
 		event_target:dm_historical_claim = {
 			add_permanent_claim = A29
 		}
-        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - dun_morogh_territorial_claim.opt1" }
+        #if = { limit = { has_global_flag = enable_event_logging } #log = "[Root.GetName] - dun_morogh_territorial_claim.opt1" }
 	}
 	option = {
-        name = dun_morogh_territorial_claim.opt2 # Refuse.
+		name = dun_morogh_territorial_claim.opt2
+		#log = "dun_morogh_territorial_claim.opt2" # Refuse.
 		A29 = {
 			add_opinion = {
 				who = ROOT
 				modifier = dishonorable_act
 			}
 		}
-        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - dun_morogh_territorial_claim.opt1" }
+        #if = { limit = { has_global_flag = enable_event_logging } #log = "[Root.GetName] - dun_morogh_territorial_claim.opt1" }
 	}
 }
 country_event = {
@@ -124,7 +130,8 @@ country_event = {
 	}
 	
 	option = {
-        name = dun_morogh_territorial_war.opt1 # Join a rightful coalition by Ironforge's side.
+		name = dun_morogh_territorial_war.opt1
+		#log = "dun_morogh_territorial_war.opt1" # Join a rightful coalition by Ironforge's side.
 		add_mil_power = -50
 		event_target:dm_historical_claim = {
 			add_permanent_claim = A29
@@ -148,17 +155,18 @@ country_event = {
 				}
 			}
 		}
-        #log = "[Root.GetName] - dun_morogh_territorial_war.opt1"
+        ##log = "[Root.GetName] - dun_morogh_territorial_war.opt1"
 	}
 	option = {
-        name = dun_morogh_territorial_war.opt2 # Refuse.
+		name = dun_morogh_territorial_war.opt2
+		#log = "dun_morogh_territorial_war.opt2" # Refuse.
 		A29 = {
 			add_opinion = {
 				who = ROOT
 				modifier = dishonorable_act
 			}
 		}
-        #log = "[Root.GetName] - dun_morogh_territorial_war.opt2"
+        ##log = "[Root.GetName] - dun_morogh_territorial_war.opt2"
 	}
 }
 
@@ -203,7 +211,8 @@ country_event = {
 	}
 	
 	option = {
-        name = twilight_highlands_territorial.opt1 # Ask to back up claim.
+		name = twilight_highlands_territorial.opt1
+		#log = "twilight_highlands_territorial.opt1" # Ask to back up claim.
 		custom_tooltip = twilight_highlands_territorial_tt_claim
 		hidden_effect = {
 			event_target:th_claim_helper = {
@@ -212,7 +221,8 @@ country_event = {
 		}
 	}
 	option = {
-        name = twilight_highlands_territorial.opt2 # Ask to join war together.
+		name = twilight_highlands_territorial.opt2
+		#log = "twilight_highlands_territorial.opt2" # Ask to join war together.
 		custom_tooltip = twilight_highlands_territorial_tt_war
 		hidden_effect = {
 			event_target:th_claim_helper = {
@@ -221,7 +231,8 @@ country_event = {
 		}
 	}
 	option = {
-        name = twilight_highlands_territorial.opt3 # Try to forge a claim by yourself.
+		name = twilight_highlands_territorial.opt3
+		#log = "twilight_highlands_territorial.opt3" # Try to forge a claim by yourself.
 		random_list = {
 			1 = {
 				event_target:th_historical_claim = {
@@ -241,7 +252,8 @@ country_event = {
 		}
 	}
 	option = {
-        name = twilight_highlands_territorial.opt4 # Do not do anything for now.
+		name = twilight_highlands_territorial.opt4
+		#log = "twilight_highlands_territorial.opt4" # Do not do anything for now.
 	}
 }
 country_event = {
@@ -258,22 +270,24 @@ country_event = {
 	}
 	
 	option = {
-        name = twilight_highlands_territorial_claim.opt1 # Accept backing up the claim.
+		name = twilight_highlands_territorial_claim.opt1
+		#log = "twilight_highlands_territorial_claim.opt1" # Accept backing up the claim.
 		add_dip_power = -50
 		event_target:th_historical_claim = {
 			add_permanent_claim = A28
 		}
-        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - twilight_highlands_territorial_claim.opt1" }
+        #if = { limit = { has_global_flag = enable_event_logging } #log = "[Root.GetName] - twilight_highlands_territorial_claim.opt1" }
 	}
 	option = {
-        name = twilight_highlands_territorial_claim.opt2 # Refuse.
+		name = twilight_highlands_territorial_claim.opt2
+		#log = "twilight_highlands_territorial_claim.opt2" # Refuse.
 		A28 = {
 			add_opinion = {
 				who = ROOT
 				modifier = dishonorable_act
 			}
 		}
-        #log = "[Root.GetName] - twilight_highlands_territorial_claim.opt1"
+        ##log = "[Root.GetName] - twilight_highlands_territorial_claim.opt1"
 	}
 }
 country_event = {
@@ -290,7 +304,8 @@ country_event = {
 	}
 	
 	option = {
-        name = twilight_highlands_territorial_war.opt1 # Join a rightful coalition by Ironforge's side.
+		name = twilight_highlands_territorial_war.opt1
+		#log = "twilight_highlands_territorial_war.opt1" # Join a rightful coalition by Ironforge's side.
 		add_mil_power = -50
 		event_target:th_historical_claim = {
 			add_permanent_claim = A28
@@ -316,7 +331,8 @@ country_event = {
 		}
 	}
 	option = {
-        name = twilight_highlands_territorial_war.opt2 # Refuse.
+		name = twilight_highlands_territorial_war.opt2
+		#log = "twilight_highlands_territorial_war.opt2" # Refuse.
 		A28 = {
 			add_opinion = {
 				who = ROOT
@@ -367,7 +383,8 @@ country_event = {
 	}
 	
 	option = {
-        name = burning_steppes_territorial.opt1 # Ask to back up claim.
+		name = burning_steppes_territorial.opt1
+		#log = "burning_steppes_territorial.opt1" # Ask to back up claim.
 		custom_tooltip = burning_steppes_territorial_tt_claim
 		hidden_effect = {
 			event_target:bs_claim_helper = {
@@ -376,7 +393,8 @@ country_event = {
 		}
 	}
 	option = {
-        name = burning_steppes_territorial.opt2 # Ask to join war together.
+		name = burning_steppes_territorial.opt2
+		#log = "burning_steppes_territorial.opt2" # Ask to join war together.
 		custom_tooltip = burning_steppes_territorial_tt_war
 		hidden_effect = {
 			event_target:bs_claim_helper = {
@@ -385,7 +403,8 @@ country_event = {
 		}
 	}
 	option = {
-        name = burning_steppes_territorial.opt3 # Try to forge a claim by yourself.
+		name = burning_steppes_territorial.opt3
+		#log = "burning_steppes_territorial.opt3" # Try to forge a claim by yourself.
 		random_list = {
 			1 = {
 				event_target:bs_historical_claim = {
@@ -405,7 +424,8 @@ country_event = {
 		}
 	}
 	option = {
-        name = burning_steppes_territorial.opt4 # Do not do anything for now.
+		name = burning_steppes_territorial.opt4
+		#log = "burning_steppes_territorial.opt4" # Do not do anything for now.
 	}
 }
 country_event = {
@@ -422,15 +442,17 @@ country_event = {
 	}
 	
 	option = {
-        name = burning_steppes_territorial_claim.opt1 # Accept backing up the claim.
+		name = burning_steppes_territorial_claim.opt1
+		#log = "burning_steppes_territorial_claim.opt1" # Accept backing up the claim.
 		add_dip_power = -50
 		event_target:bs_historical_claim = {
 			add_permanent_claim = A30
 		}
-        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - burning_steppes_territorial_claim.opt1" }
+        #if = { limit = { has_global_flag = enable_event_logging } #log = "[Root.GetName] - burning_steppes_territorial_claim.opt1" }
 	}
 	option = {
-        name = burning_steppes_territorial_claim.opt2 # Refuse.
+		name = burning_steppes_territorial_claim.opt2
+		#log = "burning_steppes_territorial_claim.opt2" # Refuse.
 		A30 = {
 			add_opinion = {
 				who = ROOT
@@ -453,7 +475,8 @@ country_event = {
 	}
 	
 	option = {
-        name = burning_steppes_territorial_war.opt1 # Join a rightful coalition by Ironforge's side.
+		name = burning_steppes_territorial_war.opt1
+		#log = "burning_steppes_territorial_war.opt1" # Join a rightful coalition by Ironforge's side.
 		add_mil_power = -50
 		event_target:bs_historical_claim = {
 			add_permanent_claim = A30
@@ -477,10 +500,11 @@ country_event = {
 				}
 			}
 		}
-        #if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - burning_steppes_territorial_war.opt1" }
+        #if = { limit = { has_global_flag = enable_event_logging } #log = "[Root.GetName] - burning_steppes_territorial_war.opt1" }
 	}
 	option = {
-        name = burning_steppes_territorial_war.opt2 # Refuse.
+		name = burning_steppes_territorial_war.opt2
+		#log = "burning_steppes_territorial_war.opt2" # Refuse.
 		A30 = {
 			add_opinion = {
 				who = ROOT
@@ -512,7 +536,8 @@ country_event = {
 	}
 	
 	option = {
-        name = dwarf_treasurer.opt1
+		name = dwarf_treasurer.opt1
+		#log = "dwarf_treasurer.opt1"
 		define_advisor = {
 			type = treasurer
 			skill = 3
@@ -520,7 +545,8 @@ country_event = {
 		}
 	}
 	option = {
-        name = dwarf_treasurer.opt2
+		name = dwarf_treasurer.opt2
+		#log = "dwarf_treasurer.opt2"
 		random_owned_province = {
 			add_base_tax = 2
 		}
@@ -550,7 +576,8 @@ country_event = {
 	}
 	
 	option = {
-        name = dwarf_treasurer.opt1
+		name = dwarf_treasurer.opt1
+		#log = "dwarf_treasurer.opt1"
 		add_manpower = 5
 	}
 }
