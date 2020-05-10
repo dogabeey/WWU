@@ -1,9 +1,14 @@
-# Class order halls frm legion xpac
+# Class order halls from legion xpac
 
 warrior_order = {
     icon = GFX_class_warrior
     trigger = {
 		always = no # TODO: Do
+		NOT = {
+			any_country = {
+			
+			}
+		}
 		owner = { 
 			NOT = { is_lesser = yes }
 		}
@@ -13,10 +18,12 @@ warrior_order = {
     per_province_effect = {
         add_base_manpower = 1
 		add_prestige = 1
+		set_country_flag = has_warrior_order
     }
     per_province_abandon_effect = {
 	    add_base_manpower = -1
 		add_prestige = -1
+		clr_country_flag = has_warrior_order
     }
     modifier = {
         garrison_growth = 0.1
@@ -39,10 +46,12 @@ paladin_order = {
     per_province_effect = {
         add_base_manpower = 1
 		add_prestige = 1
+		set_country_flag = has_paladin_order
     }
     per_province_abandon_effect = {
 	    add_base_manpower = -1
 		add_prestige = -1
+		clr_country_flag = has_paladin_order
     }
     modifier = {
         garrison_growth = 0.1
