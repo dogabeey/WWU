@@ -2,23 +2,30 @@
 
 warrior_order = {
 	icon = GFX_class_warrior
-	trigger = { NOT = { has_country_flag = has_warrior_order } NOT = { any_country = { has_country_flag = has_warrior_order } } }
+	trigger = { 
+		NOT = { 
+			has_country_flag = has_warrior_order 
+		} 
+		NOT = { 
+			any_country = { 
+				has_country_flag = has_warrior_order 
+			} 
+		} 
+	}
 	
-    cost = 150
+    cost = 250
     cost_type = mil_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_warrior_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_warrior_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_manpower_modifier = 0.2
     }
     ai_priority = {
         factor = 1
@@ -30,21 +37,19 @@ paladin_order = {
 	trigger = { NOT = { has_country_flag = has_paladin_order } NOT = { any_country = { has_country_flag = has_paladin_order } } }
 
 	
-    cost = 150
+    cost = 250
     cost_type = adm_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_paladin_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_paladin_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_unrest = -2
     }
     ai_priority = {
         factor = 1
@@ -59,21 +64,19 @@ priest_order = {
 		NOT = { any_country = { has_country_flag = has_priest_order } } 
 	}
 	
-    cost = 150
+    cost = 250
     cost_type = dip_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_priest_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_priest_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_religious_unity_contribution = -0.15
     }
     ai_priority = {
         factor = 1
@@ -84,21 +87,19 @@ mage_order = {
 	trigger = { NOT = { has_country_flag = has_mage_order } NOT = { any_country = { has_country_flag = has_mage_order } } }
 
 	
-    cost = 150
+    cost = 250
     cost_type = dip_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_mage_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_mage_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_build_time = -0.3
     }
     ai_priority = {
         factor = 1
@@ -109,21 +110,19 @@ warlock_order = {
 	trigger = { NOT = { has_country_flag = has_warlock_order } NOT = { any_country = { has_country_flag = has_warlock_order } } }
 
 	
-    cost = 150
+    cost = 250
     cost_type = mil_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_warlock_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_warlock_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_hostile_movement_speed = -0.2
     }
     ai_priority = {
         factor = 1
@@ -134,21 +133,19 @@ hunter_order = {
 	trigger = { NOT = { has_country_flag = has_hunter_order } NOT = { any_country = { has_country_flag = has_hunter_order } } }
 
 	
-    cost = 150
+    cost = 250
     cost_type = adm_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_hunter_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_hunter_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_production_efficiency = 0.2
     }
     ai_priority = {
         factor = 1
@@ -159,21 +156,19 @@ druid_order = {
 	trigger = { NOT = { has_country_flag = has_druid_order } NOT = { any_country = { has_country_flag = has_druid_order } } }
 
 	
-    cost = 150
+    cost = 250
     cost_type = adm_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_druid_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_druid_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_development_cost = -0.2
     }
     ai_priority = {
         factor = 1
@@ -184,21 +179,19 @@ shaman_order = {
 	trigger = { NOT = { has_country_flag = has_shaman_order } NOT = { any_country = { has_country_flag = has_shaman_order } } }
 
 	
-    cost = 150
+    cost = 250
     cost_type = dip_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_shaman_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_shaman_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        supply_limit_modifier = 0.25
     }
     ai_priority = {
         factor = 1
@@ -209,21 +202,19 @@ rogue_order = {
 	trigger = { NOT = { has_country_flag = has_rogue_order } NOT = { any_country = { has_country_flag = has_rogue_order } } }
 
 	
-    cost = 150
+    cost = 250
     cost_type = mil_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_rogue_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_rogue_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_institution_spread = 0.2
     }
     ai_priority = {
         factor = 1
@@ -234,21 +225,19 @@ demon_hunter_order = {
 	trigger = { NOT = { has_country_flag = has_demon_hunter_order } NOT = { any_country = { has_country_flag = has_demon_hunter_order } } }
 
 	
-    cost = 150
+    cost = 250
     cost_type = mil_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_demon_hunter_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_demon_hunter_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_hostile_attrition = 4
     }
     ai_priority = {
         factor = 1
@@ -259,21 +248,19 @@ death_knight_order = {
 	trigger = { NOT = { has_country_flag = has_death_knight_order } NOT = { any_country = { has_country_flag = has_death_knight_order } } }
 
 	
-    cost = 150
+    cost = 250
     cost_type = adm_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_death_knight_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_death_knight_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_years_of_nationalism = -5
     }
     ai_priority = {
         factor = 1
@@ -281,24 +268,25 @@ death_knight_order = {
 }
 monk_order = {
 	icon = GFX_class_monk
-	trigger = { NOT = { has_country_flag = has_monk_order } NOT = { any_country = { has_country_flag = has_monk_order } } }
+	trigger = { 
+		NOT = { has_country_flag = has_monk_order } 
+		NOT = { any_country = { has_country_flag = has_monk_order } } 
+	}
 
 	
-    cost = 150
+    cost = 250
     cost_type = dip_power
 	
     per_province_effect = {
-        add_local_autonomy = 10
-		add_prestige = 1
+        form_holy_order_effect = yes
 		owner = { set_country_flag = has_monk_order }
     }
     per_province_abandon_effect = {
-	    add_local_autonomy = -10
-		add_prestige = -1
+	    abandon_holy_order_effect = yes
 		owner = { clr_country_flag = has_monk_order }
     }
     modifier = {
-        garrison_growth = 0.1
+        local_friendly_movement_speed = 0.2
     }
     ai_priority = {
         factor = 1

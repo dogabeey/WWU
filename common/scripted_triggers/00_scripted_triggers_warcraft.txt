@@ -176,6 +176,28 @@ is_great_leader = {
 	}
 }
 
+has_guild_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = HAS_GUILD_TOOLTIP
+		OR = {
+			has_reform = independent_guild_reform
+			has_country_flag = has_independent_guild
+			any_subject_country = { has_reform = independent_guild_reform }
+		}
+	}
+}
+
+can_form_order_for_class = {
+	NOT = { 
+		has_country_flag = has_$class$_order 
+	} 
+	NOT = { 
+		any_country = { 
+			has_country_flag = has_$class$_order 
+		} 
+	}
+}
+
 is_underwater = {
 	OR = {
 		culture_group = culture_group_naga
