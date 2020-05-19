@@ -1,0 +1,71 @@
+# Acts like WWU's own on_action events
+namespace = on_action_special
+
+# On Declare War
+# Using had_country_flag condition, we can tell whether a country was at war with another country.
+country_event = {
+	id = on_action_special.1
+	title = e_l
+	desc = e_l
+	picture = ES_START_eventPicture
+	
+	hidden = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		any_country = {
+			defensive_war_with = ROOT
+			ROOT = {
+				NOT = { has_country_flag = declared_war_to@PREV }
+			}
+		}
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				defensive_war_with = ROOT
+				ROOT = {
+					NOT = { has_country_flag = declared_war_to@PREV }
+				}
+			}
+			ROOT = { set_country_flag = declared_war_to@PREV }
+			log = "[Root.GetName] declared war to [Prev.GetName]"
+		}
+	}
+	
+	option = {
+		name = e_l
+	}
+}
+
+# To remove declared_war_to flag.
+country_event = {
+	id = on_action_special.2
+	title = e_l
+	desc = e_l
+	picture = ES_START_eventPicture
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = declared_war_to@FROM
+	}
+	
+	immediate = {
+		clr_country_flag = declared_war_to@FROM
+		every_subject_country = {
+			clr_country_flag = declared_war_to@FROM
+		}
+		log = "[Root.GetName] signed peace with [From.GetName]"
+	}
+	
+	option = {
+		name = e_l
+	}
+}

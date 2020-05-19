@@ -327,14 +327,12 @@ offer_contract = {
 	require_acceptance = yes # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		is_subject = no
 		NOT = { is_organization = yes }
 		FROM = {
 			is_organization = yes
 		}
 	}
 	is_allowed = {
-		is_subject = no
 		tax_income_percentage = 0.0
 		is_at_war = no
 		FROM = {
@@ -443,6 +441,7 @@ offer_contract = {
 
 	ai_will_do = {
 		NOT = { contract = 1 }
+		NOT = { core_claim = FROM }
 		tax_income_percentage = 0.2
 	}
 }
