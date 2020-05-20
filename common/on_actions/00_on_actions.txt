@@ -44,12 +44,12 @@ on_startup = {
 			}
 			change_culture = ROOT
 		}
-		
-		
-		# Misc
-		add_historical_friend = Z99
-		Z99 = {
-			add_historical_friend = PREV
+		every_owned_province = {
+			limit = {
+				NOT = { is_core = yes }
+				NOT = { has_province_flag = override_country_core }  # Put this flag to province histories if you don't want to force province have core.
+			}
+			add_core = ROOT
 		}
 		
 		country_event = { id = setup.1 days = 1 }
@@ -382,6 +382,17 @@ on_battle_won_country = {
 # root = loser country, from = winner country
 on_battle_lost_country = {
 	battle_cult_spreading_effect = yes #Scripted effect for fetishist cult mechanics.
+	if = {
+		limit = {
+			was_faction_leaders_war = yes
+		}
+		overlord = {
+			reverse_add_opinion = {
+				who = PREV
+				modifier = battle_is_lost
+			}
+		}
+	}
 	events = {
         rise_of_the_horde.6
     }
@@ -392,6 +403,7 @@ on_battle_lost_country = {
 		1 = chaos.8
 		1 = chaos.9
 	}
+	
 }
 
 # province
@@ -449,40 +461,22 @@ on_battle_lost_province = {
 # country
 # root = winning country, from = location
 on_siege_won_country = {
-	from = {
-	    random_list = {
-		50 = {
-	    if = { 
-			limit = {
-			NOT = { owned_by = root }
-			base_tax = 2 
-			}
-			add_base_tax = -1
-		}
-		if = { 
-			limit = {
-			NOT = { owned_by = root }
-			base_production = 2
-			}
-			add_base_production = -1
-		}
-		if = { 
-			limit = { 
-			NOT = { owned_by = root }
-			base_manpower = 2
-			}
-			add_base_manpower = -1
-		}
-		}
-		50 = {
-		}
-		}
-	}
 }
 
 # country
 # root = losing country, from = location
 on_siege_lost_country = {
+	if = {
+		limit = {
+			was_faction_leaders_war = yes
+		}
+		overlord = {
+			reverse_add_opinion = {
+				who = PREV
+				modifier = city_is_fallen
+			}
+		}
+	}
 }
 
 # province
@@ -1530,75 +1524,7 @@ on_five_year_pulse_3 = {
 }
 
 on_five_year_pulse_4 = {
-    if = {
-	limit = {
-	total_development = 1000
-	NOT = { total_development = 2000 }
-	}
-	add_country_modifier = {
-	name = "1_development"
-	duration = -1
-	}
-	remove_country_modifier = 2_development
-	remove_country_modifier = 3_development
-	remove_country_modifier = 4_development
-	remove_country_modifier = 5_development
-	}
-	if = {
-	limit = {
-	total_development = 2000
-	NOT = { total_development = 3000 }
-	}
-	add_country_modifier = {
-	name = "2_development"
-	duration = -1
-	}
-	remove_country_modifier = 1_development
-	remove_country_modifier = 3_development
-	remove_country_modifier = 4_development
-	remove_country_modifier = 5_development
-	}
-	if = {
-	limit = {
-	total_development = 3000
-	NOT = { total_development = 4000 }
-	}
-	add_country_modifier = {
-	name = "3_development"
-	duration = -1
-	}
-	remove_country_modifier = 1_development
-	remove_country_modifier = 2_development
-	remove_country_modifier = 4_development
-	remove_country_modifier = 5_development
-	}
-	if = {
-	limit = {
-	total_development = 4000
-	NOT = { total_development = 5000 }
-	}
-	add_country_modifier = {
-	name = "4_development"
-	duration = -1
-	}
-	remove_country_modifier = 1_development
-	remove_country_modifier = 2_development
-	remove_country_modifier = 3_development
-	remove_country_modifier = 5_development
-	}
-	if = {
-	limit = {
-	total_development = 5000
-	}
-	add_country_modifier = {
-	name = "5_development"
-	duration = -1
-	}
-	remove_country_modifier = 1_development
-	remove_country_modifier = 2_development
-	remove_country_modifier = 3_development
-	remove_country_modifier = 4_development
-	}
+
 }
 
 # El Dorado
@@ -1806,7 +1732,18 @@ on_convert_by_trade_policy = {
 # province
 # FROM = old owner
 on_province_owner_change = {
-	events = {
+	if = {
+		limit = {
+			FROM = { was_faction_leaders_war = yes }
+		}
+		FROM = { 
+			overlord = {
+				reverse_add_opinion = {
+					who = PREV
+					modifier = province_is_lost
+				}
+			}
+		}
 	}
 }
 
@@ -1851,7 +1788,7 @@ on_leader_recruited = {
 
 # country
 on_general_recruited = {
-	add_army_professionalism = 0.01
+	add_army_professionalism = 0.02
 }
 
 # country

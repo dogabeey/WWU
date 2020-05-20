@@ -2,7 +2,7 @@
 namespace = on_action_special
 
 # On Declare War
-# Using had_country_flag condition, we can tell whether a country was at war with another country.
+# Using has_country_flag = declared_war_to@ condition, we can tell whether a country was at war with another country.
 country_event = {
 	id = on_action_special.1
 	title = e_l
@@ -33,7 +33,7 @@ country_event = {
 				}
 			}
 			ROOT = { set_country_flag = declared_war_to@PREV }
-			log = "[Root.GetName] declared war to [Prev.GetName]"
+			#log = "[Root.GetName] declared war to [Prev.GetName]"
 		}
 	}
 	
@@ -53,8 +53,8 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	trigger = {
-		has_country_flag = declared_war_to@FROM
+	mean_time_to_happen = {
+		days = 1
 	}
 	
 	immediate = {
@@ -62,7 +62,7 @@ country_event = {
 		every_subject_country = {
 			clr_country_flag = declared_war_to@FROM
 		}
-		log = "[Root.GetName] signed peace with [From.GetName]"
+		#log = "[Root.GetName] signed peace with [From.GetName]"
 	}
 	
 	option = {

@@ -1,0 +1,52 @@
+country_decisions = {
+	test_dec_1 = {
+	
+        potential = {
+        }
+        
+		allow = {
+			was_faction_leaders_war = yes
+		}
+		
+		ai_importance = 200
+        
+		effect = {
+			set_country_flag = revealed_to_world
+			add_dip_power = -250
+			add_prestige = 5
+		}
+        
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	test_dec_2 = {
+	
+        potential = {
+        }
+        
+		allow = {
+			overlord = {
+				ROOT = {
+					was_at_same_side_of_war = {
+						who = ROOT
+						with = PREV
+					}
+				}
+			}
+		}
+		
+		ai_importance = 200
+        
+		effect = {
+			set_country_flag = revealed_to_world
+			add_dip_power = -250
+			add_prestige = 5
+		}
+        
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}

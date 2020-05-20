@@ -846,6 +846,7 @@ potential_refuge = { # Determines which country allows your country's refugees w
 	}
 }
 
+
 owns_or_vassal_or_ally_of = {
 	OR = {
 		$country$ = {
@@ -859,6 +860,77 @@ owns_or_vassal_or_ally_of = {
 		$country$ = {
 			any_ally = {
 				owns = $province$
+			}
+		}
+	}
+}
+
+ally_or_subject_or_overlord_with = {
+	$who$ = {
+		OR = {
+			is_subject_of = $with$
+			overlord_of = $with$
+			alliance_with = $with$
+		}
+	}
+}
+
+was_at_same_side_of_war = {
+	OR = {
+		any_country = {
+			$who$ = {
+				has_country_flag = declared_war_to@PREV
+			}
+			$with$ = {
+				has_country_flag = declared_war_to@PREV
+			}
+		}
+		any_country = {
+			has_country_flag = declared_war_to@$who$
+			has_country_flag = declared_war_to@$with$
+		}
+	}
+}
+
+was_at_same_side_of_war_against = {
+	OR = {
+		AND = {
+			$who$ = {
+				has_country_flag = declared_war_to@$against$
+			}
+			$with$ = {
+				has_country_flag = declared_war_to@$against$
+			}
+			ally_or_subject_or_overlord_with = {
+				who = $who$
+				with = $with$
+			}
+		}
+		AND = {
+			$against$ = {
+				has_country_flag = declared_war_to@$who$
+			}
+			$against$ = {
+				has_country_flag = declared_war_to@$with$
+			}
+			ally_or_subject_or_overlord_with = {
+				who = $who$
+				with = $with$
+			}
+		}
+	}
+}
+
+was_faction_leaders_war = {
+	OR = {
+		is_subject_of_type = faction_horde
+		is_subject_of_type = faction_alliance
+	}
+	overlord = {
+		ROOT = {
+			was_at_same_side_of_war = {
+				who = ROOT
+				with = PREV
 			}
 		}
 	}
