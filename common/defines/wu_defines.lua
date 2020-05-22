@@ -1243,7 +1243,7 @@ NDefines.NAI.PEACE_TERMS_WAR_REPARATIONS_MIN_INCOME_RATIO = 0.5 -- AI only wants
 NDefines.NAI.DIPLOMATIC_ACTION_RANDOM_FACTOR = 1.0 -- How much of the AI diplomatic action scoring is randomly determined (1.0 = half random 2.0 = 2/3rd random etc)
 NDefines.NAI.DIPLOMATIC_ACTION_PROPOSE_SCORE = 50 -- AI must score a diplomatic action at least this highly to propose it themselves
 NDefines.NAI.DIPLOMATIC_ACTION_BREAK_SCORE = 30 -- AI must score a diplomatic action less than this to break it off
-NDefines.NAI.DIPLOMATIC_ACTION_PERSONALITY_MULT = 1.5 -- How much more the AI values a diplomatic action if it suits their personality (improve relations for diplomat etc)
+NDefines.NAI.DIPLOMATIC_ACTION_PERSONALITY_MULT = 2.0 -- How much more the AI values a diplomatic action if it suits their personality (improve relations for diplomat etc)
 NDefines.NAI.DIPLOMATIC_ACTION_OFFER_CONDOTTIERI_BASE_MULT = 33 -- AI scoring for offer condottieri base scale.
 NDefines.NAI.DIPLOMATIC_ACTION_OFFER_CONDOTTIERI_MONTHLY_PARTICIPATION_RATE = -0.1 --Base monthly decay in participation. Related to multipliers for war participation (but doesn't depend on number of regiments so raw multiplier matters).
 NDefines.NAI.DIPLOMATIC_ACTION_OFFER_CONDOTTIERI_PARTICIPATION_BREAK = -1.75 --At this level of (lack of) participation from the player the AI will break the condottieri agreement and tell all their friends.
