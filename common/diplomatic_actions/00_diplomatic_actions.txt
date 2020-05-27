@@ -281,6 +281,7 @@ allianceaction = {
 		potential = {
 			OR = {
 				AND = {
+					NOT = { has_global_flag = dragons_allowed_alliance }
 					culture_group = culture_group_dragonkin
 					FROM = { 
 						NOT = {
@@ -290,6 +291,7 @@ allianceaction = {
 					}
 				}
 				AND = {
+					NOT = { has_global_flag = dragons_allowed_alliance }
 					NOT = {
 						culture_group = culture_group_dragonkin
 						is_ancient = yes
@@ -297,9 +299,6 @@ allianceaction = {
 					FROM = { 
 						culture_group = culture_group_dragonkin
 					}
-				}
-				NOT = {
-					has_global_flag = dragons_allowed_alliance
 				}
 			}
 		}

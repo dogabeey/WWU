@@ -514,6 +514,41 @@ country_decisions = {
 		}
 	}
 	
+	form_nerubian_empire = {
+		major = yes
+		potential = {
+			NOT = { exists = NRE }
+			culture_group = culture_group_nerubian
+		}
+		allow = {
+			is_at_war = no		
+			region_icecrown = {
+				type = all
+				owned_by = ROOT
+			}
+			mil_power = 200
+			dip_power = 200
+			adm_power = 200
+		}
+		effect = {
+			add_prestige = 50
+			change_tag = NRE
+			add_dip_power = -200
+			add_mil_power = -200
+			add_adm_power = -200
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		
+		ai_importance = 400
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
 	form_drakkari_empire = {
 		major = yes
 		potential = {

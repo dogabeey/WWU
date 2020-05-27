@@ -103,91 +103,13 @@ country_decisions = {
 		}
 	  	effect = {
 			add_adm_power = -100
+			add_years_of_income = -0.33
 			add_country_modifier = {
 				name = emigrated_race_nation
 				duration = 1000
 				desc = emigrated_race_nation.desc
 			}
-			add_years_of_income = -0.33
 			random_owned_province = {
-				limit = { NOT = { culture = ROOT } }
-				#### Complicated calculation ####
-				# Declare variables
-				set_variable = {
-					which = province_dev
-					value = 0
-				}
-				set_variable = {
-					which = adj_bonus
-					value = 0
-				}
-				set_variable = {
-					which = overseas_bonus
-					value = 0
-				}
-				#Assign variables
-				if = {
-					limit = {
-						development = 30
-					}
-					export_to_variable = {
-						which = province_dev
-						value = development
-					}
-				}
-				else = {
-					set_variable = {
-						which = province_dev
-						value = 30
-					}
-				}
-				if = {
-					limit = {
-						any_neighbor_province = {
-							culture = ROOT
-						}
-					}
-					set_variable = {
-						which = adj_bonus
-						value = 0.5
-					}
-				}
-				else = {
-					set_variable = {
-						which = adj_bonus
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						is_overseas = yes
-						religion = ROOT
-					}
-					set_variable = {
-						which = overseas_bonus
-						value = 0.2
-					}
-				}
-				else = {
-					set_variable = {
-						which = overseas_bonus
-						value = 1
-					}
-				}
-				# Calculate
-				multiply_variables = {
-					var1 = province_dev
-					var2 = adj_bonus
-				}
-				multiply_variables = {
-					var1 = province_dev
-					var2 = overseas_bonus
-				}
-				multiply_variable = {
-					which = province_dev
-					value = -1
-				}
-				add_devastation = 5
 				every_country = {
 					limit = {
 						culture_group = PREV
@@ -199,6 +121,7 @@ country_decisions = {
 				}
 				change_culture = ROOT
 				change_religion = ROOT
+				add_devastation = 5
 			}
 		}
 		ai_will_do = {
