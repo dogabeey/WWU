@@ -1,0 +1,481 @@
+army_professionalism_missions = {
+	slot = 1
+	generic = yes
+	ai = no
+	
+	potential = {
+	
+		always = no
+	}
+	
+	professional_army_1 = {
+		icon = mission_assemble_an_army
+		required_missions = { build_army_mission }
+		position = 2
+		trigger = {
+			army_professionalism = 0.05
+		}
+		effect = {
+			add_army_professionalism = 0.025
+		}
+	}
+	
+	building_barracks = {
+		icon = mission_early_modern_university
+		required_missions = { professional_army_1 }
+		position = 3
+		trigger = {
+			wow_barracks = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = "built_barracks"
+				duration = 3650 
+			}
+		}
+	}
+	
+	win_wars_1 = {
+		icon = mission_cannons_firing
+		required_missions = { building_barracks }
+		position = 4
+		trigger = {
+			check_variable = {
+				which = wars_won
+				value = 5
+			}
+		}
+		effect = {
+			add_army_tradition = 5
+			add_army_professionalism = 0.025
+		}
+	}
+	
+	professional_army_2 = {
+		icon = mission_assemble_an_army
+		required_missions = { win_wars_1 }
+		position = 6
+		trigger = {
+			army_professionalism = 0.25
+		}
+		effect = {
+			add_country_modifier = {
+				name = "shining_army"
+				duration = 3650 
+			}
+		}
+	}
+	
+	
+	win_wars_2 = {
+		icon = mission_cannons_firing
+		required_missions = { professional_army_2 }
+		position = 7
+		trigger = {
+			check_variable = {
+				which = wars_won
+				value = 10
+			}
+		}
+		effect = {
+			add_army_tradition = 5
+			add_army_professionalism = 0.05
+		}
+	}
+}
+military_missions = {
+	slot = 2
+	generic = yes
+	ai = no
+	potential = {
+		always = yes
+	}
+	
+	build_army_mission = {
+		icon = mission_build_up_to_force_limit
+		required_missions = {  } #
+		position = 1
+		trigger = {
+			army_size_percentage = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = "thriving_arms_industry"
+				duration = 3650
+			}
+		}
+	}
+	
+	colonial_ambitions = {
+		icon = mission_build_up_to_force_limit
+		required_missions = { build_army_mission } #
+		position = 3
+		trigger = {
+			OR = {
+				num_of_owned_provinces_with = {
+					value = 3
+					is_overseas = yes
+				}
+				colony = 1
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "colonial_ambition"
+				duration = 3650
+			}
+		}
+	}
+	
+	global_empire = {
+		icon = mission_build_up_to_force_limit
+		required_missions = { colonial_ambitions } #
+		position = 5
+		trigger = {
+			num_of_continents = 3
+			grown_by_development = 150
+		}
+		effect = {
+			add_country_modifier = {
+				name = "colonial_ambition"
+				duration = 3650
+			}
+		}
+	}
+	
+	united_nation = {
+		icon = mission_empire
+		required_missions = { 
+			suppress_rebels
+			win_wars_2
+			global_empire
+		}
+		position = 8
+		trigger = {
+			all_country = {
+				NOT = { has_opinion_modifier = {
+					who = ROOT
+					modifier = aggressive_expansion
+				} }
+			}
+			all_province = {
+				is_core = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "hegemonic_victory"
+				duration = -1
+			}
+		}
+	}
+}
+expansion_missions = {
+	slot = 3
+	generic = yes
+	ai = no
+	potential = {
+		always = yes
+	}
+	
+	unite_home_region = {
+		icon = mission_unite_home_region
+		required_missions = { build_army_mission }
+		position = 2
+		provinces_to_highlight = {
+			region_for_scope_province = {
+				is_capital_of = ROOT
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			capital_scope = {
+				region_for_scope_province = {
+					type = all
+					owned_by = ROOT #Subjects won't count, empty provinces will need to be colonized.
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "secured_the_region"
+				duration = 3650 
+			}
+		}
+	}
+	
+	expansion_1 = {
+		icon = mission_cannons_firing
+		required_missions = { unite_home_region }
+		position = 3
+		trigger = {
+			grown_by_states = 5
+		}
+		effect = {
+			add_country_modifier = {
+				name = "hegemonic_ambition"
+				duration = 3650 
+			}
+		}
+	}
+	
+	safety_of_region = {
+		icon = mission_colonial
+		required_missions = { expansion_1 }
+		position = 4
+		
+		trigger = {
+			calc_true_if = {
+			custom_trigger_tooltip = {
+				tooltip = safety_of_region_tt 
+					all_owned_province = {
+						any_neighbor_province = {
+							NOT = { owned_by = ROOT }
+						}
+						fort_level = 1
+					}
+				}
+				amount = 3
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "built_forts"
+				duration = 3650 
+			}
+		}
+	}
+	
+	wipe_out_threats = {
+		icon = mission_crusade_for_varna
+		required_missions = { safety_of_region }
+		position = 6
+		trigger = {
+			all_owned_province = {
+				all_core_country = {
+					tag = ROOT
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "hegemonic_victory"
+				duration = -1
+			}
+		}
+	}
+	
+	suppress_rebels = {
+		icon = mission_steppe_warriors
+		required_missions = { wipe_out_threats }
+		position = 7
+		trigger = {
+			check_variable = {
+				which = rebels_suppressed
+				value = 5
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "almighty_nation"
+				duration = 3650
+			}
+		}
+	}
+}
+diplomatic_missions = {
+	slot = 4
+	generic = yes
+	ai = no
+	
+	potential = {
+	   always = yes
+	}
+	
+	good_diplomacy = {
+		icon = mission_asian_trader
+		position = 1
+		required_missions = {  } #
+		trigger = {
+			num_of_diplomatic_relations = 3
+		}
+		effect = {
+			add_dip_power = 50
+		}
+	}
+	building_alliances = {
+		icon = mission_alliances
+		position = 2
+		required_missions = {  } #
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = building_alliances.tooltip
+				num_of_allies = 2
+				calc_true_if = {
+					all_ally = {
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+					amount = 2
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "friend_to_all"
+				duration = 3650 #25 years
+			}
+		}
+	}
+	have_two_subjects = {
+		icon = mission_have_two_subjects
+		position = 3
+		required_missions = { building_alliances }
+		trigger = { 
+			OR = {
+				vassal = 2
+				tributary_state = 2
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "obedient_subjects"
+				duration = 3650 #25 years
+			}
+		}
+	}
+	diplo_annex_countries = {
+		icon = mission_monarch_in_throne_room
+		position = 4
+		required_missions = { have_two_subjects }
+		trigger = { 
+			check_variable = {
+				which = diplo_annexed_nation
+				value = 3
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "integrated_regions"
+				duration = 3650 #25 years
+			}
+		}
+	}
+	trusted_alliances = {
+		icon = mission_noble_council
+		position = 5
+		required_missions = { diplo_annex_countries }
+		trigger = { 
+			num_of_trusted_allies = 3
+		}
+		effect = {
+			add_dip_power = 100
+		}
+	}
+}
+espionage_missions = {
+	slot = 5
+	generic = yes
+	ai = no
+	
+	potential = {
+	   always = yes
+	}
+	
+	basic_networking = {
+		icon = mission_asian_trader
+		position = 2
+		required_missions = { good_diplomacy } #
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = basic_networking_tt
+				calc_true_if = {
+					all_country = {
+						has_spy_network_from = {
+							who = ROOT
+							value = 20
+						}
+					}
+					amount = 2
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "espionage_ambition"
+				duration = 3650
+			}
+		}
+	}
+	claim_lands = {
+		icon = mission_asian_trader
+		position = 3
+		required_missions = { sabotage_reputations } 
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = claim_lands_tt
+				calc_true_if = {
+					all_province = {
+						is_claim = PREV
+						NOT = { is_core = PREV }
+					}
+					amount = 5
+				}
+			}
+		}
+		effect = {
+			random_province = {
+				limit = {
+					is_claim = PREV
+					NOT = { is_core = PREV }
+				}
+				add_core = ROOT
+			}
+		}
+	}
+	sabotage_reputations = {
+		icon = mission_asian_trader
+		position = 4
+		required_missions = { claim_lands } 
+		trigger = {
+			calc_true_if = {
+				all_country = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = sabotage_reputation
+					}
+				}
+				amount = 2
+			}
+		}
+		effect = {
+			random_province = {
+				limit = {
+					is_claim = PREV
+					NOT = { is_core = PREV }
+				}
+				add_core = ROOT
+			}
+		}
+	}
+	diplo_annex_countries = {
+		icon = mission_monarch_in_throne_room
+		position = 4
+		required_missions = { have_two_subjects }
+		trigger = { 
+			check_variable = {
+				which = diplo_annexed_nation
+				value = 3
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "integrated_regions"
+				duration = 3650 #25 years
+			}
+		}
+	}
+}

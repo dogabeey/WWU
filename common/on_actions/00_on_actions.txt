@@ -59,6 +59,14 @@ on_startup = {
 			which = cot_upgraded
 			value = 0
 		}
+		set_variable = {
+			which = cultures_promoted
+			value = 0
+		}
+		change_variable = {
+			which = provinces_gained
+			value = 1
+		}
 		# Religious and Cultural Unity for ALL NATIONS on start
 		# * * * TODO: THIS IS A TEMPORARY SOLUTION. DELETE THOSE LINES AFTER FIXING THEM IN HISTORY. * * *
 		# This will override history files
@@ -1796,6 +1804,10 @@ on_convert_by_trade_policy = {
 # province
 # FROM = old owner
 on_province_owner_change = {
+	change_variable = {
+		which = provinces_gained
+		value = 1
+	}
 	if = {
 		limit = {
 			FROM = { was_faction_leaders_war = yes }
@@ -1923,7 +1935,10 @@ on_center_of_trade_downgrade = {
 }
 
 on_culture_promoted = {
-
+	change_variable = {
+		which = cultures_promoted
+		value = 1
+	}
 }
 
 # FROM = Previous Country, ROOT = Province

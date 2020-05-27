@@ -1,479 +1,1140 @@
-army_professionalism_missions = {
+administrative_missions = {
 	slot = 1
 	generic = yes
-	ai = no
+	ai = yes
 	potential = {
-		always = yes
+		NOT = { is_landless = yes }
 	}
 	
-	professional_army_1 = {
-		icon = mission_assemble_an_army
-		required_missions = { build_army_mission }
+	improve_stability_mission = {
+		icon = mission_asian_trader
+		required_missions = {  }
+		trigger = {
+			stability = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_high_stability"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_income_mission = {
+		icon = mission_high_income
+		required_missions = { improve_stability_mission }
+		trigger = { share_of_starting_income = 1.25 }
+		effect = {
+			add_country_modifier = {
+				name = "es_1_increased_income"
+				duration = -1
+			}
+		}
+	}
+	
+	fill_treasury_mission = {
+		icon = mission_war_chest
+		required_missions = { increase_income_mission }
+		trigger = { years_of_income = 10 }
+		effect = {
+			add_country_modifier = {
+				name = "es_1_full_treasury"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_roads_mission = {
+		icon = mission_early_game_buildings
+		required_missions = { fill_treasury_mission }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				has_building = wow_lumbermill
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_roads"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_prestige_mission = {
+		icon = mission_monarch_in_throne_room
+		required_missions = { build_more_roads_mission }
+		trigger = { prestige = 25 }
+		effect = {
+			add_country_modifier = {
+				name = "es_1_increased_prestige"
+				duration = -1
+			}
+		}
+	}
+	
+	develop_capital_mission = {
+		icon = mission_eastern_european_city
+		required_missions = { increase_prestige_mission }
+		trigger = {
+			capital_scope = {
+				development = 21
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_capital_developed"
+				duration = -1
+			}
+		}
+	}
+	
+	fill_1_treasury_mission = {
+		icon = mission_war_chest
+		required_missions = { develop_capital_mission }
+		trigger = { years_of_income = 15 }
+		effect = {
+			add_country_modifier = {
+				name = "es_2_full_treasury"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_innocatives_mission = {
+		icon = mission_early_modern_university
+		required_missions = { fill_1_treasury_mission }
+		trigger = { if = { limit = { has_dlc = "Rule Britannia" } innovativeness = 10 } else = { num_of_owned_and_controlled_institutions = 1 } }
+		effect = {
+			add_country_modifier = {
+				name = "es_1_innovatives_increased"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_1_income_mission = {
+		icon = mission_high_income
+		required_missions = { increase_innocatives_mission }
+		trigger = { share_of_starting_income = 1.5 }
+		effect = {
+			add_country_modifier = {
+				name = "es_2_increased_income"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_1_prestige_mission = {
+		icon = mission_monarch_in_throne_room
+		required_missions = { increase_1_income_mission }
+		trigger = { 
+			prestige = 50 
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_2_increased_prestige"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_mints_mission = {
+		icon = mission_eastern_european_city
+		required_missions = { increase_1_prestige_mission }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				has_building = wow_mine
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_mints"
+				duration = -1
+			}
+		}
+	}
+	
+	build_multicultural_nation_mission = {
+		icon = mission_noble_council
+		required_missions = { build_more_mints_mission }
+		trigger = {
+			change_variable = {
+				which = cultures_promoted
+				value = 3
+			} 
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_multinational_country"
+				duration = -1
+			}
+		}
+	}
+	
+	fill_2_treasury_mission = {
+		icon = mission_war_chest
+		required_missions = { build_multicultural_nation_mission }
+		trigger = { years_of_income = 20 }
+		effect = {
+			add_country_modifier = {
+				name = "es_3_full_treasury"
+				duration = -1
+			}
+		}
+	}
+	
+	build_palaces_mission = {
+		icon = mission_japanese_fort
+		required_missions = { increase_1_prestige_mission }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				has_building = wow_large_mine
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_royal_palaces"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_2_government_rank_mission = {
+		icon = mission_empire
+		required_missions = { build_palaces_mission }
+		trigger = {
+			government_rank = 10
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_3_government_rank_increased"
+				duration = -1
+			}
+		}
+	}
+	
+}
+
+adm_missions = {
+	slot = 2
+	generic = yes
+	ai = yes
+	potential = {
+		NOT = { is_landless = yes }
+	}
+	
+	increase_religious_unity_mission = {
+		icon = mission_hands_praying
+		required_missions = { improve_stability_mission }
 		position = 2
 		trigger = {
-			army_professionalism = 0.05
-		}
-		effect = {
-			add_army_professionalism = 0.025
-		}
-	}
-	
-	building_barracks = {
-		icon = mission_early_modern_university
-		required_missions = { professional_army_1 }
-		position = 3
-		trigger = {
-			wow_barracks = 3
+			check_variable = {
+				which = religions_converted
+				value = 4
+			}
 		}
 		effect = {
 			add_country_modifier = {
-				name = "built_barracks"
-				duration = 3650 
+				name = "es_high_religious_unity"
+				duration = -1
 			}
 		}
 	}
 	
-	win_wars_1 = {
-		icon = mission_cannons_firing
-		required_missions = { building_barracks }
-		position = 4
+	build_more_churches_mission = {
+		icon = mission_european_church
+		required_missions = { increase_religious_unity_mission }
 		trigger = {
-			check_variable = {
-				which = wars_won
-				value = 5
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = wow_temple
+					has_building = wow_grand_temple
+				}
 			}
-		}
-		effect = {
-			add_army_tradition = 5
-			add_army_professionalism = 0.025
-		}
-	}
-	
-	professional_army_2 = {
-		icon = mission_assemble_an_army
-		required_missions = { win_wars_1 }
-		position = 6
-		trigger = {
-			army_professionalism = 0.25
 		}
 		effect = {
 			add_country_modifier = {
-				name = "shining_army"
-				duration = 3650 
+				name = "es_more_churches"
+				duration = -1
 			}
 		}
 	}
 	
-	
-	win_wars_2 = {
-		icon = mission_cannons_firing
-		required_missions = { professional_army_2 }
-		position = 7
+	become_defender_of_faith_mission = {
+		icon = mission_crusade_for_varna
+		required_missions = { build_more_churches_mission }
 		trigger = {
+			### ESU: is_defender_of_faith = yes
+			# Note: Not all religions have defender of faith in WWU. So changed it with this one.
 			check_variable = {
-				which = wars_won
+				which = religions_converted
 				value = 10
 			}
 		}
 		effect = {
-			add_army_tradition = 5
-			add_army_professionalism = 0.05
-		}
-	}
-}
-military_missions = {
-	slot = 2
-	generic = yes
-	ai = no
-	potential = {
-		always = yes
-	}
-	
-	build_army_mission = {
-		icon = mission_build_up_to_force_limit
-		required_missions = {  } #
-		position = 1
-		trigger = {
-			army_size_percentage = 1
-		}
-		effect = {
 			add_country_modifier = {
-				name = "thriving_arms_industry"
-				duration = 3650
-			}
-		}
-	}
-	
-	colonial_ambitions = {
-		icon = mission_build_up_to_force_limit
-		required_missions = { build_army_mission } #
-		position = 3
-		trigger = {
-			OR = {
-				num_of_owned_provinces_with = {
-					value = 3
-					is_overseas = yes
-				}
-				colony = 1
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "colonial_ambition"
-				duration = 3650
-			}
-		}
-	}
-	
-	global_empire = {
-		icon = mission_build_up_to_force_limit
-		required_missions = { colonial_ambitions } #
-		position = 5
-		trigger = {
-			num_of_continents = 3
-			grown_by_development = 150
-		}
-		effect = {
-			add_country_modifier = {
-				name = "colonial_ambition"
-				duration = 3650
-			}
-		}
-	}
-	
-	united_nation = {
-		icon = mission_empire
-		required_missions = { 
-			suppress_rebels
-			win_wars_2
-			global_empire
-		}
-		position = 8
-		trigger = {
-			all_country = {
-				NOT = { has_opinion_modifier = {
-					who = ROOT
-					modifier = aggressive_expansion
-				} }
-			}
-			all_province = {
-				is_core = ROOT
-				religion = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "hegemonic_victory"
+				name = "es_defender_of_faith"
 				duration = -1
 			}
 		}
 	}
-}
-expansion_missions = {
-	slot = 3
-	generic = yes
-	ai = no
-	potential = {
-		always = yes
-	}
 	
-	unite_home_region = {
-		icon = mission_unite_home_region
-		required_missions = { build_army_mission }
-		position = 2
-		provinces_to_highlight = {
-			region_for_scope_province = {
-				is_capital_of = ROOT
-			}
-			NOT = { owned_by = ROOT }
-		}
+	# To-do: Re-localize with portal
+	build_more_canals_mission = {
+		icon = mission_hanseatic_city
+		required_missions = { build_more_roads_mission }
 		trigger = {
-			capital_scope = {
-				region_for_scope_province = {
-					type = all
-					owned_by = ROOT #Subjects won't count, empty provinces will need to be colonized.
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = wow_portal_red
+					has_building = wow_portal_yellow
+					has_building = wow_portal_blue
+					has_building = wow_portal_green
 				}
 			}
 		}
 		effect = {
 			add_country_modifier = {
-				name = "secured_the_region"
-				duration = 3650 
+				name = "es_more_canals"
+				duration = -1
 			}
 		}
 	}
 	
-	expansion_1 = {
-		icon = mission_cannons_firing
-		required_missions = { unite_home_region }
-		position = 3
-		trigger = {
-			grown_by_states = 5
-		}
-		effect = {
-			add_country_modifier = {
-				name = "hegemonic_ambition"
-				duration = 3650 
-			}
-		}
-	}
-	
-	safety_of_region = {
-		icon = mission_colonial
-		required_missions = { expansion_1 }
-		position = 4
-		
-		trigger = {
-			calc_true_if = {
-			custom_trigger_tooltip = {
-				tooltip = safety_of_region_tt 
-					all_owned_province = {
-						any_neighbor_province = {
-							NOT = { owned_by = ROOT }
-						}
-						fort_level = 1
-					}
-				}
-				amount = 3
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "built_forts"
-				duration = 3650 
-			}
-		}
-	}
-	
-	wipe_out_threats = {
-		icon = mission_crusade_for_varna
-		required_missions = { safety_of_region }
+	build_more_monuments_mission = {
+		icon = mission_early_game_buildings
+		required_missions = { increase_prestige_mission }
 		position = 6
 		trigger = {
-			all_owned_province = {
-				all_core_country = {
-					tag = ROOT
-				}
+			num_of_owned_provinces_with = {
+				value = 1
+				has_building = wow_grand_monument
 			}
 		}
 		effect = {
 			add_country_modifier = {
-				name = "hegemonic_victory"
+				name = "es_more_monuments"
 				duration = -1
 			}
 		}
 	}
 	
-	suppress_rebels = {
-		icon = mission_steppe_warriors
-		required_missions = { wipe_out_threats }
-		position = 7
+	increase_government_rank_mission = {
+		icon = mission_empire
+		required_missions = { build_more_monuments_mission }
 		trigger = {
-			check_variable = {
-				which = rebels_suppressed
-				value = 5
-			}
+			government_rank = 3
 		}
 		effect = {
 			add_country_modifier = {
-				name = "almighty_nation"
-				duration = 3650
+				name = "es_1_government_rank_increased"
+				duration = -1
 			}
 		}
 	}
-}
-diplomatic_missions = {
-	slot = 4
-	generic = yes
-	ai = no
 	
-	potential = {
-	   always = yes
-	}
-	
-	good_diplomacy = {
-		icon = mission_asian_trader
-		position = 1
-		required_missions = {  } #
+	increase_1_government_rank_mission = {
+		icon = mission_empire
+		required_missions = { increase_government_rank_mission }
 		trigger = {
-			num_of_diplomatic_relations = 3
+			great_power_rank = 3
 		}
 		effect = {
-			add_dip_power = 50
+			add_country_modifier = {
+				name = "es_2_government_rank_increased"
+				duration = -1
+			}
 		}
 	}
-	building_alliances = {
-		icon = mission_alliances
-		position = 2
-		required_missions = {  } #
+	
+	build_more_universities_mission = {
+		icon = mission_early_modern_university
+		required_missions = { increase_innocatives_mission }
+		position = 9
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = building_alliances.tooltip
-				num_of_allies = 2
-				calc_true_if = {
-					all_ally = {
-						has_opinion = {
-							who = ROOT
-							value = 150
-						}
-					}
-					amount = 2
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+				    has_building = wow_town_hall
+					has_building = wow_grand_town_hall
 				}
 			}
 		}
 		effect = {
 			add_country_modifier = {
-				name = "friend_to_all"
-				duration = 3650 #25 years
+				name = "es_more_universities"
+				duration = -1
 			}
 		}
 	}
-	have_two_subjects = {
-		icon = mission_have_two_subjects
-		position = 3
-		required_missions = { building_alliances }
-		trigger = { 
-			OR = {
-				vassal = 2
-				tributary_state = 2
-			}
-		}
+	
+	increase_1_innocatives_mission = {
+		icon = mission_early_modern_university
+		required_missions = { build_more_universities_mission }
+		trigger = { if = { limit = { has_dlc = "Rule Britannia" } innovativeness = 25 } else = { num_of_owned_and_controlled_institutions = 2 } }
 		effect = {
 			add_country_modifier = {
-				name = "obedient_subjects"
-				duration = 3650 #25 years
+				name = "es_2_innovatives_increased"
+				duration = -1
 			}
 		}
 	}
-	diplo_annex_countries = {
-		icon = mission_monarch_in_throne_room
-		position = 4
-		required_missions = { have_two_subjects }
-		trigger = { 
-			check_variable = {
-				which = diplo_annexed_nation
-				value = 3
-			}
-		}
+	
+	increase_2_innocatives_mission = {
+		icon = mission_early_modern_university
+		required_missions = { increase_1_innocatives_mission }
+		trigger = { if = { limit = { has_dlc = "Rule Britannia" } innovativeness = 50 } else = { num_of_owned_and_controlled_institutions = 3 } }
 		effect = {
 			add_country_modifier = {
-				name = "integrated_regions"
-				duration = 3650 #25 years
+				name = "es_3_innovatives_increased"
+				duration = -1
 			}
 		}
 	}
-	trusted_alliances = {
+	
+	increase_3_innocatives_mission = {
+		icon = mission_early_modern_university
+		required_missions = { increase_2_innocatives_mission }
+		trigger = { if = { limit = { has_dlc = "Rule Britannia" } innovativeness = 75 } else = { num_of_owned_and_controlled_institutions = 4 } }
+		effect = {
+			add_country_modifier = {
+				name = "es_4_innovatives_increased"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_courthouses_mission = {
 		icon = mission_noble_council
-		position = 5
-		required_missions = { diplo_annex_countries }
-		trigger = { 
-			num_of_trusted_allies = 3
-		}
-		effect = {
-			add_dip_power = 100
-		}
-	}
-}
-espionage_missions = {
-	slot = 5
-	generic = yes
-	ai = no
-	
-	potential = {
-	   always = yes
-	}
-	
-	basic_networking = {
-		icon = mission_asian_trader
-		position = 2
-		required_missions = { good_diplomacy } #
+		required_missions = { build_multicultural_nation_mission }
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = basic_networking_tt
-				calc_true_if = {
-					all_country = {
-						has_spy_network_from = {
-							who = ROOT
-							value = 20
-						}
-					}
-					amount = 2
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = wow_court
+					has_building = wow_regional_court
 				}
 			}
 		}
 		effect = {
 			add_country_modifier = {
-				name = "espionage_ambition"
-				duration = 3650
+				name = "es_more_courthouses"
+				duration = -1
 			}
 		}
 	}
-	claim_lands = {
-		icon = mission_asian_trader
-		position = 3
-		required_missions = { sabotage_reputations } 
+	
+	build_treasuries_offices = {
+		icon = mission_war_chest
+		required_missions = { fill_2_treasury_mission }
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = claim_lands_tt
-				calc_true_if = {
-					all_province = {
-						is_claim = PREV
-						NOT = { is_core = PREV }
-					}
-					amount = 5
+			num_of_owned_provinces_with = {
+				value = 1
+				has_building = wow_tomb_of_riches
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_trasury_officies"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_2_prestige_mission = {
+		icon = mission_monarch_in_throne_room
+		required_missions = { build_treasuries_offices }
+		trigger = { prestige = 75 }
+		effect = {
+			add_country_modifier = {
+				name = "es_3_increased_prestige"
+				duration = -1
+			}
+		}
+	}
+
+}
+
+
+diplomatic_missions = {
+	slot = 3
+	generic = yes
+	ai = yes
+	potential = {
+		NOT = { is_landless = yes }
+	}
+	
+	building_alliances_mission = {
+		icon = mission_alliances
+		required_missions = {  }
+		trigger = {
+			num_of_allies = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_alliences"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_marketplaces = {
+		icon = mission_market_place_with_asian_traders
+		required_missions = { building_alliances_mission }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+				    has_building = wow_market
+					has_building = wow_grand_market
 				}
 			}
 		}
 		effect = {
-			random_province = {
-				limit = {
-					is_claim = PREV
-					NOT = { is_core = PREV }
-				}
-				add_core = ROOT
+			add_country_modifier = {
+				name = "es_more_marketplaces"
+				duration = -1
 			}
 		}
 	}
-	sabotage_reputations = {
-		icon = mission_asian_trader
-		position = 4
-		required_missions = { claim_lands } 
+	
+	build_more_workshops = {
+		icon = mission_have_manufactories
+		required_missions = { build_more_marketplaces }
 		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+				    has_building = wow_workshop
+					has_building = wow_grand_workshop
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_workshops"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_number_of_trade_centers = {
+		icon = mission_iberian_conquistador
+		required_missions = { build_more_workshops }
+		trigger = { check_variable = { which = cot_upgraded value = 3 } }
+		effect = {
+			add_country_modifier = {
+				name = "es_more_tradeceners"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_naval_arsenals = {
+		icon = mission_hanseatic_city
+		required_missions = { increase_number_of_trade_centers }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+				    has_building = wow_supply_depot
+					has_building = wow_well_stocked_supply_depot
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_morenaval_arsenals"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_docks = {
+		icon = mission_galleys_in_port
+		required_missions = { build_more_naval_arsenals }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+				    has_building = wow_dock
+					has_building = wow_drydock
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_docks"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_1_number_of_trade_centers = {
+		icon = mission_iberian_conquistador
+		required_missions = { build_more_docks }
+		trigger = { check_variable = { which = cot_upgraded value = 7 } }
+		effect = {
+			add_country_modifier = {
+				name = "es_more_1_tradeceners"
+				duration = -1
+			}
+		}
+	}
+	
+	dominate_home_trade_node = {
+		icon = mission_dominate_home_trade_node
+		required_missions = { increase_1_number_of_trade_centers }
+		trigger = {
+			home_trade_node = {
+				trade_share = {
+					country = ROOT
+					share = 75
+				}
+			}
+		}
+		effect = {
+	        add_country_modifier = {
+				name = "es_dominate_trade_node"
+				duration = -1
+			}
+		}
+	}
+	
+	high_mercantelism_mission = {
+		icon = mission_market_place_with_asian_traders
+		required_missions = { dominate_home_trade_node }
+		trigger = { mercantilism = 25 }
+		effect = {
+	        add_country_modifier = {
+				name = "es_high_mercantelism"
+				duration = -1
+			}
+	    }
+	}
+	
+	increase_2_number_of_trade_centers = {
+		icon = mission_iberian_conquistador
+		required_missions = { high_mercantelism_mission }
+		trigger = { check_variable = { which = cot_upgraded value = 10 } }
+		effect = {
+			add_country_modifier = {
+				name = "es_more_2_tradeceners"
+				duration = -1
+			}
+		}
+	}
+	
+	settle_new_continents = {
+		icon = mission_colonial
+		required_missions = { increase_2_number_of_trade_centers }
+		trigger = { num_of_continents = 3 }
+		effect = {
+			add_country_modifier = {
+				name = "es_more_continents"
+				duration = -1
+			}
+		}
+	}
+	
+	find_more_merchants_continents = {
+		icon = mission_noble_council
+		required_missions = { settle_new_continents }
+		trigger = { 
 			calc_true_if = {
 				all_country = {
 					has_opinion_modifier = {
-						who = ROOT
-						modifier = sabotage_reputation
+						who = PREV
+						modifier = transfers_trade_power
 					}
 				}
 				amount = 2
 			}
 		}
 		effect = {
-			random_province = {
-				limit = {
-					is_claim = PREV
-					NOT = { is_core = PREV }
-				}
-				add_core = ROOT
+			add_country_modifier = {
+				name = "es_more_merchants"
+				duration = -1
 			}
 		}
 	}
-	diplo_annex_countries = {
-		icon = mission_monarch_in_throne_room
-		position = 4
-		required_missions = { have_two_subjects }
-		trigger = { 
-			check_variable = {
-				which = diplo_annexed_nation
-				value = 3
+	
+	build_farm_estates = {
+		icon = mission_rice_field
+		required_missions = { find_more_merchants_continents }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				has_building = wow_farm
 			}
 		}
 		effect = {
 			add_country_modifier = {
-				name = "integrated_regions"
-				duration = 3650 #25 years
+				name = "es_farm_estate"
+				duration = -1
 			}
 		}
 	}
+	
+	es_build_textile = {
+		icon = mission_have_manufactories
+		required_missions = { build_farm_estates }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 1
+				has_building = wow_unique_grand_forge
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_textile"
+				duration = -1
+			}
+		}
+	}
+	
+	build_plantations = {
+		icon = mission_rice_field
+		required_missions = { es_build_textile }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				has_building = wow_large_farm
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_plantations"
+				duration = -1
+			}
+		}
+	}
+	
+}
+
+dip_missions = {
+	slot = 4
+	generic = yes
+	ai = yes
+	potential = {
+	   NOT = { is_landless = yes }
+	}
+	
+	exit_to_sea_mission = {
+		icon = mission_invade_island
+		required_missions = { building_alliances_mission }
+		position = 2
+		trigger = { num_of_ports = 1 }
+		effect = {
+			add_country_modifier = {
+				name = "es_exit_to_sea"
+				duration = -1
+			}
+		}
+	}
+	
+	build_small_fleet_mission = {
+		icon = mission_junk_boat
+		required_missions = { exit_to_sea_mission }
+		trigger = { navy_size_percentage = 1.0 }
+		effect = {
+			add_country_modifier = {
+				name = "es_small_fleet"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_shipyards_mission = {
+		icon = mission_galleys_in_port
+		required_missions = { build_small_fleet_mission }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+				    has_building = wow_shipyard
+					has_building = wow_grand_shipyard
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_shipyards"
+				duration = -1
+			}
+		}
+	}
+	
+	set_up_colony_mission = {
+		icon = mission_colonial
+		required_missions = { build_more_shipyards_mission }
+		trigger = { colony = 1 }
+		effect = {
+			add_country_modifier = {
+				name = "es_colony"
+				duration = -1
+			}
+		}
+	}
+	
+	build_medium_fleet_mission = {
+		icon = mission_sea_battles
+		required_missions = { set_up_colony_mission }
+		trigger = { navy_size_percentage = 1.35 }
+		effect = {
+			add_country_modifier = {
+				name = "es_medium_fleet"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_tariffs_mission = {
+		icon = mission_dominate_home_trade_node
+		required_missions = { build_medium_fleet_mission }
+		trigger = { tariff_value = 0.5 }
+		effect = {
+			add_country_modifier = {
+				name = "es_tariffs_increased"
+				duration = -1
+			}
+		}
+	}
+	
+	build_large_fleet_mission = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { increase_tariffs_mission }
+		trigger = { navy_size_percentage = 1.75 }
+		effect = {
+			add_country_modifier = {
+				name = "es_large_fleet"
+				duration = -1
+			}
+		}
+	}
+	
+	build_trusted_alliences_mission = {
+		icon = mission_alliances
+		required_missions = { dominate_home_trade_node }
+		trigger = { num_of_trusted_allies = 3 }
+		effect = {
+			add_country_modifier = {
+				name = "es_trusted_alliences"
+				duration = -1
+			}
+		}
+	}
+	
+	build_vassals_mission = {
+		icon = mission_have_two_subjects
+		required_missions = { build_trusted_alliences_mission }
+		trigger = { vassal = 3 }
+		effect = {
+			add_country_modifier = {
+				name = "es_vassals"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_embassies_mission = {
+		icon = mission_hanseatic_city
+		required_missions = { build_vassals_mission }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+				    has_building = wow_tavern
+					has_building = wow_well_kept_tavern
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_embassies"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_personal_unions_mission = {
+		icon = mission_have_two_subjects
+		required_missions = { build_more_embassies_mission }
+		trigger = { 
+			check_variable = {
+				which = diplo_annexed_nation
+				value = 2
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_personal_unions"
+				duration = -1
+			}
+		}
+	}
+	
+	rare_metals_production_leader = {
+		icon = mission_indian_stateman
+		required_missions = { find_more_merchants_continents }
+		
+		trigger = {
+			production_income_percentage = 0.20
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "es_rare_metals"
+				duration = -1
+			}
+		}
+	}
+}
+
+military_missions = {
+
+	slot = 5
+	generic = yes
+	ai = yes
+	
+	potential = {
+		NOT = { is_landless = yes }
+	}
+	has_country_shield = no
+	
+	es_build_army_mission = {
+		icon = mission_build_up_to_force_limit
+		required_missions = {  }
+		trigger = {
+			army_size_percentage = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_build_army"
+				duration = -1
+			}
+		}
+	}
+	
+	es_1_new_lands = {
+		icon = mission_chinese_general_riding
+		required_missions = { es_build_army_mission }
+		trigger = {
+			check_variable = { which = provinces_gained value = 25 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_1_new_lands"
+				duration = -1
+			}
+		}
+	}
+	
+	es_1_drill_army = {
+		icon = mission_italian_condottiere
+		required_missions = { es_1_new_lands }
+		trigger = { if = { limit = { has_dlc = "Cradle of Civilization" } army_professionalism = 0.25 } else = { army_size_percentage = 1.25 } }
+		effect = {
+			add_country_modifier = {
+				name = "es_1_proffesional_army"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_forts_mission = {
+		icon = mission_hanseatic_city
+		required_missions = { es_1_drill_army }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+				    has_building = wow_fort_1
+					has_building = wow_fort_2
+					has_building = wow_fort_3
+					has_building = wow_fort_4
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_forts"
+				duration = -1
+			}
+		}
+	}
+	
+	es_2_new_lands = {
+		icon = mission_chinese_general_riding
+		required_missions = { build_more_forts_mission }
+		trigger = {
+			check_variable = { which = provinces_gained value = 75 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_2_new_lands"
+				duration = -1
+			}
+		}
+	}
+	
+	es_2_drill_army = {
+		icon = mission_italian_condottiere
+		required_missions = { es_2_new_lands }
+		trigger = { if = { limit = { has_dlc = "Cradle of Civilization" } army_professionalism = 0.5 } else = { army_size_percentage = 1.5 } }
+		effect = {
+			add_country_modifier = {
+				name = "es_2_proffesional_army"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_training_fields_mission = {
+		icon = mission_persian_soldiers
+		required_missions = { es_2_drill_army }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+				    has_building = wow_training_grounds
+					has_building = wow_grand_training_grounds
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_training_fields"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_1_development_mission = {
+		icon = mission_trade_company_region_abroad
+		required_missions = { build_more_training_fields_mission }
+		trigger = {
+			grown_by_development = 100
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_1_development"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_conscription_center_mission = {
+		icon = mission_japanese_samurai
+		required_missions = { increase_1_development_mission }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+				    has_building = wow_barracks
+					has_building = wow_grand_barracks
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_conscription_center"
+				duration = -1
+			}
+		}
+	}
+	
+	es_3_new_lands = {
+		icon = mission_chinese_general_riding
+		required_missions = { build_more_conscription_center_mission }
+		trigger = {
+			check_variable = { which = provinces_gained value = 175 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_3_new_lands"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_2_development_mission = {
+		icon = mission_trade_company_region_abroad
+		required_missions = { es_3_new_lands }
+		trigger = {
+			grown_by_development = 200
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_2_development"
+				duration = -1
+			}
+		}
+	}
+	
+	es_3_drill_army = {
+		icon = mission_italian_condottiere
+		required_missions = { increase_2_development_mission }
+		trigger = { if = { limit = { has_dlc = "Cradle of Civilization" } army_professionalism = 0.75 } else = { army_size_percentage = 1.75 } }
+		effect = {
+			add_country_modifier = {
+				name = "es_3_proffesional_army"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_arsenal_mission = {
+		icon = mission_arabian_fort
+		required_missions = { es_3_drill_army }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 1
+				has_building = wow_unique_fortress
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_arsenal"
+				duration = -1
+			}
+		}
+	}
+	
+	increase_3_development_mission = {
+		icon = mission_trade_company_region_abroad
+		required_missions = { build_more_arsenal_mission }
+		trigger = {
+			grown_by_development = 300
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_3_development"
+				duration = -1
+			}
+		}
+	}
+	
+	build_more_mills_mission = {
+		icon = mission_have_manufactories
+		required_missions = { increase_3_development_mission }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 1
+				has_building = wow_unique_magic_tower
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "es_more_mills"
+				duration = -1
+			}
+		}
+	}
+	
 }
