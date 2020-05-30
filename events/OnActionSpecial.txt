@@ -51,16 +51,30 @@ country_event = {
 	
 	hidden = yes
 	
-	is_triggered_only = yes
+	trigger = {
+		any_country = {
+			NOT = { defensive_war_with = ROOT }
+			ROOT = {
+				has_country_flag = declared_war_to@PREV
+			}
+		}
+	}
 	
 	mean_time_to_happen = {
-		days = 1
+		days = 30
 	}
 	
 	immediate = {
-		clr_country_flag = declared_war_to@FROM
-		every_subject_country = {
-			clr_country_flag = declared_war_to@FROM
+		every_country = {
+			limit = {
+				NOT = { defensive_war_with = ROOT }
+				ROOT = {
+					has_country_flag = declared_war_to@PREV
+				}
+			}
+			ROOT = {
+				clr_country_flag = declared_war_to@PREV
+			}
 		}
 		#log = "[Root.GetName] signed peace with [From.GetName]"
 	}

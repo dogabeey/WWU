@@ -6,12 +6,14 @@ collapse_of_the_draenei_civilisation = {
 		NOT = { the_first_war_or_later = yes }
         capital_scope = { continent = continent_outland }
         culture_group = culture_group_draenei
+		ai = yes
 	}
 	
 	trigger = {
 		NOT = { the_first_war_or_later = yes }
 		capital_scope = { continent = continent_outland }
         culture_group = culture_group_draenei
+		ai = yes
 	}
 	
 	stability_cost_modifier = 0.2
@@ -24,11 +26,19 @@ the_power_of_fel = {
 		NOT = { the_second_war_or_later = yes }
         culture_group = culture_group_orc
         religion = religion_fel
+		NOT = { any_country = {
+			same_continent = ROOT
+			NOT = { ai = yes }
+		} }
     }
 	trigger = {
 		NOT = { the_second_war_or_later = yes }
         culture_group = culture_group_orc
         religion = religion_fel
+		NOT = { any_country = {
+			same_continent = ROOT
+			NOT = { ai = yes }
+		} }
 	}
 	
     discipline = 0.2
@@ -344,4 +354,18 @@ dark_portal_stasis = {
 	global_regiment_cost = 100
 	global_unrest = -100
 	diplomats = -5
+}
+
+ai_control = {
+	potential = {
+		ai = yes
+	}
+	
+	trigger = {
+		ai = yes
+	}
+	
+	all_power_cost = -0.1
+	global_unrest = -2
+	diplomatic_reputation = 2
 }

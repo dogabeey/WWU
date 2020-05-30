@@ -22,290 +22,26 @@ on_startup = {
 		limit = { NOT = { has_country_flag = on_action_setup_flag } }
 		
 		country_event = { id = es_start.1 }
+		country_event = { id = setup.1 }
+		country_event = { id = landless_setup.1 }
 		
-		set_variable = {
-			which = all_subjects
-			value = 1		
-		}
-		set_variable = {
-			which = war_won
-			value = 0
-		}
-		set_variable = {
-			which = war_lost
-			value = 0
-		}
-		set_variable = {
-			which = annexed_nation
-			value = 0
-		}
-		set_variable = {
-			which = diplo_annexed_nation
-			value = 1
-		}
-		set_variable = {
-			which = rebels_suppressed
-			value = 0
-		}
-		set_variable = {
-			which = cultures_converted
-			value = 0
-		}
-		set_variable = {
-			which = religions_converted
-			value = 0
-		}
-		set_variable = {
-			which = cot_upgraded
-			value = 0
-		}
-		set_variable = {
-			which = cultures_promoted
-			value = 0
-		}
-		change_variable = {
-			which = provinces_gained
-			value = 1
-		}
+		# Initializes variables which are used in on_actions
+		init_variables = yes
+		
 		# Religious and Cultural Unity for ALL NATIONS on start
 		# * * * TODO: THIS IS A TEMPORARY SOLUTION. DELETE THOSE LINES AFTER FIXING THEM IN HISTORY. * * *
-		# This will override history files
-		every_owned_province = {
-			limit = {
-				NOT = { religion = ROOT }
-				NOT = { has_province_flag = override_country_religion }  # Put this flag to province histories if you don't want to force province have country religion.
-			}
-			change_religion = ROOT
-		}
-		every_owned_province = {
-			limit = {
-				NOT = { culture = ROOT }
-				NOT = { has_province_flag = override_country_culture }  # Put this flag to province histories if you don't want to force province have country culture.
-			}
-			change_culture = ROOT
-		}
-		every_owned_province = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { has_province_flag = override_country_core }  # Put this flag to province histories if you don't want to force province have core.
-			}
-			add_core = ROOT
+		# This will override history files in default setting. See script file to see how to avoid overriding.
+		init_full_unity = yes
+		
+		#	Government Ranks
+		set_government_ranks = {
+			rank_2 = 100 # Rank 2 threshold
+			rank_3 = 500 # Rank 3 threshold
 		}
 		
-		country_event = { id = setup.1 days = 1 }
-		country_event = { id = landless_setup.1 days = 1 }
-		################################
-		#	Government Ranks
-		################################
-		if = { 
-			limit = {
-				NOT = { total_development = 100 }
-			}
-			set_government_rank = 1
-		}
-		if = { 
-			limit = { 
-				total_development = 100
-				NOT = { total_development = 500 }
-			}
-			set_government_rank = 2
-		}
-		if = { 
-			limit = { 
-				total_development = 500
-			}
-			set_government_rank = 3
-		}
-		################################
 		#	Government Settings
-		################################
-		if = {
-			limit = {
-				not_have_any_reform = yes
-			}
-			if = {
-				limit = {
-					government = tribal
-					has_dlc = "Dharma"
-				}
-				if  = { limit = { culture_group = culture_group_orc } add_government_reform = steppe_horde }
-				else_if = { limit = { is_pure_evil = yes } add_government_reform = war_against_the_world_reform }
-				else_if = { limit = { is_pirate = yes } add_government_reform = tribal_federation }
-				else_if = { limit = { is_ancient = yes } add_government_reform = nomad_state_reform }
-				else = {
-					random_list = {
-						35 = {
-						add_government_reform = steppe_horde
-						}
-						15 = {
-						add_government_reform = tribal_federation
-						}
-						5 = {
-						add_government_reform = war_against_the_world_reform
-						}
-					}
-				}
-			}
-			
-			if = {
-				limit = {
-					government = tribal
-					NOT = { 
-						has_dlc = "Dharma"
-					}
-				}
-				if = { limit = { culture_group = culture_group_orc } set_legacy_government = steppe_horde_legacy }
-				else_if = { limit = { is_pure_evil = yes } set_legacy_government = war_against_the_world_legacy }
-				else_if = { limit = { is_pirate = yes } set_legacy_government = tribal_federation_legacy }
-				else_if = { limit = { is_ancient = yes } add_government_reform = nomad_state_reform }
-				else = {
-					random_list = {
-						35 = {
-						set_legacy_government = steppe_horde_legacy
-						}
-						15 = {
-						set_legacy_government = tribal_federation_legacy
-						}
-						5 = {
-						set_legacy_government = war_against_the_world_legacy
-						}
-					}
-				}
-			}	
-		##########################################	
-			if = {
-				limit = {
-					government = monarchy
-					has_dlc = "Dharma"
-				}
-				if = { limit = { is_pirate = yes } add_government_reform = opportunism }
-				else_if = { limit = { is_ancient = yes } add_government_reform = ancient_dynasty_reform }
-				else_if = { limit = { tag = A14 } add_government_reform = admiralty_reform }
-				else_if = { limit = { OR = { tag = A90 tag = A91 } } add_government_reform = hereditary_monarchy }
-				else_if = { limit = { OR = { religion = religion_arcane tag = A18 } } add_government_reform = kingdom_of_magic }
-				else_if = { limit = { OR = { culture_group = culture_group_scourge culture_group = culture_group_undead } } add_government_reform = scourge_reform }
-				else = {
-					random_list = {
-						100 = {
-							add_government_reform = autocracy_reform
-						}
-					}
-				}
-			}
-			
-			if = {
-				limit = {
-					government = monarchy
-					NOT = { 
-						has_dlc = "Dharma"
-					}
-				}
-				if = { limit = { is_pirate = yes } set_legacy_government = opportunism_legacy }
-				else_if = { limit = { is_ancient = yes } set_legacy_government = ancient_dynasty_legacy }
-				else_if = { limit = { tag = A14 } set_legacy_government = admiralty_legacy }
-				else_if = { limit = { OR = { tag = A90 tag = A91 } } set_legacy_government = hereditary_monarchy_legacy }
-				else_if = { limit = { OR = { religion = religion_arcane tag = A18 } } set_legacy_government = kingdom_of_magic_legacy }
-				else_if = { limit = { OR = { culture_group = culture_group_scourge culture_group = culture_group_undead } } set_legacy_government = scourge_legacy }
-				else = {
-					random_list = {
-						100 = {
-							set_legacy_government = despotic_monarchy
-						}
-					}
-				}
-			}
-		##########################################	
-			if = {
-				limit = {
-					government = theocracy
-					has_dlc = "Dharma"
-				}
-				if = { limit = { is_ancient = yes } add_government_reform = ancient_divinity_reform }
-				random_list = {
-					100 = {
-						add_government_reform = holy_republic_reform
-					}
-				}
-			}
-			
-			if = {
-				limit = {
-					government = theocracy
-					NOT = { 
-						has_dlc = "Dharma"
-					}
-				}
-				if = { limit = { is_ancient = yes } set_legacy_government = ancient_divinity_legacy }
-				random_list = {
-					100 = {
-						set_legacy_government = holy_republic_government
-					}
-				}
-			}
-		##########################################	
-			if = {
-				limit = {
-					has_country_modifier = alliance_head
-				}
-				change_government = monarchy
-				add_government_reform = alliance_reform
-			}
-			if = {
-				limit = {
-					has_country_modifier = horde_head
-				}
-				change_government = monarchy
-				add_government_reform = horde_reform
-			}
-		##########################################	
-			if = {
-				limit = {
-					government = republic
-					has_dlc = "Dharma"
-				}
-				if = { limit = { is_pirate = yes } add_government_reform = pirate_republic_reform }
-				else_if = { limit = { is_merchant = yes } add_government_reform = merchants_reform }
-				else_if = { limit = { is_ancient = yes } add_government_reform = ancient_civilization_reform }
-				else = {
-					random_list = {
-						1 = {
-							add_government_reform = peasants_republic
-						}
-						1 = {
-							add_government_reform = noble_elite_reform
-						}
-						1 = {
-							add_government_reform = bureaucratic_despotism_reform
-						}
-					}
-				}
-			}
-			
-			if = {
-				limit = {
-					government = republic
-					NOT = { 
-						has_dlc = "Dharma"
-					}
-				}
-				if = { limit = { is_pirate = yes } set_legacy_government = pirate_republic }
-				else_if = { limit = { is_merchant = yes } set_legacy_government = merchant_republic }
-				else_if = { limit = { is_ancient = yes } set_legacy_government = ancient_civilization_legacy }
-				else = {
-					random_list = {
-						1 = {
-							set_legacy_government = peasants_republic_legacy
-						}
-						1 = {
-							set_legacy_government = noble_republic
-						}
-						1 = {
-							set_legacy_government = bureaucratic_despotism
-						}
-					}
-				}
-			}
-		}
+		init_governments = yes # Very, VERY long code.
+		
 		swap_non_generic_missions = yes
 		add_legitimacy = 100
 		add_republican_tradition = 100
@@ -383,12 +119,11 @@ on_peace_recipient = {
 # root = winning country, from = loser country
 on_war_won = {
 	ROOT = { 
-		country_event = { id = tributary_events.32 } 
+		country_event = { id = tributary_events.32 }
 		change_variable = {
 			which = war_won
 			value = 1
 		}
-		set_country_flag = won_war_against@FROM
 	}
 	events = {
 		on_action_special.2
@@ -399,11 +134,10 @@ on_war_won = {
 # root = loser country, from = winner country
 on_war_lost = {
 	ROOT = { country_event = { id = tributary_events.32 } }
-		change_variable = {
-			which = war_lost
-			value = 1
-		}
-		set_country_flag = lost_war_against@FROM
+	change_variable = {
+		which = war_lost
+		value = 1
+	}
 	events = {
 		on_action_special.2
 	}
