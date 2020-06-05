@@ -5,7 +5,10 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			historical_alliance = yes
+			OR = {
+				historical_alliance_head = yes
+				all_country = { NOT = { historical_alliance_head = yes } }
+			}
 			NOT = { has_country_modifier = alliance_head }
 			all_country = { NOT = { has_country_modifier = alliance_head } }
 		}
@@ -47,7 +50,10 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			historical_horde = yes
+			OR = {
+				historical_horde_head = yes
+				all_country = { NOT = { historical_horde_head = yes } }
+			}
 			NOT = { has_country_modifier = horde_head }
 			all_country = { NOT = { has_country_modifier = horde_head } }
 		}

@@ -268,11 +268,12 @@ country_event = {
 	title = factions.7.title
 	desc = factions.7.desc
 	picture = KING_LLANE_eventPicture
-	hidden = yes
+	hidden = no
+	is_triggered_only = yes
 	
 	trigger = {
-		has_country_modifier = alliance_head
-		is_subject = yes
+		NOT = { has_country_modifier = horde_head }
+		FROM = { has_country_modifier = alliance_head }
 	}
 	
 	mean_time_to_happen = {
@@ -282,12 +283,11 @@ country_event = {
 	option = {
 		name = factions.7.opt1
 		#log = "factions.7.opt1"
-		remove_country_modifier = alliance_head
-		overlord = {
-			add_country_modifier = {
-				name = alliance_head
-				duration = -1
-			}
+		log = "[Root.GetName] vassalized [From.GetName]"
+		FROM = { remove_country_modifier = alliance_head }
+		add_country_modifier = {
+			name = alliance_head
+			duration = -1
 		}
 	}
 }
@@ -297,11 +297,12 @@ country_event = {
 	title = factions.8.title
 	desc = factions.8.desc
 	picture = KING_LLANE_eventPicture
-	hidden = yes
+	hidden = no
+	is_triggered_only = yes
 	
 	trigger = {
-		has_country_modifier = horde_head
-		is_subject = yes
+		NOT = { has_country_modifier = horde_head }
+		FROM = { has_country_modifier = horde_head }
 	}
 	
 	mean_time_to_happen = {
@@ -311,12 +312,10 @@ country_event = {
 	option = {
 		name = factions.7.opt1
 		#log = "factions.7.opt1"
-		remove_country_modifier = horde_head
-		overlord = {
-			add_country_modifier = {
-				name = horde_head
-				duration = -1
-			}
+		FROM = { remove_country_modifier = horde_head }
+		add_country_modifier = {
+			name = horde_head
+			duration = -1
 		}
 	}
 }

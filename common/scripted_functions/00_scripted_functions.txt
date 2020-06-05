@@ -38,14 +38,6 @@ can_declare_bankruptcy = {
 }
 
 can_release_colonial_nation = {
-	condition = {
-		tooltip = "CAN_RELEASE_CN_WE_ARE_AT_WAR"
-		potential = {
-		}
-		allow = {
-			culture_group = culture_group_dragonkin
-		}
-	}
 }
 
 can_claim_defender_of_faith = {
@@ -176,6 +168,15 @@ can_colonize_province = {
 		potential = {
 			region = region_teldrassil
 			FROM = { NOT = { the_third_war_or_later = yes } }
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = "WOW_UNCOLONIZABLE_BROKENSHORE"
+		potential = {
+			has_province_flag = broken_shore_uncolonizable
 		}
 		allow = {
 			always = no
