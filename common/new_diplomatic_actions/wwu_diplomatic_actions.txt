@@ -1296,26 +1296,14 @@ kick_from_alliance = {
 	}
 
 	ai_will_do = {
-		OR = {
-			FROM = {
+		FROM = {
+			OR = {
 				liberty_desire = 100
-				army_strength = {
-					who = ROOT
-					value = 1
-				}
-			}
-			FROM = {
-				liberty_desire = 75
-				army_strength = {
-					who = ROOT
-					value = 1.25
-				}
-			}
-			FROM = {
-				liberty_desire = 50
-				army_strength = {
-					who = ROOT
-					value = 1.50
+				NOT = { 
+					has_opinion = {
+						who = ROOT
+						value = -100
+					}
 				}
 			}
 		}
@@ -1357,26 +1345,14 @@ kick_from_horde = {
 	}
 
 	ai_will_do = {
-		OR = {
-			FROM = {
+		FROM = {
+			OR = {
 				liberty_desire = 100
-				army_strength = {
-					who = ROOT
-					value = 1
-				}
-			}
-			FROM = {
-				liberty_desire = 75
-				army_strength = {
-					who = ROOT
-					value = 1.25
-				}
-			}
-			FROM = {
-				liberty_desire = 50
-				army_strength = {
-					who = ROOT
-					value = 1.50
+				NOT = { 
+					has_opinion = {
+						who = ROOT
+						value = -100
+					}
 				}
 			}
 		}
