@@ -5,10 +5,7 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			OR = {
-				historical_alliance_head = yes
-				all_country = { NOT = { historical_alliance_head = yes } }
-			}
+			historical_alliance_head = yes
 			NOT = { has_country_modifier = alliance_head }
 			all_country = { NOT = { has_country_modifier = alliance_head } }
 		}
@@ -50,10 +47,7 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			OR = {
-				historical_horde_head = yes
-				all_country = { NOT = { historical_horde_head = yes } }
-			}
+			historical_horde_head = yes
 			NOT = { has_country_modifier = horde_head }
 			all_country = { NOT = { has_country_modifier = horde_head } }
 		}
@@ -61,6 +55,23 @@ country_decisions = {
 		allow = {
 			is_subject = no
 			total_development = 150
+			OR = {
+				historical_horde_head = yes
+				AND = {
+					all_country = { 
+						historical_horde_head = yes
+						NOT = { total_development = 150 }
+					}
+					historical_horde = yes
+				}
+				AND = {
+					all_country = { 
+						historical_horde = yes
+						NOT = { total_development = 150 }
+					}
+					culture_group = culture_group_orc
+				}
+			}
 		}
 		
 		effect = {
