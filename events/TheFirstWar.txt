@@ -16,7 +16,18 @@ country_event = {
 	trigger = {
         current_age = the_first_war
         capital_scope = { continent = continent_outland }
-        culture_group = culture_group_orc
+		OR = {
+			faction_horde = 1
+			AND = {
+				any_country = {
+					faction_horde = 1
+					any_owned_province = {
+						region = region_blasted_lands
+					}
+				}
+				is_subject_of_type = faction_horde
+			}
+		}
 		any_province = {
 			OR = {
 				region = region_blasted_lands

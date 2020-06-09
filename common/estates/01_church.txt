@@ -105,18 +105,8 @@ estate_church =
 		stability_cost_modifier = 0.25
 	}	
 	
-	# These do not scale, but only applied in provinces owned by the estate
-	province_modifier_happy = {
-		local_missionary_strength = 0.015
-		local_tax_modifier = 0.15
-		local_unrest = -1.5
-		local_missionary_maintenance_cost = -0.15
-	}
-	province_modifier_neutral = {
-	}	
-	province_modifier_angry = {
-		local_unrest = 10
-	}	
+	land_ownership_modifier = { }
+	province_independence_weight = { factor = 1 }
 	
 	# Influence modifiers
 	base_influence = 20
@@ -172,12 +162,7 @@ estate_church =
 	}
 	
 	# For province assignment
-	ai_grant_province = {
-		factor = 1
-		modifier = {
-			factor = 10
-			has_owner_religion = no
-			NOT = { tolerance_to_this = 1 }
+	
 		}
 		modifier = {
 			factor = 0.1
@@ -207,11 +192,7 @@ estate_church =
 	}
 	
 	# Does the AI want to give any extra territory beyond the minimum?
-	ai_territory_modifier = {
-		trigger = {
-			has_idea_group = supremacist_ideas
-			num_of_cities = 10
-		}	
+		
 		value = 10		
 	}		
 	

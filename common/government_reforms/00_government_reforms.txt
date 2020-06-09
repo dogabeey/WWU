@@ -58,6 +58,9 @@ defaults_reform = {
 	admirals_become_rulers = no
 	generals_become_rulers = no
 	allow_banners = no
+	uses_revolutionary_zeal = no
+	revolutionary = no
+	revolutionary_client_state = no
 	disallowed_trade_goods = {}
 }
 
@@ -174,7 +177,6 @@ horde_legacy = {
 	maintain_dynasty = no
 	nation_designer_cost = 0
 	nomad = yes
-	allow_vassal_war = yes
 	
 	conditional = {
 		allow = { has_dlc = "Cradle of Civilization" }
@@ -215,7 +217,7 @@ council_monarchy_legacy = {
 	legacy_government = yes
 	start_territory_to_estates = 0.3
 	modifiers = {
-		max_states = 1
+		governing_capacity = 100
 		global_unrest = -1
 	}
 
@@ -239,7 +241,7 @@ despotic_monarchy = {
 	government_abilities = {  }
 
 	modifiers = {
-    	max_states = 1
+    	governing_capacity = 100
 		global_unrest = -1
 		unjustified_demands = -0.10
 		global_autonomy = -0.05
@@ -422,7 +424,7 @@ hereditary_monarchy_legacy = {
 		absolute_hereditary = yes
 	}
 	modifiers = {
-		max_states = 1
+		governing_capacity = 100
 		legitimacy = 0.5
 		global_unrest = -2
 		stability_cost_modifier = -0.25
@@ -475,7 +477,7 @@ kingdom_of_magic_legacy = {
 		land_morale = 0.10
 		diplomatic_reputation = 1
 		max_absolutism = -30
-		max_states = 1
+		governing_capacity = 100
 		advisor_cost = -0.25
 		
 		global_autonomy = -0.025
@@ -573,7 +575,7 @@ ottoman_government_legacy = {
 		diplomatic_annexation_cost = -0.10
 		max_absolutism = 5
 		monarch_diplomatic_power = 1
-		max_states = 1
+		governing_capacity = 100
 	}
 	
 	government_abilities = {  }
@@ -634,7 +636,7 @@ factions = {
 		caravan_power = 0.10
 		trade_efficiency = 0.10
 		max_absolutism = -50
-    	max_states = 1
+    	governing_capacity = 100
 	}
 	
 	can_use_trade_post = yes
@@ -670,7 +672,7 @@ oligarchic_republic = {
 		mr_guilds
 	}
 	modifiers = {
-		max_states = 1
+		governing_capacity = 100
 		years_of_nationalism = -5
 		stability_cost_modifier = -0.10
 		global_autonomy = -0.10
@@ -752,7 +754,7 @@ factions = {
 		mr_guilds
 	}
 	modifiers = {
-   		max_states = 1
+   		governing_capacity = 100
 		tolerance_heathen = 1
 		cavalry_power = 0.10
 		free_leader_pool = 1
@@ -794,7 +796,7 @@ factions = {
 		mr_guilds
 	}
 	modifiers = {
-    	max_states = 1
+    	governing_capacity = 100
 		global_autonomy = -0.075
 		tolerance_heathen = 1
 		land_morale = 0.1
@@ -832,7 +834,7 @@ bureaucratic_despotism = {
 
 	republic = yes
 	modifiers = {
-		max_states = 1
+		governing_capacity = 100
 		global_autonomy = -0.10
 		stability_cost_modifier = -0.10
 		global_unrest = -1
@@ -927,7 +929,7 @@ factions = {
 		global_trade_power = 0.1
 		max_absolutism = -25
 		merchants = 1
-    	max_states = 1
+    	governing_capacity = 100
 	}
 
 	conditional = {
@@ -999,7 +1001,7 @@ magocracy_legacy = {
 	republic = yes
 	government_abilities = {  }
 	modifiers = {
-		max_states = 1
+		governing_capacity = 100
 		global_tax_modifier = 0.10
 		tolerance_heathen = 1
 		global_autonomy = -0.10
@@ -1038,7 +1040,7 @@ factions = {
 		global_autonomy = -0.05
 		recover_army_morale_speed = 0.01
 		embracement_cost = -0.10
-		max_states = 1
+		governing_capacity = 100
 		global_institution_spread = 0.10
 	}
 	
@@ -1080,7 +1082,7 @@ factions = {
 		production_efficiency = 0.10
 		land_morale = 0.05
 		max_absolutism = -50
-		max_states = 1
+		governing_capacity = 100
 		global_autonomy = -0.05
 	}
 
@@ -1121,7 +1123,7 @@ factions = {
 		es_knights
 	}
 	modifiers = {
-		max_states = 1
+		governing_capacity = 100
 		global_heretic_missionary_strength = 0.01
 		fort_maintenance_modifier = -0.10
 		defensiveness = 0.10
@@ -1166,7 +1168,7 @@ factions = {
 		es_knights
 	}
 	modifiers = {
-		max_states = 1
+		governing_capacity = 100
 		global_unrest = -1
 		prestige = 0.5
 		diplomatic_reputation = 1
@@ -1379,7 +1381,7 @@ steppe_horde_legacy = {
 	nation_designer_cost = 0
 
 	modifiers = {
-	    max_states = 1
+	    governing_capacity = 100
 		global_manpower_modifier = 0.10
 		land_forcelimit_modifier = 0.10
 		years_of_nationalism = -5
@@ -1428,7 +1430,7 @@ tribal_federation_legacy = {
 
 	
 	modifiers = {
-		max_states = 1
+		governing_capacity = 100
 		monarch_admin_power = 1
 		stability_cost_modifier = -0.10
 	}
@@ -1539,7 +1541,7 @@ tribal_republic_legacy = {
 	nation_designer_cost = 0
 
 	modifiers = {
-		max_states = 1
+		governing_capacity = 100
 		trade_efficiency = 0.10
 		num_accepted_cultures = 1
 		navy_tradition_decay = -0.01
@@ -1575,7 +1577,7 @@ tribal_theocratic_state_legacy = {
 	nation_designer_cost = 0
 
 	modifiers = {
-		max_states = 1
+		governing_capacity = 100
 		tolerance_own = 1
 		culture_conversion_cost = -0.10
 		global_missionary_strength = 0.01

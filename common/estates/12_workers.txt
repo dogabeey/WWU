@@ -57,15 +57,11 @@ estate_workers =
 		build_time = 0.25
 	}
 	
-	# These do not scale, but only applied in provinces owned by the estate
-	province_modifier_happy = {
-		local_tax_modifier = 0.1
-	}
-	province_modifier_neutral = {
-	}		
-	province_modifier_angry = {
-		local_unrest = 5
-	}	
+	land_ownership_modifier = { }
+	province_independence_weight = { factor = 1 }
+	
+			
+		
 	
 	# Influence modifiers
 	base_influence = 10
@@ -161,11 +157,7 @@ estate_workers =
 	}
 	
 	# For province assignment
-	ai_grant_province = {
-		factor = 1
-		modifier = {
-			factor = 0.5
-			NOT = { province_trade_power = 5 }
+	
 		}			
 		modifier = {
 			factor = 4
@@ -187,25 +179,13 @@ estate_workers =
 	}	
 	
 	# Does the AI want to give any extra territory beyond the minimum?
-	ai_territory_modifier = {
-		trigger = {
-			government = monarchy
-			num_of_cities = 10
-		}	
+		
 		value = 10
 	}	
-	ai_territory_modifier = {
-		trigger = {
-			has_idea_group = mercantile_ideas
-			num_of_cities = 10
-		}	
+		
 		value = 5			
 	}
-	ai_territory_modifier = {
-		trigger = {
-			has_idea_group = necromancy_ideas
-			num_of_cities = 10
-		}	
+		
 		value = 5		
 	}
 

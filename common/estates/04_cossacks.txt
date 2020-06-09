@@ -94,17 +94,11 @@ estate_cossacks = {
 		land_forcelimit_modifier = -0.1
 	}
 	
-	# These do not scale, but only applied in provinces owned by the estate
-	province_modifier_happy = {	
-		local_hostile_attrition = 1.5
-		local_manpower_modifier = 0.1
-	}
-	province_modifier_neutral = {
-	}	
-	province_modifier_angry = {
-		local_hostile_attrition = -1.5
-		local_manpower_modifier = -0.1
-	}
+	land_ownership_modifier = { }
+	province_independence_weight = { factor = 1 }
+	
+		
+	
 	
 	# Influence modifiers
 	base_influence = 0
@@ -152,12 +146,7 @@ estate_cossacks = {
 	}
 	
 	# For province assignment
-	ai_grant_province = {
-		factor = 10		
-		modifier = {
-			factor = 4
-			local_autonomy = 25
-		}
+	
 		modifier = {
 			factor = 0.25
 			NOT = { local_autonomy = 25 }
@@ -165,10 +154,7 @@ estate_cossacks = {
 	}	
 	
 	# Does the AI want to give any extra territory beyond the minimum?
-	ai_territory_modifier = {
-		trigger = {
-			always = yes
-		}	
+		
 		value = 100	# Code has a sanity check against pushing influence too high
 	}
 

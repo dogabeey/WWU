@@ -76,16 +76,11 @@ estate_nobles =
 		monthly_support_heir_gain = -0.25
 	}
 	
-	# These do not scale, but only applied in provinces owned by the estate
-	province_modifier_happy = {
-		local_defensiveness = 0.15
-		local_manpower_modifier = 0.15
-	}
-	province_modifier_neutral = {
-	}	
-	province_modifier_angry = {
-		local_unrest = 10
-	}		
+	land_ownership_modifier = { }
+	province_independence_weight = { factor = 1 }
+	
+		
+			
 	
 	# Influence modifiers
 	base_influence = 20
@@ -194,28 +189,15 @@ estate_nobles =
 	}
 
 	# Does the AI want to give any extra territory beyond the minimum?
-	ai_territory_modifier = {
-		trigger = {
-			has_idea_group = holy_ideas
-			num_of_cities = 10
-		}	
+		
 		value = 5		
 	}
-	ai_territory_modifier = {
-		trigger = {
-			has_idea_group = influence_ideas
-			num_of_cities = 10
-		}	
+		
 		value = 5		
 	}		
 	
 	# For province assignment
-	ai_grant_province = {
-		factor = 1	
-		modifier = {
-			factor = 0.5
-			development = 20
-		}
+	
 		modifier = {
 			factor = 2
 			NOT = { development = 10 }

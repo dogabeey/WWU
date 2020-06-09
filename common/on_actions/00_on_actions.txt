@@ -24,12 +24,17 @@ on_startup = {
 		country_event = { id = es_start.1 }
 		country_event = { id = setup.1 }
 		country_event = { id = landless_setup.1 }
-		
+		every_country = {
+			limit = {
+				exists = yes
+			}
+			export_to_variable = { which = temp value = prestige }
+			log = "Prestige: [This.temp.GetValue] Country: [This.GetName]"
+		}
 		# Initializes variables which are used in on_actions
 		init_variables = yes
 		
-		# Religious and Cultural Unity for ALL NATIONS on start
-		# * * * TODO: THIS IS A TEMPORARY SOLUTION. DELETE THOSE LINES AFTER FIXING THEM IN HISTORY. * * *
+		# Religious and Cultural Unity for ALL NATIONS on start and Core creation.
 		# This will override history files in default setting. See script file to see how to avoid overriding.
 		init_full_unity = yes
 		
@@ -43,11 +48,13 @@ on_startup = {
 		init_governments = yes # Very, VERY long code.
 		
 		swap_non_generic_missions = yes
-		add_legitimacy = 100
-		add_republican_tradition = 100
-		add_devotion = 100
-		add_horde_unity = 100
-		add_papal_influence = 100
+		add_legitimacy = 75
+		add_republican_tradition = 75
+		add_devotion = 75
+		add_horde_unity = 75
+		add_papal_influence = 75
+		add_prestige = 200
+		ROOT = { add_prestige = -100 }
 		
 		set_country_flag = on_action_setup_flag
 	}

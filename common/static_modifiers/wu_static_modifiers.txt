@@ -518,7 +518,7 @@ base_values = {
 	republican_tradition = 1
 	monthly_fervor_increase = 1
 	vassal_income = 0.10
-	max_states = 10
+	governing_capacity = 200
 	num_accepted_cultures = 2
 	monthly_splendor = 1
 	artillery_bonus_vs_fort = 5
@@ -538,7 +538,7 @@ ai_nation = {
 war_taxes = {
 	land_maintenance_modifier = -0.15
 	naval_maintenance_modifier = -0.15
-	possible_mercenaries = 0.25
+	
 	global_unrest = 2.5
 	war_exhaustion = 0.05
 }
@@ -612,7 +612,7 @@ negative_mandate = { # By default, starts at 50 mandate, 100% strength at 0 mand
 	fire_damage_received = 0.5
 	shock_damage_received = 0.5
 	global_unrest = 5
-	possible_mercenaries = -1
+	
 }
 
 lost_mandate_of_heaven = {
@@ -627,7 +627,7 @@ lost_mandate_of_heaven = {
 	republican_tradition = -1
 	devotion = -1
     horde_unity = -1
-	possible_mercenaries = -1
+	
 }
 
 cancelled_loan = {
@@ -1155,7 +1155,7 @@ absolutism = {
 
 low_army_professionalism = {
 	mercenary_cost = -0.25
-	possible_mercenaries = 0.25
+	
 }
 
 high_army_professionalism = {
@@ -1587,4 +1587,33 @@ cossacks_modifier = {
 
 faction_member = {
 	diplomatic_reputation = 2
+}
+
+########################################
+# Government/Reform modfiers
+########################################
+
+expand_administation_modifier = {
+	expand_administration_cost = 0.20
+	governing_capacity = 20
+}
+
+# At 100% over capacity, this modifier will be fully used
+over_governing_capacity_modifier = {
+	stability_cost_modifier = 1.0
+	ae_impact = 0.5
+	improve_relation_modifier = -0.5
+	core_creation = 0.2
+	advisor_cost = 1.0
+	monthly_militarized_society = -1.0
+	
+}
+
+
+lost_hegemony = {
+	all_power_cost	= 0.10
+}
+
+at_peace_revolutionary = { # Applied if at peace while reactionaries are bordering you
+	yearly_revolutionary_zeal = -4
 }
