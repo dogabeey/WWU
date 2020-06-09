@@ -18,7 +18,7 @@ estate_workers =
     }
 	
 	# Is estate kept in control of province on conquest?
-	keep_on_conquest = no		
+	#keep_on_conquest = no		
 
 	# If true, country will get estate
 	trigger = {	
@@ -29,21 +29,19 @@ estate_workers =
 	}
 	
 	# If true, province can be granted to estate
-	province_trigger = {
 	
-	}
 
 	# Is used to weigh importance compared to other estates
-	start_territory_weight = 5
+	#start_territory_weight = 5
 	
 	# Min autonomy in estate provinces
-	min_autonomy = 25
+	#min_autonomy = 25
 	
 	# Estate cancels out the following multiplicative local autonomy effects:
-	autonomy_does_not_affect = local_production_efficiency
-	autonomy_does_not_affect = province_trade_power_modifier
-	autonomy_does_not_affect = naval_forcelimit_modifier
-	autonomy_does_not_affect = local_sailors_modifier
+	
+	
+	
+	
 
 	# These scale with loyalty & power
 	country_modifier_happy = {
@@ -156,186 +154,7 @@ estate_workers =
 		loyalty = 10
 	}
 	
-	# For province assignment
 	
-		}			
-		modifier = {
-			factor = 4
-			num_free_building_slots = 10
-		}
-		modifier = {
-			factor = 0.1
-			has_estate = estate_cossacks
-			has_terrain = steppe
-		}
-		modifier = {
-			factor = 2
-			local_autonomy = 25
-		}
-		modifier = {
-			factor = 0.25
-			NOT = { local_autonomy = 25 }
-		}
-	}	
 	
-	# Does the AI want to give any extra territory beyond the minimum?
-		
-		value = 10
-	}	
-		
-		value = 5			
-	}
-		
-		value = 5		
-	}
-
-	# Special interactions
-	interaction = {
-		name = "WORK_OVERTIME"
-		icon = 6
-		
-		years_between_use = 10
-		
-		potential = {
-			NOT = { has_disaster = estate_church_disaster }
-			NOT = { has_disaster = estate_nobility_disaster }
-		}
-		
-		trigger = {
-			estate_loyalty = {
-				estate = estate_workers
-				loyalty = 30
-			}				
-		}
-		
-		effect = {
-			if = {
-				limit = {
-					NOT = {
-						estate_influence = {
-							estate = estate_workers
-							influence = 50
-						}	
-					}
-				}
-				
-				add_country_modifier = {
-					name = working_overtime
-					duration = 900
-				}
-			}
-			if = {
-				limit = {
-					estate_influence = {
-						estate = estate_workers
-						influence = 50
-					}
-					NOT = {
-						estate_influence = {
-							estate = estate_workers
-							influence = 75
-						}	
-					}
-				}
-				add_country_modifier = {
-					name = working_overtime
-					duration = 900
-				}
-			}
-			if = {
-				limit = {
-					estate_influence = {
-						estate = estate_workers
-						influence = 75
-					}
-					NOT = {
-						estate_influence = {
-							estate = estate_workers
-							influence = 100
-						}	
-					}
-				}
-				add_country_modifier = {
-					name = working_overtime
-					duration = 1200
-				}
-			}
-			if = {
-				limit = {
-					estate_influence = {
-						estate = estate_workers
-						influence = 100
-					}
-				}
-				
-			}				
-			add_estate_loyalty = {
-				estate = estate_workers
-				loyalty = -10
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = {
-					estate_loyalty = {
-						estate = estate_workers
-						loyalty = 50
-					}	
-				}
-			}
-			modifier = {
-				factor = 0
-				treasury = 1
-			}
-		}
-	}
-	interaction = {
-		name = "PROMISE_RELIEF"
-		icon = 17
-		
-		years_between_use = 20
-		
-		trigger = {
-			always = yes
-		}
-		
-		effect = {
-			add_prestige = -5
-			add_estate_influence_modifier = {
-				estate = estate_workers
-				desc = EST_VAL_GRANTED_MONOPOLIES
-				influence = 5
-				duration = 7300
-			}
-			add_estate_loyalty = {
-				estate = estate_workers
-				loyalty = 15
-			}
-			add_country_modifier = {
-				name = worker_relief
-				duration = 500
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				estate_influence = {
-					estate = estate_workers
-					influence = 60
-				}				
-			}
-			modifier = {
-				factor = 0
-				estate_loyalty = {
-					estate = estate_workers
-					loyalty = 30
-				}				
-			}			
-		}
-	}
+	
 }

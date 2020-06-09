@@ -11,20 +11,24 @@ interaction = {
     }
     effect = {
 	 if = {
-            limit = { current_age = age_of_discovery }
+            limit = { current_age = rise_of_the_horde }
+            add_years_of_estate_land_income = 3.0
+        }
+        else_if = {
+            limit = { the_first_war_or_later = yes NOT = { the_third_war_or_later = yes } }
             add_years_of_estate_land_income = 2.5
         }
         else_if = {
-            limit = { current_age = age_of_reformation }
+            limit = { the_third_war_or_later = yes NOT = { the_burning_crusade_or_later = yes } }
             add_years_of_estate_land_income = 2.0
         }
         else_if = {
-            limit = { current_age = age_of_absolutism }
+            limit = { the_burning_crusade_or_later = yes NOT = { the_shattering_or_later = yes }  }
             add_years_of_estate_land_income = 1.5
         }
         else_if = {
-            limit = { current_age = age_of_revolutions }
-            add_years_of_estate_land_income = 1.0
+            limit = { the_shattering_or_later = yes }
+            add_years_of_estate_land_income = 1
         }
         custom_tooltip = ESTATES_SALE_OF_TITLES_DESC
         give_estate_land_share_gigantic = { estate = all }

@@ -6,10 +6,10 @@ estate_the_legion =
 	color = { 181 230 29 }
 
 	# Is estate kept in control of province on conquest?
-	keep_on_conquest = no
+	#keep_on_conquest = no
 
 	# Estate will always be removed when conquered by a different religion than previous owner
-	always_remove_on_religious_conquest = yes
+	#always_remove_on_religious_conquest = yes
 
 	# They want to control at least this % of the country's non-overseas development, if # of home provinecs is above set amount
 	min_territory = 5
@@ -22,12 +22,10 @@ estate_the_legion =
 	}
 
 	# If true, province can be granted to estate
-	province_trigger = {
-		always = yes
-	}
+	
 
 	# Min autonomy in estate provinces
-	min_autonomy = 25
+	#min_autonomy = 25
 
 	#################################
 	# Modifiers
@@ -77,284 +75,21 @@ estate_the_legion =
 		loyalty = 10
 	}
 
-	#################################
-	# Names
-	#################################
-	#custom_name = {
-	#	desc = estate_tlamacazqueh
-	#	trigger = {
-	#		religion = nahuatl
-	#	}
-	#}
-
-	# Change name to suit culture, i.e. Murlocs would get Murloc Tribes
-
-	# For province assignment
-	
-
-	# Does the AI want to give any extra territory beyond the minimum?
-	
-		value = 10
-	}
-
   #############################
   # Interactions
   #############################
 
   # Swear Fealty to Burning Legion
   # 15 Loyalty, 20 Influence, Piety 5
-	interaction = {
-		name = "SWEAR_FEALTY_TO_THE_LEGION"
-		icon = 17
-
-		years_between_use = 20
-
-		trigger = {
-			always = yes
-		}
-
-		effect = {
-			add_piety = 0.05
-			add_estate_influence_modifier = {
-				estate = estate_the_legion
-				desc = EST_VAL_SOUGHT_SUPPORT
-				influence = 20
-				duration = 7300
-			}
-			add_estate_loyalty = {
-				estate = estate_the_legion
-				loyalty = 15
-			}
-		}
-
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				estate_loyalty = {
-					estate = estate_the_legion
-					loyalty = 20
-				}
-			}
-			modifier = {
-				factor = 0
-				estate_influence = {
-					estate = estate_the_legion
-					influence = 60
-				}
-			}
-		}
-	}
+	
 
   # Grovel for Funds
   # -10 to -20 loyalty
   # Grants 1 years income to 4 years income
-  interaction = {
-    name = "GROVEL_FOR_FUNDS"
-    icon = 6
-
-    years_between_use = 10
-
-    trigger = {
-      estate_influence = {
-        estate = estate_the_legion
-        influence = 20
-      }
-    }
-
-    effect = {
-      # Below 40
-      if = {
-        limit = {
-          NOT = {
-            estate_loyalty = {
-              estate = estate_the_legion
-              loyalty = 40
-            }
-          }
-        }
-
-        add_estate_loyalty = {
-          estate = estate_the_legion
-          loyalty = -5
-        }
-
-        add_years_of_income = 0.25
-      }
-
-      # Between 40 - 60
-      if = {
-        limit = {
-          estate_loyalty = {
-            estate = estate_the_legion
-            loyalty = 40
-          }
-          NOT = {
-            estate_loyalty = {
-              estate = estate_the_legion
-              loyalty = 60
-            }
-          }
-        }
-
-        add_estate_loyalty = {
-          estate = estate_the_legion
-          loyalty = -10
-        }
-
-        add_years_of_income = 0.5
-      }
-
-      # Between 60 - 80
-      if = {
-        limit = {
-          estate_loyalty = {
-            estate = estate_the_legion
-            loyalty = 60
-          }
-          NOT = {
-            estate_loyalty = {
-              estate = estate_the_legion
-              loyalty = 80
-            }
-          }
-        }
-
-        add_estate_loyalty = {
-          estate = estate_the_legion
-          loyalty = -15
-        }
-
-        add_years_of_income = 0.75
-      }
-
-      # Above 80
-      if = {
-        limit = {
-          estate_loyalty = {
-            estate = estate_the_legion
-            loyalty = 80
-          }
-        }
-
-        add_estate_loyalty = {
-          estate = estate_the_legion
-          loyalty = -20
-        }
-
-        add_years_of_income = 1
-      }
-    }
-
-    ai_will_do = {
-      factor = 1
-
-      modifier = {
-        factor = 0
-
-        NOT = {
-          estate_loyalty = {
-            estate = estate_the_legion
-            loyalty = 40
-          }
-        }
-      }
-    }
-  }
-
-  # Recruite Theologian
-  # Influence 15
-  # Add Theolgian Advisor
-	interaction = {
-		name = "RECRUIT_THEOLOGIAN"
-		icon = 10
-
-		years_between_use = 30
-
-		trigger = {
-			estate_influence = {
-				estate = estate_the_legion
-				influence = 20
-			}
-		}
-
-		effect = {
-			if = {
-				limit = {
-					monthly_income = 25
-				}
-				define_advisor = {
-					type = theologian
-					skill = 3
-					discount = yes
-				}
-			}
-			if = {
-				limit = { NOT = { monthly_income = 25 } }
-				define_advisor = {
-					type = theologian
-					skill = 2
-					discount = yes
-				}
-			}
-			add_estate_influence_modifier = {
-				estate = estate_the_legion
-				desc = EST_VAL_RECRUIT_THEOLOGIAN
-				influence = 15
-				duration = 10950
-			}
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
+  
 
   # Recruite Inquisitor
   # Influence 10
   # Add Inquisitor Advisor
-	interaction = {
-		name = "RECRUIT_INQUISITOR"
-		icon = 11
-
-		years_between_use = 30
-
-		trigger = {
-			estate_influence = {
-				estate = estate_the_legion
-				influence = 20
-			}
-		}
-
-		effect = {
-			if = {
-				limit = {
-					monthly_income = 25
-				}
-				define_advisor = {
-					type = inquisitor
-					skill = 3
-					discount = yes
-				}
-			}
-			if = {
-				limit = { NOT = { monthly_income = 25 } }
-				define_advisor = {
-					type = inquisitor
-					skill = 2
-					discount = yes
-				}
-			}
-			add_estate_influence_modifier = {
-				estate = estate_the_legion
-				desc = EST_VAL_RECRUIT_INQUISITOR
-				influence = 10
-				duration = 10950
-			}
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
+	
 }
