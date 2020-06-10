@@ -3,7 +3,7 @@
 estate_nomadic_tribes = {
 	modifier_definition = {
 		type = loyalty
-		key = brahmins_hindu_loyalty_modifier
+		key = nomadic_tribes_hindu_loyalty_modifier
 		trigger = {
 			has_estate = estate_nomadic_tribes
 			religion = hinduism
@@ -11,7 +11,7 @@ estate_nomadic_tribes = {
 	}
 	modifier_definition = {
 		type = loyalty
-		key = brahmins_muslim_loyalty_modifier
+		key = nomadic_tribes_muslim_loyalty_modifier
 		trigger = {
 			has_estate = estate_nomadic_tribes
 			religion_group = muslim
@@ -19,7 +19,7 @@ estate_nomadic_tribes = {
 	}
 	modifier_definition = {
 		type = loyalty
-		key = brahmins_other_loyalty_modifier
+		key = nomadic_tribes_other_loyalty_modifier
 		trigger = {
 			has_estate = estate_nomadic_tribes
 			NOT = { religion = hinduism }
@@ -28,7 +28,7 @@ estate_nomadic_tribes = {
 	}
 	modifier_definition = {
 		type = influence
-		key = brahmins_hindu_influence_modifier
+		key = nomadic_tribes_hindu_influence_modifier
 		trigger = {
 			has_estate = estate_nomadic_tribes
 			religion = hinduism
@@ -36,7 +36,7 @@ estate_nomadic_tribes = {
 	}
 	modifier_definition = {
 		type = influence
-		key = brahmins_muslim_influence_modifier
+		key = nomadic_tribes_muslim_influence_modifier
 		trigger = {
 			has_estate = estate_nomadic_tribes
 			religion_group = muslim
@@ -44,7 +44,7 @@ estate_nomadic_tribes = {
 	}
 	modifier_definition = {
 		type = influence
-		key = brahmins_other_influence_modifier
+		key = nomadic_tribes_other_influence_modifier
 		trigger = {
 			has_estate = estate_nomadic_tribes
 			NOT = { religion = hinduism }
@@ -73,7 +73,7 @@ estate_church = {
 estate_the_legion = {
 	modifier_definition = {
 		type = loyalty
-		key = maratha_loyalty_modifier
+		key = the_legion_loyalty_modifier
 		trigger = {
 			has_estate = estate_the_legion
 		}
@@ -81,7 +81,7 @@ estate_the_legion = {
 
 	modifier_definition = {
 		type = influence
-		key = maratha_influence_modifier
+		key = the_legion_influence_modifier
 		trigger = {
 			has_estate = estate_the_legion
 		}
@@ -89,7 +89,7 @@ estate_the_legion = {
 
 	modifier_definition = {
 		type = loyalty
-		key = maratha_muslim_loyalty_modifier
+		key = the_legion_muslim_loyalty_modifier
 		trigger = {
 			has_estate = estate_the_legion
 			religion_group = muslim
@@ -98,7 +98,7 @@ estate_the_legion = {
 
 	modifier_definition = {
 		type = influence
-		key = maratha_muslim_influence_modifier
+		key = the_legion_muslim_influence_modifier
 		trigger = {
 			has_estate = estate_the_legion
 			religion_group = muslim
@@ -108,7 +108,7 @@ estate_the_legion = {
 	# No Other Nobility like estate
 	modifier_definition = {
 		type = loyalty
-		key = maratha_exclusive_loyalty_modifier
+		key = the_legion_exclusive_loyalty_modifier
 		trigger = {
 			has_estate = estate_the_legion
 			NOT = { has_estate = estate_nobles }
@@ -117,7 +117,7 @@ estate_the_legion = {
 
 	modifier_definition = {
 		type = influence
-		key = maratha_exclusive_influence_modifier
+		key = the_legion_exclusive_influence_modifier
 		trigger = {
 			has_estate = estate_the_legion
 			NOT = { has_estate = estate_nobles }
@@ -185,7 +185,7 @@ estate_burghers = {
 estate_old_gods = {
 	modifier_definition = {
 		type = loyalty
-		key = vaisyas_loyalty_modifier
+		key = old_gods_loyalty_modifier
 		trigger = {
 			has_estate = estate_old_gods
 		}
@@ -193,7 +193,7 @@ estate_old_gods = {
 
 	modifier_definition = {
 		type = influence
-		key = vaisyas_influence_modifier
+		key = old_gods_influence_modifier
 		trigger = {
 			has_estate = estate_old_gods
 		}
@@ -201,7 +201,7 @@ estate_old_gods = {
 
 	modifier_definition = {
 		type = loyalty
-		key = vaisyas_non_muslim_loyalty_modifier
+		key = old_gods_non_muslim_loyalty_modifier
 		trigger = {
 			has_estate = estate_old_gods
 			NOT = { religion_group = muslim }
@@ -210,7 +210,7 @@ estate_old_gods = {
 
 	modifier_definition = {
 		type = influence
-		key = vaisyas_non_muslim_influence_modifier
+		key = old_gods_non_muslim_influence_modifier
 		trigger = {
 			has_estate = estate_old_gods
 			NOT = { religion_group = muslim }
@@ -257,7 +257,7 @@ estate_nomadic_tribes = {
 estate_workers = {
 	modifier_definition = {
 		type = loyalty
-		key = dhimmi_loyalty_modifier
+		key = workers_loyalty_modifier
 		trigger = {
 			has_estate = estate_workers
 		}
@@ -265,82 +265,9 @@ estate_workers = {
 
 	modifier_definition = {
 		type = influence
-		key = dhimmi_influence_modifier
+		key = workers_influence_modifier
 		trigger = {
 			has_estate = estate_workers
-		}
-	}
-}
-
-estate_jains = {
-	modifier_definition = {
-		type = loyalty
-		key = jains_loyalty_modifier
-		trigger = {
-			has_estate = estate_jains
-		}
-	}
-
-	modifier_definition = {
-		type = influence
-		key = jains_influence_modifier
-		trigger = {
-			has_estate = estate_jains
-		}
-	}
-}
-
-estate_rajput = {
-	modifier_definition = {
-		type = loyalty
-		key = rajput_loyalty_modifier
-		trigger = {
-			has_estate = estate_rajput
-		}
-	}
-
-	modifier_definition = {
-		type = influence
-		key = rajput_influence_modifier
-		trigger = {
-			has_estate = estate_rajput
-		}
-	}
-
-	modifier_definition = {
-		type = loyalty
-		key = rajput_muslim_loyalty_modifier
-		trigger = {
-			has_estate = estate_rajput
-			religion_group = muslim
-		}
-	}
-
-	modifier_definition = {
-		type = influence
-		key = rajput_muslim_influence_modifier
-		trigger = {
-			has_estate = estate_rajput
-			religion_group = muslim
-		}
-	}
-
-	# No Other Nobility like estate
-	modifier_definition = {
-		type = loyalty
-		key = rajput_exclusive_loyalty_modifier
-		trigger = {
-			has_estate = estate_rajput
-			NOT = { has_estate = estate_nobles }
-		}
-	}
-
-	modifier_definition = {
-		type = influence
-		key = rajput_exclusive_influence_modifier
-		trigger = {
-			has_estate = estate_rajput
-			NOT = { has_estate = estate_nobles }
 		}
 	}
 }

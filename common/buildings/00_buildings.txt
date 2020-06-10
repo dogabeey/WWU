@@ -4,7 +4,7 @@
 # cost = x #==> cost in $ to build (subject to other modifiers)
 # time = x #==> number of months to build.
 # modifier = m # a modifier on the province that the building gives
-# trigger = t # an and trigger that needs to be fullfilled to build and keep the building
+# build_trigger  = t # an and build_trigger  that needs to be fullfilled to build and keep the building
 # one_per_country = yes/no # if yes, only one of these can exist in a country
 # manufactory = { trade_good trade_good } # list of trade goods that get a production bonus
 # onmap = yes/no # show as a sprite on the map
@@ -24,7 +24,7 @@ wow_town_hall = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -54,7 +54,7 @@ wow_grand_town_hall = {
 	time = 12
 	make_obsolete = wow_town_hall
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -84,7 +84,7 @@ wow_court = {
 	cost = 100
 	time = 12
 	
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { primary_culture = PREV } }
         owner = { NOT = { is_landless = yes } }
     }
@@ -116,7 +116,7 @@ wow_regional_court = {
 	time = 12
 	make_obsolete = wow_court
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { primary_culture = PREV } }
         owner = { NOT = { is_landless = yes } }
     }
@@ -148,7 +148,7 @@ wow_temple = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -182,7 +182,7 @@ wow_grand_temple = {
 	time = 12
 	make_obsolete = wow_temple
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -219,7 +219,7 @@ wow_mine = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -249,7 +249,7 @@ wow_large_mine = {
 	time = 12
 	make_obsolete = wow_mine
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -279,7 +279,7 @@ wow_lumbermill = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -308,7 +308,7 @@ wow_large_lumbermill = {
 	cost = 500
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	make_obsolete = wow_lumbermill
@@ -339,7 +339,7 @@ wow_farm = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -369,7 +369,7 @@ wow_large_farm = {
 	time = 12
 	make_obsolete = wow_farm
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -402,7 +402,7 @@ wow_barracks = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -432,7 +432,7 @@ wow_grand_barracks = {
 	time = 12
 	make_obsolete = wow_barracks
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -462,7 +462,7 @@ wow_training_grounds = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -493,7 +493,7 @@ wow_grand_training_grounds = {
 	time = 12
 	make_obsolete = wow_training_grounds
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -524,7 +524,7 @@ wow_supply_depot = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -554,7 +554,7 @@ wow_well_stocked_supply_depot = {
 	time = 12
 	make_obsolete = wow_supply_depot
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	modifier = {
@@ -587,7 +587,7 @@ wow_shipyard = {
 	cost = 100
 	time = 12
 	
-    trigger = {
+    build_trigger  = {
         has_port = yes
         owner = { NOT = { is_landless = yes } }
     }
@@ -619,7 +619,7 @@ wow_grand_shipyard = {
 	time = 12
 	make_obsolete = wow_shipyard
     
-    trigger = {
+    build_trigger  = {
         has_port = yes
         owner = { NOT = { is_landless = yes } }
     }
@@ -651,7 +651,7 @@ wow_dock = {
 	cost = 100
 	time = 12
 	
-    trigger = {
+    build_trigger  = {
         has_port = yes
         owner = { NOT = { is_landless = yes } }
     }
@@ -683,7 +683,7 @@ wow_drydock = {
 	time = 12
 	make_obsolete = wow_dock
     
-    trigger = {
+    build_trigger  = {
         has_port = yes
         owner = { NOT = { is_landless = yes } }
     }
@@ -717,7 +717,7 @@ wow_market = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -747,7 +747,7 @@ wow_grand_market = {
 	time = 12
 	make_obsolete = wow_market
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -776,7 +776,7 @@ wow_tavern = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -806,7 +806,7 @@ wow_well_kept_tavern = {
 	time = 12
 	make_obsolete = wow_tavern
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -835,7 +835,7 @@ wow_workshop = {
 	cost = 100
 	time = 12
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 
@@ -865,7 +865,7 @@ wow_grand_workshop = {
 	time = 12
 	make_obsolete = wow_workshop
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -897,7 +897,7 @@ wow_fort_1 = {
 	cost = 100
 	time = 30
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -950,7 +950,7 @@ wow_fort_2 = {
     make_obsolete = wow_fort_1
     
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -1002,7 +1002,7 @@ wow_fort_3 = {
 	time = 30
     make_obsolete = wow_fort_2
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -1054,7 +1054,7 @@ wow_fort_4 = {
 	time = 30
     make_obsolete = wow_fort_3
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -1108,7 +1108,7 @@ wow_unique_palace = {
 	cost = 2000
 	time = 120
     
-    trigger = {
+    build_trigger  = {
         owner = { government = monarchy }
 		owner = { NOT = { is_landless = yes } }
     }
@@ -1128,7 +1128,7 @@ wow_unique_fortress = {
 	cost = 2000
 	time = 120
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -1148,7 +1148,7 @@ wow_unique_magic_tower = {
 	cost = 2000
 	time = 120
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -1167,7 +1167,7 @@ wow_unique_grand_forge = {
 	cost = 2000
 	time = 120
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -1186,7 +1186,7 @@ wow_unique_altar_of_power = {
 	cost = 2000
 	time = 120
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -1205,7 +1205,7 @@ wow_tomb_of_riches = {
 	cost = 2000
 	time = 120
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -1224,7 +1224,7 @@ wow_grand_monument = {
 	cost = 2000
 	time = 120
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -1243,7 +1243,7 @@ wow_naval_academy = {
 	cost = 2000
 	time = 120
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
     
@@ -1263,7 +1263,7 @@ wow_military_academy = {
 	cost = 2000
 	time = 120
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { is_landless = yes } }
     }
 	
@@ -1285,7 +1285,7 @@ wow_portal_red = {
 	cost = 100
 	time = 4
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { wow_portal_red = 3 } }
     }
 	
@@ -1301,7 +1301,7 @@ wow_portal_yellow = {
 	cost = 100
 	time = 4
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { wow_portal_yellow = 3 } }
     }
 	
@@ -1317,7 +1317,7 @@ wow_portal_green = {
 	cost = 100
 	time = 4
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { wow_portal_green = 3 } }
     }
 	
@@ -1333,7 +1333,7 @@ wow_portal_blue = {
 	cost = 100
 	time = 4
     
-    trigger = {
+    build_trigger  = {
         owner = { NOT = { wow_portal_blue = 3 } }
     }
 	

@@ -1764,18 +1764,6 @@ on_country_released = {
 # ROOT = province, FROM = country
 on_trade_good_changed = {
 	on_trade_good_changed_estate_privileges_effect = yes
-	if = {
-		limit = {
-			OR = {
-				has_province_modifier = wine_bonus_prod
-				has_province_modifier = grain_bonus_prod
-			}
-			FROM = { has_reform = monastic_breweries_reform }
-			NOT = { owner = { has_reform = monastic_breweries_reform } }
-		}
-		remove_province_modifier = wine_bonus_prod
-		remove_province_modifier = grain_bonus_prod
-	}
 	hidden_effect = {
 		if = {
 			limit = {
