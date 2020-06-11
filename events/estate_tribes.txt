@@ -11,15 +11,23 @@ country_event = {
 	id = tribal_estate_events.1
 	title = tribal_estate_events.1.t
 	desc = tribal_estate_events.1.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
 		num_of_cities = 5
+		estate_territory = { 
+			estate = estate_nomadic_tribes
+			territory = 1
+		}
 		any_owned_province = {
-			has_estate = estate_nomadic_tribes
 			can_spawn_rebels = nationalist_rebels
+			is_territory = no
+			is_city = yes
+			area_for_scope_province = {
+				type = all
+				is_capital = no
+			}
 		}
 	}
 
@@ -29,13 +37,19 @@ country_event = {
 		hidden_effect = {
 			random_owned_province = {
 				limit = {
-					has_estate = estate_nomadic_tribes
 					can_spawn_rebels = nationalist_rebels
+					is_territory = no
+					is_city = yes
+					area_for_scope_province = {
+						type = all
+						is_capital = no
+					}
 				}
 				area = {
 					limit = {
 						can_spawn_rebels = nationalist_rebels
 						owned_by = ROOT
+						is_city = yes
 					}
 					set_province_flag = conflict_regarding_tax_collection
 				}
@@ -48,8 +62,7 @@ country_event = {
 	}
 	
 	option = {
-		name = tribal_estate_events.1.a
-		#log = "tribal_estate_events.1.a" #	Reprimand the Chiefs.
+		name = tribal_estate_events.1.a #	Reprimand the Chiefs.
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -81,8 +94,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = tribal_estate_events.1.b
-		#log = "tribal_estate_events.1.b" #	Let it Slide
+		name = tribal_estate_events.1.b #	Let it Slide
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -156,8 +168,7 @@ country_event = {
 	id = tribal_estate_events.2
 	title = tribal_estate_events.2.t
 	desc = tribal_estate_events.2.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	is_triggered_only = yes
 	
@@ -189,8 +200,7 @@ country_event = {
 	
 
 	option = {
-		name = tribal_estate_events.2.a
-		#log = "tribal_estate_events.2.a" #Ok
+		name = tribal_estate_events.2.a #Ok
 		add_estate_influence_modifier = {
 			estate = estate_nomadic_tribes
 			desc = EST_VAL_TRIBES_ADVANCES
@@ -206,8 +216,7 @@ country_event = {
 	id = tribal_estate_events.3
 	title = tribal_estate_events.3.t
 	desc = tribal_estate_events.3.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -242,8 +251,7 @@ country_event = {
 	}
 	
 	option = {
-		name = tribal_estate_events.3.a
-		#log = "tribal_estate_events.3.a" #Ok
+		name = tribal_estate_events.3.a #Ok
 		add_estate_influence_modifier = {
 			estate = estate_nomadic_tribes
 			desc = EST_VAL_TRIBES_DECLINES
@@ -260,8 +268,7 @@ country_event = {
 	id = tribal_estate_events.4
 	title = tribal_estate_events.4.t
 	desc = tribal_estate_events.4.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -275,7 +282,6 @@ country_event = {
 	
 	option = {
 		name = tribal_estate_events.4.a
-		#log = "tribal_estate_events.4.a"
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -297,7 +303,6 @@ country_event = {
 	}
 	option = {
 		name = tribal_estate_events.4.b
-		#log = "tribal_estate_events.4.b"
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -324,8 +329,7 @@ country_event = {
 	id = tribal_estate_events.5
 	title = tribal_estate_events.5.t
 	desc = tribal_estate_events.5.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -339,7 +343,6 @@ country_event = {
 	
 	option = {
 		name = tribal_estate_events.5.a
-		#log = "tribal_estate_events.5.a"
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -361,7 +364,6 @@ country_event = {
 	}
 	option = {
 		name = tribal_estate_events.5.b
-		#log = "tribal_estate_events.5.b"
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -389,8 +391,7 @@ country_event = {
 	id = tribal_estate_events.6
 	title = tribal_estate_events.6.t
 	desc = tribal_estate_events.6.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -415,7 +416,6 @@ country_event = {
 	
 	option = {
 		name = tribal_estate_events.6.a
-		#log = "tribal_estate_events.6.a"
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -437,7 +437,6 @@ country_event = {
 	}
 	option = {
 		name = tribal_estate_events.6.b
-		#log = "tribal_estate_events.6.b"
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -464,8 +463,7 @@ country_event = {
 	id = tribal_estate_events.7
 	title = tribal_estate_events.7.t
 	desc = tribal_estate_events.7.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -490,7 +488,6 @@ country_event = {
 	
 	option = {
 		name = tribal_estate_events.7.a
-		#log = "tribal_estate_events.7.a"
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -512,7 +509,6 @@ country_event = {
 	}
 	option = {
 		name = tribal_estate_events.7.b
-		#log = "tribal_estate_events.7.b"
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -539,8 +535,7 @@ country_event = {
 	id = tribal_estate_events.8
 	title = tribal_estate_events.8.t
 	desc = tribal_estate_events.8.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -565,7 +560,6 @@ country_event = {
 	
 	option = {
 		name = tribal_estate_events.8.a
-		#log = "tribal_estate_events.8.a"
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -586,7 +580,6 @@ country_event = {
 	}
 	option = {
 		name = tribal_estate_events.8.b
-		#log = "tribal_estate_events.8.b"
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -613,8 +606,7 @@ country_event = {
 	id = tribal_estate_events.9
 	title = tribal_estate_events.9.t
 	desc = tribal_estate_events.9.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -633,7 +625,6 @@ country_event = {
 	
 	option = {
 		name = tribal_estate_events.9.a
-		#log = "tribal_estate_events.9.a"
 		ai_chance = {
 			factor = 50
 		}
@@ -645,7 +636,6 @@ country_event = {
 	}
 	option = {
 		name = tribal_estate_events.9.b
-		#log = "tribal_estate_events.9.b"
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -670,14 +660,12 @@ province_event = {
 	id = tribal_estate_events.10
 	title = tribal_estate_events.10.t
 	desc = tribal_estate_events.10.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	is_triggered_only = yes
 	
 	option = {
 		name = tribal_estate_events.10.a
-		#log = "tribal_estate_events.10.a"
 	}
 }
 
@@ -687,8 +675,7 @@ country_event = {
 	id = tribal_estate_events.11
 	title = tribal_estate_events.11.t
 	desc = tribal_estate_events.11.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -720,7 +707,6 @@ country_event = {
 	
 	option = {
 		name = tribal_estate_events.11.a
-		#log = "tribal_estate_events.11.a"
 		ai_chance = {
 			factor = 1
 		}
@@ -742,7 +728,6 @@ country_event = {
 	}
 	option = {
 		name = tribal_estate_events.11.b
-		#log = "tribal_estate_events.11.b"
 		ai_chance = {
 			factor = 99
 			modifier = {
@@ -774,8 +759,7 @@ country_event = {
 	id = tribal_estate_events.12
 	title = tribal_estate_events.12.t
 	desc = tribal_estate_events.12.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -805,7 +789,6 @@ country_event = {
 	
 	option = {
 		name = tribal_estate_events.12.a
-		#log = "tribal_estate_events.12.a"
 		ai_chance = {
 			factor = 1
 		}
@@ -819,7 +802,6 @@ country_event = {
 	}
 	option = {
 		name = tribal_estate_events.12.b
-		#log = "tribal_estate_events.12.b"
 		ai_chance = {
 			factor = 99
 			modifier = {
@@ -851,8 +833,7 @@ country_event = {
 	id = tribal_estate_events.13
 	title = tribal_estate_events.13.t
 	desc = tribal_estate_events.13.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -872,6 +853,10 @@ country_event = {
 				estate = estate_nomadic_tribes
 			}
 		}
+		any_owned_province = {
+			is_capital = no
+			is_city = yes
+		}
 	}
 	
 	is_triggered_only = yes
@@ -882,17 +867,35 @@ country_event = {
 	
 	option = {
 		name = tribal_estate_events.13.a
-		#log = "tribal_estate_events.13.a"
 		ai_chance = {
 			factor = 1
 		}
 		custom_tooltip = tribal_estate_events.13.a.tt
 		hidden_effect = {
-			every_province = {
+			while = {
 				limit = {
-					has_estate = estate_nomadic_tribes
+					NOT = { 
+						development_in_provinces = {
+							has_province_flag = add_autonomy_tmp_flag
+							value = estate
+							estate = estate_nomadic_tribes
+						}
+					}
+					any_owned_province = {
+						NOT = { has_province_flag = add_autonomy_tmp_flag }
+						is_capital = no
+						is_city = yes
+					}
 				}
-				add_local_autonomy = 35
+				random_owned_province = {
+					limit = {
+						NOT = { has_province_flag = add_autonomy_tmp_flag }
+						is_capital = no
+						is_city = yes
+					}
+					add_local_autonomy = 35
+					set_province_flag = add_autonomy_tmp_flag
+				}
 			}
 		}
 		add_estate_influence_modifier = {
@@ -904,7 +907,6 @@ country_event = {
 	}
 	option = {
 		name = tribal_estate_events.13.b
-		#log = "tribal_estate_events.13.b"
 		ai_chance = {
 			factor = 99
 			modifier = {
@@ -928,6 +930,14 @@ country_event = {
 			loyalty = -20
 		}
 	}
+	after = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = { has_province_flag = add_autonomy_tmp_flag }
+				clr_province_flag = add_autonomy_tmp_flag
+			}
+		}
+	}
 }
 
 #Demands at High Influence
@@ -936,8 +946,7 @@ country_event = {
 	id = tribal_estate_events.14
 	title = tribal_estate_events.14.t
 	desc = tribal_estate_events.14.d
-	picture = SWORD_SHIELD_eventPicture
-	#goto = root
+	picture = NOMAD_ESTATE_eventPicture
 	
 	trigger = {
 		has_estate = estate_nomadic_tribes
@@ -967,7 +976,6 @@ country_event = {
 	
 	option = {
 		name = tribal_estate_events.14.a
-		#log = "tribal_estate_events.14.a"
 		ai_chance = {
 			factor = 1
 		}
@@ -984,7 +992,6 @@ country_event = {
 	}
 	option = {
 		name = tribal_estate_events.14.b
-		#log = "tribal_estate_events.14.b"
 		ai_chance = {
 			factor = 99
 			modifier = {

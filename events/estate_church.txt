@@ -6,17 +6,18 @@
 
 namespace = church_estate_events
 
-#State making demands on the Clergy
-#Everyone Else
+#Libertas Ecclesiae
+#State making demands on the Church
+#Christians
 country_event = {
-	id = church_estate_events.104
-	title = church_estate_events.104.t
-	desc = church_estate_events.104.d
-	picture = CHURCH_ESTATE_2_eventPicture
-	#goto = root
+	id = church_estate_events.1
+	title = church_estate_events.1.t
+	desc = church_estate_events.1.d
+	picture = CHURCH_ESTATE_1_eventPicture
 	
 	trigger = {
 		has_estate = estate_church
+		religion_group = christian
 		estate_influence = {
 			estate = estate_church
 			influence = 25
@@ -39,6 +40,14 @@ country_event = {
 				modifier = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
 			}
 		}
+		OR = {
+			AND = {
+				is_at_war = yes
+				NOT = { war_score = 25 }
+			}
+			is_in_deficit = yes
+			num_of_loans = 5
+		}
 	}
 	
 	is_triggered_only = yes
@@ -48,8 +57,127 @@ country_event = {
 	}
 	
 	option = {
-		name = church_estate_events.1.a
-		#log = "church_estate_events.1.a" #Make it clear that they need to contribute.
+		name = church_estate_events.1.a #Make it clear that they need to contribute.
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 45
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				estate_influence = {
+					estate = estate_church
+					influence = 60
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -15
+		}
+		add_patriarch_authority = -0.1
+		add_papal_influence = -10
+		add_years_of_income = 0.35
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_DEMANDED_CHURCH_MONEY
+			influence = -10
+			duration = 9125
+		}
+	}
+	option = {
+		name = church_estate_events.1.b #We will find the money elsewhere.
+		add_prestige = 5
+		add_piety = 0.1
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					estate = estate_church
+					influence = 60
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
+			influence = 10
+			duration = 9125
+		}
+	}
+}
+
+#State making demands on the Clergy
+#Hindus
+country_event = {
+	id = church_estate_events.101
+	title = church_estate_events.101.t
+	desc = church_estate_events.101.d
+	picture = CHURCH_ESTATE_2_eventPicture
+	
+	trigger = {
+		has_estate = estate_church
+		religion = hinduism
+		estate_influence = {
+			estate = estate_church
+			influence = 25
+		}
+		NOT = {
+			estate_influence = {
+				estate = estate_church
+				influence = 75
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_DEMANDED_CHURCH_MONEY
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
+			}
+		}
+		OR = {
+			AND = {
+				is_at_war = yes
+				NOT = { war_score = 25 }
+			}
+			is_in_deficit = yes
+			num_of_loans = 5
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = church_estate_events.1.a #Make it clear that they need to contribute.
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -82,8 +210,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = church_estate_events.1.b
-		#log = "church_estate_events.1.b" #We will find the money elsewhere.
+		name = church_estate_events.1.b #We will find the money elsewhere.
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -117,13 +244,495 @@ country_event = {
 	}
 }
 
+#State making demands on the Clergy
+#Polytheists
+country_event = {
+	id = church_estate_events.102
+	title = church_estate_events.102.t
+	desc = church_estate_events.102.d
+	picture = CHURCH_ESTATE_2_eventPicture
+	
+	trigger = {
+		has_estate = estate_church
+		religion_group = pagan
+		estate_influence = {
+			estate = estate_church
+			influence = 25
+		}
+		NOT = {
+			estate_influence = {
+				estate = estate_church
+				influence = 75
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_DEMANDED_CHURCH_MONEY
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
+			}
+		}
+		OR = {
+			AND = {
+				is_at_war = yes
+				NOT = { war_score = 25 }
+			}
+			is_in_deficit = yes
+			num_of_loans = 5
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = church_estate_events.1.a #Make it clear that they need to contribute.
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 45
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				estate_influence = {
+					estate = estate_church
+					influence = 60
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -15
+		}
+		add_doom = 5
+		add_authority = -10
+		add_years_of_income = 0.35
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_DEMANDED_CHURCH_MONEY
+			influence = -10
+			duration = 9125
+		}
+	}
+	option = {
+		name = church_estate_events.1.b #We will find the money elsewhere.
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					estate = estate_church
+					influence = 60
+				}
+			}
+		}
+		add_prestige = 5
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
+			influence = 10
+			duration = 9125
+		}
+	}
+}
+
+#State making demands on the Clergy
+#Muslims
+country_event = {
+	id = church_estate_events.103
+	title = church_estate_events.103.t
+	desc = church_estate_events.103.d
+	picture = CHURCH_ESTATE_2_eventPicture
+	
+	trigger = {
+		has_estate = estate_church
+		religion_group = muslim
+		estate_influence = {
+			estate = estate_church
+			influence = 25
+		}
+		NOT = {
+			estate_influence = {
+				estate = estate_church
+				influence = 75
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_DEMANDED_CHURCH_MONEY
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
+			}
+		}
+		OR = {
+			AND = {
+				is_at_war = yes
+				NOT = { war_score = 25 }
+			}
+			is_in_deficit = yes
+			num_of_loans = 5
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = church_estate_events.1.a #Make it clear that they need to contribute.
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 45
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				estate_influence = {
+					estate = estate_church
+					influence = 60
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -15
+		}
+		add_years_of_income = 0.35
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_DEMANDED_CHURCH_MONEY
+			influence = -10
+			duration = 9125
+		}
+	}
+	option = {
+		name = church_estate_events.1.b #We will find the money elsewhere.
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					estate = estate_church
+					influence = 60
+				}
+			}
+		}
+		add_prestige = 5
+		add_piety = -0.1
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
+			influence = 10
+			duration = 9125
+		}
+	}
+}
+
+#State making demands on the Clergy
+#Everyone Else
+country_event = {
+	id = church_estate_events.104
+	title = church_estate_events.104.t
+	desc = church_estate_events.104.d
+	picture = CHURCH_ESTATE_2_eventPicture
+	
+	trigger = {
+		has_estate = estate_church
+		NOT = { religion_group = muslim }
+		NOT = { religion_group = christian }
+		NOT = { religion_group = pagan }
+		NOT = { religion = hinduism }
+		NOT = { religion = buddhism }
+		NOT = { religion = mahayana }
+		NOT = { religion = vajrayana }
+		estate_influence = {
+			estate = estate_church
+			influence = 25
+		}
+		NOT = {
+			estate_influence = {
+				estate = estate_church
+				influence = 75
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_DEMANDED_CHURCH_MONEY
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
+			}
+		}
+		OR = {
+			AND = {
+				is_at_war = yes
+				NOT = { war_score = 25 }
+			}
+			is_in_deficit = yes
+			num_of_loans = 5
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = church_estate_events.1.a #Make it clear that they need to contribute.
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 45
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				estate_influence = {
+					estate = estate_church
+					influence = 60
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -15
+		}
+		add_years_of_income = 0.35
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_DEMANDED_CHURCH_MONEY
+			influence = -10
+			duration = 9125
+		}
+	}
+	option = {
+		name = church_estate_events.1.b #We will find the money elsewhere.
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					estate = estate_church
+					influence = 60
+				}
+			}
+		}
+		add_prestige = 5
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
+			influence = 10
+			duration = 9125
+		}
+	}
+}
+
+#State making demands on the Clergy
+#Buddhists
+country_event = {
+	id = church_estate_events.105
+	title = church_estate_events.105.t
+	desc = church_estate_events.105.d
+	picture = CHURCH_ESTATE_2_eventPicture
+	
+	trigger = {
+		has_estate = estate_church
+		OR = {
+			religion = buddhism
+			religion = mahayana
+			religion = vajrayana
+		}
+		estate_influence = {
+			estate = estate_church
+			influence = 25
+		}
+		NOT = {
+			estate_influence = {
+				estate = estate_church
+				influence = 75
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_DEMANDED_CHURCH_MONEY
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
+			}
+		}
+		OR = {
+			AND = {
+				is_at_war = yes
+				NOT = { war_score = 25 }
+			}
+			is_in_deficit = yes
+			num_of_loans = 5
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = church_estate_events.1.a #Make it clear that they need to contribute.
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 45
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				estate_influence = {
+					estate = estate_church
+					influence = 60
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -15
+		}
+		add_karma = -10
+		add_years_of_income = 0.35
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_DEMANDED_CHURCH_MONEY
+			influence = -10
+			duration = 9125
+		}
+	}
+	option = {
+		name = church_estate_events.1.b #We will find the money elsewhere.
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					estate = estate_church
+					influence = 60
+				}
+			}
+		}
+		add_prestige = 5
+		add_karma = 10
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_DIDNT_DEMAND_CHURCH_MONEY
+			influence = 10
+			duration = 9125
+		}
+	}
+}
+
 #Growing Influence of the Clergy
 country_event = {
 	id = church_estate_events.2
 	title = church_estate_events.2.t
 	desc = church_estate_events.2.d
 	picture = CHURCH_ESTATE_1_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -154,8 +763,7 @@ country_event = {
 	}
 	
 	option = {
-		name = church_estate_events.2.a
-		#log = "church_estate_events.2.a" #Ok
+		name = church_estate_events.2.a #Ok
 		add_estate_influence_modifier = {
 			estate = estate_church
 			desc = EST_VAL_CHURCH_ADVANCE
@@ -171,7 +779,6 @@ country_event = {
 	title = church_estate_events.3.t
 	desc = church_estate_events.3.d
 	picture = CHURCH_ESTATE_1_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -202,8 +809,7 @@ country_event = {
 	}
 	
 	option = {
-		name = church_estate_events.3.a
-		#log = "church_estate_events.3.a" #Ok
+		name = church_estate_events.3.a #Ok
 		add_estate_influence_modifier = {
 			estate = estate_church
 			desc = EST_VAL_CHURCH_DECLINE
@@ -223,17 +829,34 @@ country_event = {
 		}
 		desc = church_estate_events.4.d
 	}
+	desc = {
+		trigger = {
+			has_estate = estate_vaisyas
+		}
+		desc = church_estate_events.4.d.2
+	}
 	picture = CHURCH_ESTATE_1_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	trigger = {
 		has_estate = estate_church
+		OR = {
+			AND = {
 				has_estate = estate_burghers
-				any_owned_province = {
-					has_estate = estate_burghers
+				estate_territory = {
+					estate = estate_burghers
+					territory = 1
 				}
+			}
+			AND = {
+				has_estate = estate_vaisyas
+				estate_territory = {
+					estate = estate_vaisyas
+					territory = 1
+				}
+			}
+		}
 		NOT = {
 			has_estate_influence_modifier = {
 				estate = estate_church
@@ -253,8 +876,7 @@ country_event = {
 	}
 	
 	option = {
-		name = church_estate_events.4.a
-		#log = "church_estate_events.4.a" #Then we must force them to pay!
+		name = church_estate_events.4.a #Then we must force them to pay!
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -291,18 +913,72 @@ country_event = {
 					influence = 60
 				}
 			}
+			modifier = {
+				factor = 0.5
+				has_estate = estate_vaisyas
+				NOT = {
+					estate_loyalty = {
+						estate = estate_vaisyas
+						loyalty = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_estate = estate_vaisyas
+				estate_influence = {
+					estate = estate_vaisyas
+					influence = 60
+				}
+			}
 		}
 		add_years_of_income = 0.2
 		if = {
 			limit = {
 				has_estate = estate_burghers
+				any_owned_province = {
+					local_autonomy = 25
+					OR = {	# previous conditions for assigning the burgher estate for a province
+						owner = { government = republic }
+						development = 10
+						province_trade_power = 5
+					}
+				}
 			}
 			random_owned_province = {
 				limit = {
-					has_estate = estate_burghers
 					local_autonomy = 25
+					OR = {
+						owner = { government = republic }
+						development = 10
+						province_trade_power = 5
+					}
 				}
-				add_local_autonomy = -25 #if a province with Burghers have more than 25 it will be reduced by this much or down to 25.
+				add_local_autonomy = -25 #If a province with Burghers have more than 25 it will be reduced by this much or down to 25.
+			}
+		}
+		if = {
+			limit = {
+				has_estate = estate_vaisyas
+				any_owned_province = {
+					local_autonomy = 25
+					OR = {	# previous conditions for assigning the Visaiyas estate for a province
+						owner = { government = republic }
+						development = 7
+						province_trade_power = 5
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					local_autonomy = 25
+					OR = {
+						owner = { government = republic }
+						development = 7
+						province_trade_power = 5
+					}
+				}
+				add_local_autonomy = -25 #If a province with Burghers have more than 25 it will be reduced by this much or down to 25.
 			}
 		}
 		add_estate_loyalty = {
@@ -315,6 +991,15 @@ country_event = {
 			}
 			add_estate_loyalty = {
 				estate = estate_burghers
+				loyalty = -15
+			}
+		}
+		if = {
+			limit = {
+				has_estate = estate_vaisyas
+			}
+			add_estate_loyalty = {
+				estate = estate_vaisyas
 				loyalty = -15
 			}
 		}
@@ -335,10 +1020,20 @@ country_event = {
 				duration = 5475
 			}
 		}
+		if = {
+			limit = {
+				has_estate = estate_vaisyas
+			}
+			add_estate_influence_modifier = {
+				estate = estate_vaisyas
+				desc = EST_VAL_TITHES_DEFENDED
+				influence = -10
+				duration = 5475
+			}
+		}
 	}
 	option = {
-		name = church_estate_events.4.b
-		#log = "church_estate_events.4.b" #A mild reprimand will be enough.
+		name = church_estate_events.4.b #A mild reprimand will be enough.
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -378,7 +1073,6 @@ country_event = {
 	title = church_estate_events.5.t
 	desc = church_estate_events.5.d
 	picture = CHURCH_ESTATE_UPSET_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -390,112 +1084,47 @@ country_event = {
 				loyalty = 30
 			}
 		}
+		any_owned_province = {
+			religion = root
+			is_capital = no
+			is_city = yes
+		}
+		estate_territory = { 
+			estate = estate_church
+			territory = 10
+		}
 	}
 	
 	immediate = {
 		hidden_effect = {
-			random_owned_province = {
-				limit = { has_estate = estate_church }
-				set_province_flag = peasant_clergy_revolt
-			}
-			random_owned_province = {
+			while = {
 				limit = {
-					has_estate = estate_church
-					NOT = { has_province_flag = peasant_clergy_revolt }
-				}
-				set_province_flag = peasant_clergy_revolt
-			}
-			random_owned_province = {
-				limit = {
-					has_estate = estate_church
-					NOT = { has_province_flag = peasant_clergy_revolt }
-				}
-				set_province_flag = peasant_clergy_revolt
-			}
-			random_owned_province = {
-				limit = {
-					has_estate = estate_church
-					NOT = { has_province_flag = peasant_clergy_revolt }
-				}
-				set_province_flag = peasant_clergy_revolt
-			}
-			random_owned_province = {
-				limit = {
-					has_estate = estate_church
-					owner = {
-						num_of_owned_provinces_with = {
-							has_estate = estate_church
-							value = 15
+					NOT = { 
+						development_in_provinces = {
+							has_province_flag = peasant_clergy_revolt
+							value = estate
+							estate = estate_church
 						}
 					}
-					NOT = { has_province_flag = peasant_clergy_revolt }
-				}
-				set_province_flag = peasant_clergy_revolt
-			}
-			random_owned_province = {
-				limit = {
-					has_estate = estate_church
-					owner = {
-						num_of_owned_provinces_with = {
-							has_estate = estate_church
-							value = 15
-						}
+					any_owned_province = {
+						religion = root
+						is_capital = no
+						is_city = yes
+						NOT = { has_province_flag = peasant_clergy_revolt }
 					}
-					NOT = { has_province_flag = peasant_clergy_revolt }
-				}
-				set_province_flag = peasant_clergy_revolt
-			}
-			random_owned_province = {
-				limit = {
-					has_estate = estate_church
-					owner = {
-						num_of_owned_provinces_with = {
-							has_estate = estate_church
-							value = 15
-						}
+					check_reducing_estate_revolt_size_trigger = {
+						FLAG = peasant_clergy_revolt
 					}
-					NOT = { has_province_flag = peasant_clergy_revolt }
 				}
-				set_province_flag = peasant_clergy_revolt
-			}
-			random_owned_province = {
-				limit = {
-					has_estate = estate_church
-					owner = {
-						num_of_owned_provinces_with = {
-							has_estate = estate_church
-							value = 15
-						}
+				random_owned_province = {
+					limit = {
+						religion = root
+						is_capital = no
+						is_city = yes
+						NOT = { has_province_flag = peasant_clergy_revolt }
 					}
-					NOT = { has_province_flag = peasant_clergy_revolt }
+					set_province_flag = peasant_clergy_revolt
 				}
-				set_province_flag = peasant_clergy_revolt
-			}
-			random_owned_province = {
-				limit = {
-					has_estate = estate_church
-					owner = {
-						num_of_owned_provinces_with = {
-							has_estate = estate_church
-							value = 20
-						}
-					}
-					NOT = { has_province_flag = peasant_clergy_revolt }
-				}
-				set_province_flag = peasant_clergy_revolt
-			}
-			random_owned_province = {
-				limit = {
-					has_estate = estate_church
-					owner = {
-						num_of_owned_provinces_with = {
-							has_estate = estate_church
-							value = 20
-						}
-					}
-					NOT = { has_province_flag = peasant_clergy_revolt }
-				}
-				set_province_flag = peasant_clergy_revolt
 			}
 		}
 	}
@@ -505,11 +1134,10 @@ country_event = {
 	}
 	
 	option = {
-		name = church_estate_events.5.a
-		#log = "church_estate_events.5.a" #Ok
+		name = church_estate_events.5.a #Ok
 		add_stability = -1
 		if = {
-			limit = { any_owned_province = { has_estate = estate_church } } #Prevents faulty tooltip.
+			limit = { any_owned_province = { is_core = ROOT } }
 			every_owned_province = {
 				limit = { has_province_flag = peasant_clergy_revolt }
 				clr_province_flag = peasant_clergy_revolt
@@ -528,7 +1156,6 @@ country_event = {
 	title = church_estate_events.6.t
 	desc = church_estate_events.6.d
 	picture = CHURCH_ESTATE_UPSET_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -557,8 +1184,7 @@ country_event = {
 	}
 	
 	option = {
-		name = church_estate_events.6.a
-		#log = "church_estate_events.6.a" #Agree
+		name = church_estate_events.6.a #Agree
 		ai_chance = {
 			factor = 25
 		}
@@ -574,8 +1200,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = church_estate_events.6.b
-		#log = "church_estate_events.6.b" #Disagree
+		name = church_estate_events.6.b #Disagree
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -615,7 +1240,6 @@ country_event = {
 	title = church_estate_events.7.t
 	desc = church_estate_events.7.d
 	picture = CHURCH_ESTATE_1_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -652,8 +1276,7 @@ country_event = {
 	}
 	
 	option = {
-		name = church_estate_events.7.a
-		#log = "church_estate_events.7.a" #Agree
+		name = church_estate_events.7.a #Agree
 		trigger_switch = {
 			on_trigger = has_country_flag
 			loyalty_to_the_crown = {
@@ -681,20 +1304,13 @@ country_event = {
 	title = church_estate_events.8.t
 	desc = church_estate_events.8.d
 	picture = CHURCH_ESTATE_1_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	trigger = {
 		has_estate = estate_church
 		has_estate = estate_nobles
-		any_owned_province = {
-			is_overseas = no
-			is_colony = no
-			is_capital = no
-			NOT = { has_estate = yes }
-			is_territory = no
-		}
+		crown_land_share = 10
 		NOT = {
 			has_estate_influence_modifier = {
 				estate = estate_church
@@ -714,8 +1330,7 @@ country_event = {
 	}
 	
 	option = {
-		name = church_estate_events.8.a
-		#log = "church_estate_events.8.a" #Side with the $ESTATE_CHURCH$.
+		name = church_estate_events.8.a #Side with the $ESTATE_CHURCH$.
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -751,16 +1366,7 @@ country_event = {
 				}
 			}
 		}
-		random_owned_province = {
-			limit = {
-				is_overseas = no
-				is_capital = no
-				is_colony = no
-				NOT = { has_estate = yes }
-				is_territory = no
-			}
-			set_estate = estate_church
-		}
+		scaled_estate_church_land_share_effect = yes
 		add_estate_loyalty = {
 			estate = estate_church
 			loyalty = 15
@@ -783,8 +1389,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = church_estate_events.8.b
-		#log = "church_estate_events.8.b" #Side with the $ESTATE_NOBLES$.
+		name = church_estate_events.8.b #Side with the $ESTATE_NOBLES$.
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -820,16 +1425,7 @@ country_event = {
 				}
 			}
 		}
-		random_owned_province = {
-			limit = {
-				is_overseas = no
-				is_capital = no
-				is_colony = no
-				NOT = { has_estate = yes }
-				is_territory = no
-			}
-			set_estate = estate_nobles
-		}
+		scaled_estate_nobles_land_share_effect = yes
 		add_estate_loyalty = {
 			estate = estate_church
 			loyalty = -15
@@ -852,8 +1448,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = church_estate_events.8.c
-		#log = "church_estate_events.8.c" #Favor neither to retain control of province.
+		name = church_estate_events.8.c #Favor neither to retain control of province.
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -919,15 +1514,16 @@ country_event = {
 	title = church_estate_events.9.t
 	desc = church_estate_events.9.d
 	picture = CHURCH_ESTATE_2_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	trigger = {
 		has_estate = estate_church
 		has_estate = estate_nobles
+		NOT = { religion = confucianism }
 		any_owned_province = {
 			has_owner_religion = no
+			is_city = yes
 		}
 		NOT = {
 			has_estate_influence_modifier = {
@@ -948,8 +1544,7 @@ country_event = {
 	}
 	
 	option = {
-		name = church_estate_events.9.a
-		#log = "church_estate_events.9.a" #
+		name = church_estate_events.9.a #
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -983,10 +1578,10 @@ country_event = {
 			influence = 10
 			duration = 5475
 		}
+		add_estate_dhimmi_loyalty_effect = yes
 	}
 	option = {
-		name = church_estate_events.9.b
-		#log = "church_estate_events.9.b" #
+		name = church_estate_events.9.b #
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -1020,6 +1615,7 @@ country_event = {
 			influence = -10
 			duration = 5475
 		}
+		reduce_estate_dhimmi_loyalty_effect = yes
 	}
 }
 
@@ -1029,7 +1625,6 @@ country_event = {
 	title = church_estate_events.10.t
 	desc = church_estate_events.10.d
 	picture = CHURCH_ESTATE_1_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -1054,8 +1649,7 @@ country_event = {
 	}
 	
 	option = {
-		name = church_estate_events.10.a
-		#log = "church_estate_events.10.a" #Do not meddle in the affairs of the $ESTATE_CHURCH$.
+		name = church_estate_events.10.a #Do not meddle in the affairs of the $ESTATE_CHURCH$.
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -1074,8 +1668,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = church_estate_events.10.b
-		#log = "church_estate_events.10.b" #Support the younger Candidate.
+		name = church_estate_events.10.b #Support the younger Candidate.
 		add_years_of_income = -0.25
 		add_prestige = -10
 		ai_chance = {
@@ -1107,13 +1700,11 @@ province_event = {
 	title = church_estate_events.11.t
 	desc = church_estate_events.11.d
 	picture = CHURCH_ESTATE_UPSET_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
 	
 	option = {
-		name = church_estate_events.11.a
-		#log = "church_estate_events.11.a" #
+		name = church_estate_events.11.a #
 	}
 }
