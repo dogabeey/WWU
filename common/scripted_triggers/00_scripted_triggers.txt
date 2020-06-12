@@ -177,12 +177,7 @@ is_free_or_tributary_trigger = { #I.e. Tags that can conduct independent diploma
 
 # Third Rome Triggers
 has_russian_government_interaction = {
-	has_dlc = "Third Rome"
-	OR = {
-		has_reform = tsardom
-		has_reform = principality
-		has_reform = veche_republic
-	}
+	always = no
 }
 
 
@@ -429,13 +424,6 @@ consort_has_bad_mil_personality = {
  
 can_have_center_of_reformation_trigger = { #Province Scope
 	#$RELIGION$ needs to match the religion of the center that is being spawned.
-	continent = europe
-	OR = {
-		religion = protestant
-		religion = catholic
-		religion = reformed
-	}
-	NOT = { province_id = 118 }
 	is_in_capital_area = yes
 	is_reformation_center = no
 	is_island = no
@@ -501,288 +489,33 @@ industrialized_province_trigger = { #Province Scope
 	}
 }
 
-was_never_end_game_tag_trigger = {	#Country Scope
-	OR = {
-		NOT = { end_game_tags_blocked = yes }
-		AND = {
-			NOT = { was_tag = MUG }
-			NOT = { was_tag = TUR }
-			NOT = { was_tag = BYZ }
-			NOT = { was_tag = ROM }
-			NOT = { was_tag = HLR }
-			NOT = { was_tag = RUM }
-			NOT = { was_tag = QNG }
-			NOT = { was_tag = RUS }
-			NOT = { was_tag = PLC }
-			NOT = { was_tag = JAP }
-			NOT = { was_tag = YUA }
-			NOT = { was_tag = HIN }
-			NOT = { was_tag = BHA }
-			NOT = { was_tag = ARB }
-			NOT = { was_tag = PAP }
-			NOT = { was_tag = SPA }
-			NOT = { was_tag = GBR }
-			NOT = { was_tag = ITA }
-			NOT = { was_tag = GER }
-			NOT = { was_tag = MNG }
-			NOT = { was_tag = MGE }
-			NOT = { was_tag = SYN }
-			NOT = { was_tag = ADU }
-			NOT = { was_tag = LOT }
-			NOT = { tag = MUG }
-			NOT = { tag = TUR }
-			NOT = { tag = BYZ }
-			NOT = { tag = ROM }
-			NOT = { tag = HLR }
-			NOT = { tag = RUM }
-			NOT = { tag = QNG }
-			NOT = { tag = RUS }
-			NOT = { tag = PLC }
-			NOT = { tag = JAP }
-			NOT = { tag = YUA }
-			NOT = { tag = HIN }
-			NOT = { tag = BHA }
-			NOT = { tag = ARB }
-			NOT = { tag = PAP }
-			NOT = { tag = SPA }
-			NOT = { tag = GBR }
-			NOT = { tag = ITA }
-			NOT = { tag = GER }
-			NOT = { tag = MNG }
-			NOT = { tag = MGE }
-			NOT = { tag = SYN }
-			NOT = { tag = ADU }
-			NOT = { tag = LOT }
-		}
-	}
+was_never_end_game_tag_trigger = {
+	always = no
 }
 
 
-was_never_german_regional_tag_trigger = {	#Country Scope
-	NOT = { was_tag = BRA }
-	NOT = { was_tag = PRU }
-	NOT = { was_tag = POM }
-	NOT = { was_tag = SAX }
-	NOT = { was_tag = BAV }
-	NOT = { was_tag = HAB }
-	NOT = { was_tag = SWA }
-	NOT = { was_tag = FKN }
-	NOT = { was_tag = WES }
-	NOT = { was_tag = HAN }
-	
-	NOT = { tag = BRA }
-	NOT = { tag = PRU }
-	NOT = { tag = POM }
-	NOT = { tag = SAX }
-	NOT = { tag = BAV }
-	NOT = { tag = HAB }
-	NOT = { tag = SWA }
-	NOT = { tag = FKN }
-	NOT = { tag = WES }
-	NOT = { tag = HAN }
+was_never_german_regional_tag_trigger = {
+	always = no
 }
 
 
 has_manufactory_trigger = { #Province Scope
-	custom_trigger_tooltip = {
-		tooltip = has_manufactory_trigger_tooltip
-		OR = {
-			has_building = wharf
-			has_building = weapons
-			has_building = textile
-			has_building = tradecompany
-			has_building = farm_estate
-			has_building = mills
-			has_building = furnace
-			has_building = plantations
-			has_building = ramparts
-			has_building = soldier_households
-			has_building = impressment_offices
-			has_building = state_house
-		}
-	}
+	always = no
 }
 
 #Use this one if you want it to say which manufactory has to be built
 # Does not include 1.30 manufactories
-has_manufactory_no_custom_tooltip_trigger = { #Province Scope
-	if = {
-		limit = {
-			OR = {
-				trade_goods = naval_supplies
-				trade_goods = fish
-				trade_goods = salt
-			}
-		}
-		has_building = wharf
-	}
-	else_if = {
-		limit = {
-			OR = {
-				trade_goods = copper
-				trade_goods = iron
-			}
-		}
-		has_building = weapons
-	}
-	else_if = {
-		limit = {
-			OR = {
-				trade_goods = wool
-				trade_goods = cloth
-				trade_goods = silk
-				trade_goods = dyes
-			}
-		}
-		has_building = textile
-	}
-	else_if = {
-		limit = {
-			OR = {
-				trade_goods = ivory
-				trade_goods = slaves
-				trade_goods = spices
-				trade_goods = fur
-				trade_goods = incense
-			}
-		}
-		has_building = tradecompany
-	}
-	else_if = {
-		limit = {
-			OR = {
-				trade_goods = grain
-				trade_goods = livestock
-				trade_goods = wine
-			}
-		}
-		has_building = farm_estate
-	}
-	else_if = {
-		limit = {
-			OR = {
-				trade_goods = paper
-				trade_goods = gems
-				trade_goods = tropical_wood
-				trade_goods = glass
-				trade_goods = chinaware
-			}
-		}
-		has_building = mills
-	}
-	else_if = {
-		limit = {
-			trade_goods = coal
-		}
-		has_building = furnace
-	}
-	else = {
-		has_building = plantations
-	}
+has_manufactory_no_custom_tooltip_trigger = {
+	always = no
 }
 
 has_no_manufactory_trigger = { #Province Scope
-	NOT = { has_building = wharf }
-	NOT = { has_building = weapons }
-	NOT = { has_building = textile }
-	NOT = { has_building = tradecompany }
-	NOT = { has_building = farm_estate }
-	NOT = { has_building = mills }
-	NOT = { has_building = plantations }
-	NOT = { has_building = furnace }
-	NOT = { has_building = ramparts }
-	NOT = { has_building = soldier_households }
-	NOT = { has_building = impressment_offices }
-	NOT = { has_building = state_house }
+	always = no
 }
 
 # Does not include new manufactories - they don't fit for the purposes of this trigger
 root_can_build_manufactory_here_trigger = {
-    has_no_manufactory_trigger = yes
-    num_free_building_slots = 1
-    if = {
-        limit = {
-            OR = {
-                trade_goods = naval_supplies
-                trade_goods = fish
-                trade_goods = salt
-            }
-        }
-        ROOT = { dip_tech = 11 }
-    }
-    else_if = {
-        limit = {
-            OR = {
-                trade_goods = copper
-                trade_goods = iron
-            }
-        }
-        ROOT = { mil_tech = 11 }
-    }
-    else_if = {
-        limit = {
-            OR = {
-                trade_goods = wool
-                trade_goods = cloth
-                trade_goods = silk
-                trade_goods = dyes
-            }
-        }
-        ROOT = { adm_tech = 11 }
-    }
-    else_if = {
-        limit = {
-            OR = {
-                trade_goods = coffee
-                trade_goods = cotton
-                trade_goods = sugar
-                trade_goods = tobacco
-                trade_goods = tea
-                trade_goods = cocoa
-            }
-        }
-        ROOT = { adm_tech = 14 }
-    }
-    else_if = {
-        limit = {
-            OR = {
-                trade_goods = ivory
-                trade_goods = slaves
-                trade_goods = spices
-                trade_goods = fur
-                trade_goods = incense
-            }
-        }
-        ROOT = { dip_tech = 14 }
-    }
-    else_if = {
-        limit = {
-            OR = {
-                trade_goods = grain
-                trade_goods = livestock
-                trade_goods = wine
-            }
-        }
-        ROOT = { adm_tech = 6 }
-    }
-    else_if = {
-        limit = {
-            OR = {
-                trade_goods = paper
-                trade_goods = gems
-                trade_goods = tropical_wood
-                trade_goods = glass
-                trade_goods = chinaware
-            }
-        }
-        ROOT = { adm_tech = 16 }
-    }
-    else_if = {
-        limit = {
-            trade_goods = coal
-        }
-        ROOT = { adm_tech = 21 }
-    }
+	always = no
 }
 
 has_nobles_trade_good_trigger = {
@@ -792,10 +525,6 @@ has_nobles_trade_good_trigger = {
 		trade_goods = livestock
 		trade_goods = grain
 		trade_goods = gems
-		AND = {
-			trade_goods = slaves
-			ROOT = { NOT = { religion = nahuatl } }
-		}
 	}
 }
 
@@ -819,10 +548,6 @@ has_burghers_trade_good_trigger = {
 		trade_goods = chinaware
 		trade_goods = paper
 		trade_goods = ivory
-		AND = {
-			trade_goods = fish
-			ROOT = { NOT = { religion_group = christian } }
-		}
 	}
 }
 
@@ -831,100 +556,47 @@ has_church_trade_good_trigger = {
 		trade_goods = wool
 		trade_goods = fur
 		AND = {
-			trade_goods = wine
-			ROOT = { NOT = { religion_group = muslim } }
-		}
-		AND = {
 			trade_goods = slaves
-			ROOT = { religion = nahuatl }
+			ROOT = { religion = religion_the_legion }
 		}
 		trade_goods = incense
 		AND = {
 			trade_goods = fish
-			ROOT = { religion_group = christian }
+			ROOT = { religion_group = religion_water }
 		}
 	}
 }
 
 has_dharma_elephants_trigger = {
-	OR = {
-		has_dlc = "Dharma"
-		has_dlc = "Dharma - Indian Sultanate Pack"
-		has_dlc = "Dharma - Hindu Unit Pack"
-	}
-	OR = {
-		culture_group = hindusthani
-		culture_group = eastern_aryan
-		culture_group = western_aryan
-		culture_group = dravidian
-		culture_group = central_indic
-		culture_group = southeastasian_group
-		culture_group = burman
-		primary_culture = cham
-		primary_culture = sumatran
-		primary_culture = javanese
-		primary_culture = malayan
-		tag = CDL #Dali
-	}
+	always = no
 }
 
 # This is for when we want to award government reform progress and need to check if that's useful to the player based on dlc ownership
 has_completed_all_reforms_trigger = {
-	custom_trigger_tooltip = {
-		tooltip = has_completed_all_reforms_trigger_tooltip
-		NOT = { has_dlc = "Emperor" }
-		OR = {
-			has_reform = political_absolutism_reform
-			has_reform = legislative_houses_reform
-			has_reform = strengthen_executive_powers_reform
-			has_reform = reinforce_republican_values_reform
-			has_reform = enlightened_monarchy_reform
-			has_reform = emperor_of_the_revolution_reform
-			has_reform = government_for_people_reform
-			has_reform = president_for_life_reform
-			has_reform = all_under_tengri_reform
-			has_reform = proclaim_religious_head_reform
-			has_reform = priestly_autonomy_reform
-			has_reform = many_fingers_of_god_reform
-			has_reform = religious_permanent_revolution_reform
-			has_reform = religion_in_one_country_reform
-		}
-	}
+	always = no
 }
 
 # This is for all other situations
 has_final_tier_reforms_trigger = {
-	custom_trigger_tooltip = {
-		tooltip = has_completed_all_reforms_trigger_tooltip
-		OR = {
-			has_reform = political_absolutism_reform
-			has_reform = legislative_houses_reform
-			has_reform = strengthen_executive_powers_reform
-			has_reform = reinforce_republican_values_reform
-			has_reform = enlightened_monarchy_reform
-			has_reform = emperor_of_the_revolution_reform
-			has_reform = government_for_people_reform
-			has_reform = president_for_life_reform
-			has_reform = all_under_tengri_reform
-			has_reform = proclaim_religious_head_reform
-			has_reform = priestly_autonomy_reform
-			has_reform = many_fingers_of_god_reform
-			has_reform = religious_permanent_revolution_reform
-			has_reform = religion_in_one_country_reform
-		}
-	}
+	always = no
 }
 
 has_holy_order_trigger = {
 	custom_trigger_tooltip = {
 		tooltip = "has_holy_order_trigger_tooltip"
 		OR = {
-			holy_order = jesuit_order
-			holy_order = dominican_order
-			holy_order = franciscan_order
-			holy_order = shadhili_order
-			holy_order = qadiri_order
-			holy_order = aissawa_order
+			holy_order = warrior_order
+			holy_order = paladin_order
+			holy_order = priest_order
+			holy_order = rogue_order
+			holy_order = mage_order
+			holy_order = warlock_order
+			holy_order = hunter_order
+			holy_order = shaman_order
+			holy_order = druid_order
+			holy_order = death_knight_order
+			holy_order = monk_order
+			holy_order = demon_hunter_order
 		}
 	}
 }
@@ -952,9 +624,9 @@ same_govt_as_root_trigger = {
 				}
 			}
 			AND = {
-				government = dictatorship
+				government = organization
 				root = {
-					government = dictatorship
+					government = organization
 				}
 			}
 			AND = {
@@ -977,58 +649,65 @@ same_govt_as_root_trigger = {
 
 has_tax_building_trigger = {
 	OR = {
-		has_building = temple
-		has_building = cathedral
+		has_building = wow_farm
+		has_building = wow_large_farm
 	}
 }
 
 has_trade_building_trigger = {
 	OR = {
-		has_building = marketplace
-		has_building = trade_depot
-		has_building = stock_exchange
+		has_building = wow_market
+		has_building = wow_grand_market
+		has_building = wow_tavern
+		has_building = wow_well_kept_tavern
+		has_building = wow_workshop
+		has_building = wow_grand_workshop
 	}
 }
 
 has_production_building_trigger = {
 	OR = {
-		has_building = workshop
-		has_building = counting_house
+		has_building = wow_mine
+		has_building = wow_large_mine
 	}
 }
 
 has_manpower_building_trigger = {
 	OR = {
-		has_building = barracks
-		has_building = training_fields
+		has_building = wow_barracks
+		has_building = wow_grand_barracks
+		has_building = wow_training_grounds
+		has_building = wow_grand_training_grounds
 	}
 }
 
 has_shipyard_building_trigger = {
 	OR = {
-		has_building = shipyard
-		has_building = grand_shipyard
+		has_building = wow_shipyard
+		has_building = wow_grand_shipyard
 	}
 }
 
 has_dock_building_trigger = {
 	OR = {
-		has_building = dock
-		has_building = drydock
+		has_building = wow_dock
+		has_building = wow_grand_dock
 	}
 }
 
 has_forcelimit_building_trigger = {
 	OR = {
-		has_building = regimental_camp
-		has_building = conscription_center
+		has_building = wow_barracks
+		has_building = wow_grand_barracks
 	}
 }
 
 has_courthouse_building_trigger = {
 	OR = {	
-		has_building = courthouse
-		has_building = town_hall
+		has_building = wow_town_hall
+		has_building = wow_grand_town_hall
+		has_building = wow_court
+		has_building = wow_regional_court
 	}
 }
 
@@ -1051,52 +730,33 @@ has_been_insulted_by_root = {
 valid_for_personal_unions_trigger = {
 	is_subject = no
 	government = monarchy
-	religion_group = christian
 }
 
 is_shadow_kingdom_eligible_trigger = {
 	is_emperor = no
 	is_part_of_hre = yes
 	OR = {
-		capital_scope = { region = italy_region }
+		capital_scope = { area = area_deepholm }
 		AND = {
-			culture_group = latin
+			culture = culture_black
 			any_owned_province = {
-				region = italy_region
+				area = area_deepholm
 			}
 		}
 	}
 }
 
 will_leave_for_shadow_kingdom_trigger = {
-	NOT = {
-		OR = {
-			has_country_flag = reined_in_for_shadow_kingdom
-			emperor = {
-				alliance_with = PREV
-			}
-			has_opinion = {
-				who = emperor
-				value = 150
-			}
-			is_subject_of = emperor
-			has_reform = free_city
-		}
-	}
+	always = no
 }
 
 
 is_germanic_but_not_swamp = {
-	culture_group = germanic
-	NOT = { primary_culture = dutch }
-	NOT = { primary_culture = flemish }
-	NOT = { primary_culture = frisian }
+	always = no
 }
 
 is_germanic_but_not_mountains = {
-	culture_group = germanic
-	NOT = { primary_culture = swiss }
-	NOT = { primary_culture = austrian }
+	always = no
 }
 
 #province scope; checks it is highest or joint highest supply limit in the area owned by you (useful for spawning rebels)
@@ -1118,40 +778,32 @@ province_has_current_tech_fort_trigger = {
 		if = {
 			limit = {
 				owner = {
-					NOT = { mil_tech = 14 }
+					NOT = { mil_tech = 7 }
 				}
 			}
-			has_building = fort_15th
+			has_building = wow_fort_2
 		}
 		else_if = {
 			limit = {
 				owner = {
 					AND = {
-						mil_tech = 14
-						NOT = { mil_tech = 19 }
+						mil_tech = 7
+						NOT = { mil_tech = 15 }
 					}
 				}
 			}
-			has_building = fort_16th
+			has_building = wow_fort_3
 		}
 		else_if = {
 			limit = {
 				owner = {
 					AND = {
-						mil_tech = 19
+						mil_tech = 15
 						NOT = { mil_tech = 24 }
 					}
 				}
 			}
-			has_building = fort_17th
-		}
-		else_if = {
-			limit = {
-				owner = {
-					mil_tech = 24
-				}
-			}
-			has_building = fort_18th
+			has_building = wow_fort_4
 		}
 	}
 }
@@ -1291,27 +943,11 @@ check_reducing_estate_revolt_size_more_trigger = {
 }
 
 is_revolutionary_republic_trigger = {
-	OR = {
-		has_reform = revolutionary_republic_reform
-		has_reform = junior_revolutionary_republic_reform
-	}
+	always = no
 }
 
 revolution_event_can_happen_trigger = {
-	OR = {
-		revolution_target_exists = no
-		has_dlc = "Emperor"
-	}
-	OR = {
-		capital_scope = { 
-#			continent = europe 
-			controlled_by = REB
-		}
-		has_country_modifier = just_lost_to_revolutionary_rebels
-		has_country_flag = revolution_disaster_immediate_revolution
-	}
-	num_of_cities = 10
-	is_revolutionary = no
+	always = no
 }
 #country scope, used in election events to check whether generated rulers may be female
 republic_with_female_rulers_trigger = {
@@ -1323,8 +959,5 @@ republic_with_female_rulers_trigger = {
 }
 
 is_absolutism_active = {
-	OR = {
-		current_age = age_of_absolutism
-		current_age = age_of_revolutions
-	}
+	always = yes
 }
