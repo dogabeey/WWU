@@ -1,0 +1,169 @@
+estate_church =
+{
+	icon = 1
+	
+	color = { 200 150 0 }
+	
+    custom_name = {
+        desc = estate_tidesages
+        trigger = {
+            has_reform = admiralty_reform
+        }
+    }
+	
+    custom_name = {
+        desc = estate_church_light
+        trigger = {
+            religion_group = religion_group_the_light
+        }
+    }
+	
+    custom_name = {
+        desc = estate_church_void
+        trigger = {
+            religion_group = religion_group_the_void
+        }
+    }
+	
+    custom_name = {
+        desc = estate_church_disorder
+        trigger = {
+            religion_group = religion_group_disorder
+        }
+    }
+	
+    custom_name = {
+        desc = estate_church_druidic
+        trigger = {
+            religion = religion_druidic
+        }
+    }
+	
+    custom_name = {
+        desc = estate_church_order
+        trigger = {
+            religion_group = religion_group_order
+        }
+    }
+	
+    custom_name = {
+        desc = estate_church_elemental
+        trigger = {
+            religion_group = religion_group_elemental
+        }
+    }
+	
+	# Is estate kept in control of province on conquest?
+	#keep_on_conquest = no
+	
+	# Estate will always be removed when conquered by a different religion than previous owner
+	#always_remove_on_religious_conquest = yes
+	
+	# If true, country will get estate
+	trigger = {
+		NOT = { is_pure_evil = yes }
+		NOT = { is_landless = yes }
+		NOT = { has_reform = pirate_republic_reform }
+		OR = {
+			NOT = { has_reform = celestial_empire }
+			has_dlc = "Mandate of Heaven"
+		}
+		is_colonial_nation = no
+	}
+	
+	# If true, province can be granted to estate
+	
+
+	# Is used to weigh importance compared to other estates
+	#start_territory_weight = 25
+	
+	# Min autonomy in estate provinces
+	#min_autonomy = 25
+	
+	# Estate cancels out the following multiplicative local autonomy effects:
+	
+
+	# These scale with loyalty & power
+	country_modifier_happy = {
+		global_tax_modifier = 0.1
+		papal_influence = 1
+		devotion = 0.5
+		church_power_modifier = 0.1
+		monthly_fervor_increase = 1.
+		stability_cost_modifier = -0.1
+	}
+	country_modifier_neutral = {
+	}	
+	country_modifier_angry = {
+		global_tax_modifier = -0.25
+		papal_influence = -2.5
+		devotion = -1.0
+		church_power_modifier = -0.25
+		monthly_fervor_increase = -2.5
+		stability_cost_modifier = 0.25
+	}	
+	
+	land_ownership_modifier = { }
+	province_independence_weight = { factor = 1 }
+	
+	# Influence modifiers
+	base_influence = 20
+	influence_modifier = {
+		desc = EST_VAL_STATE_RELIGIOUS_MINORITY
+		trigger = {
+			NOT = { dominant_religion = ROOT }
+		}	
+		influence = -15
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_burghers_disaster
+			}
+		}
+		influence = -40
+	}
+	influence_modifier = {
+		desc = EST_VAL_CELESTIAL_EMPIRE
+		trigger = {
+			has_reform = celestial_empire
+		}		
+		influence = -10
+	}
+	
+	# Loyalty modifiers
+	loyalty_modifier = {
+		desc = EST_VAL_PAPAL_CONTROLLER
+		trigger = {
+			is_papal_controller = yes
+		}
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_burghers_disaster
+			}
+		}
+		loyalty = -20
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_FULL_RELIGIOUS
+		trigger = {
+			full_idea_group = supremacist_ideas
+		}
+		loyalty = 10
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}

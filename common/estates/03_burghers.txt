@@ -1,0 +1,174 @@
+estate_burghers =
+{
+	icon = 3
+	
+	color = { 35 35 150 }
+	
+    custom_name = {
+        desc = estate_traders
+        trigger = {
+            has_reform = admiralty_reform
+        }
+    }
+    custom_name = {
+        desc = estate_burghers_merchant
+        trigger = {
+            is_merchant = yes
+        }
+    }
+    custom_name = {
+        desc = estate_burghers_lesser
+        trigger = {
+            is_lesser = yes
+        }
+    }
+    custom_name = {
+        desc = estate_burghers_ancient
+        trigger = {
+            is_ancient = yes
+        }
+    }
+	# Is estate kept in control of province on conquest?
+	#keep_on_conquest = no		
+
+	# If true, country will get estate
+	trigger = {	
+		NOT = { is_landless = yes }
+		NOT = { has_reform = pirate_republic_reform }
+		OR = {
+			NOT = { has_reform = celestial_empire }
+			has_dlc = "Mandate of Heaven"
+		}
+		is_nomad = no
+		is_colonial_nation = no
+	}
+	
+
+	# Is used to weigh importance compared to other estates
+	#start_territory_weight = 10
+	
+	# Min autonomy in estate provinces
+	#min_autonomy = 25
+
+	# These scale with loyalty & power
+	country_modifier_happy = {
+		trade_efficiency = 0.1
+		development_cost = -0.1
+	}
+	country_modifier_neutral = {
+	}	
+	country_modifier_angry = {
+		trade_efficiency = -0.25
+		development_cost = 0.25
+	}
+	
+	land_ownership_modifier = { }
+	province_independence_weight = { factor = 1 }
+	
+			
+		
+	
+	# Influence modifiers
+	base_influence = 10
+	influence_modifier = {	
+		desc = EST_HIGH_DEVELOPMENT_PROVINCE
+		trigger = {
+			any_owned_province = {
+				development = 30
+			}
+		}
+		influence = 5
+	}
+	influence_modifier = {	
+		desc = EST_VAL_IMPERIAL_CITY
+		trigger = {
+			has_reform = free_city
+		}
+		influence = 30
+	}
+	influence_modifier = {	
+		desc = EST_VAL_COT
+		trigger = {
+			NOT = { has_reform = free_city }
+			any_owned_province = {
+				province_has_center_of_trade_of_level = 1
+			}
+		}
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_HANSEATIC_CITY
+		trigger = {
+			NOT = { has_reform = free_city }
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_LOW_TRADE_INCOME
+		trigger = {
+			NOT = { trade_income_percentage = 0.25 }
+		}	
+		influence = -5
+	}
+	influence_modifier = {
+		desc = EST_VAL_HIGH_TRADE_INCOME
+		trigger = {
+			trade_income_percentage = 0.5
+			NOT = { trade_income_percentage = 0.75 }
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_VERY_HIGH_TRADE_INCOME
+		trigger = {
+			trade_income_percentage = 0.75
+		}	
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_CELESTIAL_EMPIRE
+		trigger = {
+			has_reform = celestial_empire
+		}		
+		influence = -10
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_church_disaster
+			}
+		}	
+		influence = -40
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_church_disaster
+			}
+		}
+		loyalty = -20
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_FULL_PLUTOCRATIC
+		trigger = {
+			full_idea_group = necromancy_ideas
+		}
+		loyalty = 10
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,90 @@
+# Given to the old god touched nations
+estate_old_gods =
+{
+	icon = 33
+
+	color = { 106 54 112 }
+
+	# Is estate kept in control of province on conquest?
+	#keep_on_conquest = no
+
+	# Estate will always be removed when conquered by a different religion than previous owner
+	#always_remove_on_religious_conquest = yes
+	# If true, country will get estate
+	trigger = {
+		religion = religion_old_gods
+		NOT = { is_landless = yes }
+	}
+
+	# If true, province can be granted to estate
+	
+
+	# Min autonomy in estate provinces
+	#min_autonomy = 25
+
+	#################################
+	# Modifiers
+	#################################
+
+	# These scale with loyalty & power
+	country_modifier_happy = {
+		land_morale = 0.10
+		stability_cost_modifier = -0.1
+	}
+	country_modifier_neutral = {
+		land_morale = 0.10
+	}
+	country_modifier_angry = {
+		land_morale = -0.10
+		stability_cost_modifier = 0.1
+	}
+
+	land_ownership_modifier = { }
+	province_independence_weight = { factor = 1 }
+	
+	
+	
+
+	#################################
+	# Influence modifiers
+	#################################
+	base_influence = 20
+
+	influence_modifier = {
+		desc = EST_VAL_STATE_RELIGIOUS_MINORITY
+		trigger = {
+			NOT = { dominant_religion = ROOT }
+		}
+		influence = -15
+	}
+
+	#################################
+	# Loyalty modifiers
+	#################################
+
+	loyalty_modifier = {
+		desc = EST_VAL_FULL_RELIGIOUS
+		trigger = {
+			full_idea_group = supremacist_ideas
+		}
+		loyalty = 10
+	}
+
+  #############################
+  # Interactions
+  #############################
+
+  # Swear Fealty to Old Gods
+  # 15 Loyalty, 20 Influence, Piety 5
+	
+
+  # Grovel for Funds
+  # -10 to -20 loyalty
+  # Grants 1 years income to 4 years income
+  
+
+  # Recruite Inquisitor
+  # Influence 10
+  # Add Inquisitor Advisor
+	
+}

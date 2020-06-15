@@ -1,0 +1,66 @@
+estate_nomadic_tribes = {
+	icon = 5
+	
+	color = { 50 150 50 }
+	
+    custom_name = {
+        desc = estate_nomadic_tribes_dragonkin
+        trigger = {
+            culture_group = culture_group_dragonkin
+        }
+    }
+    custom_name = {
+        desc = estate_nomadic_tribes_worgen
+        trigger = {
+            culture_group = culture_group_worgen
+        }
+    }
+	
+	# Is estate kept in control of province on conquest?
+	#keep_on_conquest = no	
+
+	# If true, country will get estate
+	trigger = {
+		NOT = { is_landless = yes }
+		has_dlc = "The Cossacks"
+		is_nomad = yes
+		is_colonial_nation = no
+	}
+	
+	# If true, province can be granted to estate
+		
+	
+	# Giving territory affects power this much compared to base
+	#territory_power_modifier = 0.35
+
+	# Is used to weigh importance compared to other estates
+	#start_territory_weight = 100
+	
+	# Min autonomy in estate provinces
+	#min_autonomy = 50
+	
+	# Estate cancels out the following multiplicative local autonomy effects:
+	
+	
+
+	# These scale with loyalty & power
+	country_modifier_happy = {
+		cavalry_cost = -0.1
+		manpower_recovery_speed = 0.1
+	}
+	country_modifier_neutral = {
+	}	
+	country_modifier_angry = {
+		horde_unity = -2.5
+		manpower_recovery_speed = -0.25
+		raze_power_gain = -2.5
+	}
+	
+	land_ownership_modifier = { }
+	province_independence_weight = { factor = 1 }
+	#Special Interactions
+	
+	
+	
+	
+}

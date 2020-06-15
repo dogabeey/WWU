@@ -1,0 +1,160 @@
+estate_workers =
+{
+	icon = 10
+	color = { 35 35 150 }
+	
+    custom_name = {
+        desc = estate_workers_bug
+        trigger = {
+            is_bug = yes
+        }
+    }
+	
+    custom_name = {
+        desc = estate_workers_orc
+        trigger = {
+            culture_group = culture_group_orc
+        }
+    }
+	
+	# Is estate kept in control of province on conquest?
+	#keep_on_conquest = no		
+
+	# If true, country will get estate
+	trigger = {	
+		OR = {
+			has_reform = alliance_reform
+			has_reform = tribal_federation
+		}
+	}
+	
+	# If true, province can be granted to estate
+	
+
+	# Is used to weigh importance compared to other estates
+	#start_territory_weight = 5
+	
+	# Min autonomy in estate provinces
+	#min_autonomy = 25
+	
+	# Estate cancels out the following multiplicative local autonomy effects:
+	
+	
+	
+	
+
+	# These scale with loyalty & power
+	country_modifier_happy = {
+		build_cost = -0.15
+		build_time = -0.25
+	}
+	country_modifier_neutral = {
+	}	
+	country_modifier_angry = {
+		build_cost = 0.15
+		build_time = 0.25
+	}
+	
+	land_ownership_modifier = { }
+	province_independence_weight = { factor = 1 }
+	
+			
+		
+	
+	# Influence modifiers
+	base_influence = 10
+	influence_modifier = {	
+		desc = EST_HIGH_DEVELOPMENT_PROVINCE
+		trigger = {
+			any_owned_province = {
+				development = 30
+			}
+		}
+		influence = 5
+	}
+	influence_modifier = {	
+		desc = EST_VAL_IMPERIAL_CITY
+		trigger = {
+			has_reform = free_city
+		}
+		influence = 30
+	}
+	influence_modifier = {	
+		desc = EST_VAL_COT
+		trigger = {
+			NOT = { has_reform = free_city }
+			any_owned_province = {
+				province_has_center_of_trade_of_level = 1
+			}
+		}
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_HANSEATIC_CITY
+		trigger = {
+			NOT = { has_reform = free_city }
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_LOW_TRADE_INCOME
+		trigger = {
+			NOT = { trade_income_percentage = 0.25 }
+		}	
+		influence = -5
+	}
+	influence_modifier = {
+		desc = EST_VAL_HIGH_TRADE_INCOME
+		trigger = {
+			trade_income_percentage = 0.5
+			NOT = { trade_income_percentage = 0.75 }
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_VERY_HIGH_TRADE_INCOME
+		trigger = {
+			trade_income_percentage = 0.75
+		}	
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_CELESTIAL_EMPIRE
+		trigger = {
+			has_reform = celestial_empire
+		}		
+		influence = -10
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_church_disaster
+			}
+		}	
+		influence = -40
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_church_disaster
+			}
+		}
+		loyalty = -20
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_FULL_PLUTOCRATIC
+		trigger = {
+			full_idea_group = necromancy_ideas
+		}
+		loyalty = 10
+	}
+	
+	
+	
+	
+}
