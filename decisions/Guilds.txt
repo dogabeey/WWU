@@ -41,7 +41,49 @@ country_decisions = {
 				limit = {
 					estate_influence = {
 						estate = estate_cossacks
-						influence = 70
+						influence = 80
+					}
+				}
+				random_owned_province = {
+					spawn_rebels = {
+						type = adventurer_rebels
+						size = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_cossacks
+						influence = 60
+					}
+				}
+				random_owned_province = {
+					spawn_rebels = {
+						type = adventurer_rebels
+						size = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_cossacks
+						influence = 40
+					}
+				}
+				random_owned_province = {
+					spawn_rebels = {
+						type = adventurer_rebels
+						size = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					estate_territory = {
+						estate = estate_cossacks
+						territory = 50
 					}
 				}
 				add_stability = -3
@@ -49,9 +91,9 @@ country_decisions = {
 			}
 			else_if = {
 				limit = {
-					estate_influence = {
+					estate_territory = {
 						estate = estate_cossacks
-						influence = 55
+						territory = 40
 					}
 				}
 				add_stability = -2
@@ -59,16 +101,25 @@ country_decisions = {
 			}
 			else_if = {
 				limit = {
-					estate_influence = {
+					estate_territory = {
 						estate = estate_cossacks
-						influence = 40
+						territory = 30
 					}
 				}
 				add_stability = -1
 				add_prestige = -5
 			}
-			else = {
+			else_if = {
+				limit = {
+					estate_territory = {
+						estate = estate_cossacks
+						influence = 20
+					territory
+				}
 				add_prestige = -5
+			}
+			else = {
+				
 			}
 		}
 		
