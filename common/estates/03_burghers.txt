@@ -2,6 +2,38 @@ estate_burghers =
 {
 	icon = 3
 
+	#Custom Names
+    custom_name = {
+        desc = estate_workers
+        trigger = {
+            tag = A01
+        }
+    }
+    custom_name = {
+        desc = estate_traders
+        trigger = {
+            has_reform = admiralty_reform
+        }
+    }
+    custom_name = {
+        desc = estate_burghers_merchant
+        trigger = {
+            is_merchant = yes
+        }
+    }
+    custom_name = {
+        desc = estate_burghers_lesser
+        trigger = {
+            is_lesser = yes
+        }
+    }
+    custom_name = {
+        desc = estate_burghers_ancient
+        trigger = {
+            is_ancient = yes
+        }
+    }
+	
 	# If true, country will get estate
 	trigger = {	
 		NOT = { is_landless = yes }
@@ -192,31 +224,6 @@ estate_burghers =
 		}
 		loyalty = -20
 	}
-	#Custom Names
-    custom_name = {
-        desc = estate_traders
-        trigger = {
-            has_reform = admiralty_reform
-        }
-    }
-    custom_name = {
-        desc = estate_burghers_merchant
-        trigger = {
-            is_merchant = yes
-        }
-    }
-    custom_name = {
-        desc = estate_burghers_lesser
-        trigger = {
-            is_lesser = yes
-        }
-    }
-    custom_name = {
-        desc = estate_burghers_ancient
-        trigger = {
-            is_ancient = yes
-        }
-    }
 
 	color = { 35 35 150 }
 

@@ -1,6 +1,43 @@
 estate_nobles =
 {
 	icon = 2
+	
+    custom_name = {
+        desc = estate_nobles_old_gods
+        trigger = {
+            religion = religion_old_gods
+        }
+    }
+    custom_name = {
+        desc = estate_nobles_fel
+        trigger = {
+            religion = religion_fel
+        }
+    }
+    custom_name = {
+        desc = estate_nobles_dragonkin
+        trigger = {
+            culture_group = culture_group_dragonkin
+        }
+    }
+    custom_name = {
+        desc = estate_nobles_tribal
+        trigger = {
+            government = tribal
+        }
+    }
+    custom_name = {
+        desc = estate_nobles_republic
+        trigger = {
+            government = republic
+        }
+    }
+    custom_name = {
+        desc = estate_nobles_theocracy
+        trigger = {
+            government = theocracy
+        }
+    }
 
 	# If true, country will get estate
 	trigger = {
@@ -12,6 +49,13 @@ estate_nobles =
 		}
 		OR = {
 			is_nomad = no
+			AND = { 
+				is_nomad = yes 
+				OR = {
+					religion = religion_fel 
+					religion = religion_old_gods 
+				}
+			}
 			has_reform = nomad_state_reform
 		}
 		is_colonial_nation = no
@@ -183,31 +227,6 @@ estate_nobles =
 		}
 		loyalty = -10
 	}
-	
-    custom_name = {
-        desc = estate_nobles_dragonkin
-        trigger = {
-            culture_group = culture_group_dragonkin
-        }
-    }
-    custom_name = {
-        desc = estate_nobles_tribal
-        trigger = {
-            government = tribal
-        }
-    }
-    custom_name = {
-        desc = estate_nobles_republic
-        trigger = {
-            government = republic
-        }
-    }
-    custom_name = {
-        desc = estate_nobles_theocracy
-        trigger = {
-            government = theocracy
-        }
-    }
 	
 	color = { 200 0 50 }
 	
