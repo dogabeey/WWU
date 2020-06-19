@@ -1,0 +1,260 @@
+country_decisions = {
+	send_invasion_force = {
+		major = yes
+		potential = {
+			OR = {
+				technology_group = tech_demonic
+				technology_group = tech_elemental
+			}
+		}
+		allow =  {
+			manpower_percentage = 0.50
+			mil_power = 100
+			any_province = {
+				has_ruler_leader_from = ROOT
+				NOT = { owned_by = ROOT }
+			}
+		}
+		effect = {
+			add_mil_power = -100
+			random_country = {
+				limit = {
+					any_owned_province = {
+						has_ruler_leader_from = ROOT
+						NOT = { owned_by = ROOT }
+					}
+				}
+				ROOT = {
+					declare_war_with_cb = {
+						who = PREV
+						casus_belli = cb_humiliate_rotw
+					}
+					if = {
+						limit = {
+							manpower = 120
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 20
+						}
+						add_manpower = -60
+					}
+					else_if = {
+						limit = {
+							manpower = 100
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 17
+						}
+						add_manpower = -51
+					}
+					else_if = {
+						limit = {
+							manpower = 80
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 13
+						}
+						add_manpower = -39
+					}
+					else_if = {
+						limit = {
+							manpower = 60
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 10
+						}
+						add_manpower = -30
+					}
+					else_if = {
+						limit = {
+							manpower = 40
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 7
+						}
+						add_manpower = -21
+					}
+					else_if = {
+						limit = {
+							manpower = 20
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 3
+						}
+						add_manpower = -9
+					}
+					else_if = {
+						limit = {
+							manpower = 10
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 2
+							army_size = 3
+							is_coastal = yes
+						}
+						add_manpower = -6
+					}
+					else = {
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 1
+							army_size = 3
+						}
+						add_manpower = -3
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	send_coastal_invasion_force = {
+		potential = {
+		   is_underwater = yes
+		}
+		
+		allow =  {
+			manpower_percentage = 0.50
+			mil_power = 100
+			capital_scope = {
+				OR = {
+					has_terrain = underwater
+					has_port = yes
+				}
+			}
+			any_rival_country = {
+				NOT = { war_with = ROOT }
+				any_owned_province = {
+					has_port = yes
+				}
+			}
+		}
+		effect = {
+			add_mil_power = -100
+			random_rival_country = {
+				limit = {
+					NOT = { war_with = ROOT }
+					any_owned_province = {
+						has_port = yes
+					}
+				}
+				ROOT = {
+					declare_war_with_cb = {
+						who = PREV
+						casus_belli = cb_humiliate_rotw
+					}
+					if = {
+						limit = {
+							manpower = 120
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 20
+							is_coastal = yes
+						}
+						add_manpower = -60
+					}
+					else_if = {
+						limit = {
+							manpower = 100
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 17
+							is_coastal = yes
+						}
+						add_manpower = -51
+					}
+					else_if = {
+						limit = {
+							manpower = 80
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 13
+							is_coastal = yes
+						}
+						add_manpower = -39
+					}
+					else_if = {
+						limit = {
+							manpower = 60
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 10
+							is_coastal = yes
+						}
+						add_manpower = -30
+					}
+					else_if = {
+						limit = {
+							manpower = 40
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 7
+							is_coastal = yes
+						}
+						add_manpower = -21
+					}
+					else_if = {
+						limit = {
+							manpower = 20
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 3
+							army_size = 3
+							is_coastal = yes
+						}
+						add_manpower = -9
+					}
+					else_if = {
+						limit = {
+							manpower = 10
+						}
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 2
+							army_size = 3
+							is_coastal = yes
+						}
+						add_manpower = -6
+					}
+					else = {
+						send_invasion_force = {
+							against = PREV
+							num_of_provinces = 1
+							army_size = 3
+							is_coastal = yes
+						}
+						add_manpower = -3
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

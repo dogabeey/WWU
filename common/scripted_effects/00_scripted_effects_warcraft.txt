@@ -21,6 +21,94 @@ set_correct_dynasty = {
 	if = { limit = { tag = A91 } define_heir = { dynasty = "Sunstrider" claim = 75 no_consort_with_heir = yes } } 
 }
 
+#$against$, $num_of_provinces$, $army_size$, $is_coastal$
+send_invasion_force = {
+	$against$ = {
+		random_owned_province = {
+			limit = { 
+				NOT = { has_province_flag = was_invaded_by_forces_of@ROOT } 
+				[[is_coastal] has_port = $is_coastal$ ]
+			}
+			set_province_flag = was_invaded_by_forces_of@ROOT
+			set_variable = {
+				which = army_size_counter
+				value = 0
+			}
+			log = "Invading province 1..." # shows up in log.
+			while = {
+				limit = {
+					NOT = { check_variable = {
+						which = army_size_counter
+						value = $army_size$
+					} }
+				}
+				log = "Invading province 2..." # Doesn't show up in log.
+				change_variable = {
+					which = army_size_counter
+					value = 1
+				}
+				infantry = ROOT
+			}
+			set_variable = {
+				which = army_size_counter
+				value = 0
+			}
+		}
+		set_variable = {
+			which = num_of_provinces_counter
+			value = 1
+		}
+		while = {
+			limit = {
+				NOT = { check_variable = {
+					which = num_of_provinces_counter
+					value = $num_of_provinces$
+				} }
+			}
+			change_variable = {
+				which = num_of_provinces_counter
+				value = 1
+			}
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = { has_province_flag = was_invaded_by_forces_of@ROOT }
+					[[is_coastal] has_port = $is_coastal$ ]
+				}
+				set_province_flag = was_invaded_by_forces_of@ROOT
+				set_variable = {
+					which = army_size_counter
+					value = 0
+				}
+				log = "Invading province..." # Doesn't show up in log.
+				while = {
+					limit = {
+						NOT = { check_variable = {
+							which = army_size_counter
+							value = $army_size$
+						} }
+					}
+					change_variable = {
+						which = army_size_counter
+						value = 1
+					}
+					infantry = ROOT
+				}
+				set_variable = {
+					which = army_size_counter
+					value = 0
+				}
+			}
+		}
+		set_variable = {
+			which = num_of_provinces_counter
+			value = 0
+		}
+		every_owned_province = {
+			clr_province_flag = was_invaded_by_forces_of@ROOT
+		}
+	}
+}
+
 form_holy_order_effect = {
 	hidden_effect = { add_local_autonomy = 10 }
 	custom_tooltip = ADD_AUTONOMY_TOOLTIP

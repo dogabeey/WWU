@@ -387,34 +387,14 @@ country_decisions = {
 		}
 		allow = {
 			total_development = 500
-			legitimacy = 85
-			prestige = 85
-			num_of_diplomats = 3
+			legitimacy = 95
+			prestige = 95
 			dip = 3
 			dip_power = 500
-			custom_trigger_tooltip = {
-				tooltip = form_empire_of_arathor_tt
-				all_country = {
-					OR = {
-						AND = {
-							culture_group = culture_group_human
-							capital_scope = {
-								continent = continent_eastern_kingdoms
-							}
-							has_opinion = {
-								who = ROOT
-								value = 100
-							}
-						}
-						NOT = { culture_group = culture_group_human }
-						NOT = { capital_scope = { continent = continent_eastern_kingdoms } }
-					}
-				}
-			}
 			
 		}
 		effect = {
-			add_prestige = 25
+			add_prestige = 5
 			change_tag = FNA
 			change_primary_culture = culture_arathorian
 			hidden_effect = { every_owned_province = { change_culture = culture_arathorian } }
