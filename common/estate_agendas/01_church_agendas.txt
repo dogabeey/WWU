@@ -148,7 +148,7 @@ estate_church_convert_province_x = {
 		}
 		modifier = {
 			factor = 0.35
-			has_idea_group = humanist_ideas
+			has_idea_group = inclusion_ideas
 		}
 		modifier = {
 			factor = 2
@@ -513,7 +513,7 @@ estate_church_root_out_heresy = {
 		}
 		modifier = {
 			factor = 0.35
-			has_idea_group = humanist_ideas
+			has_idea_group = inclusion_ideas
 		}
 		modifier = {
 			factor = 0.25
@@ -632,12 +632,12 @@ estate_church_relations_with_pope = {
 		exists = B92
 		NOT = { war_with = B92 }
 		is_excommunicated = no
-		is_B92al_controller = no
+		is_papal_controller = no
 		B92 = {
 			has_opinion = { who = ROOT value = -50 }
 			NOT = { has_opinion = { who = ROOT value = 50 } }
 		}
-		NOT = { has_country_modifier = solidified_B92al_relations_modifier }
+		NOT = { has_country_modifier = solidified_papal_relations_modifier }
 	}
 	selection_weight = {
 		factor = 2.5
@@ -668,7 +668,7 @@ estate_church_relations_with_pope = {
 			loyalty = 10
 		}
 		add_country_modifier = {
-			name = solidified_B92al_relations_modifier
+			name = solidified_papal_relations_modifier
 			duration = 5475
 		}
 	}

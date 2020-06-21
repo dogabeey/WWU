@@ -324,3 +324,171 @@ country_event = {
 		}
 	}
 }
+
+# Join Faction War Prompt
+country_event = {
+	id = factions.9
+	title = factions.9.title
+	desc = {
+	   trigger = { is_subject_of_type = faction_horde }
+	   desc = factions.9.desc.horde.member
+	}
+	desc = {
+	   trigger = { faction_horde = 1 }
+	   desc = factions.9.desc.horde.leader
+	}
+	desc = {
+	   trigger = { is_subject_of_type = faction_alliance }
+	   desc = factions.9.desc.alliance.member
+	}
+	desc = {
+	   trigger = { faction_alliance = 1 }
+	   desc = factions.9.desc.alliance.leader
+	}
+	picture = {
+	   trigger = { is_member_of_faction = { faction = alliance } }
+	   picture = KING_LLANE_eventPicture
+	}
+	picture = {
+	   trigger = { is_member_of_faction = { faction = horde } }
+	   picture = ORC_THRONE_eventPicture
+	}
+	#goto = root
+	hidden = no
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_subject_of_type = faction_alliance
+				overlord = {
+					any_country = {
+						is_member_of_faction = { faction = horde }
+						war_with = PREV
+						NOT = { war_with = ROOT }
+					}
+				}
+			}
+			AND = {
+				is_subject_of_type = faction_horde
+				overlord = {
+					any_country = {
+						is_member_of_faction = { faction = alliance }
+						war_with = PREV
+						NOT = { war_with = ROOT }
+					}
+				}
+			}
+			AND = {
+				faction_alliance = 1
+				any_subject_country = {
+					is_subject_of_type = faction_alliance
+					any_country = {
+						is_member_of_faction = { faction = horde }
+						offensive_war_with = PREV
+						NOT = { war_with = ROOT }
+					}
+				}
+			}
+			AND = {
+				faction_horde = 1
+				any_subject_country = {
+					is_subject_of_type = faction_horde
+					any_country = {
+						is_member_of_faction = { faction = alliance }
+						offensive_war_with = PREV
+						NOT = { war_with = ROOT }
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = factions.9.opt1
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						is_subject_of_type = faction_alliance
+						overlord = {
+							any_country = {
+								is_member_of_faction = { faction = horde }
+								war_with = PREV
+							}
+						}
+					}
+					AND = {
+						is_subject_of_type = faction_horde
+						overlord = {
+							any_country = {
+								is_member_of_faction = { faction = alliance }
+								war_with = PREV
+							}
+						}
+					}
+				}
+			}
+			overlord = {
+				ROOT = {
+					join_all_offensive_wars_of = PREV
+					join_all_defensive_wars_of = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				faction_alliance = 1
+				any_subject_country = {
+					is_subject_of_type = faction_alliance
+					any_country = {
+						is_member_of_faction = { faction = horde }
+						offensive_war_with = PREV
+					}
+				}
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					any_country = {
+						is_member_of_faction = { faction = horde }
+						war_with = PREV
+					}
+				}
+				ROOT = {
+					join_all_defensive_wars_of = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				faction_horde = 1
+				any_subject_country = {
+					is_subject_of_type = faction_horde
+					any_country = {
+						is_member_of_faction = { faction = alliance }
+						offensive_war_with = PREV
+					}
+				}
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_horde
+					any_country = {
+						is_member_of_faction = { faction = alliance }
+						war_with = PREV
+					}
+				}
+				ROOT = {
+					join_all_defensive_wars_of = PREV
+				}
+			}
+		}
+	}
+	option = {
+		name = factions.9.opt1
+	}
+}
