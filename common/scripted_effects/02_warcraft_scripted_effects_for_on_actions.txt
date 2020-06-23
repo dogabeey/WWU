@@ -56,97 +56,46 @@ set_government_ranks = {
 }
 
 init_governments = {
-	
 	if = {
 		limit = {
-			not_have_any_reform = yes
+			government = tribal
 		}
-		if = {
-			limit = {
-				government = tribal
-			}
-			if  = { limit = { culture_group = culture_group_orc } add_government_reform = steppe_horde }
-			else_if = { limit = { is_pure_evil = yes } add_government_reform = war_against_the_world_reform }
-			else_if = { limit = { is_pirate = yes } add_government_reform = tribal_federation }
-			else_if = { limit = { is_ancient = yes } add_government_reform = nomad_state_reform }
-			else = {
-				random_list = {
-					1 = {
-					add_government_reform = steppe_horde
-					}
-					1 = {
-					add_government_reform = tribal_federation
-					}
-				}
-			}
-		}	
-		##########################################	
-		if = {
-			limit = {
-				government = monarchy
-			}
-			if = { limit = { is_pirate = yes } add_government_reform = opportunism }
-			else_if = { limit = { is_ancient = yes } add_government_reform = ancient_dynasty_reform }
-			else_if = { limit = { tag = A14 } add_government_reform = admiralty_reform }
-			else_if = { limit = { OR = { tag = A90 tag = A91 } } add_government_reform = hereditary_monarchy }
-			else_if = { limit = { OR = { religion = religion_arcane tag = A18 } } add_government_reform = kingdom_of_magic }
-			else_if = { limit = { OR = { culture_group = culture_group_scourge culture_group = culture_group_undead } } add_government_reform = scourge_reform }
-			else = {
-				random_list = {
-					100 = {
-						add_government_reform = autocracy_reform
-					}
-				}
-			}
+		add_government_reform = tribal_despotism
+	}	
+	##########################################	
+	if = {
+		limit = {
+			government = monarchy
 		}
-		##########################################	
-		if = {
-			limit = {
-				government = theocracy
-			}
-			if = { limit = { is_ancient = yes } add_government_reform = ancient_divinity_reform }
-			random_list = {
-				100 = {
-					add_government_reform = holy_republic_reform
-				}
-			}
+		add_government_reform = autocracy_reform
+	}
+	##########################################	
+	if = {
+		limit = {
+			government = theocracy
 		}
-		##########################################	
-		if = {
-			limit = {
-				government = republic
-			}
-			if = { limit = { is_pirate = yes } add_government_reform = pirate_republic_reform }
-			else_if = { limit = { is_merchant = yes } add_government_reform = merchants_reform }
-			else_if = { limit = { is_ancient = yes } add_government_reform = ancient_civilization_reform }
-			else = {
-				random_list = {
-					1 = {
-						add_government_reform = peasants_republic
-					}
-					1 = {
-						add_government_reform = noble_elite_reform
-					}
-					1 = {
-						add_government_reform = bureaucratic_despotism_reform
-					}
-				}
-			}
+		add_government_reform = holy_republic_reform
+	}
+	##########################################	
+	if = {
+		limit = {
+			government = republic
 		}
-		##########################################	
-		if = {
-			limit = {
-				faction_alliance = 1
-			}
-			change_government = monarchy
-			add_government_reform = alliance_reform
+		add_government_reform = peasants_republic
+	}
+	##########################################	
+	if = {
+		limit = {
+			faction_alliance = 1
 		}
-		if = {
-			limit = {
-				faction_horde = 1
-			}
-			change_government = monarchy
-			add_government_reform = horde_reform
+		change_government = monarchy
+		add_government_reform = alliance_reform
+	}
+	if = {
+		limit = {
+			faction_horde = 1
 		}
+		change_government = monarchy
+		add_government_reform = horde_reform
 	}
 }
