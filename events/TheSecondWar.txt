@@ -233,10 +233,6 @@ country_event = {
 	}
 	picture = ORC_WARLOCK_KILJAEDEN_eventPicture
 	#goto = root
-
-    hidden = no
-	fire_only_once = no
-	major = no
     
 	trigger = {
 		current_age = the_second_war
@@ -251,10 +247,9 @@ country_event = {
     
     immediate = {
 		set_country_flag = shadowmoon_revealed
-		B88 = { clr_country_flag = complete_stasis } # Shadow council is no longer immune.
 		random_country = {
 			limit = { faction_horde = 1 }
-			remove_country_modifier = the_shadow_council
+			remove_country_modifier = the_shadow_council # Shadow Council liberty desire is gone.
 			save_event_target_as = horde_leader
 			country_event = { id = the_second_war.20 }
 		}
@@ -574,6 +569,5 @@ country_event = {
 			name = council_is_revealed
 			duration = 3650
 		}
-		log = "end_of_second_war_horde_won.opt1"
     }
 }

@@ -269,30 +269,30 @@ factions = {
 	duration = 5
 }
 
+
 free_city = {
 	icon = "free_city"
 	allow_normal_conversion = no
-	legacy_equivalent = imperial_city_legacy
+	potential = {
+		has_reform = free_city
+	}
+	legacy_equivalent = imperial_city
 	valid_for_nation_designer = yes
 	lock_level_when_selected = yes
-	nation_designer_cost = 0
+	nation_designer_cost = 40
 	nation_designer_trigger = {
-		has_dlc = "Common Sense"
 		capital_scope = { is_part_of_hre = yes }
 		NOT = { num_custom_nation_provinces = 2 }
 	}
+
 	free_city = yes
-	
-	government_abilities = {  }
-	
 	modifiers = {
-	    production_efficiency = 0.10
-		diplomatic_reputation = 1
-		trade_efficiency = 0.10
-		development_cost = -0.10
-		max_absolutism = -25
+		trade_efficiency = 0.1
+		development_cost = -0.1
+		max_absolutism = -20
+		burghers_influence_modifier = 0.15
 	}
-	#fixed_rank = 4
+	fixed_rank = 1
 
 	custom_attributes = {
 		locked_government_type = yes
@@ -300,14 +300,6 @@ free_city = {
 		enables_aristocratic_idea_group = no
 	}
 	duration = 4
-	conditional = {
-		allow = {
-			has_dlc = "Third Rome"
-		}
-		government_abilities = {
-			russian_mechanic
-		}
-	}
 }
 
 trading_city = {

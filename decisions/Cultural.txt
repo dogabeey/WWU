@@ -48,7 +48,8 @@ country_decisions = {
 				}
 			}
 			any_owned_province = {
-				NOT = { culture = ROOT }
+				NOT = { accepted_culture = ROOT }
+				NOT = { culture_group = ROOT }
 			}
 			NOT = { is_landless = yes }
 		}
@@ -64,7 +65,10 @@ country_decisions = {
 				desc = purged_race_nation.desc
 			}
 			random_owned_province = {
-				limit = { NOT = { culture = ROOT } }
+				limit = { 
+					NOT = { accepted_culture = ROOT } 
+					NOT = { culture_group = ROOT }
+				}
 				add_devastation = 20
 				every_country = {
 					limit = {
@@ -101,7 +105,8 @@ country_decisions = {
 			years_of_income = 0.33
 			NOT = { has_country_modifier = emigrated_race_nation }
 			any_owned_province = {
-				NOT = { culture = ROOT }
+				NOT = { accepted_culture = ROOT }
+				NOT = { culture_group = ROOT }
 			}
 		}
 	  	effect = {
@@ -113,7 +118,10 @@ country_decisions = {
 				desc = emigrated_race_nation.desc
 			}
 			random_owned_province = {
-				limit = { NOT = { culture = ROOT } }
+				limit = { 
+					NOT = { accepted_culture = ROOT }
+					NOT = { culture_group = ROOT } 
+				}
 				every_country = {
 					limit = {
 						culture_group = PREV

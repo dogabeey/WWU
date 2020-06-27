@@ -1,0 +1,43 @@
+alliance_splintering_disaster = {
+	potential = {
+		faction_alliance = 1
+		if = {
+			limit = { NOT = { the_third_war_or_later = yes } }
+			if = {
+			
+			}
+		}
+	}
+
+
+	can_start = {
+		has_country_modifier = curse_of_the_worgen
+	}
+	
+	can_stop = {
+	}
+	
+	progress = {
+		modifier = {
+				factor = 2
+				has_country_modifier = curse_of_the_worgen
+		}
+	}
+	
+	can_end = {
+		all_owned_province = {
+			culture = culture_gilnean_worgen
+		}
+	}
+	
+	modifier = {
+	
+	}
+
+	on_start = gilneas.4
+	on_end = gilneas.5
+	
+	on_monthly = {
+	}
+}
+

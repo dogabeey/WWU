@@ -45,9 +45,14 @@ horde_reform = {
 	maintain_dynasty = no
 	nation_designer_cost = 0
 	monarchy = yes
+	heir = yes
+	allow_vassal_alliance = yes
 	
 	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
+		allow = { 
+			has_dlc = "Cradle of Civilization"
+			NOT = { has_country_modifier = the_shadow_council }
+		}
 		government_abilities = {
 			mamluk_mechanic
 		}
@@ -69,7 +74,6 @@ horde_reform = {
 	modifiers = {
 		monarch_military_power = 1
 		claim_duration = 1
-    	idea_cost = 0.15
 	}
 	ai = { factor = 0 }
 }
@@ -178,7 +182,6 @@ scourge_reform = {
 	valid_for_nation_designer = no
 	allow_convert = no
 	maintain_dynasty = no
-	allow_vassal_war = no
 	heir = yes
 	nation_designer_cost = 0
 	custom_attributes = {

@@ -22,6 +22,47 @@ set_correct_dynasty = {
 	if = { limit = { tag = A91 } define_heir = { dynasty = "Sunstrider" claim = 75 no_consort_with_heir = yes } } 
 }
 
+teleport_unit_with_any_amount = {
+	teleport_units_with_amount_effect = { amount = 10 }
+	teleport_units_with_amount_effect = { amount = 9 }
+	teleport_units_with_amount_effect = { amount = 8 }
+	teleport_units_with_amount_effect = { amount = 7 }
+	teleport_units_with_amount_effect = { amount = 6 }
+	teleport_units_with_amount_effect = { amount = 5 }
+	teleport_units_with_amount_effect = { amount = 4 }
+	teleport_units_with_amount_effect = { amount = 3 }
+	teleport_units_with_amount_effect = { amount = 2 }
+	teleport_units_with_amount_effect = { amount = 1 }
+}
+
+teleport_units_with_amount_effect = {
+	if = {
+		limit = {
+			event_target:sender = {
+				num_of_units_in_province = {
+					who = ROOT
+					amount = $amount$
+				}
+			}
+		}
+		event_target:sender = {
+			kill_units = {
+				who = ROOT
+				amount = $amount$
+			}
+			clr_province_flag = sender_province
+		}
+		event_target:receiver = {
+			add_unit_construction = {
+				type = infantry
+				amount = $amount$
+				speed = 0.01
+				cost = 0
+			}
+		}
+	}
+}
+
 #$against$, $num_of_provinces$, $army_size$, $is_coastal$
 send_invasion_force = {
 	$against$ = {
@@ -127,7 +168,7 @@ abandon_holy_order_effect = {
 }
 
 discover_home_continent = {
-	every_province = {
+	every_province_including_seas = {
 		discover_country = ROOT
 	}
 }

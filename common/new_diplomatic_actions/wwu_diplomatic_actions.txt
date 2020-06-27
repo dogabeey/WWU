@@ -578,17 +578,13 @@ suggest_contract = {
 invite_to_alliance = {
 	category = alliance
 	
-	alert_index = 40
+	alert_index = 45
 	alert_tooltip = invite_to_alliance_tooltip
 	
 	require_acceptance = yes # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		always = yes
 		has_country_modifier = alliance_head
-		FROM = {
-			is_subject = no
-		}
 	}
 	is_allowed = {
 		is_subject = no
@@ -612,6 +608,28 @@ invite_to_alliance = {
 	}
 	
 	ai_acceptance = {
+		add_entry = {
+			name = INV_BASE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_ROOTPRESTIGE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = prestige
+			}
+			subtract_variable = { which = ai_value value = 25 }
+			divide_variable = { which = ai_value value = 2 }
+		}
 		add_entry = {
 			name = INV_OPINION
 			limit = {
@@ -698,19 +716,19 @@ invite_to_alliance = {
 		add_entry = {
 			name = INV_NOTHASALLIANCEFRIEND
 			limit = {
-				NOT = { 
-					any_country = {
-						OR = {
-							is_subject_of_type = faction_alliance
-							has_country_modifier = alliance_head
-						}
+				NOT = {
+					OR = {
 						alliance_with = FROM
-					} 
+						any_country = {
+							alliance_with = FROM
+							alliance_with = ROOT
+						}
+					}
 				}
 			}
 			export_to_variable = {
 				which = ai_value
-				value = -200
+				value = -100
 			}
 		}
 		add_entry = {
@@ -750,15 +768,12 @@ invite_to_alliance = {
 invite_to_horde = {
 	category = alliance
 	
-	alert_index = 40
-	alert_tooltip = invite_to_alliance_tooltip
+	alert_index = 46
+	alert_tooltip = invite_to_horde_tooltip
 	
 	require_acceptance = yes # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		FROM = {
-			is_subject = no
-		}
 		has_country_modifier = horde_head
 	}
 	is_allowed = {
@@ -783,6 +798,28 @@ invite_to_horde = {
 	}
 	
 	ai_acceptance = {
+		add_entry = {
+			name = INV_BASE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_ROOTPRESTIGE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = prestige
+			}
+			subtract_variable = { which = ai_value value = 25 }
+			divide_variable = { which = ai_value value = 2 }
+		}
 		add_entry = {
 			name = INV_OPINION
 			limit = {
@@ -853,7 +890,7 @@ invite_to_horde = {
 			}
 			export_to_variable = {
 				which = ai_value
-				value = -1000
+				value = -250
 			}
 		}
 		add_entry = {
@@ -863,7 +900,7 @@ invite_to_horde = {
 			}
 			export_to_variable = {
 				which = ai_value
-				value = 50
+				value = 150
 			}
 		}
 		add_entry = {
@@ -883,19 +920,21 @@ invite_to_horde = {
 			}
 		}
 		add_entry = {
-			name = INV_NOTHASHORDEFRIEND
+			name = INV_NOTHASALLIANCEFRIEND
 			limit = {
-				NOT = { any_country = {
+				NOT = {
 					OR = {
-						is_subject_of_type = faction_horde
-						has_country_modifier = horde_head
+						alliance_with = FROM
+						any_country = {
+							alliance_with = FROM
+							alliance_with = ROOT
+						}
 					}
-					alliance_with = FROM
-				} }
+				}
 			}
 			export_to_variable = {
 				which = ai_value
-				value = -200
+				value = -100
 			}
 		}
 		add_entry = {
@@ -919,13 +958,12 @@ invite_to_horde = {
 join_the_alliance = {
 	category = alliance
 	
-	alert_index = 41
+	alert_index = 45
 	alert_tooltip = join_the_alliance_tooltip
 	
 	require_acceptance = yes # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		always = yes
 		is_subject = no
 		FROM = {
 			is_subject = no
@@ -951,6 +989,28 @@ join_the_alliance = {
 	}
 	
 	ai_acceptance = {
+		add_entry = {
+			name = INV_BASE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_ROOTPRESTIGE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = prestige
+			}
+			subtract_variable = { which = ai_value value = 25 }
+			divide_variable = { which = ai_value value = 2 }
+		}
 		add_entry = {
 			name = INV_OPINION
 			limit = {
@@ -1059,17 +1119,19 @@ join_the_alliance = {
 		add_entry = {
 			name = INV_NOTHASALLIANCEFRIEND
 			limit = {
-				NOT = { any_country = {
+				NOT = {
 					OR = {
-						is_subject_of_type = faction_alliance
-						has_country_modifier = alliance_head
+						alliance_with = FROM
+						any_country = {
+							alliance_with = FROM
+							alliance_with = ROOT
+						}
 					}
-					alliance_with = ROOT
-				} }
+				}
 			}
 			export_to_variable = {
 				which = ai_value
-				value = -200
+				value = -100
 			}
 		}
 		add_entry = {
@@ -1091,14 +1153,12 @@ join_the_alliance = {
 join_the_horde = {
 	category = alliance
 	
-	alert_index = 41
-	alert_tooltip = join_the_alliance_tooltip
+	alert_index = 46
+	alert_tooltip = join_the_horde_tooltip
 	
 	require_acceptance = yes # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		always = yes
-		is_subject = no
 		FROM = {
 			is_subject = no
 			has_country_modifier = horde_head
@@ -1123,6 +1183,28 @@ join_the_horde = {
 	}
 	
 	ai_acceptance = {
+		add_entry = {
+			name = INV_BASE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_ROOTPRESTIGE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = prestige
+			}
+			subtract_variable = { which = ai_value value = 25 }
+			divide_variable = { which = ai_value value = 2 }
+		}
 		add_entry = {
 			name = INV_OPINION
 			limit = {
@@ -1199,7 +1281,7 @@ join_the_horde = {
 			}
 			export_to_variable = {
 				which = ai_value
-				value = -1000
+				value = -250
 			}
 		}
 		add_entry = {
@@ -1209,7 +1291,7 @@ join_the_horde = {
 			}
 			export_to_variable = {
 				which = ai_value
-				value = 50
+				value = 150
 			}
 		}
 		add_entry = {
@@ -1229,19 +1311,21 @@ join_the_horde = {
 			}
 		}
 		add_entry = {
-			name = INV_NOTHASHORDEFRIEND
+			name = INV_NOTHASALLIANCEFRIEND
 			limit = {
-				NOT = { any_country = {
+				NOT = {
 					OR = {
-						is_subject_of_type = faction_horde
-						has_country_modifier = horde_head
+						alliance_with = FROM
+						any_country = {
+							alliance_with = FROM
+							alliance_with = ROOT
+						}
 					}
-					alliance_with = ROOT
-				} }
+				}
 			}
 			export_to_variable = {
 				which = ai_value
-				value = -200
+				value = -100
 			}
 		}
 		add_entry = {
