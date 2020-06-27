@@ -588,6 +588,7 @@ invite_to_alliance = {
 	}
 	is_allowed = {
 		is_subject = no
+		NOT = { has_disaster = alliance_splintering_disaster }
 		FROM = {
 			is_subject = no
 			NOT = { has_country_modifier = recently_rejected_alliance }
@@ -778,6 +779,7 @@ invite_to_horde = {
 	}
 	is_allowed = {
 		is_subject = no
+		NOT = { has_disaster = alliance_splintering_disaster }
 		FROM = {
 			is_subject = no
 			NOT = { has_country_modifier = is_evil }
@@ -966,6 +968,7 @@ join_the_alliance = {
 	is_visible = {
 		is_subject = no
 		FROM = {
+			NOT = { has_disaster = alliance_splintering_disaster }
 			is_subject = no
 			has_country_modifier = alliance_head
 		}
@@ -1160,6 +1163,7 @@ join_the_horde = {
 	
 	is_visible = {
 		FROM = {
+			NOT = { has_disaster = alliance_splintering_disaster }
 			is_subject = no
 			has_country_modifier = horde_head
 		}

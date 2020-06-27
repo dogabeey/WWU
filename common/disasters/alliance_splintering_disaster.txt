@@ -1,43 +1,51 @@
 alliance_splintering_disaster = {
 	potential = {
 		faction_alliance = 1
-		if = {
-			limit = { NOT = { the_third_war_or_later = yes } }
-			if = {
-			
-			}
-		}
+		current_age = beyond_the_dark_portal
 	}
 
 
 	can_start = {
-		has_country_modifier = curse_of_the_worgen
+		has_global_flag = the_third_war
 	}
 	
 	can_stop = {
+		any_country = {
+			faction_horde = 1
+			war_with = ROOT
+		}
 	}
 	
 	progress = {
 		modifier = {
-				factor = 2
-				has_country_modifier = curse_of_the_worgen
+			factor = 100
+			always = yes
 		}
 	}
 	
 	can_end = {
-		all_owned_province = {
-			culture = culture_gilnean_worgen
+		OR = {
+			current_age = the_third_war
+			faction_alliance = 0
 		}
 	}
 	
 	modifier = {
-	
+		diplomatic_reputation = -1
+		diplomatic_upkeep = -1
 	}
 
-	on_start = gilneas.4
-	on_end = gilneas.5
+	on_start = alliance_splinter.1
+	on_end = alliance_splinter.2
 	
 	on_monthly = {
+		100 = 0
+		1 = alliance_splinter.3
+		1 = alliance_splinter.4
+		1 = alliance_splinter.5
+		1 = alliance_splinter.6
+		1 = alliance_splinter.7
+		1 = alliance_splinter.8
 	}
 }
 

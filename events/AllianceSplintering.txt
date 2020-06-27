@@ -1,0 +1,163 @@
+namespace = alliance_splinter
+
+
+country_event = {
+	id = alliance_splinter.1
+	title = alliance_splinter.1.title
+	desc = alliance_splinter.1.desc
+	picture = ANGRY_MOB_eventPicture
+	#goto = root
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					NOT = { has_country_flag = picked_as_target_in_alliance_disaster }
+				}
+				save_global_event_target_as = alliance_splinter_subject_1
+				set_country_flag = picked_as_target_in_alliance_disaster
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					NOT = { has_country_flag = picked_as_target_in_alliance_disaster }
+				}
+				save_global_event_target_as = alliance_splinter_subject_2
+				set_country_flag = picked_as_target_in_alliance_disaster
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					NOT = { has_country_flag = picked_as_target_in_alliance_disaster }
+				}
+				save_global_event_target_as = alliance_splinter_subject_3
+				set_country_flag = picked_as_target_in_alliance_disaster
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					NOT = { has_country_flag = picked_as_target_in_alliance_disaster }
+				}
+				save_global_event_target_as = alliance_splinter_subject_4
+				set_country_flag = picked_as_target_in_alliance_disaster
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					NOT = { has_country_flag = picked_as_target_in_alliance_disaster }
+				}
+				save_global_event_target_as = alliance_splinter_subject_5
+				set_country_flag = picked_as_target_in_alliance_disaster
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					NOT = { has_country_flag = picked_as_target_in_alliance_disaster }
+				}
+				save_global_event_target_as = alliance_splinter_subject_6
+				set_country_flag = picked_as_target_in_alliance_disaster
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					NOT = { has_country_flag = picked_as_target_in_alliance_disaster }
+				}
+				save_global_event_target_as = alliance_splinter_subject_7
+				set_country_flag = picked_as_target_in_alliance_disaster
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					NOT = { has_country_flag = picked_as_target_in_alliance_disaster }
+				}
+				save_global_event_target_as = alliance_splinter_subject_8
+				set_country_flag = picked_as_target_in_alliance_disaster
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					NOT = { has_country_flag = picked_as_target_in_alliance_disaster }
+				}
+				save_global_event_target_as = alliance_splinter_subject_9
+				set_country_flag = picked_as_target_in_alliance_disaster
+			}
+			random_subject_country = {
+				limit = {
+					is_subject_of_type = faction_alliance
+					NOT = { has_country_flag = picked_as_target_in_alliance_disaster }
+				}
+				save_global_event_target_as = alliance_splinter_subject_10
+				set_country_flag = picked_as_target_in_alliance_disaster
+			}
+		}
+	}
+
+	option = {
+		name = alliance_splinter.1.opt1
+	}
+}
+
+country_event = {
+	id = alliance_splinter.2
+	title = alliance_splinter.2.title
+	desc = alliance_splinter.2.desc
+	picture = ANGRY_MOB_eventPicture
+	#goto = root
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			clear_global_event_target = alliance_splinter_subject_1
+			clear_global_event_target = alliance_splinter_subject_2
+			clear_global_event_target = alliance_splinter_subject_3
+			clear_global_event_target = alliance_splinter_subject_4
+			clear_global_event_target = alliance_splinter_subject_5
+			clear_global_event_target = alliance_splinter_subject_6
+			clear_global_event_target = alliance_splinter_subject_7
+			clear_global_event_target = alliance_splinter_subject_8
+			clear_global_event_target = alliance_splinter_subject_9
+			clear_global_event_target = alliance_splinter_subject_10
+			every_country = {
+				limit = {
+					has_country_flag = picked_as_target_in_alliance_disaster
+				}
+				clr_country_flag = picked_as_target_in_alliance_disaster
+			}
+		}
+	}
+
+	option = {
+		name = alliance_splinter.2.opt1
+	}
+}
+
+country_event = {
+	id = alliance_splinter.3
+	title = alliance_splinter.3.title
+	desc = alliance_splinter.3.desc
+	picture = ANGRY_MOB_eventPicture
+	#goto = root
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		
+	}
+
+	option = {
+		name = alliance_splinter.3.opt1
+		event_target:alliance_splinter_subject_1 = {
+			country_event = {
+				
+			}
+		}
+	}
+}
