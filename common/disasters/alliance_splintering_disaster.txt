@@ -7,13 +7,14 @@ alliance_splintering_disaster = {
 
 	can_start = {
 		has_global_flag = the_third_war
+		any_owned_province = {
+			has_owner_culture = no
+			has_owner_accepted_culture = no
+		}
 	}
 	
 	can_stop = {
-		any_country = {
-			faction_horde = 1
-			war_with = ROOT
-		}
+		always = no
 	}
 	
 	progress = {
@@ -26,26 +27,33 @@ alliance_splintering_disaster = {
 	can_end = {
 		OR = {
 			current_age = the_third_war
-			faction_alliance = 0
+			NOT = { faction_alliance = 1 }
+			all_owned_province = {
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
+				}
+			}
 		}
 	}
 	
 	modifier = {
-		diplomatic_reputation = -1
-		diplomatic_upkeep = -1
+		promote_culture_cost = 20
 	}
 
 	on_start = alliance_splinter.1
 	on_end = alliance_splinter.2
 	
 	on_monthly = {
-		100 = 0
-		1 = alliance_splinter.3
-		1 = alliance_splinter.4
-		1 = alliance_splinter.5
-		1 = alliance_splinter.6
-		1 = alliance_splinter.7
-		1 = alliance_splinter.8
+		random_events = { 
+			50 = 0
+			1 = alliance_splinter.3
+			1 = alliance_splinter.4
+			1 = alliance_splinter.5
+			1 = alliance_splinter.6
+			1 = alliance_splinter.7
+			1 = alliance_splinter.8
+		}
 	}
 }
 
