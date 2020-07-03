@@ -1,4 +1,5 @@
 #	Example:
+#	Example:
 # 
 #	example_effect = {
 #		treasury = 100
@@ -21,6 +22,135 @@ set_correct_dynasty = {
 	if = { limit = { tag = A91 } define_heir = { dynasty = "Sunstrider" claim = 75 no_consort_with_heir = yes } } 
 }
 
+teleport_unit_with_any_amount = {
+	teleport_units_with_amount_effect = { amount = 10 }
+	teleport_units_with_amount_effect = { amount = 9 }
+	teleport_units_with_amount_effect = { amount = 8 }
+	teleport_units_with_amount_effect = { amount = 7 }
+	teleport_units_with_amount_effect = { amount = 6 }
+	teleport_units_with_amount_effect = { amount = 5 }
+	teleport_units_with_amount_effect = { amount = 4 }
+	teleport_units_with_amount_effect = { amount = 3 }
+	teleport_units_with_amount_effect = { amount = 2 }
+	teleport_units_with_amount_effect = { amount = 1 }
+}
+
+teleport_units_with_amount_effect = {
+	if = {
+		limit = {
+			event_target:sender = {
+				num_of_units_in_province = {
+					who = ROOT
+					amount = $amount$
+				}
+			}
+		}
+		event_target:sender = {
+			kill_units = {
+				who = ROOT
+				amount = $amount$
+			}
+			clr_province_flag = sender_province
+		}
+		event_target:receiver = {
+			add_unit_construction = {
+				type = infantry
+				amount = $amount$
+				speed = 0.01
+				cost = 0
+			}
+		}
+	}
+}
+
+#$against$, $num_of_provinces$, $army_size$, $is_coastal$
+send_invasion_force = {
+	$against$ = {
+		random_owned_province = {
+			limit = { 
+				NOT = { has_province_flag = was_invaded_by_forces_of@ROOT } 
+				[[is_coastal] has_port = $is_coastal$ ]
+			}
+			set_province_flag = was_invaded_by_forces_of@ROOT
+			set_variable = {
+				which = army_size_counter
+				value = 0
+			}
+			log = "Invading province 1..." # shows up in log.
+			while = {
+				limit = {
+					NOT = { check_variable = {
+						which = army_size_counter
+						value = $army_size$
+					} }
+				}
+				log = "Invading province 2..." # Doesn't show up in log.
+				change_variable = {
+					which = army_size_counter
+					value = 1
+				}
+				infantry = ROOT
+			}
+			set_variable = {
+				which = army_size_counter
+				value = 0
+			}
+		}
+		set_variable = {
+			which = num_of_provinces_counter
+			value = 1
+		}
+		while = {
+			limit = {
+				NOT = { check_variable = {
+					which = num_of_provinces_counter
+					value = $num_of_provinces$
+				} }
+			}
+			change_variable = {
+				which = num_of_provinces_counter
+				value = 1
+			}
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = { has_province_flag = was_invaded_by_forces_of@ROOT }
+					[[is_coastal] has_port = $is_coastal$ ]
+				}
+				set_province_flag = was_invaded_by_forces_of@ROOT
+				set_variable = {
+					which = army_size_counter
+					value = 0
+				}
+				log = "Invading province..." # Doesn't show up in log.
+				while = {
+					limit = {
+						NOT = { check_variable = {
+							which = army_size_counter
+							value = $army_size$
+						} }
+					}
+					change_variable = {
+						which = army_size_counter
+						value = 1
+					}
+					infantry = ROOT
+				}
+				set_variable = {
+					which = army_size_counter
+					value = 0
+				}
+			}
+		}
+		set_variable = {
+			which = num_of_provinces_counter
+			value = 0
+		}
+		every_owned_province = {
+			clr_province_flag = was_invaded_by_forces_of@ROOT
+		}
+	}
+}
+
 form_holy_order_effect = {
 	hidden_effect = { add_local_autonomy = 10 }
 	custom_tooltip = ADD_AUTONOMY_TOOLTIP
@@ -38,131 +168,22 @@ abandon_holy_order_effect = {
 }
 
 discover_home_continent = {
-	capital_scope = {
-		every_province = {
-			limit = { continent = PREV }
-			discover_country = ROOT
-		}
-	}
-	every_owned_province = {
-		every_province = {
-			limit = { region = PREV }
-			discover_country = ROOT
-		}
-		every_neighbor_province = {
-			discover_country = ROOT
-		}
-	}
-	every_subject_country = {
-		every_owned_province = {
-			discover_country = ROOT
-			every_province = {
-				limit = { region = PREV }
-				discover_country = ROOT
-			}
-			every_neighbor_province = {
-				discover_country = ROOT
-			}
-		}
-	}
-	if = {
-		limit = { capital_scope = { continent = continent_eastern_kingdoms } }
-		
-		eastern_seas = {
-			discover_country = ROOT
-		}
-		ek_wasteland_region = {
-			discover_country = ROOT
-		}
-		outland_wasteland_region = {
-			discover_country = ROOT
-		}
-		continent_outland = {
-			discover_country = ROOT
-		}
-	}
-	if = {
-		limit = { capital_scope = { continent = continent_outland } }
-		
-		eastern_seas = {
-			discover_country = ROOT
-		}
-		ek_wasteland_region = {
-			discover_country = ROOT
-		}
-		outland_wasteland_region = {
-			discover_country = ROOT
-		}
-		continent_eastern_kingdoms = {
-			discover_country = ROOT
-		}
-	}
-	if = {
-		limit = { capital_scope = { continent = continent_kalimdor } }
-		
-		western_seas = {
-			discover_country = ROOT
-		}
-		kalimdor_wasteland_region = {
-			discover_country = ROOT
-		}
-	}
-	if = {
-		limit = { capital_scope = { continent = continent_northrend } }
-		
-		northern_seas = {
-			discover_country = ROOT
-		}
-		northrend_wasteland_region = {
-			discover_country = ROOT
-		}
-	}
-	if = {
-		limit = { capital_scope = { continent = continent_pandaria } }
-		
-		southern_seas = {
-			discover_country = ROOT
-		}
-		pandaria_wasteland_region = {
-			discover_country = ROOT
-		}
-	}
-	if = {
-		limit = { capital_scope = { continent = continent_maelstrom } }
-		
-		central_seas = {
-			discover_country = ROOT
-		}
-		maelstrom_wasteland_region = {
-			discover_country = ROOT
-		}
-	}
-	if = {
-		limit = { capital_scope = { continent = continent_broken_isles } }
-		
-		central_seas = {
-			discover_country = ROOT
-		}
-		maelstrom_wasteland_region = {
-			discover_country = ROOT
-		}
-		continent_broken_isles = {
-			discover_country = ROOT
-		}
+	every_province_including_seas = {
+		discover_country = ROOT
 	}
 }
 
 opinions_joined_alliance = {
     every_country = {
         limit = {
-            has_country_modifier = alliance_member
+            is_subject_of_type = faction_alliance
             NOT = { has_opinion_modifier = { who = ROOT modifier = alliance_alliance } }
         }
         add_opinion = { who = ROOT modifier = alliance_alliance }
     }
     every_country = {
         limit = {
-            has_country_modifier = horde_member
+            is_subject_of_type = faction_horde
             NOT = { has_opinion_modifier = { who = ROOT modifier = alliance_horde } }
         }
         add_opinion = { who = ROOT modifier = alliance_horde }
@@ -172,14 +193,14 @@ opinions_joined_alliance = {
 opinions_joined_horde = {
             every_country = {
                 limit = {
-                    has_country_modifier = alliance_member
+                    is_subject_of_type = faction_alliance
                     NOT = { has_opinion_modifier = { who = ROOT modifier = horde_alliance } }
                 }
                 add_opinion = { who = ROOT modifier = horde_alliance }
             }
             every_country = {
                 limit = {
-                    has_country_modifier = horde_member
+                    is_subject_of_type = faction_horde
                     NOT = { has_opinion_modifier = { who = ROOT modifier = horde_horde } }
                 }
                 add_opinion = { who = ROOT modifier = horde_horde }
@@ -189,28 +210,28 @@ opinions_joined_horde = {
 opinions_left_alliance = {
             every_country = {
                 limit = {
-                    has_country_modifier = alliance_member
+                    is_subject_of_type = faction_alliance
                     has_opinion_modifier = { who = ROOT modifier = alliance_alliance }
                 }
                 remove_opinion = { who = ROOT modifier = alliance_alliance }
             }
             every_country = {
                 limit = {
-                    has_country_modifier = alliance_member
+                    is_subject_of_type = faction_alliance
                     reverse_has_opinion_modifier = { who = ROOT modifier = alliance_alliance }
                 }
                 reverse_remove_opinion = { who = ROOT modifier = alliance_alliance }
             }
             every_country = {
                 limit = {
-                    has_country_modifier = horde_member
+                    is_subject_of_type = faction_horde
                     has_opinion_modifier = { who = ROOT modifier = alliance_horde }
                 }
                 remove_opinion = { who = ROOT modifier = alliance_horde }
             }
             every_country = {
                 limit = {
-                    has_country_modifier = horde_member
+                    is_subject_of_type = faction_horde
                     reverse_has_opinion_modifier = { who = ROOT modifier = alliance_horde }
                 }
                 reverse_remove_opinion = { who = ROOT modifier = alliance_horde }
@@ -220,28 +241,28 @@ opinions_left_alliance = {
 opinions_left_horde = {
             every_country = {
                 limit = {
-                    has_country_modifier = alliance_member
+                    is_subject_of_type = faction_alliance
                     has_opinion_modifier = { who = ROOT modifier = horde_alliance }
                 }
                 remove_opinion = { who = ROOT modifier = horde_alliance }
             }
             every_country = {
                 limit = {
-                    has_country_modifier = alliance_member
+                    is_subject_of_type = faction_alliance
                     reverse_has_opinion_modifier = { who = ROOT modifier = horde_alliance }
                 }
                 reverse_remove_opinion = { who = ROOT modifier = horde_alliance }
             }
             every_country = {
                 limit = {
-                    has_country_modifier = horde_member
+                    is_subject_of_type = faction_horde
                     has_opinion_modifier = { who = ROOT modifier = horde_horde }
                 }
                 remove_opinion = { who = ROOT modifier = horde_horde }
             }
             every_country = {
                 limit = {
-                    has_country_modifier = horde_member
+                    is_subject_of_type = faction_horde
                     reverse_has_opinion_modifier = { who = ROOT modifier = horde_horde }
                 }
                 reverse_remove_opinion = { who = ROOT modifier = horde_horde }
@@ -291,5 +312,76 @@ set_faction_conflict = {
 			}
 		}
 		
+	}
+}
+
+save_dominant_non_accepted_culture_as = {
+	# every_owned_province = {
+		# limit = {
+			# OR = {
+				# accepted_culture = ROOT
+				# culture = ROOT
+			# }
+		# }
+		# set_province_flag = temp_province_of@ROOT
+		# cede_province = XXX
+	# }
+	# export_to_variable = {
+		# variable_name = $variable_name$
+		# value = dominant_culture
+	# }
+	# every_province = {
+		# limit = {
+			# has_province_flag = temp_province_of@ROOT
+		# }
+		# cede_province = ROOT
+	# }
+		
+	every_owned_province = {
+		limit = {
+			has_owner_culture = no
+			has_owner_accepted_culture = no
+			is_state_core = PREV
+			NOT = { has_province_flag = check }
+		}
+		save_event_target_as = check
+		export_to_variable = { which = devnum value = development }
+		PREV = {
+			every_owned_province = {
+				limit = {
+					is_state_core = PREV
+					culture = event_target:check
+					NOT = { province_id = event_target:check }
+				}
+				set_province_flag = check
+				export_to_variable = { which = devnum value = development }
+				event_target:check = {
+					change_variable = { which = devnum which = PREV }
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { which = devnum which = event_target:second_highest_culture }
+			}
+			save_event_target_as = second_highest_culture
+		}
+	}
+	every_owned_province = {
+		clr_province_flag = check
+		set_variable = { which = devnum value = 0 }
+	}
+	
+	event_target:second_highest_culture = {
+		export_to_variable = {
+			which = $variable_name$
+			value = culture
+		}
+		owner = {
+			set_variable = {
+				which = $variable_name$
+				which = PREV
+			}
+		}
 	}
 }

@@ -1,0 +1,87 @@
+##########################
+
+init_full_unity = {
+	init_culture_unity = yes
+	init_religion_unity = yes
+	init_core_unity = yes
+}
+init_culture_unity = {
+	every_owned_province = {
+		limit = {
+			NOT = { culture = ROOT }
+			NOT = { has_province_flag = override_country_culture }  # Put this flag to province histories if you don't want to force province have country culture.
+		}
+		change_culture = ROOT
+	}
+}
+init_religion_unity = {
+	every_owned_province = {
+		limit = {
+			NOT = { religion = ROOT }
+			NOT = { has_province_flag = override_country_religion }  # Put this flag to province histories if you don't want to force province have country religion.
+		}
+		change_religion = ROOT
+	}
+}
+init_core_unity = {
+	every_owned_province = {
+		limit = {
+			NOT = { is_core = ROOT }
+			NOT = { has_province_flag = override_country_core }  # Put this flag to province histories if you don't want to force province have core.
+		}
+		add_core = ROOT
+	}
+}
+
+set_government_ranks = {
+	if = { 
+		limit = {
+			NOT = { total_development = $rank_2$ }
+		}
+		set_government_rank = 1
+	}
+	if = { 
+		limit = { 
+			total_development = $rank_2$
+			NOT = { total_development = $rank_3$ }
+		}
+		set_government_rank = 2
+	}
+	if = { 
+		limit = { 
+			total_development = $rank_3$
+		}
+		set_government_rank = 3
+	}
+}
+
+init_governments = {
+	if = {
+		limit = {
+			government = tribal
+		}
+		add_government_reform = tribal_despotism
+	}	
+	##########################################	
+	if = {
+		limit = {
+			government = monarchy
+		}
+		add_government_reform = autocracy_reform
+	}
+	##########################################	
+	if = {
+		limit = {
+			government = theocracy
+		}
+		add_government_reform = holy_republic_reform
+	}
+	##########################################	
+	if = {
+		limit = {
+			government = republic
+		}
+		add_government_reform = peasants_republic
+	}
+	##########################################
+}

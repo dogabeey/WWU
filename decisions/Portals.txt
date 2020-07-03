@@ -3,6 +3,7 @@ country_decisions = {
 		major = yes
 	
         potential = {
+			
             NOT = { has_country_flag = portal_menu }
 			OR = {
 				calc_true_if = { all_owned_province = { has_building = wow_portal_red } amount = 2 }
@@ -24,6 +25,7 @@ country_decisions = {
 		major = yes
 	
         potential = {
+			
             has_country_flag = portal_menu
         }
         allow = {
@@ -37,15 +39,17 @@ country_decisions = {
     }
     red_portal_passage = {
         potential = {
+			
             calc_true_if = { all_owned_province = { has_building = wow_portal_red } amount = 2 }
 			has_country_flag = portal_menu
         }
         allow = {
 			any_owned_province = {
 				has_building = wow_portal_red
+				controlled_by = ROOT
 				num_of_units_in_province = {
 					who = ROOT
-					amount = 10
+					amount = 1
 				}
 			}
         }
@@ -55,7 +59,7 @@ country_decisions = {
 					has_building = wow_portal_red
 					num_of_units_in_province = {
 						who = ROOT
-						amount = 10
+						amount = 1
 					}
 				}
 				save_event_target_as = sender
@@ -68,21 +72,8 @@ country_decisions = {
 				}
 				save_event_target_as = receiver
 			}
-			event_target:sender = {
-				kill_units = {
-					who = ROOT
-					amount = 10
-				}
-				clr_province_flag = sender_province
-			}
-			event_target:receiver = {
-				add_unit_construction = {
-					type = infantry
-					amount = 10
-					speed = 0.01
-					cost = 0
-				}
-			}
+			teleport_unit_with_any_amount = yes
+			clr_province_flag = sender_province
         }
         ai_will_do = {
             factor = 0
@@ -90,12 +81,14 @@ country_decisions = {
     }
     blue_portal_passage = {
         potential = {
+			
             calc_true_if = { all_owned_province = { has_building = wow_portal_blue } amount = 2 }
 			has_country_flag = portal_menu
         }
         allow = {
 			any_owned_province = {
 				has_building = wow_portal_blue
+				controlled_by = ROOT
 				num_of_units_in_province = {
 					who = ROOT
 					amount = 10
@@ -121,21 +114,8 @@ country_decisions = {
 				}
 				save_event_target_as = receiver
 			}
-			event_target:sender = {
-				kill_units = {
-					who = ROOT
-					amount = 10
-				}
-				clr_province_flag = sender_province
-			}
-			event_target:receiver = {
-				add_unit_construction = {
-					type = infantry
-					amount = 10
-					speed = 0.01
-					cost = 0
-				}
-			}
+			teleport_unit_with_any_amount = yes
+			clr_province_flag = sender_province
         }
         ai_will_do = {
             factor = 0
@@ -143,12 +123,14 @@ country_decisions = {
     }
     green_portal_passage = {
         potential = {
+			
             calc_true_if = { all_owned_province = { has_building = wow_portal_green } amount = 2 }
 			has_country_flag = portal_menu
         }
         allow = {
 			any_owned_province = {
 				has_building = wow_portal_green
+				controlled_by = ROOT
 				num_of_units_in_province = {
 					who = ROOT
 					amount = 10
@@ -174,21 +156,8 @@ country_decisions = {
 				}
 				save_event_target_as = receiver
 			}
-			event_target:sender = {
-				kill_units = {
-					who = ROOT
-					amount = 10
-				}
-				clr_province_flag = sender_province
-			}
-			event_target:receiver = {
-				add_unit_construction = {
-					type = infantry
-					amount = 10
-					speed = 0.01
-					cost = 0
-				}
-			}
+			teleport_unit_with_any_amount = yes
+			clr_province_flag = sender_province
         }
         ai_will_do = {
             factor = 0
@@ -196,12 +165,14 @@ country_decisions = {
     }
     yellow_portal_passage = {
         potential = {
+			
             calc_true_if = { all_owned_province = { has_building = wow_portal_yellow } amount = 2 }
 			has_country_flag = portal_menu
         }
         allow = {
 			any_owned_province = {
 				has_building = wow_portal_yellow
+				controlled_by = ROOT
 				num_of_units_in_province = {
 					who = ROOT
 					amount = 10
@@ -227,21 +198,8 @@ country_decisions = {
 				}
 				save_event_target_as = receiver
 			}
-			event_target:sender = {
-				kill_units = {
-					who = ROOT
-					amount = 10
-				}
-				clr_province_flag = sender_province
-			}
-			event_target:receiver = {
-				add_unit_construction = {
-					type = infantry
-					amount = 10
-					speed = 0.01
-					cost = 0
-				}
-			}
+			teleport_unit_with_any_amount = yes
+			clr_province_flag = sender_province
         }
         ai_will_do = {
             factor = 0
