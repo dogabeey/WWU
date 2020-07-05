@@ -71,15 +71,66 @@
 # sell_ships_action
 # counterespionage
 # abandon_union_action
+# takeondebt
+# influence_nation
+# claim_states
+# steer_trade
+# stealmap
+# spy_network
+# invite_to_trade_league
+# request_to_join_trade_league
+# sharemap
+# intervene_in_war
+# break_alliance
+# tributary_state_action
+# ask_for_tributary_state_action
+# knowledge_sharing
 
-milaccess= {
+enforce_peace = {
 	condition = {
-        tooltip = DIP_INCOMP_PORTALNOTOPEN
+        tooltip = DIP_INCOMP_NOTAVAILABLE
 		
 		potential = {
+			OR = {
+				has_country_flag = complete_stasis
 				FROM = {
 					has_country_flag = complete_stasis
 				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+callaction = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+milaccess= {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
 		}
         allow = {
             always = no
@@ -607,22 +658,7 @@ annexationaction = {
             always = no
         }
 	}
-	#condition = {
-	#	tooltip = ANNEXINVALID
-	#	potential = {
-	#		FROM = {
-	#			vassal_of = ROOT
-	#		}
-	#	}
-	#	allow = {
-	#		FROM = {
-	#			years_in_vassalage_under = {
-	#				who = ROOT
-	#				years = 10
-	#			}
-	#		}
-	#	}
-	#}
+	
 }
 
 integrationaction = {

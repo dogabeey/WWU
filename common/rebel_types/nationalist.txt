@@ -165,6 +165,15 @@ nationalist_rebels = {
 				NOT = { legitimacy_or_horde_unity = 75 }
 			}
 		}
+		modifier = {
+			factor = 0.5
+			owner = {
+				any_country = {
+					primary_culture = REB
+					alliance_with = PREV
+				}
+			}
+		}
 	}
  
  	# This is checked for EACH province in the Area of Operations
@@ -201,7 +210,7 @@ nationalist_rebels = {
 			limit = { NOT = { is_core = REB } }
 			add_core = REB
 		}
-		add_nationalism = 10 # Add ten extra years of nationalism
+		 # Add ten extra years of nationalism
 	}
 	
 	# Country scope
