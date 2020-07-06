@@ -245,12 +245,15 @@ country_event = {
     
     immediate = {
 		set_country_flag = shadowmoon_revealed
-		B88 = { clr_country_flag = complete_stasis } # Shadow council is no longer immune.
 		random_country = {
 			limit = { faction_horde = 1 }
 			remove_country_modifier = the_shadow_council
 			save_event_target_as = horde_leader
 			country_event = { id = the_second_war.20 }
+			every_subject_country = {
+				limit = { is_subject_of_type = faction_horde }
+				country_event = { id = the_second_war.21 }
+			}
 		}
     }
     
@@ -412,7 +415,7 @@ country_event = {
 	id = the_second_war.9
 	title = orcish_reform.title
 	desc = {
-	   trigger = { has_global_flag = tfw_human_victory_path }
+	   trigger = { NOT = { has_global_flag = tfw_orc_victory_path } }
 	   desc = "orcish_reform.desc.1"
 	}
 	desc = {
@@ -427,13 +430,14 @@ country_event = {
     
 	trigger = {
 		current_age = the_second_war
+		set_country_flag = shadowmoon_revealed
 		culture_group = culture_group_orc
 		religion = religion_fel
 		NOT = {	tag = B88 }
 	}
 	
     mean_time_to_happen = {
-		months = 15
+		months = 25
 		modifier = {
 			factor = 5
 			has_country_flag = stood_loyal_to_fel
@@ -542,10 +546,10 @@ country_event = {
 country_event = {
 	id = the_second_war.20
 	title = shadow_council_reveal.title
-	desc = shadow_council_reveal.title
+	desc = shadow_council_reveal.desc
 	picture = ORCISH_INVASION_eventPicture
 
-	major = no
+	major = yes
     is_triggered_only = yes
 	
 	trigger = {
@@ -560,10 +564,33 @@ country_event = {
     
 	option = {
 		name = shadow_council_reveal.opt1
-		add_country_modifier = {
-			name = council_is_revealed
-			duration = 3650
-		}
 		#log = "end_of_second_war_horde_won.opt1"
+    }
+}
+
+country_event = {
+	id = the_second_war.21
+	title = shadow_council_reveal_subject.title
+	desc = shadow_council_reveal_subject.title
+	picture = ORCISH_INVASION_eventPicture
+
+	major = no
+    is_triggered_only = yes
+	
+    immediate = {
+		hidden_effect = {
+			set_country_flag = shadow_council_reveal_notified
+		}
+    }
+    
+	option = {
+		name = shadow_council_reveal_subject.opt1
+		#log = "end_of_second_war_horde_won.opt1"
+		overlord = {
+			reverse_add_opinion = {
+				who = PREV
+				modifier = shadow_council_revealed
+			}
+		}
     }
 }

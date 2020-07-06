@@ -130,6 +130,17 @@ can_change_culture = {
 }
 
 can_move_capital = {
+	condition = {
+		tooltip = "WOW_CANT_MOVE_CAPITAL_OUTLAND"
+		potential = {
+			FROM = { 
+				is_outlander = yes 
+			}
+		}
+		allow = {
+			NOT = { continent = continent_outland }
+		}
+	}
 }
 
 can_move_trade_port = {
