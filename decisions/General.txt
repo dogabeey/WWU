@@ -314,47 +314,5 @@ country_decisions = {
         }
 	   }
 	}
-	
-	ge_ai_province_development = {
-		potential = {
-			
-		NOT = { government = native }
-		ai = yes
-		}
-		allow = {
-			#treasury = 250
-			years_of_income = 0.5
-			manpower = 1
-			NOT = { num_of_loans = 1 }
-			NOT = { has_country_modifier = ai_time }
-			any_owned_province = {
-			NOT = { has_province_modifier = dev }
-            NOT = { development = 45 }			
-			}
-		}
-		effect = {
-		add_manpower = -1
-		#add_treasury = -250
-		add_years_of_income = -0.5
-		add_country_modifier = {
-		    name = "ai_time"
-            duration = 9125
-		}
-		random_owned_province = {
-           limit = { 
-           NOT = { has_province_modifier = dev }
-		   NOT = { development = 45 }
-        } 
-		add_province_modifier = {
-            name = "dev"
-            duration = 18250
-        }
-		add_base_tax = 1
-        add_base_production = 1
-        add_base_manpower = 1
-        }
-		}
-	}
-
 }
 	

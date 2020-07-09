@@ -1,23 +1,131 @@
-country_decisions = {
-	test_age = {
+# country_decisions = {
+	# THANOS = {
 	
-        potential = {
-			ai = no
-			current_age = beyond_the_dark_portal
-        }
+        # potential = {
+			# ai = no
+        # }
         
-		allow = {
-		}
+		# allow = {
+		# }
 		
-		ai_importance = 200
+		# ai_importance = 200
         
-		effect = {
-			set_global_flag = the_third_war
-		}
+		# effect = {
+			# set_variable = {
+				# which = counter
+				# value = 0
+			# }
+			# set_variable = {
+				# which = num_of_countries
+				# value = 0
+			# }
+			# every_country = {
+				# limit = {
+					# exists = yes
+				# }
+				# ROOT = {
+					# change_variable = {
+						# which = num_of_countries
+						# value = 1
+					# }
+				# }
+			# }
+			# while = {
+				# limit = {
+					# NOT = { check_variable = {
+						# which = counter
+						# which = num_of_countries
+					# } }
+				# }
+				# random_country = {
+					# limit = {
+						# exists = yes
+					# }
+					# log = "[This.GetName] is removed."
+					# every_owned_province = {
+						# cede_province = '---'
+					# }
+				# }
+				# change_variable = {
+					# which = counter
+					# value = 2
+				# }
+			# }
+			# every_country = {
+				# limit = { exists = yes }
+				# log = "[This.GetName] survived the snap."
+			# }
+		# }
         
-		ai_will_do = {
-			factor = 0.5
-		}
-	}
+		# ai_will_do = {
+			# factor = 0.5
+		# }
+	# }
+	# OTHERTHANOS = {
+	
+        # potential = {
+			# ai = no
+        # }
+        
+		# allow = {
+		# }
+		
+		# ai_importance = 200
+        
+		# effect = {
+			# set_variable = {
+				# which = counter
+				# value = 0
+			# }
+			# set_variable = {
+				# which = num_of_countries
+				# value = 0
+			# }
+			# every_country = {
+				# limit = {
+					# exists = yes
+				# }
+				# ROOT = {
+					# change_variable = {
+						# which = num_of_countries
+						# value = 1
+					# }
+				# }
+			# }
+			# while = {
+				# limit = {
+					# NOT = { check_variable = {
+						# which = counter
+						# which = num_of_countries
+					# } }
+				# }
+				# random_country = {
+					# limit = {
+						# exists = yes
+					# }
+					# log = "[This.GetName] survived the snap."
+					# set_country_flag = survivor
+				# }
+				# change_variable = {
+					# which = counter
+					# value = 2
+				# }
+			# }
+			# every_country = {
+				# limit = { 
+					# exists = yes
+					# NOT = { has_country_flag = survivor }
+				# }
+				# log = "[This.GetName] is removed."
+				# every_owned_province = {
+					# cede_province = '---'
+				# }
+			# }
+		# }
+        
+		# ai_will_do = {
+			# factor = 0.5
+		# }
+	# }
 
-}
+# }

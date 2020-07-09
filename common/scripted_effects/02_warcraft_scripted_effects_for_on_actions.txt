@@ -57,45 +57,54 @@ set_government_ranks = {
 
 init_governments = {
 	if = {
-		limit = {
-			government = tribal
+		limit = { 
+			not_have_any_reform = yes 
 		}
-		add_government_reform = tribal_despotism
-	}	
-	##########################################	
-	if = {
-		limit = {
-			government = monarchy
+		if = {
+			limit = {
+				government = tribal
+				
+			}
+			add_government_reform = tribal_despotism
+		}	
+		##########################################	
+		if = {
+			limit = {
+				government = monarchy
+				NOT = { government = native }
+				NOT = { government = organization }
+				NOT = { government = remnant }
+			}
+			add_government_reform = autocracy_reform
 		}
-		add_government_reform = autocracy_reform
-	}
-	##########################################	
-	if = {
-		limit = {
-			government = theocracy
+		##########################################	
+		if = {
+			limit = {
+				government = theocracy
+			}
+			add_government_reform = holy_republic_reform
 		}
-		add_government_reform = holy_republic_reform
-	}
-	##########################################	
-	if = {
-		limit = {
-			government = republic
+		##########################################	
+		if = {
+			limit = {
+				government = republic
+			}
+			add_government_reform = peasants_republic
 		}
-		add_government_reform = peasants_republic
-	}
-	##########################################	
-	if = {
-		limit = {
-			faction_alliance = 1
+		##########################################	
+		if = {
+			limit = {
+				faction_alliance = 1
+			}
+			change_government = monarchy
+			add_government_reform = alliance_reform
 		}
-		change_government = monarchy
-		add_government_reform = alliance_reform
-	}
-	if = {
-		limit = {
-			faction_horde = 1
+		if = {
+			limit = {
+				faction_horde = 1
+			}
+			change_government = monarchy
+			add_government_reform = horde_reform
 		}
-		change_government = monarchy
-		add_government_reform = horde_reform
 	}
 }
