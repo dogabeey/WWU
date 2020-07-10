@@ -81,33 +81,86 @@ magocracy = {
 }
 
 merchants_reform = {
-	icon = "merchant"
+	icon = "politician"
 	allow_normal_conversion = yes
 	modifiers = {
-		merchants = 1
-		caravan_power = 0.10
-		trade_efficiency = 0.10
 		max_absolutism = -50
-    	governing_capacity = 100
+		merchants = 1
 	}
 	valid_for_nation_designer = yes
-	nation_designer_cost = 0
+	nation_designer_cost = 40
 	legacy_equivalent = merchant_republic
-	duration = 7
 	potential = {
-		#NOT = { has_reform = presidential_despot_reform }
-		NOT = { has_reform = free_city }
-		NOT = { has_reform = trading_city }
-		NOT = { has_reform = colonial_government }
+		NOT = {
+			NOT = { map_setup = map_setup_random }
+		}
 	}
-	government_abilities = {  }
-	
-	can_use_trade_post = yes
+	trigger = {
+		OR = {
+			has_reform = merchants_reform
+			crown_stronger_than_estate = { estate = all }
+		}
+	}
 	boost_income = yes
-	trade_city_reform = trading_city
-		
+	duration = 4
+	factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
 	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
 		is_merchant_republic = yes
+	}
+	ai = {
+		factor = 0.75 #generic
+		
+		modifier = {
+			factor = 0
+			num_of_cities = 11
+		}
+		
+		modifier = {
+			factor = 0
+			capital_scope = { has_port = no }
+		}
+		
+		modifier = {
+			factor = 0
+			NOT = {
+				capital_scope = { province_has_center_of_trade_of_level = 1 }
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			is_subject = yes
+		}
 	}
 }
 
@@ -256,10 +309,6 @@ peasants_republic = {
 		governing_capacity = 100
 		global_autonomy = -0.05
 	}
-	custom_attributes = {
-		enables_plutocratic_idea_group = yes
-		enables_aristocratic_idea_group = no
-	}
 	duration = 5
 }
 
@@ -295,29 +344,26 @@ free_city = {
 	}
 	duration = 4
 }
-
 trading_city = {
 	icon = "trading_city"
 	allow_normal_conversion = no
+	potential = {
+		has_reform = trading_city
+	}
 	valid_for_nation_designer = no
 	legacy_equivalent = trading_city_legacy
 	boost_income = yes
 	lock_level_when_selected = yes
 	is_trading_city = yes
-	
-	government_abilities = {  }
-
-factions = {
+	factions = {
 		mr_aristocrats
 		mr_traders
 		mr_guilds
 	}
 	modifiers = {
-	    trade_steering = 0.10
+		max_absolutism = -20
 		global_trade_power = 0.1
-		max_absolutism = -25
-		merchants = 1
-    	governing_capacity = 100
+		max_absolutism = -20
 	}
 
 	custom_attributes = {
@@ -351,12 +397,6 @@ factions = {
 		trade_city_reform = merchants_reform # For trade cities this is their fallback government if they get more than 1 provinces
 	}
 	duration = 4
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			iqta_mechanic
-		}
-	}
 }
 
 colonial_government = {
@@ -364,26 +404,16 @@ colonial_government = {
 	valid_for_nation_designer = no
 	lock_level_when_selected = yes
 	allow_normal_conversion = no
-	#fixed_rank = 4
+	fixed_rank = 1
 	potential = {
 		is_colonial_nation = yes
 	}
 	legacy_equivalent = colonial_government_legacy
-	
-	government_abilities = {  }
-
-factions = {
-		mr_aristocrats
-		mr_traders
-		mr_guilds
-	}
-	
 	modifiers = {
 		global_autonomy = -0.05
-		recover_army_morale_speed = 0.01
-		embracement_cost = -0.10
+		recover_army_morale_speed = 0.02
+		embracement_cost = -0.1
 		governing_capacity = 100
-		global_institution_spread = 0.10
 	}
 
 	custom_attributes = {
@@ -392,10 +422,4 @@ factions = {
 		enables_aristocratic_idea_group = no
 	}
 	duration = 4
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			iqta_mechanic
-		}
-	}
 }
