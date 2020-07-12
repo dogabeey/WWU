@@ -20,7 +20,6 @@ steppe_horde = {
 	nation_designer_cost = 0
 	
 	heir = yes
-	queen = yes
 	
 	modifiers = {
 		land_forcelimit_modifier = 0.10
@@ -30,7 +29,10 @@ steppe_horde = {
 	
 	government_abilities = {  }
 	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
+		allow = { 
+			has_dlc = "Mandate of Heaven"
+			NOT = { is_lesser = yes }
+		}
 		allow_banners = yes
 	}
 }
