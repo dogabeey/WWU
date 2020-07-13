@@ -42,7 +42,7 @@ on_startup = {
 		}
 		
 		#	Government Settings
-		init_governments = yes # Very, VERY long code.
+		#init_governments = yes
 		
 		swap_non_generic_missions = yes
 		add_legitimacy = 75
@@ -160,22 +160,22 @@ on_war_lost = {
 # root = winning country, from = loser country
 on_battle_won_country = {
 	#log = "[Root.GetName]: Triggered battle_won_country"
-	# random_events = {
-		# 12 = 0
-		# 1 = chaos.4
-		# 1 = chaos.5
-		# 1 = chaos.6
-	# }
-	# if = {
-		# limit = {
-			# has_country_modifier = hegemonic_victory
-			# FROM = { tag = REB }
-		# }
-		# change_variable = {
-			# which = rebels_suppressed
-			# value = 1
-		# }
-	# }
+	random_events = {
+		12 = 0
+		1 = chaos.4
+		1 = chaos.5
+		1 = chaos.6
+	}
+	if = {
+		limit = {
+			has_country_modifier = hegemonic_victory
+			FROM = { tag = REB }
+		}
+		change_variable = {
+			which = rebels_suppressed
+			value = 1
+		}
+	}
 }
 
 # country
@@ -269,17 +269,17 @@ on_siege_won_country = {
 # root = losing country, from = location
 on_siege_lost_country = {
 	#log = "[Root.GetName]: Triggered siege_lost_country"
-	# if = {
-		# limit = {
-			# was_faction_leaders_war = yes
-		# }
-		# overlord = {
-			# reverse_add_opinion = {
-				# who = PREV
-				# modifier = city_is_fallen
-			# }
-		# }
-	# }
+	if = {
+		limit = {
+			was_faction_leaders_war = yes
+		}
+		overlord = {
+			reverse_add_opinion = {
+				who = PREV
+				modifier = city_is_fallen
+			}
+		}
+	}
 }
 
 # province
@@ -1351,9 +1351,12 @@ on_convert_by_trade_policy = {
 # FROM = old owner
 on_province_owner_change = {
 	#log = "[Root.GetName]: Triggered province_owner_change"
-	change_variable = {
-		which = provinces_gained
-		value = 1
+	owner = {
+		change_variable = {
+			which = provinces_gained
+			value = 1
+		}
+		
 	}
 	if = {
 		limit = {

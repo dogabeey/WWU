@@ -16,16 +16,16 @@ country_event = {
 	immediate = {
 		set_country_flag = es_start_ai_no_flag
 		if ={
-		limit = {
-		NOT = { has_global_flag = trade_controller_selected_flag }
-		}
-		random_country = {
-		limit = {
-		ai = no
-		}
-		set_country_flag = trade_control_flag
-		}
-		set_global_flag = trade_controller_selected_flag
+			limit = {
+				NOT = { has_global_flag = trade_controller_selected_flag }
+			}
+			random_country = {
+				limit = {
+					ai = no
+				}
+				set_country_flag = trade_control_flag
+			}
+			set_global_flag = trade_controller_selected_flag
 		}
 	}
 	

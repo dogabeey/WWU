@@ -54,12 +54,65 @@ first_war_human = {
 }
 first_war_orc = {
     potential = {
+		current_age = the_first_war
 		culture_group = culture_group_orc
-		religion = religion_fel
+		NOT = {
+			OR = {
+				has_global_flag = orc_invasion_difficulty_easy
+				has_global_flag = orc_invasion_difficulty_very_easy
+			}
+		}
     }
 	trigger = {
 		current_age = the_first_war
 		culture_group = culture_group_orc
+		religion = religion_fel
+		OR = {
+			faction_horde = 1
+			is_subject_of_type = faction_horde
+		}
+	}
+
+	province_warscore_cost = -0.75
+	unjustified_demands = -0.75
+    land_morale = 0.25
+    discipline = 0.1
+}
+first_war_orc_easy = {
+    potential = {
+		current_age = the_first_war
+		culture_group = culture_group_orc
+		has_global_flag = orc_invasion_difficulty_easy
+    }
+	trigger = {
+		current_age = the_first_war
+		culture_group = culture_group_orc
+		religion = religion_fel
+		OR = {
+			faction_horde = 1
+			is_subject_of_type = faction_horde
+		}
+	}
+
+	province_warscore_cost = -0.35
+	unjustified_demands = -0.35
+    land_morale = 0.15
+    discipline = 0.1
+}
+first_war_orc_very_easy = {
+    potential = {
+		current_age = the_first_war
+		culture_group = culture_group_orc
+		has_global_flag = orc_invasion_difficulty_very_easy
+    }
+	trigger = {
+		current_age = the_first_war
+		culture_group = culture_group_orc
+		religion = religion_fel
+		OR = {
+			faction_horde = 1
+			is_subject_of_type = faction_horde
+		}
 	}
 
 	province_warscore_cost = -0.25
