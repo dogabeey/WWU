@@ -731,27 +731,61 @@ country_event = {
 }
 
 country_event = {
-	id = estate_privileges_and_agendas_events.4
-	title = estate_privileges_and_agendas_events.4.name
-	desc = estate_privileges_and_agendas_events.4.desc
+	id = estate_privileges_and_agendas_events.5
+	title = estate_privileges_and_agendas_events.5.title
+	desc = estate_privileges_and_agendas_events.5.desc
 	picture = NOBLE_ESTATE_DEMANDS_eventPicture
 
 	is_triggered_only = yes
-	hidden = yes
-
-	trigger = {
-		OR = {
-			has_estate_privilege = estate_nobles_supremacy_over_crown
-			has_estate_privilege = estate_brahmins_supremacy_over_crown
-		}
-		NOT = { has_any_active_estate_agenda = yes }
-	}
 
 	immediate = {
-		country_event = { id = estate_privileges_and_agendas_events.3 }
+		hidden_effect = {
+			add_country_modifier = { 
+				name = adventurers_allowed
+				duration = -1
+			}
+		}
 	}
 
 	option = {
-		name = estate_privileges_and_agendas_events.4.a
+		name = estate_privileges_and_agendas_events.5.opt1
+		trigger = {
+			NOT = { has_country_flag = has_trade_company_guild }
+		}
+		hidden_effect = { set_country_flag = has_trade_company_guild give_land_shares_to_estate = { estate = estate_cossacks share = 15 } }
+		custom_tooltip = estate_privileges_and_agendas_events.5.opt1.tt
+		
+	}
+	option = {
+		name = estate_privileges_and_agendas_events.5.opt2
+		trigger = {
+			NOT = { has_country_flag = has_independent_guild }
+		}
+		hidden_effect = { set_country_flag = has_independent_guild give_land_shares_to_estate = { estate = estate_cossacks share = 15 } }
+		custom_tooltip = estate_privileges_and_agendas_events.5.opt2.tt
+	}
+	option = {
+		name = estate_privileges_and_agendas_events.5.opt3
+		trigger = {
+			NOT = { has_country_flag = has_criminal_guild }
+		}
+		hidden_effect = { set_country_flag = has_criminal_guild give_land_shares_to_estate = { estate = estate_cossacks share = 15 } }
+		custom_tooltip = estate_privileges_and_agendas_events.5.opt3.tt
+	}
+	option = {
+		name = estate_privileges_and_agendas_events.5.opt4
+		trigger = {
+			NOT = { has_country_flag = has_military_guild }
+		}
+		hidden_effect = { set_country_flag = has_military_guild give_land_shares_to_estate = { estate = estate_cossacks share = 15 } }
+		custom_tooltip = estate_privileges_and_agendas_events.5.opt4.tt
+	}
+	option = {
+		name = estate_privileges_and_agendas_events.5.opt5
+		trigger = {
+			NOT = { has_country_flag = has_cult_guild }
+		}
+		hidden_effect = { set_country_flag = has_cult_guild give_land_shares_to_estate = { estate = estate_cossacks share = 15 } }
+		custom_tooltip = estate_privileges_and_agendas_events.5.opt5.tt
 	}
 }

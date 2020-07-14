@@ -7,21 +7,11 @@ bribe_adminstration = {
 	require_acceptance = no # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		always = yes
+		has_country_flag = has_trade_company_guild
 	}
 	is_allowed = {
 		years_of_income = 3
-		NOT = { is_organization = yes }
-		NOT = { has_country_modifier = bribed }
-		#has_reform_or_has_subject_with_reform = { ARG1 = trade_company_reform }
-		OR = {
-			has_reform = trade_company_reform
-			any_subject_country = { has_reform = trade_company_reform }
-		}
-		OR = {
-			contract = 1
-			is_organization = yes
-		}
+		FROM = { NOT = { has_country_modifier = bribed } }
 	}
 	on_accept = {
 		add_years_of_income = -3
@@ -53,15 +43,13 @@ form_raid = {
 	require_acceptance = no # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		always = yes
+		has_country_flag = has_independent_guild
 	}
 	is_allowed = {
 		has_spy_network_in = {
 			who = FROM
 			value = 50
 		}
-		#has_reform_or_has_subject_with_reform = { ARG1 = independent_guild_reform }
-		has_guild_trigger = yes
 		FROM = {
 			has_country_modifier = is_evil
 		}
@@ -100,18 +88,12 @@ assasinate_ruler = {
 	require_acceptance = no # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		always = yes
+		has_country_flag = has_criminal_guild
 	}
 	is_allowed = {
 		has_spy_network_in = {
 			who = FROM
 			value = 80
-		}
-		#has_reform_or_has_subject_with_reform = { ARG1 = criminal_organization_reform }
-		OR = {
-			has_reform = criminal_organization_reform
-            has_country_flag = has_criminal_guild
-			any_subject_country = { has_reform = criminal_organization_reform }
 		}
 	}
 	on_accept = {
@@ -142,34 +124,22 @@ recruit_manpower = {
 	require_acceptance = no # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		always = yes
+		has_country_flag = has_military_guild
 	}
 	is_allowed = {
 		has_spy_network_in = {
 			who = FROM
 			value = 35
 		}
-		#has_reform_or_has_subject_with_reform = { ARG1 = military_organization_reform }
-		OR = {
-			has_reform = military_organization_reform
-            has_country_flag = has_military_guild
-			any_subject_country = { has_reform = military_organization_reform }
-		}
-		FROM = {
-			OR = {
-				primary_culture = ROOT
-				religion = ROOT
-				technology_group = ROOT
-			}
-		}
+		manpower = 5
 	}
 	on_accept = {
 		add_spy_network_in = {
 			who = FROM
 			value = -35
 		}
-		add_yearly_manpower = 0.2
-		FROM = { add_yearly_manpower = -0.2 }
+		add_manpower = 5
+		FROM = { add_manpower = -5 }
 	}
 	on_decline = 	{ 
 	}
@@ -178,7 +148,7 @@ recruit_manpower = {
 	}
 
 	ai_will_do = {
-		NOT = { manpower_percentage = 0.2 }
+		NOT = { manpower = 5 }
 	}
 }
 spread_religion = {
@@ -190,20 +160,15 @@ spread_religion = {
 	require_acceptance = no # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		always = yes
+		has_country_flag = has_cult_guild
 	}
 	is_allowed = {
 		has_spy_network_in = {
 			who = FROM
-			value = 60
-		}
-		#has_reform_or_has_subject_with_reform = { ARG1 = religious_cult_reform }
-		OR = {
-			has_reform = religious_cult_reform
-            has_country_flag = has_cult_guild
-			any_subject_country = { has_reform = religious_cult_reform }
+			value = 50
 		}
 		FROM = {
+			NOT = { religion = ROOT }
 			any_owned_province = {
 				NOT = { religion = ROOT }
 			}
@@ -212,7 +177,7 @@ spread_religion = {
 	on_accept = {
 		add_spy_network_in = {
 			who = FROM
-			value = -60
+			value = -50
 		}
 		FROM = {
 			random_owned_province = {
