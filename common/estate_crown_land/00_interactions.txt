@@ -558,12 +558,29 @@ interaction = {
 	cooldown_months = 120
 
     trigger = {
-        crown_land_share = 10
-		NOT = { has_estate = estate_cossacks }
-		
+		stability = 0
+		has_any_disaster = no
     }
 
     effect = {
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_country_flag = has_trade_company_guild
+						has_country_flag = has_independent_guild
+						has_country_flag = has_criminal_guild
+						has_country_flag = has_military_guild
+						has_country_flag = has_cult_guild
+					}
+				}
+			}
+			add_estate_loyalty = {
+				estate = all
+				loyalty = -10
+			}
+		}
+		add_stability = -1
 		country_event = { id = estate_privileges_and_agendas_events.5 tooltip = estate_privileges_and_agendas_events.5.tt }
     }
 	ai_will_do = {
