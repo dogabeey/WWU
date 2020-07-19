@@ -1,0 +1,165 @@
+namespace = assassination
+
+country_event = {
+	id = assassination.1
+	title = assassination.1.title
+	desc = {
+		trigger = { has_country_flag = poison_plot }
+		desc = assassination.1.desc.poison
+	}
+	desc = {
+		trigger = { has_country_flag = snake_plot }
+		desc = assassination.1.desc.snake
+	}
+	desc = {
+		trigger = { has_country_flag = bomb_plot }
+		desc = assassination.1.desc.bomb
+	}
+	desc = {
+		trigger = { has_country_flag = hunting_plot }
+		desc = assassination.1.desc.hunting
+	}
+	desc = {
+		trigger = { has_country_flag = fall_plot }
+		desc = assassination.1.desc.fall
+	}
+	picture = PLOTTING_eventPicture
+	#goto = root
+    
+    fire_only_once = yes
+    major = yes
+	
+	
+	trigger = {
+		any_country = {
+			ROOT = { plotting_assassination_of@PREV }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = assassination.1.opt.poison
+		name = assassination.1.opt.poison.tt
+		trigger = { has_country_flag = poison_plot }
+		if = {
+			limit = { ruler_has_personality = rogue_personality }
+			add_years_of_income = -0.3
+		}
+		else = {
+			add_years_of_income = -0.6
+		}
+		hidden_effect = {
+			random_country = {
+				limit = {
+					ROOT = {
+						has_country_flag = plotting_assassination_of@PREV
+					}
+				}
+				country_event = { id = assassination.2 }
+			}
+		}
+	}
+	
+	option = {
+		name = assassination.1.opt.bomb
+		name = assassination.1.opt.bomb.tt
+		trigger = { has_country_flag = bomb_plot }
+		add_years_of_income = -0.5
+		hidden_effect = {
+			random_country = {
+				limit = {
+					ROOT = {
+						has_country_flag = plotting_assassination_of@PREV
+					}
+				}
+				country_event = { id = assassination.2 }
+			}
+		}
+	}
+	
+	option = {
+		name = assassination.1.opt.snake
+		name = assassination.1.opt.snake.tt
+		trigger = { has_country_flag = snake_plot }
+		if = {
+			limit = { ruler_has_personality = hunter_personality }
+			add_years_of_income = -0.3
+		}
+		else = {
+			add_years_of_income = -0.6
+		}
+		hidden_effect = {
+			random_country = {
+				limit = {
+					ROOT = {
+						has_country_flag = plotting_assassination_of@PREV
+					}
+				}
+				country_event = { id = assassination.2 }
+			}
+		}
+	}
+	
+	option = {
+		name = assassination.1.opt.hunting
+		name = assassination.1.opt.hunting.tt
+		trigger = { has_country_flag = hunting_plot }
+		add_years_of_income = -0.5
+		hidden_effect = {
+			random_country = {
+				limit = {
+					ROOT = {
+						has_country_flag = plotting_assassination_of@PREV
+					}
+				}
+				country_event = { id = assassination.2 }
+			}
+		}
+	}
+	
+	option = {
+		name = assassination.1.opt.fall
+		name = assassination.1.opt.fall.tt
+		trigger = { has_country_flag = fall_plot }
+		add_years_of_income = -0.5
+		hidden_effect = {
+			random_country = {
+				limit = {
+					ROOT = {
+						has_country_flag = plotting_assassination_of@PREV
+					}
+				}
+				country_event = { id = assassination.2 }
+			}
+		}
+	}
+	
+	option = {
+		name = assassination.1.opt.postpone
+		name = assassination.1.opt.postpone.tt
+	}
+	
+	option = {
+		name = assassination.1.opt.giveup
+		name = assassination.1.opt.giveup.tt
+		hidden_effect = {
+			every_country = {
+				limit = {
+					ROOT = {
+						has_country_flag = plotting_assassination_of@PREV
+					}
+				}
+				ROOT = {
+					clr_country_flag = plotting_assassination_of@PREV
+				}
+			}
+		}
+	}
+}

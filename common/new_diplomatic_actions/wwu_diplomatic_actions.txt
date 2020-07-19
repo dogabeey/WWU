@@ -95,6 +95,13 @@ assasinate_ruler = {
 			who = FROM
 			value = 70
 		}
+		custom_trigger_tooltip = {
+			tooltip = DIP_ALREADY_HAS_PLOT
+			NOT = { any_country = {
+				ROOT = { has_country_flag = plotting_assassination_of@PREV }
+			} }
+		}
+		FROM = { has_regency = no }
 	}
 	on_accept = {
 		add_spy_network_in = {
@@ -102,7 +109,43 @@ assasinate_ruler = {
 			value = -70
 		}
 		hidden_effect = {
-			assasinate_ruler_effect = yes
+			set_country_flag = plotting_assassination_of@FROM
+			random_list = {
+				1 = {
+					set_country_flag = poison_plot
+				}
+				1 = {
+					set_country_flag = snake_plot
+				}
+				1 = {
+					set_country_flag = stab_plot
+				}
+				1 = {
+					set_country_flag = hunting_plot
+					FROM = {
+						NOT = {
+							OR = {
+								culture_group = culture_group_darnassian
+								ruler_has_personality = druid_personality
+							}
+						}
+					}
+				}
+				1 = {
+					set_country_flag = fall_plot
+					FROM = {
+						NOT = {
+							OR = {
+								culture_group = culture_group_dragonkin
+								culture_group = culture_group_arrakoa
+								culture_group = culture_group_titan
+								culture_group = culture_group_harpy
+								culture_group = culture_group_ethereal
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	on_decline = 	{ 

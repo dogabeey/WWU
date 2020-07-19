@@ -23,25 +23,46 @@ set_correct_dynasty = {
 }
 
 teleport_unit_with_any_amount = {
-	teleport_units_with_amount_effect = { amount = 10 }
-	teleport_units_with_amount_effect = { amount = 9 }
-	teleport_units_with_amount_effect = { amount = 8 }
-	teleport_units_with_amount_effect = { amount = 7 }
-	teleport_units_with_amount_effect = { amount = 6 }
-	teleport_units_with_amount_effect = { amount = 5 }
-	teleport_units_with_amount_effect = { amount = 4 }
-	teleport_units_with_amount_effect = { amount = 3 }
-	teleport_units_with_amount_effect = { amount = 2 }
-	teleport_units_with_amount_effect = { amount = 1 }
+	teleport_units_with_type_and_amount_effect = { amount = 10 unittype = infantry }
+	teleport_units_with_type_and_amount_effect = { amount = 10 unittype = cavalry }
+	teleport_units_with_type_and_amount_effect = { amount = 10 unittype = artillery }
+	teleport_units_with_type_and_amount_effect = { amount = 9 unittype = infantry }
+	teleport_units_with_type_and_amount_effect = { amount = 9 unittype = cavalry }
+	teleport_units_with_type_and_amount_effect = { amount = 9 unittype = artillery }
+	teleport_units_with_type_and_amount_effect = { amount = 8 unittype = infantry }
+	teleport_units_with_type_and_amount_effect = { amount = 8 unittype = cavalry }
+	teleport_units_with_type_and_amount_effect = { amount = 8 unittype = artillery }
+	teleport_units_with_type_and_amount_effect = { amount = 7 unittype = infantry }
+	teleport_units_with_type_and_amount_effect = { amount = 7 unittype = cavalry }
+	teleport_units_with_type_and_amount_effect = { amount = 7 unittype = artillery }
+	teleport_units_with_type_and_amount_effect = { amount = 6 unittype = infantry }
+	teleport_units_with_type_and_amount_effect = { amount = 6 unittype = cavalry }
+	teleport_units_with_type_and_amount_effect = { amount = 6 unittype = artillery }
+	teleport_units_with_type_and_amount_effect = { amount = 5 unittype = infantry }
+	teleport_units_with_type_and_amount_effect = { amount = 5 unittype = cavalry }
+	teleport_units_with_type_and_amount_effect = { amount = 5 unittype = artillery }
+	teleport_units_with_type_and_amount_effect = { amount = 4 unittype = infantry }
+	teleport_units_with_type_and_amount_effect = { amount = 4 unittype = cavalry }
+	teleport_units_with_type_and_amount_effect = { amount = 4 unittype = artillery }
+	teleport_units_with_type_and_amount_effect = { amount = 3 unittype = infantry }
+	teleport_units_with_type_and_amount_effect = { amount = 3 unittype = cavalry }
+	teleport_units_with_type_and_amount_effect = { amount = 3 unittype = artillery }
+	teleport_units_with_type_and_amount_effect = { amount = 2 unittype = infantry }
+	teleport_units_with_type_and_amount_effect = { amount = 2 unittype = cavalry }
+	teleport_units_with_type_and_amount_effect = { amount = 2 unittype = artillery }
+	teleport_units_with_type_and_amount_effect = { amount = 1 unittype = infantry }
+	teleport_units_with_type_and_amount_effect = { amount = 1 unittype = cavalry }
+	teleport_units_with_type_and_amount_effect = { amount = 1 unittype = artillery }
 }
 
-teleport_units_with_amount_effect = {
+teleport_units_with_type_and_amount_effect = {
 	if = {
 		limit = {
 			event_target:sender = {
 				num_of_units_in_province = {
 					who = ROOT
 					amount = $amount$
+					type = $unittype$
 				}
 			}
 		}
@@ -49,12 +70,13 @@ teleport_units_with_amount_effect = {
 			kill_units = {
 				who = ROOT
 				amount = $amount$
+				type = $unittype$
 			}
 			clr_province_flag = sender_province
 		}
 		event_target:receiver = {
 			add_unit_construction = {
-				type = infantry
+				type = $unittype$
 				amount = $amount$
 				speed = 0.01
 				cost = 0
