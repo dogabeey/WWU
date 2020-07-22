@@ -257,6 +257,41 @@ defined_text = {
 }
 
 defined_text = {
+    name = PlotRevealTextVictim
+
+    text = {
+        localisation_key = plotter_reveal_success
+        trigger = {
+            has_country_flag = plotter_revealed
+        }
+    }
+    text = {
+        localisation_key = plotter_reveal_fail
+        trigger = {
+            NOT = { has_country_flag = plotter_revealed }
+        }
+    }
+}
+}
+
+defined_text = {
+    name = PlotRevealTextPlotter
+
+    text = {
+        localisation_key = plotter_reveal_success_plotter
+        trigger = {
+            FROM = { has_country_flag = plotter_revealed }
+        }
+    }
+    text = {
+        localisation_key = plotter_reveal_fail_plotter
+        trigger = {
+            FROM = { NOT = { has_country_flag = plotter_revealed } }
+        }
+    }
+}
+
+defined_text = {
     name = RandomGuildName
 	random = yes
 

@@ -93,7 +93,7 @@ assasinate_ruler = {
 	is_allowed = {
 		has_spy_network_in = {
 			who = FROM
-			value = 70
+			value = 20
 		}
 		custom_trigger_tooltip = {
 			tooltip = DIP_ALREADY_HAS_PLOT
@@ -106,7 +106,7 @@ assasinate_ruler = {
 	on_accept = {
 		add_spy_network_in = {
 			who = FROM
-			value = -70
+			value = -20
 		}
 		hidden_effect = {
 			set_country_flag = plotting_assassination_of@FROM
@@ -135,6 +135,7 @@ assasinate_ruler = {
 					set_country_flag = fall_plot
 					FROM = {
 						NOT = {
+							heir_age = 20
 							OR = {
 								culture_group = culture_group_dragonkin
 								culture_group = culture_group_arrakoa
