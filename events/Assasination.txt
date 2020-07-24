@@ -90,6 +90,7 @@ country_event = {
 	
 	option = {
 		name = assassination.1.opt.poison
+		custom_tooltip = assassination.1.opt.poison.tt
 		trigger = { has_country_flag = poison_plot }
 		if = {
 			limit = { ruler_has_personality = rogue_personality }
@@ -107,6 +108,7 @@ country_event = {
 	
 	option = {
 		name = assassination.1.opt.bomb
+		custom_tooltip = assassination.1.opt.bomb.tt
 		trigger = { has_country_flag = bomb_plot }
 		add_years_of_income = -0.5
 		hidden_effect = {
@@ -118,7 +120,7 @@ country_event = {
 	
 	option = {
 		name = assassination.1.opt.snake
-		name = assassination.1.opt.snake.tt
+		custom_tooltip = assassination.1.opt.snake.tt
 		trigger = { has_country_flag = snake_plot }
 		if = {
 			limit = { ruler_has_personality = hunter_personality }
@@ -136,6 +138,7 @@ country_event = {
 	
 	option = {
 		name = assassination.1.opt.hunting
+		custom_tooltip = assassination.1.opt.hunting.tt
 		trigger = { has_country_flag = hunting_plot }
 		add_years_of_income = -0.5
 		hidden_effect = {
@@ -147,6 +150,7 @@ country_event = {
 	
 	option = {
 		name = assassination.1.opt.fall
+		custom_tooltip = assassination.1.opt.fall.tt
 		trigger = { has_country_flag = fall_plot }
 		add_years_of_income = -0.5
 		hidden_effect = {
@@ -158,10 +162,12 @@ country_event = {
 	
 	option = {
 		name = assassination.1.opt.postpone
+		custom_tooltip = assassination.1.opt.postpone.tt
 	}
 	
 	option = {
 		name = assassination.1.opt.giveup
+		custom_tooltip = assassination.1.opt.giveup.tt
 		hidden_effect = {
 			every_country = {
 				limit = {
@@ -402,7 +408,7 @@ country_event = {
 		kill_ruler = yes
 		add_opinion = {
 			who = event_target:plotter
-			modifier = killed_our_ruler
+			modifier = ruler_assassinated
 		}
 	}
 	
@@ -416,7 +422,7 @@ country_event = {
 		trigger = { has_country_flag = plan_failed has_country_flag = plotter_revealed }
 		add_opinion = {
 			who = event_target:plotter
-			modifier = killed_our_ruler
+			modifier = ruler_assassinated
 		}
 	}
 	
@@ -527,5 +533,121 @@ country_event = {
 		clr_country_flag = bomb_plot
 		clr_country_flag = hunting_plot
 		clr_country_flag = fall_plot
+	}
+}
+
+country_event = {
+	id = assassination.5
+	title = assassination.5.title
+	desc = assassination.5.desc
+	
+	picture = CAUGHT_eventPicture
+	#goto = root
+	
+	trigger = {
+		any_country = { has_country_flag = plotting_assassination_of@PREV }
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+	}
+	
+	immediate = {
+		random_country = {
+			limit = { has_country_flag = plotting_assassination_of@PREV }
+			
+			save_event_target_as = plotter
+		}
+	}
+	
+	option = {
+		name = assassination.5.opt1
+		country_event = { id = assassination.6 tooltip = assassination.5.opt1.tt }
+		add_opinion = {
+			who = event_target:plotter
+			modifier = ruler_assassinated
+		}
+	}
+}
+
+country_event = {
+	id = assassination.6
+	title = assassination.6.title
+	desc = assassination.6.desc
+	
+	picture = CAUGHT_eventPicture
+	#goto = root
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = assassination.6.opt1
+		custom_tooltip = assassination.6.opt1.tt
+		add_spy_network_in = {
+			who = FROM
+			value = -100
+		}
+	}
+	
+	after = {
+		clr_country_flag = plotting_assassination_of@FROM
+		clr_country_flag = poison_plot
+		clr_country_flag = snake_plot
+		clr_country_flag = bomb_plot
+		clr_country_flag = hunting_plot
+		clr_country_flag = fall_plot
+	}
+}
+# Clean everything. Triggered upon monarch death.
+country_event = {
+	id = assassination.7
+	title = e_l
+	desc = e_l
+	
+	picture = CAUGHT_eventPicture
+	#goto = root
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		any_country = { has_country_flag = plotting_assassination_of@PREV }
+	}
+	
+	immediate = {
+		random_country = {
+			limit = { has_country_flag = plotting_assassination_of@PREV }
+			
+			save_event_target_as = plotter
+		}
+	}
+	
+	option = {
+		name = e_l
+		event_target:plotter = {
+			clr_country_flag = plotting_assassination_of@FROM
+			clr_country_flag = poison_plot
+			clr_country_flag = snake_plot
+			clr_country_flag = bomb_plot
+			clr_country_flag = hunting_plot
+			clr_country_flag = fall_plot
+			country_event = { id = assassination.8 }
+		}
+	}
+}
+# Notify plotter that monarch died by other means.
+country_event = {
+	id = assassination.8
+	title = assassination.8.title
+	desc = assassination.8.desc
+	
+	picture = CAUGHT_eventPicture
+	#goto = root
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = assassination.8.opt1
+		
 	}
 }
