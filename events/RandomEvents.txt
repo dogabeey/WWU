@@ -8,7 +8,7 @@ country_event = {
 	picture = ECONOMY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 
 	mean_time_to_happen = {
 		months = 1000
@@ -101,7 +101,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		government = monarchy
@@ -164,7 +164,7 @@ country_event = {
 	picture = ADVISOR_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		government = monarchy
@@ -243,7 +243,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		num_of_royal_marriages = 2
@@ -289,7 +289,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 	}
 	option = {
@@ -352,7 +356,7 @@ country_event = {
 	picture = TRADEGOODS_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		OR = {
@@ -479,7 +483,7 @@ country_event = {
 	picture = ECONOMY_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		OR = {
@@ -596,7 +600,7 @@ country_event = {
 	picture = ECONOMY_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		OR = {
@@ -726,7 +730,7 @@ country_event = {
 	picture = COLONIZATION_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		num_of_ports = 1
@@ -796,7 +800,7 @@ country_event = {
 	picture = MERCHANTS_TALKING_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		advisor = trader
@@ -886,7 +890,7 @@ country_event = {
 	picture = DIPLOMACY_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		dip = 4
@@ -965,7 +969,7 @@ country_event = {
 	picture = DIPLOMACY_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		diplomat = 2
@@ -1039,7 +1043,7 @@ country_event = {
 	picture = REFORM_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		army_reformer = 2
@@ -1124,7 +1128,7 @@ country_event = {
 	picture = REFORM_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		naval_reformer = 2
@@ -1205,7 +1209,7 @@ country_event = {
 	picture = REFORM_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		adm = 5
@@ -1327,7 +1331,7 @@ country_event = {
 			ruler_has_personality = embezzler_personality
 		}
 		required_personality = embezzler_personality
-		add_years_of_income = 0.25
+		add_years_of_income = -0.25
 	}
 	option = {
 		name = "personality_options.5040.e"
@@ -1351,7 +1355,7 @@ country_event = {
 	picture = REFORM_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		NOT = { adm = 5 }
@@ -1386,7 +1390,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 	}
 	option = {
@@ -1432,7 +1440,7 @@ country_event = {
 	picture = DEBATE_REPUBLICAN_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		always = yes
@@ -1519,7 +1527,7 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }	}
 
@@ -1567,7 +1575,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 	}
 	option = {
@@ -1631,7 +1643,7 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }	}
 
@@ -1670,7 +1682,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 	}
 	option = {
@@ -1710,7 +1726,7 @@ country_event = {
 	picture = MERCHANTS_TALKING_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		NOT = { mercantilism = 30 }
@@ -1779,7 +1795,7 @@ country_event = {
 	picture = LIBERUM_VETO_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		or = {
@@ -1823,7 +1839,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 	}
 	option = {
@@ -1888,7 +1908,7 @@ country_event = {
 	picture = ELECTION_REPUBLICAN_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {}
 
@@ -1925,7 +1945,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 	}
 	option = {
@@ -1982,7 +2006,7 @@ country_event = {
 	picture = DIPLOMACY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		any_neighbor_country = {
@@ -2046,7 +2070,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		NOT = { has_country_modifier = disorder }
@@ -2145,7 +2169,7 @@ country_event = {
 	picture = MERCHANTS_TALKING_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		is_year = 1700
@@ -2225,7 +2249,7 @@ country_event = {
 	picture = DIPLOMACY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		NOT = { dip = 4 }
@@ -2313,7 +2337,7 @@ country_event = {
 	picture = ASSASSINATION_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		government = monarchy
@@ -2405,7 +2429,7 @@ country_event = {
 	picture = ECONOMY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		OR = {
@@ -2485,7 +2509,7 @@ country_event = {
 	picture = MERCHANTS_TALKING_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		NOT = {mercantilism = 50 }
@@ -2547,7 +2571,7 @@ country_event = {
 	picture = ECONOMY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		OR = {
@@ -2612,7 +2636,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 		reduce_estate_nobles_loyalty_effect = yes
 	}
@@ -2640,7 +2668,7 @@ country_event = {
 	picture = ECONOMY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		is_lesser_in_union = no
@@ -2755,7 +2783,7 @@ country_event = {
 	picture = LAND_MILITARY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		is_year = 1600
@@ -2815,7 +2843,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		government = monarchy
@@ -2885,7 +2913,11 @@ country_event = {
 		}
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 		if = {
 			limit = { NOT = { stability = -2 } }
@@ -2912,7 +2944,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		OR = {
@@ -2967,7 +2999,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 	}
 	option = {
@@ -3029,7 +3065,7 @@ country_event = {
 	picture = REFORM_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = { num_of_cities = 2 }
 
@@ -3089,7 +3125,7 @@ country_event = {
 	picture = DEBATE_REPUBLICAN_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }	}
 
@@ -3179,7 +3215,7 @@ country_event = {
 	picture = FORT_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		government = monarchy
@@ -3279,7 +3315,7 @@ country_event = {
 	picture = ADVISOR_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		advisor = philosopher
@@ -3318,7 +3354,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 		add_estate_church_loyalty_effect = yes
 	}
@@ -3367,7 +3407,7 @@ country_event = {
 	picture = MERCHANTS_TALKING_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		num_of_merchants = 2
@@ -3462,7 +3502,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		always = yes
@@ -3538,7 +3578,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		government = monarchy
@@ -3601,7 +3641,7 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		NOT = { adm = 3 }
@@ -3655,7 +3695,7 @@ country_event = {
 	picture = MERCHANTS_TALKING_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		num_of_merchants = 3
@@ -3727,7 +3767,7 @@ country_event = {
 	picture = ADVISOR_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		has_parliament = yes
@@ -3775,7 +3815,7 @@ country_event = {
 	picture = ADVISOR_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		government = theocracy
@@ -3838,7 +3878,7 @@ country_event = {
 	picture = ADVISOR_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		statesman = 2
@@ -3887,7 +3927,7 @@ country_event = {
 	picture = ELECTION_REPUBLICAN_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		is_elector = yes
@@ -3940,7 +3980,7 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		government = monarchy
@@ -4023,7 +4063,7 @@ country_event = {
 	picture = MERCHANTS_TALKING_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		num_of_merchants = 3
@@ -4086,7 +4126,7 @@ country_event = {
 	picture = NAVAL_MILITARY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		navy_tradition = 10
@@ -4142,7 +4182,7 @@ country_event = {
 	picture = MILITARY_CAMP_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		num_of_ports = 1
@@ -4198,7 +4238,7 @@ country_event = {
 #	picture = MILITARY_CAMP_eventPicture
 	#goto = root
 #
-#	#is_triggered_only = yes
+#	is_triggered_only = yes
 #
 #	trigger = {
 #		NOT = { has_country_modifier = offensive_modifier }
@@ -4260,7 +4300,7 @@ country_event = {
 	picture = UNIVERSITY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		government = monarchy
@@ -4294,7 +4334,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 	}
 	option = {
@@ -4319,7 +4363,7 @@ country_event = {
 	picture = PAINTER_ARTIST_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		NOT = { overextension_percentage = 0.01 }
@@ -4385,7 +4429,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		is_at_war = no
@@ -4438,7 +4482,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { is_landless = yes }
 		is_at_war = no
@@ -4523,7 +4567,7 @@ country_event = {
 	picture = DEBATE_REPUBLICAN_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		stability = 0
@@ -4569,7 +4613,11 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 	}
 	option = {
@@ -4595,7 +4643,7 @@ country_event = {
 	picture = POPE_PREACHING_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		stability = 0
@@ -4670,7 +4718,7 @@ country_event = {
 	picture = ECONOMY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		stability = 0
@@ -4695,7 +4743,11 @@ country_event = {
 				war_exhaustion = 4
 			}
 		}
-		add_stability = -1
+		
+		random = {
+			chance = 50
+			add_stability = -1
+		}
 	}
 	option = {
 		name = "EVTOPTB712"
@@ -4719,7 +4771,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		stability = 0
@@ -4739,7 +4791,10 @@ country_event = {
 	option = {
 		name = "EVTOPTA713"
 		#log = "EVTOPTA713"
-		add_stability = -1
+		random = {
+			chance = 50
+			add_stability = -1
+		}
 	}
 }
 
@@ -4751,7 +4806,7 @@ country_event = {
 	picture = LAND_MILITARY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		NOT = { has_country_modifier = defensive_modifier }
@@ -4831,7 +4886,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		stability = 0
@@ -4870,7 +4925,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		stability = 1
@@ -4904,7 +4959,7 @@ country_event = {
 				}
 			}
 		}
-		add_stability = -1
+		add_years_of_income = -0.25
 		reduce_estate_nobles_loyalty_effect = yes
 	}
 	option = {
@@ -4930,7 +4985,7 @@ country_event = {
 	picture = REFORM_eventPicture
 	#goto = root
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		stability = 0
@@ -4950,7 +5005,6 @@ country_event = {
 		ai_chance = {
 			factor = 25
 		}
-		add_stability = -1
 		add_inflation = -1
 		add_mandate_effect = yes
 	}
@@ -4986,7 +5040,7 @@ country_event = {
 	picture = REFORM_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		war_exhaustion = 5
@@ -5039,7 +5093,7 @@ country_event = {
 	picture = MILITARY_CAMP_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		stability = 0
@@ -5074,7 +5128,8 @@ country_event = {
 				}
 			}
 		}
-		add_stability = -1
+		
+		add_years_of_income = -0.25
 		reduce_estate_nobles_loyalty_effect = yes
 	}
 	option = {
@@ -5111,7 +5166,7 @@ country_event = {
 	picture = NAVAL_MILITARY_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		stability = 0
@@ -5146,7 +5201,8 @@ country_event = {
 				}
 			}
 		}
-		add_stability = -1
+		
+		add_years_of_income = -0.25
 		reduce_estate_nobles_loyalty_effect = yes
 	}
 	option = {
@@ -5179,7 +5235,7 @@ country_event = {
 	picture = COURT_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		stability = 0
@@ -5267,7 +5323,7 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 	#goto = root
 
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		num_of_cities = 30
@@ -5349,7 +5405,10 @@ country_event = {
 		}		
 		if = {
 			limit = { stability = -2 }
-			add_stability = -1
+			random = {
+				chance = 50
+				add_stability = -1
+			}
 		}
 	}
 }
