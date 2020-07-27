@@ -6,6 +6,31 @@ monarchy_mechanic = {
 	valid_for_nation_designer = no
 }
 
+autocracy_reform = {
+	icon = "crown"
+	allow_normal_conversion = yes
+	legacy_equivalent = despotic_monarchy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	potential = {
+	    OR = {
+		NOT = { is_emperor_of_china = yes }
+		has_global_flag = empire_of_china_dismantled
+		}
+	}
+	government_abilities = {  }
+	
+	modifiers = {
+		governing_capacity = 100
+		harsh_treatment_cost = -0.10
+		unjustified_demands = -0.10
+		global_autonomy = -0.05
+		max_absolutism = 5
+	}
+	
+	ai = { factor = 0 }
+}
+
 ancient_dynasty_reform = {
 	icon = "ancient_dynasty"
 	legacy_equivalent = ancient_dynasty_legacy
@@ -59,7 +84,10 @@ horde_reform = {
 	
 	conditional = {
 		allow = { NOT = { has_dlc = "Cradle of Civilization" } }
-		heir = yes
+		
+		custom_attributes = {
+			generals_become_rulers = yes
+		}
 	}
 	custom_attributes = {
 		locked_government_type = yes
@@ -203,31 +231,6 @@ scourge_reform = {
 	ai = { factor = 0 }
 }
 
-autocracy_reform = {
-	icon = "crown"
-	allow_normal_conversion = yes
-	legacy_equivalent = despotic_monarchy
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-	potential = {
-	    OR = {
-		NOT = { is_emperor_of_china = yes }
-		has_global_flag = empire_of_china_dismantled
-		}
-	}
-	government_abilities = {  }
-	
-	modifiers = {
-		governing_capacity = 100
-		harsh_treatment_cost = -0.10
-		unjustified_demands = -0.10
-		global_autonomy = -0.05
-		max_absolutism = 5
-	}
-	
-	ai = { factor = 0 }
-}
-
 admiralty_reform = {
 	icon = "admiralty"
 	allow_normal_conversion = no
@@ -253,11 +256,9 @@ admiralty_reform = {
 	}
 	
 	modifiers = {
-		global_ship_cost = -0.15
 		leader_naval_manuever = 1
 		leader_naval_shock = 1
 		leader_naval_fire = 1
-		free_leader_pool = 1
 	}
 	
 	ai = { factor = 0 }
@@ -389,9 +390,7 @@ council_monarchy_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 15
 	
-	custom_attributes = {
-		council_system = yes
-	}
+	
 	
 	legacy_equivalent = council_monarchy_legacy
 	start_territory_to_estates = 0.3
@@ -403,6 +402,13 @@ council_monarchy_reform = {
 	conditional = {
 		allow = { has_dlc = "Common Sense" }
 		has_parliament = yes
+	}
+
+	conditional = {
+		allow = { NOT = { has_dlc = "Common Sense" } }
+		custom_attributes = {
+			council_system = yes
+		}
 	}
 }
 opportunism = {

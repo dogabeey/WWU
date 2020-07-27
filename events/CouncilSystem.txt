@@ -6,13 +6,14 @@ country_event = {
 	id = council_events.1
 	title = "council_events.1.title"
 	desc = "council_events.1.desc"
-	picture = RELIGION_eventPicture
+	
+	picture = DEBATE_REPUBLICAN_eventPicture
 	#goto = root
 
 	is_triggered_only = yes
 	
 	trigger = {
-		has_council = yes
+		has_government_attribute = council_system
 	}
 	
 	immediate = {
@@ -75,6 +76,8 @@ country_event = {
 		trigger = {
 			has_mil_advisor = yes
 		}
+		use_mil_talent_on_country = yes
+		
 		hidden_effect = {
 			export_to_variable = {
 				which = adv_rel
