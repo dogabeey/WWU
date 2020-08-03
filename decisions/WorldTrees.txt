@@ -1,0 +1,178 @@
+country_decisions = {
+	burn_nordrassil = {
+		potential = {
+			NOT = {
+				any_owned_province = {
+					area = area_nordrassil
+				}
+			}
+			any_country = {
+				war_with = ROOT
+				OR = {
+					owns = 1334
+					owns = 3199
+					owns = 3200
+				}
+			}
+			NOT = { has_global_flag = nordrassil_burned }
+		}
+		allow = {
+			1334 = { controlled_by = ROOT }
+			mil_power = 100
+		}
+		
+		effect = {
+			custom_tooltip = EVIL_ACTION_TOOLTIP
+			add_mil_power = -100
+			add_country_modifier = {
+				name = burned_world_tree
+				duration = -1
+			}
+			custom_tooltip = burn_nordrassil_opinion_tt
+			hidden_effect = { 
+				every_country = {
+					limit = { NOT = { tag = ROOT } }
+					country_event = { id = world_tree.1 }
+				}
+				every_country = {
+					limit = { religion = religion_druidic }
+					add_opinion = {
+						who = ROOT
+						modifier = burned_world_tree_opinion
+					}
+				}
+				every_province = {
+					limit = { 
+						continent = continent_kalimdor
+					}
+					owner = {
+						add_opinion = {
+							who = ROOT
+							modifier = burned_world_tree_province_opinion
+						}
+					}
+				}
+				hide_ambient_object = nordrassil_01
+				set_global_flag = nordrassil_burned
+				every_province = {
+					limit = { NOT = { continent = continent_outland } }
+					add_permanent_province_modifier = {
+						modifier = world_tree_destruction
+						duration = -1
+					}
+				}
+			}
+			continent_kalimdor = {
+				add_devastation = 10
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				add_permanent_province_modifier = {
+					modifier = world_tree_destruction
+					duration = -1
+				}
+			}
+			region_mount_hyjal = {
+				add_devastation = 25
+				add_base_tax = -3
+				add_base_production = -3
+				add_base_manpower = -3
+				add_permanent_province_modifier = {
+					modifier = world_tree_destruction_severe
+					duration = -1
+				}
+			}
+			area_nordrassil = {
+				add_devastation = 65
+				add_base_tax = -6
+				add_base_production = -6
+				add_base_manpower = -6
+				cede_province = '---'
+				add_permanent_province_modifier = {
+					modifier = world_tree_destruction_max
+					duration = -1
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	burn_teldrassil = {
+		potential = {
+			NOT = {
+				any_owned_province = {
+					area = area_teldrassil
+				}
+			}
+			any_country = {
+				war_with = ROOT
+				any_owned_province = {
+					region = region_teldrassil
+				}
+			}
+			NOT = { has_global_flag = teldrassil_burned }
+		}
+		allow = {
+			1065 = { 
+				controlled_by = ROOT
+				artillery_in_province = 5
+			}
+			mil_power = 100
+		}
+		
+		effect = {
+			custom_tooltip = EVIL_ACTION_TOOLTIP
+			add_mil_power = -100
+			add_country_modifier = {
+				name = burned_world_tree
+				duration = -1
+			}
+			custom_tooltip = burn_teldrassil_opinion_tt
+			hidden_effect = { 
+				every_country = {
+					limit = { NOT = { tag = ROOT } }
+					country_event = { id = world_tree.2 }
+				}
+				every_country = {
+					limit = { religion = religion_druidic }
+					add_opinion = {
+						who = ROOT
+						modifier = burned_world_tree_opinion
+					}
+				}
+				every_province = {
+					limit = { 
+						region = region_teldrassil
+					}
+					owner = {
+						add_opinion = {
+							who = ROOT
+							modifier = burned_world_tree_province_opinion
+						}
+					}
+				}
+				hide_ambient_object = nordrassil_01
+				set_global_flag = teldrassil_burned
+				every_province = {
+					limit = { NOT = { continent = continent_outland } }
+					add_permanent_province_modifier = {
+						modifier = world_tree_destruction
+						duration = -1
+					}
+				}
+			}
+			region_teldrassil = {
+				add_devastation = 100
+				add_base_tax = -30
+				add_base_production = -30
+				add_base_manpower = -30
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
