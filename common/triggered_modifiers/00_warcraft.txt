@@ -402,6 +402,63 @@ dark_portal_stasis = {
 	diplomats = -5
 }
 
+mantid_aggression_active = {
+	potential = {
+		culture_group = culture_group_mantid
+	}
+	
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = mantid_aggression_active_tt
+			OR = {
+				AND = {
+					is_year = 566
+					NOT = { is_year = 567 }
+				}
+				AND = {
+					is_year = 666
+					NOT = { is_year = 667 }
+				}
+				AND = {
+					is_year = 766
+					NOT = { is_year = 767 }
+				}
+				AND = {
+					is_year = 866
+					NOT = { is_year = 867 }
+				}
+				AND = {
+					is_year = 966
+					NOT = { is_year = 967 }
+				}
+				AND = {
+					is_year = 1066
+					NOT = { is_year = 1067 }
+				}
+			}
+		}
+	}
+	
+	manpower_recovery_speed = 10
+	global_unrest = 5
+}
+
+mantid_aggression_dormant = {
+	potential = {
+		culture_group = culture_group_mantid
+	}
+	
+	trigger = {
+		custom_trigger_tooltip = {
+			NOT = {
+				has_country_modifier = mantid_aggression_active
+			}
+		}
+	}
+	
+	manpower_recovery_speed = -0.1
+}
+
 alliance_vs_horde = {
 	potential = {
 		OR = {

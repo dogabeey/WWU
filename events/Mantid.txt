@@ -1,0 +1,113 @@
+namespace = mantid
+
+# Mantid Aggression
+country_event = {
+	id = mantid.1
+	title = mantid.1.title
+	desc = mantid.1.desc
+	picture = MANTID_eventPicture
+	#goto = root
+    
+	
+    major = yes
+	
+	trigger = {
+		has_country_modifier = mantid_aggression_active
+		NOT = { has_country_flag = mantid_aggression_event_flag }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_country_flag = mantid_aggression_event_flag
+	}
+	
+	option = {
+		name = mantid.1.opt1
+		trigger = {
+			any_neighbor_country = {
+				NOT = {
+					alliance_with = ROOT
+				}
+			}
+		}
+		add_yearly_manpower = 5
+		random_neighbor_country = {
+			
+			limit = {
+				NOT = {
+					alliance_with = ROOT
+				}
+			}	
+			ROOT = {
+				declare_war_with_cb = {
+					who = PREV
+					casus_belli = cb_humiliate_rotw
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = mantid.1.opt2
+		trigger = {
+			all_neighbor_country = {
+				alliance_with = ROOT
+			}
+		}
+		random_country = {
+			limit = {
+				is_enemy = ROOT
+			}	
+			ROOT = {
+				declare_war_with_cb = {
+					who = PREV
+					casus_belli = cb_humiliate_rotw
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = mantid.1.opt3
+		add_stability = -1
+		random_owned_province = {
+			add_base_tax = 1
+		}
+		random_owned_province = {
+			add_base_production = 1
+		}
+		random_owned_province = {
+			add_base_manpower = 1
+		}
+	}
+}
+# Mantid Aggression Flag Clear
+country_event = {
+	id = mantid.2
+	title = e_l
+	desc = e_l
+	picture = MANTID_eventPicture
+	#goto = root
+    
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_country_modifier = mantid_aggression_active }
+		has_country_flag = mantid_aggression_event_flag
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_country_flag = mantid_aggression_event_flag
+	}
+	
+	option = {
+		name = e_l
+	}
+}
