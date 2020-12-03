@@ -1,0 +1,477 @@
+#---------------------------------------
+# Integrate Same Culture
+#---------------------------------------
+integrate_same_culture = {
+	category = influence
+	
+	alert_index = 40
+	alert_tooltip = integrate_alert_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		always = yes
+	}
+	is_allowed = {
+		is_subject = no
+		NOT = { has_reform = remnant_basic_reform }
+		FROM = {
+			is_neighbor_of = ROOT
+			primary_culture = ROOT
+			NOT = { has_country_flag = being_inherited }
+			has_reform = remnant_basic_reform
+			has_opinion = {
+				who = ROOT
+				value = 100
+			}
+		}
+	}
+	on_accept = {
+		set_country_flag = inheriting
+		FROM = {
+			set_country_flag = being_inherited
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = { 
+	}
+
+	ai_will_do = {
+		always = yes
+	}
+}
+
+#---------------------------------------
+# Stop Integration
+#---------------------------------------
+stop_integration = {
+	category = influence
+	
+	alert_index = 41
+	alert_tooltip = integrate_alert_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		has_country_flag = inheriting
+		FROM = {
+			ai = yes
+			primary_culture = ROOT
+			has_country_flag = being_inherited
+			has_reform = remnant_basic_reform
+		}
+	}
+	is_allowed = {
+		has_country_flag = inheriting
+		FROM = {
+			ai = yes
+			primary_culture = ROOT
+			has_country_flag = being_inherited
+			has_reform = remnant_basic_reform
+		}
+	}
+	on_accept = {
+		clr_country_flag = inheriting
+		FROM = {
+			clr_country_flag = being_inherited
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = { 
+	}
+
+	ai_will_do = {
+		always = no
+	}
+}
+
+#---------------------------------------
+# Offer Contract
+#---------------------------------------
+offer_contract = {
+	category = influence
+	
+	alert_index = 40
+	alert_tooltip = offer_contract_tooltip
+	
+	require_acceptance = yes # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		NOT = { is_organization = yes }
+		FROM = {
+			is_organization = yes
+		}
+	}
+	is_allowed = {
+		tax_income_percentage = 0.0
+		is_at_war = no
+		FROM = {
+			is_subject = no
+			is_at_war = no
+			has_opinion = {
+				who = ROOT
+				value = 0
+			}
+		}
+	}
+	on_accept = {
+		ROOT = {
+			create_subject = {
+				subject_type = contract
+				subject = FROM
+			}
+		}
+		FROM = {
+			country_event = {
+				id = contracts.1
+				days = 1825
+			}
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = {
+		add_entry = {
+			name = INV_OPINION
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 50 }
+		}
+		add_entry = {
+			name = TRUST
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = trust
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 40 }
+			divide_variable = { which = ai_value value = 3 }
+		}
+		add_entry = {
+			name = DISTANCE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = border_distance
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 50 }
+			divide_variable = { which = ai_value value = 3 }
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = HAVE_LOANS
+			limit = {
+				FROM = { num_of_loans = 1 }
+				FROM = { NOT = { num_of_loans = 2 } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 10
+			}
+		}
+		add_entry = {
+			name = HAVE_LOANS
+			limit = {
+				FROM = { num_of_loans = 2 }
+				FROM = { NOT = { num_of_loans = 3 } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 20
+			}
+		}
+		add_entry = {
+			name = HAVE_LOANS
+			limit = {
+				FROM = { num_of_loans = 3 }
+				FROM = { NOT = { num_of_loans = 4 } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 30
+			}
+		}
+	}
+
+	ai_will_do = {
+		NOT = { contract = 1 }
+		NOT = { core_claim = FROM }
+		tax_income_percentage = 0.2
+	}
+}
+
+#---------------------------------------
+# Suggest Contract
+#---------------------------------------
+suggest_contract = {
+	category = influence
+	
+	alert_index = 40
+	alert_tooltip = suggest_contract_tooltip
+	
+	require_acceptance = yes # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		is_subject = no
+		is_organization = yes
+		FROM = {
+			is_subject = no
+			NOT = { is_organization = yes }
+		}
+	}
+	is_allowed = {
+		is_subject = no
+		is_at_war = no
+		FROM = {
+			is_subject = no
+			is_at_war = no
+			has_opinion = {
+				who = ROOT
+				value = 0
+			}
+		}
+	}
+	on_accept = {
+		FROM = {
+			create_subject = {
+				subject_type = contract
+				subject = ROOT
+			}
+		}
+		ROOT = {
+			country_event = {
+				id = contracts.1
+				days = 1825
+			}
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = {
+		add_entry = {
+			name = INV_OPINION
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = ROOT
+				with = FROM
+			}
+			subtract_variable = { which = ai_value value = 50 }
+		}
+		add_entry = {
+			name = TRUST
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = trust
+				who = ROOT
+				with = FROM
+			}
+			subtract_variable = { which = ai_value value = 40 }
+			divide_variable = { which = ai_value value = 3 }
+		}
+		add_entry = {
+			name = DISTANCE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = border_distance
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 50 }
+			divide_variable = { which = ai_value value = 3 }
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = HAVE_LOANS
+			limit = {
+				FROM = { num_of_loans = 1 }
+				FROM = { NOT = { num_of_loans = 2 } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -20
+			}
+		}
+		add_entry = {
+			name = HAVE_LOANS
+			limit = {
+				FROM = { num_of_loans = 2 }
+				FROM = { NOT = { num_of_loans = 3 } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -30
+			}
+		}
+		add_entry = {
+			name = HAVE_LOANS
+			limit = {
+				FROM = { num_of_loans = 3 }
+				FROM = { NOT = { num_of_loans = 4 } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -40
+			}
+		}
+	}
+
+	ai_will_do = {
+		NOT = { contract = 1 }
+		tax_income_percentage = 0.2
+	}
+}
+
+#---------------------------------------
+# Create Holy Order
+#---------------------------------------
+create_holy_order_1 = {
+	category = influence
+	
+	alert_index = 40
+	alert_tooltip = demand_dummy_alert_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		is_subject = no
+	}
+	is_allowed = {
+        FROM = {
+		OR = {
+	    is_subject_of_type = vassal
+		is_subject_of_type = march
+		}
+		NOT = { is_subject_of_type = client_vassal }
+		NOT = { is_subject_of_type = client_march }
+		is_subject_of = ROOT
+		is_lesser_in_union = no
+		}
+	}
+	on_accept = {
+		create_subject = {
+			subject_type = holy_order_1 
+			subject = FROM 
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = { 
+	}
+
+	ai_will_do = { 
+		government = theocracy
+	}
+}
+
+#---------------------------------------
+# Dissolve Holy Order
+#---------------------------------------
+dissolve_holy_order_1  =  {
+	category = influence
+	require_acceptance = no
+	is_visible = {
+		overlord_of = FROM
+		FROM = {
+			is_subject_of_type = holy_order_1
+		}
+	}
+	is_allowed = {
+	ai = no
+	}
+	on_accept = {
+		create_subject = {
+			subject_type = vassal
+			subject = FROM 
+		}
+
+	}
+	ai_will_do = {
+		NOT = { government = theocracy }
+	}
+}
+
+#---------------------------------------
+# Create Personal Union
+#---------------------------------------
+create_personal_union = {
+	category = influence
+	
+	alert_index = 40
+	alert_tooltip = demand_dummy_alert_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+	    is_subject = no
+	    ai = no
+		government = monarchy
+	}
+	is_allowed = {
+		NOT = { has_country_modifier = ge_2_timer }
+		num_of_cities = FROM
+		prestige = FROM
+		FROM = {
+			has_opinion = {
+			who = ROOT
+			value = 190
+			}
+			dynasty = ROOT
+			government = monarchy
+			NOT = { is_subject_of_type = personal_union }
+		}
+	}
+	on_accept = {
+		create_subject = {
+			subject_type = personal_union
+			subject = FROM 
+		}
+		ROOT = {
+		add_country_modifier = {
+				name = "ge_2_timer"
+				duration = 9125
+			}
+		}
+	}
+	on_decline = { 
+	
+	}
+	
+	ai_acceptance = { 
+	}
+
+	ai_will_do = {
+	    always = yes
+	}
+}

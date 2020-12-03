@@ -394,3 +394,129 @@ country_event = {
 		custom_tooltip = estate_system.4.option.f.tooltip
 	}
 }
+
+#-----------------------------------
+# Focus National Attention
+#-----------------------------------
+country_event = {
+	id = estate_system.10
+	title = estate_system.10.title
+	desc = estate_system.10.desc
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+
+	is_triggered_only = yes
+    
+    # Increase Support of Ruler
+	option = {
+		name = estate_system.10.option.a
+		
+        trigger = {
+            mil_power = 100
+            OR = {
+                AND = {
+                    government = monarchy
+                    NOT = { legitimacy = 91 }
+                }
+                AND = {
+                    government = republic
+                    NOT = { republican_tradition = 91 }
+                }
+                AND = {
+                    government = theocracy
+                    has_dlc = "Common Sense"
+                    NOT = { devotion = 91 }
+                }
+                AND = {
+                    government = theocracy
+                    NOT = { has_dlc = "Common Sense" }
+                    NOT = { legitimacy = 91 }
+                }
+                AND = {
+                    is_nomad = yes
+                    has_dlc = "The Cossacks"
+                    NOT = { horde_unity = 91 }
+                }
+                AND = {
+                    is_nomad = yes
+                    NOT = { has_dlc = "The Cossacks" }
+                    NOT = { legitimacy = 91 }
+                }
+                AND = {
+                    is_emperor_of_china = yes
+                    NOT = { meritocracy = 91 }
+                }
+            }
+        }
+        
+        add_mil_power = -100
+        
+		add_legitimacy = 10
+		add_republican_tradition = 10
+		add_devotion = 10
+		add_horde_unity = 10
+		add_meritocracy = 10
+	}
+    
+    # Focus on Administrative Matters
+    option = {
+		name = estate_system.10.option.b
+		
+        trigger = {
+            dip_power = 100
+            mil_power = 100
+        }
+        
+        add_adm_power = 150
+        add_dip_power = -100
+        add_mil_power = -100
+	}
+    
+    # Focus on Diplomatic Matters
+    option = {
+		name = estate_system.10.option.d
+		
+        trigger = {
+            adm_power = 100
+            mil_power = 100
+        }
+        
+        add_dip_power = 150
+        add_adm_power = -100
+        add_mil_power = -100
+	}
+    
+    # Focus on Military Matters
+    option = {
+		name = estate_system.10.option.d
+		
+        trigger = {
+            adm_power = 100
+            dip_power = 100
+        }
+        
+        add_mil_power = 150
+        add_dip_power = -100
+        add_adm_power = -100
+	}
+    
+    # Focus on Recruitment
+    option = {
+		name = estate_system.10.option.e
+		
+        trigger = {
+            mil_power = 150
+        }
+        
+        add_mil_power = -150
+		add_manpower = 5
+	}
+    
+    # None
+    option = {
+		name = estate_system.10.option.x
+		
+	}
+}
+
+
+
