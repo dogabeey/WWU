@@ -1,20 +1,20 @@
-namespace = es_start
+namespace = wwu_start
 
 country_event = {
-	id = es_start.1
-	title = es_start.1.t
-	desc = es_start.1.d
-	picture = ES_START_eventPicture
+	id = wwu_start.1
+	title = wwu_start.1.title
+	desc = wwu_start.1.desc
+	picture = CITY_VIEW_eventPicture
 	#goto = root
 	
 	is_triggered_only = yes
 	
 	trigger = {
-		NOT = { has_country_flag = es_start_ai_no_flag }
+		NOT = { has_country_flag = wwu_start_ai_no_flag }
 	}
 	
 	immediate = {
-		set_country_flag = es_start_ai_no_flag
+		set_country_flag = wwu_start_ai_no_flag
 		if ={
 			limit = {
 				NOT = { has_global_flag = trade_controller_selected_flag }
@@ -30,11 +30,8 @@ country_event = {
 	}
 	
 	option = {
-		name = es_start.1.a
-		#log = "es_start.1.a"	
-		add_country_modifier = {
-		name = "vassal_autonomy"
-		duration = 9125
-	    }
+		name = wwu_start.1.option.a
+		#log = "wwu_start.1.option.a"	
+        
 	}
 }
