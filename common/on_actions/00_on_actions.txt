@@ -941,6 +941,12 @@ on_bi_yearly_pulse_2 = {
 on_bi_yearly_pulse_3 = {
 	#log = "[Root.GetName]: Triggered bi_yearly_pulse_3"
 	
+    random_events = {
+        # Agenda from the Estates
+		1000 = estate_system.1
+        
+		3000 = 0
+	}
 }
 
 on_bi_yearly_pulse_4 = {
@@ -1400,6 +1406,8 @@ on_province_religion_converted = {
 			value = 1
 		}
 	}
+    
+    on_province_religion_converted_estate_privileges_effect = yes
 }
 
 # province
@@ -1673,6 +1681,7 @@ on_country_released = {
 # ROOT = province, FROM = country
 on_trade_good_changed = {
 	#log = "[Root.GetName]: Triggered trade_good_changed"
+
 	hidden_effect = {
 		if = {
 			limit = {
@@ -1703,6 +1712,7 @@ on_trade_good_changed = {
 on_loan_repaid = {
 	#log = "[Root.GetName]: Triggered loan_repaid"
 
+    on_loan_repaid_estate_privileges_effect = yes
 }
 
 # this = country

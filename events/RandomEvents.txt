@@ -1474,16 +1474,16 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_church
+				has_estate = estate_clergy
 				NOT = {
 					estate_loyalty = {
-						estate = estate_church
+						estate = estate_clergy
 						loyalty = 40
 					}
 				}
 			}
 		}
-		reduce_estate_church_loyalty_effect = yes
+		reduce_estate_clergy_loyalty_effect = yes
 		add_prestige = 10
 	}
 	option = {
@@ -1496,7 +1496,7 @@ country_event = {
 				NOT = { prestige = 0 }
 			}
 		}
-		add_estate_church_loyalty_effect = yes
+		add_estate_clergy_loyalty_effect = yes
 		add_prestige = -15
 	}
 	option = {
@@ -1505,7 +1505,7 @@ country_event = {
 		highlight = yes
 		trigger = { ruler_has_personality = zealot_personality }
 		required_personality = zealot_personality
-		add_estate_church_loyalty_effect = yes
+		add_estate_clergy_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.5050.b"
@@ -1559,16 +1559,16 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_burghers
+				has_estate = estate_traders
 				NOT = {
 					estate_loyalty = {
-						estate = estate_burghers
+						estate = estate_traders
 						loyalty = 40
 					}
 				}
 			}
 		}
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 		if = {
 			limit = { NOT = { stability = -2 } }
 			add_adm_power = -100
@@ -1597,7 +1597,7 @@ country_event = {
 			}
 		}
 		add_years_of_income = -0.50
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.5051.a"
@@ -1620,7 +1620,7 @@ country_event = {
 		trigger = { ruler_has_personality = entrepreneur_personality }
 		required_personality = entrepreneur_personality
 		add_prestige = -10
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.5051.c"
@@ -1629,7 +1629,7 @@ country_event = {
 		trigger = { ruler_has_personality = obsessive_perfectionist_personality }
 		required_personality = obsessive_perfectionist_personality
 		add_prestige = -5
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 	}
 }
 
@@ -1756,17 +1756,17 @@ country_event = {
 			factor = 55
 			modifier = {
 				factor = 0
-				has_estate = estate_burghers
+				has_estate = estate_traders
 				NOT = {
 					estate_loyalty = {
-						estate = estate_burghers
+						estate = estate_traders
 						loyalty = 40
 					}
 				}
 			}
 		}
 		add_dip_power = -50
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5053"
@@ -1781,7 +1781,7 @@ country_event = {
 		trigger = { ruler_has_personality = entrepreneur_personality }
 		required_personality = entrepreneur_personality
 		add_dip_power = -25
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 	}
 }
 
@@ -2051,7 +2051,7 @@ country_event = {
 		highlight = yes
 		trigger = { ruler_has_personality = silver_tongue_personality }
 		required_personality = silver_tongue_personality
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 		add_prestige = 5
 		every_neighbor_country = {
 			limit = { is_at_war = no }
@@ -2119,16 +2119,16 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
 			}
 		}
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 		add_country_modifier = {
 			name = "disorder"
 			duration = 3650
@@ -2200,16 +2200,16 @@ country_event = {
 			factor = 55
 			modifier = {
 				factor = 0
-				has_estate = estate_burghers
+				has_estate = estate_traders
 				NOT = {
 					estate_loyalty = {
-						estate = estate_burghers
+						estate = estate_traders
 						loyalty = 40
 					}
 				}
 			}
 		}
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 		add_country_modifier = {
 			name = "trade_disaster"
 			duration = 365
@@ -2225,7 +2225,7 @@ country_event = {
 				NOT = { years_of_income = 0.15 }
 			}
 		}
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 		add_years_of_income = -0.1
 	}
 	option = {
@@ -2234,7 +2234,7 @@ country_event = {
 		highlight = yes
 		trigger = { ruler_has_personality = entrepreneur_personality }
 		required_personality = entrepreneur_personality
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 		add_years_of_income = -0.05
 	}
 }
@@ -2283,16 +2283,16 @@ country_event = {
 			factor = 55
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
 			}
 		}
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 		random_country = {
 			limit = { is_neighbor_of = ROOT }
 			reverse_add_casus_belli = {	
@@ -2314,7 +2314,7 @@ country_event = {
 			}
 		}
 		add_prestige = -15
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.5064.a"
@@ -2323,7 +2323,7 @@ country_event = {
 		trigger = { ruler_has_personality = malevolent_personality }
 		required_personality = malevolent_personality
 		add_prestige = -5
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 }
 
@@ -2375,7 +2375,7 @@ country_event = {
 		add_legitimacy = -15
 		add_horde_unity = -15
 		reduce_mandate_effect = yes
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5065"
@@ -2384,17 +2384,17 @@ country_event = {
 			factor = 45
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
 			}
 		}
 		add_adm_power = -50
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.5065.a"
@@ -2405,7 +2405,7 @@ country_event = {
 		add_legitimacy = 5
 		add_horde_unity = 5
 		add_mandate_effect = yes
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.5065.b"
@@ -2414,7 +2414,7 @@ country_event = {
 		trigger = { ruler_has_personality = just_personality }
 		required_personality = just_personality
 		add_adm_power = -25
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 }
 
@@ -2608,7 +2608,7 @@ country_event = {
 			name = "tax_income_loss"
 			duration = 7300
 		}
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5071"
@@ -2621,10 +2621,10 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
@@ -2642,7 +2642,7 @@ country_event = {
 				add_stability = -1
 			}
 		}
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.5071.a"
@@ -2654,7 +2654,7 @@ country_event = {
 			name = "tax_income_loss"
 			duration = 5475
 		}
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 }
 
@@ -2713,10 +2713,10 @@ country_event = {
 			}
 			modifier = {
 				factor = 0.25
-				has_estate = estate_burghers
+				has_estate = estate_traders
 				NOT = {
 					estate_loyalty = {
-						estate = estate_burghers
+						estate = estate_traders
 						loyalty = 40
 					}
 				}
@@ -2735,8 +2735,8 @@ country_event = {
 			name = "tax_income_boost"
 			duration = 7300
 		}
-		add_estate_nobles_loyalty_effect = yes
-		reduce_estate_burghers_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5072"
@@ -2750,17 +2750,17 @@ country_event = {
 			}
 			modifier = {
 				factor = 0.25
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
 			}
 		}
-		reduce_estate_nobles_loyalty_effect = yes
-		add_estate_burghers_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 		add_legitimacy = 10
 		add_devotion = 5
 		add_horde_unity = 5
@@ -2889,7 +2889,7 @@ country_event = {
 		else = {
 			reduce_reform_progress_small_effect = yes
 		}
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5075"
@@ -2902,10 +2902,10 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
@@ -2983,16 +2983,16 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_burghers
+				has_estate = estate_traders
 				NOT = {
 					estate_loyalty = {
-						estate = estate_burghers
+						estate = estate_traders
 						loyalty = 40
 					}
 				}
 			}
 		}
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 		if = {
 			limit = { NOT = { stability = -2 } }
 			add_adm_power = -100
@@ -3027,7 +3027,7 @@ country_event = {
 				NOT = { prestige = 25 }
 			}
 		}
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 		if = {
 			limit = { 
 				OR = {
@@ -3153,18 +3153,18 @@ country_event = {
 			factor = 55
 			modifier = {
 				factor = 0.25
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
 			}
 		}
 		add_adm_power = -50
-		add_estate_burghers_loyalty_effect = yes
-		reduce_estate_nobles_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5082"
@@ -3173,18 +3173,18 @@ country_event = {
 			factor = 45
 			modifier = {
 				factor = 0.25
-				has_estate = estate_burghers
+				has_estate = estate_traders
 				NOT = {
 					estate_loyalty = {
-						estate = estate_burghers
+						estate = estate_traders
 						loyalty = 40
 					}
 				}
 			}
 		}
 		add_dip_power = -50
-		reduce_estate_burghers_loyalty_effect = yes
-		add_estate_nobles_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.5082.a"
@@ -3200,8 +3200,8 @@ country_event = {
 		required_personality = silver_tongue_personality
 		add_adm_power = -20
 		add_dip_power = -20
-		reduce_estate_burghers_loyalty_effect = yes
-		add_estate_nobles_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 }
 
@@ -3360,7 +3360,7 @@ country_event = {
 				add_stability = -1
 			}
 		}
-		add_estate_church_loyalty_effect = yes
+		add_estate_clergy_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5086"
@@ -3373,17 +3373,17 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_church
+				has_estate = estate_clergy
 				NOT = {
 					estate_loyalty = {
-						estate = estate_church
+						estate = estate_clergy
 						loyalty = 40
 					}
 				}
 			}
 		}
 		add_prestige = -10
-		reduce_estate_church_loyalty_effect = yes
+		reduce_estate_clergy_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.5086.a"
@@ -3393,7 +3393,7 @@ country_event = {
 		required_personality = free_thinker_personality
 		add_adm_power = 25
 		add_prestige = -10
-		reduce_estate_church_loyalty_effect = yes
+		reduce_estate_clergy_loyalty_effect = yes
 	}
 }
 
@@ -3448,7 +3448,7 @@ country_event = {
 				months = 12
 			}
 		}
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5088"
@@ -3457,10 +3457,10 @@ country_event = {
 			factor = 45
 			modifier = {
 				factor = 0
-				has_estate = estate_burghers
+				has_estate = estate_traders
 				NOT = {
 					estate_loyalty = {
-						estate = estate_burghers
+						estate = estate_traders
 						loyalty = 40
 					}
 				}
@@ -3473,7 +3473,7 @@ country_event = {
 			}
 			add_opinion = { who = ROOT modifier = opinion_diplomatic_solution }
 		}
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.5088.a"
@@ -3488,7 +3488,7 @@ country_event = {
 			}
 			add_opinion = { who = ROOT modifier = opinion_diplomatic_solution }
 		}
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 	}
 }
 
@@ -3535,17 +3535,17 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
 			}
 		}
 		add_prestige = -10
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5089"
@@ -3564,7 +3564,7 @@ country_event = {
 			}
 			anti_tax_rebels = 1
 		}
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 }
 
@@ -3608,7 +3608,7 @@ country_event = {
 			}
 		}
 		add_years_of_income = -0.5
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5090"
@@ -3617,17 +3617,17 @@ country_event = {
 			factor = 45
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
 			}
 		}
 		add_adm_power = -50
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 }
 
@@ -3723,7 +3723,7 @@ country_event = {
 		#log = "EVTOPTA5092"		# Impose new tariff
 		ai_chance = { factor = 70 }
 		add_mercantilism = 3
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5092"
@@ -3732,16 +3732,16 @@ country_event = {
 			factor = 30
 			modifier = {
 				factor = 0
-				has_estate = estate_burghers
+				has_estate = estate_traders
 				NOT = {
 					estate_loyalty = {
-						estate = estate_burghers
+						estate = estate_traders
 						loyalty = 40
 					}
 				}
 			}
 		}
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 		add_dip_power = 33
 	}
 	option = {
@@ -3751,7 +3751,7 @@ country_event = {
 		trigger = { ruler_has_personality = entrepreneur_personality }
 		required_personality = entrepreneur_personality
 		add_mercantilism = 4
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 	}
 }
 
@@ -3846,7 +3846,7 @@ country_event = {
 		ai_chance = { factor = 40 }
 		reduce_meritocracy_effect = yes
 		remove_advisor = statesman
-		add_estate_church_loyalty_effect = yes
+		add_estate_clergy_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB5094"
@@ -3855,17 +3855,17 @@ country_event = {
 			factor = 60
 			modifier = {
 				factor = 0
-				has_estate = estate_church
+				has_estate = estate_clergy
 				NOT = {
 					estate_loyalty = {
-						estate = estate_church
+						estate = estate_clergy
 						loyalty = 40
 					}
 				}
 			}
 		}
 		add_prestige = -10
-		reduce_estate_church_loyalty_effect = yes
+		reduce_estate_clergy_loyalty_effect = yes
 	}
 }
 
@@ -4011,16 +4011,16 @@ country_event = {
 			factor = 80
 			modifier = {
 				factor = 0.25
-				has_estate = estate_burghers
+				has_estate = estate_traders
 				NOT = {
 					estate_loyalty = {
-						estate = estate_burghers
+						estate = estate_traders
 						loyalty = 40
 					}
 				}
 			}
 		}
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 		add_adm_power = -35
 	}
 	option = {
@@ -4030,16 +4030,16 @@ country_event = {
 			factor = 20
 			modifier = {
 				factor = 0.25
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
 			}
 		}
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 		add_legitimacy = -10
 		add_horde_unity = -10
 	}
@@ -4666,16 +4666,16 @@ country_event = {
 			factor = 45
 			modifier = {
 				factor = 0
-				has_estate = estate_church
+				has_estate = estate_clergy
 				NOT = {
 					estate_loyalty = {
-						estate = estate_church
+						estate = estate_clergy
 						loyalty = 40
 					}
 				}
 			}
 		}
-		reduce_estate_church_loyalty_effect = yes
+		reduce_estate_clergy_loyalty_effect = yes
 		add_prestige = -5
 		random_owned_province = {
 			add_province_modifier = {
@@ -4691,7 +4691,7 @@ country_event = {
 			factor = 65
 		}
 		add_dip_power = -30
-		add_estate_church_loyalty_effect = yes
+		add_estate_clergy_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.711.a"
@@ -4700,7 +4700,7 @@ country_event = {
 		trigger = { ruler_has_personality = tolerant_personality }
 		required_personality = tolerant_personality
 		add_prestige = 5
-		reduce_estate_church_loyalty_effect = yes
+		reduce_estate_clergy_loyalty_effect = yes
 		random_owned_province = {
 			add_province_modifier = {
 				name = "heresy"
@@ -4950,17 +4950,17 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
 			}
 		}
 		add_years_of_income = -0.25
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB716"
@@ -4973,7 +4973,7 @@ country_event = {
 			}
 		}
 		add_years_of_income = -0.75
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 }
 
@@ -5119,10 +5119,10 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
@@ -5130,7 +5130,7 @@ country_event = {
 		}
 		
 		add_years_of_income = -0.25
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB719"
@@ -5143,7 +5143,7 @@ country_event = {
 			}
 		}
 		add_army_tradition = -20
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.719.a"
@@ -5192,10 +5192,10 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
@@ -5203,7 +5203,7 @@ country_event = {
 		}
 		
 		add_years_of_income = -0.25
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB720"
@@ -5211,7 +5211,7 @@ country_event = {
 		ai_chance = {
 			factor = 50
 		}
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 		add_navy_tradition = -20
 	}
 	option = {
@@ -5260,10 +5260,10 @@ country_event = {
 			factor = 50
 			modifier = {
 				factor = 2
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
@@ -5273,7 +5273,7 @@ country_event = {
 			name = "power_to_nobles"
 			duration = 3650
 		}
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB722"
@@ -5282,10 +5282,10 @@ country_event = {
 			factor = 50
 			modifier = {
 				factor = 2
-				has_estate = estate_burghers
+				has_estate = estate_traders
 				NOT = {
 					estate_loyalty = {
-						estate = estate_burghers
+						estate = estate_traders
 						loyalty = 40
 					}
 				}
@@ -5295,7 +5295,7 @@ country_event = {
 			name = "power_to_provinces"
 			duration = 3650
 		}
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 	}
 	option = {
 		name = "personality_options.722.a"
@@ -5352,10 +5352,10 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 40
 					}
 				}
@@ -5368,7 +5368,7 @@ country_event = {
 			}
 			noble_rebels = 2
 		}
-		reduce_estate_nobles_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "EVTOPTB723"
@@ -5376,7 +5376,7 @@ country_event = {
 		ai_chance = {
 			factor = 33
 		}
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 		random_owned_province = {
 			limit = { 
 				has_owner_culture = no

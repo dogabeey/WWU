@@ -45,15 +45,15 @@ country_event = {
 			is_capital = no
 			is_state = yes
 			is_in_capital_area = yes
-			NOT = { has_estate = estate_nobles }
-			NOT = { has_estate = estate_church }
+			NOT = { has_estate = estate_nobility }
+			NOT = { has_estate = estate_clergy }
 		}
 		estate_influence = {
-				estate = estate_nobles
+				estate = estate_nobility
 				influence = 25 #Weaker than this and the Nobles won't make an offer.
 			}
 		estate_loyalty = {
-				estate = estate_nobles
+				estate = estate_nobility
 				loyalty = 40 #Less Loyal than this and the Nobles won't want to support you.
 			}
 	}
@@ -66,8 +66,8 @@ country_event = {
 					is_capital = no
 					is_state = yes
 					is_in_capital_area = yes 
-					NOT = { has_estate = estate_burghers }
-					NOT = { has_estate = estate_church }
+					NOT = { has_estate = estate_traders }
+					NOT = { has_estate = estate_clergy }
 				}
 				save_event_target_as = origin_of_queens_family
 			}
@@ -98,9 +98,9 @@ country_event = {
 		#log = "consort_events.1.b" #
 		add_prestige = 10
 		if = {
-			limit = { has_estate = estate_nobles }
+			limit = { has_estate = estate_nobility }
 			add_estate_loyalty = {
-				estate = estate_nobles
+				estate = estate_nobility
 				loyalty = -5
 			}
 		}
@@ -139,8 +139,8 @@ country_event = {
 					OR = {
 						is_state = yes
 						is_in_capital_area = yes 
-						NOT = { has_estate = estate_burghers }
-						NOT = { has_estate = estate_church }
+						NOT = { has_estate = estate_traders }
+						NOT = { has_estate = estate_clergy }
 					}
 				}
 				save_event_target_as = origin_of_queens_family
@@ -152,7 +152,7 @@ country_event = {
 						is_state = yes
 						is_in_capital_area = yes 
 					}
-					has_estate = estate_nobles
+					has_estate = estate_nobility
 					development = 15
 				}
 				save_event_target_as = origin_of_queens_family
@@ -164,7 +164,7 @@ country_event = {
 						is_state = yes
 						is_in_capital_area = yes 
 					}
-					has_estate = estate_nobles
+					has_estate = estate_nobility
 					development = 20
 				}
 				save_event_target_as = origin_of_queens_family
@@ -176,7 +176,7 @@ country_event = {
 						is_state = yes
 						is_in_capital_area = yes 
 					}
-					has_estate = estate_nobles
+					has_estate = estate_nobility
 					development = 25
 				}
 				save_event_target_as = origin_of_queens_family
@@ -244,14 +244,14 @@ country_event = {
 			factor = 0.9
 			OR = {
 				AND = {
-					has_estate = estate_nobles
+					has_estate = estate_nobility
 					estate_influence = {
-						estate = estate_nobles
+						estate = estate_nobility
 						influence = 60
 					}
 				}
 				AND = {
-					NOT = { has_estate = estate_nobles }
+					NOT = { has_estate = estate_nobility }
 					NOT = { legitimacy = 60 }
 				}
 			}
@@ -296,10 +296,10 @@ country_event = {
 				custom_tooltip = consort_events.3.a.tt.3
 				if = {
 					limit = {
-						has_estate = estate_nobles
+						has_estate = estate_nobility
 					}
 					add_estate_influence_modifier = {
-						estate = estate_nobles
+						estate = estate_nobility
 						desc = EST_VAL_FURTHERED_SPOUSES_FAMILY_NOBLES
 						influence = 10
 						duration = 7300
@@ -307,7 +307,7 @@ country_event = {
 				}
 				if = {
 					limit = {
-						NOT = { has_estate = estate_nobles }
+						NOT = { has_estate = estate_nobility }
 					}
 					add_legitimacy = -10
 					add_horde_unity = -10
@@ -524,16 +524,16 @@ country_event = {
 				custom_tooltip = consort_events.4.a.tt.5
 				if = {
 					limit = {
-						has_estate = estate_nobles
+						has_estate = estate_nobility
 					}
 					add_estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 10
 					}
 				}
 				if = {
 					limit = {
-						NOT = { has_estate = estate_nobles }
+						NOT = { has_estate = estate_nobility }
 					}
 					add_legitimacy = 10
 					add_horde_unity = 10
@@ -650,10 +650,10 @@ country_event = {
 				custom_tooltip = consort_events.3.a.tt.3
 				if = {
 					limit = {
-						has_estate = estate_nobles
+						has_estate = estate_nobility
 					}
 					add_estate_influence_modifier = {
-						estate = estate_nobles
+						estate = estate_nobility
 						desc = EST_VAL_FURTHERED_SPOUSES_FAMILY_NOBLES
 						influence = 15
 						duration = 7300
@@ -661,7 +661,7 @@ country_event = {
 				}
 				if = {
 					limit = {
-						NOT = { has_estate = estate_nobles }
+						NOT = { has_estate = estate_nobility }
 					}
 					add_prestige = -10
 				}

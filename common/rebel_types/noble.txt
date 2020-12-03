@@ -74,7 +74,7 @@ noble_rebels = {
 			factor = 3.0
 			owner = {
 				estate_territory = {
-					estate = estate_nobles
+					estate = estate_nobility
 					territory = 20
 				}
 			}
@@ -83,7 +83,7 @@ noble_rebels = {
 			factor = 2.0
 			owner = {
 				estate_territory = {
-					estate = estate_nobles
+					estate = estate_nobility
 					territory = 30
 				}
 			}
@@ -92,7 +92,7 @@ noble_rebels = {
 			factor = 2.0
 			owner = {
 				estate_territory = {
-					estate = estate_nobles
+					estate = estate_nobility
 					territory = 40
 				}
 			}
@@ -153,25 +153,9 @@ noble_rebels = {
 		add_local_autonomy = 10
 		owner = {
 			if = {
-				limit = { has_estate = estate_nobles }
+				limit = { has_estate = estate_nobility }
 				change_estate_land_share = {
-					estate = estate_nobles
-					share = 10.0
-					province = ROOT
-				}
-			}
-			else_if = {
-				limit = { has_estate = estate_maratha }
-				change_estate_land_share = {
-					estate = estate_maratha
-					share = 10.0
-					province = ROOT
-				}
-			}
-			else_if = {
-				limit = { has_estate = estate_rajput }
-				change_estate_land_share = {
-					estate = estate_rajput
+					estate = estate_nobility
 					share = 10.0
 					province = ROOT
 				}
@@ -210,16 +194,16 @@ noble_rebels = {
 		}
 		if = {
 			limit = {
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					has_estate_influence_modifier = {
-						estate = estate_nobles
+						estate = estate_nobility
 						modifier = EST_VAL_NOBLES_EXTORTED_RIGHTS
 					}
 				}
 			}
 			add_estate_influence_modifier = {
-				estate = estate_nobles
+				estate = estate_nobility
 				desc = EST_VAL_NOBLES_EXTORTED_RIGHTS
 				influence = 15
 				duration = 5475
@@ -274,23 +258,9 @@ noble_rebels = {
 			add_government_reform = elective_monarchy
 		}
 		if = {
-			limit = { has_estate = estate_nobles }
+			limit = { has_estate = estate_nobility }
 			change_estate_land_share = {
-				estate = estate_nobles
-				share = 10.0
-			}
-		}
-		else_if = {
-			limit = { has_estate = estate_maratha }
-			change_estate_land_share = {
-				estate = estate_maratha
-				share = 10.0
-			}
-		}
-		else_if = {
-			limit = { has_estate = estate_rajput }
-			change_estate_land_share = {
-				estate = estate_rajput
+				estate = estate_nobility
 				share = 10.0
 			}
 		}

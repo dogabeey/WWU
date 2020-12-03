@@ -310,10 +310,6 @@ country_event = {
 		name = guldan_swear_fealty.opt2
 		#log = "guldan_swear_fealty.opt2" # Execute him in public.
 		add_prestige = 10
-		add_estate_loyalty = {
-			estate = estate_the_legion
-			loyalty = -30
-		}
     }
 	option = {
 		name = guldan_swear_fealty.opt3
@@ -466,12 +462,6 @@ country_event = {
 		custom_tooltip = orcish_reform.opt1.tt
 		hidden_effect = {
 			every_owned_province = {
-				limit = {
-					has_estate = estate_the_legion
-				}
-
-			}
-			every_owned_province = {
 				ROOT = {
 					random_owned_province = {
 						random = { 
@@ -488,22 +478,7 @@ country_event = {
 	option = {
 		name = orcish_reform.opt2
 		#log = "orcish_reform.opt2" # Slowly weaken legion's grasp.
-		trigger = {
-			estate_influence = {
-				estate = estate_the_legion
-				influence = 10
-			}
-		}
-		add_estate_influence_modifier = {
-			estate = estate_the_legion
-			desc = TAKEN_CONTROL_FROM_LEGION
-			influence = -5
-			duration = 7300
-		}
-		add_estate_loyalty = {
-			estate = estate_the_legion
-			loyalty = -5
-		}
+        
 		custom_tooltip = orcish_reform.opt2.tt
 		hidden_effect = {
 			every_owned_province = {

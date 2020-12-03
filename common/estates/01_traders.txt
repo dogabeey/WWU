@@ -1,0 +1,193 @@
+estate_traders = {
+	icon = 3
+	color = { 158 148 45 }
+
+	influence_from_dev_modifier = 1.0
+    
+    # ----- Names -----
+    custom_name = {
+        desc = estate_traders_workers
+        trigger = {
+            tag = A01
+        }
+    }
+    custom_name = {
+        desc = estate_traders_merchants
+        trigger = {
+            is_merchant = yes
+        }
+    }
+    custom_name = {
+        desc = estate_traders_plebs
+        trigger = {
+            is_lesser = yes
+        }
+    }
+    custom_name = {
+        desc = estate_traders_ancients
+        trigger = {
+            is_ancient = yes
+        }
+    }
+    
+	# ----- Conditions -----
+	trigger = {
+        NOT = { is_landless = yes }
+		NOT = { has_reform = pirate_republic_reform }
+		is_nomad = no
+	}
+    
+	# ----- Country -----
+	# These scale with loyalty & power
+	country_modifier_happy = {
+        trade_steering = 0.2
+		global_trade_power = 0.2
+		trade_efficiency = 0.1
+	}
+	country_modifier_neutral = {
+		trade_steering = 0.1
+		global_trade_power = 0.1
+		trade_efficiency = 0.05
+	}	
+	country_modifier_angry = {
+        trade_steering = -0.2
+		global_trade_power = -0.2
+		trade_efficiency = -0.1
+	}
+    
+	land_ownership_modifier = {
+		traders_loyalty_modifier = 0.2
+	}
+	
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			NOT = { development = 5 }
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				NOT = { development = 10 }
+				NOT = { province_trade_power = 5 }
+			}
+		}
+		modifier = {
+			factor = 2
+			development = 20
+		}
+		modifier = {
+			factor = 0.5
+			is_territorial_core = owner
+		}
+		modifier = {
+			factor = 1.5
+			province_trade_power = 10
+		}
+		modifier = {
+			factor = 1.5
+			province_trade_power = 20
+		}
+        modifier = {
+			factor = 1.5
+			has_province_modifier = thankful_guilds
+		}
+	}
+
+	# ----- Influence -----
+	base_influence = 20
+	
+    influence_modifier = {	
+		desc = EST_HIGH_DEVELOPMENT_PROVINCE
+		trigger = {
+			any_owned_province = {
+				development = 30
+			}
+		}
+		influence = 5
+	}
+    influence_modifier = {
+		desc = EST_VAL_LOW_TRADE_INCOME
+		trigger = {
+			NOT = { trade_income_percentage = 0.25 }
+		}	
+		influence = -5
+	}
+	influence_modifier = {
+		desc = EST_VAL_HIGH_TRADE_INCOME
+		trigger = {
+			trade_income_percentage = 0.5
+			NOT = { trade_income_percentage = 0.75 }
+		}	
+		influence = 5
+	}
+    influence_modifier = {
+		desc = EST_VAL_VERY_HIGH_TRADE_INCOME
+		trigger = {
+			trade_income_percentage = 0.75
+		}	
+		influence = 10
+	}
+    
+    # ----- Loyalty -----
+    loyalty_modifier = {
+		desc = EST_VAL_LOW_TRADE_INCOME_PEOPLE
+        
+		trigger = {
+			NOT = { trade_income_percentage = 0.3 }
+		}
+		loyalty = -10
+	}
+    loyalty_modifier = {
+		desc = EST_VAL_HIGH_TRADE_INCOME_PEOPLE
+        
+		trigger = {
+            trade_income_percentage = 0.5
+		}
+		loyalty = 10
+	}
+    
+	# ----- Privileges -----
+	privileges = {
+		estate_traders_land_rights
+		estate_traders_land_of_commerce
+		estate_traders_azerothian_navigators
+		estate_traders_patronage_of_the_arts
+		estate_traders_commercial_board_of_advice
+		estate_traders_settlement_charter
+		estate_traders_indebted_to_merchants
+		estate_traders_free_enterprise
+		estate_traders_exclusive_trade_rights
+		estate_traders_control_over_monetary_policy
+		estate_traders_private_caravans
+		estate_traders_enforced_interfaith_dialogue
+		estate_traders_statutory_rights
+	}
+
+    # ----- Agendas -----
+	agendas = {
+		estate_traders_develop_x
+        estate_traders_build_a_marketplace_in_y
+        estate_traders_build_a_mine_in_y
+        estate_traders_build_shipyard_in_y
+		estate_traders_build_dock_in_y
+		estate_traders_pay_off_loans
+		estate_traders_restore_republican_tradition
+		estate_traders_restore_currency
+		estate_traders_recovery_from_hyperinflation
+		estate_traders_increase_trade_power_in_X
+		estate_traders_access_sea
+		estate_traders_build_a_fleet
+		estate_traders_bigger_fleet_than_rival
+		estate_traders_improve_dip_rep
+		estate_traders_get_cash
+		estate_traders_colonise_X
+		estate_traders_colonise_more_X
+		estate_traders_colonial_nation
+		estate_traders_expand_trade_company
+		estate_traders_reduce_corruption
+		estate_traders_protect_against_piracy
+		estate_traders_hire_advisor
+		estate_traders_fire_advisor
+	}
+}

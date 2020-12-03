@@ -1,0 +1,87 @@
+estate_peasants = {
+	icon = 11
+    color = { 53 145 61 }
+    
+	influence_from_dev_modifier = 0.5
+    
+    # ----- Names -----
+    
+	# ----- Conditions -----
+	trigger = {
+        NOT = { is_landless = yes }
+		is_nomad = no
+	}
+
+	# ----- Country -----
+	country_modifier_happy = {
+		global_unrest = -2
+		development_cost = -0.2
+		production_efficiency = 0.2
+	}
+	country_modifier_neutral = {
+		global_unrest = -1
+		development_cost = -0.1
+		production_efficiency = 0.1
+	}	
+	country_modifier_angry = {
+		global_unrest = 2
+		development_cost = 0.2
+		production_efficiency = -0.2
+	}	
+    
+	land_ownership_modifier = {
+		peasants_loyalty_modifier = 0.2
+	}
+
+    province_independence_weight = {
+		factor = 1
+	}
+    
+	# ----- Influence -----
+	base_influence = 30
+    
+	# ----- Loyalty -----
+    loyalty_modifier = {
+		desc = EST_VAL_POSITIVE_STABILITY
+		trigger = {
+			stability = 1
+		}
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_NEGATIVE_STABILITY
+		trigger = {
+			NOT = { stability = 0 }
+		}
+		loyalty = -10
+	}
+    
+    loyalty_modifier = {
+		desc = EST_VAL_REBELLIOUS_PEOPLE
+		trigger = {
+			average_effective_unrest = 6
+		}
+		loyalty = -10
+	}
+    
+    # ----- Privileges -----
+	privileges = {
+		estate_peasants_land_rights
+		estate_peasants_increased_taxation
+		estate_peasants_guaranteed_autonomy
+		estate_peasants_meritocratic_promotion
+		estate_peasants_manpower
+		estate_peasants_religious_tolerance
+	}
+
+    # ----- Agendas -----
+	agendas = {
+		estate_peasants_develop_x
+		estate_peasants_build_tavern_in_y
+		estate_peasants_build_workshop_in_y
+		estate_peasants_increase_autonomy_in_province_x
+		estate_peasants_three_privileges
+		estate_peasants_hire_advisor
+		estate_peasants_fire_advisor
+	}
+}

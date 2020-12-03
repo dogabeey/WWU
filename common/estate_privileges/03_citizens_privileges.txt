@@ -1,0 +1,280 @@
+estate_peasants_land_rights = {
+	icon = privilege_grant_autonomy
+	land_share = 5
+	max_absolutism = -5
+	loyalty = 0.05
+	influence = 0.05
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		governing_capacity = 100
+	}
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 1.4
+			num_of_territories = 5
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 10
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 15
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 25 }
+				estate_influence = {
+					estate = estate_peasants
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_peasants_land_rights }
+		}
+		modifier = {
+			factor = 0
+			NOT = { num_of_territories = 1 }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 40 }
+				AND = {
+					NOT = { crown_land_share = 60 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_peasants_land_rights }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 30 }
+				AND = {
+					NOT = { crown_land_share = 50 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_peasants_land_rights }
+		}
+	}
+}
+
+estate_peasants_increased_taxation = {
+	icon = privilege_lighten_dhimmi_tax_burden
+	max_absolutism = -5
+	influence = 0.05
+	is_valid = {
+	}
+	on_granted = {
+		custom_tooltip = estate_peasants_increased_taxation_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				add_province_modifier = {
+					name = estate_peasants_increased_taxation_mod
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_peasants_increased_taxation_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_peasants_increased_taxation_mod
+				}
+				remove_province_modifier = estate_peasants_increased_taxation_mod
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_peasants_increased_taxation_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_peasants_increased_taxation_mod
+				}
+				remove_province_modifier = estate_peasants_increased_taxation_mod
+			}
+		}
+	}
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_peasants_guaranteed_autonomy = {
+	icon = privilege_grant_autonomy
+	max_absolutism = -5
+	loyalty = 0.2
+	influence = 0.05
+	is_valid = {
+	}
+	on_granted = {
+		custom_tooltip = estate_peasants_guaranteed_autonomy_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				add_province_modifier = {
+					name = estate_peasants_guaranteed_autonomy_mod
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_peasants_guaranteed_autonomy_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_peasants_guaranteed_autonomy_mod
+				}
+				remove_province_modifier = estate_peasants_guaranteed_autonomy_mod
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_peasants_guaranteed_autonomy_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_peasants_guaranteed_autonomy_mod
+				}
+				remove_province_modifier = estate_peasants_guaranteed_autonomy_mod
+			}
+		}
+	}
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			NOT = {
+				any_owned_province = {
+					NOT = { religion_group = ROOT }
+				}
+			}
+		}
+	}
+}
+
+estate_peasants_meritocratic_promotion = {
+	icon = privilege_promoto_dhimmi_nobles
+	max_absolutism = -5
+	loyalty = 0.1
+	influence = 0.1
+	penalties = {
+		clergy_loyalty_modifier = -0.05
+		nobility_loyalty_modifier = -0.05
+	}
+	benefits = {
+		free_leader_pool = 1
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_peasants_manpower = {
+	icon = privilege_demand_more_troops
+	land_share = 5
+	max_absolutism = -5
+	loyalty = -0.05
+	influence = 0.05
+	is_valid = {
+
+	}
+	can_select = {
+	}
+	on_granted = {
+		custom_tooltip = estate_peasants_manpower_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				add_province_modifier = {
+					name = estate_peasants_manpower_mod
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_peasants_manpower_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_peasants_manpower_mod
+				}
+				remove_province_modifier = estate_peasants_manpower_mod
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_peasants_manpower_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_peasants_manpower_mod
+				}
+				remove_province_modifier = estate_peasants_manpower_mod
+			}
+		}
+	}
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_peasants_religious_tolerance = {
+	icon = privilege_promoto_dhimmi_nobles
+	max_absolutism = -5
+	influence = 0.1
+	is_valid = {
+		any_owned_province = {
+			NOT = { religion = root }
+		}
+		NOT = { has_estate_privilege = estate_traders_enforced_interfaith_dialogue }
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_clergy_enforced_one_faith }
+	}
+	penalties = {
+		clergy_loyalty_modifier = -0.05
+	}
+	benefits = {
+		tolerance_heathen = 2
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 10
+			num_of_owned_provinces_with = {
+				NOT = { religion_group = root }
+				is_state_core = root
+				value = 15
+			}
+		}
+		modifier = {
+			factor = 0.5
+			estate_influence = {
+				estate = estate_clergy
+				influence = 75
+			}
+		}
+	}
+}

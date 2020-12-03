@@ -1,0 +1,92 @@
+estate_guild_religious = {
+	icon = 4
+    color = { 200 150 150 }
+    
+    influence_from_dev_modifier = 0.4
+    
+	independence_government = theocracy
+	starting_reform = secret_order_reform
+	independence_tech_group = tech_human
+    
+	# ----- Conditions -----
+    trigger = {
+        has_country_flag = has_cult_guild
+        NOT = { is_landless = yes }
+		NOT = { has_reform = pirate_republic_reform }
+		has_country_modifier = adventurers_allowed
+    }
+
+	# ----- Country -----
+    country_modifier_happy = {
+        missionaries = 1
+        global_missionary_strength = 0.03
+        missionary_maintenance_cost = -0.25
+    }
+    country_modifier_neutral = {
+        missionaries = 1
+        global_missionary_strength = 0.01
+        missionary_maintenance_cost = -0.1
+    }    
+    country_modifier_angry = {
+        global_missionary_strength = -0.03
+        missionary_maintenance_cost = 0.25
+    }
+    
+	land_ownership_modifier = {
+		guild_religious_loyalty_modifier = 0.2
+	}
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 2
+			culture_group = owner
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { religion = owner }
+			NOT = { culture_group = owner }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 0.75
+			development = 15
+		}
+		modifier = {
+			factor = 0.75
+			development = 20
+		}
+	}
+
+	# ----- Influence -----
+    base_influence = 10
+
+    # ----- Loyalty -----
+    loyalty_modifier = {
+        desc = EST_VAL_HIGH_PRESTIGE
+        trigger = {
+            prestige = 50
+        }
+        loyalty = 10
+    }
+    loyalty_modifier = {
+        desc = EST_VAL_LOW_PRESTIGE
+        trigger = {
+            NOT = { prestige = 0 }
+        }
+        loyalty = -10
+    }
+    
+    # ----- Privileges -----
+	privileges = {
+		
+	}
+
+    # ----- Agendas -----
+	agendas = {
+        
+	}
+}

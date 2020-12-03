@@ -129,7 +129,7 @@ interaction = {
 }
 
 interaction = {
-    key = summon_the_diet
+    key = summon_the_council
     random_seed = random
 	cooldown_months = 60
 
@@ -140,9 +140,9 @@ interaction = {
     }
 
     effect = {
-        custom_tooltip = ESTATES_SUMMON_THE_DIET_DESC
+        custom_tooltip = ESTATES_SUMMON_THE_COUNCIL_DESC
         hidden_effect = {
-	        country_event = { id = estate_privileges_and_agendas_events.3 }               
+	        country_event = { id = estate_system.2 }
         }
         custom_tooltip = SEPERATOR_TOOLTIP
         
@@ -156,7 +156,7 @@ interaction = {
 
         add_estate_influence_modifier = {
             estate = all
-            desc = EST_VAL_DIET_SUMMONED
+            desc = EST_VAL_COUNCIL_SUMMONED
             duration = 7300
             influence = 5
             short = yes
@@ -168,7 +168,7 @@ interaction = {
         }
     }
 	ai_will_do = {
-		factor = 0 
+		factor = 0 # AI won't do agendas
 	}
 }
 
@@ -182,55 +182,42 @@ interaction = {
         NOT = { crown_land_share = 100 }
         NOT = { num_of_rebel_armies = 1 }
 		NOT = { num_of_rebel_controlled_provinces = 1 }
-		#The following if/else_if-statements match those in estate_privileges_and_agendas_events.2.a. If those change, these should too.
+        
 		if = {
 			limit = {
 				OR = {
-					has_estate_privilege = estate_brahmins_statutory_rights
+					has_estate_privilege = estate_nobility_statutory_rights
 					AND = {
-						religion = hinduism
-						has_estate = estate_brahmins
-					}
-				}
-				has_estate = estate_brahmins
-			}
-			NOT = { has_estate_privilege = estate_brahmins_statutory_rights }
-		}
-		else_if = {
-			limit = {
-				OR = {
-					has_estate_privilege = estate_nobles_statutory_rights
-					AND = {
-						has_estate = estate_nobles
+						has_estate = estate_nobility
 						government = monarchy
 					}
 				}
 			}
-			NOT = { has_estate_privilege = estate_nobles_statutory_rights }
+			NOT = { has_estate_privilege = estate_nobility_statutory_rights }
 		}
 		else_if = {
 			limit = {
 				OR = {
-					has_estate_privilege = estate_burghers_statutory_rights
+					has_estate_privilege = estate_traders_statutory_rights
 					AND = {
-						has_estate = estate_burghers
+						has_estate = estate_traders
 						government = republic
 					}
 				}
 			}
-			NOT = { has_estate_privilege = estate_burghers_statutory_rights }
+			NOT = { has_estate_privilege = estate_traders_statutory_rights }
 		}
 		else_if = {
 			limit = {
 				OR = {
-					has_estate_privilege = estate_church_statutory_rights
+					has_estate_privilege = estate_clergy_statutory_rights
 					AND = {
-						has_estate = estate_church
+						has_estate = estate_clergy
 						government = theocracy
 					}
 				}
 			}
-			NOT = { has_estate_privilege = estate_church_statutory_rights }
+			NOT = { has_estate_privilege = estate_clergy_statutory_rights }
 		}
         is_at_war = no
     }
@@ -284,26 +271,6 @@ interaction = {
 		modifier = {
 			factor = 0
 			crown_land_share = 30
-			has_any_disaster = yes
-			NOT = { #sorry, scripted triggers glitched out
-				OR = {
-					has_disaster = estate_brahmins_disaster
-					has_disaster = estate_burghers_disaster
-					has_disaster = estate_church_disaster
-					has_disaster = estate_cossacks_disaster
-					has_disaster = estate_dhimmi_disaster
-					has_disaster = estate_jains_disaster
-					has_disaster = estate_maratha_disaster
-					has_disaster = estate_nobility_disaster
-					has_disaster = estate_nomadic_tribes_disaster
-					has_disaster = estate_rajput_disaster
-					has_disaster = estate_vaisyas_disaster
-				}
-			}
-		}
-		modifier = {
-			factor = 0
-			crown_land_share = 30
 			if = {
 				limit = { num_of_cities = 50 }
 				NOT = { army_size_percentage = 0.5 }
@@ -320,76 +287,6 @@ interaction = {
 				NOT = { army_size = 50 }
 			}
 			NOT = { army_size = 100 }
-			NOT = { #sorry, scripted triggers glitched out
-				OR = {
-					has_disaster = estate_brahmins_disaster
-					has_disaster = estate_burghers_disaster
-					has_disaster = estate_church_disaster
-					has_disaster = estate_cossacks_disaster
-					has_disaster = estate_dhimmi_disaster
-					has_disaster = estate_jains_disaster
-					has_disaster = estate_maratha_disaster
-					has_disaster = estate_nobility_disaster
-					has_disaster = estate_nomadic_tribes_disaster
-					has_disaster = estate_rajput_disaster
-					has_disaster = estate_vaisyas_disaster
-					has_disaster_progress = {
-						disaster = estate_brahmins_disaster
-						value = 5
-					}
-					has_disaster_progress = {
-						disaster = estate_burghers_disaster
-						value = 5
-					}
-					has_disaster_progress = {
-						disaster = estate_church_disaster
-						value = 5
-					}
-					has_disaster_progress = {
-						disaster = estate_cossacks_disaster
-						value = 5
-					}
-					has_disaster_progress = {
-						disaster = estate_dhimmi_disaster
-						value = 5
-					}
-					has_disaster_progress = {
-						disaster = estate_jains_disaster
-						value = 5
-					}
-					has_disaster_progress = {
-						disaster = estate_maratha_disaster
-						value = 5
-					}
-					has_disaster_progress = {
-						disaster = estate_nobility_disaster
-						value = 5
-					}
-					has_disaster_progress = {
-						disaster = estate_nomadic_tribes_disaster
-						value = 5
-					}
-					has_disaster_progress = {
-						disaster = estate_rajput_disaster
-						value = 5
-					}
-					has_disaster_progress = {
-						disaster = estate_vaisyas_disaster
-						value = 5
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 1.5
-			is_absolutism_active = yes
-			NOT = { num_of_rebel_armies = 1 }
-		}
-		modifier = {
-			factor = 1.5
-			is_absolutism_active = yes
-			NOT = { average_unrest = 1 }
-			NOT = { num_of_rebel_armies = 1 }
 		}
 		modifier = {
 			factor = 2
@@ -489,76 +386,16 @@ interaction = {
 			factor = 0.75
 			NOT = { num_of_owned_areas = 2 }
 		}
-		modifier = {
-			factor = 10
-			OR = {
-				has_disaster = estate_brahmins_disaster
-				has_disaster = estate_burghers_disaster
-				has_disaster = estate_church_disaster
-				has_disaster = estate_cossacks_disaster
-				has_disaster = estate_dhimmi_disaster
-				has_disaster = estate_jains_disaster
-				has_disaster = estate_maratha_disaster
-				has_disaster = estate_nobility_disaster
-				has_disaster = estate_nomadic_tribes_disaster
-				has_disaster = estate_rajput_disaster
-				has_disaster = estate_vaisyas_disaster
-				has_disaster_progress = {
-					disaster = estate_brahmins_disaster
-					value = 5
-				}
-				has_disaster_progress = {
-					disaster = estate_burghers_disaster
-					value = 5
-				}
-				has_disaster_progress = {
-					disaster = estate_church_disaster
-					value = 5
-				}
-				has_disaster_progress = {
-					disaster = estate_cossacks_disaster
-					value = 5
-				}
-				has_disaster_progress = {
-					disaster = estate_dhimmi_disaster
-					value = 5
-				}
-				has_disaster_progress = {
-					disaster = estate_jains_disaster
-					value = 5
-				}
-				has_disaster_progress = {
-					disaster = estate_maratha_disaster
-					value = 5
-				}
-				has_disaster_progress = {
-					disaster = estate_nobility_disaster
-					value = 5
-				}
-				has_disaster_progress = {
-					disaster = estate_nomadic_tribes_disaster
-					value = 5
-				}
-				has_disaster_progress = {
-					disaster = estate_rajput_disaster
-					value = 5
-				}
-				has_disaster_progress = {
-					disaster = estate_vaisyas_disaster
-					value = 5
-				}
-			}
-		}
 	}
 }
 
 interaction = {
-    key = form_a_guild
+    key = establish_guild
     random_seed = random
-	cooldown_months = 120
+	cooldown_months = 320
 
     trigger = {
-		stability = 0
+		treasury = 5000
 		has_any_disaster = no
     }
 
@@ -580,8 +417,11 @@ interaction = {
 				loyalty = -10
 			}
 		}
-		add_stability = -1
-		country_event = { id = estate_privileges_and_agendas_events.5 tooltip = estate_privileges_and_agendas_events.5.tt }
+		add_treasury = -5000
+		country_event = { 
+            id = estate_system.4 
+            tooltip = estate_system.4.tooltip 
+        }
     }
 	ai_will_do = {
 		factor = 0 # AI won't do agendas

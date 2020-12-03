@@ -1,0 +1,396 @@
+namespace = estate_system
+
+country_event = {
+	id = estate_system.1
+	title = estate_system.1.name
+	desc = estate_system.1.desc
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+
+	is_triggered_only = yes
+	hidden = yes
+
+	trigger = {
+		has_estate_privilege = estate_nobility_supremacy_over_government
+		NOT = { has_any_active_estate_agenda = yes }
+	}
+
+	immediate = {
+		country_event = { id = estate_system.2 }
+	}
+
+	option = {
+		name = estate_system.1.a
+	}
+}
+
+country_event = {
+	id = estate_system.2
+	title = estate_system.2.name
+	desc = estate_system.2.desc
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pick_random_estate_if_present = { flag = present_agenda estate_action = generate_estate_agenda }
+			pick_random_estate_if_present = { flag = present_agenda estate_action = generate_estate_agenda }
+			pick_random_estate_if_present = { flag = present_agenda estate_action = generate_estate_agenda }
+		}
+	}
+
+	after = {
+		clr_country_flag = estate_clergy_present_agenda
+		clr_country_flag = estate_traders_present_agenda
+		clr_country_flag = estate_nobility_present_agenda
+		clr_country_flag = estate_peasants_present_agenda
+		clr_country_flag = estate_tribals_present_agenda
+		clear_estate_agenda_cache = ROOT
+	}
+
+	option = {
+		name = estate_system.2.a
+		trigger = { has_country_flag = estate_clergy_present_agenda }
+        
+		start_estate_agenda = estate_clergy
+        
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_clergy
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_clergy
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_clergy
+				}
+			}
+		}
+	}
+
+	option = {
+		name = estate_system.2.b
+		trigger = { has_country_flag = estate_traders_present_agenda }
+        
+		start_estate_agenda = estate_traders
+        
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_traders
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_traders
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_traders
+				}
+			}
+		}
+	}
+
+	option = {
+		name = estate_system.2.c
+		trigger = { has_country_flag = estate_nobility_present_agenda }
+        
+		start_estate_agenda = estate_nobility
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_nobility
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_nobility
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_nobility
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = estate_system.2.d
+		trigger = { has_country_flag = estate_peasants_present_agenda }
+        
+		start_estate_agenda = estate_peasants
+        
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_peasants
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_peasants
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_peasants
+				}
+			}
+		}
+	}
+
+	option = {
+		name = estate_system.2.e
+		trigger = { has_country_flag = estate_tribals_present_agenda }
+        
+		start_estate_agenda = estate_tribals
+        
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_tribals
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_tribals
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_tribals
+				}
+			}
+		}
+	}
+}
+
+# Estates bailing out the player
+country_event = {
+	id = estate_system.3
+	title = estate_system.3.name
+	desc = estate_system.3.desc
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+
+	trigger = {
+		NOT = { crown_land_share = 11 }
+		OR = {
+			AND = {
+				government = monarchy
+				has_estate = estate_nobility
+			}
+			AND = {
+				government = republic
+				has_estate = estate_traders
+			}
+			AND = {
+				government = theocracy
+				has_estate = estate_clergy
+			}
+		}
+		NOT = {
+            has_estate_privilege = estate_nobility_statutory_rights
+            has_estate_privilege = estate_traders_statutory_rights
+            has_estate_privilege = estate_clergy_statutory_rights
+        }
+	}
+
+	mean_time_to_happen = {
+		months = 128
+		modifier = {
+			factor = 0.5
+			NOT = { crown_land_share = 6 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { crown_land_share = 4 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { crown_land_share = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { crown_land_share = 1 }
+		}
+	}
+
+	option = { # Accept the Bail Out
+		name = estate_system.3.a
+        
+		custom_tooltip = seize_land_unavailable_from_privilege
+		if = {
+			limit = {
+				government = monarchy
+			}
+			set_estate_privilege = estate_nobility_statutory_rights
+		}
+		else_if = {
+			limit = {
+				government = republic
+			}
+			set_estate_privilege = estate_traders_statutory_rights
+		}
+		else_if = {
+			limit = {
+				government = theocracy
+			}
+			set_estate_privilege = estate_clergy_statutory_rights
+		}
+	}
+
+	option = { # Refuse the Bail Out
+		name = estate_system.3.b
+	}
+}
+
+# Founding of Guilds
+country_event = {
+	id = estate_system.4
+	title = estate_system.4.title
+	desc = estate_system.4.desc
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = { 
+				name = adventurers_allowed
+				duration = -1
+			}
+		}
+	}
+
+	option = {
+		name = estate_system.4.option.a
+		trigger = {
+			NOT = { has_country_flag = has_trade_company_guild }
+		}
+		hidden_effect = { 
+            set_country_flag = has_trade_company_guild 
+            give_land_shares_to_estate = { estate = estate_guild_trade } 
+        }
+		custom_tooltip = estate_system.4.option.a.tooltip
+		
+	}
+	option = {
+		name = estate_system.4.option.b
+		trigger = {
+			NOT = { has_country_flag = has_independent_guild }
+		}
+		hidden_effect = { 
+            set_country_flag = has_independent_guild 
+            give_land_shares_to_estate = { estate = estate_guild_adventure } 
+        }
+		custom_tooltip = estate_system.4.option.b.tooltip
+	}
+	option = {
+		name = estate_system.4.option.c
+		trigger = {
+			NOT = { has_country_flag = has_criminal_guild }
+		}
+		hidden_effect = { 
+            set_country_flag = has_criminal_guild 
+            give_land_shares_to_estate = { estate = estate_guild_criminal }
+        }
+		custom_tooltip = estate_system.4.option.c.tooltip
+	}
+	option = {
+		name = estate_system.4.option.d
+		trigger = {
+			NOT = { has_country_flag = has_military_guild }
+		}
+		hidden_effect = { 
+            set_country_flag = has_military_guild 
+            give_land_shares_to_estate = { estate = estate_guild_military } 
+        }
+		custom_tooltip = estate_system.4.option.d.tooltip
+	}
+	option = {
+		name = estate_system.4.option.e
+		trigger = {
+			NOT = { has_country_flag = has_cult_guild }
+		}
+		hidden_effect = { 
+            set_country_flag = has_cult_guild 
+            give_land_shares_to_estate = { estate = estate_guild_religious } 
+        }
+		custom_tooltip = estate_system.4.option.e.tooltip
+	}
+    option = {
+		name = estate_system.4.option.f
+		trigger = {
+            has_reform = admirality_reform
+			NOT = { has_country_flag = has_order_of_embers_guild }
+		}
+		hidden_effect = { 
+            set_country_flag = has_order_of_embers_guild 
+            give_land_shares_to_estate = { estate = estate_guild_order_of_embers } 
+        }
+		custom_tooltip = estate_system.4.option.f.tooltip
+	}
+}
