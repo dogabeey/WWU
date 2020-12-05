@@ -1,4 +1,4 @@
-# Note: MUST be loaded before the government forms that reference them, other CTD at launch will occur.
+# Note: MUST be loaded before the government forms that reference them, otherwise CTD at launch will occur.
 #--------------------------------------------
 # Monarchy
 #--------------------------------------------
@@ -524,12 +524,6 @@ noble_republic_legacy = {
     
     republic = yes
     
-	potential = {
-		NOT = { has_reform = free_city_reform }
-		NOT = { has_reform = trading_city_reform }
-		NOT = { has_reform = colonial_government_reform }
-	}
-    
     duration = 12
 	royal_marriage = yes
     
@@ -568,13 +562,7 @@ mercantile_republic_legacy = {
     legacy_government = yes # legacy_equivalent = mercantile_republic_legacy
     
     republic = yes
-    
-    potential = {
-		NOT = { has_reform = free_city_reform }
-		NOT = { has_reform = trading_city_reform }
-		NOT = { has_reform = colonial_government_reform }
-	}
-    
+
     boost_income = yes
 	duration = 4
     
@@ -603,7 +591,7 @@ mercantile_republic_legacy = {
 			NOT = { has_dlc = "Res Publica" }
 		}
 		can_form_trade_league = yes
-		trade_city_reform = trading_city_reform
+		trade_city_reform = trading_city_legacy
 	}
 	conditional = {
 		allow = {
@@ -612,7 +600,7 @@ mercantile_republic_legacy = {
 		}
 		can_use_trade_post = yes
 		can_form_trade_league = yes
-		trade_city_reform = trading_city_reform
+		trade_city_reform = trading_city_legacy
 	}
 	conditional = {
 		allow = { has_dlc = "Common Sense" }
@@ -641,12 +629,6 @@ despotic_republic_legacy = {
     legacy_government = yes # legacy_equivalent = despotic_republic_legacy
     
     dictatorship = yes
-    
-    potential = {
-		NOT = { has_reform = free_city_reform }
-		NOT = { has_reform = trading_city_reform }
-		NOT = { has_reform = colonial_government_reform }
-	}
     
 	has_term_election = no
 	
@@ -715,9 +697,6 @@ magocracy_legacy = {
     republic = yes
     
     potential = {
-		NOT = { has_reform = free_city_reform }
-		NOT = { has_reform = trading_city_reform }
-		NOT = { has_reform = colonial_government_reform }
 		OR = {
 			religion = religion_arcane
 			religion = religion_chaos
@@ -772,11 +751,7 @@ free_city_legacy = {
     legacy_government = yes # legacy_equivalent = free_city_legacy
     
     republic = yes
-    
-    potential = {
-		has_reform = free_city_reform
-	}
-    
+
     free_city = yes
     fixed_rank = 1
     duration = 4
@@ -811,10 +786,6 @@ trading_city_legacy = {
     
     republic = yes
     
-    potential = {
-		has_reform = trading_city_reform
-	}
-    
     is_trading_city = yes
     duration = 4
     boost_income = yes
@@ -842,7 +813,7 @@ trading_city_legacy = {
 			NOT = { has_dlc = "Res Publica" }
 		}
 		can_form_trade_league = yes
-		trade_city_reform = merchant_republic_reform
+		trade_city_reform = mercantile_republic_legacy
 	}
 	conditional = {
 		allow = {
@@ -851,7 +822,7 @@ trading_city_legacy = {
 		}
 		can_use_trade_post = yes
 		can_form_trade_league = yes
-		trade_city_reform = merchant_republic_reform
+		trade_city_reform = mercantile_republic_legacy
 	}
     
     modifiers = {
@@ -913,9 +884,6 @@ remnants_republic_legacy = {
     
     republic = yes
     
-    potential = {
-		has_reform = remnants_republic_reform
-	}
     
 	duration = 10
 	republican_name = yes
@@ -977,7 +945,7 @@ tinker_republic_legacy = {
 		}
 		can_use_trade_post = yes
 		can_form_trade_league = yes
-		trade_city_reform = trading_city_reform
+		trade_city_reform = trading_city_legacy
 	}
 	conditional = {
 		allow = { has_dlc = "Common Sense" }
@@ -1228,11 +1196,7 @@ remnants_theocracy_legacy = {
     legacy_government = yes # legacy_equivalent = remnants_theocracy_legacy
     
     religion = yes
-    
-    potential = {
-        has_reform = remnants_theocracy_reform
-    }
-    
+
 	modifiers = {
 		embracement_cost = 0.25
 		technology_cost = 0.25
@@ -1578,11 +1542,6 @@ native_tribe_legacy = {
 	icon = "crown"
     legacy_government = yes # legacy_equivalent = native_tribe_legacy
     
-    potential = {
-        has_reform = native_tribe_reform
-    }
-    
-    tribal = yes
     native_mechanic = yes
 	republican_name = yes
 	royal_marriage = no
@@ -1610,10 +1569,8 @@ primitive_tribe_legacy = {
     
     potential = {
         is_lesser = yes
-        has_reform = primitive_tribe_reform
     }
     
-    tribal = yes
     native_mechanic = yes
 	republican_name = yes
 	royal_marriage = no
