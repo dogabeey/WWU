@@ -1,0 +1,44 @@
+namespace = broken_shore
+
+country_event = {
+	id = broken_shore.1
+	title = broken_shore.1.title
+	desc = broken_shore.1.desc
+	picture = GULDAN_eventPicture
+	#goto = root
+    
+    fire_only_once = yes
+    major = yes
+	
+	
+	trigger = {
+		OR = {
+			ruler_has_personality = mage_personality
+			ruler_has_personality = warlock_personality
+			ruler_has_personality = shaman_personality
+		}
+		area_broken_shore = {
+			has_province_flag = broken_shore_uncolonizable
+			has_ruler_leader_from = ROOT 
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = broken_shore.1.opt1
+		custom_tooltip = broken_shore.1.tt
+        
+		hidden_effect = { 
+            area_broken_shore = {
+                clr_province_flag = broken_shore_uncolonizable
+            } 
+        }
+	}
+}
