@@ -2,7 +2,7 @@
 # "Republican Virtues"
 #-----------------------------------------
 wwu_republican_authoritarianism_reform = {
-	icon = "merchant"
+	icon = "republican_authoritarianism_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
@@ -15,7 +15,7 @@ wwu_republican_authoritarianism_reform = {
 }
 
 wwu_nepotism_reform = {
-	icon = "man_and_children"
+	icon = "nepotism_wwu"
 	allow_normal_conversion = yes
 
 	modifiers = {
@@ -32,7 +32,7 @@ wwu_nepotism_reform = {
 }
 
 wwu_republicanism_reform = {
-	icon = "assembly_hall"
+	icon = "republicanism_wwu"
 	allow_normal_conversion = yes
 
 	modifiers = {
@@ -48,7 +48,7 @@ wwu_republicanism_reform = {
 # "Frequency of Elections"
 #-----------------------------------------
 wwu_frequent_elections_reform = {
-	icon = "ballot_box"
+	icon = "frequent_elections_wwu"
 	allow_normal_conversion = yes
 
 	trigger = {
@@ -72,7 +72,7 @@ wwu_frequent_elections_reform = {
 }
 
 wwu_consolidation_of_power_reform = {
-	icon = "constitution"
+	icon = "consolidation_of_power_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
@@ -82,7 +82,7 @@ wwu_consolidation_of_power_reform = {
 }
 
 wwu_lottery_reform = {
-	icon = "paper_with_seal_3"
+	icon = "lottery_wwu"
 	allow_normal_conversion = yes
     
 	potential = {
@@ -109,11 +109,12 @@ wwu_lottery_reform = {
 # "Regionalism"
 #-----------------------------------------
 wwu_provincial_governments_reform = {
-	icon = "landscape"
+	icon = "provincial_governments_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
-		state_maintenance_modifier = -0.25
+		state_maintenance_modifier = -0.33
+        core_creation = -0.1
 	}
     
 	ai = {
@@ -122,11 +123,11 @@ wwu_provincial_governments_reform = {
 }
 
 wwu_administrative_divisions_reform = {
-	icon = "map"
+	icon = "administrative_divisions_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
-		governing_capacity = 250
+		governing_capacity = 200
 	}
     
 	ai = {
@@ -150,11 +151,12 @@ wwu_administrative_divisions_reform = {
 }
 
 wwu_union_of_states_reform = {
-	icon = "merchant_ship"
+	icon = "union_of_states_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
 		global_trade_power = 0.1
+        trade_efficiency = 0.1
 	}
     
 	ai = {
@@ -167,14 +169,15 @@ wwu_union_of_states_reform = {
 }
 
 #-----------------------------------------
-# "Separation of Powe"
+# "Separation of Power"
 #-----------------------------------------
 wwu_presidential_reform = {
-	icon = "man_on_podium"
+	icon = "presidential_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
 		embracement_cost = -0.2
+        governing_capacity_modifier = 0.1
 	}
     
 	ai = {
@@ -187,7 +190,7 @@ wwu_presidential_reform = {
 }
 
 wwu_republican_diplomacy_reform = {
-	icon = "king"
+	icon = "republican_diplomacy_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
@@ -201,7 +204,7 @@ wwu_republican_diplomacy_reform = {
 }
 
 wwu_municipal_self_defense_reform = {
-	icon = "soldiers_7"
+	icon = "municipal_self_defense_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
@@ -218,11 +221,12 @@ wwu_municipal_self_defense_reform = {
 # "Consolidation of Power"
 #-----------------------------------------
 wwu_broaden_executive_powers_reform = {
-	icon = "castle"
+	icon = "broaden_executive_powers_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
-		stability_cost_modifier = -0.15
+		stability_cost_modifier = -0.2
+        governing_capacity_modifier = 0.05
 	}
     
 	ai = {
@@ -231,11 +235,12 @@ wwu_broaden_executive_powers_reform = {
 }
 
 wwu_devolution_of_powers_reform = {
-	icon = "generic_people"
+	icon = "devolution_of_powers_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
 		diplomats = 1
+        diplomatic_reputation = 1
 	}
     
 	ai = {
@@ -247,20 +252,20 @@ wwu_devolution_of_powers_reform = {
 # "Guiding Principle of Administration"
 #-----------------------------------------
 wwu_political_principle_reform = {
-	icon = "paper_with_seal_3"
+	icon = "political_principle_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
-		possible_adm_policy = 1
+		free_adm_policy = 1
 	}
 }
 
 wwu_moral_principle_reform = {
-	icon = "parliament_hall"
+	icon = "moral_principle_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
-		possible_dip_policy = 1
+		free_dip_policy = 1
 	}
 }
 
@@ -269,7 +274,7 @@ wwu_moral_principle_reform = {
 # "Electorate"
 #-----------------------------------------
 wwu_landholders_reform = {
-	icon = "dutch_flag"
+	icon = "landholders_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
@@ -282,7 +287,7 @@ wwu_landholders_reform = {
 }
 
 wwu_citizenry_reform = {
-	icon = "people_walking"
+	icon = "citizenry_wwu"
 	allow_normal_conversion = yes
 
 	modifiers = {
@@ -298,31 +303,31 @@ wwu_citizenry_reform = {
 # "Office Selection"
 #-----------------------------------------
 wwu_appointment_by_committee_reform = {
-	icon = "politician"
+	icon = "appointment_by_committee_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
 		advisor_pool = 1
-		advisor_cost = -0.05
+		advisor_cost = -0.1
 	}
 }
 
 wwu_bureaucratic_aparatus_reform = {
-	icon = "map_2"
+	icon = "bureaucratic_aparatus_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
-		min_autonomy_in_territories = -0.10
+		min_autonomy_in_territories = -0.33
 	}
 }
 
 
 wwu_universal_suffrage_reform = {
-	icon = "paper_with_seal"
+	icon = "universal_suffrage_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
-		num_accepted_cultures = 1
+		num_accepted_cultures = 2
 	}
     
 	ai = {
@@ -343,20 +348,21 @@ wwu_universal_suffrage_reform = {
 # "Question of Dictatorship"
 #-----------------------------------------
 wwu_strengthen_executive_powers_reform = {
-	icon = "soldiers_2"
+	icon = "strengthen_executive_powers_wwu"
 	allow_normal_conversion = yes
 
 	modifiers = {
-		max_absolutism = 10
+		max_absolutism = 25
+        yearly_absolutism = 1
 	}
 }
 
 wwu_reinforce_republican_values_reform = {
-	icon = "parliament_hall"
+	icon = "reinforce_republican_values_wwu"
 	allow_normal_conversion = yes
     
 	modifiers = {
-		free_adm_policy = 1
-		reelection_cost = -0.1
+		republican_tradition = 0.5
+		reelection_cost = -0.25
 	}
 }
