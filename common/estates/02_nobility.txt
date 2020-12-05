@@ -45,7 +45,6 @@ estate_nobility = {
 	# ----- Conditions -----
 	trigger = {
         NOT = { is_landless = yes }
-		NOT = { has_reform = pirate_republic_reform }
 		OR = {
 			is_nomad = no
 			AND = { 
@@ -55,7 +54,12 @@ estate_nobility = {
 					religion = religion_old_gods 
 				}
 			}
-			has_reform = nomad_state_reform
+            OR = {
+                has_reform = ancient_kingdom_reform
+                has_reform = ancient_republic_reform
+                has_reform = ancient_theocracy_reform
+                has_reform = ancient_clan_reform
+            }
 		}
 	}
 

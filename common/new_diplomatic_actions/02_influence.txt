@@ -14,12 +14,20 @@ integrate_same_culture = {
 	}
 	is_allowed = {
 		is_subject = no
-		NOT = { has_reform = remnant_basic_reform }
+		NOT = { has_reform = remnants_monarchy_reform }
+        NOT = { has_reform = remnants_republic_reform }
+        NOT = { has_reform = remnants_theocracy_reform }
+        NOT = { has_reform = remnants_tribe_reform }
 		FROM = {
 			is_neighbor_of = ROOT
 			primary_culture = ROOT
 			NOT = { has_country_flag = being_inherited }
-			has_reform = remnant_basic_reform
+			OR = {
+                has_reform = remnants_monarchy_reform
+                has_reform = remnants_republic_reform
+                has_reform = remnants_theocracy_reform
+                has_reform = remnants_tribe_reform
+            }
 			has_opinion = {
 				who = ROOT
 				value = 100
@@ -60,7 +68,12 @@ stop_integration = {
 			ai = yes
 			primary_culture = ROOT
 			has_country_flag = being_inherited
-			has_reform = remnant_basic_reform
+			OR = {
+                has_reform = remnants_monarchy_reform
+                has_reform = remnants_republic_reform
+                has_reform = remnants_theocracy_reform
+                has_reform = remnants_tribe_reform
+            }
 		}
 	}
 	is_allowed = {
@@ -69,7 +82,12 @@ stop_integration = {
 			ai = yes
 			primary_culture = ROOT
 			has_country_flag = being_inherited
-			has_reform = remnant_basic_reform
+			OR = {
+                has_reform = remnants_monarchy_reform
+                has_reform = remnants_republic_reform
+                has_reform = remnants_theocracy_reform
+                has_reform = remnants_tribe_reform
+            }
 		}
 	}
 	on_accept = {

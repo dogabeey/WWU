@@ -1,0 +1,40 @@
+is_non_faction_subject = {
+	NOT = { is_subject_of_type = faction_alliance }
+	NOT = { is_subject_of_type = faction_horde }
+	is_subject = yes
+}
+
+was_faction_leaders_war = {
+	OR = {
+		is_subject_of_type = faction_horde
+		is_subject_of_type = faction_alliance
+	}
+	overlord = {
+		ROOT = {
+			was_at_same_side_of_war = {
+				who = ROOT
+				with = PREV
+			}
+		}
+	}
+}
+
+is_member_of_faction = {
+	OR = {
+		faction_$faction$ = 1
+		is_subject_of_type = faction_$faction$
+	}
+}
+
+is_opposite_faction_of_scope = {
+	OR = {
+		AND = {
+			$who$ = { is_member_of_faction = { faction = alliance } }
+			$with$ = { is_member_of_faction = { faction = horde } }
+		}
+		AND = {
+			$who$ = { is_member_of_faction = { faction = horde } }
+			$with$ = { is_member_of_faction = { faction = alliance } }
+		}
+	}
+}

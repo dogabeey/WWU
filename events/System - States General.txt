@@ -1,0 +1,49 @@
+namespace = wwu_states_general
+
+country_event = {
+	id = wwu_states_general.1
+	title = wwu_states_general.1.t
+	desc = {
+		trigger = { 
+			exiled_same_dynasty_as_current = "states_general_abolished_@ROOT"
+		}
+		desc = wwu_states_general.1.d1
+	}
+	desc = {
+		trigger = { 
+			NOT = { exiled_same_dynasty_as_current = "states_general_abolished_@ROOT" }
+		}
+		desc = wwu_states_general.1.d2
+	}
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			define_exiled_ruler = {
+                dynasty = "historic_dynasty"
+                exiled_as = "states_general_abolished_@ROOT"
+            }
+		}
+	}
+
+	after = {
+		clear_exiled_ruler = "states_general_abolished_@ROOT"
+	}
+
+	option = {
+		name = "wwu_states_general.1.a"
+		trigger = {
+			exiled_same_dynasty_as_current = "states_general_abolished_@ROOT"
+		}
+	}
+
+	option = {
+		name = "wwu_states_general.1.b"
+		trigger = {
+			NOT = { exiled_same_dynasty_as_current = "states_general_abolished_@ROOT" }
+		}
+		set_ruler = "states_general_abolished_@ROOT"
+	}
+}

@@ -1,0 +1,118 @@
+is_landless = {
+	has_reform = warband_reform
+}
+
+has_transport = {
+	custom_trigger_tooltip = {
+		tooltip = HAS_TRANSPORT_TOOLTIP
+		OR = {
+			AND = { province_id = 2141 wrath_of_the_lich_king_or_later = yes } # Stormwind
+			AND = { province_id = 1456 NOT = { mists_of_pandaria_or_later = yes } } # Theramore
+			province_id = 1055 # Menethil
+			AND = { province_id = 882 wrath_of_the_lich_king_or_later = yes } # Valgarde
+			AND = { province_id = 714 wrath_of_the_lich_king_or_later = yes } # Vengeance Landing
+			AND = { province_id = 697 the_first_war_or_later = yes } # Grom'gol Base Camp
+			province_id = 996 # Booty Bay
+			province_id = 824 # Boralus
+			province_id = 931 # Brill
+			AND = { province_id = 1375 rise_of_the_qiraji_or_later = yes } # Ratchet
+			province_id = 1065 # Rutheran Village
+			province_id = 1088 # Emberglade
+			AND = { province_id = 1377 rise_of_the_qiraji_or_later = yes } # Orgrimmar
+			AND = { province_id = 1052 the_third_war_or_later = yes } # Valiance Keep
+			AND = { province_id = 510 the_third_war_or_later = yes } # Warsong Hold
+			AND = { province_id = 583 NOT = { the_third_war_or_later = yes } } # Forgotten Shore
+			AND = { province_id = 1720 mists_of_pandaria_or_later = yes } # Paw'don Village
+			AND = { province_id = 2075 mists_of_pandaria_or_later = yes } # Greenstone
+			province_id = 2471 # Port Zul
+			province_id = 1301 # Aurbendine
+		}
+	}
+}
+
+province_has_transport_to_province = {
+	custom_trigger_tooltip = {
+		tooltip = PROVINCE_HAS_TRANSPORT_TO_PROVINCE_TOOLTIP
+		OR = {
+			AND = {
+				$departure$ = {
+					province_id = 2141 # Stormwind
+					wrath_of_the_lich_king_or_later = yes
+				}
+				$destination$ = {
+					OR = {
+						province_id = 1052 # Valiance Keep
+						province_id = 1301 # Aurbendine
+						province_id = 824 # Boralus
+					}
+				}
+			}
+			AND = {
+				$departure$ = {
+					province_id = 1456 # Theramore
+					NOT = { mists_of_pandaria_or_later = yes }
+				}
+				$destination$ = {
+					OR = {
+						province_id = 1055 # Menethil
+						province_id = 996 # Booty Bay
+					}
+				}
+			}
+			AND = {
+				$departure$ = {
+					province_id = 1055 # Menethil
+				}
+				$destination$ = {
+					OR = {
+						AND = { province_id = 1456 NOT = { mists_of_pandaria_or_later = yes } } # Theramore
+						AND = { province_id = 882 wrath_of_the_lich_king_or_later = yes } # Valgarde
+						province_id = 1301 # Aurbendine
+					}
+				}
+			}
+			AND = {
+				$departure$ = {
+					province_id = 882 wrath_of_the_lich_king_or_later = yes # Valgarde
+				}
+				$destination$ = {
+					province_id = 1055 # Menethil
+				}
+			}
+			AND = {
+				$departure$ = {
+					province_id = 714 wrath_of_the_lich_king_or_later = yes # Vengeance Landing
+				}
+				$destination$ = {
+					province_id = 931 # Brill
+				}
+			}
+			AND = {
+				$departure$ = {
+					province_id = 697 the_first_war_or_later = yes # Grom'gol
+				}
+				$destination$ = {
+					OR = {
+						province_id = 931 # Brill
+						province_id = 1377 # Orgrimmar
+					}
+				}
+			}
+			# TODO: ALL PROVINCES
+		}
+	}
+}
+
+reserved_for_landless = {
+	OR = {
+		province_id = 3082
+		province_id = 3083
+		province_id = 3084
+		province_id = 3085
+		province_id = 3086
+		province_id = 3087
+		province_id = 3088
+		province_id = 3089
+		province_id = 3090
+	}
+}

@@ -756,9 +756,19 @@ vassalaction = {
 		
 		potential = {
 			OR = {
-				has_reform = remnant_basic_reform
+				OR = {
+                    has_reform = remnants_monarchy_reform
+                    has_reform = remnants_republic_reform 
+                    has_reform = remnants_theocracy_reform 
+                    has_reform = remnants_tribe_reform
+                }
 				FROM = {
-					has_reform = remnant_basic_reform
+					OR = {
+                        has_reform = remnants_monarchy_reform
+                        has_reform = remnants_republic_reform 
+                        has_reform = remnants_theocracy_reform 
+                        has_reform = remnants_tribe_reform
+                    }
 				}
 			}
 		}

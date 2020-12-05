@@ -19,7 +19,7 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			change_government = republic
-			add_government_reform = free_city
+			add_government_reform = free_city_reform
 		}
 	}
 	
@@ -28,7 +28,7 @@ country_event = {
 		#log = "free_cities.1.a"
 		tooltip = {
 			change_government = republic
-			add_government_reform = free_city
+			add_government_reform = free_city_reform
 		}
 	}
 }
@@ -45,8 +45,7 @@ country_event = {
 	
 	immediate = {
 		hidden_effect = {
-			remove_government_reform = free_city
-			add_government_reform = peasants_republic
+			remove_government_reform = free_city_reform
 			remove_country_modifier = fc_hre_privileges
 			remove_country_modifier = fc_city_league
 			clr_country_flag = fc_city_league_flag
@@ -57,8 +56,7 @@ country_event = {
 		name = free_cities.2.a
 		#log = "free_cities.2.a"
 		tooltip = { 
-			remove_government_reform = free_city
-			add_government_reform = peasants_republic
+			remove_government_reform = free_city_reform
 		}
 	}
 }
@@ -75,7 +73,7 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Common Sense"
-		has_reform = free_city
+		has_reform = free_city_reform
 		emperor = {
 			NOT = {
 				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_sent_help }
@@ -234,7 +232,7 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Common Sense"
-		has_reform = free_city
+		has_reform = free_city_reform
 		NOT = {
 			prestige = 80
 		}
@@ -281,7 +279,7 @@ country_event = {
 		any_known_country = {
 			num_of_loans = 5
 			NOT = { treasury = 100 }
-			has_reform = free_city
+			has_reform = free_city_reform
 			reverse_has_opinion = { who = ROOT value = 25 }
 		}
 	}
@@ -298,7 +296,7 @@ country_event = {
 			limit = {
 				num_of_loans = 5
 				NOT = { treasury = 100 }
-				has_reform = free_city
+				has_reform = free_city_reform
 				reverse_has_opinion = { who = ROOT value = 25 }
 			}
 			add_opinion = {
@@ -361,7 +359,7 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Common Sense"
-		has_reform = free_city
+		has_reform = free_city_reform
 		NOT = { has_country_modifier = aristocratic_privileges }
 		emperor = {
 			NOT = {
@@ -497,11 +495,11 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Common Sense"
-		has_reform = free_city
+		has_reform = free_city_reform
 		is_at_war = no
 		NOT = { has_country_modifier = fc_city_league }
 		any_known_country = {
-			has_reform = free_city
+			has_reform = free_city_reform
 			is_at_war = no
 			culture_group = ROOT
 			NOT = { has_country_modifier = fc_city_league }
@@ -533,7 +531,7 @@ country_event = {
 		add_dip_power = -100
 		random_country = {
 			limit = {
-				has_reform = free_city
+				has_reform = free_city_reform
 				is_at_war = no
 				culture_group = ROOT
 				NOT = { has_country_modifier = fc_city_league }
@@ -687,14 +685,14 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Common Sense"
-		has_reform = free_city
+		has_reform = free_city_reform
 		is_at_war = no
 		NOT = {
 			has_country_modifier = fc_city_league
 			has_country_modifier = fc_league_timer
 		}
 		any_known_country = {
-			has_reform = free_city
+			has_reform = free_city_reform
 			is_at_war = no
 			culture_group = ROOT
 			has_country_modifier = fc_city_league
@@ -727,7 +725,7 @@ country_event = {
 		add_dip_power = -50
 		random_known_country = {
 			limit = {
-				has_reform = free_city
+				has_reform = free_city_reform
 				is_at_war = no
 				culture_group = ROOT
 				has_country_modifier = fc_city_league
@@ -812,7 +810,7 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Common Sense"
-		has_reform = free_city
+		has_reform = free_city_reform
 		has_country_modifier = fc_city_league
 		had_country_flag = { flag = fc_city_league_flag days = 3650 }
 		NOT = {
@@ -822,7 +820,7 @@ country_event = {
 			has_country_modifier = fc_league_reforms_timer
 		}
 		any_known_country = {
-			has_reform = free_city
+			has_reform = free_city_reform
 			has_country_modifier = fc_city_league
 			has_country_flag = fc_city_league_flag
 		}

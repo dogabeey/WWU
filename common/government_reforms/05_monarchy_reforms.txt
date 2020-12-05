@@ -1,0 +1,443 @@
+#-----------------------------------------
+# "Noble Privileges"
+#-----------------------------------------
+wwu_enforce_privileges_reform = {
+	icon = "people_walking"
+	allow_normal_conversion = yes
+	
+	modifiers = {
+		global_manpower_modifier = 0.15
+	}
+    
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 2
+			NOT = { max_manpower = 12 }
+		}
+	}
+}
+
+wwu_quash_noble_power_reform = {
+	icon = "king_2"
+	allow_normal_conversion = yes
+	
+	modifiers = {
+		global_tax_modifier = 0.1
+		nobility_influence_modifier = -0.1
+	}
+    
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			is_in_deficit = yes
+		}
+	}
+}
+
+wwu_enforce_trader_privileges_reform = {
+	icon = "paper_money_map"
+	allow_normal_conversion = yes
+    
+	potential = {
+        estate_influence = {
+            estate = estate_merchants
+            influence = 40
+        }
+	}
+    
+	modifiers = {
+		trade_range_modifier = 0.3
+		trade_efficiency = 0.05
+	}
+    
+	ai = {
+		factor = 2
+		modifier = {
+			factor = 1.5
+			trade_income_percentage = 0.35
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				trade_income_percentage = 0.25
+			}
+		}
+	}
+}
+
+wwu_azerothian_traders_reform = {
+	icon = "merchant_ship"
+	allow_normal_conversion = yes
+    
+	potential = {
+		culture_group = culture_group_human
+	}
+    
+	modifiers = {
+		merchants = 1
+		trade_efficiency = 0.1
+	}
+    
+	ai = {
+		factor = 5
+	}
+}
+
+wwu_druidic_syncretism_reform = {
+	icon = "muslim"
+	allow_normal_conversion = yes
+    
+	potential = {
+		any_owned_province = {
+            religion = religion_druidic
+        }
+	}
+    
+	modifiers = {
+		global_missionary_strength = 0.01
+		development_cost = -0.05
+	}
+    
+	ai = {
+		factor = 3
+	}
+}
+
+wwu_elvish_nobles_reform = {
+	icon = "indian_crown"
+	allow_normal_conversion = yes
+    
+	potential = {
+		OR = {
+            primary_culture = culture_high_elf
+            primary_culture = culture_blood_elf
+            primary_culture = culture_void_elf
+        }
+	}
+    
+	modifiers = {
+		infantry_power = 0.1
+		development_cost = -0.05
+	}
+    
+	ai = {
+		factor = 3
+	}
+}
+
+wwu_strength_of_the_vrykul_reform = {
+	icon = "strength_of_the_khalsa"
+	allow_normal_conversion = yes
+    
+	potential = {
+		culture_group = culture_group_vrykul
+	}
+    
+	modifiers = {
+		tolerance_heathen = 1
+		tolerance_heretic = 1
+		land_morale = 0.05
+	}
+    
+	ai = {
+		factor = 5
+	}
+}
+
+wwu_draenei_society_reform = {
+	icon = "noble_indian"
+	allow_normal_conversion = yes
+    
+	potential = {
+		culture_group = culture_group_draenei
+	}
+    
+	modifiers = {
+		free_dip_policy = 1
+	}
+    
+	ai = {
+		factor = 3
+	}
+}
+
+#-----------------------------------------
+# "Bureaucracy"
+#-----------------------------------------
+wwu_centralize_reform = {
+	icon = "paper_with_seal_3"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+		global_autonomy = -0.05
+	}
+}
+
+wwu_decentralize_reform = {
+	icon = "map"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		num_accepted_cultures = 2
+	}
+    
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			NOT = {
+				any_owned_province = {
+					has_owner_accepted_culture = no
+					has_owner_culture = no
+				}
+			}
+		}
+	}
+}
+
+wwu_kalimdor_recruitment = {
+	icon = "siddhi_recruitment"
+	allow_normal_conversion = yes
+    
+	potential = {
+        capital_scope = {
+            superregion = eastern_kingdom_superregion
+        }
+		any_owned_province = {
+            NOT = { superregion = kalimdor_superregion }
+        }
+	}
+    
+	modifiers = {
+		fort_maintenance_modifier = -0.1
+		governing_capacity = 100
+	}
+    
+	ai = {
+		factor = 2
+	}
+}
+
+wwu_august_celestials_reform = {
+	icon = "noble_muslim"
+	allow_normal_conversion = yes
+    
+	potential = {
+		culture_group = culture_group_pandaren
+	}
+    
+	modifiers = {
+		army_tradition_decay = -0.003
+		governing_capacity = 150
+	}
+    
+	ai = {
+		factor = 10
+	}
+}
+
+#-----------------------------------------
+# "The Administrative Cadre"
+#-----------------------------------------
+wwu_clergy_in_administration_reform = {
+	icon = "religious_leader"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+		free_adm_policy = 1
+		
+		clergy_influence_modifier = 0.1
+		clergy_loyalty_modifier = 0.05
+	}
+    
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			estate_influence = {
+                estate = estate_clergy
+                influence = 90
+            }
+		}
+	}
+}
+
+wwu_of_noble_bearing_reform = {
+	icon = "nobleman"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		leader_cost = -0.5
+        
+		nobility_influence_modifier = 0.1
+		nobility_loyalty_modifier = 0.05
+	}
+    
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			estate_influence = {
+                estate = estate_nobility
+                influence = 90
+            }
+		}
+	}
+}
+
+wwu_meritocratic_focus_reform = {
+	icon = "merchant"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		advisor_cost = -0.1
+
+		traders_influence_modifier = 0.1
+		traders_loyalty_modifier = 0.05
+	}
+    
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			estate_influence = {
+                estate = estate_merchants
+                influence = 90
+            }
+		}
+	}
+}
+
+wwu_dwarven_culture_reform = {
+	icon = "indian_crown"
+	allow_normal_conversion = yes
+    
+	potential = {
+		culture_group = culture_group_dwarven
+	}
+    
+	modifiers = {
+		state_maintenance_modifier = -0.2
+	}
+    
+	ai = {
+		factor = 2
+	}
+}
+
+wwu_formalized_hoof_reform = {
+	icon = "general_eastern_administrative"
+	allow_normal_conversion = yes
+    
+	potential = {
+		culture_group = culture_group_tauren
+	}
+    
+	modifiers = {
+		governing_capacity = 150
+	}
+    
+	ai = {
+		factor = 5
+	}
+}
+
+#-----------------------------------------
+# "Deliberative Assembly"
+#-----------------------------------------
+wwu_royal_decree_reform = {
+	icon = "king"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+		max_absolutism = 5
+	}
+    
+	ai = {
+		factor = 1
+	}
+}
+
+wwu_aristocratic_court_reform = {
+	icon = "soldiers_2"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+		army_tradition_decay = -0.003
+	}
+    
+	ai = {
+		factor = 1
+	}
+}
+
+wwu_general_estates_reform = {
+	icon = "paper_with_seal"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		production_efficiency = 0.1
+	}
+    
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 1.2
+			production_income_percentage = 0.25
+		}
+	}
+}
+
+#-----------------------------------------
+# "Absolutism & Constitutionalism"
+#-----------------------------------------
+wwu_law_and_order_reform = {
+	icon = "queen"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+		governing_capacity = 250
+	}
+    
+	ai = {
+		factor = 1.5
+	}
+}
+
+wwu_regional_representation_reform = {
+	icon = "assembly_hall"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+		min_autonomy_in_territories = -0.10
+	}
+}
+
+#-----------------------------------------
+# "Separation of Power"
+#-----------------------------------------
+wwu_political_absolutism_reform = {
+	icon = "judge"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+		max_absolutism = 5
+		yearly_absolutism = 0.5
+	}
+    
+	ai = {
+		factor = 1.5
+	}
+}
+
+wwu_legislative_houses_reform = {
+	icon = "parliament_hall"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		possible_adm_policy = 1
+	}
+}
+

@@ -1,0 +1,336 @@
+the_first_war_or_later = {
+	OR = {
+		current_age = the_first_war
+		current_age = the_second_war
+		current_age = beyond_the_dark_portal
+		current_age = the_third_war
+		current_age = the_frozen_throne
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+the_second_war_or_later = {
+	OR = {
+		current_age = the_second_war
+		current_age = beyond_the_dark_portal
+		current_age = the_third_war
+		current_age = the_frozen_throne
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+beyond_the_dark_portal_or_later = {
+	OR = {
+		current_age = beyond_the_dark_portal
+		current_age = the_third_war
+		current_age = the_frozen_throne
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+the_third_war_or_later = {
+	OR = {
+		current_age = the_third_war
+		current_age = the_frozen_throne
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+the_frozen_throne_or_later = {
+	OR = {
+		current_age = the_frozen_throne
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+rise_of_the_qiraji_or_later = {
+	OR = {
+		current_age = rise_of_the_qiraji
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+the_burning_crusade_or_later = {
+	OR = {
+		current_age = the_burning_crusade
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+wrath_of_the_lich_king_or_later = {
+	OR = {
+		current_age = wrath_of_the_lich_king
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+the_shattering_or_later = {
+	OR = {
+		current_age = the_shattering
+		current_age = mists_of_pandaria
+	}
+}
+mists_of_pandaria_or_later = { # Don't actually need that now but better stay here for future bookmark patch
+	current_age = mists_of_pandaria
+}
+
+historical_alliance = {
+	OR = {
+		AND = {
+			OR = {
+				current_age = the_second_war
+				rise_of_the_qiraji_or_later = yes
+			}
+			tag = A01
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A08
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A10
+		}
+		AND = {
+			OR = {
+				AND = {
+					the_second_war_or_later = yes
+					NOT = { rise_of_the_qiraji_or_later = yes }
+				}
+				the_shattering_or_later = yes
+			}
+			tag = A12
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A14
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A16
+		}
+		AND = {
+			OR = {
+				AND = {
+					the_first_war_or_later = yes
+					NOT = { rise_of_the_qiraji_or_later = yes }
+				}
+				mists_of_pandaria_or_later = yes
+			}
+			tag = A18
+		}
+		AND = {
+			the_second_war_or_later = yes
+			OR = {
+				AND = {
+					the_second_war_or_later = yes
+					NOT = { rise_of_the_qiraji_or_later = yes }
+				}
+				the_shattering_or_later = yes
+			}
+			tag = A28
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A29
+		}
+		AND = {
+			the_shattering_or_later = yes
+			tag = A30
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A32
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = A56
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A90
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A94
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = F14
+		}
+		AND = {
+			mists_of_pandaria_or_later = yes
+			tag = P35
+		}
+	}
+}
+historical_horde = {
+	OR = {
+		# Old Horde (None of those ever made it to Thrall's modern Horde)
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A34
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A35
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A36
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A37
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A38
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A39
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A40
+		}
+		AND = {
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A41
+		}
+		AND = {
+			NOT = { the_second_war_or_later = yes }
+			tag = A42
+		}
+		AND = {
+			NOT = { the_second_war_or_later = yes }
+			tag = A43
+		}
+		AND = {
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A44
+		}
+		AND = {
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A45
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A46
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A58
+		}
+		AND = {
+			NOT = { the_second_war_or_later = yes }
+			tag = B88
+		}
+		# Modern Horde (Most did not exist before vanilla but putting conditions in case of early forming)
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A48
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = A50
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A70
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = A91
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = F88
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = P14
+		}
+		AND = {
+			mists_of_pandaria_or_later = yes
+			tag = P36
+		}
+	}
+}
+historical_alliance_head = {
+	OR = {
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { the_frozen_throne_or_later = yes }
+			tag = A08
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A01
+		}
+	}
+}
+historical_horde_head = {
+	OR = {
+		AND = {
+			NOT = { the_second_war_or_later = yes }
+			tag = B88
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { beyond_the_dark_portal_or_later = yes }
+			tag = A41
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A48
+		}
+	}
+}
+historical_conflict_times = { # Specifies the time windows when Faction conflicts happened.
+	OR = {
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+		}
+		rise_of_the_qiraji_or_later = yes
+	}
+}
+never_alliance = { # Specifies tags, cultures, religions or techs that will never join alliance (Except Pure Evils like Scourge, Demons and Old Gods which cannot join either)
+	OR = {
+		culture_group = culture_group_sand_troll
+		culture_group = culture_group_jungle_troll
+		culture_group = culture_group_forest_troll
+		culture_group = culture_group_orc
+		culture_group = culture_group_mogu
+	}
+}
+never_horde = { # Specifies tags, cultures, religions or techs that will never join horde (Except Pure Evils like Scourge, Demons and Old Gods which cannot join either)
+	OR = {
+		culture_group = culture_group_human
+		culture_group = culture_group_draenei
+		culture_group = culture_group_darnassian
+	}
+}

@@ -245,7 +245,6 @@ country_event = {
 	
 	trigger = {
 		legitimacy_or_horde_unity = 15
-		NOT = { has_reform = celestial_empire }
 		government = monarchy
 		is_lesser_in_union = no
 	}
@@ -258,11 +257,11 @@ country_event = {
 		name = "EVTOPTA754"
 		#log = "EVTOPTA754"
 		if = {
-			limit = { NOT = { has_reform = steppe_horde } }
+			limit = { NOT = { has_reform = warband_reform } }
 			add_legitimacy = -15
 		}
 		if = {
-			limit = { has_reform = steppe_horde }
+			limit = { has_reform = warband_reform }
 			add_horde_unity = -15
 		}
 	}

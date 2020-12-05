@@ -1,0 +1,189 @@
+#Province Scope unless otherwise specified
+
+#Province has one of our many river estuary modifiers:
+has_river_estuary_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = has_river_estuary_tooltip
+		OR = {
+			has_province_modifier = water_trade_modifier
+			has_province_modifier = land_trade_modifier
+		}
+	}
+}
+
+is_great_leader = {
+	OR = {
+		AND = {
+			adm = 5
+			dip = 5
+			mil = 5
+		}
+		AND = {
+			adm = 6
+			dip = 6
+		}
+		AND = {
+			adm = 6
+			mil = 6
+		}
+		AND = {
+			dip = 6
+			mil = 6
+		}
+		adm = 7
+		dip = 7
+		mil = 7
+	}
+}
+
+can_form_order_for_class = {
+	NOT = { 
+		has_country_flag = has_$class$_order 
+	} 
+	NOT = { 
+		any_country = { 
+			has_country_flag = has_$class$_order 
+		} 
+	}
+}
+
+highest_development = {
+	NOT = { any_country = {
+		NOT = { tag = ROOT }
+		total_development = ROOT
+	} }
+}
+
+potential_refuge = { # Determines which country allows your country's refugees when it's annexed. Used in remnant events. Order of AND blocks in OR indicates priority.
+	is_at_war = no
+	is_subject = no
+	OR = {
+		AND = {
+			historical_friend_with = ROOT
+			primary_culture = ROOT
+			has_opinion = { who = ROOT value = 0 }
+		}
+		AND = {
+			NOT = { primary_culture = ROOT }
+			alliance_with = ROOT
+			trust = { who = ROOT value = 50 }
+		}
+		AND = {
+			historical_friend_with = ROOT
+			NOT = { primary_culture = ROOT }
+			has_opinion = { who = ROOT value = 50 }
+		}
+		AND = {
+			primary_culture = ROOT
+			alliance_with = ROOT
+		}
+		AND = {
+			historical_friend_with = ROOT
+			alliance_with = ROOT
+		}
+		AND = {
+			is_neighbor_of = ROOT
+			NOT = { primary_culture = ROOT }
+			has_opinion = { who = ROOT value = 150 }
+		}
+		AND = {
+			is_neighbor_of = ROOT
+			primary_culture = ROOT
+			has_opinion = { who = ROOT value = 50 }
+		}
+		AND = {
+			alliance_with = ROOT
+			trust = { who = ROOT value = 50 }
+		}
+	}
+}
+
+owns_or_vassal_or_ally_of = {
+	OR = {
+		$country$ = {
+			owns = $province$
+		}
+		$country$ = {
+			any_subject_country = {
+				owns = $province$
+			}
+		}
+		$country$ = {
+			any_ally = {
+				owns = $province$
+			}
+		}
+	}
+}
+
+ally_or_subject_or_overlord_with = {
+	$who$ = {
+		OR = {
+			is_subject_of = $with$
+			overlord_of = $with$
+			alliance_with = $with$
+		}
+	}
+}
+
+was_at_same_side_of_war = {
+	OR = {
+		any_country = {
+			$who$ = {
+				has_country_flag = declared_war_to@PREV
+			}
+			$with$ = {
+				has_country_flag = declared_war_to@PREV
+			}
+		}
+		any_country = {
+			has_country_flag = declared_war_to@$who$
+			has_country_flag = declared_war_to@$with$
+		}
+	}
+}
+
+was_at_same_side_of_war_against = {
+	OR = {
+		AND = {
+			$who$ = {
+				has_country_flag = declared_war_to@$against$
+			}
+			$with$ = {
+				has_country_flag = declared_war_to@$against$
+			}
+			ally_or_subject_or_overlord_with = {
+				who = $who$
+				with = $with$
+			}
+		}
+		AND = {
+			$against$ = {
+				has_country_flag = declared_war_to@$who$
+			}
+			$against$ = {
+				has_country_flag = declared_war_to@$with$
+			}
+			ally_or_subject_or_overlord_with = {
+				who = $who$
+				with = $with$
+			}
+		}
+	}
+}
+
+same_region = {
+	$prov_1$ = {
+		region_for_scope_province = {
+			province_id = $prov_2$
+		}
+	}
+}
+
+is_invader = {
+	OR = {
+		is_underwater = yes
+		tag = B92
+		technology_group = tech_elemental
+	}
+}

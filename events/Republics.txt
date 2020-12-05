@@ -110,14 +110,6 @@ country_event = {
 			if = {
 				limit = { is_tribal = yes }
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
-			}
-			if = {
-				limit = {
-					is_tribal = no  
-					has_dlc = "Res Publica"
-				}
-				add_government_reform = peasants_republic
 			}
 			if = {
 				limit = {
@@ -125,7 +117,6 @@ country_event = {
 					NOT = { has_dlc = "Res Publica" }
 				}
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
 			}
 		}
 	}
@@ -137,14 +128,6 @@ country_event = {
 			if = {
 				limit = { is_tribal = yes }
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
-			}
-			if = {
-				limit = {
-					is_tribal = no  
-					has_dlc = "Res Publica"
-				}
-				add_government_reform = peasants_republic
 			}
 			if = {
 				limit = {
@@ -152,7 +135,6 @@ country_event = {
 					NOT = { has_dlc = "Res Publica" }
 				}
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
 			}
 		}
 	}
@@ -1458,7 +1440,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = bad_relations_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		any_neighbor_country = {
 			NOT = { has_opinion = { who = ROOT value = 0 } }
 			OR = {
@@ -1533,7 +1515,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = political_chaos_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		NOT = { adm = 2 }
 	}
 
@@ -1620,7 +1602,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = influenced_decisions_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 	}
 
 	mean_time_to_happen = {
@@ -1705,7 +1687,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = financial_disagreements_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		num_of_loans = 1
 	}
 
@@ -1805,7 +1787,7 @@ country_event = {
 	trigger = {
 		NOT = { has_country_modifier = trade_and_production_cutbacks }
 		NOT = { has_country_modifier = military_cutbacks }
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		is_at_war = yes
 		OR = {
 			NOT = { trade_efficiency = 0.4 }
@@ -2822,7 +2804,7 @@ country_event = {
 			has_country_modifier = bothersome_parliament
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		has_regency = no
@@ -2906,7 +2888,7 @@ country_event = {
 			has_country_modifier = over_budget_timer
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		stability = -2
@@ -3005,7 +2987,7 @@ country_event = {
 			has_country_modifier = embezzlement_timer 
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		has_advisor = yes
@@ -3106,7 +3088,7 @@ country_event = {
 			has_country_modifier = spies_investigate
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		has_regency = no
@@ -3216,7 +3198,7 @@ country_event = {
 			has_country_modifier = counter_espionage
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		any_neighbor_country = {
