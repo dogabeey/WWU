@@ -1017,7 +1017,7 @@ add_estate_clergy_loyalty_effect = {
         loyalty = 10
     }
 }
-reduce_estate_church_loyalty_effect = {
+reduce_estate_clergy_loyalty_effect = {
 	add_estate_loyalty = {
         estate = estate_clergy
         loyalty = -10
@@ -1070,4 +1070,246 @@ reduce_estate_tribals_loyalty_effect = {
         estate = estate_tribals
         loyalty = -10
     }
+}
+
+# Take lands from all estates and give it to another estate.
+# $estate$ = Which estate will gain the share.
+# $share$ = Total share that estate will get.
+give_land_shares_to_estate_impulse = {
+	if = {
+		limit = {
+			crown_land_share = 1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_clergy
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_clergy
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_traders
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_traders
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nobility
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_nobility
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_peasants
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_peasants
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_tribals
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_tribals
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_guild_order_of_embers
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_guild_order_of_embers
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_guild_trade
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_guild_trade
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_guild_criminal
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_guild_criminal
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_guild_military
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_guild_military
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_guild_religious
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_guild_religious
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+    if = {
+		limit = {
+			has_estate = estate_guild_adventure
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_guild_adventure
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+}
+# Take equal amount of shares from each estate and crown land and give them to another $estate$ until they have $share$ amount of share.
+give_land_shares_to_estate = {
+	while = {
+		limit = {
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		log = "Giving 1% land to guilds for each other estates."
+		give_land_shares_to_estate_impulse = {
+			estate = $estate$
+			share = $share$
+		}
+	}
 }
