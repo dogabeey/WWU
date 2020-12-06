@@ -1,9 +1,12 @@
 estate_peasants_land_rights = {
 	icon = privilege_blueprint
-	land_share = 5
-	max_absolutism = -5
+	
+    # Costs
+    max_absolutism = -5
+	land_share = 10
 	loyalty = 0.05
 	influence = 0.05
+    
 	can_select = {
 	}
 	on_granted = {
@@ -67,8 +70,13 @@ estate_peasants_land_rights = {
 
 estate_peasants_increased_taxation = {
 	icon = privilege_gold
-	max_absolutism = -5
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = -0.05
 	influence = 0.05
+    
 	is_valid = {
 	}
 	on_granted = {
@@ -115,9 +123,13 @@ estate_peasants_increased_taxation = {
 
 estate_peasants_guaranteed_autonomy = {
 	icon = privilege_barracks
-	max_absolutism = -5
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.2
 	influence = 0.05
+    
 	is_valid = {
 	}
 	on_granted = {
@@ -172,15 +184,20 @@ estate_peasants_guaranteed_autonomy = {
 
 estate_peasants_meritocratic_promotion = {
 	icon = privilege_book_2
-	max_absolutism = -5
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.1
 	influence = 0.1
+    
 	penalties = {
 		clergy_loyalty_modifier = -0.05
+        traders_loyalty_modifier = -0.05
 		nobility_loyalty_modifier = -0.05
 	}
 	benefits = {
-		free_leader_pool = 1
+		min_autonomy_in_territories = -0.2
 	}
 	ai_will_do = {
 		factor = 0
@@ -189,10 +206,13 @@ estate_peasants_meritocratic_promotion = {
 
 estate_peasants_manpower = {
 	icon = privilege_salvage_yard
-	land_share = 5
-	max_absolutism = -5
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = -0.05
-	influence = 0.05
+	influence = 0.1
+    
 	is_valid = {
 
 	}
@@ -242,8 +262,13 @@ estate_peasants_manpower = {
 
 estate_peasants_religious_tolerance = {
 	icon = privilege_scroll
-	max_absolutism = -5
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
 	influence = 0.1
+    
 	is_valid = {
 		any_owned_province = {
 			NOT = { religion = root }
@@ -257,7 +282,7 @@ estate_peasants_religious_tolerance = {
 		clergy_loyalty_modifier = -0.05
 	}
 	benefits = {
-		tolerance_heathen = 2
+		religious_unity = 0.25
 	}
 	ai_will_do = {
 		factor = 1

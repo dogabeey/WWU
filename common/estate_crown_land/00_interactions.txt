@@ -392,35 +392,29 @@ interaction = {
 interaction = {
     key = establish_guild
     random_seed = random
-	cooldown_months = 320
+	cooldown_months = 1
 
     trigger = {
-		treasury = 5000
+        total_development = 200
+		treasury = 2000
 		has_any_disaster = no
     }
 
     effect = {
-		if = {
-			limit = {
-				NOT = {
-					OR = {
-						has_country_flag = has_trade_company_guild
-						has_country_flag = has_independent_guild
-						has_country_flag = has_criminal_guild
-						has_country_flag = has_military_guild
-						has_country_flag = has_cult_guild
-					}
-				}
-			}
-			add_estate_loyalty = {
-				estate = all
-				loyalty = -10
-			}
-		}
-		add_treasury = -5000
+		add_treasury = -2000
+        custom_tooltip = establish_guild_tooltip
+        
+        hidden_effect = {
+            clr_country_flag = has_trade_company_guild
+            clr_country_flag = has_independent_guild
+            clr_country_flag = has_criminal_guild
+            clr_country_flag = has_military_guild
+            clr_country_flag = has_cult_guild
+            clr_country_flag = has_order_of_embers_guild
+        }
+
 		country_event = { 
             id = estate_system.4 
-            tooltip = estate_system.4.tooltip 
         }
     }
 	ai_will_do = {

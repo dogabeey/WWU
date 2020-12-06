@@ -332,7 +332,6 @@ country_event = {
 		}
 		hidden_effect = { 
             set_country_flag = has_trade_company_guild 
-            give_land_shares_to_estate = { estate = estate_guild_trade } 
         }
 		custom_tooltip = estate_system.4.option.a.tooltip
 		
@@ -344,7 +343,6 @@ country_event = {
 		}
 		hidden_effect = { 
             set_country_flag = has_independent_guild 
-            give_land_shares_to_estate = { estate = estate_guild_adventure } 
         }
 		custom_tooltip = estate_system.4.option.b.tooltip
 	}
@@ -355,7 +353,6 @@ country_event = {
 		}
 		hidden_effect = { 
             set_country_flag = has_criminal_guild 
-            give_land_shares_to_estate = { estate = estate_guild_criminal }
         }
 		custom_tooltip = estate_system.4.option.c.tooltip
 	}
@@ -366,7 +363,6 @@ country_event = {
 		}
 		hidden_effect = { 
             set_country_flag = has_military_guild 
-            give_land_shares_to_estate = { estate = estate_guild_military } 
         }
 		custom_tooltip = estate_system.4.option.d.tooltip
 	}
@@ -377,19 +373,19 @@ country_event = {
 		}
 		hidden_effect = { 
             set_country_flag = has_cult_guild 
-            give_land_shares_to_estate = { estate = estate_guild_religious } 
         }
 		custom_tooltip = estate_system.4.option.e.tooltip
 	}
     option = {
 		name = estate_system.4.option.f
 		trigger = {
-            has_reform = admirality_reform
+            capital_scope = {
+                area = area_kul_tiras_capital
+            }
 			NOT = { has_country_flag = has_order_of_embers_guild }
 		}
 		hidden_effect = { 
             set_country_flag = has_order_of_embers_guild 
-            give_land_shares_to_estate = { estate = estate_guild_order_of_embers } 
         }
 		custom_tooltip = estate_system.4.option.f.tooltip
 	}

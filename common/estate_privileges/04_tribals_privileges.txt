@@ -1,9 +1,12 @@
 estate_tribals_land_rights = {
 	icon = privilege_blueprint
-	land_share = 5
-	max_absolutism = -5
+	
+    # Costs
+    max_absolutism = -5
+	land_share = 10
 	loyalty = 0.05
 	influence = 0.05
+    
 	can_select = {
 	}
 	on_granted = {
@@ -64,74 +67,15 @@ estate_tribals_land_rights = {
 		}
 	}
 }
-
-estate_tribals_share_of_the_spoils = {
-	icon = privilege_treasure_chest
-	max_absolutism = -5
-	loyalty = 0.05
-	penalties = {
-		available_province_loot = -0.1
-	}
-	benefits = {
-	}
-	ai_will_do = {
-		factor = 0
-	}
-}
-
-estate_tribals_chieftains_autonomy = {
-	icon = privilege_cheap_shot
-	max_absolutism = -10
-	loyalty = 0.1
-	influence = 0.1
-	penalties = {
-	}
-	benefits = {
-	}
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-estate_tribals_guaranteed_leadgership_in_host = {
-	icon = privilege_brush_off
-	max_absolutism = -5
-	influence = 0.05
-	can_select = {
-		army_tradition = 30
-	}
-	on_granted = {
-		add_army_tradition = -15
-	}
-	penalties = {
-	}
-	benefits = {
-		general_cost = -0.25
-		army_tradition_decay = -0.005
-	}
-	ai_will_do = {
-		factor = 0
-	}
-}
-
-estate_tribals_tribal_host = {
-	icon = privilege_camp_flag
-	max_absolutism = -5
-	loyalty = -0.05
-	influence = 0.1
-	benefits = {
-		global_manpower_modifier = 0.2
-	}
-	ai_will_do = {
-		factor = 10
-	}
-}
-
 estate_tribals_tribal_primacy = {
 	icon = privilege_challenge
+	
+    # Costs
+    max_absolutism = -10
 	land_share = 10
-	max_absolutism = -5
-	loyalty = -0.05
+	loyalty = 0.0
+	influence = 0.1
+    
 	can_select = {
 	}
 	on_granted = {
@@ -172,5 +116,138 @@ estate_tribals_tribal_primacy = {
 			factor = 0.8
 			mil = 5
 		}
+	}
+}
+estate_tribals_share_of_the_spoils = {
+	icon = privilege_treasure_chest
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.2
+	influence = 0.0
+    
+	penalties = {
+		available_province_loot = -0.2
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_tribals_chieftains_autonomy = {
+	icon = privilege_cheap_shot
+
+    # Costs
+    max_absolutism = -10
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+estate_tribals_guaranteed_leadgership_in_host = {
+	icon = privilege_brush_off
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+		army_tradition = 30
+	}
+	on_granted = {
+		add_army_tradition = -15
+	}
+	penalties = {
+	}
+	benefits = {
+		general_cost = -0.5
+		army_tradition = 0.5
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_tribals_tribal_host = {
+	icon = privilege_camp_flag
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.1
+    
+	benefits = {
+		global_manpower_modifier = 0.2
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+estate_tribals_tribal_unity = {
+	icon = privilege_crown
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.1
+    
+	benefits = {
+		horde_unity = 1
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+estate_tribals_muster_host = {
+	icon = privilege_combat_readiness
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+    can_select = {
+        army_tradition = 25
+	}
+    on_granted = {
+        add_army_tradition = -10
+        
+        custom_tooltip = estate_tribals_muster_host_tooltip
+        hidden_effect = {
+            capital_scope = {
+                cavalry = ROOT
+                cavalry = ROOT
+                cavalry = ROOT
+                cavalry = ROOT
+                cavalry = ROOT
+            }
+        }
+	}
+	penalties = {
+        
+	}
+	benefits = {
+		
+	}
+	ai_will_do = {
+		factor = 1
 	}
 }

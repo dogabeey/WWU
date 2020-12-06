@@ -1,9 +1,12 @@
 estate_traders_land_rights = {
 	icon = privilege_blueprint
-	land_share = 5
-	max_absolutism = -5
+	
+    # Costs
+    max_absolutism = -5
+	land_share = 10
 	loyalty = 0.05
 	influence = 0.05
+    
 	can_select = {
 	}
 	on_granted = {
@@ -67,9 +70,13 @@ estate_traders_land_rights = {
 
 estate_traders_land_of_commerce = {
 	icon = privilege_cash_flow
+	
+    # Costs
+    max_absolutism = -10
 	land_share = 10
-	max_absolutism = -5
-	loyalty = -0.05
+	loyalty = 0.0
+	influence = 0.1
+    
 	can_select = {
 	}
 	on_granted = {
@@ -115,8 +122,12 @@ estate_traders_land_of_commerce = {
 
 estate_traders_azerothian_navigators = {
 	icon = privilege_sailor
-	max_absolutism = -5
-	influence = 0.1
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
     
 	penalties = {
         
@@ -132,14 +143,18 @@ estate_traders_azerothian_navigators = {
 
 estate_traders_patronage_of_the_arts = {
 	icon = privilege_crown
-	max_absolutism = -5
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.05
 	influence = 0.05
+    
 	penalties = {
 		global_tax_modifier = -0.05
 	}
 	benefits = {
-		prestige = 0.5
+		prestige = 1
 	}
 	on_granted = {
 		if = {
@@ -169,9 +184,13 @@ estate_traders_patronage_of_the_arts = {
 
 estate_traders_commercial_board_of_advice = {
 	icon = privilege_note_2
-	max_absolutism = -5
-	influence = 0.1
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.05
+	influence = 0.05
+    
 	penalties = {
 		stability_cost_modifier = 0.1
 	}
@@ -193,9 +212,13 @@ estate_traders_commercial_board_of_advice = {
 
 estate_traders_settlement_charter = {
 	icon = privilege_tour_of_duty
-	max_absolutism = -5
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.05
 	influence = 0.05
+    
 	is_valid = {
 		OR = {
 			num_of_colonists = 1
@@ -216,9 +239,13 @@ estate_traders_settlement_charter = {
 
 estate_traders_indebted_to_merchants = {
 	icon = privilege_trading_post
-	max_absolutism = -5
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.05
-	influence = 0.05
+	influence = 0.1
+    
 	on_granted = {
 		custom_tooltip = estate_traders_indebted_to_merchants_effect_tooltip
 		add_mercantilism = -1
@@ -265,9 +292,13 @@ estate_traders_indebted_to_merchants = {
 
 estate_traders_free_enterprise = {
 	icon = privilege_storehouse
-	max_absolutism = -10
+    
+	# Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.1
 	influence = 0.1
+    
 	penalties = {
 	}
 	benefits = {
@@ -279,9 +310,13 @@ estate_traders_free_enterprise = {
 
 estate_traders_exclusive_trade_rights = {
 	icon = privilege_stonks
-	max_absolutism = -5
-	influence = 0.05
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.05
+	influence = 0.05
+    
 	is_valid = {
 		has_dlc = "Emperor"
 		any_active_trade_node = {
@@ -354,9 +389,13 @@ estate_traders_exclusive_trade_rights = {
 
 estate_traders_control_over_monetary_policy = {
 	icon = privilege_clemency
-	max_absolutism = -10
-	influence = 0.05
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.05
+	influence = 0.05
+    
 	is_valid = {
 		has_dlc = "Emperor"
 	}
@@ -382,9 +421,13 @@ estate_traders_control_over_monetary_policy = {
 
 estate_traders_private_caravans = {
 	icon = privilege_compass
-	max_absolutism = -5
-	influence = 0.1
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.05
+	influence = 0.05
+    
 	is_valid = {
 		has_dlc = "Emperor"
 		trade_income_percentage = 0.35
@@ -401,8 +444,13 @@ estate_traders_private_caravans = {
 
 estate_traders_enforced_interfaith_dialogue = {
 	icon = privilege_balance_of_power
-	max_absolutism = -5
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
 	loyalty = 0.05
+	influence = 0.05
+    
 	is_valid = {
 		any_owned_province = {
 			NOT = { religion = root }
@@ -426,8 +474,13 @@ estate_traders_enforced_interfaith_dialogue = {
 
 estate_traders_statutory_rights = {
 	icon = privilege_ancient_text
-	max_absolutism = -5
+	
+    # Costs
+    max_absolutism = -10
+	land_share = 0
+	loyalty = 0.0
 	influence = 0.1
+    
 	is_valid = {
 		has_estate_privilege = estate_traders_statutory_rights
 	}

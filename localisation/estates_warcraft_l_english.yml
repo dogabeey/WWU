@@ -22,8 +22,10 @@
  summon_the_council: "Summon the Council"
  ESTATES_SUMMON_THE_COUNCIL_DESC: "Will summon the Council to set an §YAgenda§!"
  
- establish_guild: "Establish Guild"
+ establish_guild: "Patronize Guild"
  national_attention: "Focus National Attention"
+ 
+ establish_guild_tooltip: "You will be able to patronize a Guild, unlocking a unique estate based on your choice. Only one Guild may be patronized at any one time, patronizing another will disable the previous Guild."
  
  #-----------------------------------------
  # Loyalty
@@ -287,26 +289,35 @@
  estate_tribals_tribal_primacy: "Primacy of the $ESTATE_NAME$"
  estate_tribals_tribal_primacy_desc: "Giving the [Root.GetTribalsName] free rein over our military would strengthen our capacities considerably, even if it may cost us dearly in compensating their contributions."
  
+ estate_tribals_tribal_unity: "Tribal Unity"
+ estate_tribals_tribal_unity_desc: "By suggesting that the [Root.GetTribalsName] take a more pragmatic approach to governance, we can strengthen the unity of our nation."
+ 
+ estate_tribals_muster_host: "Muster Cavalry Host"
+ estate_tribals_muster_host_desc: "Let us muster a host of cavalry from our disprate nomadic clans."
+ 
+ estate_tribals_muster_host_tooltip: "Spawn 5 Cavalry units in [Root.Capital.GetName]."
+ 
  #-------------------------------------------------------------------
  # Guilds
  #-------------------------------------------------------------------
- estate_guild_order_of_embers: "Order of Embers"
- estate_guild_order_of_embers_desc: "Order of Embers is a special organization sought to fight against evil forces who's trying to destroy our nation since its founding. They mainly fight to Drust threat under rule of House Waycrest."
- 
  estate_guild_trade: "Local Trade Company"
  estate_guild_trade_desc: "Trade companies are integral part of our nation as a booming trade center in the world. They control most of country's armory stocks."
  
- estate_guild_criminal: "Criminal Organization"
- estate_guild_criminal_desc: ""
+ estate_guild_adventure: "Adventuring Guild"
+ estate_guild_adventure_desc: "A guild comprised of keen adventurers, ready to serve as mercenaries in your army."
  
- estate_guild_military: "Military Organization"
- estate_guild_military_desc: ""
+ estate_guild_criminal: "Criminal Syndicate"
+ estate_guild_criminal_desc: "A secretive criminal syndicate that can be influence to do dirty work for the crown, without leaving evidence of such manipulation."
+ 
+ estate_guild_military: "Order of Warriors"
+ estate_guild_military_desc: "An order of warriors, well-practised in numerous combat techniques. Willing to serve as part of the official military."
  
  estate_guild_religious: "Religious Cult"
- estate_guild_religious_desc: ""
+ estate_guild_religious_desc: "A religious cult based on [Root.Religion.GetName]. Willing to assist in all manner of religious activity."
  
- estate_guild_adventure: "Adventuring Guild"
- estate_guild_adventure_desc: ""
+ estate_guild_order_of_embers: "Order of Embers"
+ estate_guild_order_of_embers_desc: "Order of Embers is a special organization sought to fight against evil forces who's trying to destroy our nation since its founding. They mainly fight to Drust threat under rule of House Waycrest."
+ 
  
  guild_order_of_embers_loyalty_modifier: "[Country.GetOrderOfEmbersName] Loyalty Equilibrium"
  guild_order_of_embers_influence_modifier: "[Country.GetOrderOfEmbersName] Influence"
@@ -326,7 +337,20 @@
  guild_adventure_loyalty_modifier: "[Country.GetAdventureGuildName] Loyalty Equilibrium"
  guild_adventure_influence_modifier: "[Country.GetAdventureGuildName] Influence"
  
- # ------------ Privileges ------------ 
+ # ------------ Privileges ------------
+ estate_guild_adventure_guild_oversight: "Guild Oversight"
+ estate_guild_adventure_guild_oversight_desc: "Institute internal oversight of the Adventuring Guild to ensure loyalty."
+ 
+ estate_guild_adventure_astute_recruitment: "Astute Recruitment"
+ estate_guild_adventure_astute_recruitment_desc: "Follow a policy of astute recruitment when it comes to introducing new adventurers into the guild. This will ensure their combat prowess remains high."
+ 
+ estate_guild_adventure_encourage_looting: "Loot and Pillage"
+ estate_guild_adventure_encourage_looting_desc: "Permit free looting and pillaging for employed adventurers. This will cut down on costs, but it may anger local residents."
+ 
+ estate_guild_adventure_muster_adventurers: "Muster Adventurers"
+ estate_guild_adventure_muster_adventurers_desc: "Raise a host of mercenary adventurers, drawn from the stock of the Adventuring Guild."
+ 
+ estate_guild_adventure_muster_adventurers_tooltip: "Spawn 5 Mercenary Infantry in [Root.Capital.GetName]."
  
  #-------------------------------------------------------------------
  # Triggered Modifiers
@@ -817,16 +841,15 @@
  estate_system.3.a: "Honestly what did you expect when you sold out the entire country?"
  estate_system.3.b: "Pfft we'll solve this ourselves..."
  
- estate_system.4.title: "Founding of Guilds"
- estate_system.4.desc: "Azeroth is a vast landmass, full of mysteries and intrigues awaiting discovery. The citizens of Azeroth, left with little due to constant war, now seek to embark upon adventures themselves.\n\nGuilds are a major part of the society all over Azeroth. They specialize in many different branches, but mainly there are five main domains of work."
- estate_system.4.option.a: "Form a Local Trade Company"
- estate_system.4.option.b: "Form an Adventuring Guild"
- estate_system.4.option.c: "Form a Criminal Organization"
- estate_system.4.option.d: "Form a Military Regiment"
- estate_system.4.option.e: "Form a Religious Cult"
- estate_system.4.option.f: "Form the Order of Embers"
+ estate_system.4.title: "Patronization of Guilds"
+ estate_system.4.desc: "Throughout Azeroth there are numerous guilds, many that offer unique services to the kingdoms and republics they reside within. Forming a patronization relationship with a guild will signal [Root.Monarch.GetName]'s support, providing numerous benefits to [Root.GetName]."
+ estate_system.4.option.a: "Patronize a Local Trade Company"
+ estate_system.4.option.b: "Patronize an Adventuring Guild"
+ estate_system.4.option.c: "Patronize a Criminal Syndicate"
+ estate_system.4.option.d: "Patronize a Order of Warriors"
+ estate_system.4.option.e: "Patronize a Religious Cult"
+ estate_system.4.option.f: "Patronize the Order of Embers"
  
- estate_system.4.tooltip: "A new estate called Guild will be formed in [Root.GetName]. You will be able to choose its specialization. Each specialization will grant you an unique diplomatic action and access to the guild's estate."
  estate_system.4.option.a.tooltip: "You will gain access to 'Bribe Adminstration' diplomatic action, allowing you to buy Spy Network in exchange of gold."
  estate_system.4.option.b.tooltip: "You will gain access to 'Form Raid' diplomatic action, allowing you to send independent raiding parties to evil nations."
  estate_system.4.option.c.tooltip: "You will gain access to 'Assasinate Ruler' diplomatic action, allowing you to assasinate rulers of other nations."
