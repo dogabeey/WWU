@@ -26,7 +26,10 @@ wwu_mission_to_civilize_reform = {
 	trigger = {
 		OR = {
 			num_of_colonists = 1
-			has_idea_group = colonization_ideas
+			OR = {
+                has_idea_group = wwu_expansion_ideas
+                has_idea_group = wwu_exploration_ideas
+            }
 		}
 	}
     
@@ -395,7 +398,7 @@ wwu_many_fingers_of_god_reform = {
 	icon = "many_fingers_of_god_wwu"
 	allow_normal_conversion = yes
 	trigger = {
-		has_idea_group = inclusion_ideas
+		has_idea_group = wwu_harmony_ideas
 	}
     
 	modifiers = {

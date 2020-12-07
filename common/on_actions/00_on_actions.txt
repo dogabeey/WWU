@@ -2,58 +2,16 @@
 
 # country
 on_startup = {
-	if = {
-		limit = { NOT = { has_global_flag = on_action_setup_global_flag } }
-		every_country = {
-			limit = { exists = yes }
-			log = "[This.GetName] is here"
-		}
-		set_faction_conflict = yes
-		set_hre_religion = religion_sect_of_dragons
-		set_hre_heretic_religion = religion_old_gods
-		set_global_flag = on_action_setup_global_flag
+    events = {
+        wwu_setup.1    # Global
+        wwu_setup.2    # Country
 	}
-	if = {
-		limit = {
-			has_reform = hereditary_monarchy_reform
-			has_heir = no
-		}
-		set_country_flag = country_has_no_heir
-		##log = "[Root.GetName] started with no valid heir."
-	}
-    if = { 
-		limit = { NOT = { has_country_flag = on_action_setup_flag } }
-		
-		country_event = { id = wwu_start.1 }
-		country_event = { id = setup.1 }
-		country_event = { id = landless_setup.1 }
-		set_papacy_active = no
-        
-		# Initializes variables which are used in on_actions
-		init_variables = yes
-		
-		# Religious and Cultural Unity for ALL NATIONS on start and Core creation.
-		# This will override history files in default setting. See script file to see how to avoid overriding.
-		init_full_unity = yes
-
-		swap_non_generic_missions = yes
-		add_patriarch_authority = 0.8
-		add_legitimacy = 75
-		add_republican_tradition = 75
-		add_devotion = 75
-		add_horde_unity = 75
-		add_papal_influence = 75
-		add_prestige = 200
-		ROOT = { add_prestige = -100 }
-		
-		set_country_flag = on_action_setup_flag
-	}
-
 }
 
 # country
 on_religion_change = {
 	#log = "[Root.GetName]: Triggered religion_change"
+    
 	if = {
 		limit = {
 			has_heir = yes
@@ -73,6 +31,12 @@ on_religion_change = {
 		}
 		set_consort_religion = ROOT
 	}
+    add_country_modifier = {
+		name = recently_changed_religion_dummy
+		duration = 10
+		hidden = yes
+	}
+    
 	events = {
 		#propagate_religion_events.7 #Propagated Country is now Muslim
 	}
@@ -801,7 +765,8 @@ on_siberian_pulse = {
 on_bi_yearly_pulse = {
 	#log = "[Root.GetName]: Triggered bi_yearly_pulse"
 	
-	swap_non_generic_missions = yes
+	swap_non_generic_missions = yes # Update missions
+    
 	random_events = {
 		# randomevents.txt
 
