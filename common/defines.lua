@@ -85,7 +85,7 @@ NDiplomacy = {
 	AUTONOMY_WARSCORE_COST_MODIFIER = 0.33,			-- How much autonomy reduces score by (at 1, 50% autonomy = 50% reduction)
 
 
-	NUM_POSSIBLE_RIVALS = 3,
+	NUM_POSSIBLE_RIVALS = 1, 
 	RIVAL_PRESTIGE_BONUS = 0.25,
 	RIVAL_SPY_OFFENCE = 0.25,
 	SPY_NETWORK_DISTANCE_EFFECT = 0.1,			-- Mutiplied by distance between capitals to get penalty

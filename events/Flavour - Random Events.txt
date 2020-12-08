@@ -159,22 +159,51 @@ country_event = {
 		government = monarchy
 		prestige = 2
 		has_regency = no
+		OR = {
+			employed_advisor = {
+				category = ADM
+			}
+			employed_advisor = {
+				category = DIP
+			}
+			employed_advisor = {
+				category = MIL
+			}
+		}
 	}
 
-	mean_time_to_happen = {
-		days = 1
-		
-		modifier = {
-			factor = 2.0
-			luck = yes
-		}
-		modifier = {
-			factor = 2.0
-			statesman = 3		
-		}
-		modifier = {
-			factor = 0.66
-			NOT = { advisor = statesman }
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				1 = {
+					trigger = {
+						employed_advisor = {
+							category = ADM
+						}
+					}
+					modifier = {
+						factor = 3
+						advisor = statesman
+					}
+					set_country_flag = advisor_events_adm
+				}
+				1 = {
+					trigger = {
+						employed_advisor = {
+							category = DIP
+						}
+					}
+					set_country_flag = advisor_events_dip
+				}
+				1 = {
+					trigger = {
+						employed_advisor = {
+							category = MIL
+						}
+					}
+					set_country_flag = advisor_events_mil
+				}
+			}
 		}
 	}
 
@@ -208,6 +237,16 @@ country_event = {
 		add_mil_power = 100
 		add_prestige = 25
 		add_army_tradition = 10
+	}
+    after = {
+		hidden_effect = {
+			trigger_switch = {
+				on_trigger = has_country_flag
+				advisor_events_adm = { clr_country_flag = advisor_events_adm }
+				advisor_events_dip = { clr_country_flag = advisor_events_dip }
+				advisor_events_mil = { clr_country_flag = advisor_events_mil }
+			}
+		}
 	}
 }
 
@@ -3636,24 +3675,60 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		government = theocracy
-		advisor = statesman
+		has_estate = estate_church
+		employed_advisor = {
+			religion = heretic
+		}
 	}
 
-	mean_time_to_happen = {
-		days = 1
-		
-		modifier = {
-			factor = 2.0
-			NOT = { statesman = 1 }
-			NOT = { wwu_innovation_ideas = 2 }
+	immediate = {
+		hidden_effect = {
+			hidden_effect = {
+				random_list = {
+					1 = {
+						trigger = {
+							employed_advisor = {
+								category = ADM
+								religion = heretic
+							}
+						}
+						modifier = {
+							factor = 3
+							advisor = statesman
+						}
+						set_country_flag = advisor_events_adm
+					}
+					1 = {
+						trigger = {
+							employed_advisor = {
+								category = DIP
+								religion = heretic
+							}
+						}
+						set_country_flag = advisor_events_dip
+					}
+					1 = {
+						trigger = {
+							employed_advisor = {
+								category = MIL
+								religion = heretic
+							}
+						}
+						set_country_flag = advisor_events_mil
+					}
+				}
+			}
 		}
-		modifier = {
-			factor = 0.5
-			luck = yes
-		}
-		modifier = {
-			factor = 0.66
-			statesman = 3
+	}
+
+	after = {
+		hidden_effect = {
+			trigger_switch = {
+				on_trigger = has_country_flag
+				advisor_events_adm = { clr_country_flag = advisor_events_adm }
+				advisor_events_dip = { clr_country_flag = advisor_events_dip }
+				advisor_events_mil = { clr_country_flag = advisor_events_mil }
+			}
 		}
 	}
 
@@ -3662,7 +3737,12 @@ country_event = {
         
 		ai_chance = { factor = 40 }
 		reduce_meritocracy_effect = yes
-		remove_advisor = statesman
+		trigger_switch = {
+			on_trigger = has_country_flag
+			advisor_events_adm = { remove_advisor_by_category = ADM }
+			advisor_events_dip = { remove_advisor_by_category = DIP }
+			advisor_events_mil = { remove_advisor_by_category = MIL }
+		}
 		add_estate_clergy_loyalty_effect = yes
 	}
 	option = {

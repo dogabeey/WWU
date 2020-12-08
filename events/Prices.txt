@@ -1,17 +1,17 @@
-namespace = es_trade
+namespace = www_prices
 
 country_event = {
-	id = es_trade.1
-	title = es_trade.1.t
-	desc = es_trade.1.d
-	picture = ES_TRADE_GOODS_eventPicture
-	#goto = root
+	id = www_prices.1
+	title = www_prices.1.t
+	desc = www_prices.1.d
+	picture = www_prices_GOODS_eventPicture
 	
 	major = yes
+    hidden = yes
 
 	trigger = {
-	has_country_flag = trade_control_flag
-	NOT = { has_country_modifier = trade_time }
+        has_country_flag = trade_control_flag
+        NOT = { has_country_modifier = trade_time }
 	}
 	
 	mean_time_to_happen = {
@@ -19,2947 +19,2944 @@ country_event = {
 	}
 	
 	immediate = {
-	hidden_effect = {
-	add_country_modifier = {
-		name = "trade_time"
-		duration = 5475
-		hidden = no
-	}
-	}
+        hidden_effect = {
+            add_country_modifier = {
+                name = "trade_time"
+                duration = 5475
+                hidden = no
+            }
+        }
     }
 	
 	option = {
-		name = es_trade.1.a
-		#log = "es_trade.1.a"
+		name = www_prices.1.a
 		
 		hidden_effect = {
 		
 		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = grain
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = grain
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = grain
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = grain
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = wine
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = wine
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = wine
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = wine
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = wool
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = wool
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = wool
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = wool
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = cloth
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = cloth
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = cloth
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = cloth
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = fish
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fish
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fish
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fish
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = fur
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fur
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fur
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fur
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = salt
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = salt
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = salt
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = salt
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = naval_supplies
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = naval_supplies
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = naval_supplies
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = naval_supplies
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = copper
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = copper
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = copper
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = copper
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = iron
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = iron
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = iron
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = iron
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = slaves
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = slaves
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = slaves
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = slaves
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = ivory
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ivory
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ivory
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ivory
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = tea
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = tea
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = tea
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = tea
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = chinaware
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = chinaware
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = chinaware
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = chinaware
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = spices
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = spices
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = spices
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = spices
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = coffee
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = coffee
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = coffee
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = coffee
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = cotton
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = cotton
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = cotton
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = cotton
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = sugar
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = sugar
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = sugar
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = sugar
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = tobacco
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = tobacco
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = tobacco
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = tobacco
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = cocoa
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = cocoa
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = cocoa
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = cocoa
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = silk
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = silk
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = silk
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = silk
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = dyes
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = dyes
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = dyes
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = dyes
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = tropical_wood
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = tropical_wood
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = tropical_wood
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = tropical_wood
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = ashenvale_lumber
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ashenvale_lumber
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ashenvale_lumber
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ashenvale_lumber
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = lumber
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = lumber
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = lumber
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = lumber
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = kypari
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = kypari
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = kypari
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = kypari
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = oil
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = oil
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = oil
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = oil
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = stone
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = stone
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = stone
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = stone
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = dark_iron
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = dark_iron
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = dark_iron
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = dark_iron
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = saronite
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = saronite
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = saronite
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = saronite
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = mithril
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = mithril
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = mithril
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = mithril
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = thorium
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = thorium
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = thorium
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = thorium
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = fel_iron
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fel_iron
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fel_iron
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fel_iron
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = khorium
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = khorium
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = khorium
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = khorium
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = adamantite
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = adamantite
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = adamantite
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = adamantite
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = titanium
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = titanium
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = titanium
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = titanium
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = elementium
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = elementium
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = elementium
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = elementium
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = ghost_iron
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ghost_iron
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ghost_iron
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ghost_iron
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = gemstones
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = gemstones
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = gemstones
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = gemstones
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = grain_silo
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = grain_silo
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = grain_silo
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = grain_silo
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = ale
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ale
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ale
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = ale
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = runecloth
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = runecloth
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = runecloth
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = runecloth
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = netherweave
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = netherweave
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = netherweave
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = netherweave
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = fossils
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fossils
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fossils
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fossils
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = artifacts
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = artifacts
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = artifacts
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = artifacts
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = crypts
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = crypts
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = crypts
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = crypts
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = smugglers
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = smugglers
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = smugglers
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = smugglers
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = pirates
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = pirates
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = pirates
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = pirates
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = workshops
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = workshops
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = workshops
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = workshops
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = arcane
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = arcane
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = arcane
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = arcane
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = fel
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fel
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fel
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = fel
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = army_supplies
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = army_supplies
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = army_supplies
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = army_supplies
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = mounts
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = mounts
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = mounts
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = mounts
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = flying_mounts
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = flying_mounts
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = flying_mounts
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = flying_mounts
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = warbeasts
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = warbeasts
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = warbeasts
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = warbeasts
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = apexis
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = apexis
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = apexis
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = apexis
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = glowcap
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = glowcap
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = glowcap
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = glowcap
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		random_list = {
-		25 = {
-		change_price = {
-			trade_goods = moonwell
-			key = ANNUAL_TRADE
-			value = 0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = moonwell
-			key = ANNUAL_TRADE
-			value = -0.25
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = moonwell
-			key = ANNUAL_TRADE
-			value = 0.10
-			duration = -1
-		}
-		}
-		25 = {
-		change_price = {
-			trade_goods = moonwell
-			key = ANNUAL_TRADE
-			value = -0.10
-			duration = -1
-		}
-		}
-		}
-		
-		}
-		
-	}
-}
-
-country_event = {
-	id = es_trade.2
-	title = es_trade.2.t
-	desc = es_trade.2.d
-	picture = ES_TRADE_GOODS_eventPicture
-	#goto = root
-	
-	major = yes
-
-	trigger = {
-		has_country_flag = trade_control_flag
-		NOT = { any_country = {
-			has_country_modifier = crisis_time
-		} }
-	}
-	
-	mean_time_to_happen = {
-		months = 1500
-	}
-	
-	immediate = {
-	hidden_effect = {
-	add_country_modifier = {
-		name = "crisis_time"
-		duration = 36500
-		hidden = yes
-	}
-	#if = { limit = { has_global_flag = enable_event_logging } #log = "Global price increase happened" }
-	}
+            25 = {
+                change_price = {
+                    trade_goods = grain
+                    key = PRICE_FLUCTUATION
+                    value = 0.25
+                    duration = -1
+                }
+            }
+            25 = {
+                change_price = {
+                    trade_goods = grain
+                    key = PRICE_FLUCTUATION
+                    value = -0.25
+                    duration = -1
+                }
+            }
+            25 = {
+                change_price = {
+                    trade_goods = grain
+                    key = PRICE_FLUCTUATION
+                    value = 0.10
+                    duration = -1
+                }
+            }
+            25 = {
+                change_price = {
+                    trade_goods = grain
+                    key = PRICE_FLUCTUATION
+                    value = -0.10
+                    duration = -1
+                }
+            }
+        }
+            
+        random_list = {
+            25 = {
+                change_price = {
+                    trade_goods = wine
+                    key = PRICE_FLUCTUATION
+                    value = 0.25
+                    duration = -1
+                }
+            }
+            25 = {
+            change_price = {
+                trade_goods = wine
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = wine
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = wine
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = wool
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = wool
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = wool
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = wool
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = cloth
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = cloth
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = cloth
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = cloth
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = fish
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fish
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fish
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fish
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = fur
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fur
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fur
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fur
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = salt
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = salt
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = salt
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = salt
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = naval_supplies
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = naval_supplies
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = naval_supplies
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = naval_supplies
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = copper
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = copper
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = copper
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = copper
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = iron
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = iron
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = iron
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = iron
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = slaves
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = slaves
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = slaves
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = slaves
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = ivory
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ivory
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ivory
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ivory
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = tea
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = tea
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = tea
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = tea
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = chinaware
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = chinaware
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = chinaware
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = chinaware
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = spices
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = spices
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = spices
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = spices
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = coffee
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = coffee
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = coffee
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = coffee
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = cotton
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = cotton
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = cotton
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = cotton
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = sugar
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = sugar
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = sugar
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = sugar
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = tobacco
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = tobacco
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = tobacco
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = tobacco
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = cocoa
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = cocoa
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = cocoa
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = cocoa
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = silk
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = silk
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = silk
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = silk
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = dyes
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = dyes
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = dyes
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = dyes
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = tropical_wood
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = tropical_wood
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = tropical_wood
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = tropical_wood
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = ashenvale_lumber
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ashenvale_lumber
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ashenvale_lumber
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ashenvale_lumber
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = lumber
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = lumber
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = lumber
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = lumber
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = kypari
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = kypari
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = kypari
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = kypari
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = oil
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = oil
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = oil
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = oil
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = stone
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = stone
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = stone
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = stone
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = dark_iron
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = dark_iron
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = dark_iron
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = dark_iron
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = saronite
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = saronite
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = saronite
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = saronite
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = mithril
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = mithril
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = mithril
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = mithril
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = thorium
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = thorium
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = thorium
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = thorium
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = fel_iron
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fel_iron
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fel_iron
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fel_iron
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = khorium
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = khorium
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = khorium
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = khorium
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = adamantite
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = adamantite
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = adamantite
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = adamantite
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = titanium
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = titanium
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = titanium
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = titanium
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = elementium
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = elementium
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = elementium
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = elementium
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = ghost_iron
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ghost_iron
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ghost_iron
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ghost_iron
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = gemstones
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = gemstones
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = gemstones
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = gemstones
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = grain_silo
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = grain_silo
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = grain_silo
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = grain_silo
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = ale
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ale
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ale
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = ale
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = runecloth
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = runecloth
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = runecloth
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = runecloth
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = netherweave
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = netherweave
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = netherweave
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = netherweave
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = fossils
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fossils
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fossils
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fossils
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = artifacts
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = artifacts
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = artifacts
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = artifacts
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = crypts
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = crypts
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = crypts
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = crypts
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = smugglers
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = smugglers
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = smugglers
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = smugglers
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = pirates
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = pirates
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = pirates
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = pirates
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = workshops
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = workshops
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = workshops
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = workshops
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = arcane
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = arcane
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = arcane
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = arcane
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = fel
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fel
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fel
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = fel
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = army_supplies
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = army_supplies
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = army_supplies
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = army_supplies
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = mounts
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = mounts
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = mounts
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = mounts
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = flying_mounts
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = flying_mounts
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = flying_mounts
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = flying_mounts
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = warbeasts
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = warbeasts
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = warbeasts
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = warbeasts
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = apexis
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = apexis
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = apexis
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = apexis
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = glowcap
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = glowcap
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = glowcap
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = glowcap
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            random_list = {
+            25 = {
+            change_price = {
+                trade_goods = moonwell
+                key = PRICE_FLUCTUATION
+                value = 0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = moonwell
+                key = PRICE_FLUCTUATION
+                value = -0.25
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = moonwell
+                key = PRICE_FLUCTUATION
+                value = 0.10
+                duration = -1
+            }
+            }
+            25 = {
+            change_price = {
+                trade_goods = moonwell
+                key = PRICE_FLUCTUATION
+                value = -0.10
+                duration = -1
+            }
+            }
+            }
+            
+            }
+            
+        }
     }
-	
-	option = {
-		name = es_trade.2.a
-		#log = "es_trade.2.a"
-		
-		hidden_effect = {
-		change_price = {
-			trade_goods = grain
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = wine
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = wool
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = cloth
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = fish
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = fur
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = salt
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = naval_supplies
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = copper
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = iron
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = slaves
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = ivory
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = tea
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = chinaware
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = spices
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = coffee
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = cotton
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = sugar
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = tobacco
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = cocoa
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = silk
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = dyes
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = tropical_wood
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
 
-		change_price = {
-			trade_goods = ashenvale_lumber
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = lumber
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = kypari
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = oil
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = stone
-			key = TRADE_CRISIS
-			value = 0.10
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = dark_iron
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = saronite
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = mithril
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = thorium
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = fel_iron
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = khorium
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = adamantite
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = titanium
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = elementium
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = ghost_iron
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = gemstones
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = grain_silo
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = ale
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = runecloth
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = netherweave
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = fossils
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-	
-		change_price = {
-			trade_goods = artifacts
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = crypts
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = smugglers
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = pirates
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = workshops
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = arcane
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = fel
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-	
-		change_price = {
-			trade_goods = army_supplies
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = mounts
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = flying_mounts
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = warbeasts
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = apexis
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = glowcap
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = moonwell
-			key = TRADE_CRISIS
-			value = -0.25
-			duration = 9125
-		}
-		
-		}
-		
-	}
-}
+    country_event = {
+        id = www_prices.2
+        title = www_prices.2.t
+        desc = www_prices.2.d
+        picture = www_prices_GOODS_eventPicture
+        #goto = root
+        
+        major = yes
 
-country_event = {
-	id = es_trade.4
-	title = es_trade.3.t
-	desc = es_trade.3.d
-	picture = ES_TRADE_GOODS_eventPicture
-	#goto = root
-	
-	major = yes
+        trigger = {
+            has_country_flag = trade_control_flag
+            NOT = { any_country = {
+                has_country_modifier = crisis_time
+            } }
+        }
+        
+        mean_time_to_happen = {
+            months = 1500
+        }
+        
+        immediate = {
+        hidden_effect = {
+        add_country_modifier = {
+            name = "crisis_time"
+            duration = 36500
+            hidden = yes
+        }
+        #if = { limit = { has_global_flag = enable_event_logging } #log = "Global price increase happened" }
+        }
+        }
+        
+        option = {
+            name = www_prices.2.a
+            #log = "www_prices.2.a"
+            
+            hidden_effect = {
+            change_price = {
+                trade_goods = grain
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = wine
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = wool
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = cloth
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = fish
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = fur
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = salt
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = naval_supplies
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = copper
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = iron
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = slaves
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = ivory
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = tea
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = chinaware
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = spices
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = coffee
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = cotton
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = sugar
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = tobacco
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = cocoa
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = silk
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = dyes
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = tropical_wood
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
 
-	trigger = {
-		has_country_flag = trade_control_flag
-		NOT = { any_country = {
-			has_country_modifier = rise_time
-		} }
-	}
-	mean_time_to_happen = {
-		months = 1500
-	}
-	
-	immediate = {
-	hidden_effect = {
-	add_country_modifier = {
-		name = "rise_time"
-		duration = 36500
-		hidden = yes
-	}
-	#if = { limit = { has_global_flag = enable_event_logging } #log = "Global price descrease happened" }
-	}
+            change_price = {
+                trade_goods = ashenvale_lumber
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = lumber
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = kypari
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = oil
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = stone
+                key = TRADE_CRISIS
+                value = 0.10
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = dark_iron
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = saronite
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = mithril
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = thorium
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = fel_iron
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = khorium
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = adamantite
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = titanium
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = elementium
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = ghost_iron
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = gemstones
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = grain_silo
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = ale
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = runecloth
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = netherweave
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = fossils
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+        
+            change_price = {
+                trade_goods = artifacts
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = crypts
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = smugglers
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = pirates
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = workshops
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = arcane
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = fel
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+        
+            change_price = {
+                trade_goods = army_supplies
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = mounts
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = flying_mounts
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = warbeasts
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = apexis
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = glowcap
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = moonwell
+                key = TRADE_CRISIS
+                value = -0.25
+                duration = 9125
+            }
+            
+            }
+            
+        }
     }
-	
-	option = {
-		name = es_trade.3.a
-		#log = "es_trade.3.a"
-		
-		hidden_effect = {
-		change_price = {
-			trade_goods = grain
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
+
+    country_event = {
+        id = www_prices.4
+        title = www_prices.3.t
+        desc = www_prices.3.d
+        picture = www_prices_GOODS_eventPicture
+        #goto = root
+        
+        major = yes
+
+        trigger = {
+            has_country_flag = trade_control_flag
+            NOT = { any_country = {
+                has_country_modifier = rise_time
+            } }
+        }
+        mean_time_to_happen = {
+            months = 1500
+        }
+        
+        immediate = {
+        hidden_effect = {
+        add_country_modifier = {
+            name = "rise_time"
+            duration = 36500
+            hidden = yes
+        }
+        #if = { limit = { has_global_flag = enable_event_logging } #log = "Global price descrease happened" }
+        }
+        }
+        
+        option = {
+            name = www_prices.3.a
+            #log = "www_prices.3.a"
+            
+            hidden_effect = {
+            change_price = {
+                trade_goods = grain
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            
+            change_price = {
+                trade_goods = wine
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = wool
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = cloth
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = fish
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = fur
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = salt
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = naval_supplies
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = copper
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = iron
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = slaves
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = ivory
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = tea
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = chinaware
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = spices
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = coffee
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = cotton
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = sugar
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = tobacco
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = cocoa
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = silk
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = dyes
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = tropical_wood
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = ashenvale_lumber
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = lumber
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = kypari
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = oil
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = stone
+                key = TRADE_RISE
+                value = 0.10
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = dark_iron
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = saronite
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = mithril
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = thorium
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = fel_iron
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = khorium
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = adamantite
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = titanium
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = elementium
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = ghost_iron
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = gemstones
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = grain_silo
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = ale
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = runecloth
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = netherweave
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = fossils
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+        
+            change_price = {
+                trade_goods = artifacts
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = crypts
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = smugglers
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = pirates
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = workshops
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = arcane
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = fel
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+        
+            change_price = {
+                trade_goods = army_supplies
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = mounts
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = flying_mounts
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = warbeasts
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = apexis
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = glowcap
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
+            
+            change_price = {
+                trade_goods = moonwell
+                key = TRADE_RISE
+                value = 0.25
+                duration = 9125
+            }
 		}
-		
-		
-		change_price = {
-			trade_goods = wine
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = wool
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = cloth
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = fish
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = fur
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = salt
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = naval_supplies
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = copper
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = iron
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = slaves
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = ivory
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = tea
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = chinaware
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = spices
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = coffee
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = cotton
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = sugar
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = tobacco
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = cocoa
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = silk
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = dyes
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = tropical_wood
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = ashenvale_lumber
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = lumber
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = kypari
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = oil
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = stone
-			key = TRADE_RISE
-			value = 0.10
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = dark_iron
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = saronite
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = mithril
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = thorium
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = fel_iron
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = khorium
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = adamantite
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = titanium
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = elementium
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = ghost_iron
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = gemstones
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = grain_silo
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = ale
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = runecloth
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = netherweave
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = fossils
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-	
-		change_price = {
-			trade_goods = artifacts
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = crypts
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = smugglers
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = pirates
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = workshops
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = arcane
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = fel
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-	
-		change_price = {
-			trade_goods = army_supplies
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = mounts
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = flying_mounts
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = warbeasts
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = apexis
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = glowcap
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		change_price = {
-			trade_goods = moonwell
-			key = TRADE_RISE
-			value = 0.25
-			duration = 9125
-		}
-		
-		}
-		
 	}
 }

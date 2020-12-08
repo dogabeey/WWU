@@ -9,10 +9,17 @@ country_decisions = {
 			capital_scope = { continent = continent_eastern_kingdoms }
 			
 		}
+        provinces_to_highlight = {
+			region = region_dustwallow_marsh
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
 		allow = {
 			capital_scope = { region = region_dustwallow_marsh }
 		    owns_core_province = 1456 #Theramore Isle
-			NOT = { exists = A23}
+			NOT = { exists = A23 }
 			is_at_war = no		
 		}
 		effect = {
@@ -39,11 +46,17 @@ country_decisions = {
 	found_orgrimmar = {
 		major = yes
 		potential = {
-			
 			NOT = { exists = A48 }
 			culture_group = culture_group_orc
 			is_colonial_nation = no
 			capital_scope = { continent = continent_kalimdor }
+		}
+        provinces_to_highlight = {
+			region = region_durotar
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
 		}
 		allow = {
 			capital_scope = { region = region_durotar }
@@ -103,11 +116,17 @@ country_decisions = {
 	found_thunder_bluff = {
 		major = yes
 		potential = {
-			
 			NOT = { exists = F88 }
 			culture_group = culture_group_tauren
 			is_colonial_nation = no
 			capital_scope = { continent = continent_kalimdor }
+		}
+        provinces_to_highlight = {
+			province_id = 1473
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
 		}
 		allow = {
 			owns_core_province = 1473
@@ -167,7 +186,6 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			
 			NOT = { exists = U01 } # Frostmane Empire
 			primary_culture = culture_frostmane
 			is_colonial_nation = no
@@ -176,7 +194,13 @@ country_decisions = {
 				region = region_dun_morogh 
 			}
 		}
-		
+		provinces_to_highlight = {
+			region = region_dun_morogh
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
 		allow = {
             region_dun_morogh = {
                 owned_by = ROOT
@@ -218,12 +242,22 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			
 			NOT = { exists = U02 } 
 			culture_group = culture_group_aqir
 			is_colonial_nation = no
 		}
-		
+		provinces_to_highlight = {
+			OR = {
+                region = region_silithus
+                region = region_ungoro_crater
+                region = region_tanaris
+                region = region_uldum
+            }
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
 		allow = {
             region_silithus = {
                 owned_by = ROOT
@@ -275,7 +309,6 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			
 			NOT = { exists = A56 }
 			NOT = { is_at_war = yes }
 			NOT = { has_global_flag = exodar_escaped }
@@ -285,6 +318,13 @@ country_decisions = {
 					NOT = { exists = A54 }
 					culture_group = culture_group_draenei
 				}
+			}
+		}
+        provinces_to_highlight = {
+			province_id = 1717
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
 			}
 		}
 		allow = {
@@ -354,6 +394,13 @@ country_decisions = {
 			NOT = { exists = A94 }
 			culture_group = culture_group_darnassian
 		}
+        provinces_to_highlight = {
+			region = region_teldrassil
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
 		allow = {
 			is_at_war = no		
 			region_teldrassil = {
@@ -381,7 +428,6 @@ country_decisions = {
 	form_empire_of_arathor = {
 		major = yes
 		potential = {
-			
 			NOT = { exists = FNA }
 			culture_group = culture_group_human
 		}
@@ -391,7 +437,6 @@ country_decisions = {
 			prestige = 95
 			dip = 3
 			dip_power = 500
-			
 		}
 		effect = {
 			add_prestige = 5
@@ -414,15 +459,20 @@ country_decisions = {
 	}
 	form_gurubashi_empire = {
 		potential = {
-			
 			culture_group = culture_group_jungle_troll
 			NOT = { exists = FNG }
 		}
+        provinces_to_highlight = {
+			region = region_stranglethorn_vale
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
 		allow = {
-			all_province = {
-				region = region_stranglethorn_vale
+            region_stranglethorn_vale = {
 				owned_by = ROOT
-			}	
+			}
 			NOT = { is_non_faction_subject = yes }
 			is_at_war = no
 			prestige = 25
@@ -441,8 +491,8 @@ country_decisions = {
 	}
 	form_defias_brotherhood = {
 		major = yes
+        
 		potential = {
-			
 			NOT = { exists = A07 }
 			religion = religion_shadow
 			primary_culture = culture_azerothian
@@ -471,9 +521,15 @@ country_decisions = {
 	form_centaur_khanate = {
 		major = yes
 		potential = {
-			
 			NOT = { exists = CTR }
 			culture_group = culture_group_centaur
+		}
+        provinces_to_highlight = {
+			region = region_desolace
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
 		}
 		allow = {
 			is_at_war = no		
@@ -507,10 +563,17 @@ country_decisions = {
 	
 	form_nerubian_empire = {
 		major = yes
+        
 		potential = {
-			
 			NOT = { exists = NRE }
 			culture_group = culture_group_nerubian
+		}
+        provinces_to_highlight = {
+			region = region_icecrown
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
 		}
 		allow = {
 			is_at_war = no		
@@ -543,10 +606,17 @@ country_decisions = {
 	
 	form_drakkari_empire = {
 		major = yes
+        
 		potential = {
-			
 			NOT = { exists = DRE }
 			culture_group = culture_group_ice_troll
+		}
+        provinces_to_highlight = {
+			region = region_zuldrak
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
 		}
 		allow = {
 			is_at_war = no		
@@ -578,10 +648,17 @@ country_decisions = {
 	
 	form_gorian_empire = {
 		major = yes
+        
 		potential = {
-			
 			NOT = { exists = OGR }
 			culture_group = culture_group_ogre
+		}
+        provinces_to_highlight = {
+			region = region_nagrand
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
 		}
 		allow = {
 			is_at_war = no		
@@ -613,10 +690,17 @@ country_decisions = {
 	
 	form_apexis_empire = {
 		major = yes
+        
 		potential = {
-			
 			NOT = { exists = APX }
 			culture_group = culture_group_arrakoa
+		}
+        provinces_to_highlight = {
+			region = region_terokkar_forest
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
 		}
 		allow = {
 			is_at_war = no		
@@ -648,10 +732,20 @@ country_decisions = {
 	
 	form_amani_empire = {
 		major = yes
+        
 		potential = {
-			
 			NOT = { exists = AME }
 			culture_group = culture_group_forest_troll
+		}
+        provinces_to_highlight = {
+			OR = {
+                region = region_eversong_woods
+                region = region_ghostlands
+            }
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
 		}
 		allow = {
 			is_at_war = no		

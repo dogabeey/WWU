@@ -10,7 +10,22 @@ integrate_same_culture = {
 	require_acceptance = no # Whether the recipient gets an option to decline
 	
 	is_visible = {
-		always = yes
+		is_subject = no
+		NOT = { has_reform = remnants_monarchy_reform }
+        NOT = { has_reform = remnants_republic_reform }
+        NOT = { has_reform = remnants_theocracy_reform }
+        NOT = { has_reform = remnants_tribe_reform }
+		FROM = {
+			is_neighbor_of = ROOT
+			primary_culture = ROOT
+			NOT = { has_country_flag = being_inherited }
+			OR = {
+                has_reform = remnants_monarchy_reform
+                has_reform = remnants_republic_reform
+                has_reform = remnants_theocracy_reform
+                has_reform = remnants_tribe_reform
+            }
+		}
 	}
 	is_allowed = {
 		is_subject = no
