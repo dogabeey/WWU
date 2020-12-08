@@ -344,3 +344,369 @@ defined_text = {
         }
     }
 }
+
+defined_text = {
+	name = GetUsableName
+	random = no
+	
+	# text = {
+		# localisation_key = plural_country_name
+	# }
+
+	text = {
+		localisation_key = already_has_proper_name
+	}
+}
+
+defined_text = {
+	name = GetUsableNameCap
+	random = no
+	
+	# text = {
+		# localisation_key = plural_country_name_CAP
+	# }
+
+	text = {
+		localisation_key = already_has_proper_name
+	}
+}
+
+defined_text = {
+	name = GetNoblemenPoliticians
+
+	text = {
+		localisation_key = string_noblemen
+		trigger = {
+			NOT = { government = republic }
+			NOT = { government = theocracy }
+			NOT = {
+				has_parliament = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = string_politicians
+		trigger = {
+			OR = {
+				has_parliament = yes
+				government = republic
+			}
+		}
+	}
+	text = {
+		 localisation_key = string_clergymen
+		trigger = {
+			government = theocracy
+			NOT = {
+				has_parliament = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetNobilityPoliticians
+
+	text = {
+		localisation_key = string_members_nobility
+		trigger = {
+			NOT = { government = republic }
+			NOT = { government = theocracy }
+			NOT = {
+				has_parliament = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = string_politicians
+		trigger = {
+			OR = {
+				has_parliament = yes
+				government = republic
+			}
+		}
+	}
+	text = {
+		 localisation_key = string_clergy_members
+		trigger = {
+			government = theocracy
+			NOT = {
+				has_parliament = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetRulerAdjAndTitle
+
+	text = {
+		localisation_key = string_ruler_adj_and_title
+		trigger = {
+			has_regency = no
+		}
+	}
+	text = {
+		localisation_key = string_adj_and_regency_council
+		trigger = {
+			has_regency = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetRulerTitleOrRegency
+
+	text = {
+		localisation_key = string_ruler_title
+		trigger = {
+			has_regency = no
+		}
+	}
+	text = {
+		localisation_key = string_regency_council_2
+		trigger = {
+			has_regency = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetRulerTitleAndNameOrRegency
+
+	text = {
+		localisation_key = string_ruler_title_and_name
+		trigger = {
+			has_regency = no
+		}
+	}
+	text = {
+		localisation_key = string_regency_council_no_cap
+		trigger = {
+			has_regency = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetRulerTitleAndNameOrRegencyCap
+
+	text = {
+		localisation_key = string_ruler_title_and_name
+		trigger = {
+			has_regency = no
+		}
+	}
+	text = {
+		localisation_key = string_regency_council
+		trigger = {
+			has_regency = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetTier2GovernmentType
+
+	text = {
+		localisation_key = string_republic
+		trigger = {
+			government = republic
+		}
+	}
+	text = {
+		localisation_key = string_kingdom
+		trigger = {
+			government = monarchy
+		}
+	}
+	text = {
+		localisation_key = string_theocratic_state
+		trigger = {
+			government = theocracy
+		}
+	}
+}
+
+defined_text = {
+	name = GetEventAdvisorName
+	random = no
+	
+	text = {
+		localisation_key = EventAdvisorName.A
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorName.D
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorName.M
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+defined_text = {
+	name = GetEventAdvisorTitle
+	random = no
+	
+	text = {
+		localisation_key = EventAdvisorTitle.A
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorTitle.D
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorTitle.M
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+defined_text = {
+	name = GetEventAdvisorSheHeCap
+	random = no
+	
+	text = {
+		localisation_key = EventAdvisorSheHeCap.A
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorSheHeCap.D
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorSheHeCap.M
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+defined_text = {
+	name = GetEventAdvisorSheHe
+	random = no
+	
+	text = {
+		localisation_key = EventAdvisorSheHe.A
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorSheHe.D
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorSheHe.M
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+defined_text = {
+	name = GetEventAdvisorHerHisCap
+	random = no
+	
+	text = {
+		localisation_key = EventAdvisorHerHisCap.A
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorHerHisCap.D
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorHerHisCap.M
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+defined_text = {
+	name = GetEventAdvisorHerHis
+	random = no
+	
+	text = {
+		localisation_key = EventAdvisorHerHis.A
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorHerHis.D
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorHerHis.M
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+defined_text = {
+	name = GetEventAdvisorHerHim
+	random = no
+	
+	text = {
+		localisation_key = EventAdvisorHerHim.A
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorHerHim.D
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	
+	text = {
+		localisation_key = EventAdvisorHerHim.M
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
