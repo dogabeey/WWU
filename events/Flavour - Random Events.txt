@@ -1,12 +1,11 @@
-#########################################################
-#		Gift to the state								#
-#########################################################
+namespace = wwu_random_events
+
+# "Gift to the State"
 country_event = {
-	id = 5008
-	title = "EVTNAME5008"
-	desc = "EVTDESC5008"
+	id = wwu_random_events.1
+	title = wwu_random_events.1.title
+	desc = wwu_random_events.1.desc
 	picture = ECONOMY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 
@@ -24,8 +23,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5008"
-		#log = "EVTOPTA5008"		# Put into the treasury
+		name = wwu_random_events.1.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -36,16 +35,16 @@ country_event = {
 		add_years_of_income = 0.2
 	}
 	option = {
-		name = "EVTOPTB5008"
-		#log = "EVTOPTB5008"		# Gain prestige
+		name = wwu_random_events.1.option.b
+        
 		ai_chance = {
 			factor = 45
 		}
 		add_prestige = 10
 	}
 	option = {
-		name = "personality_options.5008.c"
-		#log = "personality_options.5008.c" #I'm sure I know some more people who can contribute
+		name = wwu_random_events.1.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = well_connected_personality
@@ -58,8 +57,8 @@ country_event = {
 		add_prestige = 10
 	}
 	option = {
-		name = "personality_options.5008.dd"
-		#log = "personality_options.5008.dd" #We could probably make even more out of this.
+		name = wwu_random_events.1.option.d
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = embezzler_personality
@@ -71,8 +70,8 @@ country_event = {
 		add_years_of_income = 0.35
 	}
 	option = {
-		name = "personality_options.5008.e"
-		#log = "personality_options.5008.e" #Donate it to the poor
+		name = wwu_random_events.1.option.e
+
 		highlight = yes
 		trigger = {
 			OR = {
@@ -89,19 +88,15 @@ country_event = {
 	}
 }
 
-
-
-#########################################################
-#		Temporary insanity of Monarch	  				#
-#########################################################
+# "Temporary Insanity of Monarch"
 country_event = {
-	id = 5014
-	title = "EVTNAME5014"
-	desc = "EVTDESC5014"
+	id = wwu_random_events.2
+	title = wwu_random_events.2.title
+	desc = wwu_random_events.2.desc
 	picture = COURT_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
+    
 	trigger = {
 		government = monarchy
 		NOT = { adm = 2 }
@@ -110,7 +105,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -123,8 +118,8 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA5014"
-		#log = "EVTOPTA5014"		# Request military guidance.
+		name = wwu_random_events.2.option.a
+        
 		ai_chance = { factor = 55 }
 		add_prestige = -10
 		add_years_of_income = -0.1
@@ -132,16 +127,16 @@ country_event = {
 		add_navy_tradition = 5
 	}
 	option = {
-		name = "EVTOPTB5014"
-		#log = "EVTOPTB5014"		# Request administrative guidance.
+		name = wwu_random_events.2.option.b
+        
 		ai_chance = { factor = 45 }
 		add_prestige = -10
 		add_years_of_income = -0.1
 		add_adm_power = 25
 	}
 	option = {
-		name = "personality_options.5014.c"
-		#log = "personality_options.5014.c"		# Luckily we're surrounded by people we can trust.
+		name = wwu_random_events.2.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = well_advised_personality
@@ -152,16 +147,12 @@ country_event = {
 	}
 }
 
-
-#########################################################
-#		Excellent minister		  						#
-#########################################################
+# "Excellent Advisor"
 country_event = {
-	id = 5015
-	title = "EVTNAME5015"
-	desc = "EVTDESC5015"
+	id = wwu_random_events.3
+	title = wwu_random_events.3.title
+	desc = wwu_random_events.3.desc
 	picture = ADVISOR_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -171,7 +162,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -188,36 +179,25 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5015"
-		#log = "EVTOPTA5015"		# Reap the administrative benefits
+		name = wwu_random_events.3.option.a
+        
 		ai_chance = { factor = 55 }
-		if = {
-			limit = { 
-				OR = {
-					NOT = { has_dlc = "Dharma" } 
-					has_completed_all_reforms_trigger = yes
-					primitives = yes
-				}
-			}
-			add_stability_or_adm_power = yes
-		}
-		else = {
-			add_reform_progress_small_effect = yes
-		}
+        
+		add_reform_progress_small_effect = yes
 		add_prestige = 25
 		add_adm_power = 40
 	}
 	option = {
-		name = "EVTOPTB5015"
-		#log = "EVTOPTB5015"		# Reap the military benefits
+		name = wwu_random_events.3.option.b
+        
 		ai_chance = { factor = 45 }
 		add_army_tradition = 10
 		add_navy_tradition = 10
 		add_mil_power = 100
 	}
 	option = {
-		name = "personality_options.5015.c"
-		#log = "personality_options.5015.c" # Let us extend his responsibilities
+		name = wwu_random_events.3.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = well_advised_personality
@@ -231,15 +211,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Scandal at the Court		  					#
-#########################################################
+# "Scandal at the Court"
 country_event = {
-	id = 5017
-	title = "EVTNAME5017"
-	desc = "EVTDESC5017"
+	id = wwu_random_events.4
+	title = wwu_random_events.4.title
+	desc = wwu_random_events.4.desc
 	picture = COURT_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -247,7 +224,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 0.5
@@ -267,8 +244,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5017"
-		#log = "EVTOPTA5017"		# Take the blame and move on.
+		name = wwu_random_events.4.option.a
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -294,8 +271,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5017"
-		#log = "EVTOPTB5017"		# Bribe an advisor to take the blame.
+		name = wwu_random_events.4.option.b
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -309,8 +286,8 @@ country_event = {
 		add_years_of_income = -0.2
 	}
 	option = {
-		name = "personality_options.5017.c"
-		#log = "personality_options.5017.c" #Don't Panic!
+		name = wwu_random_events.4.option.c
+        
 		ai_chance = { factor = 100 }
 		highlight = yes
 		trigger = {
@@ -320,8 +297,8 @@ country_event = {
 		add_prestige = -10
 	}
 	option = {
-		name = "personality_options.5017.dd"
-		#log = "personality_options.5017.dd" #Attempt to lessen the impact
+		name = wwu_random_events.4.option.d
+        
 		ai_chance = { factor = 100 }
 		highlight = yes
 		trigger = {
@@ -331,8 +308,8 @@ country_event = {
 		add_dip_power = -25
 	}
 	option = {
-		name = "personality_options.5017.e"
-		#log = "personality_options.5017.e" #It was their fault all along.
+		name = wwu_random_events.4.option.e
+        
 		ai_chance = { factor = 100 }
 		highlight = yes
 		trigger = {
@@ -343,15 +320,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Exceptional year								#
-#########################################################
+# "Exceptional Year" - Entrepreneur
 country_event = {
-	id = 5019
-	title = "EVTNAME5019"
-	desc = "EVTDESC5019"
+	id = wwu_random_events.5
+	title = wwu_random_events.5.title
+	desc = wwu_random_events.5.desc
 	picture = TRADEGOODS_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -370,7 +344,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -395,8 +369,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5019"
-		#log = "EVTOPTA5019"		# Collect the benefits over time
+		name = wwu_random_events.5.option.a
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -410,8 +384,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5019"
-		#log = "EVTOPTB5019"		# Take advantage of the benefits at once
+		name = wwu_random_events.5.option.b
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -422,8 +396,8 @@ country_event = {
 		add_years_of_income = 0.1
 	}
 	option = {
-		name = "personality_options.5019.c"
-		#log = "personality_options.5019.c" #Invest the money in new projects
+		name = wwu_random_events.5.option.c
+        
 		highlight = yes
 		trigger = {
 			OR = {
@@ -471,13 +445,12 @@ country_event = {
 	}
 }
 
-# Exceptional Year
+# "Exceptional Year" - Embezzler + Entrepreneur
 country_event = {
-	id = 5020
-	title = "EVTNAME5019"
-	desc = "EVTDESC5019"
+	id = wwu_random_events.6
+	title = wwu_random_events.6.title
+	desc = wwu_random_events.6.desc
 	picture = ECONOMY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -496,7 +469,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -513,8 +486,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5019"
-		#log = "EVTOPTA5019"		# Collect the benefits over time
+		name = wwu_random_events.6.option.a
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -528,8 +501,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5019.dd"
-		#log = "personality_options.5019.dd"		# Divert even more funds to the central treasury
+		name = wwu_random_events.6.option.b
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = embezzler_personality
@@ -538,8 +511,8 @@ country_event = {
 		add_years_of_income = 0.15
 	}
 	option = {
-		name = "personality_options.5019.c"
-		#log = "personality_options.5019.c" #Invest the money in new projects
+		name = wwu_random_events.6.option.c
+        
 		highlight = yes
 		trigger = {
 			OR = {
@@ -587,13 +560,12 @@ country_event = {
 	}
 }
 
-# Exceptional Year
+# "Exceptional Year" - Over Time + Embezzler + Entrepreneur
 country_event = {
-	id = 5021
-	title = "EVTNAME5019"
-	desc = "EVTDESC5019"
+	id = wwu_random_events.7
+	title = wwu_random_events.7.title
+	desc = wwu_random_events.7.desc
 	picture = ECONOMY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -611,7 +583,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -628,8 +600,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5019"
-		#log = "EVTOPTA5019"		# Collect the benefits over time
+		name = wwu_random_events.7.option.a
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -643,8 +615,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5019"
-		#log = "EVTOPTB5019"		# Take advantage of the benefits at once
+		name = wwu_random_events.7.option.b
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -655,8 +627,8 @@ country_event = {
 		add_years_of_income = 0.05
 	}
 	option = {
-		name = "personality_options.5019.dd"
-		#log = "personality_options.5019.dd"		# Divert even more funds to the central treasury
+		name = wwu_random_events.7.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = embezzler_personality
@@ -665,8 +637,8 @@ country_event = {
 		add_years_of_income = 0.10
 	}
 	option = {
-		name = "personality_options.5019.c"
-		#log = "personality_options.5019.c" #Invest the money in new projects
+		name = wwu_random_events.7.option.d
+        
 		highlight = yes
 		trigger = {
 			OR = {
@@ -714,15 +686,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Rush of colonists								#
-#########################################################
+# "Rush of Colonists"
 country_event = {
-	id = 5022
-	title = "EVTNAME5022"
-	desc = "EVTDESC5022"
+	id = wwu_random_events.8
+	title = wwu_random_events.8.title
+	desc = wwu_random_events.8.desc
 	picture = COLONIZATION_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -732,7 +701,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -749,8 +718,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5022"
-		#log = "EVTOPTA5022"		# Gain extra colonists
+		name = wwu_random_events.8.option.a
+        
 		ai_chance = { factor = 45 }	
 		add_country_modifier = {
 			name = "colonial_enthusiasm"
@@ -758,8 +727,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5022"
-		#log = "EVTOPTB5022"		# Receive monetary benefits
+		name = wwu_random_events.8.option.b
+        
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "monetary_benefits"
@@ -767,8 +736,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5022.c"
-		#log = "personality_options.5022.c"		# Gain more extra colonists
+		name = wwu_random_events.8.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = expansionist_personality
@@ -783,15 +752,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Rush of merchants								#
-#########################################################
+# "Rush of Merchants"
 country_event = {
-	id = 5023
-	title = "EVTNAME5023"
-	desc = "EVTDESC5023"
+	id = wwu_random_events.9
+	title = wwu_random_events.9.title
+	desc = wwu_random_events.9.desc
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -805,7 +771,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -823,8 +789,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5023"
-		#log = "EVTOPTA5023" # Gain extra merchants
+		name = wwu_random_events.9.option.a
+        
 		ai_chance = { factor = 45 }	
 		add_country_modifier = {
 			name = rush_of_merchants
@@ -832,8 +798,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5023"
-		#log = "EVTOPTB5023" # Receive monetary benefits
+		name = wwu_random_events.9.option.b
+        
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "monetary_benefits"
@@ -841,8 +807,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5023.c"
-		#log = "personality_options.5023.c" # Let us see if we can negotiate good terms for them
+		name = wwu_random_events.9.option.c
+        
 		ai_chance = { factor = 100 }
 		highlight = yes
 		trigger = {
@@ -855,8 +821,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5023.dd"
-		#log = "personality_options.5023.dd" # We can support them by investing in better ships
+		name = wwu_random_events.9.option.d
+        
 		ai_chance = { factor = 100 }
 		highlight = yes
 		trigger = {
@@ -870,17 +836,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Diplomatic event		  						#
-#########################################################
-
-# Diplomatic move
+# "Diplomatic Move"
 country_event = {
-	id = 5024
-	title = "EVTNAME5024"
-	desc = "EVTDESC5024"
+	id = wwu_random_events.10
+	title = wwu_random_events.10.title
+	desc = wwu_random_events.10.desc
 	picture = DIPLOMACY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -888,7 +849,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -901,14 +862,14 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5024"
-		#log = "EVTOPTA5024" # Appoint new diplomats
+		name = wwu_random_events.10.option.a
+        
 		ai_chance = { factor = 60 }
 		add_dip_power = 30
 	}	
 	option = {
-		name = "EVTOPTB5024"
-		#log = "EVTOPTB5024" # Improve relations with neighboring states
+		name = wwu_random_events.10.option.b
+        
 		ai_chance = { factor = 40 }
 		trigger = {
 			any_known_country = {
@@ -922,8 +883,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5024.c"
-		#log = "personality_options.5024.c" # Nothing is really beyond my control!
+		name = wwu_random_events.10.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = charismatic_negotiator_personality
@@ -933,8 +894,8 @@ country_event = {
 		add_dip_power = 50
 	}
 	option = {
-		name = "personality_options.5024.dd"
-		#log = "personality_options.5024.dd" # We are a diplomatic superpower!
+		name = wwu_random_events.10.option.d
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = charismatic_negotiator_personality
@@ -952,21 +913,21 @@ country_event = {
 	}
 }
 
-# Excellent Diplomacy
+# "Excellent Diplomacy"
 country_event = {
-	id = 5025
-	title = "EVTNAME5025"
-	desc = "EVTDESC5025"
+	id = wwu_random_events.11
+	title = wwu_random_events.11.title
+	desc = wwu_random_events.11.desc
 	picture = DIPLOMACY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
+    
 	trigger = {
 		diplomat = 2
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -983,24 +944,24 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5025"
-		#log = "EVTOPTA5025"		# Bask in the Glory
+		name = wwu_random_events.11.option.a
+        
 		ai_chance = {
 			factor = 25
 		}
 		add_prestige = 10
 	}
 	option = {
-		name = "EVTOPTB5025"
-		#log = "EVTOPTB5025"		# Improve our Reputation
+		name = wwu_random_events.11.option.b
+        
 		ai_chance = {
 			factor = 75
 		}
 		add_dip_power = 25
 	}
 	option = {
-		name = "personality_options.5025.c"
-		#log = "personality_options.5025.c"		# 
+		name = wwu_random_events.11.option.c
+        
 		highlight = yes
 		trigger = {
 			OR = {
@@ -1021,17 +982,12 @@ country_event = {
 	}
 }
 
-
-#########################################################
-#		Reformation of the Army 					  	#
-#########################################################
-
+# "Reformation of the Army"
 country_event = {
-	id = 5027
-	title = "EVTNAME5027"
-	desc = "EVTDESC5027"
+	id = wwu_random_events.12
+	title = wwu_random_events.12.title
+	desc = wwu_random_events.12.desc
 	picture = REFORM_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -1039,7 +995,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -1057,14 +1013,14 @@ country_event = {
 
 
 	option = {
-		name = "EVTOPTA5027"
-		#log = "EVTOPTA5027"		# Invest in army technology
+		name = wwu_random_events.12.option.a
+        
 		ai_chance = { factor = 55 }
 		add_mil_power = 50
 	}
 	option = {
-		name = "EVTOPTB5027"
-		#log = "EVTOPTB5027"		# Improve our existing military
+		name = wwu_random_events.12.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -1079,8 +1035,8 @@ country_event = {
 		add_army_tradition = 20
 	}
 	option = {
-		name = "personality_options.5027.c"
-		#log = "personality_options.5027.c"		# Let's go with a more ambitious program for our officers.
+		name = wwu_random_events.12.option.c
+        
 		ai_chance = { factor = 100 }
 		highlight = yes
 		trigger = {
@@ -1090,8 +1046,8 @@ country_event = {
 		add_army_tradition = 35
 	}
 	option = {
-		name = "personality_options.5027.dd"
-		#log = "personality_options.5027.dd"		# Technology is the future
+		name = wwu_random_events.12.option.d
+        
 		ai_chance = { factor = 100 }
 		highlight = yes
 		trigger = {
@@ -1106,16 +1062,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Reformation of the Navy 					  	#
-#########################################################
-
+# "Reformation of the Navy"
 country_event = {
-	id = 5032
-	title = "EVTNAME5032"
-	desc = "EVTDESC5032"
+	id = wwu_random_events.13
+	title = wwu_random_events.13.title
+	desc = wwu_random_events.13.desc
 	picture = REFORM_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -1125,7 +1077,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -1142,14 +1094,14 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5032"
-		#log = "EVTOPTA5032"		# Invest in naval technology
+		name = wwu_random_events.13.option.a
+        
 		ai_chance = { factor = 55 }
 		add_dip_power = 50
 	}
 	option = {
-		name = "EVTOPTB5032"
-		#log = "EVTOPTB5032"		# Improve our existing navy
+		name = wwu_random_events.13.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -1161,8 +1113,8 @@ country_event = {
 		add_yearly_sailors = 1
 	}
 	option = {
-		name = "personality_options.5027.c"
-		#log = "personality_options.5027.c"		# Let's go with a more ambitious program for our officers.
+		name = wwu_random_events.13.option.c
+        
 		ai_chance = { factor = 100 }
 		highlight = yes
 		trigger = {
@@ -1173,8 +1125,8 @@ country_event = {
 		add_yearly_sailors = 1.5
 	}
 	option = {
-		name = "personality_options.5027.dd"
-		#log = "personality_options.5027.dd"		# Technology is the future
+		name = wwu_random_events.13.option.d
+        
 		ai_chance = { factor = 100 }
 		highlight = yes
 		trigger = {
@@ -1185,17 +1137,12 @@ country_event = {
 	}
 }
 
-
-#########################################################
-#		Good government policies					  	#
-#########################################################
-
+# "Good Government Policies"
 country_event = {
-	id = 5040
-	title = "EVTNAME5040"
-	desc = "EVTDESC5040"
+	id = wwu_random_events.14
+	title = wwu_random_events.14.title
+	desc = wwu_random_events.14.desc
 	picture = REFORM_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -1203,7 +1150,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -1216,8 +1163,8 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA5040"
-		#log = "EVTOPTA5040"		# Use the money to bring stability to our nation
+		name = wwu_random_events.14.option.a
+        
 		ai_chance = {
 			factor = 40
 			modifier = {
@@ -1228,8 +1175,8 @@ country_event = {
 		add_stability_or_adm_power = yes
 	}
 	option = {
-		name = "EVTOPTB5040"
-		#log = "EVTOPTB5040"		# Invest the money in our government
+		name = wwu_random_events.14.option.b
+        
 		ai_chance = { factor = 30 }
 		if = {
 			limit = { 
@@ -1248,8 +1195,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTC5040"
-		#log = "EVTOPTC5040"		# Let's fill our treasury while we have their support
+		name = wwu_random_events.14.option.c
+        
 		ai_chance = {
 			factor = 30
 			modifier = {
@@ -1260,8 +1207,8 @@ country_event = {
 		add_years_of_income = 0.20
 	}
 	option = {
-		name = "personality_options.5040.a"
-		#log = "personality_options.5040.a"		# Root out the corruption in our government
+		name = wwu_random_events.14.option.d
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = incorruptible_personality
@@ -1271,8 +1218,8 @@ country_event = {
 		add_corruption = -1
 	}
 	option = {
-		name = "personality_options.5040.b"
-		#log = "personality_options.5040.b"		# Improve the Officer Curriculum
+		name = wwu_random_events.14.option.e
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = martial_educator_personality
@@ -1282,8 +1229,8 @@ country_event = {
 		
 	}
 	option = {
-		name = "personality_options.5040.c"
-		#log = "personality_options.5040.c"		# Allow monarch to hold a grand feast
+		name = wwu_random_events.14.option.f
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = drunkard_personality
@@ -1311,8 +1258,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5040.d"
-		#log = "personality_options.5040.d"		# Allow Monarch to find more ways to diver funds
+		name = wwu_random_events.14.option.g
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = embezzler_personality
@@ -1321,8 +1268,8 @@ country_event = {
 		add_years_of_income = -0.25
 	}
 	option = {
-		name = "personality_options.5040.e"
-		#log = "personality_options.5040.e"		# This is perfect for a little project of mine...
+		name = wwu_random_events.14.option.h
+        
 		highlight = yes
 		trigger = { ruler_has_personality = obsessive_perfectionist_personality }
 		required_personality = obsessive_perfectionist_personality
@@ -1330,17 +1277,12 @@ country_event = {
 	}
 }
 
-
-#########################################################
-#		Poor government policies	 				 	#
-#########################################################
-
+# "Poor Government Policies"
 country_event = {
-	id = 5045
-	title = "EVTNAME5045"
-	desc = "EVTDESC5045"
+	id = wwu_random_events.15
+	title = wwu_random_events.15.title
+	desc = wwu_random_events.15.desc
 	picture = REFORM_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -1348,7 +1290,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2
@@ -1361,8 +1303,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5045"
-		#log = "EVTOPTA5045"		# We have chosen the right path
+		name = wwu_random_events.15.option.a
+        
 		ai_chance = {
 			factor = 5
 			modifier = {
@@ -1384,8 +1326,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5045"
-		#log = "EVTOPTB5045"		# Attempt to improve the situation
+		name = wwu_random_events.15.option.b
+        
 		ai_chance = {
 			factor = 5
 			modifier = {
@@ -1407,8 +1349,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5045.a"
-		#log = "personality_options.5045.a"		# The fault lies with others
+		name = wwu_random_events.15.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = naive_personality }
 		required_personality = naive_personality
@@ -1416,15 +1358,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Unhappiness among the clergy	 			 	#
-#########################################################
+# "Unhappiness Among the [Root.GetClergyName]"
 country_event = {
-	id = 5050
-	title = "EVTNAME5050"
-	desc = "EVTDESC5050"
+	id = wwu_random_events.16
+	title = wwu_random_events.16.title
+	desc = wwu_random_events.16.desc
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -1432,7 +1371,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -1449,8 +1388,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5050"
-		#log = "EVTOPTA5050"		# Ignore their Demands.
+		name = wwu_random_events.16.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -1472,8 +1411,8 @@ country_event = {
 		add_prestige = 10
 	}
 	option = {
-		name = "EVTOPTB5050"
-		#log = "EVTOPTB5050"		# Agree to their Demands.
+		name = wwu_random_events.16.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -1485,16 +1424,16 @@ country_event = {
 		add_prestige = -15
 	}
 	option = {
-		name = "personality_options.5050.a"
-		#log = "personality_options.5050.a"		# Attempt to lessen the impact
+		name = wwu_random_events.16.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = zealot_personality }
 		required_personality = zealot_personality
 		add_estate_clergy_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.5050.b"
-		#log = "personality_options.5050.b"		# Attempt to lessen the impact
+		name = wwu_random_events.16.option.d
+        
 		highlight = yes
 		trigger = { ruler_has_personality = pious_personality }
 		required_personality = pious_personality
@@ -1502,21 +1441,17 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Unhappiness among the artisans				  	#
-#########################################################
+# "Unhappiness Among the Artisans"
 country_event = {
-	id = 5051
-	title = "EVTNAME5051"
-	desc = "EVTDESC5051"
+	id = wwu_random_events.17
+	title = wwu_random_events.17.title
+	desc = wwu_random_events.17.desc
 	picture = ANGRY_MOB_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
-	trigger = {	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -1533,8 +1468,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5051"
-		#log = "EVTOPTA5051"		# Execute the troublemakers.
+		name = wwu_random_events.17.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -1567,8 +1502,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5051"
-		#log = "EVTOPTB5051"		# Abolish a tax.
+		name = wwu_random_events.17.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -1584,8 +1519,8 @@ country_event = {
 		add_estate_traders_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.5051.a"
-		#log = "personality_options.5051.a"		# Crush Them!
+		name = wwu_random_events.17.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = cruel_personality }
 		required_personality = cruel_personality
@@ -1598,8 +1533,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5051.b"
-		#log = "personality_options.5051.b"		# 
+		name = wwu_random_events.17.option.d
+        
 		highlight = yes
 		trigger = { ruler_has_personality = entrepreneur_personality }
 		required_personality = entrepreneur_personality
@@ -1607,8 +1542,8 @@ country_event = {
 		reduce_estate_traders_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.5051.c"
-		#log = "personality_options.5051.c"		# They just aren't good enough
+		name = wwu_random_events.17.option.e
+        
 		highlight = yes
 		trigger = { ruler_has_personality = obsessive_perfectionist_personality }
 		required_personality = obsessive_perfectionist_personality
@@ -1617,21 +1552,17 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Unhappiness among the peasantry	  				#
-#########################################################
+# "Unhappiness Among the Peasantry"
 country_event = {
-	id = 5052
-	title = "EVTNAME5052"
-	desc = "EVTDESC5052"
+	id = wwu_random_events.18
+	title = wwu_random_events.18.title
+	desc = wwu_random_events.18.desc
 	picture = ANGRY_MOB_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
-	trigger = {	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -1649,8 +1580,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5052"
-		#log = "EVTOPTA5052"		# We rule as we see fit.
+		name = wwu_random_events.18.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -1673,8 +1604,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5052"
-		#log = "EVTOPTB5052"		# Prevent the discontent from spreading.
+		name = wwu_random_events.18.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -1685,8 +1616,8 @@ country_event = {
 		add_years_of_income = -0.25
 	}
 	option = {
-		name = "personality_options.5051.a"
-		#log = "personality_options.5051.a"		# Crush Them!
+		name = wwu_random_events.18.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = cruel_personality }
 		required_personality = cruel_personality
@@ -1699,15 +1630,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Unhappiness among the merchants	  				#
-#########################################################
+# "Unhappiness Among the Merchants."
 country_event = {
-	id = 5053
-	title = "EVTNAME5053"
-	desc = "EVTDESC5053"
+	id = wwu_random_events.19
+	title = wwu_random_events.19.title
+	desc = wwu_random_events.19.desc
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -1715,7 +1643,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -1732,8 +1660,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5053"
-		#log = "EVTOPTA5053"		# Reduce trade investment.
+		name = wwu_random_events.19.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -1751,14 +1679,14 @@ country_event = {
 		add_estate_traders_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5053"
-		#log = "EVTOPTB5053"		# Get rid of the troublemakers.
+		name = wwu_random_events.19.option.b
+        
 		ai_chance = { factor = 45 }
 		add_mercantilism = -1
 	}
 	option = {
-		name = "personality_options.5053.a"
-		#log = "personality_options.5053.a"		# Reduce trade investment.
+		name = wwu_random_events.19.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = entrepreneur_personality }
 		required_personality = entrepreneur_personality
@@ -1767,15 +1695,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Political Crisis							  	#
-#########################################################
+# "Political Crisis"
 country_event = {
-	id = 5054
-	title = "EVTNAME5054"
-	desc = "EVTDESC5054"
+	id = wwu_random_events.20
+	title = wwu_random_events.20.title
+	desc = wwu_random_events.20.desc
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -1788,7 +1713,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -1805,8 +1730,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5054"
-		#log = "EVTOPTA5054"		# Given time, a solution will present itself.
+		name = wwu_random_events.20.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -1828,8 +1753,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5054"
-		#log = "EVTOPTB5054"		# Reputation isn't everything.
+		name = wwu_random_events.20.option.b
+        
 		ai_chance = {
 			factor = 45 
 			modifier = {
@@ -1849,8 +1774,8 @@ country_event = {
 		reduce_mandate_large_effect = yes
 	}
 	option = {
-		name = "personality_options.5054.a"
-		#log = "personality_options.5054.a"		# 
+		name = wwu_random_events.20.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = righteous_personality }
 		required_personality = righteous_personality
@@ -1860,8 +1785,8 @@ country_event = {
 		reduce_mandate_effect = yes
 	}
 	option = {
-		name = "personality_options.5054.b"
-		#log = "personality_options.5054.b"		# 
+		name = wwu_random_events.20.option.d
+        
 		highlight = yes
 		trigger = { ruler_has_personality = just_personality }
 		required_personality = just_personality
@@ -1879,22 +1804,17 @@ country_event = {
 	}
 }
 
-#########################################################
-#			Corruption								 	#
-#########################################################
+# "Corruption"
 country_event = {
-	id = 5055
-	title = "EVTNAME5055"
-	desc = "EVTDESC5055"
+	id = wwu_random_events.21
+	title = wwu_random_events.21.title
+	desc = wwu_random_events.21.desc
 	picture = ELECTION_REPUBLICAN_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
-	trigger = {}
-
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -1911,8 +1831,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5055"
-		#log = "EVTOPTA5055"		# Try to eradicate the problems.
+		name = wwu_random_events.21.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -1934,8 +1854,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5055"
-		#log = "EVTOPTB5055"		# Ignore them.
+		name = wwu_random_events.21.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -1957,8 +1877,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5055.a"
-		#log = "personality_options.5055.a"		# Deal with any visible signs of this
+		name = wwu_random_events.21.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = embezzler_personality
@@ -1967,8 +1887,8 @@ country_event = {
 		add_prestige = 5
 	}
 	option = {
-		name = "personality_options.5055.b"
-		#log = "personality_options.5055.b"		# Replace certain high-ranking officials
+		name = wwu_random_events.21.option.d
+        
 		highlight = yes
 		trigger = { ruler_has_personality = incorruptible_personality }
 		required_personality = incorruptible_personality
@@ -1976,16 +1896,12 @@ country_event = {
 	}
 }
 
-
-#########################################################
-#		Diplomatic insult		 					 	#
-#########################################################
+# "Diplomatic Insult"
 country_event = {
-	id = 5056
-	title = "EVTNAME5056"
-	desc = "EVTDESC5056"
+	id = wwu_random_events.22
+	title = wwu_random_events.22.title
+	desc = wwu_random_events.22.desc
 	picture = DIPLOMACY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -1995,7 +1911,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 0.66
@@ -2004,8 +1920,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5056"
-		#log = "EVTOPTA5056" # We won't forget this.
+		name = wwu_random_events.22.option.a
+        
 		ai_chance = { factor = 55 }
 		random_country = {
 			limit = { is_neighbor_of = ROOT  }
@@ -2017,8 +1933,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5056"
-		#log = "EVTOPTB5056" # Try to ease the tension.
+		name = wwu_random_events.22.option.b
+        
 		ai_chance = { factor = 45 }
 		every_neighbor_country = {
 			limit = { is_at_war = no }
@@ -2026,8 +1942,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5056.a"
-		#log = "personality_options.5056.a" # Try to ease the tension.
+		name = wwu_random_events.22.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = silver_tongue_personality }
 		required_personality = silver_tongue_personality
@@ -2040,15 +1956,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#			Nobles									  	#
-#########################################################
+# "Nobles Demand Privileges"
 country_event = {
-	id = 5058
-	title = "EVTNAME5058"
-	desc = "EVTDESC5058"
+	id = wwu_random_events.23
+	title = wwu_random_events.23.title
+	desc = wwu_random_events.23.desc
 	picture = COURT_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2056,7 +1969,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2076,8 +1989,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5058"
-		#log = "EVTOPTA5058"		# Accept their rightful claims.
+		name = wwu_random_events.23.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -2088,8 +2001,8 @@ country_event = {
 		add_prestige = -10
 	}
 	option = {
-		name = "EVTOPTB5058"
-		#log = "EVTOPTB5058"		# Ignore their demands.
+		name = wwu_random_events.23.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -2114,8 +2027,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5058.a"
-		#log = "personality_options.5058.a"		# Crush Them!
+		name = wwu_random_events.23.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = cruel_personality }
 		required_personality = cruel_personality
@@ -2128,8 +2041,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5058.b"
-		#log = "personality_options.5058.b"		# They never had those rights to begin with.
+		name = wwu_random_events.23.option.d
+        
 		highlight = yes
 		trigger = { ruler_has_personality = lawgiver_personality }
 		required_personality = lawgiver_personality
@@ -2138,15 +2051,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Trading Company Disaster					 	#
-#########################################################
+# "Trading Company's bubble bursts"
 country_event = {
-	id = 5059
-	title = "EVTNAME5059"
-	desc = "EVTDESC5059"
+	id = wwu_random_events.24
+	title = wwu_random_events.24.title
+	desc = wwu_random_events.24.desc
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2155,7 +2065,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2172,8 +2082,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5059"
-		#log = "EVTOPTA5059"		# Cut down on our expenses
+		name = wwu_random_events.24.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -2194,8 +2104,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5059"
-		#log = "EVTOPTB5059"		# This isn't anything we can't handle.
+		name = wwu_random_events.24.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -2207,8 +2117,8 @@ country_event = {
 		add_years_of_income = -0.1
 	}
 	option = {
-		name = "personality_options.5059.a"
-		#log = "personality_options.5059.a"		# You win some, you lose some
+		name = wwu_random_events.24.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = entrepreneur_personality }
 		required_personality = entrepreneur_personality
@@ -2221,11 +2131,10 @@ country_event = {
 #		Nobles ally with foreign power				  	#
 #########################################################
 country_event = {
-	id = 5064
-	title = "EVTNAME5064"
-	desc = "EVTDESC5064"
+	id = wwu_random_events.25
+	title = wwu_random_events.25.title
+	desc = wwu_random_events.25.desc
 	picture = DIPLOMACY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2233,7 +2142,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2254,8 +2163,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5064"
-		#log = "EVTOPTA5064"		# They will pay for their treachery
+		name = wwu_random_events.25.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -2281,8 +2190,8 @@ country_event = {
 		add_adm_power = -33
 	}
 	option = {
-		name = "EVTOPTB5064"
-		#log = "EVTOPTB5064"		# We'll deal with them later
+		name = wwu_random_events.25.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -2294,8 +2203,8 @@ country_event = {
 		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.5064.a"
-		#log = "personality_options.5064.a"		# Attempt to intimidate them into submission
+		name = wwu_random_events.25.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = malevolent_personality }
 		required_personality = malevolent_personality
@@ -2304,15 +2213,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#			Assassination							  	#
-#########################################################
+# "Assassination of Noble"
 country_event = {
-	id = 5065
-	title = "EVTNAME5065"
-	desc = "EVTDESC5065"
+	id = wwu_random_events.26
+	title = wwu_random_events.26.title
+	desc = wwu_random_events.26.desc
 	picture = WOW_ASSASSINATION_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2322,7 +2228,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2339,8 +2245,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5065"
-		#log = "EVTOPTA5065"		# Let them solve it among themselves.
+		name = wwu_random_events.26.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -2354,8 +2260,8 @@ country_event = {
 		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5065"
-		#log = "EVTOPTB5065"		# Take control of the situation
+		name = wwu_random_events.26.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -2373,8 +2279,8 @@ country_event = {
 		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.5065.a"
-		#log = "personality_options.5065.a"		# Take control of the situation
+		name = wwu_random_events.26.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = cruel_personality }
 		required_personality = cruel_personality
@@ -2384,8 +2290,8 @@ country_event = {
 		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.5065.b"
-		#log = "personality_options.5065.b"		# Settle the conflict
+		name = wwu_random_events.26.option.d
+        
 		highlight = yes
 		trigger = { ruler_has_personality = just_personality }
 		required_personality = just_personality
@@ -2394,16 +2300,12 @@ country_event = {
 	}
 }
 
-
-#########################################################
-#		Sale of offices									#
-#########################################################
+# "Sale of Offices"
 country_event = {
-	id = 5068
-	title = "EVTNAME5068"
-	desc = "EVTDESC5068"
+	id = wwu_random_events.27
+	title = wwu_random_events.27.title
+	desc = wwu_random_events.27.desc
 	picture = ECONOMY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2415,7 +2317,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2432,8 +2334,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5068"
-		#log = "EVTOPTA5068"		# Accept
+		name = wwu_random_events.27.option.a
+        
 		ai_chance = {
 			factor = 65
 			modifier = {
@@ -2450,8 +2352,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5068"
-		#log = "EVTOPTB5068"		# Decline
+		name = wwu_random_events.27.option.b
+        
 		ai_chance = {
 			factor = 35
 			modifier = {
@@ -2463,8 +2365,8 @@ country_event = {
 		add_prestige = 10
 	}
 	option = {
-		name = "personality_options.5068.a"
-		#log = "personality_options.5068.a"		# We must be better at hiding our tracks
+		name = wwu_random_events.27.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = embezzler_personality
@@ -2474,15 +2376,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Monopoly company formed							#
-#########################################################
+# "Monopoly Company Formed"
 country_event = {
-	id = 5070
-	title = "EVTNAME5070"
-	desc = "EVTDESC5070"
+	id = wwu_random_events.28
+	title = wwu_random_events.28.title
+	desc = wwu_random_events.28.desc
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2491,7 +2390,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2508,8 +2407,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5070"
-		#log = "EVTOPTA5070"		# Make a long-term investment
+		name = wwu_random_events.28.option.a
+        
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "trade_income_increase"
@@ -2518,14 +2417,14 @@ country_event = {
 		add_dip_power = 50
 	}
 	option = {
-		name = "EVTOPTB5070"
-		#log = "EVTOPTB5070"		# Demand payment in full
+		name = wwu_random_events.28.option.b
+        
 		ai_chance = { factor = 45 }
 		add_years_of_income = 1
 	}
 	option = {
-		name = "personality_options.5068.a"
-		#log = "personality_options.5068.a"		# We must be better at hiding our tracks
+		name = wwu_random_events.28.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = embezzler_personality
@@ -2535,15 +2434,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#	Nobles demand increased pensions					#
-#########################################################
+# "Nobles Demand Increased Pensions"
 country_event = {
-	id = 5071
-	title = "EVTNAME5071"
-	desc = "EVTDESC5071"
+	id = wwu_random_events.29
+	title = wwu_random_events.29.title
+	desc = wwu_random_events.29.desc
 	picture = ECONOMY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2557,7 +2453,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2574,8 +2470,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5071"
-		#log = "EVTOPTA5071"		# Accept their demands.
+		name = wwu_random_events.29.option.a
+        
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "tax_income_loss"
@@ -2584,8 +2480,8 @@ country_event = {
 		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5071"
-		#log = "EVTOPTB5071"		# Refuse their demands.
+		name = wwu_random_events.29.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -2618,8 +2514,8 @@ country_event = {
 		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.5071.a"
-		#log = "personality_options.5071.a"		# Negotiate a better deal
+		name = wwu_random_events.29.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = charismatic_negotiator_personality }
 		required_personality = charismatic_negotiator_personality
@@ -2631,15 +2527,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Grant export licences							#
-#########################################################
+# "Grant Export Licenses"
 country_event = {
-	id = 5072
-	title = "EVTNAME5072"
-	desc = "EVTDESC5072"
+	id = wwu_random_events.30
+	title = wwu_random_events.30.title
+	desc = wwu_random_events.30.desc
 	picture = ECONOMY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2648,7 +2541,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2665,8 +2558,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5072"
-		#log = "EVTOPTA5072" # Grant privileges
+		name = wwu_random_events.30.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -2711,8 +2604,8 @@ country_event = {
 		reduce_estate_traders_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5072"
-		#log = "EVTOPTB5072" # Privileges have to be earned
+		name = wwu_random_events.30.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -2749,11 +2642,10 @@ country_event = {
 #		Establish Cantonments							#
 #########################################################
 country_event = {
-	id = 5074
-	title = "EVTNAME5074"
-	desc = "EVTDESC5074"
+	id = wwu_random_events.31
+	title = wwu_random_events.31.title
+	desc = wwu_random_events.31.desc
 	picture = LAND_MILITARY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2761,7 +2653,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2774,8 +2666,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5074"
-		#log = "EVTOPTA5074"		# Draft citizens
+		name = wwu_random_events.31.option.a
+        
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -2788,8 +2680,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5074"
-		#log = "EVTOPTB5074"		# Mass draft with financial incentive
+		name = wwu_random_events.31.option.b
+        
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -2808,11 +2700,10 @@ country_event = {
 #		Nobles demand old rights						#
 #########################################################
 country_event = {
-	id = 5075
-	title = "EVTNAME5075"
-	desc = "EVTDESC5075"
+	id = wwu_random_events.32
+	title = wwu_random_events.32.title
+	desc = wwu_random_events.32.desc
 	picture = COURT_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2822,7 +2713,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2839,8 +2730,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5075"
-		#log = "EVTOPTA5075"		# Accept demands.
+		name = wwu_random_events.32.option.a
+        
 		ai_chance = {
 			factor = 50
 		}
@@ -2862,8 +2753,8 @@ country_event = {
 		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5075"
-		#log = "EVTOPTB5075"		# Reject demands.
+		name = wwu_random_events.32.option.b
+        
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -2895,8 +2786,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.5075.a"
-		#log = "personality_options.5075.a"		# create a new set of rights
+		name = wwu_random_events.32.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = lawgiver_personality }
 		required_personality = lawgiver_personality
@@ -2904,15 +2795,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Cities demand old rights						#
-#########################################################
+# "Cities Demand Old Rights"
 country_event = {
-	id = 5076
-	title = "EVTNAME5076"
-	desc = "EVTDESC5076"
+	id = wwu_random_events.33
+	title = wwu_random_events.33.title
+	desc = wwu_random_events.33.desc
 	picture = COURT_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -2925,7 +2813,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -2942,8 +2830,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5076"
-		#log = "EVTOPTA5076"		# Deny old rights
+		name = wwu_random_events.33.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -2976,8 +2864,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5076"
-		#log = "EVTOPTB5076"		# Accept
+		name = wwu_random_events.33.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -3015,8 +2903,8 @@ country_event = {
 		reduce_mandate_effect = yes
 	}
 	option = {
-		name = "personality_options.5075.a"
-		#log = "personality_options.5075.a"		# create a new set of rights
+		name = wwu_random_events.33.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = lawgiver_personality }
 		required_personality = lawgiver_personality
@@ -3024,22 +2912,19 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Non-enforcement of ordinances					#
-#########################################################
+# "Non-enforcement of Ordinances"
 country_event = {
-	id = 5077
-	title = "EVTNAME5077"
-	desc = "EVTDESC5077"
+	id = wwu_random_events.34
+	title = wwu_random_events.34.title
+	desc = wwu_random_events.34.desc
 	picture = REFORM_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	trigger = { num_of_cities = 2 }
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 1.25
@@ -3056,8 +2941,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5077"
-		#log = "EVTOPTA5077"		# Let them handle it
+		name = wwu_random_events.34.option.a
+        
 		ai_chance = { factor = 25 }
 		random_owned_province = {
 			limit = {
@@ -3068,14 +2953,14 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5077"
-		#log = "EVTOPTB5077"		# Increase attempts
+		name = wwu_random_events.34.option.b
+        
 		ai_chance = { factor = 100 }
 		add_adm_power = -50
 	}
 	option = {
-		name = "personality_options.5077.a"
-		#log = "personality_options.5077.a"		# 
+		name = wwu_random_events.34.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = lawgiver_personality }
 		required_personality = lawgiver_personality
@@ -3083,22 +2968,18 @@ country_event = {
 	}
 }
 
-
-#########################################################
-#		Bourgeoisie request privileges					#
-#########################################################
+# "The [Root.GetBurghersName] Request Privileges"
 country_event = {
-	id = 5082
-	title = "EVTNAME5082"
-	desc = "EVTDESC5082"
+	id = wwu_random_events.35
+	title = wwu_random_events.35.title
+	desc = wwu_random_events.35.desc
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 1.25
@@ -3115,8 +2996,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5082"
-		#log = "EVTOPTA5082"		# Grant them privileges
+		name = wwu_random_events.35.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -3135,8 +3016,8 @@ country_event = {
 		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5082"
-		#log = "EVTOPTB5082"		# Deny them privileges
+		name = wwu_random_events.35.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -3155,8 +3036,8 @@ country_event = {
 		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.5082.a"
-		#log = "personality_options.5082.a"
+		name = wwu_random_events.35.option.c
+        
 		highlight = yes
 		trigger = {
 			OR = {
@@ -3173,15 +3054,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Build a great palace							#
-#########################################################
+# "Build a Great Palace"
 country_event = {
-	id = 5085
-	title = "EVTNAME5085"
-	desc = "EVTDESC5085"
+	id = wwu_random_events.36
+	title = wwu_random_events.36.title
+	desc = wwu_random_events.36.desc
 	picture = FORT_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -3190,7 +3068,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3207,8 +3085,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5085"
-		#log = "EVTOPTA5085" # Build the Palace
+		name = wwu_random_events.36.option.a
+        
 		ai_chance = {
 			factor = 40
 			modifier = {
@@ -3227,8 +3105,8 @@ country_event = {
 		add_years_of_income = -0.25
 	}
 	option = {
-		name = "EVTOPTB5085"
-		#log = "EVTOPTB5085" # Don't build it
+		name = wwu_random_events.36.option.b
+        
 		ai_chance = {
 			factor = 60
 			modifier = {
@@ -3243,8 +3121,8 @@ country_event = {
 		add_prestige = -10
 	}
 	option = {
-		name = "personality_options.5085.a"
-		#log = "personality_options.5085.a"		#It's not ambitious enough
+		name = wwu_random_events.36.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = obsessive_perfectionist_personality
@@ -3257,8 +3135,8 @@ country_event = {
 		add_years_of_income = -0.35
 	}
 	option = {
-		name = "personality_options.5085.b"
-		#log = "personality_options.5085.b"		#Let ruler try out new construction techniques
+		name = wwu_random_events.36.option.d
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = architectural_visionary_personality
@@ -3272,15 +3150,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Uncooperative philosopher						#
-#########################################################
+# "Uncooperative Philosopher"
 country_event = {
-	id = 5086
-	title = "EVTNAME5086"
-	desc = "EVTDESC5086"
+	id = wwu_random_events.37
+	title = wwu_random_events.37.title
+	desc = wwu_random_events.37.desc
 	picture = ADVISOR_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -3288,7 +3163,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3305,8 +3180,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5086"
-		#log = "EVTOPTA5086"		# Imprison
+		name = wwu_random_events.37.option.a
+        
 		ai_chance = {
 			factor = 60
 			modifier = {
@@ -3329,8 +3204,8 @@ country_event = {
 		add_estate_clergy_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5086"
-		#log = "EVTOPTB5086"		# Allow him to remain free
+		name = wwu_random_events.37.option.b
+        
 		ai_chance = {
 			factor = 40
 			modifier = {
@@ -3352,8 +3227,8 @@ country_event = {
 		reduce_estate_clergy_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.5086.a"
-		#log = "personality_options.5086.a"		# 
+		name = wwu_random_events.37.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = free_thinker_personality }
 		required_personality = free_thinker_personality
@@ -3367,11 +3242,10 @@ country_event = {
 #		Merchants harrased								#
 #########################################################
 country_event = {
-	id = 5088
-	title = "EVTNAME5088"
-	desc = "EVTDESC5088"
+	id = wwu_random_events.38
+	title = wwu_random_events.38.title
+	desc = wwu_random_events.38.desc
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -3384,7 +3258,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 0.5
@@ -3397,8 +3271,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5088"
-		#log = "EVTOPTA5088" # Escalate complaint.
+		name = wwu_random_events.38.option.a
+        
 		ai_chance = {
 			factor = 55
 		}
@@ -3416,8 +3290,8 @@ country_event = {
 		add_estate_traders_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5088"
-		#log = "EVTOPTB5088" # Seek a diplomatic solution.
+		name = wwu_random_events.38.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -3441,8 +3315,8 @@ country_event = {
 		reduce_estate_traders_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.5088.a"
-		#log = "personality_options.5088.a"		# 
+		name = wwu_random_events.38.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = charismatic_negotiator_personality }
 		required_personality = charismatic_negotiator_personality
@@ -3457,22 +3331,19 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Petition for redress							#
-#########################################################
+# "Petition for Redress"
 country_event = {
-	id = 5089
-	title = "EVTNAME5089"
-	desc = "EVTDESC5089"
+	id = wwu_random_events.39
+	title = wwu_random_events.39.title
+	desc = wwu_random_events.39.desc
 	picture = COURT_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
 		always = yes
 	}
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3489,8 +3360,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5089"
-		#log = "EVTOPTA5089"		# Accept petition
+		name = wwu_random_events.39.option.a
+        
 		ai_chance = {
 			factor = 70
 			modifier = {
@@ -3512,8 +3383,8 @@ country_event = {
 		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5089"
-		#log = "EVTOPTB5089"		# Deny petition
+		name = wwu_random_events.39.option.b
+        
 		ai_chance = {
 			factor = 30
 			modifier = {
@@ -3532,15 +3403,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Grant nobles aid								#
-#########################################################
+# "Noble Family Requests Aid"
 country_event = {
-	id = 5090
-	title = "EVTNAME5090"
-	desc = "EVTDESC5090"
+	id = wwu_random_events.40
+	title = wwu_random_events.40.title
+	desc = wwu_random_events.40.desc
 	picture = COURT_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -3548,7 +3416,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3561,8 +3429,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5090"
-		#log = "EVTOPTA5090"		# Grant aid
+		name = wwu_random_events.40.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -3574,8 +3442,8 @@ country_event = {
 		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5090"
-		#log = "EVTOPTB5090"		# Deny aid
+		name = wwu_random_events.40.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -3594,15 +3462,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#	Support for dissidents abroad						#
-#########################################################
+# "Support for Dissidents"
 country_event = {
-	id = 5091
-	title = "EVTNAME5091"
-	desc = "EVTDESC5091"
+	id = wwu_random_events.41
+	title = wwu_random_events.41.title
+	desc = wwu_random_events.41.desc
 	picture = ANGRY_MOB_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -3610,7 +3475,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3627,8 +3492,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5091"
-		#log = "EVTOPTA5091"		# Support
+		name = wwu_random_events.41.option.a
+        
 		ai_chance = { factor = 55 }
 		add_years_of_income = -0.1
 		random_country = {
@@ -3640,8 +3505,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5091"
-		#log = "EVTOPTB5091"		# Decline
+		name = wwu_random_events.41.option.b
+        
 		ai_chance = { factor = 45 }
 		add_prestige = -10
 	}
@@ -3651,11 +3516,10 @@ country_event = {
 #	Foreign trade competition rises						#
 #########################################################
 country_event = {
-	id = 5092
-	title = "EVTNAME5092"
-	desc = "EVTDESC5092"
+	id = wwu_random_events.42
+	title = wwu_random_events.42.title
+	desc = wwu_random_events.42.desc
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -3663,7 +3527,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3680,15 +3544,15 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5092"
-		#log = "EVTOPTA5092"		# Impose new tariff
+		name = wwu_random_events.42.option.a
+        
 		ai_chance = { factor = 70 }
 		add_mercantilism = 3
 		add_estate_traders_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5092"
-		#log = "EVTOPTB5092"		# Deny new tariff
+		name = wwu_random_events.42.option.b
+        
 		ai_chance = {
 			factor = 30
 			modifier = {
@@ -3706,8 +3570,8 @@ country_event = {
 		add_dip_power = 33
 	}
 	option = {
-		name = "personality_options.5092.a"
-		#log = "personality_options.5092.a"		# 
+		name = wwu_random_events.42.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = entrepreneur_personality }
 		required_personality = entrepreneur_personality
@@ -3716,17 +3580,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Advisor events									#
-#########################################################
-
-# Parliament demands removal of advisor
+# "Parliament Demands [Root.Dip_Advisor.GetName]'s Removal"
 country_event = {
-	id = 5093
-	title = "EVTNAME5093"
-	desc = "EVTDESC5093"
+	id = wwu_random_events.43
+	title = wwu_random_events.43.title
+	desc = wwu_random_events.43.desc
 	picture = ADVISOR_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -3735,7 +3594,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3752,15 +3611,15 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5093"
-		#log = "EVTOPTA5093"		# Fire him!
+		name = wwu_random_events.43.option.a
+        
 		ai_chance = { factor = 40 }
 		reduce_meritocracy_effect = yes
 		remove_advisor = statesman
 	}
 	option = {
-		name = "EVTOPTB5093"
-		#log = "EVTOPTB5093"		# We have faith in him
+		name = wwu_random_events.43.option.b
+        
 		ai_chance = { factor = 60 }
 		add_prestige = -10
 	}
@@ -3769,11 +3628,10 @@ country_event = {
 
 # Heretic advisor
 country_event = {
-	id = 5094
-	title = "EVTNAME5094"
-	desc = "EVTDESC5094"
+	id = wwu_random_events.44
+	title = wwu_random_events.44.title
+	desc = wwu_random_events.44.desc
 	picture = ADVISOR_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -3782,7 +3640,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3800,16 +3658,16 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5094"
-		#log = "EVTOPTA5094"		# Fire him!
+		name = wwu_random_events.44.option.a
+        
 		ai_chance = { factor = 40 }
 		reduce_meritocracy_effect = yes
 		remove_advisor = statesman
 		add_estate_clergy_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB5094"
-		#log = "EVTOPTB5094"		# We have faith in him
+		name = wwu_random_events.44.option.b
+        
 		ai_chance = {
 			factor = 60
 			modifier = {
@@ -3828,14 +3686,12 @@ country_event = {
 	}
 }
 
-
-# Statesman gains power
+# "Statesman gains power"
 country_event = {
-	id = 5095
-	title = "EVTNAME5095"
-	desc = "EVTDESC5095"
+	id = wwu_random_events.45
+	title = wwu_random_events.45.title
+	desc = wwu_random_events.45.desc
 	picture = ADVISOR_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -3843,7 +3699,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3860,30 +3716,26 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5095"
-		#log = "EVTOPTA5095"		# Fire him!
+		name = wwu_random_events.45.option.a
+        
 		ai_chance = { factor = 40 }
 		reduce_meritocracy_effect = yes
 		remove_advisor = statesman
 	}
 	option = {
-		name = "EVTOPTB5095"
-		#log = "EVTOPTB5095"		# He is doing a great job
+		name = wwu_random_events.45.option.b
+        
 		ai_chance = { factor = 60 }
 		add_prestige = -10
 	}
 }
 
-
-#########################################################
-#		Influenced elections							#
-#########################################################
+# "Influenced Elections"
 country_event = {
-	id = 5096
-	title = "EVTNAME5096"
-	desc = "EVTDESC5096"
+	id = wwu_random_events.46
+	title = wwu_random_events.46.title
+	desc = wwu_random_events.46.desc
 	picture = ELECTION_REPUBLICAN_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -3892,7 +3744,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3905,8 +3757,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5096"
-		#log = "EVTOPTA5096" # How thoughtful
+		name = wwu_random_events.46.option.a
+        
 		ai_chance = { factor = 70 }
 		add_years_of_income = 0.2
 		add_corruption = 0.5
@@ -3916,8 +3768,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB5096"
-		#log = "EVTOPTB5096" # Bribes are beyond me
+		name = wwu_random_events.46.option.b
+        
 		ai_chance = { factor = 30 }
 		add_prestige = 10
 		random_country = {
@@ -3927,15 +3779,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Peasants getting uppity							#
-#########################################################
+# "Peasants Getting Uppity"
 country_event = {
-	id = 5097
-	title = "EVTNAME5097"
-	desc = "EVTDESC5097"
+	id = wwu_random_events.47
+	title = wwu_random_events.47.title
+	desc = wwu_random_events.47.desc
 	picture = ANGRY_MOB_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -3944,7 +3793,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -3961,8 +3810,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5097"
-		#log = "EVTOPTA5097"		# Enforce serfdom
+		name = wwu_random_events.47.option.a
+        
 		ai_chance = {
 			factor = 80
 			modifier = {
@@ -3980,8 +3829,8 @@ country_event = {
 		add_adm_power = -35
 	}
 	option = {
-		name = "EVTOPTB5097"
-		#log = "EVTOPTB5097"		# These things happen
+		name = wwu_random_events.47.option.b
+        
 		ai_chance = {
 			factor = 20
 			modifier = {
@@ -4000,8 +3849,8 @@ country_event = {
 		add_horde_unity = -10
 	}
 	option = {
-		name = "personality_options.5097.a"
-		#log = "personality_options.5097.a"		# Attempt to mediate
+		name = wwu_random_events.47.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = charismatic_negotiator_personality }
 		required_personality = charismatic_negotiator_personality
@@ -4009,15 +3858,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#		Merchant fractures								#
-#########################################################
+# "Merchant Fractures"
 country_event = {
-	id = 5099
-	title = "EVTNAME5099"
-	desc = "EVTDESC5099"
+	id = wwu_random_events.48
+	title = wwu_random_events.48.title
+	desc = wwu_random_events.48.desc
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -4025,7 +3871,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -4042,14 +3888,14 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA5099"
-		#log = "EVTOPTA5099"		# Support mercantilist faction
+		name = wwu_random_events.48.option.a
+        
 		ai_chance = { factor = 15 }
 		add_mercantilism = 3
 	}
 	option = {
-		name = "EVTOPTB5099"
-		#log = "EVTOPTB5099"		# This isn't a matter for the crown
+		name = wwu_random_events.48.option.b
+        
 		ai_chance = { factor = 70 }
 		trigger = {
 			government = monarchy
@@ -4060,26 +3906,20 @@ country_event = {
 		add_horde_unity = 10
 	}
 	option = {
-		name = "EVTOPTC5099"
-		#log = "EVTOPTC5099"		# Propose free trade
+		name = wwu_random_events.48.option.c
+        
 		ai_chance = { factor = 0 }
 		add_mercantilism = -3
 		add_years_of_income = 0.10
 	}
 }
 
-
-#########################################################
-#		Military traditions scorned						#
-#########################################################
-
 # Naval traditions scorned
 country_event = {
-	id = 6000
-	title = "EVTNAME6000"
-	desc = "EVTDESC6000"
+	id = wwu_random_events.49
+	title = wwu_random_events.49.title
+	desc = wwu_random_events.49.desc
 	picture = NAVAL_MILITARY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -4089,7 +3929,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 				
 		modifier = {
 			factor = 2.0
@@ -4099,28 +3939,24 @@ country_event = {
 			factor = 0.5
 			luck = yes
 		}
-		modifier = {
-			factor = 0.66
-			 = 3
-		}
 	}
 
 	option = {
-		name = "EVTOPTA6000"
-		#log = "EVTOPTA6000"		# This is well, land is where its at
+		name = wwu_random_events.49.option.a
+        
 		ai_chance = { factor = 60 }
 		add_navy_tradition = -20
 		add_army_tradition = 10
 	}
 	option = {
-		name = "EVTOPTB6000"
-		#log = "EVTOPTB6000"		# We must stop this deterioration
+		name = wwu_random_events.49.option.b
+        
 		ai_chance = { factor = 40 }
 		add_navy_tradition = -5
 	}
 	option = {
-		name = "personality_options.6000.a"
-		#log = "personality_options.6000.a"		# We must stop this deterioration
+		name = wwu_random_events.49.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = navigator_personality }
 		required_personality = navigator_personality
@@ -4130,11 +3966,10 @@ country_event = {
 
 # Land traditions scorned
 country_event = {
-	id = 6001
-	title = "EVTNAME6001"
-	desc = "EVTDESC6001"
+	id = wwu_random_events.50
+	title = wwu_random_events.50.title
+	desc = wwu_random_events.50.desc
 	picture = MILITARY_CAMP_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -4146,7 +3981,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 
 		modifier = {
 			factor = 0.5
@@ -4155,21 +3990,21 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6001"
-		#log = "EVTOPTA6001"		# The fleet is our wooden wall!
+		name = wwu_random_events.50.option.a
+        
 		ai_chance = { factor = 60 }
 		add_army_tradition = -20
 		add_navy_tradition = 10
 	}
 	option = {
-		name = "EVTOPTB6001"
-		#log = "EVTOPTB6001"		# We must stop this deterioration
+		name = wwu_random_events.50.option.b
+        
 		ai_chance = { factor = 40 }
 		add_army_tradition = -5
 	}
 	option = {
-		name = "personality_options.6001.a"
-		#log = "personality_options.6001.a"		# We must stop this deterioration
+		name = wwu_random_events.50.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = strict_personality }
 		required_personality = strict_personality
@@ -4177,15 +4012,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#	Representative national institutions				#
-#########################################################
+# "National Institutions"
 country_event = {
-	id = 6003
-	title = "EVTNAME6003"
-	desc = "EVTDESC6003"
+	id = wwu_random_events.51
+	title = wwu_random_events.51.title
+	desc = wwu_random_events.51.desc
 	picture = UNIVERSITY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -4194,7 +4026,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -4211,8 +4043,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6003"
-		#log = "EVTOPTA6003"		# L'etat c'est moi!
+		name = wwu_random_events.51.option.a
+        
 		ai_chance = { factor = 30 }
 		if = {
 			limit = { NOT = { stability = -2 } }
@@ -4228,8 +4060,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB6003"
-		#log = "EVTOPTB6003"		# Give them what they want
+		name = wwu_random_events.51.option.b
+        
 		ai_chance = { factor = 70 }
 		add_adm_power = -35
 		add_dip_power = -35
@@ -4237,17 +4069,12 @@ country_event = {
 	}
 }
 
-
-#########################################################
-#		Exceptional Court Painter						#
-#########################################################
-
+# "Court Painter Available"
 country_event = {
-	id = 6012
-	title = "EVTNAME6012"
-	desc = "EVTDESC6012"
+	id = wwu_random_events.52
+	title = wwu_random_events.52.title
+	desc = wwu_random_events.52.desc
 	picture = PAINTER_ARTIST_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -4256,7 +4083,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -4273,8 +4100,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6012"
-		#log = "EVTOPTA6012"		# Hire him
+		name = wwu_random_events.52.option.a
+        
 		ai_chance = {
 			factor = 65
 			modifier = {
@@ -4287,14 +4114,14 @@ country_event = {
 		add_stability_or_adm_power = yes
 	}
 	option = {
-		name = "EVTOPTB6012"
-		#log = "EVTOPTB6012"		# Decline his services
+		name = wwu_random_events.52.option.b
+        
 		ai_chance = { factor = 35 }
 		add_prestige = -5
 	}
 	option = {
-		name = "personality_options.5083.a"
-		#log = "personality_options.5083.a"		# Hire him
+		name = wwu_random_events.52.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = fierce_negotiator_personality }
 		required_personality = fierce_negotiator_personality
@@ -4304,15 +4131,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#			Grand Ball									#
-#########################################################
+# "Grand Ball in $CAPITAL$"
 country_event = {
-	id = 6013
-	title = "EVTNAME6013"
-	desc = "EVTDESC6013"
+	id = wwu_random_events.53
+	title = wwu_random_events.53.title
+	desc = wwu_random_events.53.desc
 	picture = COURT_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -4320,7 +4144,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -4333,21 +4157,21 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6013"
-		#log = "EVTOPTA6013"		# Arrange a ball
+		name = wwu_random_events.53.option.a
+        
 		ai_chance = { factor = 60 }
 		add_prestige = 10
 		add_years_of_income = -0.10
 	}
 	option = {
-		name = "EVTOPTB6013"
-		#log = "EVTOPTB6013"		# Don't arrange a ball
+		name = wwu_random_events.53.option.b
+        
 		ai_chance = { factor = 40 }
 		add_prestige = -5
 	}
 	option = {
-		name = "personality_options.6013.a"
-		#log = "personality_options.6013.a"		# Arrange a ball
+		name = wwu_random_events.53.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = well_connected_personality }
 		required_personality = well_connected_personality
@@ -4356,15 +4180,12 @@ country_event = {
 	}
 }
 
-#########################################################
-#			Festivities									#
-#########################################################
+# "Festivities"
 country_event = {
-	id = 6015
-	title = "EVTNAME6015"
-	desc = "EVTDESC6015"
+	id = wwu_random_events.54
+	title = wwu_random_events.54.title
+	desc = wwu_random_events.54.desc
 	picture = COURT_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	trigger = {
@@ -4376,7 +4197,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		
 		modifier = {
 			factor = 2.0
@@ -4393,8 +4214,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6015"
-		#log = "EVTOPTA6015"		# Arrange festivities
+		name = wwu_random_events.54.option.a
+        
 		trigger = { NOT = { stability = 3 } }
 		ai_chance = {
 			factor = 30
@@ -4406,8 +4227,8 @@ country_event = {
 		add_stability_or_adm_power = yes
 	}
 	option = {
-		name = "EVTOPTB6015"
-		#log = "EVTOPTB6015"		# Such nonsense, wasting money like that!
+		name = wwu_random_events.54.option.b
+        
 		ai_chance = { factor = 70 }
 		random_owned_province = {
 			limit = { controlled_by = owner }
@@ -4415,8 +4236,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.6015.a"
-		#log = "personality_options.6015.a"		# Arrange an Opulent Feast
+		name = wwu_random_events.54.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = drunkard_personality }
 		required_personality = drunkard_personality
@@ -4442,13 +4263,12 @@ country_event = {
 	}
 }
 
-# Complaints about Bailiff
+# "Complaints about [Root.GetLowLevelOfficialForCountry]"
 country_event = {
-	id = 710
-	title = "EVTNAME710"
-	desc = "EVTDESC710"
+	id = wwu_random_events.55
+	title = wwu_random_events.55.title
+	desc = wwu_random_events.55.desc
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -4457,7 +4277,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -4465,8 +4285,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA710"
-		#log = "EVTOPTA710"
+		name = wwu_random_events.55.option.a
+        
 		ai_chance = {
 			factor = 55
 			modifier = {
@@ -4477,8 +4297,8 @@ country_event = {
 		add_prestige = -10
 	}
 	option = {
-		name = "EVTOPTB710"
-		#log = "EVTOPTB710"
+		name = wwu_random_events.55.option.b
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -4504,8 +4324,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.710.a"
-		#log = "personality_options.710.a"
+		name = wwu_random_events.55.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = cruel_personality }
 		required_personality = cruel_personality
@@ -4520,11 +4340,10 @@ country_event = {
 
 # Priests are preaching Heresy!
 country_event = {
-	id = 711
-	title = "EVTNAME711"
-	desc = "EVTDESC711"
+	id = wwu_random_events.56
+	title = wwu_random_events.56.title
+	desc = wwu_random_events.56.desc
 	picture = POPE_PREACHING_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -4535,7 +4354,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -4543,8 +4362,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA711"
-		#log = "EVTOPTA711"
+		name = wwu_random_events.56.option.a
+        
 		ai_chance = {
 			factor = 45
 			modifier = {
@@ -4568,8 +4387,8 @@ country_event = {
 		}		
 	}
 	option = {
-		name = "EVTOPTB711"
-		#log = "EVTOPTB711"
+		name = wwu_random_events.56.option.b
+        
 		ai_chance = {
 			factor = 65
 		}
@@ -4577,8 +4396,8 @@ country_event = {
 		add_estate_clergy_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.711.a"
-		#log = "personality_options.711.a"
+		name = wwu_random_events.56.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = tolerant_personality }
 		required_personality = tolerant_personality
@@ -4595,11 +4414,10 @@ country_event = {
 
 # Dramatic Currency Revaluation
 country_event = {
-	id = 712
-	title = "EVTNAME712"
-	desc = "EVTDESC712"
+	id = wwu_random_events.57
+	title = wwu_random_events.57.title
+	desc = wwu_random_events.57.desc
 	picture = ECONOMY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -4609,7 +4427,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -4617,8 +4435,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA712"
-		#log = "EVTOPTA712"
+		name = wwu_random_events.57.option.a
+        
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -4633,8 +4451,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB712"
-		#log = "EVTOPTB712"
+		name = wwu_random_events.57.option.b
+        
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -4648,11 +4466,10 @@ country_event = {
 
 # Decadence
 country_event = {
-	id = 713
-	title = "EVTNAME713"
-	desc = "EVTDESC713"
+	id = wwu_random_events.58
+	title = wwu_random_events.58.title
+	desc = wwu_random_events.58.desc
 	picture = COURT_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -4664,7 +4481,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -4672,8 +4489,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA713"
-		#log = "EVTOPTA713"
+		name = wwu_random_events.58.option.a
+        
 		random = {
 			chance = 50
 			add_stability = -1
@@ -4683,11 +4500,10 @@ country_event = {
 
 # Military Divided!
 country_event = {
-	id = 714
-	title = "EVTNAME714"
-	desc = "EVTDESC714"
+	id = wwu_random_events.59
+	title = wwu_random_events.59.title
+	desc = wwu_random_events.59.desc
 	picture = LAND_MILITARY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -4697,28 +4513,28 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 	}
 
 	option = {
-		name = "EVTOPTA714"
-		#log = "EVTOPTA714"
+		name = wwu_random_events.59.option.a
+        
 		add_country_modifier = {
 			name = defensive_modifier
 			duration = 3650
 		}
 	}
 	option = {
-		name = "EVTOPTB714"
-		#log = "EVTOPTB714"
+		name = wwu_random_events.59.option.b
+        
 		add_country_modifier = {
 			name = offensive_modifier
 			duration = 3650
 		}
 	}
 	option = {
-		name = "personality_options.714.a"
-		#log = "personality_options.714.a"
+		name = wwu_random_events.59.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = martial_educator_personality
@@ -4734,8 +4550,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.714.b"
-		#log = "personality_options.714.b"
+		name = wwu_random_events.59.option.d
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = bold_fighter_personality
@@ -4747,8 +4563,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "personality_options.714.c"
-		#log = "personality_options.714.c"
+		name = wwu_random_events.59.option.e
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = tactical_genius_personality
@@ -4763,11 +4579,10 @@ country_event = {
 
 # $MONARCH$ embarrasses the court
 country_event = {
-	id = 715
-	title = "EVTNAME715"
-	desc = "EVTDESC715"
+	id = wwu_random_events.60
+	title = wwu_random_events.60.title
+	desc = wwu_random_events.60.desc
 	picture = COURT_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -4780,17 +4595,17 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 	}
 
 	option = {
-		name = "EVTOPTA715"
-		#log = "EVTOPTA715"
+		name = wwu_random_events.60.option.a
+        
 		add_stability = -1
 	}
 	option = {
-		name = "personality_options.715.a"
-		#log = "personality_options.715.a"
+		name = wwu_random_events.60.option.b
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = charismatic_negotiator_personality
@@ -4802,11 +4617,10 @@ country_event = {
 
 # Nobles Demand Recompensation
 country_event = {
-	id = 716
-	title = "EVTNAME716"
-	desc = "EVTDESC716"
+	id = wwu_random_events.61
+	title = wwu_random_events.61.title
+	desc = wwu_random_events.61.desc
 	picture = COURT_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -4815,7 +4629,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -4823,8 +4637,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA716"
-		#log = "EVTOPTA716"
+		name = wwu_random_events.61.option.a
+        
 		ai_chance = {
 			factor = 35
 			modifier = {
@@ -4846,8 +4660,8 @@ country_event = {
 		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB716"
-		#log = "EVTOPTB716"
+		name = wwu_random_events.61.option.b
+        
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -4862,11 +4676,10 @@ country_event = {
 
 # Monetary Reforms
 country_event = {
-	id = 717
-	title = "EVTNAME717"
-	desc = "EVTDESC717"
+	id = wwu_random_events.62
+	title = wwu_random_events.62.title
+	desc = wwu_random_events.62.desc
 	picture = REFORM_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -4875,7 +4688,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -4883,8 +4696,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA717"
-		#log = "EVTOPTA717"
+		name = wwu_random_events.62.option.a
+        
 		ai_chance = {
 			factor = 25
 		}
@@ -4892,8 +4705,8 @@ country_event = {
 		add_mandate_effect = yes
 	}
 	option = {
-		name = "EVTOPTB717"
-		#log = "EVTOPTB717"
+		name = wwu_random_events.62.option.b
+        
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -4905,8 +4718,8 @@ country_event = {
 		reduce_mandate_effect = yes
 	}
 	option = {
-		name = "personality_options.717.a"
-		#log = "personality_options.717.a"
+		name = wwu_random_events.62.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = midas_touched_personality }
 		required_personality = midas_touched_personality
@@ -4917,11 +4730,10 @@ country_event = {
 
 # The Fortunes of War
 country_event = {
-	id = 718
-	title = "EVTNAME718"
-	desc = "EVTDESC718"
+	id = wwu_random_events.63
+	title = wwu_random_events.63.title
+	desc = wwu_random_events.63.desc
 	picture = REFORM_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -4931,7 +4743,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -4939,8 +4751,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA718"
-		#log = "EVTOPTA718"
+		name = wwu_random_events.63.option.a
+        
 		ai_chance = {
 			factor = 9
 		}
@@ -4948,16 +4760,16 @@ country_event = {
 		add_inflation = 1
 	}
 	option = {
-		name = "EVTOPTB718"
-		#log = "EVTOPTB718"
+		name = wwu_random_events.63.option.b
+        
 		ai_chance = {
 			factor = 1
 		}
 		add_war_exhaustion = -1
 	}
 	option = {
-		name = "personality_options.718.a"
-		#log = "personality_options.718.a"
+		name = wwu_random_events.63.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = kind_hearted_personality }
 		required_personality = kind_hearted_personality
@@ -4970,11 +4782,10 @@ country_event = {
 
 # Strong Military Leadership
 country_event = {
-	id = 719
-	title = "EVTNAME719"
-	desc = "EVTDESC719"
+	id = wwu_random_events.64
+	title = wwu_random_events.64.title
+	desc = wwu_random_events.64.desc
 	picture = MILITARY_CAMP_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -4984,7 +4795,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -4992,8 +4803,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA719"
-		#log = "EVTOPTA719"
+		name = wwu_random_events.64.option.a
+        
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -5016,8 +4827,8 @@ country_event = {
 		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB719"
-		#log = "EVTOPTB719"
+		name = wwu_random_events.64.option.b
+        
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -5029,8 +4840,8 @@ country_event = {
 		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.719.a"
-		#log = "personality_options.719.a"
+		name = wwu_random_events.64.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = martial_educator_personality }
 		required_personality = martial_educator_personality
@@ -5043,11 +4854,10 @@ country_event = {
 
 # The Naval Tradition
 country_event = {
-	id = 720
-	title = "EVTNAME720"
-	desc = "EVTDESC720"
+	id = wwu_random_events.65
+	title = wwu_random_events.65.title
+	desc = wwu_random_events.65.desc
 	picture = NAVAL_MILITARY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -5057,7 +4867,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -5065,8 +4875,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA720"
-		#log = "EVTOPTA720"
+		name = wwu_random_events.65.option.a
+        
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -5089,8 +4899,8 @@ country_event = {
 		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB720"
-		#log = "EVTOPTB720"
+		name = wwu_random_events.65.option.b
+        
 		ai_chance = {
 			factor = 50
 		}
@@ -5098,8 +4908,8 @@ country_event = {
 		add_navy_tradition = -20
 	}
 	option = {
-		name = "personality_options.720.a"
-		#log = "personality_options.720.a"
+		name = wwu_random_events.65.option.c
+        
 		highlight = yes
 		trigger = { ruler_has_personality = navigator_personality }
 		required_personality = navigator_personality
@@ -5112,11 +4922,10 @@ country_event = {
 
 # Sickness of $MONARCHTITLE$
 country_event = {
-	id = 722
-	title = "EVTNAME722"
-	desc = "EVTDESC722"
+	id = wwu_random_events.66
+	title = wwu_random_events.66.title
+	desc = wwu_random_events.66.desc
 	picture = COURT_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -5124,12 +4933,12 @@ country_event = {
 		stability = 0
 		has_regency = no
 		government = monarchy
-		NOT = {	has_ruler_modifier = power_to_nobles	}
+		NOT = {	has_ruler_modifier = power_to_nobles }
 		NOT = {	has_ruler_modifier = power_to_provinces	}
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -5137,8 +4946,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA722"
-		#log = "EVTOPTA722"
+		name = wwu_random_events.66.option.a
+        
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -5159,8 +4968,8 @@ country_event = {
 		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB722"
-		#log = "EVTOPTB722"
+		name = wwu_random_events.66.option.b
+        
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -5181,8 +4990,8 @@ country_event = {
 		add_estate_traders_loyalty_effect = yes
 	}
 	option = {
-		name = "personality_options.722.a"
-		#log = "personality_options.722.a"
+		name = wwu_random_events.66.option.c
+        
 		highlight = yes
 		trigger = {
 			ruler_has_personality = well_advised_personality
@@ -5200,11 +5009,10 @@ country_event = {
 
 # Regional Nobles challenge $COUNTRY$
 country_event = {
-	id = 723
-	title = "EVTNAME723"
-	desc = "EVTDESC723"
+	id = wwu_random_events.67
+	title = wwu_random_events.67.title
+	desc = wwu_random_events.67.desc
 	picture = ANGRY_MOB_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -5217,7 +5025,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
+		days = 1
 		modifier = {
 			factor = 0.5
 			luck = yes
@@ -5225,8 +5033,8 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA723"
-		#log = "EVTOPTA723"
+		name = wwu_random_events.67.option.a
+        
 		ai_chance = {
 			factor = 33
 			modifier = {
@@ -5254,8 +5062,8 @@ country_event = {
 		reduce_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "EVTOPTB723"
-		#log = "EVTOPTB723"
+		name = wwu_random_events.67.option.b
+        
 		ai_chance = {
 			factor = 33
 		}
@@ -5273,8 +5081,8 @@ country_event = {
 		}		
 	}	
 	option = {
-		name = "EVTOPTC723"
-		#log = "EVTOPTC723"
+		name = wwu_random_events.67.option.c
+        
 		ai_chance = {
 			factor = 33
 			modifier = {
