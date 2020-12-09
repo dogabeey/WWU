@@ -8,7 +8,12 @@ country_event = {
 	#goto = root
 	
 	trigger = {
-		is_ancient_gov = yes # Scripted trigger 
+		OR = {
+            has_reform = ancient_kingdom_reform
+            has_reform = ancient_republic_reform
+            has_reform = ancient_theocracy_reform
+            has_reform = ancient_clan_reform
+        }
 		months_of_ruling = 120
 		OR = {
 			NOT = { stability = 2 }

@@ -986,14 +986,6 @@ country_event = {
 		statesman = 1
 		NOT = { statesman = 2 }
 	}
-
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 25
-		}
-	}
 	
 	mean_time_to_happen = {
 		days = 1
@@ -1044,9 +1036,8 @@ country_event = {
 			}
 		}
 		remove_advisor = statesman
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=statesman
-			advisor_type_if_not_state=statesman
 			skill = 1
 			discount=yes
 		}
@@ -1065,9 +1056,6 @@ country_event = {
 		}
 		add_stability = -1
 		add_republican_tradition = 10
-	}
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 
@@ -2449,14 +2437,6 @@ country_event = {
 		}
 	}
 	
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 25
-		}
-	}
-	
 	option = {
 		name = "EVTOPTA9571"
 		#log = "EVTOPTA9571"		# It will be solved soon enough
@@ -2486,16 +2466,12 @@ country_event = {
 			}
 		}
 		add_years_of_income = -0.3
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=statesman
-			advisor_type_if_not_state=statesman
 			skill = 3
 			discount=yes
 		}
 		add_republican_tradition = 1
-	}
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 
