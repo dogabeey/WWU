@@ -185,17 +185,17 @@ NDiplomacy = {
 	SABOTAGE_RECRUITMENT_DURATION = 60,
 	SLANDER_MERCHANTS_DURATION = 60,
 
-	AE_OTHER_CONTINENT = 5, -- Reduced to make other continents care more
+	AE_OTHER_CONTINENT = 10, -- Reduced to make other continents care more
 	AE_SAME_CULTURE = 0.5,
 	AE_SAME_CULTURE_GROUP = 0.25,
 	AE_INFIDEL_CONQUEST = 0.25, 		-- different religion group conquered same religion province
 	AE_SAME_RELIGION = 0.5,
 	AE_SAME_RELIGION_GROUP = 0.0,
-	AE_DIFFERENT_RELIGION = -0.2,
+	AE_DIFFERENT_RELIGION = 0.0, 
 	AE_HRE_INTERNAL = 0.5,
 	AE_ATTACKER_DEVELOPMENT = 0.03,	-- Increased so aggressor AE is an real threat
 	AE_DEFENDER_DEVELOPMENT = 0.01,	 
-	AE_DISTANCE_BASE = 0.75,
+	AE_DISTANCE_BASE = 0.1,
 	AE_SAME_OVERLORD = 0.5,
 	AE_PROVINCE_CAP = 30,				-- Province development above this will not count for AE (also used for warscore cost cap)
 	AE_THREATEN_WAR = 1.0,
@@ -447,7 +447,7 @@ NCountry = {
 
 
 	MONARCH_MIN_SKILL = 0,						-- Probably bad idea to reduce this
-	MONARCH_MAX_SKILL = 6,						-- Monarch skills will be chosen between MONARCH_MIN_SKILL and MONARCH_MAX_SKILL
+	MONARCH_MAX_SKILL = 7,						-- Monarch skills will be chosen between MONARCH_MIN_SKILL and MONARCH_MAX_SKILL
 	ELECTIVE_LOCAL_MONARCH_MIN_BONUS = 0,		-- The minimum change that is applied to non-foreign heirs in elective monarchy
 	ELECTIVE_LOCAL_MONARCH_MAX_BONUS = 1,		-- The maximum change that is applied to non-foreign heirs in elective monarchy
 	ELECTIVE_FOREIGN_MONARCH_MIN_BONUS = 0,		-- The minimum change that is applied to foreigns heirs in elective monarchy
