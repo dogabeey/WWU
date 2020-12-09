@@ -1,7 +1,7 @@
 # A66 Gurubashi
 # A67 Bloodscalp
 # A69 Skullsplitter
-# A01 Stormwind
+# STW Stormwind
 namespace = gurubashiwar
 
 # Border Friction between Azerothian farmers and Stranglethorn Trolls
@@ -20,8 +20,8 @@ country_event = {
 		manpower_percentage = 0.25
 		any_country = {
 			OR = {
-				tag = A01
-				is_subject_of = A01
+				tag = STW
+				is_subject_of = STW
 			}
 			any_country = {
 				OR = {
@@ -38,13 +38,13 @@ country_event = {
 		modifier = {
 			factor = 2
 			
-			alliance_with = A01
+			alliance_with = STW
 		}
 		modifier = {
 			factor = 2
 			
 			has_opinion = {
-				who = A01
+				who = STW
 				value = 50
 			}
 		}
@@ -59,14 +59,14 @@ country_event = {
 		name = border_friction_with_trolls.opt2
 		#log = "border_friction_with_trolls.opt2" # Send a diplomatic note
 		add_prestige = 5
-		A01 = { country_event = { id = gurubashiwar.2 tooltip = border_friction_with_trolls.opt2.tt } }
+		STW = { country_event = { id = gurubashiwar.2 tooltip = border_friction_with_trolls.opt2.tt } }
 	}
 	option = {
 		name = border_friction_with_trolls.opt3
 		#log = "border_friction_with_trolls.opt3" # Attack the farmers and scare them away
 		add_prestige = 10
-		A01 = { country_event = { id = gurubashiwar.3 tooltip = border_friction_with_trolls.opt3.tt } }
-		A01 = {
+		STW = { country_event = { id = gurubashiwar.3 tooltip = border_friction_with_trolls.opt3.tt } }
+		STW = {
 			random_owned_province = {
 				limit = {
 					any_neighbor_province = {
@@ -77,7 +77,7 @@ country_event = {
 			}
 		}
 		reverse_add_opinion = {
-			who = A01
+			who = STW
 			modifier = dishonorable_act
 		}
 	}
@@ -85,8 +85,8 @@ country_event = {
 		name = border_friction_with_trolls.opt4
 		#log = "border_friction_with_trolls.opt4" # Raze a bordering province
 		add_prestige = 15
-		A01 = { country_event = { id = gurubashiwar.4 tooltip = border_friction_with_trolls.opt4.tt } }
-		A01 = {
+		STW = { country_event = { id = gurubashiwar.4 tooltip = border_friction_with_trolls.opt4.tt } }
+		STW = {
 			random_owned_province = {
 				limit = {
 					any_neighbor_province = {
@@ -100,7 +100,7 @@ country_event = {
 			}
 		}
 		reverse_add_opinion = {
-			who = A01
+			who = STW
 			modifier = razed
 		}
 	}

@@ -365,14 +365,11 @@ the_second_war = {
     absolutism = { }
     
 	objectives = {
-		obj_remnants = {
-            any_subject_country = {
-				OR = {
-                    has_reform = remnants_monarchy_reform
-                    has_reform = remnants_republic_reform 
-                    has_reform = remnants_theocracy_reform 
-                    has_reform = remnants_tribe_reform
-                }
+		obj_loyal_subjects = {
+            vassal = 3
+            all_subject_country = {
+                vassal_of = ROOT
+				NOT = { liberty_desire = 10 }
 			}
         }
 		obj_times_of_unity = {
