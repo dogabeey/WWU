@@ -1,3 +1,4 @@
+# Rational Beliefs
 religion_group_technology = {
 	defender_of_faith = no
 	can_form_personal_unions = no
@@ -7,20 +8,41 @@ religion_group_technology = {
 	
 	crusade_name = CRUSADE
 	
+    religion_faithless = {
+		color = { 77 27 76 }
+		icon = 29
+		
+		country = {
+			infantry_power = 0.1
+		}
+        
+		province = {
+			local_missionary_strength = -0.02
+		}
+		on_convert = {
+			change_religion = religion_faithless
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+    
 	religion_rationalism = {
 		color = { 77 27 76 }
 		icon = 29
 		
 		country = {
-			missionaries = -5
-			
+            development_cost = -0.1
 		}
-		country_as_secondary = {
-			development_cost = -0.1
-		}
-		province = {
-			local_missionary_strength = -0.01
-		}
+        province = {
+            global_missionary_strength = 0.1
+        }
+        
 		on_convert = {
 			change_religion = religion_rationalism
 			add_prestige = -100
@@ -43,12 +65,7 @@ religion_group_technology = {
         }
 		
 		country = {
-			build_cost = -0.05
-			development_cost = -0.05
-		}
-		country_as_secondary = {
-			build_cost = -0.05
-			development_cost = -0.05
+			idea_cost = -0.1
 		}
 		
 		fervor = yes
@@ -75,12 +92,8 @@ religion_group_technology = {
         }
 		
 		country = {
-			build_cost = -0.05
-			development_cost = -0.05
-		}
-		country_as_secondary = {
-			build_cost = -0.05
-			development_cost = -0.05
+			build_cost = -0.1
+			development_cost = -0.1
 		}
 		
 		fervor = yes
