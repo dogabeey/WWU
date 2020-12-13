@@ -2093,13 +2093,13 @@ NReligion = {
 	BUY_INDULGENCE_DURATION = 5,							-- Duration of the indulgence effect in numbers of years (Opinion modifier has is own decay defined)
 	BUY_INDULGENCE_TREASURY_CONTRIBUTION = 0.5,				-- Amount of the cost of Buy Indulgence that goes in the Curia Treasury
 	APPOINT_CARDINAL_INFLUENCE = 10.0,						-- Invested Influence given by appointing a cardinal
-	APPOINT_CARDINAL_CORRUPTION = 0.5,						-- Corruption gained by the Papal State when appointing cardinals in its own land
+	APPOINT_CARDINAL_CORRUPTION = 0.1,						-- Corruption gained by the Papal State when appointing cardinals in its own land
 	APPOINT_CARDINAL_INFLUENCE_PAPAL_STATE = 1.0,			-- Yearly passive influence gained by cardinals in Papal States
 	-- Appoint cardinal cost formula:
 	APPOINT_CARDINAL_TOTAL_FACTOR = 2,						-- Factor to the number of total cardinals for the cost formula
 	APPOINT_CARDINAL_COUNTRY_FACTOR = 20,					-- Factor to the number of cardinals in the target country for the cost formula
 	APPOINT_CARDINAL_MINIMUM_COST = 25.0,					-- Minimum cost to appoint a cardinal
-	PICK_GOLDEN_BULL_COST = 400,							-- Integer cost for pick a golden bull
+	PICK_GOLDEN_BULL_COST = 500,							-- Integer cost for pick a golden bull
 
 	REFORM_DESIRE_PROV_CONVERSION_SPEED_MODIFIER = 1,
 },

@@ -1,0 +1,81 @@
+#---------------------------------------
+# Corrupt Ruler
+#---------------------------------------
+corrupt_ruler = {
+	category = dynasty
+	
+	alert_index = 40
+	alert_tooltip = corrupt_ruler_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+        religion = religion_fel
+	}
+	is_allowed = {
+        reform_desire = 0.5
+        papal_influence = 50 
+        
+        FROM = {
+            has_regency = no
+            NOT = { religion = religion_fel }
+            NOT = { ruler_religion = religion_fel }
+        }
+	}
+	on_accept = {
+		add_papal_influence = -50
+		FROM = {
+			country_event = { id = wwu_fel.2 }
+		}
+	}
+	on_decline = { 
+	}
+	
+	ai_acceptance = { 
+	}
+
+	ai_will_do = {
+		always = no
+	}
+}
+
+#---------------------------------------
+# Corrupt Heir
+#---------------------------------------
+corrupt_heir = {
+	category = dynasty
+	
+	alert_index = 40
+	alert_tooltip = corrupt_ruler_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+        religion = religion_fel
+	}
+	is_allowed = {
+        reform_desire = 0.5
+        papal_influence = 25 
+        
+        FROM = {   
+            has_heir = yes
+            NOT = { religion = religion_fel }
+            NOT = { ruler_religion = religion_fel }
+        }
+	}
+	on_accept = {
+		add_papal_influence = -25
+		FROM = {
+			country_event = { id = wwu_fel.3 }
+		}
+	}
+	on_decline = { 
+	}
+	
+	ai_acceptance = { 
+	}
+
+	ai_will_do = {
+		always = no
+	}
+}

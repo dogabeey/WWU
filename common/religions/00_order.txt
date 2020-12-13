@@ -12,52 +12,17 @@ religion_group_order = {
 		icon = 13
 
 		country = {
-			advisor_pool = 2
+            advisor_cost = -0.1
+			advisor_pool = 1
 		}
 		
 		has_patriarchs = yes
 		
 		orthodox_icons = {
-			# If no icon has ai_will_do above 1 - <current patriarch authority> , the AI will not enact it. (60% PA = 0.6 -> ai_will_do has to be at least 0.4)
-
-			spec_affliction = {
-				manpower_recovery_speed = 0.1
-				
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 1
-				}
-			}
-
-			spec_destruction = {
-				global_unrest = -2
-				harsh_treatment_cost = -0.25
-				
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 1
-				}
-			}
-
-			spec_demonology = {
-				development_cost = -0.10
-				build_cost = -0.1
-				
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 1
-				}
-			}
-	
-			spec_arcane = {
-				improve_relation_modifier = 0.25
-				ae_impact = -0.1
+            # Order
+            spec_arcane = {
+				improve_relation_modifier = 0.1
+                
 				allow = {
 					always = yes
 				}
@@ -67,8 +32,7 @@ religion_group_order = {
 			}
 
 			spec_frost = {
-				global_institution_spread = 0.25
-				embracement_cost = -0.2
+				hostile_attrition = 2
 				
 				allow = {
 					always = yes
@@ -79,8 +43,44 @@ religion_group_order = {
 			}
 
 			spec_fire = {
-				global_institution_spread = 0.25
-				embracement_cost = -0.2
+				fire_damage = 0.05
+                
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+            
+            # Disorder
+			spec_affliction = {
+				siege_ability = 0.2
+				yearly_patriarch_authority = -0.02
+                
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_destruction = {
+				shock_damage = 0.2
+				yearly_patriarch_authority = -0.02
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_demonology = {
+				yearly_corruption = -0.05
+				yearly_patriarch_authority = -0.01
 				
 				allow = {
 					always = yes
@@ -91,8 +91,8 @@ religion_group_order = {
 			}
 
 			spec_havoc = {
-				global_institution_spread = 0.25
-				embracement_cost = -0.2
+				core_creation = -0.1
+				yearly_patriarch_authority = -0.03
 				
 				allow = {
 					always = yes
@@ -103,8 +103,8 @@ religion_group_order = {
 			}
 
 			spec_vengeance = {
-				global_institution_spread = 0.25
-				embracement_cost = -0.2
+				years_of_nationalism = -10
+				yearly_patriarch_authority = -0.02
 				
 				allow = {
 					always = yes
@@ -137,7 +137,8 @@ religion_group_order = {
 		}
 		
 		country = {
-			defensiveness = 0.5
+            governing_capacity_modifier = 0.1
+			defensiveness = 0.33
 		}
 		
 		holy_sites = { 728 1514 1573 1968 2509 } # Ulduar - Chamber of Heart - Uldum - Uldaman - Uldir
@@ -172,7 +173,8 @@ religion_group_order = {
 		}
 		
 		country = {
-			siege_ability = 0.1
+			country_military_power = 1
+            yearly_absolutism = 0.5
 		}
         
 		holy_sites = { 728 1514 1573 1968 2509 } # Ulduar - Chamber of Heart - Uldum - Uldaman - Uldir
@@ -197,28 +199,7 @@ religion_group_order = {
 		
 		heretic = { }
 	}
-	
-	religion_mystery_of_the_makers = {
-		color = { 0.33 0.33 0.33 }
-		icon = 23
-		
-		country = {
-			build_cost = -0.2
-		}
-		
-		on_convert = {
-			change_religion = religion_mystery_of_the_makers
-			add_prestige = -100
 
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}			
-		}
-
-		heretic = { }
-	}
-	
 	religion_sect_of_dragons = {
 		color = { 213 114 96 }
 		icon = 10
@@ -226,8 +207,10 @@ religion_group_order = {
 		hre_religion = yes
         
 		country = {
-			all_power_cost = -0.05
+            prestige = 1
+            ae_impact = -0.1
 		}
+        
 		on_convert = {
 			change_religion = religion_sect_of_dragons
 			add_prestige = -100
@@ -237,8 +220,6 @@ religion_group_order = {
 				duration = 3650
 			}			
 		}
-		
-		heretic = { }
 	}
 	
 	religion_celestial = {

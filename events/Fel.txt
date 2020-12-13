@@ -1,0 +1,208 @@
+namespace = wwu_fel
+
+# "[Root.GetName] has succumbed to Fel"
+province_event = {
+	id = wwu_fel.1
+	title = wwu_fel.1.title
+	desc = wwu_fel.1.desc
+	picture = LEGION_eventPicture
+	
+    is_triggered_only = yes
+
+	option = {
+		name = wwu_fel.1.option.a
+        
+        change_religion = religion_fel
+        FROM = { add_reform_desire = 0.02 }
+	}
+    option = {
+		name = wwu_fel.1.option.b
+        
+        add_mil_power = -100
+	}
+}
+
+# Corruption of [Root.Monarch.GetName]
+country_event = {
+	id = wwu_fel.2
+	title = wwu_fel.2.title
+	desc = wwu_fel.2.desc
+	picture = LEGION_eventPicture
+	
+    is_triggered_only = yes
+
+	option = {
+		name = wwu_fel.2.option.a
+        
+        set_ruler_religion = religion_fel
+        FROM = { add_reform_desire = 0.05 }
+	}
+    option = {
+		name = wwu_fel.2.option.b
+        
+        add_stability = -1
+	}
+}
+
+# Corruption of [Root.Heir.GetName]
+country_event = {
+	id = wwu_fel.3
+	title = wwu_fel.3.title
+	desc = wwu_fel.3.desc
+	picture = LEGION_eventPicture
+	
+    is_triggered_only = yes
+
+	option = {
+		name = wwu_fel.3.option.a
+        
+        set_heir_religion = religion_fel
+        FROM = { add_reform_desire = 0.05 }
+	}
+    option = {
+		name = wwu_fel.3.option.b
+        
+        add_stability = -1
+	}
+}
+
+# Demonic Allies
+country_event = {
+	id = wwu_fel.10
+	title = wwu_fel.10.title
+	desc = wwu_fel.10.desc
+	picture = LEGION_eventPicture
+	
+    is_triggered_only = yes
+    
+	trigger = {
+        is_papal_controller = yes
+		religion = religion_fel
+	}
+    
+	option = {
+		name = wwu_fel.10.option.a
+        
+        add_reform_desire = 0.05
+	}
+    
+	option = {
+		name = wwu_fel.10.option.b
+        
+        add_mil_power = 100
+	}
+}
+
+# Demonic Empowerment
+country_event = {
+	id = wwu_fel.11
+	title = wwu_fel.11.title
+	desc = wwu_fel.11.desc
+	picture = LEGION_eventPicture
+	
+    is_triggered_only = yes
+    
+	trigger = {
+		religion = religion_fel
+	}
+    
+	option = {
+		name = wwu_fel.11.option.a
+        
+        add_reform_desire = 0.05
+	}
+    
+	option = {
+		name = wwu_fel.11.option.b
+        
+        add_stability = 1
+	}
+}
+
+# Ancient Grimore
+country_event = {
+	id = wwu_fel.12
+	title = wwu_fel.12.title
+	desc = wwu_fel.12.desc
+	picture = LEGION_eventPicture
+	
+    is_triggered_only = yes
+    
+	trigger = {
+		religion = religion_fel
+	}
+    
+	option = {
+		name = wwu_fel.12.option.a
+        
+        add_reform_desire = 0.05
+	}
+    
+	option = {
+		name = wwu_fel.12.option.b
+        
+        add_legitimacy = 10
+        add_republican_tradition = 10
+        add_devotion = 10
+        add_horde_unity = 10
+        add_meritocracy = 10
+	}
+}
+
+# Demonic Reinforcements
+country_event = {
+	id = wwu_fel.20
+	title = wwu_fel.20.title
+	desc = wwu_fel.20.desc
+	picture = LEGION_eventPicture
+	
+    is_triggered_only = yes
+    
+	trigger = {
+		religion = religion_fel
+        reform_desire = 1.0
+	}
+    
+	option = {
+		name = wwu_fel.20.option.a
+        
+        random_owned_province = {
+            limit = {
+                controlled_by = ROOT
+            }
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+        }
+	}
+    
+	option = {
+		name = wwu_fel.20.option.b
+        
+        add_mil_power = 50
+	}
+}
+
+# Unholy Sway
+country_event = {
+	id = wwu_fel.21
+	title = wwu_fel.21.title
+	desc = wwu_fel.21.desc
+	picture = LEGION_eventPicture
+	
+    is_triggered_only = yes
+    
+	trigger = {
+        NOT = { is_papal_controller = yes }
+		religion = religion_fel
+        reform_desire = 1.0
+	}
+    
+	option = {
+		name = wwu_fel.21.option.a
+        
+        add_papal_influence = 10
+	}
+}

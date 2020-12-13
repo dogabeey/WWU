@@ -270,3 +270,54 @@ spread_religion = {
 		always = yes
 	}
 }
+
+#---------------------------------------
+# Spread Fel
+#---------------------------------------
+spread_fel = {
+	category = covert
+	
+	alert_index = 40
+	alert_tooltip = spread_fel_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+        religion = religion_fel
+	}
+	is_allowed = {
+        reform_desire = 0.25
+        
+		has_spy_network_in = {
+			who = FROM
+			value = 50
+		}
+		FROM = {
+			NOT = { religion = ROOT }
+			any_owned_province = {
+				NOT = { religion = ROOT }
+			}
+		}
+	}
+	on_accept = {
+		add_spy_network_in = {
+			who = FROM
+			value = -50
+		}
+		FROM = {
+			random_owned_province = {
+				limit = { NOT = { religion = ROOT } }
+				province_event = { id = wwu_fel.1 }
+			}
+		}
+	}
+	on_decline = { 
+	}
+	
+	ai_acceptance = { 
+	}
+
+	ai_will_do = {
+		always = yes
+	}
+}

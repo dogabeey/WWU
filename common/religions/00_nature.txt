@@ -119,6 +119,28 @@ religion_group_nature = {
 		heretic = { }
 	}
 	
+    religion_hakkari = {
+		color = { 255 0 0 }
+		icon = 5
+		
+		country = {
+			culture_conversion_cost = -0.1
+		}
+		
+		province = {
+			local_missionary_strength = -0.01
+		}
+		on_convert = {
+			change_religion = religion_hakkari
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		heretic = { }
+	}
     
 	religion_terokk = {
 		color = { 63 72 156 }
