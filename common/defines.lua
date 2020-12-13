@@ -550,7 +550,7 @@ NCountry = {
 	PARLIAMENT_PRESTIGE_HIT = -20,				-- penalty if failed debate.
 	PARLIAMENT_CHANCE_OF_DECISION = 10,			-- % Chance debate is ended after PARLIAMENT_DEBATE_DURATION
 
-	ALLOW_FEMALE_GENERALS = 0,
+	ALLOW_FEMALE_GENERALS = 1,
 	FEMALE_ADVISOR_CHANCE = 0, -- 0 since advisors aren't setup for females without explicit conditions
 	MAX_IDEA_GROUPS_FROM_SAME_CATEGORY = 1.0,   -- Allow any type at any time
 
