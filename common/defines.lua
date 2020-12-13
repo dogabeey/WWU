@@ -486,7 +486,7 @@ NCountry = {
 	ALLOW_ZERO_BASE_VALUES = 0,						-- Affects base tax, base manpower, and base production
 
 	NOMAD_DEVELOPMENT_SCALE = 600,
-	OVERSEAS_CLIENT_STATES = 0,					-- Allow overseas client states?
+	OVERSEAS_CLIENT_STATES = 1,					-- Allow overseas client states?
 
 	ESTATE_DROP_LOYALTY_IF_LOST_PRIVILEDGE = -20,
 	ESTATE_ANGRY_THRESHOLD = 30,
@@ -2049,15 +2049,15 @@ NReligion = {
 	MAX_UNLOCKED_ASPECTS = 3,									-- Maximum number of Aspects of Faith the player can have unlocked at once.
 	CHURCH_POWER_RATE_SCALE = 0.1,								-- Scaling value for rate at which church power is gained.
 
-	KARMA_FOR_OFFENSIVE_WAR = -10,
-	KARMA_FOR_HONORING_CTA = 25,
-	KARMA_PER_RELEASED_PROVINCE = 1,
-	KARMA_PER_TAKEN_PROVINCE = -1,
+	KARMA_FOR_OFFENSIVE_WAR = 0,
+	KARMA_FOR_HONORING_CTA = 0,
+	KARMA_PER_RELEASED_PROVINCE = 0,
+	KARMA_PER_TAKEN_PROVINCE = 0,
 	KARMA_TOO_HIGH = 33,
 	KARMA_TOO_LOW = -33,
 	KARMA_JUST_RIGHT_HIGH = 33,
 	KARMA_JUST_RIGHT_LOW = -33,
-	KARMA_RESTORE_ON_RULER_DEATH = 25,
+	KARMA_RESTORE_ON_RULER_DEATH = 0,
 
 	CHANGE_SECONDARY_PRESTIGE_HIT = -50,
 	MIN_HARMONIZE_DEVELOPMENT = 20,
