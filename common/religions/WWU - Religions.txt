@@ -1,4 +1,4 @@
-﻿#------------------------------------
+#------------------------------------
 # Quick Reference
 #------------------------------------
 # religion_group_disorder: Disorder
@@ -51,3 +51,2254 @@
  # religion_void: Void
  # religion_forgotten_shadow: Forgotten Shadow
  
+#------------------------------------
+# Order
+#------------------------------------
+religion_group_order = {
+	defender_of_faith = yes
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+	religion_arcane = {
+		color = { 102 146 227 }
+		icon = 13
+
+		country = {
+            advisor_cost = -0.1
+			advisor_pool = 1
+		}
+		
+		has_patriarchs = yes
+		
+		orthodox_icons = {
+            # Order
+            spec_arcane = {
+				improve_relation_modifier = 0.1
+                
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_frost = {
+				hostile_attrition = 2
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_fire = {
+				fire_damage = 0.05
+                
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+            
+            # Disorder
+			spec_affliction = {
+				siege_ability = 0.2
+				yearly_patriarch_authority = -0.02
+                
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_destruction = {
+				shock_damage = 0.2
+				yearly_patriarch_authority = -0.02
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_demonology = {
+				yearly_corruption = -0.05
+				yearly_patriarch_authority = -0.01
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_havoc = {
+				core_creation = -0.1
+				yearly_patriarch_authority = -0.03
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			spec_vengeance = {
+				years_of_nationalism = -10
+				yearly_patriarch_authority = -0.02
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+		}
+		
+		on_convert = {
+			change_religion = religion_arcane
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+	
+	religion_titan = {
+		color = { 253 204 09 }
+		icon = 9
+		
+		allowed_center_conversion = {
+			religion_titan_corrupt
+		}
+		
+		country = {
+            governing_capacity_modifier = 0.1
+			defensiveness = 0.33
+		}
+		
+		holy_sites = { 728 1514 1573 1968 2509 } # Ulduar - Chamber of Heart - Uldum - Uldaman - Uldir
+		
+		blessings = {
+			gift_of_the_stone
+			cosmic_knowledge
+			protectors_of_history
+			life_binding
+			master_of_magic
+		}
+		
+		on_convert = {
+			change_religion = religion_titan
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}				
+		}
+		
+		heretic = { }
+	}
+	
+	religion_titan_corrupt = {
+		color = { 225 215 09 }
+		icon = 9
+		
+		allowed_center_conversion = {
+			religion_titan
+		}
+		
+		country = {
+			country_military_power = 1
+            yearly_absolutism = 0.5
+		}
+        
+		holy_sites = { 728 1514 1573 1968 2509 } # Ulduar - Chamber of Heart - Uldum - Uldaman - Uldir
+		
+		blessings = {
+			the_dark_heart
+			cosmic_knowledge
+			protectors_of_history
+			breath_of_death
+			master_of_magic
+		}
+		
+		on_convert = {
+			change_religion = religion_titan_corrupt
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}				
+		}
+		
+		heretic = { }
+	}
+
+	religion_sect_of_dragons = {
+		color = { 213 114 96 }
+		icon = 10
+		
+		hre_religion = yes
+        
+		country = {
+            prestige = 1
+            ae_impact = -0.1
+		}
+        
+		on_convert = {
+			change_religion = religion_sect_of_dragons
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+	
+	religion_celestial = {
+		color = { 255 210 255 }
+		icon = 24
+		
+		country = {
+			diplomatic_reputation = 1
+            diplomatic_upkeep = 1
+		}
+
+		personal_deity = yes
+		
+		on_convert = {
+			change_religion = religion_celestial
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+}
+
+#------------------------------------
+# Disorder
+#------------------------------------
+religion_group_disorder = {
+	defender_of_faith = yes
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+	religion_fel = {
+		color = { 160 255 29 }
+		icon = 16
+		
+		country = {
+			core_creation = -0.05
+            army_tradition = 0.5
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		
+		on_convert = {
+			change_religion = religion_fel
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        papacy = {
+			papal_tag = B92
+			election_cost = 1000
+			seat_of_papacy = 1662
+			
+			beckon_demonspawn = {
+				cost = 75
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+					NOT = { has_country_modifier = beckoned_demonspawn }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "beckoned_demonspawn"
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+  
+			summon_eredar_warlocks = {
+				cost = 100
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+					NOT = { has_country_modifier = eredar_warlocks }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "eredar_warlocks"
+						duration = 3650
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			consult_with_nathrezim = {
+				cost = 75
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+					NOT = { has_country_modifier = nathrezim_guidance }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "nathrezim_guidance"
+						duration = 3650
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			summon_succubi = {
+				cost = 100
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+					NOT = { has_country_modifier = succubi_seduction }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "succubi_seduction"
+						duration = 3650
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			apply_demonic_wards = {
+				cost = 50
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+					NOT = { has_country_modifier = demonic_wards }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "demonic_wards"
+						duration = 3650
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			summon_doomguards = {
+				cost = 100
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+					NOT = { has_country_modifier = doomguard_brutality }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "doomguard_brutality"
+						duration = 3650
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			embolden_fire = {
+				cost = 75
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+					NOT = { has_country_modifier = strengthened_fire_magic }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "strengthened_fire_magic"
+						duration = 3650
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			fuel_soul_engines = {
+				cost = 50
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+					NOT = { has_country_modifier = soul_engines }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "soul_engines"
+						duration = 3650
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			# Effects
+			summon_legion_custodians = {
+				cost = 75
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+				}
+				effect = {
+					add_adm_power = 50
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			summon_legion_agents = {
+				cost = 75
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+				}
+				effect = {
+					add_dip_power = 50
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			summon_legion_commanders = {
+				cost = 75
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+				}
+				effect = {
+					add_mil_power = 50
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			conduct_extreme_vetting = {
+				cost = 50
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+				}
+				effect = {
+					add_corruption = -1
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			order_demonic_monuments = {
+				cost = 25
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+				}
+				effect = {
+					add_prestige = 10
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			supervise_encampments = {
+				cost = 100
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+				}
+				effect = {
+					add_stability = 1
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			siphon_slave_essence = {
+				cost = 50
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+				}
+				effect = {
+					add_war_exhaustion = -2
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+			
+			vet_commandants = {
+				cost = 75
+				potential = {
+					NOT = { tag = B92 }
+				}
+				allow = {
+					NOT = { war_with = B92 }
+				}
+				effect = {
+					add_army_tradition = 10
+					add_navy_tradition = 10
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						
+						current_age = rise_of_the_horde
+						owns_or_subject_of = 1586
+					}
+				}				
+			}
+		}
+	}
+}
+
+#------------------------------------
+# Elemental
+#------------------------------------
+religion_group_elemental = {
+	defender_of_faith = yes
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+	religion_ancestral = {
+		color = { 150 74 41 }
+		icon = 20
+		
+		uses_karma = yes
+		
+		country = {
+			stability_cost_modifier = -0.1
+		}
+		
+		on_convert = {
+			change_religion = religion_ancestral
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+	
+	religion_fire = {
+		color = { 241 124 42 }
+		icon = 25
+		
+		country = {	
+			global_manpower_modifier = 0.05
+			recover_army_morale_speed = 0.05
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		
+        personal_deity = yes
+		
+		on_convert = {
+			change_religion = religion_fire
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+	
+	religion_earth = {
+		color = { 47 27 76 }
+		icon = 26
+		
+		country = {	
+			production_efficiency = 0.1
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		
+        personal_deity = yes
+		
+		on_convert = {
+			change_religion = religion_earth
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+
+	religion_air = {
+		color = { 5 181 190 }
+		icon = 27
+		
+		country = {
+			unjustified_demands = -0.15
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		
+        personal_deity = yes
+		
+		on_convert = {
+			change_religion = religion_air
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+
+	religion_water = {
+		color = { 59 172 229 }
+		icon = 28
+		
+		country = {
+			naval_forcelimit_modifier = 0.15
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+
+        personal_deity = yes
+		
+		on_convert = {
+			change_religion = religion_water
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+}
+
+#------------------------------------
+# The Light
+#------------------------------------
+religion_group_the_light = {
+	defender_of_faith = yes
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+	religious_schools = {
+		brotherhood_of_northshire = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					}
+				}
+				OR = {
+					AND = {
+						primary_culture = culture_azerothian
+						religion = religion_church_of_the_light
+					}
+					any_country = {
+						religion = religion_church_of_the_light
+						has_opinion = {
+							who = ROOT
+							value = 180
+						}
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = brotherhood_of_northshire_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = brotherhood_of_northshire_modifier
+
+			picture = "GFX_icon_brotherhood_of_northshire"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.05
+		}
+		the_conclave = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				any_country = {
+					religion_group = religion_group_the_void
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+				any_country = {
+					religion_group = religion_group_the_light
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = the_conclave_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = the_conclave_modifier
+
+			picture = "GFX_icon_the_conclave"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.05
+		}
+		order_of_the_silver_hand = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				OR = {
+					AND = {
+						primary_culture = culture_lordaeron
+						religion = religion_church_of_the_light
+					}
+					any_neighbor_country = {
+						is_pure_evil = yes
+						NOT = {
+							has_opinion = {
+							who = ROOT
+							value = 100
+							}
+						}
+					}
+					any_rival_country = {
+						is_pure_evil = yes
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = order_of_the_silver_hand_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = order_of_the_silver_hand_modifier
+
+			picture = "GFX_icon_order_of_the_silver_hand"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.05
+		}
+		crimson_legion = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				OR = {
+					religion = religion_scarlet_light
+					any_rival_country = {
+						culture_group = culture_group_undead
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = crimson_legion_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = crimson_legion_modifier
+
+			picture = "GFX_icon_crimson_legion"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.05
+		}
+		blood_knights = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				OR = {
+					primary_culture = culture_blood_elf
+					any_ally = {
+						primary_culture = culture_blood_elf
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = blood_knights_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = blood_knights_modifier
+
+			picture = "GFX_icon_blood_knights"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.05
+		}
+		argent_light = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				OR = {
+					religion = religion_argent_light
+					any_rival_country = {
+						is_pure_evil = yes
+					}
+					any_country = {
+						is_pure_evil = yes
+						war_with = ROOT
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = argent_light_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = argent_light_modifier
+
+			picture = "GFX_icon_argent_light"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.05
+		}
+		the_lightforged = {
+			potential_invite_scholar = {
+				always = no # TODO: Implement it later... Much later.
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				always = yes
+				has_global_flag = burning_legion_invasion
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = the_lightforged_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = the_lightforged_modifier
+
+			picture = "GFX_icon_the_lightforged"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.05
+		}
+		the_sunwalkers = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				always = yes
+				culture_group = culture_group_tauren
+				any_neighbor_country = {
+					culture_group = culture_group_tauren
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = the_sunwalkers_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = the_sunwalkers_modifier
+
+			picture = "GFX_icon_the_sunwalkers"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.05
+		}
+	}
+	
+	religion_church_of_the_light = {
+		color = { 254 235 137 }
+		icon = 1
+		
+		country = {
+			tolerance_own = 1
+			global_tax_modifier = 0.2
+		}
+		
+		on_convert = {
+			change_religion = religion_church_of_the_light
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+	
+    religion_scarlet_light = {
+		color = { 127 0 0 }
+		icon = 2
+		
+		country = {
+            reinforce_speed = 0.3
+			tolerance_own = 1
+			tolerance_heathen = -3
+		}
+		
+		misguided_heretic = yes
+		
+		on_convert = {
+			change_religion = religion_scarlet_light
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+    
+	religion_argent_light = {
+		color = { 181 185 188 }
+		icon = 31
+		
+		country = {
+            land_morale = 0.1
+			tolerance_own = 1
+			tolerance_heathen = -3
+		}
+
+		on_convert = {
+			change_religion = religion_argent_light
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+	
+	religion_light_of_the_naaru = {
+		color = { 0 255 255 }
+		icon = 3
+		
+		country = {
+			prestige = 1
+			global_unrest = -1
+		}
+
+		misguided_heretic = yes
+		
+		on_convert = {
+			change_religion = religion_light_of_the_naaru
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+	
+    religion_light_of_the_sunwell = {
+		color = { 255 255 61 }
+		icon = 32
+		
+		country = {
+			yearly_corruption = -0.05
+			tolerance_own = 1
+		}
+		
+		misguided_heretic = yes
+		
+		on_convert = {
+			change_religion = religion_light_of_the_sunwell
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+}
+
+#------------------------------------
+# Nature
+#------------------------------------
+religion_group_nature = {
+	defender_of_faith = yes
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+	religion_druidic = {
+		color = { 0.1 0.4 0.1 }
+		icon = 11
+		
+		country = {
+			diplomatic_reputation = 2
+			monthly_piety = -0.01
+		}
+        
+		on_convert = {
+			change_religion = religion_druidic
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}
+		}
+		
+		uses_piety = yes
+        
+		heretic = { }
+	}
+	
+	religion_elune = {
+		color = { 178 255 255 }
+		icon = 4
+		
+		misguided_heretic = yes
+		
+		country = {
+			ae_impact = -0.15
+		}
+		
+		on_convert = {
+			change_religion = religion_elune
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		holy_sites = { 1073 1304 1308 1431 1435 }
+		
+		blessings = {
+			calm_of_the_night
+			visions_of_hope
+			cleansing_of_corruption
+			power_over_the_tides
+			the_night_warriors
+		}
+		
+		heretic = { }
+	}
+	
+	
+	religion_loa = {
+		color = { 25 15 25 }
+		icon = 6
+
+		country = {
+			global_unrest = -1
+			land_maintenance_modifier = -0.1
+		}
+        
+		province = {
+			local_missionary_strength = -0.01
+		}
+
+		on_convert = {
+			change_religion = religion_loa
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+        personal_deity = yes
+        
+		heretic = { }
+	}
+	
+	religion_blood = {
+		color = { 200 50 50 }
+		icon = 21
+
+		country = {
+			shock_damage = 0.15
+		}
+        
+		province = {
+			hostile_attrition = 1
+		}
+
+		on_convert = {
+			change_religion = religion_loa
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+        
+		heretic = { }
+	}
+	
+    religion_hakkari = {
+		color = { 255 0 0 }
+		icon = 5
+		
+		country = {
+			culture_conversion_cost = -0.1
+		}
+		
+		province = {
+			local_missionary_strength = -0.01
+		}
+		on_convert = {
+			change_religion = religion_hakkari
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		heretic = { }
+	}
+    
+	religion_terokk = {
+		color = { 63 72 156 }
+		icon = 19
+		
+		country = {
+			province_warscore_cost = -0.1
+		}
+        
+		on_convert = {
+			change_religion = religion_terokk
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+	
+
+	religion_zangar = {
+		color = { 63 72 204 }
+		icon = 33
+		
+		country = {
+			manpower_recovery_speed = 0.2
+		}
+
+		on_convert = {
+			change_religion = religion_zangar
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+    
+    religion_arkkorok = {
+		color = { 58 173 174 }
+		icon = 18
+		
+		country = {
+			navy_tradition = 1
+            naval_morale = 0.1
+		}
+        
+		on_convert = {
+			change_religion = religion_arkkorok
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+    
+	# Used for wolvar, tuskarr and other primitive pantheons
+	religion_primitive = {
+		color = { 136 228 163 }
+		icon = 12
+		
+		country = {
+			tolerance_own = 1
+			war_exhaustion_cost = -0.1
+		}
+		
+		personal_deity = yes
+		
+		on_convert = {
+			change_religion = religion_primitive
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+}
+
+#------------------------------------
+# Void
+#------------------------------------
+religion_group_the_void = {
+	defender_of_faith = yes
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+	religion_shadow = {
+		color = { 0 0 64 }
+		icon = 8
+
+		country = {
+			advisor_cost = -0.15
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+
+        aspects_name = SHADOW_ASPECTS
+		uses_church_power = yes				# Uses church power/aspect mechanics
+		aspects = {
+            shadow_word_pain
+            shadow_word_death
+            shadow_mend
+            call_shadowfiend
+            master_of_duality
+            psychic_scream
+		}
+		
+		on_convert = {
+			change_religion = religion_shadow
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+	
+	religion_old_gods = {
+		color = { 106 54 112 }
+		icon = 15
+		
+		country = {
+			core_creation = -0.1
+		}
+		
+		hre_heretic_religion = yes
+        
+        aspects_name = CORRUPTING_ASPECTS
+        uses_church_power = yes				# Uses church power/aspect mechanics
+		aspects = {
+            maddenning_howl
+            call_from_beyond
+            shadowy_barrier
+            beacon_of_madness
+            lunatic_gaze
+            widsom_of_the_mad
+		}
+        
+		on_convert = {
+			change_religion = religion_old_gods
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+	
+	religion_the_damned = {
+		color = { 128 128 128 }
+		icon = 17
+		
+		country = {
+			global_manpower_modifier = 0.2
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		
+        aspects_name = DAMNED_ASPECTS
+		uses_church_power = yes				# Uses church power/aspect mechanics
+		aspects = {
+			unrelenting_conversion
+            unity_in_death
+            patchwork_minions
+            blight
+            flesh_supplies
+            raze_and_ruin
+            acolytes_of_the_damned
+            plague_bombs
+            corrupted_minds
+		}
+		
+		on_convert = {
+			change_religion = religion_the_damned
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+	
+	religion_void = {
+		color = { 12 0 49 }
+		icon = 22
+		
+		country = {
+			technology_cost = -0.05
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+
+        aspects_name = VOID_ASPECTS
+		uses_church_power = yes				# Uses church power/aspect mechanics
+		aspects = {
+            manifest_the_void
+            void_corruption
+            parasitic_horrors
+            void_tendrils
+            demonic_allies
+            summon_voidwalkers
+            voidform
+		}
+		
+		on_convert = {
+			change_religion = religion_void
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+
+		heretic = { }
+	}
+
+	religion_forgotten_shadow = {
+		color = { 15 96 113 }
+		icon = 7
+		
+		country = {
+			global_unrest = -2
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		
+        aspects_name = FORGOTTEN_ASPECTS_LONG
+        uses_church_power = yes				# Uses church power/aspect mechanics
+		aspects = {
+            shadow_word_pain
+            shadow_word_death
+            shadow_mend
+            call_shadowfiend
+            master_of_duality
+            psychic_scream
+		}
+        
+		on_convert = {
+			change_religion = religion_forgotten_shadow
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+		heretic = { }
+	}
+}
+
+#------------------------------------
+# Rationalism
+#------------------------------------
+religion_group_rational_philosophies = {
+	defender_of_faith = no
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+	religion_rationalism = {
+		color = { 77 27 76 }
+		icon = 36
+		
+        misguided_heretic = yes
+        
+        allowed_conversion = {
+            religion_tech
+            religion_greed
+        }
+        
+		country = {
+            development_cost = -0.2
+		}
+        province = {
+            local_missionary_strength = 0.03
+        }
+        
+        fervor = yes
+        
+		on_convert = {
+			change_religion = religion_rationalism
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+	
+    religion_faithless = {
+		color = { 77 27 76 }
+		icon = 35
+		
+		country = {
+            discipline = 0.05
+			reserves_organisation = 0.2
+		}
+        province = {
+            local_missionary_strength = 0.01
+        }
+        
+        fervor = yes
+        
+		on_convert = {
+			change_religion = religion_faithless
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+    
+	religion_tech = {
+		color = { 0.45 0.45 0.45 }
+		icon = 30
+        
+        misguided_heretic = yes
+        
+        allowed_conversion = {
+            religion_greed
+            religion_rationalism
+        }
+		
+		country = {
+			technology_cost = -0.1
+            innovativeness_gain = 0.2
+		}
+		province = {
+            local_missionary_strength = 0.03
+        }
+        
+		fervor = yes
+		
+		on_convert = {
+			change_religion = religion_tech
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+
+    religion_greed = {
+		color = { 0.5 0.5 0.5 }
+		icon = 34
+        
+        misguided_heretic = yes
+        
+        allowed_conversion = {
+            religion_tech
+            religion_rationalism
+        }
+		
+		country = {
+			global_tax_modifier = 0.1
+            production_efficiency = 0.1
+		}
+		province = {
+            local_missionary_strength = 0.03
+        }
+        
+		fervor = yes
+		
+		on_convert = {
+			change_religion = religion_greed
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+    }
+    
+    # Schools
+    religious_schools = {
+		military_philosophy = {
+            picture = "GFX_icon_military_philosophy"
+            invite_scholar_modifier_display = military_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = military_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			army_tradition_from_battle = 1.0
+            religion_sub_modifier = no
+		}
+        naval_philosophy = {
+            picture = "GFX_icon_naval_philosophy"
+            invite_scholar_modifier_display = naval_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = naval_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			naval_tradition_from_battle = 1.0
+            religion_sub_modifier = no
+		}
+        diplomatic_philosophy = {
+            picture = "GFX_icon_diplomatic_philosophy"
+            invite_scholar_modifier_display = diplomatic_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = diplomatic_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			diplomats = 1
+            religion_sub_modifier = no
+		}
+        trade_philosophy = {
+            picture = "GFX_icon_trade_philosophy"
+            invite_scholar_modifier_display = trade_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = trade_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			merchants = 1
+            religion_sub_modifier = no
+		}
+        engineering_philosophy = {
+            picture = "GFX_icon_engineering_philosophy"
+            invite_scholar_modifier_display = engineering_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = engineering_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			technology_cost = -0.05
+            religion_sub_modifier = no
+		}
+        administrative_philosophy = {
+            picture = "GFX_icon_administrative_philosophy"
+            invite_scholar_modifier_display = administrative_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = administrative_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			global_tax_modifier = 0.2
+            religion_sub_modifier = no
+		}
+        governance_philosophy = {
+            picture = "GFX_icon_governance_philosophy"
+            invite_scholar_modifier_display = governance_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = governance_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			expand_administration_cost = -0.2
+            religion_sub_modifier = no
+		}
+    }
+}

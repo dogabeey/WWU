@@ -149,6 +149,43 @@ country_event = {
 	}
 }
 
+# New Warlock
+country_event = {
+	id = wwu_fel.13
+	title = wwu_fel.13.title
+	desc = wwu_fel.13.desc
+	picture = GULDAN_eventPicture
+	
+    is_triggered_only = yes
+    
+	trigger = {
+		religion = religion_fel
+        NOT = { total_number_of_cardinals = 49 }
+        
+        any_owned_province = {
+            religion = religion_fel
+            has_cardinal = no
+        }
+	}
+    
+	option = {
+		name = wwu_fel.13.option.a
+        
+        add_reform_desire = 0.05
+	}
+	option = {
+		name = wwu_fel.13.option.b
+        
+        random_owned_province = {
+            limit = { 
+                religion = religion_fel
+                has_cardinal = no
+            }
+            add_cardinal = yes
+        }
+	}
+}
+
 # Demonic Reinforcements
 country_event = {
 	id = wwu_fel.20
