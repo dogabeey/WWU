@@ -62,6 +62,8 @@ religion_group_order = {
 	flag_emblem_index_range = { 1 57 }
 	
 	crusade_name = CRUSADE
+    
+    harmonized_modifier = harmonized_order
 	
 	religion_arcane = {
 		color = { 102 146 227 }
@@ -200,11 +202,11 @@ religion_group_order = {
 		holy_sites = { 728 1514 1573 1968 2509 } # Ulduar - Chamber of Heart - Uldum - Uldaman - Uldir
 		
 		blessings = {
-			gift_of_the_stone
-			cosmic_knowledge
-			protectors_of_history
-			life_binding
-			master_of_magic
+			titan_gift_of_the_stone
+			titan_cosmic_knowledge
+			titan_protectors_of_history
+			titan_life_binding
+			titan_master_of_magic
 		}
 		
 		on_convert = {
@@ -236,11 +238,11 @@ religion_group_order = {
 		holy_sites = { 728 1514 1573 1968 2509 } # Ulduar - Chamber of Heart - Uldum - Uldaman - Uldir
 		
 		blessings = {
-			the_dark_heart
-			cosmic_knowledge
-			protectors_of_history
-			breath_of_death
-			master_of_magic
+			corrupt_titan_the_dark_heart
+			corrupt_titan_cosmic_knowledge
+			corrupt_titan_protectors_of_history
+			corrupt_titan_breath_of_death
+			corrupt_titan_master_of_magic
 		}
 		
 		on_convert = {
@@ -315,6 +317,8 @@ religion_group_disorder = {
 	
 	crusade_name = CRUSADE
 	
+    harmonized_modifier = harmonized_disorder
+    
 	religion_fel = {
 		color = { 160 255 29 }
 		icon = 16
@@ -742,12 +746,15 @@ religion_group_elemental = {
 	
 	crusade_name = CRUSADE
 	
+    harmonized_modifier = harmonized_elemental
+    
 	religion_ancestral = {
 		color = { 150 74 41 }
 		icon = 20
 
 		country = {
-            stability_cost_modifier = -0.33
+            stability_cost_modifier = -0.3
+            global_unrest = -1
 		}
 		
         uses_karma = yes
@@ -768,8 +775,8 @@ religion_group_elemental = {
 		icon = 25
 		
 		country = {	
-			global_manpower_modifier = 0.05
-			recover_army_morale_speed = 0.05
+			global_manpower_modifier = 0.1
+			recover_army_morale_speed = 0.1
 		}
 		province = {
 			local_missionary_strength = -0.01
@@ -795,6 +802,7 @@ religion_group_elemental = {
 		icon = 26
 		
 		country = {	
+            defensiveness = 0.33
 			production_efficiency = 0.1
 		}
 		province = {
@@ -822,6 +830,7 @@ religion_group_elemental = {
 		
 		country = {
 			unjustified_demands = -0.15
+            movement_speed = 0.2
 		}
 		province = {
 			local_missionary_strength = -0.01
@@ -848,6 +857,7 @@ religion_group_elemental = {
 		
 		country = {
 			naval_forcelimit_modifier = 0.15
+            ship_durability = 0.1
 		}
 		province = {
 			local_missionary_strength = -0.01
@@ -881,7 +891,125 @@ religion_group_the_light = {
 	
 	crusade_name = CRUSADE
 	
-	religious_schools = {
+	religion_church_of_the_light = {
+		color = { 254 235 137 }
+		icon = 1
+		
+		country = {
+			tolerance_own = 1
+			global_tax_modifier = 0.2
+		}
+		
+		on_convert = {
+			change_religion = religion_church_of_the_light
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+        uses_harmony = yes
+	}
+	
+    religion_scarlet_light = {
+		color = { 127 0 0 }
+		icon = 2
+		
+		country = {
+            reinforce_speed = 0.3
+			tolerance_own = 1
+			tolerance_heathen = -3
+		}
+		
+		misguided_heretic = yes
+		
+		on_convert = {
+			change_religion = religion_scarlet_light
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+        uses_harmony = yes
+    }
+    
+	religion_argent_light = {
+		color = { 181 185 188 }
+		icon = 31
+		
+		country = {
+            land_morale = 0.1
+			tolerance_own = 1
+			tolerance_heathen = -3
+		}
+
+		on_convert = {
+			change_religion = religion_argent_light
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+        uses_harmony = yes
+	}
+	
+	religion_light_of_the_naaru = {
+		color = { 0 255 255 }
+		icon = 3
+		
+		country = {
+			prestige = 1
+			global_unrest = -1
+		}
+
+		misguided_heretic = yes
+		
+		on_convert = {
+			change_religion = religion_light_of_the_naaru
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+        uses_harmony = yes
+	}
+	
+    religion_light_of_the_sunwell = {
+		color = { 255 255 61 }
+		icon = 32
+		
+		country = {
+			yearly_corruption = -0.05
+			tolerance_own = 1
+		}
+		
+		misguided_heretic = yes
+		
+		on_convert = {
+			change_religion = religion_light_of_the_sunwell
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		uses_harmony = yes
+	}
+    
+    religious_schools = {
 		brotherhood_of_northshire = {
 			potential_invite_scholar = {
 				always = yes
@@ -1321,124 +1449,6 @@ religion_group_the_light = {
 			adm_tech_cost_modifier = -0.05
 		}
 	}
-	
-	religion_church_of_the_light = {
-		color = { 254 235 137 }
-		icon = 1
-		
-		country = {
-			tolerance_own = 1
-			global_tax_modifier = 0.2
-		}
-		
-		on_convert = {
-			change_religion = religion_church_of_the_light
-			add_prestige = -100
-
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}			
-		}
-		
-		heretic = { }
-	}
-	
-    religion_scarlet_light = {
-		color = { 127 0 0 }
-		icon = 2
-		
-		country = {
-            reinforce_speed = 0.3
-			tolerance_own = 1
-			tolerance_heathen = -3
-		}
-		
-		misguided_heretic = yes
-		
-		on_convert = {
-			change_religion = religion_scarlet_light
-			add_prestige = -100
-
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}			
-		}
-		
-		heretic = { }
-	}
-    
-	religion_argent_light = {
-		color = { 181 185 188 }
-		icon = 31
-		
-		country = {
-            land_morale = 0.1
-			tolerance_own = 1
-			tolerance_heathen = -3
-		}
-
-		on_convert = {
-			change_religion = religion_argent_light
-			add_prestige = -100
-
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}			
-		}
-		
-		heretic = { }
-	}
-	
-	religion_light_of_the_naaru = {
-		color = { 0 255 255 }
-		icon = 3
-		
-		country = {
-			prestige = 1
-			global_unrest = -1
-		}
-
-		misguided_heretic = yes
-		
-		on_convert = {
-			change_religion = religion_light_of_the_naaru
-			add_prestige = -100
-
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}			
-		}
-		
-		heretic = { }
-	}
-	
-    religion_light_of_the_sunwell = {
-		color = { 255 255 61 }
-		icon = 32
-		
-		country = {
-			yearly_corruption = -0.05
-			tolerance_own = 1
-		}
-		
-		misguided_heretic = yes
-		
-		on_convert = {
-			change_religion = religion_light_of_the_sunwell
-			add_prestige = -100
-
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}			
-		}
-		
-		heretic = { }
-	}
 }
 
 #------------------------------------
@@ -1453,13 +1463,15 @@ religion_group_nature = {
 	
 	crusade_name = CRUSADE
 	
+    harmonized_modifier = harmonized_nature
+    
 	religion_druidic = {
 		color = { 0.1 0.4 0.1 }
 		icon = 11
 		
 		country = {
 			diplomatic_reputation = 2
-			monthly_piety = -0.01
+			governing_capacity_modifier = 0.1
 		}
         
 		on_convert = {
@@ -1472,9 +1484,7 @@ religion_group_nature = {
 			}
 		}
 		
-		uses_piety = yes
-        
-		heretic = { }
+		uses_piety = yes # Purity
 	}
 	
 	religion_elune = {
@@ -1484,7 +1494,8 @@ religion_group_nature = {
 		misguided_heretic = yes
 		
 		country = {
-			ae_impact = -0.15
+			ae_impact = -0.1
+            stability_cost_modifier = -0.1
 		}
 		
 		on_convert = {
@@ -1500,17 +1511,14 @@ religion_group_nature = {
 		holy_sites = { 1073 1304 1308 1431 1435 }
 		
 		blessings = {
-			calm_of_the_night
-			visions_of_hope
-			cleansing_of_corruption
-			power_over_the_tides
-			the_night_warriors
+			elune_calm_of_the_night
+			elune_visions_of_hope
+			elune_cleansing_of_corruption
+			elune_power_over_the_tides
+			elune_the_night_warriors
 		}
-		
-		heretic = { }
 	}
-	
-	
+    
 	religion_loa = {
 		color = { 25 15 25 }
 		icon = 6
@@ -1535,8 +1543,6 @@ religion_group_nature = {
 		}
 
         personal_deity = yes
-        
-		heretic = { }
 	}
 	
 	religion_blood = {
@@ -1544,10 +1550,11 @@ religion_group_nature = {
 		icon = 21
 
 		country = {
-			shock_damage = 0.15
+			global_manpower_modifier = 0.33
+            global_regiment_recruit_speed = -0.2
 		}
-        
 		province = {
+            local_missionary_strength = -0.01
 			hostile_attrition = 1
 		}
 
@@ -1560,9 +1567,6 @@ religion_group_nature = {
 				duration = 3650
 			}			
 		}
-		
-        
-		heretic = { }
 	}
 	
     religion_hakkari = {
@@ -1571,11 +1575,12 @@ religion_group_nature = {
 		
 		country = {
 			culture_conversion_cost = -0.5
+            global_regiment_recruit_speed = -0.2
 		}
-		
 		province = {
 			local_missionary_strength = -0.01
 		}
+        
 		on_convert = {
 			change_religion = religion_hakkari
 			add_prestige = -100
@@ -1585,15 +1590,15 @@ religion_group_nature = {
 				duration = 3650
 			}			
 		}
-		heretic = { }
 	}
     
 	religion_terokk = {
 		color = { 63 72 156 }
 		icon = 19
 		
-		country = {
-			province_warscore_cost = -0.1
+		country = { 
+            army_tradition = 1
+            movement_speed = 0.1
 		}
         
 		on_convert = {
@@ -1605,16 +1610,14 @@ religion_group_nature = {
 				duration = 3650
 			}			
 		}
-
-		heretic = { }
 	}
 	
-
 	religion_zangar = {
 		color = { 63 72 204 }
 		icon = 33
 		
 		country = {
+            land_maintenance_modifier = -0.1
 			manpower_recovery_speed = 0.2
 		}
 
@@ -1627,8 +1630,6 @@ religion_group_nature = {
 				duration = 3650
 			}			
 		}
-
-		heretic = { }
 	}
     
     religion_arkkorok = {
@@ -1649,8 +1650,6 @@ religion_group_nature = {
 				duration = 3650
 			}			
 		}
-
-		heretic = { }
 	}
     
 	# Used for wolvar, tuskarr and other primitive pantheons
@@ -1659,8 +1658,8 @@ religion_group_nature = {
 		icon = 12
 		
 		country = {
-			tolerance_own = 1
-			war_exhaustion_cost = -0.1
+            stability_cost_modifier = -0.1
+			global_unrest = -1
 		}
 		
 		personal_deity = yes
@@ -1674,8 +1673,6 @@ religion_group_nature = {
 				duration = 3650
 			}			
 		}
-		
-		heretic = { }
 	}
 }
 
@@ -1691,6 +1688,8 @@ religion_group_the_void = {
 	
 	crusade_name = CRUSADE
 	
+    harmonized_modifier = harmonized_void
+    
 	religion_shadow = {
 		color = { 0 0 64 }
 		icon = 8
@@ -1881,6 +1880,8 @@ religion_group_rational_philosophies = {
 	flag_emblem_index_range = { 1 57 }
 	
 	crusade_name = CRUSADE
+    
+    harmonized_modifier = harmonized_rational_philosophies
 	
 	religion_rationalism = {
 		color = { 77 27 76 }
