@@ -1877,8 +1877,8 @@ guiTypes = {
 
 				guiButtonType = {
 					name = "shield"
-					position = { x=34 y = -4 }
-					quadTextureSprite ="GFX_shield_medium"
+					position = { x = 50 y = 22 }
+					quadTextureSprite ="GFX_shield_small"
 					Orientation = "UPPER_LEFT"
 				}
 
@@ -2592,7 +2592,7 @@ guiTypes = {
 				name = "provinces_listbox"
 				backGround = ""
 				position = { x= 20 y = 250 }
-				size = { x=468 y=250 }
+				size = { x=462 y=180 }
 				Orientation = "UPPER_LEFT"
 				horizontal = 0
 				scrollbartype = "standardlistbox_slider"
@@ -5421,7 +5421,9 @@ guiTypes = {
 		}
 	}
 
-    
+    #-------------------------------------------
+    # BUILDINGS START
+    #-------------------------------------------
 	windowType = {
 		name = "new_buildings_entry2"
 		backGround=""
@@ -5994,7 +5996,7 @@ guiTypes = {
 		iconType ={
 			name ="trade_icon"
 			spriteType = "GFX_macro_buildings_category_strip"
-			position = { x = 15 y = 391}
+			position = { x = 15 y = 391 }
 			frame = 1
 		}			
 		
@@ -6256,13 +6258,13 @@ guiTypes = {
 		}
         
         checkboxType = {
-			name = "build_wow_unique_palace"
+			name = "build_wow_palace"
 			position = { x = 433 y = 129 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		instantTextBoxType={
-			name = "wow_unique_palace_cost"
+			name = "wow_palace_cost"
 			position = {x = 433 y = 179 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}	
@@ -6272,13 +6274,13 @@ guiTypes = {
 		}
         
         checkboxType = {
-			name = "build_wow_unique_fortress"
+			name = "build_wow_fortress"
 			position = { x = 485 y = 129 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		instantTextBoxType={
-			name = "wow_unique_fortress_cost"
+			name = "wow_fortress_cost"
 			position = {x = 485 y = 179 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}	
@@ -6288,13 +6290,13 @@ guiTypes = {
 		}
         
         checkboxType = {
-			name = "build_wow_unique_magic_tower"
+			name = "build_wow_magic_tower"
 			position = { x = 537 y = 129 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		instantTextBoxType={
-			name = "wow_unique_magic_tower_cost"
+			name = "wow_magic_tower_cost"
 			position = {x = 537 y = 179 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}	
@@ -6304,13 +6306,13 @@ guiTypes = {
 		}
         
         checkboxType = {
-			name = "build_wow_unique_grand_forge"
+			name = "build_wow_grand_forge"
 			position = { x = 589 y = 129 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		instantTextBoxType={
-			name = "wow_unique_grand_forge_cost"
+			name = "wow_grand_forge_cost"
 			position = {x = 589 y = 179 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}	
@@ -6320,13 +6322,13 @@ guiTypes = {
 		}
         
         checkboxType = {
-			name = "build_wow_unique_altar_of_power"
+			name = "build_wow_altar_of_power"
 			position = { x = 641 y = 129 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		instantTextBoxType={
-			name = "wow_unique_altar_of_power_cost"
+			name = "wow_altar_of_power_cost"
 			position = {x = 641 y = 179 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}	
@@ -6399,6 +6401,7 @@ guiTypes = {
 			maxHeight = 18
 			text = "2000¤"	
 		}
+        
         #---------------------------------
         # Portals
         #---------------------------------
@@ -6482,6 +6485,112 @@ guiTypes = {
 		instantTextBoxType={
 			name = "wow_portal_blue_cost"
 			position = { x = 589 y = 373 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 128
+			maxHeight = 18
+			text = "2000¤"	
+		}
+        
+        #---------------------------------
+        # Manufactories
+        #---------------------------------
+        iconType = {
+			name = "manufactories_banner"
+			position = { x = 425 y = 388 } 
+			spriteType = "GFX_banner_left_6"
+		}
+		
+		instantTextBoxType={
+			name = "title_manufactories"
+			position = {x = 465 y = 397 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 120
+			maxHeight = 18
+			text = "Manufactories"	
+		}
+		
+		iconType ={
+			name ="manufactories_icon"
+			spriteType = "GFX_macro_buildings_category_strip"
+			position = { x = 435 y = 391 }
+			frame = 8
+		}
+		
+		checkboxType = {
+			name = "build_manufactory"
+			position = { x = 433 y = 420 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+				
+		instantTextBoxType={
+			name = "manufactory_cost"
+			position = { x = 433 y = 470 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 128
+			maxHeight = 18
+			text = "2000¤"	
+		}
+        
+        checkboxType = {
+			name = "build_wow_citadel"
+			position = { x = 485 y = 420 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+				
+		instantTextBoxType={
+			name = "wow_citadel_cost"
+			position = { x = 485 y = 470 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 128
+			maxHeight = 18
+			text = "2000¤"	
+		}
+		
+		checkboxType = {
+			name = "build_wow_city_barracks"
+			position = { x = 537 y = 420 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+				
+		instantTextBoxType={
+			name = "wow_city_barracks_cost"
+			position = { x = 537 y = 470 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 128
+			maxHeight = 18
+			text = "2000¤"	
+		}
+		
+		checkboxType = {
+			name = "build_wow_garrison"
+			position = { x = 589 y = 420 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+				
+		instantTextBoxType={
+			name = "wow_garrison_cost"
+			position = { x = 589 y = 470 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 128
+			maxHeight = 18
+			text = "2000¤"	
+		}
+        
+        checkboxType = {
+			name = "build_wow_arcane_tower"
+			position = { x = 641 y = 420 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+				
+		instantTextBoxType={
+			name = "wow_arcane_tower_cost"
+			position = { x = 641 y = 470 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}	
 			maxWidth = 128
@@ -6601,6 +6710,8 @@ guiTypes = {
 			maxWidth = 114
 			maxHeight = 20
 			format = left
+            fixedsize = yes
+			truncate = yes
 		}
 
 		guiButtonType =

@@ -1,0 +1,91 @@
+estate_guild_criminal = {
+	icon = 4
+    color = { 200 150 150 }
+    
+    influence_from_dev_modifier = 0.4
+    
+	independence_government = monarchy
+	starting_reform = autocracy_reform
+	independence_tech_group = tech_human
+    
+	# ----- Conditions -----
+    trigger = { 
+        has_country_flag = has_criminal_guild
+		has_country_modifier = adventurers_allowed
+    }
+
+	# ----- Country -----
+    country_modifier_happy = {
+        global_unrest = -2
+        loot_amount = 1.0
+        ae_impact = -0.2
+    }
+    country_modifier_neutral = {
+        global_unrest = -1
+        loot_amount = 0.5
+        ae_impact = -0.1
+    }    
+    country_modifier_angry = {
+        global_unrest = 2
+        loot_amount = -0.5
+        ae_impact = 0.2
+    }
+    
+	land_ownership_modifier = {
+		guild_criminal_loyalty_modifier = 0.2
+	}
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 2
+			culture_group = owner
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { religion = owner }
+			NOT = { culture_group = owner }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 0.75
+			development = 15
+		}
+		modifier = {
+			factor = 0.75
+			development = 20
+		}
+	}
+
+	# ----- Influence -----
+    base_influence = 10
+
+    # ----- Loyalty -----
+    loyalty_modifier = {
+        desc = EST_VAL_HIGH_PRESTIGE
+        trigger = {
+            prestige = 50
+        }
+        loyalty = 10
+    }
+    loyalty_modifier = {
+        desc = EST_VAL_LOW_PRESTIGE
+        trigger = {
+            NOT = { prestige = 0 }
+        }
+        loyalty = -10
+    }
+    
+    # ----- Privileges -----
+	privileges = {
+		
+	}
+
+    # ----- Agendas -----
+	agendas = {
+        
+	}
+}

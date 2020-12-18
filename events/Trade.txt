@@ -16,22 +16,22 @@ country_event = {
 			NOT = { is_strongest_trade_power = root }
 		}
 		
-		has_idea_group = oceaneer_ideas
+		has_idea_group = wwu_trade_ideas
 	}
 	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			mercantile_ideas = 1
+			wwu_trade_ideas = 1
 		}
 		modifier = {
 			factor = 3
-			mercantile_ideas = 3
+			wwu_trade_ideas = 3
 		}
 		modifier = {
 			factor = 5
-			mercantile_ideas = 7
+			wwu_trade_ideas = 7
 		}
 	}
 	
@@ -88,15 +88,15 @@ country_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			mercantile_ideas = 1
+			wwu_trade_ideas = 1
 		}
 		modifier = {
 			factor = 3
-			mercantile_ideas = 3
+			wwu_trade_ideas = 3
 		}
 		modifier = {
 			factor = 5
-			mercantile_ideas = 7
+			wwu_trade_ideas = 7
 		}
 	}
 	
@@ -270,11 +270,11 @@ country_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			NOT = { mercantile_ideas = 3 }
+			NOT = { wwu_trade_ideas = 3 }
 		}
 		modifier = {
 			factor = 1.5
-			NOT = { mercantile_ideas = 7 }
+			NOT = { wwu_trade_ideas = 7 }
 		}		
 	}
 	
@@ -444,29 +444,16 @@ country_event = {
 		mercantilism = 55
 		num_of_merchants = 3
 	}
-	
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 35
-		}
-	}
-	
+
 	option = {
 		name = trade.9.a
 		#log = "trade.9.a"
 		add_meritocracy_effect = yes
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=treasurer
-			advisor_type_if_not_state=treasurer
 			skill = 3
 			discount=yes
 		}
-	}
-	
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 
@@ -558,14 +545,6 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 25
-		}
-	}
-	
 	option = {
 		name = trade.12.a
 		#log = "trade.12.a"
@@ -575,9 +554,6 @@ country_event = {
 			skill = 2
 			discount = yes
 		}
-	}
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 

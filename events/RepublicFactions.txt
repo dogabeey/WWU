@@ -539,14 +539,6 @@ country_event = {
 		days = 1
 	}
 	
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 25
-		}
-	}
-
 	option = {
 		name = "republic_factions.9.a"
 		#log = "republic_factions.9.a"
@@ -558,9 +550,8 @@ country_event = {
 			faction = mr_traders
 			influence = -10
 		}
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=commandant
-			advisor_type_if_not_state=commandant
 			scaled_skill = yes
 			discount=yes
 		}
@@ -578,16 +569,12 @@ country_event = {
 			faction = mr_aristocrats
 			influence = -10
 		}
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=trader
-			advisor_type_if_not_state=trader
 			scaled_skill = yes
 			discount=yes
 		}
 		add_mil_power = -30
-	}
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 

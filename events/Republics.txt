@@ -110,14 +110,6 @@ country_event = {
 			if = {
 				limit = { is_tribal = yes }
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
-			}
-			if = {
-				limit = {
-					is_tribal = no  
-					has_dlc = "Res Publica"
-				}
-				add_government_reform = peasants_republic
 			}
 			if = {
 				limit = {
@@ -125,7 +117,6 @@ country_event = {
 					NOT = { has_dlc = "Res Publica" }
 				}
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
 			}
 		}
 	}
@@ -137,14 +128,6 @@ country_event = {
 			if = {
 				limit = { is_tribal = yes }
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
-			}
-			if = {
-				limit = {
-					is_tribal = no  
-					has_dlc = "Res Publica"
-				}
-				add_government_reform = peasants_republic
 			}
 			if = {
 				limit = {
@@ -152,7 +135,6 @@ country_event = {
 					NOT = { has_dlc = "Res Publica" }
 				}
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
 			}
 		}
 	}
@@ -628,7 +610,7 @@ country_event = {
 		has_government_attribute = is_merchant_republic
 		num_of_ports = 1
 		NOT = { colony = 1 }
-		oceaneer_ideas = 2
+		wwu_trade_ideas = 2
 		#Akavir = { has_discovered = ROOT }
 		NOT = {
 			has_country_modifier = local_trade_focus
@@ -1004,29 +986,21 @@ country_event = {
 		statesman = 1
 		NOT = { statesman = 2 }
 	}
-
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 25
-		}
-	}
 	
 	mean_time_to_happen = {
 		days = 1
 
 		modifier = {
 			factor = 0.9
-			NOT = { invention_ideas = 2 }
+			NOT = { wwu_innovation_ideas = 2 }
 		}
 		modifier = {
 			factor = 0.9
-			NOT = { invention_ideas = 1 }
+			NOT = { wwu_innovation_ideas = 1 }
 		}
 		modifier = {
 			factor = 1.1
-			invention_ideas = 7
+			wwu_innovation_ideas = 7
 		}
 		modifier = {
 			factor = 0.9
@@ -1062,9 +1036,8 @@ country_event = {
 			}
 		}
 		remove_advisor = statesman
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=statesman
-			advisor_type_if_not_state=statesman
 			skill = 1
 			discount=yes
 		}
@@ -1083,9 +1056,6 @@ country_event = {
 		}
 		add_stability = -1
 		add_republican_tradition = 10
-	}
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 
@@ -1285,11 +1255,11 @@ country_event = {
 
 		modifier = {
 			factor = 1.1
-			economic_ideas = 7
+			wwu_economic_ideas = 7
 		}
 		modifier = {
 			factor = 0.9
-			NOT = { economic_ideas = 1 }
+			NOT = { wwu_economic_ideas = 1 }
 		}
 		modifier = {
 			factor = 0.9
@@ -1458,7 +1428,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = bad_relations_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		any_neighbor_country = {
 			NOT = { has_opinion = { who = ROOT value = 0 } }
 			OR = {
@@ -1533,7 +1503,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = political_chaos_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		NOT = { adm = 2 }
 	}
 
@@ -1620,7 +1590,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = influenced_decisions_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 	}
 
 	mean_time_to_happen = {
@@ -1705,7 +1675,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = financial_disagreements_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		num_of_loans = 1
 	}
 
@@ -1805,7 +1775,7 @@ country_event = {
 	trigger = {
 		NOT = { has_country_modifier = trade_and_production_cutbacks }
 		NOT = { has_country_modifier = military_cutbacks }
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		is_at_war = yes
 		OR = {
 			NOT = { trade_efficiency = 0.4 }
@@ -1921,8 +1891,8 @@ country_event = {
 		NOT = { has_country_modifier = land_modifier }
 		government = republic
 		has_parliament = yes
-		oceaneer_ideas = 1
-		magic_ideas = 1
+		wwu_trade_ideas = 1
+		wwu_quality_ideas = 1
 		num_of_ports = 1
 	}
 
@@ -2419,19 +2389,19 @@ country_event = {
 		NOT = { 
 			has_country_modifier = a_new_constitution_timer
 		}
-		NOT = { economic_ideas = 4 }
+		NOT = { wwu_economic_ideas = 4 }
 	}
 
 	mean_time_to_happen = {
-		months = 500
+		days = 1
 
 		modifier = {
 			factor = 0.9
-			NOT = { economic_ideas = 2 }
+			NOT = { wwu_economic_ideas = 2 }
 		}
 		modifier = {
 			factor = 0.9
-			NOT = { economic_ideas = 1 }
+			NOT = { wwu_economic_ideas = 1 }
 		}
 		modifier = {
 			factor = 0.9
@@ -2467,14 +2437,6 @@ country_event = {
 		}
 	}
 	
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 25
-		}
-	}
-	
 	option = {
 		name = "EVTOPTA9571"
 		#log = "EVTOPTA9571"		# It will be solved soon enough
@@ -2504,16 +2466,12 @@ country_event = {
 			}
 		}
 		add_years_of_income = -0.3
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=statesman
-			advisor_type_if_not_state=statesman
 			skill = 3
 			discount=yes
 		}
 		add_republican_tradition = 1
-	}
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 
@@ -2822,7 +2780,7 @@ country_event = {
 			has_country_modifier = bothersome_parliament
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		has_regency = no
@@ -2906,7 +2864,7 @@ country_event = {
 			has_country_modifier = over_budget_timer
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		stability = -2
@@ -3005,7 +2963,7 @@ country_event = {
 			has_country_modifier = embezzlement_timer 
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		has_advisor = yes
@@ -3106,7 +3064,7 @@ country_event = {
 			has_country_modifier = spies_investigate
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		has_regency = no
@@ -3216,7 +3174,7 @@ country_event = {
 			has_country_modifier = counter_espionage
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		any_neighbor_country = {

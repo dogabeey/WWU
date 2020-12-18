@@ -61,10 +61,10 @@ country_event = {
 	#goto = root
 
 	trigger = {
-		NOT = { has_reform = colonial_government }
+		NOT = { has_reform = colonial_government_reform }
 		any_active_trade_node = {
 			any_privateering_country = {
-				has_reform = colonial_government
+				has_reform = colonial_government_reform
 				NOT = {
 					colonial_parent = { tag = ROOT }
 				}
@@ -83,7 +83,7 @@ country_event = {
 			}
 			random_privateering_country = {
 				limit = {
-					has_reform = colonial_government
+					has_reform = colonial_government_reform
 				}
 				set_country_flag = invalid_letter_marque
 			}
@@ -132,10 +132,10 @@ country_event = {
 	#goto = root
 
 	trigger = {
-		NOT = { has_reform = colonial_government }
+		NOT = { has_reform = colonial_government_reform }
 		any_active_trade_node = {
 			any_privateering_country = {
-				has_reform = colonial_government
+				has_reform = colonial_government_reform
 				colonial_parent = { tag = ROOT }
 			}
 		}
@@ -152,7 +152,7 @@ country_event = {
 			}
 			random_privateering_country = {
 				limit = {
-					has_reform = colonial_government
+					has_reform = colonial_government_reform
 					colonial_parent = { tag = ROOT }
 				}
 				set_country_flag = invalid_letter_marque
@@ -286,7 +286,7 @@ country_event = {
 		months = 720
 		modifier = {
 			factor = 0.7
-			has_idea_group = colonization_ideas
+			has_idea_group = wwu_exploration_ideas
 		}
 	}
 
@@ -296,7 +296,9 @@ country_event = {
 		#log = "privateers.6.a"
 		add_treasury = -100
 		set_country_flag = funded_explorer_privateer
-		create_explorer = 5
+		create_explorer = {
+            tradition = 5
+        }
 	}
 
 	# Tell the privateer to stay where he is

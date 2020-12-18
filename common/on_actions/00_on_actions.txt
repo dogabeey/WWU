@@ -2,66 +2,16 @@
 
 # country
 on_startup = {
-	if = {
-		limit = { NOT = { has_global_flag = on_action_setup_global_flag } }
-		every_country = {
-			limit = { exists = yes }
-			log = "[This.GetName] is here"
-		}
-		set_faction_conflict = yes
-		set_hre_religion = religion_sect_of_dragons
-		set_hre_heretic_religion = religion_old_gods
-		set_global_flag = on_action_setup_global_flag
+    events = {
+        wwu_setup.1    # Global
+        wwu_setup.2    # Country
 	}
-	if = {
-		limit = {
-			has_reform = hereditary_monarchy
-			has_heir = no
-		}
-		set_country_flag = country_has_no_heir
-		##log = "[Root.GetName] started with no valid heir."
-	}
-    if = { 
-		limit = { NOT = { has_country_flag = on_action_setup_flag } }
-		
-		country_event = { id = es_start.1 }
-		country_event = { id = setup.1 }
-		country_event = { id = landless_setup.1 }
-		set_papacy_active = no
-		# Initializes variables which are used in on_actions
-		init_variables = yes
-		
-		# Religious and Cultural Unity for ALL NATIONS on start and Core creation.
-		# This will override history files in default setting. See script file to see how to avoid overriding.
-		init_full_unity = yes
-		
-		#	Government Ranks
-		set_government_ranks = {
-			rank_2 = 100 # Rank 2 threshold
-			rank_3 = 500 # Rank 3 threshold
-		}
-		
-		#	Government Settings
-		init_governments = yes
-		
-		swap_non_generic_missions = yes
-		add_patriarch_authority = 0.8
-		add_legitimacy = 75
-		add_republican_tradition = 75
-		add_devotion = 75
-		add_horde_unity = 75
-		add_papal_influence = 75
-		add_prestige = 200
-		ROOT = { add_prestige = -100 }
-		
-		set_country_flag = on_action_setup_flag
-	}
-
 }
 
 # country
 on_religion_change = {
 	#log = "[Root.GetName]: Triggered religion_change"
+    
 	if = {
 		limit = {
 			has_heir = yes
@@ -81,8 +31,14 @@ on_religion_change = {
 		}
 		set_consort_religion = ROOT
 	}
+    add_country_modifier = {
+		name = recently_changed_religion_dummy
+		duration = 10
+		hidden = yes
+	}
+    
 	events = {
-		propagate_religion_events.7 #Propagated Country is now Muslim
+		#propagate_religion_events.7 #Propagated Country is now Muslim
 	}
 }
 
@@ -140,6 +96,7 @@ on_war_won = {
 	}
 	events = {
 		on_action_special.2
+        wwu_elemental_attunement.1 # Triumph of the Elements 
 	}
 }
 
@@ -154,6 +111,7 @@ on_war_lost = {
 	}
 	events = {
 		on_action_special.2
+        wwu_elemental_attunement.2 # Sorrow of the Elements
 	}
 }
 
@@ -161,12 +119,7 @@ on_war_lost = {
 # root = winning country, from = loser country
 on_battle_won_country = {
 	#log = "[Root.GetName]: Triggered battle_won_country"
-	random_events = {
-		12 = 0
-		1 = chaos.4
-		1 = chaos.5
-		1 = chaos.6
-	}
+
 	if = {
 		limit = {
 			has_country_modifier = hegemonic_victory
@@ -200,9 +153,6 @@ on_battle_lost_country = {
 	random_events = {
 		12 = 0
 		2 = friendship_events.1 #Historical Friendship Broken
-		1 = chaos.7
-		1 = chaos.8
-		1 = chaos.9
 	}
 	
 }
@@ -308,7 +258,7 @@ on_new_monarch = {
 
 	if = {
 		limit = {
-			has_reform = hereditary_monarchy
+			has_reform = hereditary_monarchy_reform
 		}
 		set_country_flag = country_has_no_heir
 		##log = "[Root.Monarch.GetName] is no longer a heir and became monarch."
@@ -367,7 +317,7 @@ on_regent = {
 on_new_term_election = {
 	#log = "[Root.GetName]: Triggered new_term_election"
 	events = {
-		elections.1	
+		wwu_government.2    # On Term Election
 	}
 }
 
@@ -376,13 +326,14 @@ on_death_election = {
 	#log = "[Root.GetName]: Triggered death_election"
 	if = {
 		limit = {
-			has_reform = pirate_republic_reform
+			government = pirate
 		}
 		set_country_flag = pirate_death_election
 		country_event = { id = pirates.1 }
 	}
 	events = {
-		701		# Election event
+		wwu_government.1    # On Death Election
+        wwu_government.5    # Lottery Election
 	}
 }
 
@@ -399,7 +350,7 @@ on_death_foreign_slave_ruler = {
 on_replace_governor = {
 	#log = "[Root.GetName]: Triggered replace_governor"
 	events = {
-		elections.707	# Election event
+		wwu_government.3    # On Replace Governor
 	}
 }
 
@@ -466,7 +417,7 @@ on_heir_death = {
 	}
 	if = {
 		limit = {
-			has_reform = hereditary_monarchy
+			has_reform = hereditary_monarchy_reform
 		}
 		set_country_flag = country_has_no_heir
 		##log = "[Root.GetName]'s heir died"
@@ -555,7 +506,7 @@ on_new_heir = {
 	#log = "[Root.GetName]: Triggered new_heir"
 	if = {
 		limit = {
-			has_reform = hereditary_monarchy
+			has_reform = hereditary_monarchy_reform
 		}
 		clr_country_flag = country_has_no_heir
 		##log = "[Root.GetName] has a new heir."
@@ -723,16 +674,7 @@ on_mandate_of_heaven_gained = {
 		}
 		change_government = monarchy
 	}
-	add_government_reform = celestial_empire
 	set_mandate = 60
-	if = {
-		limit = {
-			has_dlc = "Mandate of Heaven"
-		}
-		remove_faction = temples
-		remove_faction = enuchs
-		remove_faction = bureaucrats
-	}
 	if = {
 		limit = {
 			has_country_modifier = lost_mandate_of_heaven
@@ -745,16 +687,7 @@ on_mandate_of_heaven_gained = {
 # FROM = New Emperor, ROOT = Old Emperor
 on_mandate_of_heaven_lost = {
 	#log = "[Root.GetName]: Triggered mandate_of_heaven_lost"
-	if = {
-		limit = {
-			has_dlc = "Dharma"
-		}
-		remove_government_reform = celestial_empire
-	}
-	else = {
-		set_legacy_government = despotic_monarchy
-	}
-	set_government_rank = 2
+    
 	add_country_modifier = {
 		name = lost_mandate_of_heaven
 		duration = 7300	# 20 years
@@ -774,7 +707,9 @@ on_dismantle_revolution = {
 		set_legacy_government = despotic_monarchy
 	}
 	kill_ruler = yes
-	set_revolution_target = ---
+    
+	#set_revolution_target = ---
+    
 	if = {
 		limit = { has_heir = yes }
 		kill_heir = yes
@@ -826,7 +761,8 @@ on_siberian_pulse = {
 on_bi_yearly_pulse = {
 	#log = "[Root.GetName]: Triggered bi_yearly_pulse"
 	
-	swap_non_generic_missions = yes
+	swap_non_generic_missions = yes # Update missions
+    
 	random_events = {
 		# randomevents.txt
 
@@ -860,7 +796,6 @@ on_bi_yearly_pulse = {
 		100 = trade_league.11
 		100 = trade_league.12
 		100 = trade_league.13
-		100 = trade_league.14
 
 		# Refoms, when having parliaments.
 		100 = reforms.1
@@ -901,7 +836,10 @@ on_bi_yearly_pulse = {
 		100 = corruption_event.19
 		100 = corruption_event.20
 
-
+        # Arcane
+        150 = wwu_arcane.2
+        150 = wwu_arcane.3
+        150 = wwu_arcane.4
 
 		# Minority Expulsion Events
 		100 = expel_minority_events.1
@@ -909,7 +847,6 @@ on_bi_yearly_pulse = {
 		100 = expel_minority_events.3
 		100 = expel_minority_events.4
 		100 = expel_minority_events.5
-
 
 		1250 = 0
 	}
@@ -933,7 +870,22 @@ on_bi_yearly_pulse_2 = {
 		200 = corruption_event.13
 		200 = corruption_event.14
 		200 = corruption_event.15
-
+        
+        # Fel
+        100 = wwu_fel.10
+        100 = wwu_fel.11
+        100 = wwu_fel.12
+        100 = wwu_fel.13
+        
+        # Fel - Legion Strength 100%
+        200 = wwu_fel.20
+        200 = wwu_fel.21
+        
+        # Elemental Attunement
+        400 = wwu_elemental_attunement.10
+        50 = wwu_elemental_attunement.11
+        50 = wwu_elemental_attunement.12
+        
 		4000 = 0
 	}
 }
@@ -941,6 +893,12 @@ on_bi_yearly_pulse_2 = {
 on_bi_yearly_pulse_3 = {
 	#log = "[Root.GetName]: Triggered bi_yearly_pulse_3"
 	
+    random_events = {
+        # Agenda from the Estates
+		1000 = estate_system.1
+        
+		3000 = 0
+	}
 }
 
 on_bi_yearly_pulse_4 = {
@@ -1001,73 +959,73 @@ on_thri_yearly_pulse = {
 		75 = meritocracy_events.5
 		
 		# Random Events
-		100 = 5008
-		100 = 5014
-		100 = 5015
-		100 = 5017
-		100 = 5019
-		100 = 5020
-		100 = 5021
-		100 = 5022
-		100 = 5023
-		100 = 5024
-		100 = 5025
-		100 = 5027
-		100 = 5032
-		100 = 5040
-		100 = 5045
-		100 = 5050
-		100 = 5051
-		100 = 5052
-		100 = 5053
-		100 = 5054
-		100 = 5055
-		100 = 5056
-		100 = 5058
-		100 = 5059
-		100 = 5064
-		100 = 5065
-		100 = 5068
-		100 = 5070
-		100 = 5071
-		100 = 5072
-		100 = 5074
-		100 = 5075
-		100 = 5076
-		100 = 5077
-		100 = 5082
-		100 = 5085
-		100 = 5086
-		100 = 5088
-		100 = 5089
-		100 = 5090
-		100 = 5091
-		100 = 5092
-		100 = 5093
-		100 = 5094
-		100 = 5095
-		100 = 5096
-		100 = 5097
-		100 = 5099
-		100 = 6000
-		100 = 6001
-		100 = 6003
-		100 = 6012
-		100 = 6013
-		100 = 6015
-		100 = 710
-		100 = 711
-		100 = 712
-		100 = 713
-		100 = 714
-		100 = 715
-		100 = 716
-		100 = 717
-		100 = 718
-		100 = 719
-		100 = 720
-		100 = 722
-		100 = 723
+		100 = wwu_random_events.1
+		100 = wwu_random_events.2
+		100 = wwu_random_events.3
+		100 = wwu_random_events.4
+		100 = wwu_random_events.5
+		100 = wwu_random_events.6
+		100 = wwu_random_events.7
+		100 = wwu_random_events.8
+		100 = wwu_random_events.9
+		100 = wwu_random_events.10
+		100 = wwu_random_events.11
+		100 = wwu_random_events.12
+		100 = wwu_random_events.13
+		100 = wwu_random_events.14
+		100 = wwu_random_events.15
+		100 = wwu_random_events.16
+		100 = wwu_random_events.17
+		100 = wwu_random_events.18
+		100 = wwu_random_events.19
+		100 = wwu_random_events.20
+		100 = wwu_random_events.21
+		100 = wwu_random_events.22
+		100 = wwu_random_events.23
+		100 = wwu_random_events.24
+		100 = wwu_random_events.25
+		100 = wwu_random_events.26
+		100 = wwu_random_events.27
+		100 = wwu_random_events.28
+		100 = wwu_random_events.29
+		100 = wwu_random_events.30
+		100 = wwu_random_events.31
+		100 = wwu_random_events.32
+		100 = wwu_random_events.33
+		100 = wwu_random_events.34
+		100 = wwu_random_events.35
+		100 = wwu_random_events.36
+		100 = wwu_random_events.37
+		100 = wwu_random_events.38
+		100 = wwu_random_events.39
+		100 = wwu_random_events.40
+		100 = wwu_random_events.41
+		100 = wwu_random_events.42
+		100 = wwu_random_events.43
+		100 = wwu_random_events.44
+		100 = wwu_random_events.45
+		100 = wwu_random_events.46
+		100 = wwu_random_events.47
+		100 = wwu_random_events.48
+		100 = wwu_random_events.49
+		100 = wwu_random_events.50
+		100 = wwu_random_events.51
+		100 = wwu_random_events.52
+		100 = wwu_random_events.53
+		100 = wwu_random_events.54
+		100 = wwu_random_events.55
+		100 = wwu_random_events.56
+		100 = wwu_random_events.57
+		100 = wwu_random_events.58
+		100 = wwu_random_events.59
+		100 = wwu_random_events.60
+		100 = wwu_random_events.61
+		100 = wwu_random_events.62
+		100 = wwu_random_events.63
+		100 = wwu_random_events.64
+		100 = wwu_random_events.65
+		100 = wwu_random_events.66
+		100 = wwu_random_events.67
 
 		
 		1000 = 0
@@ -1275,15 +1233,15 @@ on_five_year_pulse_2 = {
 on_five_year_pulse_3 = {
 	#log = "[Root.GetName]: Triggered five_year_pulse_3"
 	random_events = {
-		100 = propagate_religion_events.1
-		100 = propagate_religion_events.2
-		100 = propagate_religion_events.3
-		100 = propagate_religion_events.4
-		100 = propagate_religion_events.5
-		100 = propagate_religion_events.6
-		100 = propagate_religion_events.8
-		100 = propagate_religion_events.9
-		100 = propagate_religion_events.10
+		# 100 = propagate_religion_events.1
+		# 100 = propagate_religion_events.2
+		# 100 = propagate_religion_events.3
+		# 100 = propagate_religion_events.4
+		# 100 = propagate_religion_events.5
+		# 100 = propagate_religion_events.6
+		# 100 = propagate_religion_events.8
+		# 100 = propagate_religion_events.9
+		# 100 = propagate_religion_events.10
 		#100 = propagate_religion_events.11 #Province event
 		1000 = 0
 	}
@@ -1400,6 +1358,8 @@ on_province_religion_converted = {
 			value = 1
 		}
 	}
+    
+    on_province_religion_converted_estate_privileges_effect = yes
 }
 
 # province
@@ -1673,6 +1633,7 @@ on_country_released = {
 # ROOT = province, FROM = country
 on_trade_good_changed = {
 	#log = "[Root.GetName]: Triggered trade_good_changed"
+
 	hidden_effect = {
 		if = {
 			limit = {
@@ -1703,6 +1664,7 @@ on_trade_good_changed = {
 on_loan_repaid = {
 	#log = "[Root.GetName]: Triggered loan_repaid"
 
+    on_loan_repaid_estate_privileges_effect = yes
 }
 
 # this = country
@@ -1790,10 +1752,6 @@ on_create_client_state = {
 # this = new target, from = previous target (both can be non-existent tag)
 on_change_revolution_target = {
 	#log = "[Root.GetName]: Triggered change_revolution_target"
-	if = {
-		limit = { has_reform = junior_revolutionary_republic_reform }
-		add_government_reform = revolutionary_republic_reform
-	}
 }
 
 # this = curia controller (enactor of the bull)
@@ -1874,4 +1832,36 @@ on_emperor_elected = {
 			}
 		}
 	}
+}
+
+# Harmony
+harmonized_order = {
+    events = {
+        wwu_harmonization.1
+    }
+}
+harmonized_disorder = {
+    events = {
+        wwu_harmonization.2
+    }
+}
+harmonized_elemental = {
+    events = {
+        wwu_harmonization.3
+    }
+}
+harmonized_nature = {
+    events = {
+        wwu_harmonization.4
+    }
+}
+harmonized_void = {
+    events = {
+        wwu_harmonization.5
+    }
+}
+harmonized_rational_philosophies = {
+    events = {
+        wwu_harmonization.6
+    }
 }

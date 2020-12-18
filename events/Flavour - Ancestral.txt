@@ -1,0 +1,253 @@
+namespace = ancestral
+
+country_event = {
+	id = ancestral.2
+	title = ancestral.2.title
+	desc = ancestral.2.desc
+	picture = ELEMENTAL_eventPicture
+	#goto = root
+	
+	trigger = {
+		religion = religion_ancestral
+		ruler_religion = religion_ancestral
+		months_of_ruling = 180
+		ruler_age = 55
+		is_great_leader = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = ancestral.2.opt1
+		#log = "ancestral.2.opt1" # Build a massive tomb in memory of $MONARCH$ 
+		custom_tooltip = ancestral.2.opt1.tt
+		hidden_effect = {
+			exile_ruler_as = honored_great_person
+			set_country_flag = honored_great_person_flag
+			random = {
+				chance = 50
+				
+				country_event = { id = ancestral.3 days = 3650 random = 1825 }
+			}
+		}
+		tooltip = {
+			kill_ruler = yes
+		}
+		add_years_of_income = -1
+		add_prestige = 15
+		random_list = {
+			50 = {
+				add_karma = -10
+			}
+			50 = {
+				add_stability = 1
+			}
+		}
+	}
+	option = {
+		name = ancestral.2.opt2
+		#log = "ancestral.2.opt2" # [Root.Monarch.GetSheHeCap] is going near the other [Root.Monarch.GetTitle]s before [Root.Monarch.GetHerHim]!
+		custom_tooltip = ancestral.2.opt2.tt
+		hidden_effect = {
+			exile_ruler_as = disrespected_great_person
+			set_country_flag = disrespected_great_person_flag
+			random = {
+				chance = 50
+				
+				country_event = { id = ancestral.4 days = 3650 random = 1825 }
+			}
+		}
+		tooltip = {
+			kill_ruler = yes
+		}
+		add_karma = 10
+	}
+	option = {
+		name = ancestral.2.opt3
+		#log = "ancestral.2.opt3" # Build [Root.Monarch.GetHerHis]'s statue
+		custom_tooltip = ancestral.2.opt3.tt
+		kill_ruler = yes
+		add_years_of_income = -0.5
+		add_prestige = 5
+	}
+}
+# Triggered from ancestral.2, when choose building a tomb.
+country_event = {
+	id = ancestral.3
+	title = ancestral.3.title
+	desc = ancestral.3.desc
+	picture = ELEMENTAL_eventPicture
+	#goto = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = religion_ancestral
+	}
+	
+	option = {
+		name = ancestral.3.opt1
+		#log = "ancestral.3.opt1" # Ask for guidance on rulership.
+		add_prestige = -5
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+	}
+	option = {
+		name = ancestral.3.opt2
+		#log = "ancestral.3.opt2" # Ask aid of fallen soldiers' souls.
+		add_prestige = -10
+		define_general = {
+			name = "The Lost Ancestor"
+			shock = 3
+			fire = 4
+			manuever = 2
+			siege = 2
+		}
+	}
+	option = {
+		name = ancestral.3.opt3
+		#log = "ancestral.3.opt3" # Beg them to save the nation.
+		add_prestige = -20
+		add_stability = 1
+		add_years_of_income = 1
+		add_manpower = 10
+	}
+	option = {
+		name = ancestral.3.opt4
+		#log = "ancestral.3.opt4" # Beg them to save the nation.
+		add_prestige = 10
+	}
+}
+# Triggered from ancestral.2, when choose disrespecting ruler.
+country_event = {
+	id = ancestral.4
+	title = ancestral.4.title
+	desc = ancestral.4.desc 
+	picture = ELEMENTAL_eventPicture
+	#goto = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = religion_ancestral
+	}
+	
+	option = {
+		name = ancestral.4.opt1
+		#log = "ancestral.4.opt1" # Fight
+		add_prestige = 10
+		random_list = {
+			1 = {
+				kill_ruler = yes
+			}
+			4 = {
+				custom_tooltip = ancestral.4.opt1.tt # You walk away as victor.
+			}
+		}
+	}
+	option = {
+		name = ancestral.3.opt2
+		#log = "ancestral.3.opt2" # Run.
+		add_prestige = -10
+	}
+}
+# ancestral.3 - mtth version
+country_event = {
+	id = ancestral.5
+	title = ancestral.3.title
+	desc = ancestral.3.desc 
+	picture = ELEMENTAL_eventPicture
+	#goto = root
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	trigger = {
+		religion = religion_ancestral
+		OR = {
+			stability = 1
+			NOT = { num_of_loans = 1 }
+		}
+	}
+	
+	option = {
+		name = ancestral.3.opt1
+		#log = "ancestral.3.opt1" # Ask for guidance on rulership.
+		add_prestige = -5
+		change_adm = 1
+		change_dip = 1
+	}
+	option = {
+		name = ancestral.3.opt2
+		#log = "ancestral.3.opt2" # Ask aid of fallen soldiers' souls.
+		add_prestige = -10
+		define_general = {
+			name = "The Lost Ancestor"
+			shock = 3
+			fire = 3
+			manuever = 2
+			siege = 2
+		}
+	}
+	option = {
+		name = ancestral.3.opt3
+		#log = "ancestral.3.opt3" # Beg them to save the nation.
+		add_prestige = -20
+		add_stability = 1
+		add_years_of_income = 1
+		add_manpower = 5
+	}
+	option = {
+		name = ancestral.3.opt4
+		#log = "ancestral.3.opt4" # Beg them to save the nation.
+		add_prestige = 10
+	}
+}
+# ancestral.4 - mtth version
+country_event = {
+	id = ancestral.6
+	title = ancestral.4.title
+	desc = ancestral.4.desc
+	picture = ELEMENTAL_eventPicture
+	#goto = root
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	trigger = {
+		religion = religion_ancestral
+		OR = {
+			NOT = { stability = 0 }
+			num_of_loans = 2
+			unrest = 4
+		}
+	}
+	
+	option = {
+		name = ancestral.4.opt1
+		#log = "ancestral.4.opt1" # Fight
+		add_prestige = 10
+		random_list = {
+			1 = {
+				kill_ruler = yes
+			}
+			4 = {
+				custom_tooltip = ancestral.4.opt1.tt # You walk away as victor.
+			}
+		}
+	}
+	option = {
+		name = ancestral.3.opt2
+		#log = "ancestral.3.opt2" # Run.
+		add_prestige = -10
+	}
+}

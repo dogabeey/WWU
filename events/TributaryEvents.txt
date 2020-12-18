@@ -69,7 +69,7 @@ country_event = {
 					discount = yes
 					religion = event_target:overlord_country
 				}
-				add_estate_church_loyalty_effect = yes
+				add_estate_clergy_loyalty_effect = yes
 				clr_country_flag = overlord_inspired_official
 			}
 			overlord_inspired_trader = {
@@ -79,7 +79,7 @@ country_event = {
 					discount = yes
 					religion = event_target:overlord_country
 				}
-				add_estate_burghers_loyalty_effect = yes
+				add_estate_traders_loyalty_effect = yes
 				clr_country_flag = overlord_inspired_trader
 			}
 			overlord_inspired_institutions_spread = {
@@ -94,7 +94,7 @@ country_event = {
 					name = "tributary_diplomatic_influence"
 					duration = 5475
 				}
-				add_estate_nobles_loyalty_effect = yes
+				add_estate_nobility_loyalty_effect = yes
 				clr_country_flag = overlord_inspired_dip_rep
 			}
 		}
@@ -217,14 +217,14 @@ country_event = {
 		name = "tributary_events.3.a"
 		#log = "tributary_events.3.a"
 		increase_legitimacy_medium_effect = yes
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	
 	option = {
 		name = "tributary_events.3.b"
 		#log = "tributary_events.3.b"
 		add_stability_or_adm_power = yes
-		add_estate_church_loyalty_effect = yes
+		add_estate_clergy_loyalty_effect = yes
 	}
 }
 
@@ -384,7 +384,7 @@ country_event = {
 			can_be_overlord = tributary_state #Block when it doesn't make sense.
 			num_of_ports = 1
 			NOT = {
-				has_reform = steppe_horde
+				has_reform = warband_reform
 			}
 		}
 		any_owned_province = {
@@ -744,8 +744,8 @@ country_event = {
 				}
 			}
 		}
-		reduce_estate_burghers_loyalty_effect = yes
-		add_estate_nobles_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
 		name = "tributary_events.11.b"
@@ -757,8 +757,8 @@ country_event = {
 		FROM = {
 			country_event = { id = tributary_events.12 }
 		}
-		add_estate_burghers_loyalty_effect = yes
-		reduce_estate_nobles_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 }
 
@@ -867,7 +867,7 @@ country_event = {
 		event_target:exotic_tributary = {
 			country_event = { id = tributary_events.15 }
 		}
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 		add_country_modifier = {
 			name = "tributary_smuggling_ring_overlord"
 			duration = 5475
@@ -881,7 +881,7 @@ country_event = {
 		add_devotion = 5
 		add_horde_unity = 5
 		add_republican_tradition = 2.5
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 		event_target:exotic_tributary = {
 			country_event = { id = tributary_events.14 }
 		}
@@ -911,7 +911,7 @@ country_event = {
 				modifier = tributary_stopped_smugglers
 			}
 		}
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 	}
 	option = {
 		name = "tributary_events.14.b"
@@ -927,7 +927,7 @@ country_event = {
 				modifier = tributary_aiding_smugglers
 			}
 		}
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 	}
 }
 
@@ -1480,7 +1480,6 @@ country_event = {
 		OR = {
 			AND = {
 				government = monarchy
-				NOT = { has_reform = celestial_empire }
 				NOT = { legitimacy_or_horde_unity = 80 }
 			}
 			AND = {
@@ -1605,7 +1604,7 @@ country_event = {
 		is_subject_of_type = tributary_state
 		overlord = {
 			can_be_overlord = tributary_state #Block when it doesn't make sense.
-			has_reform = steppe_horde
+			has_reform = warband_reform
 			is_neighbor_of = ROOT
 		}
 		NOT = { has_country_modifier = horde_slave_raid }

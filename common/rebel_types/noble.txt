@@ -55,26 +55,10 @@ noble_rebels = {
 			}
 		}
 		modifier = {
-			factor = 0.05
-			owner = {
-				OR = {
-					has_country_modifier = the_mandate_of_heaven_lost
-					has_country_modifier = lost_mandate_of_heaven
-				}
-			}
-		}
-		modifier = {
-			factor = 20
-			owner = {
-				has_disaster = counts_feud
-				has_country_flag = pretender_flag
-			}
-		}
-		modifier = {
 			factor = 3.0
 			owner = {
 				estate_territory = {
-					estate = estate_nobles
+					estate = estate_nobility
 					territory = 20
 				}
 			}
@@ -83,7 +67,7 @@ noble_rebels = {
 			factor = 2.0
 			owner = {
 				estate_territory = {
-					estate = estate_nobles
+					estate = estate_nobility
 					territory = 30
 				}
 			}
@@ -92,7 +76,7 @@ noble_rebels = {
 			factor = 2.0
 			owner = {
 				estate_territory = {
-					estate = estate_nobles
+					estate = estate_nobility
 					territory = 40
 				}
 			}
@@ -153,25 +137,9 @@ noble_rebels = {
 		add_local_autonomy = 10
 		owner = {
 			if = {
-				limit = { has_estate = estate_nobles }
+				limit = { has_estate = estate_nobility }
 				change_estate_land_share = {
-					estate = estate_nobles
-					share = 10.0
-					province = ROOT
-				}
-			}
-			else_if = {
-				limit = { has_estate = estate_maratha }
-				change_estate_land_share = {
-					estate = estate_maratha
-					share = 10.0
-					province = ROOT
-				}
-			}
-			else_if = {
-				limit = { has_estate = estate_rajput }
-				change_estate_land_share = {
-					estate = estate_rajput
+					estate = estate_nobility
 					share = 10.0
 					province = ROOT
 				}
@@ -210,16 +178,16 @@ noble_rebels = {
 		}
 		if = {
 			limit = {
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 				NOT = {
 					has_estate_influence_modifier = {
-						estate = estate_nobles
+						estate = estate_nobility
 						modifier = EST_VAL_NOBLES_EXTORTED_RIGHTS
 					}
 				}
 			}
 			add_estate_influence_modifier = {
-				estate = estate_nobles
+				estate = estate_nobility
 				desc = EST_VAL_NOBLES_EXTORTED_RIGHTS
 				influence = 15
 				duration = 5475
@@ -235,12 +203,6 @@ noble_rebels = {
 		add_legitimacy = -20
 		add_horde_unity = -20
 		if = {
-			limit = { has_disaster = counts_feud }
-			end_disaster = counts_feud
-			clr_country_flag = pretender_flag
-			clr_country_flag = monarch_flag
-		}
-		if = {
 			limit = {
 				has_disaster = court_and_country
 			}
@@ -249,48 +211,9 @@ noble_rebels = {
 			end_disaster = court_and_country
 		}
 		if = {
-			limit = {
-				has_country_modifier = recently_repealed_elective_monarchy_timer
-				NOT = {
-					has_reform = papacy_reform
-					has_reform = steppe_horde
-					has_reform = celestial_empire
-					has_reform = iqta
-					has_reform = indep_daimyo
-					has_reform = principality
-					has_reform = daimyo
-					has_reform = shogunate
-					has_reform = colonial_government
-					has_reform = siberian_tribe
-					government = native
-					has_reform = elective_monarchy
-					has_reform = english_monarchy
-					has_reform = ottoman_government
-					has_reform = tribal_federation
-					has_reform = feudal_theocracy
-					has_reform = mamluk_government
-				}
-			}
-			add_government_reform = elective_monarchy
-		}
-		if = {
-			limit = { has_estate = estate_nobles }
+			limit = { has_estate = estate_nobility }
 			change_estate_land_share = {
-				estate = estate_nobles
-				share = 10.0
-			}
-		}
-		else_if = {
-			limit = { has_estate = estate_maratha }
-			change_estate_land_share = {
-				estate = estate_maratha
-				share = 10.0
-			}
-		}
-		else_if = {
-			limit = { has_estate = estate_rajput }
-			change_estate_land_share = {
-				estate = estate_rajput
+				estate = estate_nobility
 				share = 10.0
 			}
 		}

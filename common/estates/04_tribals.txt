@@ -1,0 +1,151 @@
+estate_tribals = {
+	icon = 5
+    color = { 97 155 31 }
+    
+    influence_from_dev_modifier = 0.4
+    
+    # ----- Names -----
+    custom_name = {
+        desc = estate_tribals_dragonkin
+        trigger = {
+            culture_group = culture_group_dragonkin
+        }
+    }
+    custom_name = {
+        desc = estate_tribals_worgen
+        trigger = {
+            culture_group = culture_group_worgen
+        }
+    }
+    
+	# ----- Conditions -----
+    trigger = {
+		is_nomad = yes
+    }
+
+	# ----- Country -----
+    country_modifier_happy = {
+        shock_damage = 0.2
+        land_maintenance_modifier = -0.5
+        land_forcelimit_modifier = 0.5
+    }
+    country_modifier_neutral = {
+        shock_damage = 0.1
+        land_maintenance_modifier = -0.25
+        land_forcelimit_modifier = 0.25
+    }    
+    country_modifier_angry = {
+        shock_damage = -0.2
+        land_maintenance_modifier = 0.5
+        land_forcelimit_modifier = -0.5
+    }
+    
+	land_ownership_modifier = {
+		tribals_loyalty_modifier = 0.2
+	}
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 2
+			culture_group = owner
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { religion = owner }
+			NOT = { culture_group = owner }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 0.75
+			development = 15
+		}
+		modifier = {
+			factor = 0.75
+			development = 20
+		}
+	}
+
+	# ----- Influence -----
+    base_influence = 30
+
+    influence_modifier = {
+		desc = EST_VAL_LARGE_TRIBAL_NATION
+		trigger = {
+			total_development = 100
+		}
+		influence = 10
+	}
+	
+    # ----- Loyalty -----
+    loyalty_modifier = {
+        desc = EST_VAL_HIGH_PRESTIGE
+        trigger = {
+            prestige = 50
+        }
+        loyalty = 10
+    }
+    loyalty_modifier = {
+        desc = EST_VAL_LOW_PRESTIGE
+        trigger = {
+            NOT = { prestige = 0 }
+        }
+        loyalty = -10
+    }
+    
+    loyalty_modifier = {
+        desc = EST_VAL_HIGH_LEGITIMACY
+        trigger = {
+            legitimacy_or_horde_unity = 80
+        }
+        loyalty = 10
+    }
+    loyalty_modifier = {
+        desc = EST_VAL_LOW_LEGITIMACY
+        trigger = {
+            NOT = { legitimacy_or_horde_unity = 50 }
+        }
+        loyalty = -10
+    }
+    
+    # ----- Privileges -----
+	privileges = {
+		estate_tribals_land_rights
+		estate_tribals_share_of_the_spoils
+		estate_tribals_chieftains_autonomy
+		estate_tribals_guaranteed_leadgership_in_host
+		estate_tribals_tribal_host
+        estate_tribals_tribal_primacy
+        estate_tribals_tribal_unity
+        estate_tribals_muster_host
+	}
+
+    # ----- Agendas -----
+	agendas = {
+		estate_tribals_develop_x
+		estate_tribals_restore_horde_unity
+		estate_tribals_befriend_rival_of_rival
+		estate_tribals_relations_with_X
+		estate_tribals_retake_core
+		estate_tribals_crush_revolts
+		estate_tribals_regain_liberty
+		estate_tribals_convert_province_culture
+		estate_tribals_protect_our_culture
+		estate_tribals_vassalise_vulnerable_country
+		estate_tribals_expand_into_x
+		estate_tribals_complete_conquest_of_x
+		estate_tribals_annex_subject
+		estate_tribals_build_an_army
+		estate_tribals_bigger_army_than_rival
+		estate_tribals_build_up_manpower_reserves
+		estate_tribals_three_privileges
+		estate_tribals_recover_stability
+		estate_tribals_increase_stability
+		estate_tribals_despoil_x
+		estate_tribals_hire_advisor
+		estate_tribals_fire_advisor
+	}
+}

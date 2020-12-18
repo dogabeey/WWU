@@ -36,11 +36,11 @@ country_event = {
 			if = {
 				limit = {
 					any_owned_province = {
-						has_estate = estate_nobles
+						has_estate = estate_nobility
 					}
 				}
 				random_owned_province = {
-					limit = { has_estate = estate_nobles }
+					limit = { has_estate = estate_nobility }
 					save_event_target_as = noble_province
 				}
 			}
@@ -48,33 +48,33 @@ country_event = {
 			if = {
 				limit = {
 					any_owned_province = {
-						has_estate = estate_nobles
+						has_estate = estate_nobility
 					}
 				}
 				random_owned_province = {
-					limit = { has_estate = estate_nobles }
+					limit = { has_estate = estate_nobility }
 					save_event_target_as = noble_province
 				}
 			}
 			if = {
 				limit = {
 					any_owned_province = {
-						has_estate = estate_burghers
+						has_estate = estate_traders
 					}
 				}
 				random_owned_province = {
-					limit = { has_estate = estate_burghers }
+					limit = { has_estate = estate_traders }
 					save_event_target_as = burgher_province
 				}
 			}
 			if = {
 				limit = {
 					any_owned_province = {
-						has_estate = estate_church
+						has_estate = estate_clergy
 					}
 				}
 				random_owned_province = {
-					limit = { has_estate = estate_church }
+					limit = { has_estate = estate_clergy }
 					save_event_target_as = church_province
 				}
 			}
@@ -86,19 +86,19 @@ country_event = {
 		#log = "theocracy.1.a"		# A Local Noble
 		if = {
 			limit = {
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 			}
 			add_estate_loyalty = {
-				estate = estate_nobles
+				estate = estate_nobility
 				loyalty = 15
 			}
 		}
 		if = {
 			limit = {
-				has_estate = estate_church
+				has_estate = estate_clergy
 			}
 			add_estate_loyalty = {
-				estate = estate_church
+				estate = estate_clergy
 				loyalty = -15
 			}
 		}
@@ -137,19 +137,19 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 			}
 			add_estate_loyalty = {
-				estate = estate_nobles
+				estate = estate_nobility
 				loyalty = 10
 			}
 		}
 		if = {
 			limit = {
-				has_estate = estate_church
+				has_estate = estate_clergy
 			}
 			add_estate_loyalty = {
-				estate = estate_church
+				estate = estate_clergy
 				loyalty = -10
 			}
 		}
@@ -179,10 +179,10 @@ country_event = {
 		#log = "theocracy.1.c"		# A Merchant's Son
 		if = {
 			limit = {
-				has_estate = estate_church
+				has_estate = estate_clergy
 			}
 			add_estate_loyalty = {
-				estate = estate_church
+				estate = estate_clergy
 				loyalty = -15
 			}
 		}
@@ -215,19 +215,19 @@ country_event = {
 		#log = "theocracy.1.e"		# A Talented Theologian
 		if = {
 			limit = {
-				has_estate = estate_church
+				has_estate = estate_clergy
 			}
 			add_estate_loyalty = {
-				estate = estate_church
+				estate = estate_clergy
 				loyalty = 15
 			}
 		}
 		if = {
 			limit = {
-				has_estate = estate_burghers
+				has_estate = estate_traders
 			}
 			add_estate_loyalty = {
-				estate = estate_burghers
+				estate = estate_traders
 				loyalty = -15
 			}
 		}
@@ -257,19 +257,19 @@ country_event = {
 		#log = "theocracy.1.f"		# A Local Preacher
 		if = {
 			limit = {
-				has_estate = estate_church
+				has_estate = estate_clergy
 			}
 			add_estate_loyalty = {
-				estate = estate_church
+				estate = estate_clergy
 				loyalty = 15
 			}
 		}
 		if = {
 			limit = {
-				has_estate = estate_nobles
+				has_estate = estate_nobility
 			}
 			add_estate_loyalty = {
-				estate = estate_nobles
+				estate = estate_nobility
 				loyalty = -15
 			}
 		}
@@ -337,10 +337,10 @@ country_event = {
 		ai_chance = { factor = 55 }
 		if = {
 			limit = {
-				has_estate = estate_church
+				has_estate = estate_clergy
 			}
 			add_estate_loyalty = {
-				estate = estate_church
+				estate = estate_clergy
 				loyalty = 10
 			}
 		}
@@ -357,10 +357,10 @@ country_event = {
 		set_country_flag = religious_restrictions
 		if = {
 			limit = {
-				has_estate = estate_church
+				has_estate = estate_clergy
 			}
 			add_estate_loyalty = {
-				estate = estate_church
+				estate = estate_clergy
 				loyalty = -10
 			}
 		}
@@ -437,7 +437,7 @@ country_event = {
 			}
 			add_opinion = { who = ROOT modifier = opinion_forceful_conversion }
 		}	
-		add_papal_influence = -10
+		
 	}
 	option = {
 		name = "EVTOPTB1091"

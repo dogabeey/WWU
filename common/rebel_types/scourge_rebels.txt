@@ -43,35 +43,9 @@ scourge_rebels = {
 					culture_group = ROOT
 					primary_culture = ROOT
 				}
-				OR = {
-					NOT = { has_reform = celestial_empire }
-					AND = {
-						has_reform = celestial_empire
-						has_dlc = "Mandate of Heaven"
-						imperial_mandate = 80
-					}
-				}
 			}
 			tolerance_to_this = 0			
 	 	}
-		modifier = {
-			factor = 0.01
-			owner = {
-				culture_group = ROOT
-				has_reform = celestial_empire
-				has_dlc = "Mandate of Heaven"
-				imperial_mandate = 80
-			}
-		}
-		modifier = {
-			factor = 100
-			owner = {
-				NOT = { primary_culture = ROOT }
-				has_reform = celestial_empire
-				has_dlc = "Mandate of Heaven"
-				NOT = { imperial_mandate = 50 } 
-			}
-		}
 		modifier = {
 			factor = 10
 			nationalism = 1
@@ -125,19 +99,6 @@ scourge_rebels = {
 			factor = 0.4
 			owner = {
 				accepted_culture = ROOT
-				OR = {
-					NOT = { has_dlc = "Mandate of Heaven" }
-					AND = {
-						has_dlc = "Mandate of Heaven"
-						NOT = { has_country_modifier = lost_mandate_of_heaven }
-						NOT = { has_reform = celestial_empire }
-					}
-					AND = {
-						has_dlc = "Mandate of Heaven"
-						has_reform = celestial_empire
-						imperial_mandate = 80
-					}
-				}
 			}
 		}
 		modifier = {

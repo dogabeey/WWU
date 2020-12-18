@@ -1,0 +1,62 @@
+has_trader_reform = {
+	OR = {
+		has_reform = mercantile_republic_reform
+		has_reform = trading_city_reform
+	}
+}
+
+has_council = {
+	OR = {
+		has_reform = kingdom_of_magic_reform
+		has_reform = magocracy_reform
+	}
+}
+
+#Change has_wrong_dynasty and set_correct_dynasty values accordingly whenever you change those
+can_be_hereditary = {
+	OR = {
+		tag = STW
+		tag = A29
+		tag = A90
+		tag = A91
+	}
+}
+
+#Change can_be_hereditary and set_correct_dynasty values accordingly whenever you change those
+has_wrong_dynasty = {
+	has_reform = hereditary_monarchy_reform
+	OR = {
+		AND = {
+			tag = STW
+			NOT = { dynasty = "Wrynn" }
+		}
+		AND = {
+			tag = A29
+			NOT = { dynasty = "Bronzebeard" }
+		}
+		AND = {
+			tag = A90
+			NOT = { dynasty = "Sunstrider" }
+		}
+		AND = {
+			tag = A91
+			NOT = { dynasty = "Sunstrider" }
+		}
+		AND = {
+			tag = B01
+			NOT = { dynasty = "the Spellweaver" }
+		}
+		AND = {
+			tag = B02
+			NOT = { dynasty = "the Timeless" }
+		}
+		AND = {
+			tag = B03
+			NOT = { dynasty = "the Life-Binder" }
+		}
+		AND = {
+			tag = B04
+			NOT = { dynasty = "the Dreamer" }
+		}
+	}
+}

@@ -55,14 +55,13 @@ pretender_rebels = {
 			factor = 2
 			owner = {
 				government = republic
-				holy_ideas = 1
+				wwu_religious_ideas = 1
 			}
 		}
 		modifier = {
 			factor = 20
 			owner = {
 				has_disaster = civil_war
-				#has_disaster = counts_feud
 			}
 		}
 		modifier = {
@@ -236,19 +235,19 @@ pretender_rebels = {
 						culture = culture_black
 						religion = religion_old_gods
 					}
-					create_union = A01
+					create_union = STW
 				}
 			}
 			else_if = {
 				limit = {
 					any_country = {
-						total_development = A01
+						total_development = STW
 						primary_culture = culture_black
 					}
 				}
 				random_country = {
 					limit = {
-						total_development = A01
+						total_development = STW
 						primary_culture = culture_black
 					}
 					define_ruler = {
@@ -262,7 +261,7 @@ pretender_rebels = {
 						culture = culture_black
 						religion = religion_old_gods
 					}
-					create_union = A01
+					create_union = STW
 				}
 			}
 			else = {
@@ -277,7 +276,7 @@ pretender_rebels = {
 					culture = culture_black
 					religion = religion_old_gods
 				}
-				create_union = A01
+				create_union = STW
 			}
 		}
 		else = {
@@ -292,23 +291,7 @@ pretender_rebels = {
 				add_prestige = -200
 				add_legitimacy = 25
 			}
-			if = {
-				limit = {
-					NOT = {
-						OR = {
-							government = theocracy
-							has_reform = steppe_horde
-							has_reform = celestial_empire
-							has_reform = colonial_government
-							government = native
-							has_reform = kingdom_of_magic
-							has_reform = hereditary_monarchy
-						}
-					}
-				}
-				change_government = REB
-				set_legacy_government = despotic_monarchy
-			}
+            
 			set_country_flag = no_new_succession_crisis_if_pretender_rebels #This is used in the event that triggers from the on_action to ensure that you don't get new pretenders if these pretenders are happening because of a succession crisis.
 			define_ruler = {
 				rebel = yes

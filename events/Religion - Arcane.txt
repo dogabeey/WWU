@@ -1,0 +1,136 @@
+namespace = wwu_arcane
+
+# "Succumb to Chaos"
+country_event = {
+	id = wwu_arcane.1
+	title = wwu_arcane.1.title
+	desc = wwu_arcane.1.desc
+	picture = LEGION_eventPicture
+	
+	trigger = {
+        religion = religion_arcane
+		NOT = { patriarch_authority = 0.01 } 
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+        
+        modifier = {
+            factor = 10
+            
+            ai = yes
+        }
+	}
+	
+	option = {
+		name = wwu_arcane.1.option.a
+     
+        trigger = { stability = -2 }
+     
+        add_stability = -1
+        
+        ai_chance = { factor = 90 }
+	}
+    
+	option = {
+		name = wwu_arcane.1.option.b
+        
+        add_country_modifier = {
+            name = chaos_reigns
+            duration = 3650
+        }
+        
+        change_religion = religion_fel
+        every_owned_province = {
+            limit = {
+                religion = religion_arcane
+            }
+            change_religion = religion_fel
+        }
+        
+        ai_chance = { factor = 10 }
+	}
+}
+
+# Disorder Spreads
+country_event = {
+	id = wwu_arcane.2
+	title = wwu_arcane.2.title
+	desc = wwu_arcane.2.desc
+	picture = GULDAN_eventPicture
+	
+	is_triggered_only = yes
+    
+    trigger = {
+        religion = religion_arcane
+    }
+	
+	option = {
+		name = wwu_arcane.2.option.a
+     
+        add_patriarch_authority = 0.05
+        add_adm_power = -100
+        
+        ai_chance = { factor = 50 }
+	}
+    option = {
+		name = wwu_arcane.2.option.b
+     
+        add_patriarch_authority = -0.1
+        
+        ai_chance = { factor = 50 }
+	}
+}
+
+# Order Prevails
+country_event = {
+	id = wwu_arcane.3
+	title = wwu_arcane.3.title
+	desc = wwu_arcane.3.desc
+	picture = MAGI_eventPicture
+	
+	is_triggered_only = yes
+	
+    trigger = {
+        religion = religion_arcane
+    }
+    
+	option = {
+		name = wwu_arcane.3.option.a
+     
+        add_patriarch_authority = 0.05
+	}
+}
+
+# At a Crossroads
+country_event = {
+	id = wwu_arcane.4
+	title = wwu_arcane.4.title
+	desc = wwu_arcane.4.desc
+	picture = KARAZHAN_eventPicture
+	
+	is_triggered_only = yes
+	
+    trigger = {
+        religion = religion_arcane
+    }
+    
+	option = {
+		name = wwu_arcane.4.option.a
+     
+        add_patriarch_authority = -0.15
+        
+        ai_chance = { factor = 20 }
+	}
+    option = {
+		name = wwu_arcane.4.option.b
+     
+        add_patriarch_authority = 0.05
+        
+        add_adm_power = -30
+        add_dip_power = -30
+        add_mil_power = -30
+        
+        ai_chance = { factor = 80 }
+	}
+}

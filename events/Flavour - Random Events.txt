@@ -1,0 +1,5185 @@
+namespace = wwu_random_events
+
+# "Gift to the State"
+country_event = {
+	id = wwu_random_events.1
+	title = wwu_random_events.1.title
+	desc = wwu_random_events.1.desc
+	picture = ECONOMY_eventPicture
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			adm = 4
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.1.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0
+				NOT = { num_of_cities = 5 }
+			}
+		}
+		add_years_of_income = 0.2
+	}
+	option = {
+		name = wwu_random_events.1.option.b
+        
+		ai_chance = {
+			factor = 45
+		}
+		add_prestige = 10
+	}
+	option = {
+		name = wwu_random_events.1.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = well_connected_personality
+		}
+		required_personality = well_connected_personality
+		ai_chance = {
+			factor = 100
+		}
+		add_years_of_income = 0.2
+		add_prestige = 10
+	}
+	option = {
+		name = wwu_random_events.1.option.d
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = embezzler_personality
+		}
+		required_personality = embezzler_personality
+		ai_chance = {
+			factor = 100
+		}
+		add_years_of_income = 0.35
+	}
+	option = {
+		name = wwu_random_events.1.option.e
+
+		highlight = yes
+		trigger = {
+			OR = {
+				ruler_has_personality = righteous_personality
+				ruler_has_personality = kind_hearted_personality
+			}
+		}
+		required_personality = righteous_personality
+		required_personality = kind_hearted_personality
+		ai_chance = {
+			factor = 100
+		}
+		add_prestige = 15
+	}
+}
+
+# "Temporary Insanity of Monarch"
+country_event = {
+	id = wwu_random_events.2
+	title = wwu_random_events.2.title
+	desc = wwu_random_events.2.desc
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+    
+	trigger = {
+		government = monarchy
+		NOT = { adm = 2 }
+		NOT = { luck = yes }
+		has_regency = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { advisor = statesman }
+		}
+		modifier = {
+			factor = 0.66
+			statesman = 3
+		}
+	}
+	
+	option = {
+		name = wwu_random_events.2.option.a
+        
+		ai_chance = { factor = 55 }
+		add_prestige = -10
+		add_years_of_income = -0.1
+		add_army_tradition = 5
+		add_navy_tradition = 5
+	}
+	option = {
+		name = wwu_random_events.2.option.b
+        
+		ai_chance = { factor = 45 }
+		add_prestige = -10
+		add_years_of_income = -0.1
+		add_adm_power = 25
+	}
+	option = {
+		name = wwu_random_events.2.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = well_advised_personality
+		}
+		required_personality = well_advised_personality
+		ai_chance = { factor = 100 }
+		add_adm_power = 25
+	}
+}
+
+# "Excellent Advisor"
+country_event = {
+	id = wwu_random_events.3
+	title = wwu_random_events.3.title
+	desc = wwu_random_events.3.desc
+	picture = ADVISOR_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		government = monarchy
+		prestige = 2
+		has_regency = no
+		OR = {
+			employed_advisor = {
+				category = ADM
+			}
+			employed_advisor = {
+				category = DIP
+			}
+			employed_advisor = {
+				category = MIL
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				1 = {
+					trigger = {
+						employed_advisor = {
+							category = ADM
+						}
+					}
+					modifier = {
+						factor = 3
+						advisor = statesman
+					}
+					set_country_flag = advisor_events_adm
+				}
+				1 = {
+					trigger = {
+						employed_advisor = {
+							category = DIP
+						}
+					}
+					set_country_flag = advisor_events_dip
+				}
+				1 = {
+					trigger = {
+						employed_advisor = {
+							category = MIL
+						}
+					}
+					set_country_flag = advisor_events_mil
+				}
+			}
+		}
+	}
+
+	option = {
+		name = wwu_random_events.3.option.a
+        
+		ai_chance = { factor = 55 }
+        
+		add_reform_progress_small_effect = yes
+		add_prestige = 25
+		add_adm_power = 40
+	}
+	option = {
+		name = wwu_random_events.3.option.b
+        
+		ai_chance = { factor = 45 }
+		add_army_tradition = 10
+		add_navy_tradition = 10
+		add_mil_power = 100
+	}
+	option = {
+		name = wwu_random_events.3.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = well_advised_personality
+		}
+		required_personality = well_advised_personality
+		ai_chance = { factor = 100 }
+		add_adm_power = 100
+		add_mil_power = 100
+		add_prestige = 25
+		add_army_tradition = 10
+	}
+    after = {
+		hidden_effect = {
+			trigger_switch = {
+				on_trigger = has_country_flag
+				advisor_events_adm = { clr_country_flag = advisor_events_adm }
+				advisor_events_dip = { clr_country_flag = advisor_events_dip }
+				advisor_events_mil = { clr_country_flag = advisor_events_mil }
+			}
+		}
+	}
+}
+
+# "Scandal at the Court"
+country_event = {
+	id = wwu_random_events.4
+	title = wwu_random_events.4.title
+	desc = wwu_random_events.4.desc
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		num_of_royal_marriages = 2
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.5
+			ruler_has_personality = careful_personality
+		}
+		modifier = {
+			factor = 1.25
+			OR = {
+				ruler_has_personality = drunkard_personality
+				ruler_has_personality = babbling_buffoon_personality
+			}
+		}
+	}
+
+	option = {
+		name = wwu_random_events.4.option.a
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 1.5
+				stability = 1
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.4.option.b
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 1.5
+				NOT = { stability = 1 }
+				years_of_income = 0.4
+			}
+		}
+		add_corruption = 0.5
+		reduce_meritocracy_effect = yes
+		add_years_of_income = -0.2
+	}
+	option = {
+		name = wwu_random_events.4.option.c
+        
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = calm_personality
+		}
+		required_personality = calm_personality
+		add_prestige = -10
+	}
+	option = {
+		name = wwu_random_events.4.option.d
+        
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = silver_tongue_personality
+		}
+		required_personality = silver_tongue_personality
+		add_dip_power = -25
+	}
+	option = {
+		name = wwu_random_events.4.option.e
+        
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = babbling_buffoon_personality
+		}
+		required_personality = babbling_buffoon_personality
+		add_prestige = -5
+	}
+}
+
+# "Exceptional Year" - Entrepreneur
+country_event = {
+	id = wwu_random_events.5
+	title = wwu_random_events.5.title
+	desc = wwu_random_events.5.desc
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			advisor = treasurer
+			advisor = trader
+			advisor = statesman
+			advisor = natural_scientist
+			ruler_has_personality = midas_touched_personality
+			ruler_has_personality = industrious_personality
+			ruler_has_personality = entrepreneur_personality
+		}
+		is_year = 546
+		NOT = { is_year = 600 }
+		NOT = { has_country_modifier = exceptional_year }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			production_efficiency = 0.5
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 1.25
+			stability = 1
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			is_bankrupt = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.5.option.a
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 2
+				NOT = { num_of_cities = 8 }
+			}
+		}
+		add_country_modifier = {
+			name = "exceptional_year"
+			duration = 365
+		}
+	}
+	option = {
+		name = wwu_random_events.5.option.b
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0
+				NOT = { num_of_cities = 8 }
+			}
+		}
+		add_years_of_income = 0.1
+	}
+	option = {
+		name = wwu_random_events.5.option.c
+        
+		highlight = yes
+		trigger = {
+			OR = {
+				ruler_has_personality = entrepreneur_personality
+				ruler_has_personality = industrious_personality
+				ruler_has_personality = midas_touched_personality
+			}
+		}
+		required_personality = entrepreneur_personality
+		required_personality = industrious_personality
+		required_personality = midas_touched_personality
+		if = { #if you have more than one of these you get more than one reward
+			limit = {
+				ruler_has_personality = entrepreneur_personality
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				add_base_production = 2
+			}
+		}
+		if = {
+			limit = {
+				ruler_has_personality = industrious_personality
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				add_base_production = 2
+			}
+		}
+		if = {
+			limit = {
+				ruler_has_personality = midas_touched_personality
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				add_base_tax = 2
+			}
+		}
+	}
+}
+
+# "Exceptional Year" - Embezzler + Entrepreneur
+country_event = {
+	id = wwu_random_events.6
+	title = wwu_random_events.6.title
+	desc = wwu_random_events.6.desc
+	picture = ECONOMY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			advisor = treasurer
+			advisor = trader
+			advisor = statesman
+			advisor = natural_scientist
+			ruler_has_personality = midas_touched_personality
+			ruler_has_personality = industrious_personality
+			ruler_has_personality = entrepreneur_personality
+		}
+		is_year = 1550
+		NOT = { is_year = 1650 }
+		NOT = { has_country_modifier = exceptional_year }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			production_efficiency = 0.5
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			is_bankrupt = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.6.option.a
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 2
+				NOT = { num_of_cities = 8 }
+			}
+		}
+		add_country_modifier = {
+			name = "exceptional_year"
+			duration = 365
+		}
+	}
+	option = {
+		name = wwu_random_events.6.option.b
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = embezzler_personality
+		}
+		required_personality = embezzler_personality
+		add_years_of_income = 0.15
+	}
+	option = {
+		name = wwu_random_events.6.option.c
+        
+		highlight = yes
+		trigger = {
+			OR = {
+				ruler_has_personality = entrepreneur_personality
+				ruler_has_personality = industrious_personality
+				ruler_has_personality = midas_touched_personality
+			}
+		}
+		required_personality = entrepreneur_personality
+		required_personality = industrious_personality
+		required_personality = midas_touched_personality
+		if = { #if you have more than one of these you get more than one reward
+			limit = {
+				ruler_has_personality = entrepreneur_personality
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				add_base_production = 2
+			}
+		}
+		if = {
+			limit = {
+				ruler_has_personality = industrious_personality
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				add_base_production = 2
+			}
+		}
+		if = {
+			limit = {
+				ruler_has_personality = midas_touched_personality
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				add_base_tax = 2
+			}
+		}
+	}
+}
+
+# "Exceptional Year" - Over Time + Embezzler + Entrepreneur
+country_event = {
+	id = wwu_random_events.7
+	title = wwu_random_events.7.title
+	desc = wwu_random_events.7.desc
+	picture = ECONOMY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			advisor = treasurer
+			advisor = trader
+			advisor = statesman
+			advisor = natural_scientist
+			ruler_has_personality = midas_touched_personality
+			ruler_has_personality = industrious_personality
+			ruler_has_personality = entrepreneur_personality
+		}
+		is_year = 1650
+		NOT = { has_country_modifier = exceptional_year }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			production_efficiency = 0.5
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			is_bankrupt = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.7.option.a
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 2
+				NOT = { num_of_cities = 8 }
+			}
+		}
+		add_country_modifier = {
+			name = "exceptional_year"
+			duration = 365
+		}
+	}
+	option = {
+		name = wwu_random_events.7.option.b
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0
+				NOT = { num_of_cities = 8 }
+			}
+		}
+		add_years_of_income = 0.05
+	}
+	option = {
+		name = wwu_random_events.7.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = embezzler_personality
+		}
+		required_personality = embezzler_personality
+		add_years_of_income = 0.10
+	}
+	option = {
+		name = wwu_random_events.7.option.d
+        
+		highlight = yes
+		trigger = {
+			OR = {
+				ruler_has_personality = entrepreneur_personality
+				ruler_has_personality = industrious_personality
+				ruler_has_personality = midas_touched_personality
+			}
+		}
+		required_personality = entrepreneur_personality
+		required_personality = industrious_personality
+		required_personality = midas_touched_personality
+		if = { #if you have more than one of these you get more than one reward
+			limit = {
+				ruler_has_personality = entrepreneur_personality
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				add_base_production = 2
+			}
+		}
+		if = {
+			limit = {
+				ruler_has_personality = industrious_personality
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				add_base_production = 2
+			}
+		}
+		if = {
+			limit = {
+				ruler_has_personality = midas_touched_personality
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				add_base_tax = 2
+			}
+		}
+	}
+}
+
+# "Rush of Colonists"
+country_event = {
+	id = wwu_random_events.8
+	title = wwu_random_events.8.title
+	desc = wwu_random_events.8.desc
+	picture = COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		num_of_ports = 1
+		NOT =  { has_country_modifier = monetary_benefits }
+		colony = 1
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			has_idea = wwu_exploration_ideas_1
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			wwu_trade_ideas = 5
+		}
+	}
+
+	option = {
+		name = wwu_random_events.8.option.a
+        
+		ai_chance = { factor = 45 }	
+		add_country_modifier = {
+			name = "colonial_enthusiasm"
+			duration = 1825
+		}
+	}
+	option = {
+		name = wwu_random_events.8.option.b
+        
+		ai_chance = { factor = 55 }
+		add_country_modifier = {
+			name = "monetary_benefits"
+			duration = 1825
+		}
+	}
+	option = {
+		name = wwu_random_events.8.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = expansionist_personality
+			NOT = { has_country_modifier = colonial_enthusiasm }
+		}
+		required_personality = expansionist_personality
+		ai_chance = { factor = 100 }
+		add_country_modifier = {
+			name = "colonial_enthusiasm"
+			duration = 3650
+		}
+	}
+}
+
+# "Rush of Merchants"
+country_event = {
+	id = wwu_random_events.9
+	title = wwu_random_events.9.title
+	desc = wwu_random_events.9.desc
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		advisor = trader
+		NOT = {
+			has_country_modifier = rush_of_merchants
+		}
+		NOT = {
+			has_country_modifier = monetary_benefits
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			trade_efficiency = 0.5
+			
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			is_bankrupt = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.9.option.a
+        
+		ai_chance = { factor = 45 }	
+		add_country_modifier = {
+			name = rush_of_merchants
+			duration = 1825
+		}
+	}
+	option = {
+		name = wwu_random_events.9.option.b
+        
+		ai_chance = { factor = 55 }
+		add_country_modifier = {
+			name = "monetary_benefits"
+			duration = 1825
+		}
+	}
+	option = {
+		name = wwu_random_events.9.option.c
+        
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = charismatic_negotiator_personality
+		}
+		required_personality = charismatic_negotiator_personality
+		add_country_modifier = {
+			name = "monetary_benefits"
+			duration = 3650
+		}
+	}
+	option = {
+		name = wwu_random_events.9.option.d
+        
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = navigator_personality
+		}
+		required_personality = navigator_personality
+		add_country_modifier = {
+			name = rush_of_merchants
+			duration = 3650
+		}
+	}
+}
+
+# "Diplomatic Move"
+country_event = {
+	id = wwu_random_events.10
+	title = wwu_random_events.10.title
+	desc = wwu_random_events.10.desc
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		dip = 4
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			advisor = diplomat
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.10.option.a
+        
+		ai_chance = { factor = 60 }
+		add_dip_power = 30
+	}	
+	option = {
+		name = wwu_random_events.10.option.b
+        
+		ai_chance = { factor = 40 }
+		trigger = {
+			any_known_country = {
+				is_neighbor_of = ROOT
+			}
+		}
+		add_dip_power = 10
+		random_country = {
+			limit = { is_neighbor_of = ROOT }
+			add_opinion = { who = ROOT modifier = opinion_improved_relations }
+		}
+	}
+	option = {
+		name = wwu_random_events.10.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = charismatic_negotiator_personality
+		}
+		required_personality = charismatic_negotiator_personality
+		ai_chance = { factor = 100 }
+		add_dip_power = 50
+	}
+	option = {
+		name = wwu_random_events.10.option.d
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = charismatic_negotiator_personality
+			any_known_country = {
+				is_neighbor_of = ROOT
+			}
+		}
+		required_personality = charismatic_negotiator_personality
+		ai_chance = { factor = 100 }
+		add_dip_power = 25
+		every_country = {
+			limit = { is_neighbor_of = ROOT }
+			add_opinion = { who = ROOT modifier = opinion_good_relations }
+		}
+	}
+}
+
+# "Excellent Diplomacy"
+country_event = {
+	id = wwu_random_events.11
+	title = wwu_random_events.11.title
+	desc = wwu_random_events.11.desc
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+    
+	trigger = {
+		diplomat = 2
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			dip = 4
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { dip = 1 }
+		}
+	}
+
+	option = {
+		name = wwu_random_events.11.option.a
+        
+		ai_chance = {
+			factor = 25
+		}
+		add_prestige = 10
+	}
+	option = {
+		name = wwu_random_events.11.option.b
+        
+		ai_chance = {
+			factor = 75
+		}
+		add_dip_power = 25
+	}
+	option = {
+		name = wwu_random_events.11.option.c
+        
+		highlight = yes
+		trigger = {
+			OR = {
+				ruler_has_personality = charismatic_negotiator_personality
+				ruler_has_personality = silver_tongue_personality
+			}
+			NOT = { has_country_modifier = excellent_diplomacy_modifier }
+		}
+		required_personality = charismatic_negotiator_personality
+		required_personality = silver_tongue_personality
+		ai_chance = {
+			factor = 100
+		}
+		add_country_modifier = {
+			name = "excellent_diplomacy_modifier"
+			duration = 3650
+		}
+	}
+}
+
+# "Reformation of the Army"
+country_event = {
+	id = wwu_random_events.12
+	title = wwu_random_events.12.title
+	desc = wwu_random_events.12.desc
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		army_reformer = 2
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			mil = 4
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { mil = 1 }
+		}
+	}
+
+
+	option = {
+		name = wwu_random_events.12.option.a
+        
+		ai_chance = { factor = 55 }
+		add_mil_power = 50
+	}
+	option = {
+		name = wwu_random_events.12.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 2
+				NOT = { army_tradition = 80 }
+			}
+			modifier = {
+				factor = 0
+				army_tradition = 90
+			}
+		}
+		add_army_tradition = 20
+	}
+	option = {
+		name = wwu_random_events.12.option.c
+        
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = martial_educator_personality
+		}
+		required_personality = martial_educator_personality
+		add_army_tradition = 35
+	}
+	option = {
+		name = wwu_random_events.12.option.d
+        
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			OR = {
+				ruler_has_personality = tactical_genius_personality
+				ruler_has_personality = inspiring_leader_personality
+			}
+		}
+		required_personality = tactical_genius_personality
+		required_personality = inspiring_leader_personality
+		add_mil_power = 75
+	}
+}
+
+# "Reformation of the Navy"
+country_event = {
+	id = wwu_random_events.13
+	title = wwu_random_events.13.title
+	desc = wwu_random_events.13.desc
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		naval_reformer = 2
+		num_of_ports = 1
+		primitives = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			mil = 4
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { mil = 1 }
+		}
+	}
+
+	option = {
+		name = wwu_random_events.13.option.a
+        
+		ai_chance = { factor = 55 }
+		add_dip_power = 50
+	}
+	option = {
+		name = wwu_random_events.13.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0
+				NOT = { num_of_ports = 5 }
+			}
+		}
+		add_navy_tradition = 20
+		add_yearly_sailors = 1
+	}
+	option = {
+		name = wwu_random_events.13.option.c
+        
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = navigator_personality
+		}
+		required_personality = navigator_personality
+		add_navy_tradition = 30
+		add_yearly_sailors = 1.5
+	}
+	option = {
+		name = wwu_random_events.13.option.d
+        
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = expansionist_personality
+		}
+		required_personality = expansionist_personality
+		add_dip_power = 75
+	}
+}
+
+# "Good Government Policies"
+country_event = {
+	id = wwu_random_events.14
+	title = wwu_random_events.14.title
+	desc = wwu_random_events.14.desc
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		adm = 5
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			advisor = statesman
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+	}
+	
+	option = {
+		name = wwu_random_events.14.option.a
+        
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				NOT = { stability = 0 }
+			}
+		}
+		add_stability_or_adm_power = yes
+	}
+	option = {
+		name = wwu_random_events.14.option.b
+        
+		ai_chance = { factor = 30 }
+		if = {
+			limit = { 
+				OR = {
+					NOT = { has_dlc = "Dharma" } 
+					has_completed_all_reforms_trigger = yes
+					primitives = yes
+				}
+			}
+			add_adm_power = 25
+			add_dip_power = 25
+			add_mil_power = 25
+		}
+		else = {
+			add_reform_progress_small_effect = yes
+		}
+	}
+	option = {
+		name = wwu_random_events.14.option.c
+        
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				num_of_cities = 30
+			}
+		}
+		add_years_of_income = 0.20
+	}
+	option = {
+		name = wwu_random_events.14.option.d
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = incorruptible_personality
+			corruption = 1
+		}
+		required_personality = incorruptible_personality
+		add_corruption = -1
+	}
+	option = {
+		name = wwu_random_events.14.option.e
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = martial_educator_personality
+		}
+		required_personality = martial_educator_personality
+		add_army_tradition = 10
+		
+	}
+	option = {
+		name = wwu_random_events.14.option.f
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = drunkard_personality
+			any_neighbor_country = {
+				NOT = { war_with = ROOT }
+			}
+		}
+		required_personality = drunkard_personality
+		random_neighbor_country = {
+			limit = { NOT = { war_with = ROOT } }
+			add_opinion = {
+				who = ROOT
+				modifier = indulgent_feast
+			}
+			random_neighbor_country = {
+				limit = {
+					NOT = { war_with = ROOT }
+					NOT = { tag = ROOT }
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = indulgent_feast
+				}
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.14.option.g
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = embezzler_personality
+		}
+		required_personality = embezzler_personality
+		add_years_of_income = -0.25
+	}
+	option = {
+		name = wwu_random_events.14.option.h
+        
+		highlight = yes
+		trigger = { ruler_has_personality = obsessive_perfectionist_personality }
+		required_personality = obsessive_perfectionist_personality
+		add_prestige = 10
+	}
+}
+
+# "Poor Government Policies"
+country_event = {
+	id = wwu_random_events.15
+	title = wwu_random_events.15.title
+	desc = wwu_random_events.15.desc
+	picture = REFORM_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		NOT = { adm = 5 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			advisor = statesman
+		}
+	}
+
+	option = {
+		name = wwu_random_events.15.option.a
+        
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 0 }
+			}
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.15.option.b
+        
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.5
+				NOT = { years_of_income = 0.3 }
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					NOT = { has_dlc = "Dharma" } 
+					has_completed_all_reforms_trigger = yes
+				}
+			}
+			add_years_of_income = -0.25
+		}
+		else = {
+			reduce_reform_progress_small_effect = yes
+		}
+	}
+	option = {
+		name = wwu_random_events.15.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = naive_personality }
+		required_personality = naive_personality
+		add_prestige = -10
+	}
+}
+
+# "Unhappiness Among the [Root.GetClergyName]"
+country_event = {
+	id = wwu_random_events.16
+	title = wwu_random_events.16.title
+	desc = wwu_random_events.16.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		always = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { advisor = theologian }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			theologian = 3
+		}
+	}
+
+	option = {
+		name = wwu_random_events.16.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				prestige = 90
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_clergy
+				NOT = {
+					estate_loyalty = {
+						estate = estate_clergy
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_clergy_loyalty_effect = yes
+		add_prestige = 10
+	}
+	option = {
+		name = wwu_random_events.16.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.5
+				NOT = { prestige = 0 }
+			}
+		}
+		add_estate_clergy_loyalty_effect = yes
+		add_prestige = -15
+	}
+	option = {
+		name = wwu_random_events.16.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = zealot_personality }
+		required_personality = zealot_personality
+		add_estate_clergy_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.16.option.d
+        
+		highlight = yes
+		trigger = { ruler_has_personality = pious_personality }
+		required_personality = pious_personality
+		add_devotion = -5
+	}
+}
+
+# "Unhappiness Among the Artisans"
+country_event = {
+	id = wwu_random_events.17
+	title = wwu_random_events.17.title
+	desc = wwu_random_events.17.desc
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			wwu_religious_ideas = 7
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			stability = 3
+		}
+	}
+
+	option = {
+		name = wwu_random_events.17.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_traders
+				NOT = {
+					estate_loyalty = {
+						estate = estate_traders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_traders_loyalty_effect = yes
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.17.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.5
+				NOT = { num_of_cities = 15 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { years_of_income = 0.5 }
+			}
+		}
+		add_years_of_income = -0.50
+		add_estate_traders_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.17.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = cruel_personality }
+		required_personality = cruel_personality
+		add_years_of_income = 0.1
+		capital_scope = {
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.17.option.d
+        
+		highlight = yes
+		trigger = { ruler_has_personality = entrepreneur_personality }
+		required_personality = entrepreneur_personality
+		add_prestige = -10
+		reduce_estate_traders_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.17.option.e
+        
+		highlight = yes
+		trigger = { ruler_has_personality = obsessive_perfectionist_personality }
+		required_personality = obsessive_perfectionist_personality
+		add_prestige = -5
+		reduce_estate_traders_loyalty_effect = yes
+	}
+}
+
+# "Unhappiness Among the Peasantry"
+country_event = {
+	id = wwu_random_events.18
+	title = wwu_random_events.18.title
+	desc = wwu_random_events.18.desc
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			has_wartaxes = yes
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			stability = 3
+			revolt_percentage = 0
+		}
+	}
+
+	option = {
+		name = wwu_random_events.18.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+		}
+		add_prestige = 10
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.18.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.5
+				NOT = { years_of_income = 0.3 }
+			}
+		}
+		add_years_of_income = -0.25
+	}
+	option = {
+		name = wwu_random_events.18.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = cruel_personality }
+		required_personality = cruel_personality
+		capital_scope = {
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 1
+			}
+		}
+	}
+}
+
+# "Unhappiness Among the Merchants."
+country_event = {
+	id = wwu_random_events.19
+	title = wwu_random_events.19.title
+	desc = wwu_random_events.19.desc
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		NOT = { mercantilism = 30 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			has_government_attribute = is_merchant_republic
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			advisor = trader
+		}
+	}
+
+	option = {
+		name = wwu_random_events.19.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0
+				has_estate = estate_traders
+				NOT = {
+					estate_loyalty = {
+						estate = estate_traders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_dip_power = -50
+		add_estate_traders_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.19.option.b
+        
+		ai_chance = { factor = 45 }
+		add_mercantilism = -1
+	}
+	option = {
+		name = wwu_random_events.19.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = entrepreneur_personality }
+		required_personality = entrepreneur_personality
+		add_dip_power = -25
+		reduce_estate_traders_loyalty_effect = yes
+	}
+}
+
+# "Political Crisis"
+country_event = {
+	id = wwu_random_events.20
+	title = wwu_random_events.20.title
+	desc = wwu_random_events.20.desc
+	picture = BURNING_CASTLE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		or = {
+			government = monarchy
+			government = republic
+			government = dictatorship
+		}
+		is_lesser_in_union = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			revolt_percentage = 0.1
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			advisor = statesman
+		}
+	}
+
+	option = {
+		name = wwu_random_events.20.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.20.option.b
+        
+		ai_chance = {
+			factor = 45 
+			modifier = {
+				factor = 0.5
+				government = republic
+				NOT = { republican_tradition = 80 }
+			}
+			modifier = {
+				factor = 0.5
+				government = monarchy
+				NOT = { legitimacy_or_horde_unity = 80 }
+			}
+		}
+		add_republican_tradition = -10
+		add_horde_unity = -25
+		add_legitimacy = -25
+		reduce_mandate_large_effect = yes
+	}
+	option = {
+		name = wwu_random_events.20.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = righteous_personality }
+		required_personality = righteous_personality
+		add_legitimacy = -10
+		add_republican_tradition = -5
+		add_horde_unity = -10
+		reduce_mandate_effect = yes
+	}
+	option = {
+		name = wwu_random_events.20.option.d
+        
+		highlight = yes
+		trigger = { ruler_has_personality = just_personality }
+		required_personality = just_personality
+		random_list = {
+			50 = {
+				add_prestige = 5
+			}
+			50 = {
+				add_republican_tradition = -10
+				add_horde_unity = -25
+				add_legitimacy = -25
+				reduce_mandate_large_effect = yes
+			}
+		}
+	}
+}
+
+# "Corruption"
+country_event = {
+	id = wwu_random_events.21
+	title = wwu_random_events.21.title
+	desc = wwu_random_events.21.desc
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			num_of_loans = 1
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			advisor = treasurer
+		}
+	}
+
+	option = {
+		name = wwu_random_events.21.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.21.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.5
+				corruption = 10
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					NOT = { has_dlc = "Dharma" } 
+					has_completed_all_reforms_trigger = yes
+				}
+			}
+			add_corruption = 1
+		}
+		else = {
+			reduce_reform_progress_small_effect = yes
+		}
+	}
+	option = {
+		name = wwu_random_events.21.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = embezzler_personality
+		}
+		required_personality = embezzler_personality
+		add_prestige = 5
+	}
+	option = {
+		name = wwu_random_events.21.option.d
+        
+		highlight = yes
+		trigger = { ruler_has_personality = incorruptible_personality }
+		required_personality = incorruptible_personality
+		add_adm_power = -25
+	}
+}
+
+# "Diplomatic Insult"
+country_event = {
+	id = wwu_random_events.22
+	title = wwu_random_events.22.title
+	desc = wwu_random_events.22.desc
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		any_neighbor_country = {
+			is_at_war = no
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 0.66
+			dip = 5
+		}
+	}
+
+	option = {
+		name = wwu_random_events.22.option.a
+        
+		ai_chance = { factor = 55 }
+		random_country = {
+			limit = { is_neighbor_of = ROOT  }
+			reverse_add_casus_belli = {	
+				target = ROOT
+				type = cb_insult
+				months = 12
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.22.option.b
+        
+		ai_chance = { factor = 45 }
+		every_neighbor_country = {
+			limit = { is_at_war = no }
+			add_opinion = { who = ROOT modifier = opinion_eased_tension }
+		}
+	}
+	option = {
+		name = wwu_random_events.22.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = silver_tongue_personality }
+		required_personality = silver_tongue_personality
+		add_estate_traders_loyalty_effect = yes
+		add_prestige = 5
+		every_neighbor_country = {
+			limit = { is_at_war = no }
+			add_opinion = { who = ROOT modifier = opinion_more_eased_tension }
+		}
+	}
+}
+
+# "Nobles Demand Privileges"
+country_event = {
+	id = wwu_random_events.23
+	title = wwu_random_events.23.title
+	desc = wwu_random_events.23.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_country_modifier = disorder }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			adm = 4
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			OR = {
+				has_government_attribute = is_merchant_republic
+				government = theocracy
+			}
+		}
+	}
+
+	option = {
+		name = wwu_random_events.23.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 1.5
+				prestige = 0.2
+			}
+		}
+		add_prestige = -10
+	}
+	option = {
+		name = wwu_random_events.23.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.5
+				unrest = 5
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_nobility_loyalty_effect = yes
+		add_country_modifier = {
+			name = "disorder"
+			duration = 3650
+		}
+	}
+	option = {
+		name = wwu_random_events.23.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = cruel_personality }
+		required_personality = cruel_personality
+		add_prestige = 10
+		capital_scope = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.23.option.d
+        
+		highlight = yes
+		trigger = { ruler_has_personality = lawgiver_personality }
+		required_personality = lawgiver_personality
+		add_prestige = -5
+		add_legitimacy = 5
+	}
+}
+
+# "Trading Company's bubble bursts"
+country_event = {
+	id = wwu_random_events.24
+	title = wwu_random_events.24.title
+	desc = wwu_random_events.24.desc
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		is_year = 1700
+		NOT = { has_country_modifier = trade_disaster }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { trade_efficiency = 0.5 }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			trade_efficiency = 0.6
+		}
+	}
+
+	option = {
+		name = wwu_random_events.24.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0
+				has_estate = estate_traders
+				NOT = {
+					estate_loyalty = {
+						estate = estate_traders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_traders_loyalty_effect = yes
+		add_country_modifier = {
+			name = "trade_disaster"
+			duration = 365
+		}
+	}
+	option = {
+		name = wwu_random_events.24.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.5
+				NOT = { years_of_income = 0.15 }
+			}
+		}
+		add_estate_traders_loyalty_effect = yes
+		add_years_of_income = -0.1
+	}
+	option = {
+		name = wwu_random_events.24.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = entrepreneur_personality }
+		required_personality = entrepreneur_personality
+		add_estate_traders_loyalty_effect = yes
+		add_years_of_income = -0.05
+	}
+}
+
+#########################################################
+#		Nobles ally with foreign power				  	#
+#########################################################
+country_event = {
+	id = wwu_random_events.25
+	title = wwu_random_events.25.title
+	desc = wwu_random_events.25.desc
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		NOT = { dip = 4 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { wwu_economic_ideas = 2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 0.8
+			stability = 1
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.25.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_nobility_loyalty_effect = yes
+		random_country = {
+			limit = { is_neighbor_of = ROOT }
+			reverse_add_casus_belli = {	
+				target = ROOT
+				type = cb_insult
+				months = 12
+			}
+		}
+		add_adm_power = -33
+	}
+	option = {
+		name = wwu_random_events.25.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 1.5
+				prestige = 35
+			}
+		}
+		add_prestige = -15
+		add_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.25.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = malevolent_personality }
+		required_personality = malevolent_personality
+		add_prestige = -5
+		add_estate_nobility_loyalty_effect = yes
+	}
+}
+
+# "Assassination of Noble"
+country_event = {
+	id = wwu_random_events.26
+	title = wwu_random_events.26.title
+	desc = wwu_random_events.26.desc
+	picture = WOW_ASSASSINATION_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		government = monarchy
+		NOT = { dip = 3 }
+		is_free_or_tributary_trigger = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			wwu_religious_ideas = 5
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			advisor = statesman
+		}
+	}
+
+	option = {
+		name = wwu_random_events.26.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				NOT = { legitimacy_or_horde_unity = 70 }
+			}
+		}
+		add_legitimacy = -15
+		add_horde_unity = -15
+		reduce_mandate_effect = yes
+		add_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.26.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_adm_power = -50
+		reduce_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.26.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = cruel_personality }
+		required_personality = cruel_personality
+		add_legitimacy = 5
+		add_horde_unity = 5
+		add_mandate_effect = yes
+		add_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.26.option.d
+        
+		highlight = yes
+		trigger = { ruler_has_personality = just_personality }
+		required_personality = just_personality
+		add_adm_power = -25
+		add_estate_nobility_loyalty_effect = yes
+	}
+}
+
+# "Sale of Offices"
+country_event = {
+	id = wwu_random_events.27
+	title = wwu_random_events.27.title
+	desc = wwu_random_events.27.desc
+	picture = ECONOMY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			num_of_loans = 25
+			is_bankrupt = yes
+		}
+		NOT = { has_country_modifier = reduced_taxes_off }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			advisor = treasurer
+		}
+	}
+
+	option = {
+		name = wwu_random_events.27.option.a
+        
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 1.5
+				NOT = {
+					years_of_income = 0.2
+				}
+			}
+		}
+		add_years_of_income = 1
+		add_country_modifier = {
+			name = "reduced_taxes_off"	
+			duration = 7300
+		}
+	}
+	option = {
+		name = wwu_random_events.27.option.b
+        
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				NOT = { stability = 1 }
+			}
+		}
+		add_stability_or_adm_power = yes
+		add_prestige = 10
+	}
+	option = {
+		name = wwu_random_events.27.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = embezzler_personality
+		}
+		required_personality = embezzler_personality
+		add_years_of_income = 1
+	}
+}
+
+# "Monopoly Company Formed"
+country_event = {
+	id = wwu_random_events.28
+	title = wwu_random_events.28.title
+	desc = wwu_random_events.28.desc
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		NOT = {mercantilism = 50 }
+		NOT = { has_country_modifier = trade_income_increase }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			trade_efficiency = 0.6
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { trade_efficiency = 0.5 }
+		}
+	}
+
+	option = {
+		name = wwu_random_events.28.option.a
+        
+		ai_chance = { factor = 55 }
+		add_country_modifier = {
+			name = "trade_income_increase"
+			duration = 3650
+		}		
+		add_dip_power = 50
+	}
+	option = {
+		name = wwu_random_events.28.option.b
+        
+		ai_chance = { factor = 45 }
+		add_years_of_income = 1
+	}
+	option = {
+		name = wwu_random_events.28.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = embezzler_personality
+		}
+		required_personality = embezzler_personality
+		add_years_of_income = 1.5
+	}
+}
+
+# "Nobles Demand Increased Pensions"
+country_event = {
+	id = wwu_random_events.29
+	title = wwu_random_events.29.title
+	desc = wwu_random_events.29.desc
+	picture = ECONOMY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			government = monarchy
+			has_reform = noble_republic_reform
+		}
+		NOT = {
+			has_country_modifier = tax_income_loss
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			stability = 3
+		}
+	}
+
+	option = {
+		name = wwu_random_events.29.option.a
+        
+		ai_chance = { factor = 55 }
+		add_country_modifier = {
+			name = "tax_income_loss"
+			duration = 7300
+		}
+		add_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.29.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 1.5
+				NOT = { stability = 1 }
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+		reduce_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.29.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = charismatic_negotiator_personality }
+		required_personality = charismatic_negotiator_personality
+		add_country_modifier = {
+			name = "tax_income_loss"
+			duration = 5475
+		}
+		add_estate_nobility_loyalty_effect = yes
+	}
+}
+
+# "Grant Export Licenses"
+country_event = {
+	id = wwu_random_events.30
+	title = wwu_random_events.30.title
+	desc = wwu_random_events.30.desc
+	picture = ECONOMY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		is_lesser_in_union = no
+		NOT = { has_country_modifier = tax_income_boost }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			trader = 2
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { advisor = trader }
+		}
+	}
+
+	option = {
+		name = wwu_random_events.30.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 1.5
+				legitimacy_or_horde_unity = 90
+			}
+			modifier = {
+				factor = 0.5
+				has_reform = warband_reform
+				NOT = { legitimacy_or_horde_unity = 50 }
+			}
+			modifier = {
+				factor = 0.5
+				government = republic
+				NOT = { republican_tradition = 60 }
+			}
+			modifier = {
+				factor = 0.25
+				has_estate = estate_traders
+				NOT = {
+					estate_loyalty = {
+						estate = estate_traders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		random_country = {
+			limit = { is_neighbor_of = ROOT }
+			add_opinion = { who = ROOT modifier = opinion_granted_privileges }
+		}
+		add_legitimacy = -10
+		add_horde_unity = -10
+		add_republican_tradition = -5
+		add_devotion = -5
+		reduce_mandate_effect = yes
+		add_country_modifier = {
+			name = "tax_income_boost"
+			duration = 7300
+		}
+		add_estate_nobility_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.30.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 1.5
+				government = monarchy
+				NOT = { legitimacy_or_horde_unity = 60 }
+			}
+			modifier = {
+				factor = 0.25
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_nobility_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
+		add_legitimacy = 10
+		add_devotion = 5
+		add_horde_unity = 5
+		add_republican_tradition = 5
+		add_mandate_effect = yes
+		random_country = {
+			limit = { is_neighbor_of = ROOT }
+			add_opinion = { who = ROOT modifier = opinion_not_grant_privileges }
+		}					
+	}
+}
+
+#########################################################
+#		Establish Cantonments							#
+#########################################################
+country_event = {
+	id = wwu_random_events.31
+	title = wwu_random_events.31.title
+	desc = wwu_random_events.31.desc
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		is_year = 1600
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { mil = 1 }
+		}
+	}
+
+	option = {
+		name = wwu_random_events.31.option.a
+        
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.1
+				NOT = { treasury = 200 }
+			}
+		}
+		random_owned_province = {
+			add_base_manpower = 1
+		}
+	}
+	option = {
+		name = wwu_random_events.31.option.b
+        
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = { treasury = 100 }
+			}
+		}
+		add_treasury = -60
+		random_owned_province = {
+			add_base_manpower = 2
+		}
+	}
+}
+
+#########################################################
+#		Nobles demand old rights						#
+#########################################################
+country_event = {
+	id = wwu_random_events.32
+	title = wwu_random_events.32.title
+	desc = wwu_random_events.32.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		government = monarchy
+		num_of_cities = 2
+		NOT = { has_country_modifier = old_rights_granted_to_nobility }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { adm = 1 }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			adm = 5
+		}
+	}
+
+	option = {
+		name = wwu_random_events.32.option.a
+        
+		ai_chance = {
+			factor = 50
+		}
+		if = {
+			limit = { 
+				OR = {
+					NOT = { has_dlc = "Dharma" } 
+					has_completed_all_reforms_trigger = yes
+				}
+			}
+			add_country_modifier = {
+				name = "old_rights_granted_to_nobility"
+				duration = 3650
+			}
+		}
+		else = {
+			reduce_reform_progress_small_effect = yes
+		}
+		add_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.32.option.b
+        
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}
+	}
+	option = {
+		name = wwu_random_events.32.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = lawgiver_personality }
+		required_personality = lawgiver_personality
+		add_adm_power = -25
+	}
+}
+
+# "Cities Demand Old Rights"
+country_event = {
+	id = wwu_random_events.33
+	title = wwu_random_events.33.title
+	desc = wwu_random_events.33.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			government = monarchy
+			government = republic
+			government = theocracy
+		}
+		is_lesser_in_union = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			revolt_percentage = 0.1
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			stability = 3
+		}
+	}
+
+	option = {
+		name = wwu_random_events.33.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_traders
+				NOT = {
+					estate_loyalty = {
+						estate = estate_traders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_traders_loyalty_effect = yes
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.33.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.5
+				government = monarchy
+				NOT = { legitimacy_or_horde_unity = 70 }
+			}
+			modifier = {
+				factor = 0.5
+				government = republic
+				NOT = { republican_tradition = 70 }
+			}
+			modifier = {
+				factor = 0.5
+				government = theocracy
+				NOT = { prestige = 25 }
+			}
+		}
+		add_estate_traders_loyalty_effect = yes
+		if = {
+			limit = { 
+				OR = {
+					NOT = { has_dlc = "Dharma" } 
+					has_completed_all_reforms_trigger = yes
+				}
+			}
+			add_legitimacy = -20
+			add_horde_unity = -20
+			add_republican_tradition = -10
+			add_devotion = -10
+		}
+		else = {
+			reduce_reform_progress_small_effect = yes
+		}
+		reduce_mandate_effect = yes
+	}
+	option = {
+		name = wwu_random_events.33.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = lawgiver_personality }
+		required_personality = lawgiver_personality
+		add_adm_power = -25
+	}
+}
+
+# "Non-enforcement of Ordinances"
+country_event = {
+	id = wwu_random_events.34
+	title = wwu_random_events.34.title
+	desc = wwu_random_events.34.desc
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = { num_of_cities = 2 }
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 1.25
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.8
+			stability = 1
+		}
+	}
+
+	option = {
+		name = wwu_random_events.34.option.a
+        
+		ai_chance = { factor = 25 }
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				is_city = yes
+			}
+			add_local_autonomy = 15
+		}
+	}
+	option = {
+		name = wwu_random_events.34.option.b
+        
+		ai_chance = { factor = 100 }
+		add_adm_power = -50
+	}
+	option = {
+		name = wwu_random_events.34.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = lawgiver_personality }
+		required_personality = lawgiver_personality
+		add_adm_power = -25
+	}
+}
+
+# "The [Root.GetBurghersName] Request Privileges"
+country_event = {
+	id = wwu_random_events.35
+	title = wwu_random_events.35.title
+	desc = wwu_random_events.35.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	trigger = {	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 1.25
+			NOT = { has_government_attribute = is_merchant_republic }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			stability = 3
+		}
+	}
+
+	option = {
+		name = wwu_random_events.35.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.25
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_adm_power = -50
+		add_estate_traders_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.35.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.25
+				has_estate = estate_traders
+				NOT = {
+					estate_loyalty = {
+						estate = estate_traders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_dip_power = -50
+		reduce_estate_traders_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.35.option.c
+        
+		highlight = yes
+		trigger = {
+			OR = {
+				ruler_has_personality = charismatic_negotiator_personality
+				ruler_has_personality = silver_tongue_personality
+			}
+		}
+		required_personality = charismatic_negotiator_personality
+		required_personality = silver_tongue_personality
+		add_adm_power = -20
+		add_dip_power = -20
+		reduce_estate_traders_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
+	}
+}
+
+# "Build a Great Palace"
+country_event = {
+	id = wwu_random_events.36
+	title = wwu_random_events.36.title
+	desc = wwu_random_events.36.desc
+	picture = FORT_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		government = monarchy
+		is_lesser_in_union = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			artist = 3
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { advisor = artist }
+		}
+	}
+
+	option = {
+		name = wwu_random_events.36.option.a
+        
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0.5
+				NOT = { years_of_income = 0.3 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { legitimacy_or_horde_unity = 60 }
+			}
+		}
+		add_prestige = 10
+		add_legitimacy = 20
+		add_horde_unity = 20
+		add_mandate_effect = yes
+		add_years_of_income = -0.25
+	}
+	option = {
+		name = wwu_random_events.36.option.b
+        
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0.5
+				prestige = 90
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { legitimacy = 40 }
+			}
+		}
+		add_prestige = -10
+	}
+	option = {
+		name = wwu_random_events.36.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = obsessive_perfectionist_personality
+		}
+		required_personality = obsessive_perfectionist_personality
+		add_prestige = 15
+		add_legitimacy = 25
+		add_horde_unity = 25
+		add_mandate_large_effect = yes
+		add_years_of_income = -0.35
+	}
+	option = {
+		name = wwu_random_events.36.option.d
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = architectural_visionary_personality
+		}
+		required_personality = architectural_visionary_personality
+		add_prestige = 10
+		add_legitimacy = 20
+		add_horde_unity = 20
+		add_mandate_large_effect = yes
+		add_years_of_income = -0.15
+	}
+}
+
+# "Uncooperative Philosopher"
+country_event = {
+	id = wwu_random_events.37
+	title = wwu_random_events.37.title
+	desc = wwu_random_events.37.desc
+	picture = ADVISOR_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		advisor = philosopher
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { wwu_innovation_ideas = 3 }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			wwu_innovation_ideas = 4
+		}
+	}
+
+	option = {
+		name = wwu_random_events.37.option.a
+        
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+		add_estate_clergy_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.37.option.b
+        
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0.5
+				NOT = { prestige = 0.5 }
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_clergy
+				NOT = {
+					estate_loyalty = {
+						estate = estate_clergy
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_prestige = -10
+		reduce_estate_clergy_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.37.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = free_thinker_personality }
+		required_personality = free_thinker_personality
+		add_adm_power = 25
+		add_prestige = -10
+		reduce_estate_clergy_loyalty_effect = yes
+	}
+}
+
+#########################################################
+#		Merchants harrased								#
+#########################################################
+country_event = {
+	id = wwu_random_events.38
+	title = wwu_random_events.38.title
+	desc = wwu_random_events.38.desc
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		num_of_merchants = 2
+		overextension_percentage = 0.25
+		any_country = {
+			is_neighbor_of = ROOT
+			NOT = { has_opinion = { who = ROOT value = 50 } }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			advisor = trader
+		}
+	}
+
+	option = {
+		name = wwu_random_events.38.option.a
+        
+		ai_chance = {
+			factor = 55
+		}
+		random_country = {
+			limit = {
+				is_neighbor_of = ROOT
+				NOT = { has_opinion = { who = ROOT value = 50 } }
+			}
+			reverse_add_casus_belli = {	
+				target = ROOT
+				type = cb_insult
+				months = 12
+			}
+		}
+		add_estate_traders_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.38.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0
+				has_estate = estate_traders
+				NOT = {
+					estate_loyalty = {
+						estate = estate_traders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				is_neighbor_of = ROOT
+				NOT = { has_opinion = { who = ROOT value = 50 } }
+			}
+			add_opinion = { who = ROOT modifier = opinion_diplomatic_solution }
+		}
+		reduce_estate_traders_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.38.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = charismatic_negotiator_personality }
+		required_personality = charismatic_negotiator_personality
+		every_country = {
+			limit = {
+				is_neighbor_of = ROOT
+				NOT = { has_opinion = { who = ROOT value = 50 } }
+			}
+			add_opinion = { who = ROOT modifier = opinion_diplomatic_solution }
+		}
+		reduce_estate_traders_loyalty_effect = yes
+	}
+}
+
+# "Petition for Redress"
+country_event = {
+	id = wwu_random_events.39
+	title = wwu_random_events.39.title
+	desc = wwu_random_events.39.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		always = yes
+	}
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			adm = 5
+		}
+	}
+
+	option = {
+		name = wwu_random_events.39.option.a
+        
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 0.5
+				NOT = { prestige = 30 }
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_prestige = -10
+		reduce_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.39.option.b
+        
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 1.5
+				is_at_war = no
+			}
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { is_colony = yes }
+				NOT = { is_overseas = yes }
+			}
+			anti_tax_rebels = 1
+		}
+		add_estate_nobility_loyalty_effect = yes
+	}
+}
+
+# "Noble Family Requests Aid"
+country_event = {
+	id = wwu_random_events.40
+	title = wwu_random_events.40.title
+	desc = wwu_random_events.40.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		government = monarchy
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			treasury = 300
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.40.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				NOT = { years_of_income = 0.7 }
+			}
+		}
+		add_years_of_income = -0.5
+		add_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.40.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_adm_power = -50
+		reduce_estate_nobility_loyalty_effect = yes
+	}
+}
+
+# "Support for Dissidents"
+country_event = {
+	id = wwu_random_events.41
+	title = wwu_random_events.41.title
+	desc = wwu_random_events.41.desc
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		NOT = { adm = 3 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			statesman = 2
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { advisor = statesman }
+		}
+	}
+
+	option = {
+		name = wwu_random_events.41.option.a
+        
+		ai_chance = { factor = 55 }
+		add_years_of_income = -0.1
+		random_country = {
+			limit = {
+				is_neighbor_of = ROOT
+				is_free_or_tributary_trigger = yes
+			}
+			add_opinion = { who = ROOT modifier = opinion_supports_dissidents }
+		}
+	}
+	option = {
+		name = wwu_random_events.41.option.b
+        
+		ai_chance = { factor = 45 }
+		add_prestige = -10
+	}
+}
+
+#########################################################
+#	Foreign trade competition rises						#
+#########################################################
+country_event = {
+	id = wwu_random_events.42
+	title = wwu_random_events.42.title
+	desc = wwu_random_events.42.desc
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		num_of_merchants = 3
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { trade_efficiency = 0.5 }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			trade_efficiency = 0.6
+		}
+	}
+
+	option = {
+		name = wwu_random_events.42.option.a
+        
+		ai_chance = { factor = 70 }
+		add_mercantilism = 3
+		add_estate_traders_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.42.option.b
+        
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				has_estate = estate_traders
+				NOT = {
+					estate_loyalty = {
+						estate = estate_traders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_traders_loyalty_effect = yes
+		add_dip_power = 33
+	}
+	option = {
+		name = wwu_random_events.42.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = entrepreneur_personality }
+		required_personality = entrepreneur_personality
+		add_mercantilism = 4
+		add_estate_traders_loyalty_effect = yes
+	}
+}
+
+# "Parliament Demands [Root.Dip_Advisor.GetName]'s Removal"
+country_event = {
+	id = wwu_random_events.43
+	title = wwu_random_events.43.title
+	desc = wwu_random_events.43.desc
+	picture = ADVISOR_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_parliament = yes
+		advisor = statesman
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { statesman = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			statesman = 3
+		}
+	}
+
+	option = {
+		name = wwu_random_events.43.option.a
+        
+		ai_chance = { factor = 40 }
+		reduce_meritocracy_effect = yes
+		remove_advisor = statesman
+	}
+	option = {
+		name = wwu_random_events.43.option.b
+        
+		ai_chance = { factor = 60 }
+		add_prestige = -10
+	}
+}
+
+
+# Heretic advisor
+country_event = {
+	id = wwu_random_events.44
+	title = wwu_random_events.44.title
+	desc = wwu_random_events.44.desc
+	picture = ADVISOR_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		government = theocracy
+		has_estate = estate_church
+		employed_advisor = {
+			religion = heretic
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			hidden_effect = {
+				random_list = {
+					1 = {
+						trigger = {
+							employed_advisor = {
+								category = ADM
+								religion = heretic
+							}
+						}
+						modifier = {
+							factor = 3
+							advisor = statesman
+						}
+						set_country_flag = advisor_events_adm
+					}
+					1 = {
+						trigger = {
+							employed_advisor = {
+								category = DIP
+								religion = heretic
+							}
+						}
+						set_country_flag = advisor_events_dip
+					}
+					1 = {
+						trigger = {
+							employed_advisor = {
+								category = MIL
+								religion = heretic
+							}
+						}
+						set_country_flag = advisor_events_mil
+					}
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			trigger_switch = {
+				on_trigger = has_country_flag
+				advisor_events_adm = { clr_country_flag = advisor_events_adm }
+				advisor_events_dip = { clr_country_flag = advisor_events_dip }
+				advisor_events_mil = { clr_country_flag = advisor_events_mil }
+			}
+		}
+	}
+
+	option = {
+		name = wwu_random_events.44.option.a
+        
+		ai_chance = { factor = 40 }
+		reduce_meritocracy_effect = yes
+		trigger_switch = {
+			on_trigger = has_country_flag
+			advisor_events_adm = { remove_advisor_by_category = ADM }
+			advisor_events_dip = { remove_advisor_by_category = DIP }
+			advisor_events_mil = { remove_advisor_by_category = MIL }
+		}
+		add_estate_clergy_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.44.option.b
+        
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0
+				has_estate = estate_clergy
+				NOT = {
+					estate_loyalty = {
+						estate = estate_clergy
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_prestige = -10
+		reduce_estate_clergy_loyalty_effect = yes
+	}
+}
+
+# "Statesman gains power"
+country_event = {
+	id = wwu_random_events.45
+	title = wwu_random_events.45.title
+	desc = wwu_random_events.45.desc
+	picture = ADVISOR_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		statesman = 2
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { adm = 1 }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			adm = 4
+		}
+	}
+
+	option = {
+		name = wwu_random_events.45.option.a
+        
+		ai_chance = { factor = 40 }
+		reduce_meritocracy_effect = yes
+		remove_advisor = statesman
+	}
+	option = {
+		name = wwu_random_events.45.option.b
+        
+		ai_chance = { factor = 60 }
+		add_prestige = -10
+	}
+}
+
+# "Influenced Elections"
+country_event = {
+	id = wwu_random_events.46
+	title = wwu_random_events.46.title
+	desc = wwu_random_events.46.desc
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		is_elector = yes
+		is_emperor = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			num_of_loans = 1
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.46.option.a
+        
+		ai_chance = { factor = 70 }
+		add_years_of_income = 0.2
+		add_corruption = 0.5
+		random_country = {
+			limit = { is_elector = yes }
+			add_opinion = { who = ROOT modifier = opinion_accepted_bribe }
+		}
+	}
+	option = {
+		name = wwu_random_events.46.option.b
+        
+		ai_chance = { factor = 30 }
+		add_prestige = 10
+		random_country = {
+			limit = { is_elector = yes }
+			add_opinion = { who = ROOT modifier = opinion_declined_bribe }
+		}
+	}
+}
+
+# "Peasants Getting Uppity"
+country_event = {
+	id = wwu_random_events.47
+	title = wwu_random_events.47.title
+	desc = wwu_random_events.47.desc
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		government = monarchy
+		is_lesser_in_union = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			stability = 1
+		}
+	}
+
+	option = {
+		name = wwu_random_events.47.option.a
+        
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.25
+				has_estate = estate_traders
+				NOT = {
+					estate_loyalty = {
+						estate = estate_traders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_estate_nobility_loyalty_effect = yes
+		add_adm_power = -35
+	}
+	option = {
+		name = wwu_random_events.47.option.b
+        
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.25
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_nobility_loyalty_effect = yes
+		add_legitimacy = -10
+		add_horde_unity = -10
+	}
+	option = {
+		name = wwu_random_events.47.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = charismatic_negotiator_personality }
+		required_personality = charismatic_negotiator_personality
+		add_dip_power = -15
+	}
+}
+
+# "Merchant Fractures"
+country_event = {
+	id = wwu_random_events.48
+	title = wwu_random_events.48.title
+	desc = wwu_random_events.48.desc
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		num_of_merchants = 3
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			has_government_attribute = is_merchant_republic
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			advisor = trader
+		}
+	}
+
+	option = {
+		name = wwu_random_events.48.option.a
+        
+		ai_chance = { factor = 15 }
+		add_mercantilism = 3
+	}
+	option = {
+		name = wwu_random_events.48.option.b
+        
+		ai_chance = { factor = 70 }
+		trigger = {
+			government = monarchy
+			is_lesser_in_union = no
+		}
+		add_prestige = 10
+		add_legitimacy = 10
+		add_horde_unity = 10
+	}
+	option = {
+		name = wwu_random_events.48.option.c
+        
+		ai_chance = { factor = 0 }
+		add_mercantilism = -3
+		add_years_of_income = 0.10
+	}
+}
+
+# Naval traditions scorned
+country_event = {
+	id = wwu_random_events.49
+	title = wwu_random_events.49.title
+	desc = wwu_random_events.49.desc
+	picture = NAVAL_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		navy_tradition = 10
+		NOT = { navy_tradition = 40 }
+		army_tradition = 40
+	}
+
+	mean_time_to_happen = {
+		days = 1
+				
+		modifier = {
+			factor = 2.0
+			wwu_trade_ideas = 6
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.49.option.a
+        
+		ai_chance = { factor = 60 }
+		add_navy_tradition = -20
+		add_army_tradition = 10
+	}
+	option = {
+		name = wwu_random_events.49.option.b
+        
+		ai_chance = { factor = 40 }
+		add_navy_tradition = -5
+	}
+	option = {
+		name = wwu_random_events.49.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = navigator_personality }
+		required_personality = navigator_personality
+		add_navy_tradition = 5
+	}
+}
+
+# Land traditions scorned
+country_event = {
+	id = wwu_random_events.50
+	title = wwu_random_events.50.title
+	desc = wwu_random_events.50.desc
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		num_of_ports = 1
+		army_tradition = 10
+		NOT = { army_tradition = 40 }
+		navy_tradition = 40
+		primitives = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.50.option.a
+        
+		ai_chance = { factor = 60 }
+		add_army_tradition = -20
+		add_navy_tradition = 10
+	}
+	option = {
+		name = wwu_random_events.50.option.b
+        
+		ai_chance = { factor = 40 }
+		add_army_tradition = -5
+	}
+	option = {
+		name = wwu_random_events.50.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = strict_personality }
+		required_personality = strict_personality
+		add_army_tradition = 5
+	}
+}
+
+# "National Institutions"
+country_event = {
+	id = wwu_random_events.51
+	title = wwu_random_events.51.title
+	desc = wwu_random_events.51.desc
+	picture = UNIVERSITY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		government = monarchy
+		has_parliament = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			NOT = { wwu_economic_ideas = 1 }
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { adm = 1 }
+		}
+	}
+
+	option = {
+		name = wwu_random_events.51.option.a
+        
+		ai_chance = { factor = 30 }
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.51.option.b
+        
+		ai_chance = { factor = 70 }
+		add_adm_power = -35
+		add_dip_power = -35
+		add_mil_power = -35
+	}
+}
+
+# "Court Painter Available"
+country_event = {
+	id = wwu_random_events.52
+	title = wwu_random_events.52.title
+	desc = wwu_random_events.52.desc
+	picture = PAINTER_ARTIST_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		NOT = { overextension_percentage = 0.01 }
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			prestige = 10
+		}
+		modifier = {
+			factor = 2.0
+			ruler_has_personality = well_connected_personality
+		}
+		modifier = {
+			factor = 0.66
+			advisor = artist
+		}
+	}
+
+	option = {
+		name = wwu_random_events.52.option.a
+        
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 0
+				stability = 3
+			}
+		}
+		add_years_of_income = -0.25
+		add_prestige = 10
+		add_stability_or_adm_power = yes
+	}
+	option = {
+		name = wwu_random_events.52.option.b
+        
+		ai_chance = { factor = 35 }
+		add_prestige = -5
+	}
+	option = {
+		name = wwu_random_events.52.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = fierce_negotiator_personality }
+		required_personality = fierce_negotiator_personality
+		add_years_of_income = -0.15
+		add_prestige = 10
+		add_stability_or_adm_power = yes
+	}
+}
+
+# "Grand Ball in $CAPITAL$"
+country_event = {
+	id = wwu_random_events.53
+	title = wwu_random_events.53.title
+	desc = wwu_random_events.53.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			artist = 3
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { advisor = artist }
+		}
+	}
+
+	option = {
+		name = wwu_random_events.53.option.a
+        
+		ai_chance = { factor = 60 }
+		add_prestige = 10
+		add_years_of_income = -0.10
+	}
+	option = {
+		name = wwu_random_events.53.option.b
+        
+		ai_chance = { factor = 40 }
+		add_prestige = -5
+	}
+	option = {
+		name = wwu_random_events.53.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = well_connected_personality }
+		required_personality = well_connected_personality
+		add_prestige = 15
+		add_years_of_income = -0.10
+	}
+}
+
+# "Festivities"
+country_event = {
+	id = wwu_random_events.54
+	title = wwu_random_events.54.title
+	desc = wwu_random_events.54.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		is_at_war = no
+		has_any_disaster = no
+		NOT = { overextension_percentage = 0.01 }
+		NOT = { num_of_rebel_armies = 1 }
+		adm = 3
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 2.0
+			adm = 5
+		}
+		modifier = {
+			factor = 2.0
+			luck = yes
+		}
+		modifier = {
+			factor = 0.66
+			NOT = { production_efficiency = 0.5 }
+		}
+	}
+
+	option = {
+		name = wwu_random_events.54.option.a
+        
+		trigger = { NOT = { stability = 3 } }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_stability_or_adm_power = yes
+	}
+	option = {
+		name = wwu_random_events.54.option.b
+        
+		ai_chance = { factor = 70 }
+		random_owned_province = {
+			limit = { controlled_by = owner }
+			add_base_tax = 1
+		}
+	}
+	option = {
+		name = wwu_random_events.54.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = drunkard_personality }
+		required_personality = drunkard_personality
+		add_stability_or_adm_power = yes
+		random_neighbor_country = {
+			limit = {
+				NOT = { war_with = ROOT }
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = indulgent_feast
+			}
+		}
+		random_neighbor_country = {
+			limit = {
+				NOT = { war_with = ROOT }
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = indulgent_feast
+			}
+		}
+	}
+}
+
+# "Complaints about [Root.GetLowLevelOfficialForCountry]"
+country_event = {
+	id = wwu_random_events.55
+	title = wwu_random_events.55.title
+	desc = wwu_random_events.55.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 0
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}		
+	}
+
+	option = {
+		name = wwu_random_events.55.option.a
+        
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				NOT = { prestige = 35 }
+			}
+		}
+		add_prestige = -10
+	}
+	option = {
+		name = wwu_random_events.55.option.b
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+			modifier = {
+				factor = 1.5
+				stability = 2
+			}
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+	option = {
+		name = wwu_random_events.55.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = cruel_personality }
+		required_personality = cruel_personality
+		capital_scope = {
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 1
+			}
+		}
+	}
+}
+
+# Priests are preaching Heresy!
+country_event = {
+	id = wwu_random_events.56
+	title = wwu_random_events.56.title
+	desc = wwu_random_events.56.desc
+	picture = POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 0
+		is_at_war = no
+		num_of_cities = 2
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+	}
+
+	option = {
+		name = wwu_random_events.56.option.a
+        
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0
+				has_estate = estate_clergy
+				NOT = {
+					estate_loyalty = {
+						estate = estate_clergy
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_clergy_loyalty_effect = yes
+		add_prestige = -5
+		random_owned_province = {
+			add_province_modifier = {
+				name = "heresy"
+				duration = 3650
+			}
+		}		
+	}
+	option = {
+		name = wwu_random_events.56.option.b
+        
+		ai_chance = {
+			factor = 65
+		}
+		add_dip_power = -30
+		add_estate_clergy_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.56.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = tolerant_personality }
+		required_personality = tolerant_personality
+		add_prestige = 5
+		reduce_estate_clergy_loyalty_effect = yes
+		random_owned_province = {
+			add_province_modifier = {
+				name = "heresy"
+				duration = 1825
+			}
+		}
+	}
+}
+
+# Dramatic Currency Revaluation
+country_event = {
+	id = wwu_random_events.57
+	title = wwu_random_events.57.title
+	desc = wwu_random_events.57.desc
+	picture = ECONOMY_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 0
+		inflation = 5
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}		
+	}
+
+	option = {
+		name = wwu_random_events.57.option.a
+        
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 4
+			}
+		}
+		
+		random = {
+			chance = 50
+			add_stability = -1
+		}
+	}
+	option = {
+		name = wwu_random_events.57.option.b
+        
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.5
+				inflation = 10
+			}
+		}
+		add_inflation = 3
+	}
+}
+
+# Decadence
+country_event = {
+	id = wwu_random_events.58
+	title = wwu_random_events.58.title
+	desc = wwu_random_events.58.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 0
+		is_at_war = no
+		NOT = { war_exhaustion = 0.1 }
+		NOT = { had_recent_war = 10 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}		
+	}
+
+	option = {
+		name = wwu_random_events.58.option.a
+        
+		random = {
+			chance = 50
+			add_stability = -1
+		}
+	}
+}
+
+# Military Divided!
+country_event = {
+	id = wwu_random_events.59
+	title = wwu_random_events.59.title
+	desc = wwu_random_events.59.desc
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_modifier = defensive_modifier }
+		NOT = { has_country_modifier = offensive_modifier }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = wwu_random_events.59.option.a
+        
+		add_country_modifier = {
+			name = defensive_modifier
+			duration = 3650
+		}
+	}
+	option = {
+		name = wwu_random_events.59.option.b
+        
+		add_country_modifier = {
+			name = offensive_modifier
+			duration = 3650
+		}
+	}
+	option = {
+		name = wwu_random_events.59.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = martial_educator_personality
+		}
+		required_personality = martial_educator_personality
+		add_country_modifier = {
+			name = offensive_modifier
+			duration = 1825
+		}
+		add_country_modifier = {
+			name = defensive_modifier
+			duration = 1825
+		}
+	}
+	option = {
+		name = wwu_random_events.59.option.d
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = bold_fighter_personality
+		}
+		required_personality = bold_fighter_personality
+		add_country_modifier = {
+			name = offensive_modifier
+			duration = 5475
+		}
+	}
+	option = {
+		name = wwu_random_events.59.option.e
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = tactical_genius_personality
+		}
+		required_personality = tactical_genius_personality
+		add_country_modifier = {
+			name = defensive_modifier
+			duration = 5475
+		}
+	}
+}
+
+# $MONARCH$ embarrasses the court
+country_event = {
+	id = wwu_random_events.60
+	title = wwu_random_events.60.title
+	desc = wwu_random_events.60.desc
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 0
+		government = monarchy
+		has_regency = no
+		is_lesser_in_union = no
+		NOT = { DIP = 4 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = wwu_random_events.60.option.a
+        
+		add_stability = -1
+	}
+	option = {
+		name = wwu_random_events.60.option.b
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = charismatic_negotiator_personality
+		}
+		required_personality = charismatic_negotiator_personality
+		add_prestige = -10
+	}
+}
+
+# Nobles Demand Recompensation
+country_event = {
+	id = wwu_random_events.61
+	title = wwu_random_events.61.title
+	desc = wwu_random_events.61.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 1
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}	
+	}
+
+	option = {
+		name = wwu_random_events.61.option.a
+        
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 1.5
+				stability = 3
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_years_of_income = -0.25
+		reduce_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.61.option.b
+        
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.5
+				NOT = { years_of_income = 1 }
+			}
+		}
+		add_years_of_income = -0.75
+		add_estate_nobility_loyalty_effect = yes
+	}
+}
+
+# Monetary Reforms
+country_event = {
+	id = wwu_random_events.62
+	title = wwu_random_events.62.title
+	desc = wwu_random_events.62.desc
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 0
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}		
+	}
+
+	option = {
+		name = wwu_random_events.62.option.a
+        
+		ai_chance = {
+			factor = 25
+		}
+		add_inflation = -1
+		add_mandate_effect = yes
+	}
+	option = {
+		name = wwu_random_events.62.option.b
+        
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.5
+				inflation = 15
+			}
+		}
+		add_inflation = 3
+		reduce_mandate_effect = yes
+	}
+	option = {
+		name = wwu_random_events.62.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = midas_touched_personality }
+		required_personality = midas_touched_personality
+		add_inflation = -1
+		add_mandate_effect = yes
+	}
+}
+
+# The Fortunes of War
+country_event = {
+	id = wwu_random_events.63
+	title = wwu_random_events.63.title
+	desc = wwu_random_events.63.desc
+	picture = REFORM_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		war_exhaustion = 5
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}		
+	}
+
+	option = {
+		name = wwu_random_events.63.option.a
+        
+		ai_chance = {
+			factor = 9
+		}
+		add_war_exhaustion = -3
+		add_inflation = 1
+	}
+	option = {
+		name = wwu_random_events.63.option.b
+        
+		ai_chance = {
+			factor = 1
+		}
+		add_war_exhaustion = -1
+	}
+	option = {
+		name = wwu_random_events.63.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = kind_hearted_personality }
+		required_personality = kind_hearted_personality
+		ai_chance = {
+			factor = 100
+		}
+		add_war_exhaustion = -2
+	}
+}
+
+# Strong Military Leadership
+country_event = {
+	id = wwu_random_events.64
+	title = wwu_random_events.64.title
+	desc = wwu_random_events.64.desc
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 0
+		army_tradition = 50
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}		
+	}
+
+	option = {
+		name = wwu_random_events.64.option.a
+        
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				stability = 2
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		
+		add_years_of_income = -0.25
+		reduce_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.64.option.b
+        
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				army_tradition = 90
+			}
+		}
+		add_army_tradition = -20
+		add_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.64.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = martial_educator_personality }
+		required_personality = martial_educator_personality
+		ai_chance = {
+			factor = 100
+		}
+		add_army_tradition = -10
+	}
+}
+
+# The Naval Tradition
+country_event = {
+	id = wwu_random_events.65
+	title = wwu_random_events.65.title
+	desc = wwu_random_events.65.desc
+	picture = NAVAL_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 0
+		navy_tradition = 50
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}		
+	}
+
+	option = {
+		name = wwu_random_events.65.option.a
+        
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				stability = 2
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		
+		add_years_of_income = -0.25
+		reduce_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.65.option.b
+        
+		ai_chance = {
+			factor = 50
+		}
+		add_estate_nobility_loyalty_effect = yes
+		add_navy_tradition = -20
+	}
+	option = {
+		name = wwu_random_events.65.option.c
+        
+		highlight = yes
+		trigger = { ruler_has_personality = navigator_personality }
+		required_personality = navigator_personality
+		ai_chance = {
+			factor = 50
+		}
+		add_dip_power = -25
+	}	
+}
+
+# Sickness of $MONARCHTITLE$
+country_event = {
+	id = wwu_random_events.66
+	title = wwu_random_events.66.title
+	desc = wwu_random_events.66.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 0
+		has_regency = no
+		government = monarchy
+		NOT = {	has_ruler_modifier = power_to_nobles }
+		NOT = {	has_ruler_modifier = power_to_provinces	}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}		
+	}
+
+	option = {
+		name = wwu_random_events.66.option.a
+        
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_ruler_modifier = {
+			name = "power_to_nobles"
+			duration = 3650
+		}
+		add_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.66.option.b
+        
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				has_estate = estate_traders
+				NOT = {
+					estate_loyalty = {
+						estate = estate_traders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_ruler_modifier = {
+			name = "power_to_provinces"
+			duration = 3650
+		}
+		add_estate_traders_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.66.option.c
+        
+		highlight = yes
+		trigger = {
+			ruler_has_personality = well_advised_personality
+		}
+		required_personality = well_advised_personality
+		ai_chance = {
+			factor = 100
+		}
+		add_ruler_modifier = {
+			name = "power_to_advisors"
+			duration = 3650
+		}
+	}
+}
+
+# Regional Nobles challenge $COUNTRY$
+country_event = {
+	id = wwu_random_events.67
+	title = wwu_random_events.67.title
+	desc = wwu_random_events.67.desc
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		num_of_cities = 30
+		any_owned_province = {
+			has_owner_culture = no
+			NOT = { local_autonomy = 0.5 }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}		
+	}
+
+	option = {
+		name = wwu_random_events.67.option.a
+        
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0.5
+				unrest = 5
+			}
+			modifier = {
+				factor = 0
+				has_estate = estate_nobility
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobility
+						loyalty = 40
+					}
+				}
+			}
+		}
+		random_owned_province = {
+			limit = {
+				has_owner_culture = no
+				NOT = { local_autonomy = 0.5 }
+			}
+			noble_rebels = 2
+		}
+		reduce_estate_nobility_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_random_events.67.option.b
+        
+		ai_chance = {
+			factor = 33
+		}
+		add_estate_nobility_loyalty_effect = yes
+		random_owned_province = {
+			limit = { 
+				has_owner_culture = no
+				NOT = { local_autonomy = 0.5 }
+			}
+			add_province_modifier = {
+				name = "powerful_noble"
+				duration = 7300
+			}
+			add_local_autonomy = 20
+		}		
+	}	
+	option = {
+		name = wwu_random_events.67.option.c
+        
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+		}		
+		if = {
+			limit = { stability = -2 }
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+}

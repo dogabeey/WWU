@@ -33,8 +33,7 @@ country_event = {
 		num_of_cities = 2
 		government = monarchy
 		has_government_attribute = queen
-		NOT = { has_reform = kingdom_of_magic }
-		#NOT = { has_reform = mamluk_government }
+		NOT = { has_reform = kingdom_of_magic_reform }
 		num_of_royal_marriages = 4
 		NOT = { has_ruler_flag = approached_by_leading_families_of_the_realm }
 		OR = {
@@ -45,15 +44,15 @@ country_event = {
 			is_capital = no
 			is_state = yes
 			is_in_capital_area = yes
-			NOT = { has_estate = estate_nobles }
-			NOT = { has_estate = estate_church }
+			NOT = { has_estate = estate_nobility }
+			NOT = { has_estate = estate_clergy }
 		}
 		estate_influence = {
-				estate = estate_nobles
+				estate = estate_nobility
 				influence = 25 #Weaker than this and the Nobles won't make an offer.
 			}
 		estate_loyalty = {
-				estate = estate_nobles
+				estate = estate_nobility
 				loyalty = 40 #Less Loyal than this and the Nobles won't want to support you.
 			}
 	}
@@ -66,8 +65,8 @@ country_event = {
 					is_capital = no
 					is_state = yes
 					is_in_capital_area = yes 
-					NOT = { has_estate = estate_burghers }
-					NOT = { has_estate = estate_church }
+					NOT = { has_estate = estate_traders }
+					NOT = { has_estate = estate_clergy }
 				}
 				save_event_target_as = origin_of_queens_family
 			}
@@ -98,9 +97,9 @@ country_event = {
 		#log = "consort_events.1.b" #
 		add_prestige = 10
 		if = {
-			limit = { has_estate = estate_nobles }
+			limit = { has_estate = estate_nobility }
 			add_estate_loyalty = {
-				estate = estate_nobles
+				estate = estate_nobility
 				loyalty = -5
 			}
 		}
@@ -139,8 +138,8 @@ country_event = {
 					OR = {
 						is_state = yes
 						is_in_capital_area = yes 
-						NOT = { has_estate = estate_burghers }
-						NOT = { has_estate = estate_church }
+						NOT = { has_estate = estate_traders }
+						NOT = { has_estate = estate_clergy }
 					}
 				}
 				save_event_target_as = origin_of_queens_family
@@ -152,7 +151,7 @@ country_event = {
 						is_state = yes
 						is_in_capital_area = yes 
 					}
-					has_estate = estate_nobles
+					has_estate = estate_nobility
 					development = 15
 				}
 				save_event_target_as = origin_of_queens_family
@@ -164,7 +163,7 @@ country_event = {
 						is_state = yes
 						is_in_capital_area = yes 
 					}
-					has_estate = estate_nobles
+					has_estate = estate_nobility
 					development = 20
 				}
 				save_event_target_as = origin_of_queens_family
@@ -176,7 +175,7 @@ country_event = {
 						is_state = yes
 						is_in_capital_area = yes 
 					}
-					has_estate = estate_nobles
+					has_estate = estate_nobility
 					development = 25
 				}
 				save_event_target_as = origin_of_queens_family
@@ -244,14 +243,14 @@ country_event = {
 			factor = 0.9
 			OR = {
 				AND = {
-					has_estate = estate_nobles
+					has_estate = estate_nobility
 					estate_influence = {
-						estate = estate_nobles
+						estate = estate_nobility
 						influence = 60
 					}
 				}
 				AND = {
-					NOT = { has_estate = estate_nobles }
+					NOT = { has_estate = estate_nobility }
 					NOT = { legitimacy = 60 }
 				}
 			}
@@ -296,10 +295,10 @@ country_event = {
 				custom_tooltip = consort_events.3.a.tt.3
 				if = {
 					limit = {
-						has_estate = estate_nobles
+						has_estate = estate_nobility
 					}
 					add_estate_influence_modifier = {
-						estate = estate_nobles
+						estate = estate_nobility
 						desc = EST_VAL_FURTHERED_SPOUSES_FAMILY_NOBLES
 						influence = 10
 						duration = 7300
@@ -307,7 +306,7 @@ country_event = {
 				}
 				if = {
 					limit = {
-						NOT = { has_estate = estate_nobles }
+						NOT = { has_estate = estate_nobility }
 					}
 					add_legitimacy = -10
 					add_horde_unity = -10
@@ -524,16 +523,16 @@ country_event = {
 				custom_tooltip = consort_events.4.a.tt.5
 				if = {
 					limit = {
-						has_estate = estate_nobles
+						has_estate = estate_nobility
 					}
 					add_estate_loyalty = {
-						estate = estate_nobles
+						estate = estate_nobility
 						loyalty = 10
 					}
 				}
 				if = {
 					limit = {
-						NOT = { has_estate = estate_nobles }
+						NOT = { has_estate = estate_nobility }
 					}
 					add_legitimacy = 10
 					add_horde_unity = 10
@@ -650,10 +649,10 @@ country_event = {
 				custom_tooltip = consort_events.3.a.tt.3
 				if = {
 					limit = {
-						has_estate = estate_nobles
+						has_estate = estate_nobility
 					}
 					add_estate_influence_modifier = {
-						estate = estate_nobles
+						estate = estate_nobility
 						desc = EST_VAL_FURTHERED_SPOUSES_FAMILY_NOBLES
 						influence = 15
 						duration = 7300
@@ -661,7 +660,7 @@ country_event = {
 				}
 				if = {
 					limit = {
-						NOT = { has_estate = estate_nobles }
+						NOT = { has_estate = estate_nobility }
 					}
 					add_prestige = -10
 				}
@@ -746,8 +745,7 @@ country_event = {
 		num_of_cities = 2
 		government = monarchy
 		has_government_attribute = queen
-		#NOT = { has_reform = mamluk_government }
-		NOT = { has_reform = kingdom_of_magic }
+		NOT = { has_reform = kingdom_of_magic_reform }
 		NOT = { has_ruler_flag = turned_down_marriage_offer_for_love }
 	}
 
@@ -843,7 +841,7 @@ country_event = {
 	desc = {
 		trigger = {
 			can_heir_be_child_of_consort = yes
-			NOT = { has_reform = kingdom_of_magic }
+			NOT = { has_reform = kingdom_of_magic_reform }
 		}
 		desc = consort_events.51.da # The heir is spitting image of consort
 	}
@@ -852,7 +850,7 @@ country_event = {
 			OR = {
 				has_heir = no
 				can_heir_be_child_of_consort = no
-				has_reform = kingdom_of_magic
+				has_reform = kingdom_of_magic_reform
 			}
 		}
 		desc = consort_events.51.db # They have a great time
@@ -2275,7 +2273,7 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Rights of Man"
-		NOT = { has_reform = kingdom_of_magic }
+		NOT = { has_reform = kingdom_of_magic_reform }
 		has_heir = yes
 		has_consort = yes
 		is_lesser_in_union = no
@@ -2432,7 +2430,7 @@ country_event = {
 	trigger = {
 		is_lesser_in_union = no
 		has_dlc = "Rights of Man"
-		NOT = { has_reform = kingdom_of_magic }
+		NOT = { has_reform = kingdom_of_magic_reform }
 		NOT = { has_consort_flag = favorite_played }
 		has_heir = yes
 		has_consort = yes
@@ -2770,7 +2768,7 @@ country_event = {
 	trigger = {
 		has_dlc = "Rights of Man"
 		is_lesser_in_union = no
-		NOT = { has_reform = kingdom_of_magic }
+		NOT = { has_reform = kingdom_of_magic_reform }
 		has_consort = yes
 		has_consort_regency = no
 		has_government_attribute = heir
@@ -2872,7 +2870,7 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Rights of Man"
-		NOT = { has_reform = kingdom_of_magic }
+		NOT = { has_reform = kingdom_of_magic_reform }
 		is_lesser_in_union = no
 		has_consort = yes 
 		has_heir = yes

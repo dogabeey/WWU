@@ -1,0 +1,388 @@
+namespace = wwu_harmonization
+
+# Integration of Order
+country_event = {
+	id = wwu_harmonization.1
+	title = wwu_harmonization.1.title
+	desc = wwu_harmonization.1.desc
+	picture = ASHBRINGER_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_harmonization.1.option.a
+        
+		tooltip = {
+			add_country_modifier = {
+				name = "harmonized_order"
+				duration = -1
+			}
+		}
+	}
+}
+
+# Integration of Disorder
+country_event = {
+	id = wwu_harmonization.2
+	title = wwu_harmonization.2.title
+	desc = wwu_harmonization.2.desc
+	picture = ASHBRINGER_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_harmonization.2.option.a
+        
+		tooltip = {
+			add_country_modifier = {
+				name = "harmonized_disorder"
+				duration = -1
+			}
+		}
+	}
+}
+
+# Integration of the Elements
+country_event = {
+	id = wwu_harmonization.3
+	title = wwu_harmonization.3.title
+	desc = wwu_harmonization.3.desc
+	picture = ASHBRINGER_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_harmonization.3.option.a
+        
+		tooltip = {
+			add_country_modifier = {
+				name = "harmonized_elemental"
+				duration = -1
+			}
+		}
+	}
+}
+
+# Integration of Nature
+country_event = {
+	id = wwu_harmonization.4
+	title = wwu_harmonization.4.title
+	desc = wwu_harmonization.4.desc
+	picture = ASHBRINGER_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_harmonization.4.option.a
+        
+		tooltip = {
+			add_country_modifier = {
+				name = "harmonized_nature"
+				duration = -1
+			}
+		}
+	}
+}
+
+# Integration of the Void
+country_event = {
+	id = wwu_harmonization.5
+	title = wwu_harmonization.5.title
+	desc = wwu_harmonization.5.desc
+	picture = ASHBRINGER_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_harmonization.5.option.a
+        
+		tooltip = {
+			add_country_modifier = {
+				name = "harmonized_void"
+				duration = -1
+			}
+		}
+	}
+}
+
+# Integration of the Rational
+country_event = {
+	id = wwu_harmonization.6
+	title = wwu_harmonization.6.title
+	desc = wwu_harmonization.6.desc
+	picture = ASHBRINGER_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_harmonization.6.option.a
+        
+		tooltip = {
+			add_country_modifier = {
+				name = "harmonized_rational_philosophies"
+				duration = -1
+			}
+		}
+	}
+}
+
+# Concept of Light
+country_event = {
+	id = wwu_harmonization.10
+	title = wwu_harmonization.10.title
+	desc = wwu_harmonization.10.desc
+	picture = BLIND_PALADIN_eventPicture
+	
+	trigger = {
+		has_dlc = "Mandate of Heaven"
+		religion_group = religion_group_the_light
+		harmonization_progress = 10
+		NOT = { harmonization_progress = 60 }
+		any_owned_province = {
+			owner = {
+				is_harmonizing_with = PREV
+			}
+		}
+		NOT = { has_country_flag = harmonization_concept_of_light }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					owner = {
+						is_harmonizing_with = PREV
+					}
+				}
+				save_event_target_as = harmonization_province
+			}
+			set_country_flag = harmonization_concept_of_light
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+		
+		modifier = {
+			factor = 0.8
+			harmonization_progress = 40
+		}
+	}
+	
+	option = {
+		name = wwu_harmonization.10.option.a
+        
+		ai_chance = {
+			factor = 30
+		}
+        
+		add_harmonization_progress = -10
+        
+		increase_legitimacy_medium_effect = yes
+		add_estate_clergy_loyalty_effect = yes
+	}
+	option = {
+		name = wwu_harmonization.10.option.b
+        
+		ai_chance = {
+			factor = 70
+		}
+		add_harmonization_progress = 10
+        
+		reduce_legitimacy_small_effect = yes
+		reduce_estate_clergy_loyalty_effect = yes
+	}
+}
+
+# Translations of Holy Books
+country_event = {
+	id = wwu_harmonization.11
+	title = wwu_harmonization.11.title
+	desc = wwu_harmonization.11.desc
+	picture = BLIND_PALADIN_eventPicture
+	
+	trigger = {
+		has_dlc = "Mandate of Heaven"
+		religion_group = religion_group_the_light
+		harmonization_progress = 6
+		NOT = { harmonization_progress = 40 }
+		any_owned_province = {
+			owner = {
+				is_harmonizing_with = PREV
+			}
+		}
+		NOT = { has_country_flag = harmonization_translation_of_holy_books }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					owner = {
+						is_harmonizing_with = PREV
+					}
+				}
+				save_event_target_as = harmonization_province
+			}
+			set_country_flag = harmonization_translation_of_holy_books
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+		modifier = {
+			factor = 0.6
+			harmonization_progress = 25
+		}
+	}
+	
+	option = {
+		name = wwu_harmonization.11.option.a
+        
+		ai_chance = {
+			factor = 70
+		}
+		add_harmonization_progress = 20
+	}
+	option = {
+		name = wwu_harmonization.11.option.b
+        
+		ai_chance = {
+			factor = 30
+		}
+        
+		add_harmonization_progress = -10
+	}
+}
+
+# Faith of [Root.Adm_Advisor.GetName]
+country_event = {
+	id = wwu_harmonization.12
+	title = wwu_harmonization.12.title
+	desc = wwu_harmonization.12.desc
+	picture = BLIND_PALADIN_eventPicture
+	
+	trigger = {
+		has_dlc = "Mandate of Heaven"
+		religion_group = religion_group_the_light
+		has_adm_advisor = yes
+		harmonization_progress = 50
+		any_owned_province = {
+			owner = {
+				is_harmonizing_with = PREV
+			}
+		}
+		NOT = { has_country_flag = harmonization_fate_of_advisor }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					owner = {
+						is_harmonizing_with = PREV
+					}
+				}
+				save_event_target_as = harmonization_province
+			}
+			set_country_flag = harmonization_fate_of_advisor
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 700 
+	}
+	
+	option = {
+		name = wwu_harmonization.12.option.a
+        
+		ai_chance = {
+			factor = 30
+		}
+		add_harmonization_progress = -5
+		remove_advisor_by_category = ADM
+        
+		add_stability_or_adm_power = yes
+	}
+	option = {
+		name = wwu_harmonization.12.option.b
+        
+		ai_chance = {
+			factor = 70
+		}
+        
+		add_harmonization_progress = 15
+		reduce_legitimacy_small_effect = yes
+        
+		add_country_modifier = {
+			name = "harmonization_converted_minister"
+			duration = 3650
+		}
+	}
+}
+
+# Rights and Rite
+country_event = {
+	id = wwu_harmonization.13
+	title = wwu_harmonization.13.title
+	desc = wwu_harmonization.13.desc
+	picture = BLIND_PALADIN_eventPicture
+	
+	trigger = {
+		has_dlc = "Mandate of Heaven"
+		religion_group = religion_group_the_light
+		any_owned_province = {
+			is_state = yes
+			owner = {
+				is_harmonizing_with = PREV
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					owner = {
+						is_harmonizing_with = PREV
+					}
+				}
+				save_event_target_as = harmonization_province
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+	}
+	
+	option = {
+		name = wwu_harmonization.13.option.a
+        
+		ai_chance = {
+			factor = 30
+		}
+		add_harmonization_progress = -5
+	}
+	option = {
+		name = wwu_harmonization.13.option.b
+        
+		ai_chance = {
+			factor = 70
+		}
+        
+		add_harmonization_progress = 10
+        
+		event_target:harmonization_province = {
+			add_local_autonomy = 25
+			area = {
+				limit = {
+					owned_by = ROOT
+					owner = { is_harmonizing_with = PREV }
+				}
+				add_local_autonomy = 25
+			}
+		}
+	}
+}
