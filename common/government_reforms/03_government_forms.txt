@@ -7,10 +7,7 @@ autocracy_reform = {
 	legacy_equivalent = autocracy_legacy
     
 	modifiers = {
-		governing_capacity = 100
-		harsh_treatment_cost = -0.10
-		unjustified_demands = -0.10
-		global_autonomy = -0.05
+		harsh_treatment_cost = -0.25
 		max_absolutism = 5
 	}
 	
@@ -133,9 +130,8 @@ alliance_reform = {
 	}
     
 	modifiers = {
+        improve_relation_modifier = 0.1
 		monarch_military_power = 1
-		claim_duration = 1
-    	idea_cost = 0.15
 	}
     
 	ai = { factor = 0 }	
@@ -179,8 +175,8 @@ horde_reform = {
 	}
 	
 	modifiers = {
+        army_tradition = 1
 		monarch_military_power = 1
-		claim_duration = 1
 	}
     
 	ai = { factor = 0 }
@@ -214,9 +210,9 @@ ancient_kingdom_reform = {
 	}
     
 	modifiers = {
-		monarch_military_power = 1
-		claim_duration = 1
-    	idea_cost = 0.15
+		prestige = 1
+        governing_capacity_modifier = 0.2
+        max_absolutism = -10
 	}
     
 	ai = { factor = 0 }
@@ -244,9 +240,8 @@ admiralty_reform = {
 	}
 	
 	modifiers = {
-		leader_naval_manuever = 1
-		leader_naval_shock = 1
-		leader_naval_fire = 1
+		naval_forcelimit_modifier = 0.25
+        navy_tradition = 1
 	}
 	
 	ai = { factor = 0 }
@@ -284,8 +279,8 @@ scourge_reform = {
 	}
     
 	modifiers = {
-		land_attrition = -0.25
-		free_leader_pool = 1
+		land_forcelimit_modifier = 0.5
+        land_maintenance_modifier = -0.1
 	}
 	
 	ai = { factor = 0 }
@@ -330,12 +325,9 @@ kingdom_of_magic_reform = {
 	}
 	
 	modifiers = {
-		land_morale = 0.10
-		diplomatic_reputation = 1
-		max_absolutism = -30
-		governing_capacity = 100
+        global_institution_spread = 0.25
 		advisor_cost = -0.25
-		global_autonomy = -0.025
+		max_absolutism = -10
 	}
     
 	ai = { factor = 0 }
@@ -372,9 +364,9 @@ naga_domain_reform = {
 	}
 
 	modifiers = {
-		governing_capacity = 100
-        naval_morale = 0.1
-        infantry_power = 0.1
+        loot_amount = 0.25
+		naval_maintenance_modifier = -0.1
+        sailor_maintenance_modifer = -0.1
 	}
     
 	ai = { factor = 0 }
@@ -412,8 +404,8 @@ scourge_domain_reform = {
 	}
     
 	modifiers = {
-		governing_capacity = 100
-        global_manpower_modifier = 0.33
+		land_forcelimit_modifier = 0.33
+        land_maintenance_modifier = -0.1
 	}
     
 	ai = { factor = 0 }
@@ -438,10 +430,8 @@ dragonflight_brood_reform = {
 	}
     
 	modifiers = {
-    	governing_capacity = 50
-		siege_ability = 0.1
-        improve_relation_modifier = 0.2
-		global_autonomy = -0.05
+		all_power_cost = -0.1
+        improve_relation_modifier = 0.1
 	}
     
 	ai = { factor = 0 }
@@ -481,11 +471,8 @@ noble_republic_reform = {
 	}
     
 	modifiers = {
-		governing_capacity = 100
-		tolerance_heathen = 1
-		cavalry_power = 0.10
-		free_leader_pool = 1
-		max_absolutism = -35
+		global_manpower_modifier = 0.15
+		max_absolutism = -20
 	}
     
     valid_for_new_country = yes     # Can be converted to via nation release
@@ -549,10 +536,8 @@ mercantile_republic_reform = {
     
     modifiers = {
 		merchants = 1
-		caravan_power = 0.10
-		trade_efficiency = 0.10
-		max_absolutism = -50
-    	governing_capacity = 100
+		trade_efficiency = 0.1
+		max_absolutism = -20
 	}
     
 	ai = { factor = 0 }
@@ -582,11 +567,9 @@ despotic_republic_reform = {
 	}
     
 	modifiers = {
-		governing_capacity = 100
-		global_autonomy = -0.10
-		stability_cost_modifier = -0.10
-		global_unrest = -1
-		harsh_treatment_cost = -0.10
+		stability_cost_modifier = -0.1
+		global_unrest = -2
+        max_absolutism = -20
 	}
 	
     ai = { factor = 0 }
@@ -620,9 +603,9 @@ ancient_republic_reform = {
 	}
     
 	modifiers = {
-		monarch_diplomatic_power = 1
-		claim_duration = 1
-    	idea_cost = 0.15
+		prestige = 1
+        governing_capacity_modifier = 0.2
+        max_absolutism = -20
 	}
     
 	ai = { factor = 0 }
@@ -669,11 +652,9 @@ magocracy_reform = {
 	}
 
 	modifiers = {
-		governing_capacity = 100
-		global_tax_modifier = 0.10
-		tolerance_heathen = 1
-		global_autonomy = -0.10
-		max_absolutism = -30
+		global_institution_spread = 0.25
+		technology_cost = -0.1
+		max_absolutism = -20
 	}
     
     ai = { factor = 0 }
@@ -776,11 +757,10 @@ trading_city_reform = {
 	}
     
     modifiers = {
+        merchants = 1
 		trade_steering = 0.10
 		global_trade_power = 0.1
-		max_absolutism = -25
-		merchants = 1
-    	governing_capacity = 100
+		max_absolutism = -20
 	}
 	
     ai = { factor = 0 }
@@ -809,11 +789,8 @@ colonial_government_reform = {
 	}
 
 	modifiers = {
-		global_autonomy = -0.05
-		recover_army_morale_speed = 0.01
-		embracement_cost = -0.10
-		governing_capacity = 100
-		global_institution_spread = 0.10
+		colonists = 1
+        colonist_placement_chance = 0.05
 	}
 
 	ai = { factor = 0 }
@@ -854,8 +831,7 @@ tinker_republic_reform = {
     modifiers = {
 		technology_cost = -0.1
         idea_cost = -0.1
-		max_absolutism = -50
-    	governing_capacity = 100
+		max_absolutism = -20
 	}
     
 	ai = { factor = 0 }
@@ -881,6 +857,7 @@ theocracy_reform = {
 	modifiers = {
 		missionaries = 1
 		tolerance_own = 1
+        max_absolutism = -10
 	}
 	
     conditional = {
@@ -914,9 +891,8 @@ monastic_order_reform = {
 	}
 	
 	modifiers = {
-		governing_capacity = 100
-		defensiveness = 0.10
-	    land_morale = 0.10
+		defensiveness = 0.1
+	    land_morale = 0.1
 	}
 	
     ai = { factor = 0 }
@@ -947,9 +923,8 @@ ancient_theocracy_reform = {
 	}
     
 	modifiers = {
-		monarch_admin_power = 1
-		claim_duration = 1
-    	idea_cost = 0.15
+		prestige = 1
+        global_missionary_strength = 0.03
 	}
     
 	ai = { factor = 0 }
@@ -988,9 +963,8 @@ scarlet_crusade_reform = {
 	}
     
 	modifiers = {
-		governing_capacity = 100
-		discipline = 0.05
-	    land_morale = 0.10
+		discipline = 0.1
+        tolerance_own = 1
 	}
 	
     ai = { factor = 0 }
@@ -1029,8 +1003,8 @@ argent_crusade_reform = {
 	}
     
 	modifiers = {
-		governing_capacity = 100
-		infantry_power = 0.15
+        tolerance_own = 1
+		infantry_power = 0.1
 	}
 	
     ai = { factor = 0 }
@@ -1069,8 +1043,8 @@ demonic_order_reform = {
 	}
     
 	modifiers = {
-		governing_capacity = 100
-		shock_damage = 0.2
+        land_morale = 0.1
+        warscore_cost_vs_other_religion = -0.25
 	}
     
     conditional = {
@@ -1113,9 +1087,8 @@ druidic_circle_reform = {
 	royal_marriage = no
 
 	modifiers = {
-		governing_capacity = 100
 		diplomatic_reputation = 2
-        fire_damage = 0.05
+        unjustified_demands = -0.1
 	}
     
     conditional = {
@@ -1202,9 +1175,8 @@ shadow_cult_reform = {
 	}
     
 	modifiers = {
-		culture_conversion_cost = -0.1
+		culture_conversion_cost = -0.2
         stability_cost_modifier = -0.2
-        global_missionary_strength = 0.02
 	}
 	
 	ai = { factor = 0 }
@@ -1232,8 +1204,7 @@ warband_reform = {
 	generals_become_rulers = yes
     
 	modifiers = {
-		land_forcelimit_modifier = 0.10
-		movement_speed = 0.10
+		army_tradition_from_battle = 1.0
 	}
 	
     conditional = {
@@ -1260,9 +1231,8 @@ tribal_federation_reform = {
 	queen = yes
     
 	modifiers = {
-		governing_capacity = 100
-		monarch_admin_power = 1
-		reinforce_speed = 0.10
+		global_tax_modifier = 0.2
+		reinforce_speed = 0.1
 	}
 	
 	ai = { factor = 0 }
@@ -1288,7 +1258,6 @@ tribal_despotism_reform = {
 	modifiers = {
 		global_unrest = -1
 		core_creation = -0.1
-		harsh_treatment_cost = -0.20
 	}
 	
 	ai = { factor = 0 }
@@ -1320,10 +1289,8 @@ ancient_clan_reform = {
 	}
     
 	modifiers = {
-		culture_conversion_cost = -0.10
-        monarch_military_power = 1
-		reinforce_cost_modifier = -0.10
-		build_time = -0.10
+		prestige = 1
+		yearly_corruption = -0.05
 	}
 	
     ai = { factor = 0 }
@@ -1352,7 +1319,6 @@ primitive_clan_reform = {
 	queen = no
     
 	modifiers = {
-		governing_capacity = 50
         global_unrest = -1
 	}
 	
@@ -1380,9 +1346,8 @@ expeditionary_force_reform = {
 	queen = no
 
 	modifiers = {
-		governing_capacity = 50
-		movement_speed = 0.2
-        global_colonial_growth = 10
+		global_regiment_cost = -0.2
+        global_regiment_recruit_speed = -0.33
 	}
 	
 	ai = { factor = 0 }
@@ -1405,8 +1370,7 @@ criminal_organization_reform = {
 	queen = no
     
 	modifiers = {
-		governing_capacity = 50
-		loot_amount = 0.25
+		loot_amount = 0.33
         available_province_loot = 1.0
 	}
     
@@ -1438,9 +1402,7 @@ native_tribe_reform = {
     
 	modifiers = {
 		stability_cost_modifier = -0.33
-		land_maintenance_modifier = -0.25
-		diplomatic_upkeep = -1
-		global_institution_spread = -0.025
+		land_maintenance_modifier = -0.2
 	}
 	
 	ai = { factor = 0 }
@@ -1496,7 +1458,7 @@ pirate_republic_reform = {
     
 	modifiers = {
 		republican_tradition = -1
-		max_absolutism = -50
+		max_absolutism = -20
 		naval_forcelimit_modifier = 0.5
 		capture_ship_chance = 0.33
 		may_perform_slave_raid_on_same_religion = yes
@@ -1523,7 +1485,7 @@ pirate_kingdom_reform = {
     
 	modifiers = {
 		republican_tradition = -1
-		max_absolutism = -50
+		max_absolutism = -20
 		naval_forcelimit_modifier = 0.5
 		capture_ship_chance = 0.33
 		pr_captains_influence = 0.1
