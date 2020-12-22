@@ -1,27 +1,21 @@
-
-namespace = council_events
+namespace = council_government
 
 # New Monarch
 country_event = {
-	id = council_events.1
-	title = "council_events.1.title"
-	desc = "council_events.1.desc"
-	
+	id = council_government.1
+	title = council_government.1.title
+	desc = council_government.1.desc
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
 	trigger = {
 		has_government_attribute = council_system
 	}
-	
-	immediate = {
-	}
-	
+
 	option = {
-		name = "council_events.1.opt1"
-		#log = "council_events.1.opt1"
+		name = council_government.1.option.a
+        
 		trigger = {
 			has_adm_advisor = yes
 		}
@@ -45,8 +39,8 @@ country_event = {
 	}
 	
 	option = {
-		name = "council_events.1.opt2"
-		#log = "council_events.1.opt2"
+		name = council_government.1.option.b
+        
 		trigger = {
 			has_dip_advisor = yes
 		}
@@ -71,8 +65,8 @@ country_event = {
 	}
 	
 	option = {
-		name = "council_events.1.opt3"
-		#log = "council_events.1.opt3"
+		name = council_government.1.option.c
+        
 		trigger = {
 			has_mil_advisor = yes
 		}
@@ -97,8 +91,8 @@ country_event = {
 	}
 	
 	option = {
-		name = "council_events.1.opt4"
-		#log = "council_events.1.opt4"
+		name = council_government.1.option.d
+        
 		trigger = {
 			NOT = { has_adm_advisor = yes }
 			NOT = { has_dip_advisor = yes }

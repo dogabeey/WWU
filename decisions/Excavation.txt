@@ -2,20 +2,22 @@ country_decisions = {
     start_archeological_project = {
         potential = {
 			NOT = { has_country_flag = archaeological_project_started }
-			NOT = { OR = {
-				has_country_modifier = apocalypse
-				has_country_modifier = twinblades_of_deceiver
-				has_country_modifier = scythe_of_elune
-				has_country_modifier = thasdorah
-				has_country_modifier = aluneth
-				has_country_modifier = sheilun
-				has_country_modifier = ashbringer
-				has_country_modifier = xalatath
-				has_country_modifier = the_dreadblades
-				has_country_modifier = doomhammer
-				has_country_modifier = skull_of_manari
-				has_country_modifier = warswords_of_valarjar
-			} }
+			NOT = { 
+                OR = {
+                    has_country_modifier = apocalypse
+                    has_country_modifier = twinblades_of_deceiver
+                    has_country_modifier = scythe_of_elune
+                    has_country_modifier = thasdorah
+                    has_country_modifier = aluneth
+                    has_country_modifier = sheilun
+                    has_country_modifier = ashbringer
+                    has_country_modifier = xalatath
+                    has_country_modifier = the_dreadblades
+                    has_country_modifier = doomhammer
+                    has_country_modifier = skull_of_manari
+                    has_country_modifier = warswords_of_valarjar
+                } 
+            }
         }
         allow = {
 			OR = {
@@ -44,11 +46,13 @@ country_decisions = {
 			set_country_flag = archaeological_project_started
         }
         ai_will_do = {
-            factor = 0.1
+            factor = 1
+            
 			modifier = {
 				factor = 0
 				has_artifact = yes
 			}
+            
 			modifier = {
 				factor = 0
 				NOT = { treasury = 2500 }

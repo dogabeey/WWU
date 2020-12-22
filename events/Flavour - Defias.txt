@@ -1,21 +1,20 @@
-# tfw_orc_victory_path
-# tfw_human_victory_path
+namespace = defias_events
 
-namespace = defias
-
+# "Stonemasons' Guild"
 country_event = {
-	id = defias.1
-	title = stonemasons_guild.title
+	id = defias_events.1
+	title = defias_events.1.title
+    
 	desc = {
 	   trigger = { has_global_flag = tfw_human_victory_path }
-	   desc = stonemasons_guild.desc.1
+	   desc = defias_events.1.desc.1
 	}
 	desc = {
 	   trigger = { NOT = { has_global_flag = tfw_orc_victory_path } }
-	   desc = stonemasons_guild.desc.2
+	   desc = defias_events.1.desc.2
 	}
+    
 	picture = BUILDING_DEVELOPMENT_HUMAN_eventPicture
-	#goto = root
 	
 	fire_only_once = yes
 	
@@ -31,30 +30,30 @@ country_event = {
 	}
 	
 	option = {
-		name = stonemasons_guild.opt1
-		#log = "stonemasons_guild.opt1"
+		name = defias_events.1.option.a
+        
 		ai_chance = { factor = 100 }
 		country_event = { 
-			id = defias.2
+			id = defias_events.2
 			days = 150
 			random = 15
-			tooltip = stonemasons_guild.tt1
+			tooltip = stonemasons_guild_tt
 		}
 	}
 	
 	option = {
-		name = stonemasons_guild.opt2
-		#log = "stonemasons_guild.opt2"
+		name = defias_events.1.option.b
+        
 		ai_chance = { factor = 0 }
 	}
 }
 
+# "Construction of Stormwind"
 country_event = {
-	id = defias.2
-	title = finishing_of_stormwind.title
-	desc = finishing_of_stormwind.desc
+	id = defias_events.2
+	title = defias_events.title
+	desc = defias_events.desc
 	picture = BUILDING_DEVELOPMENT_HUMAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -62,8 +61,8 @@ country_event = {
 	}
 	
 	option = {
-		name = finishing_of_stormwind.opt1
-		#log = "finishing_of_stormwind.opt1" # Promise behalf of nobles that they will get their money soon.
+		name = defias_events.option.a
+        
 		ai_chance = { factor = 100 }
 		
 		1022 = {
@@ -72,16 +71,16 @@ country_event = {
 			add_base_manpower = 4
 		}
 		country_event = { 
-			id = defias.3
+			id = defias_events.3
 			days = 100
 			random = 15
-			tooltip = finishing_of_stormwind.tt1
+			tooltip = finishing_of_stormwind_tt_a
 		}
 	}
 	
 	option = {
-		name = finishing_of_stormwind.opt2
-		#log = "finishing_of_stormwind.opt2" # Force nobles to pay required money 
+		name = defias_events.option.b
+        
 		ai_chance = { factor = 0 }
 		
 		1022 = {
@@ -90,69 +89,63 @@ country_event = {
 			add_base_manpower = 4
 		}
 		country_event = { 
-			id = defias.5 # House of Nobles uprising sparks... (Alternative Disaster)
+			id = defias_events.5
 			days = 90
 			random = 15
-			tooltip = finishing_of_stormwind.tt2
+			tooltip = finishing_of_stormwind_tt_b
 		}
 	}
 }
 
+# "Stonemasons' Anger"
 country_event = {
-	id = defias.3
-	title = unrest_among_stonemasons.title
-	desc = unrest_among_stonemasons.desc
+	id = defias_events.3
+	title = defias_events.3.title
+	desc = defias_events.3.desc
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
-	
-	trigger = {
-	}
-	
+
 	option = {
-		name = unrest_among_stonemasons.opt1
-		#log = "unrest_among_stonemasons.opt1" # Take side with nobles
+		name = defias_events.3.option.a
+        
 		ai_chance = { factor = 100 }
 		country_event = { 
-			id = defias.4
+			id = defias_events.4
 			days = 30
 			random = 15
-			tooltip = unrest_among_stonemasons.tt1
+			tooltip = unrest_among_stonemasons_tt_a
 		}
 	}
 	
 	option = {
-		name = unrest_among_stonemasons.opt2
-		#log = "unrest_among_stonemasons.opt2" # Take side with stonemasons
+		name = defias_events.3.option.b
+        
 		ai_chance = { factor = 100 }
 		country_event = { 
-			id = defias.5 # House of Nobles uprising sparks... (Alternative Disaster)
+			id = defias_events.5
 			days = 30
 			random = 15
-			tooltip = unrest_among_stonemasons.tt2
+			tooltip = unrest_among_stonemasons_tt_b
 		}
 	}
 }
 
+# "Stonemason Insurgency"
 country_event = {
-	id = defias.4
-	title = rise_of_defias.title
-	desc = rise_of_defias.desc
+	id = defias_events.4
+	title = defias_events.4.title
+	desc = defias_events.4.desc
 	picture = REVOLUTION_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
-	trigger = {
-	}
-	
 	option = {
-		name = rise_of_defias.opt1
-		#log = "rise_of_defias.opt1"
+		name = defias_events.4.option.a
+        
 		ai_chance = { factor = 100 }
 		
-		custom_tooltip = rise_of_defias.tt
+		custom_tooltip = rise_of_defias_tt
 		hidden_effect = {
 			random_owned_province = {
 				cede_province = A07
@@ -191,23 +184,22 @@ country_event = {
 		}
 	}
 }
+
+# "Noble Revolt"
 country_event = {
-	id = defias.5
-	title = rise_of_nobles.title
-	desc = rise_of_nobles.desc
+	id = defias_events.5
+	title = defias_events.5.title
+	desc = defias_events.5.desc
 	picture = REVOLUTION_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
-	trigger = {
-	}
-	
 	option = {
-		name = rise_of_nobles.opt1
-		#log = "rise_of_nobles.opt1"
+		name = defias_events.5.option.a
+        
 		ai_chance = { factor = 100 }
-		custom_tooltip = rise_of_nobles.tt
+		custom_tooltip = rise_of_nobles_tt
+        
 		hidden_effect = {
 			capital_scope = {
 				noble_rebels = 5
