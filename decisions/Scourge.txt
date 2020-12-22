@@ -1,0 +1,28 @@
+country_decisions = {
+	raise_the_dead = {
+        potential = {
+			OR = {
+                has_reform = scourge_reform
+                has_reform = scourge_domain_reform
+            }
+        }
+        allow = {
+            OR = {
+                has_reform = scourge_reform
+                has_reform = scourge_domain_reform
+            }
+			custom_trigger_tooltip = {
+                tooltip = scourge_recently_won_battle_tt
+                has_country_flag = scourge_can_raise_dead
+            }
+        }
+        effect = {
+            add_yearly_manpower = 0.2
+            add_corruption = 0.05
+            hidden_effect = { clr_country_flag = scourge_can_raise_dead }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+}

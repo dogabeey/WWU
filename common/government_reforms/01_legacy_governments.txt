@@ -36,6 +36,13 @@ feudalism_legacy = {
 		nobility_influence_modifier = 0.05
 	}
     
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+    
 	ai = { factor = 1 }
     
     valid_for_new_country = yes   # Can be converted to via nation release
@@ -208,12 +215,17 @@ ancient_kingdom_legacy = {
 	}
     
     maintain_dynasty = yes
-    militarised_society = yes
     
 	custom_attributes = {
 		locked_government_type = yes
 	}
-
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+	}
+    
 	modifiers = {
 		monarch_military_power = 1
 		claim_duration = 1
@@ -276,12 +288,19 @@ scourge_legacy = {
     
 	royal_marriage = no
     maintain_dynasty = no
-	
+    
 	custom_attributes = {
         champion_system = yes
         locked_government_type = yes
 	}
 
+    conditional = {
+		allow = { has_dlc = "Third Rome" }
+		government_abilities = {
+			russian_mechanic
+		}
+	}
+    
 	modifiers = {
 		land_attrition = -0.25
 		free_leader_pool = 1
@@ -302,37 +321,6 @@ scourge_legacy = {
 			technology_group = tech_scourge
 		}
     }
-}
-hereditary_monarchy_legacy = {
-	icon = "hereditary"
-    legacy_government = yes # legacy_equivalent = hereditary_monarchy_legacy
-    
-    monarchy = yes
-    
-    potential = {
-		can_be_hereditary = yes
-	}
-    
-	custom_attributes = {
-		absolute_hereditary = yes
-	}
-
-	modifiers = {
-		governing_capacity = 100
-		legitimacy = 0.5
-		global_unrest = -2
-		stability_cost_modifier = -0.25
-		global_autonomy = -0.025
-	}
-	
-	ai = { factor = 0 }
-    
-    valid_for_new_country = no      # Can be converted to via nation release
-    allow_normal_conversion = yes   # Can be picked as a new reform
-	allow_convert = no              # Can be converted to via peace term
-    
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
 }
 kingdom_of_magic_legacy = {
 	icon = "magocracy"
@@ -440,6 +428,13 @@ scourge_domain_legacy = {
     heir = no
 	queen = no
     
+    conditional = {
+		allow = { has_dlc = "Third Rome" }
+		government_abilities = {
+			russian_mechanic
+		}
+	}
+    
     custom_attributes = {
 		locked_government_type = yes
 	}
@@ -510,16 +505,7 @@ noble_republic_legacy = {
 		mr_traders
 		mr_guilds
 	}
-	
-    conditional = {
-		allow = {
-			has_dlc = "Third Rome"
-		}
-		government_abilities = {
-			russian_mechanic
-		}
-	}
-    
+
 	modifiers = {
 		governing_capacity = 100
 		tolerance_heathen = 1
@@ -642,11 +628,16 @@ ancient_republic_legacy = {
 	}
     
 	has_term_election = no
-	militarised_society = yes
 	
     conditional = {
 		allow = { has_dlc = "Common Sense" }
 		has_parliament = yes
+	}
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
 	}
     
 	modifiers = {
@@ -922,6 +913,13 @@ theocracy_legacy = {
 		tolerance_own = 1
 	}
 	
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+    
 	ai = { factor = 0 }
     
     valid_for_new_country = yes     # Can be converted to via nation release
@@ -972,10 +970,14 @@ ancient_theocracy_legacy = {
 		is_ancient = yes
 	}
     
-    militarised_society = yes
-    
     custom_attributes = {
 		locked_government_type = yes
+	}
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
 	}
     
 	modifiers = {
@@ -1145,6 +1147,13 @@ druidic_circle_legacy = {
 	heirs_can_be_generals = yes
 	royal_marriage = no
 
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+    
 	modifiers = {
 		governing_capacity = 100
 		diplomatic_reputation = 2
@@ -1188,6 +1197,13 @@ elemental_cult_legacy = {
 		warscore_cost_vs_other_religion = -0.2
 	}
     
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+    
 	ai = { factor = 0 }
     
     valid_for_new_country = no      # Can be converted to via nation release
@@ -1216,6 +1232,13 @@ shadow_cult_legacy = {
 	potential = {
         religion = religion_shadow
     }
+    
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
     
 	modifiers = {
 		culture_conversion_cost = -0.1
@@ -1247,7 +1270,7 @@ warband_legacy = {
     tribal = yes
     nomad = yes
 	generals_become_rulers = yes
-	
+    
 	modifiers = {
 		land_forcelimit_modifier = 0.10
 		movement_speed = 0.10
@@ -1330,8 +1353,14 @@ ancient_clan_legacy = {
     tribal = yes
 	heir = yes
 	queen = yes
-    militarised_society = yes
 	maintain_dynasty = yes
+    
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+	}
     
 	modifiers = {
 		culture_conversion_cost = -0.10
@@ -1418,7 +1447,7 @@ criminal_organization_legacy = {
     
 	heir = yes
 	queen = no
-
+    
 	modifiers = {
 		governing_capacity = 50
 		loot_amount = 0.25

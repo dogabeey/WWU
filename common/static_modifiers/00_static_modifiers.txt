@@ -607,7 +607,6 @@ negative_stability = {
 	yearly_corruption = 0.035
 	interest = -2.5
 	migration_cooldown = 0.25
-	monthly_militarized_society = -0.05
 	global_institution_spread = 0.15
 	yearly_harmony = 0.25
 	
@@ -685,7 +684,6 @@ bankruptcy = {
 	global_colonial_growth = -200
 	global_autonomy = 0.05
 	global_institution_spread = -0.50
-	monthly_militarized_society = -0.5
 	yearly_absolutism = -2.0
 	technology_cost = 0.5
 	idea_cost = 0.5
@@ -698,6 +696,7 @@ war = {
     
     papal_influence = 1
     yearly_patriarch_authority = -0.001
+    monthly_militarized_society = 0.05
 }
 
 peace = {
@@ -710,6 +709,8 @@ peace = {
 	wwu_knights_influence = -0.1
     
     yearly_patriarch_authority = 0.001
+    
+    monthly_militarized_society = -0.1
 }
 
 unconditional_surrender = {
@@ -776,7 +777,6 @@ army_tradition = {
 	siege_ability = 0.05
 	mr_aristocrats_influence = 0.1
 	nobility_loyalty_modifier = 0.1
-	monthly_militarized_society = 0.1
 	
 	wwu_knights_influence = 0.1
 }
@@ -954,11 +954,9 @@ recovery_motivation = {
 }
 
 militarized_society = {
-	idea_cost = -0.1
-	global_unrest = -2
-	land_maintenance_modifier = -0.1
+	core_creation = -0.2
+    global_unrest = -3
 }
-
 
 luck = {
 	#core
@@ -1511,16 +1509,15 @@ supply_depot_area = {
 	supply_limit_modifier = 0.5
 }
 
-########################################
-# Government Interacions
-########################################
-
+#----------------------------
+# Iqta - Feudal Kingdom
+#----------------------------
 efficient_tax_farming_modifier = {
-	global_tax_modifier = 0.10
+	global_tax_modifier = 0.15
 }
 
 land_acquisition_modifier = {
-	core_creation = -0.10
+	core_creation = -0.1
 }
 
 lenient_taxation_modifier = {
@@ -1528,82 +1525,46 @@ lenient_taxation_modifier = {
 	diplomatic_reputation = 1
 }
 
+#----------------------------
+# Tribal Federation - Warband
+#----------------------------
 train_horsemanship_modifier = {
-	cavalry_power = 0.10
+	land_morale = 0.1
 }
 
+#----------------------------
+# Mamluk - Ancient
+#----------------------------
 promote_culture_in_government_modifier = {
-	all_power_cost = -0.05
+	idea_cost = -0.15
 }
 
+#----------------------------
+# Theocratic - Theocracy
+#----------------------------
 seize_clerical_holdings_modifier = {
-	build_cost = -0.10
+	missionaries = 1
+    global_missionary_strength = 0.03
 }
 
 invite_minorities_modifier = {
 	local_development_cost = -0.25
 }
 
-########################################
-# Religious Schools
-########################################
-hanafi_scholar_modifier = {
-	religion_sub_modifier = yes # Will make icon placed next to religion modifier
-	religion = yes
-	is_scholar_modifier = yes # Tells the AI and will only show the alert if country has none
-	expire_message_type = "RELIGIOUS_SCHOLAR_EXPIRY"
-	adm_tech_cost_modifier = -0.05
-}
-
-hanbali_scholar_modifier = {
-	religion_sub_modifier = yes # Will make icon placed next to religion modifier
-	religion = yes
-	is_scholar_modifier = yes # Tells the AI and will only show the alert if country has none
-	expire_message_type = "RELIGIOUS_SCHOLAR_EXPIRY"
-	ae_impact = -0.1
-}
-
-maliki_scholar_modifier = {
-	religion_sub_modifier = yes # Will make icon placed next to religion modifier
-	religion = yes
-	is_scholar_modifier = yes # Tells the AI and will only show the alert if country has none
-	expire_message_type = "RELIGIOUS_SCHOLAR_EXPIRY"
-	development_cost = -0.1
-}
-
-shafii_scholar_modifier = {
-	religion_sub_modifier = yes # Will make icon placed next to religion modifier
-	religion = yes
-	is_scholar_modifier = yes # Tells the AI and will only show the alert if country has none
-	expire_message_type = "RELIGIOUS_SCHOLAR_EXPIRY"
-	merchants = 1
-}
-
-ismaili_scholar_modifier = {
-	religion_sub_modifier = yes # Will make icon placed next to religion modifier
-	religion = yes
-	is_scholar_modifier = yes # Tells the AI and will only show the alert if country has none
-	expire_message_type = "RELIGIOUS_SCHOLAR_EXPIRY"
-	horde_unity = 1
-	legitimacy = 1
-	republican_tradition = 0.5
-	devotion = 1
-}
-
-jafari_scholar_modifier = {
-	religion_sub_modifier = yes # Will make icon placed next to religion modifier
-	religion = yes
-	is_scholar_modifier = yes # Tells the AI and will only show the alert if country has none
-	expire_message_type = "RELIGIOUS_SCHOLAR_EXPIRY"
+#----------------------------
+# Cossacks - 
+#----------------------------
+raiding_parties_modifier = {
+	hostile_attrition = 1
 	shock_damage = 0.1
 }
 
-zaidi_scholar_modifier = {
-	religion_sub_modifier = yes # Will make icon placed next to religion modifier
-	religion = yes
-	is_scholar_modifier = yes # Tells the AI and will only show the alert if country has none
-	expire_message_type = "RELIGIOUS_SCHOLAR_EXPIRY"
-	shock_damage_received = -0.1
+serfs_recieved_by_cossacks = {
+	global_tax_modifier = -0.1
+}
+
+cossacks_modifier = {
+	stability_cost_modifier = 1.0
 }
 
 ########################################
@@ -1645,19 +1606,6 @@ rajput_regiment = {
 	land_morale = 0.05
 }
 
-raiding_parties_modifier = {
-	hostile_attrition = 1
-	movement_speed = 0.1
-}
-
-serfs_recieved_by_cossacks = {
-	global_tax_modifier = -0.1
-}
-
-cossacks_modifier = {
-	stability_cost_modifier = 1.0
-}
-
 ########################################
 # Government/Reform modfiers
 ########################################
@@ -1674,7 +1622,6 @@ over_governing_capacity_modifier = {
 	improve_relation_modifier = -0.5
 	core_creation = 0.2
 	advisor_cost = 1.0
-	monthly_militarized_society = -1.0
 	
 }
 

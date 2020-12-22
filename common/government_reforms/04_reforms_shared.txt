@@ -43,7 +43,6 @@ wwu_states_general_reform = {
 		}
 	}
 }
-
 wwu_parliamentary_reform = {
 	icon = "parliamentary_wwu"
     allow_normal_conversion = yes
@@ -79,7 +78,6 @@ wwu_parliamentary_reform = {
 		blocked_call_diet = yes
 	}
 }
-
 wwu_penal_colonies_reform = {
 	icon = "penal_colonies_wwu"
 	allow_normal_conversion = yes
@@ -101,6 +99,31 @@ wwu_penal_colonies_reform = {
 	ai = {
 		factor = 0.1
 	}
+}
+wwu_militarized_state_reform = {
+	icon = "militarized_state_wwu"
+	allow_normal_conversion = yes
+    
+    potential = {
+        has_dlc = "Rights of Man"
+        NOT = { has_government_mechanic = iqta_mechanic }
+        NOT = { has_government_mechanic = russian_mechanic }
+        NOT = { has_government_mechanic = mamluk_mechanic }
+        NOT = { has_government_mechanic = feudal_theocracy_mechanic }
+        NOT = { has_government_mechanic = tribal_federation_mechanic }
+    }
+    
+	militarised_society = yes
+}
+wwu_justified_conquest_reform = {
+	icon = "justified_conquest_wwu"
+	allow_normal_conversion = yes
+    
+    potential = {
+        has_dlc = "Third Rome"
+    }
+    
+	claim_states = yes
 }
 
 #-----------------------------------------
