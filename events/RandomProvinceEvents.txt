@@ -460,110 +460,110 @@ province_event = {
 #########################################################
 #		Cultural Dispute			#
 #########################################################
-province_event = {
-	id = 6033
-	title = "EVTNAME6033"
-	desc = "EVTDESC6033"
-	picture = DIPLOMACY_eventPicture
-	goto = claim_province
+# province_event = {
+	# id = 6033
+	# title = "EVTNAME6033"
+	# desc = "EVTDESC6033"
+	# picture = DIPLOMACY_eventPicture
+	# goto = claim_province
 
-	trigger = {
-		owner = { culture_group = ROOT }
-		owner = { is_subject  = no }
-		any_neighbor_province = {
-			NOT = { owned_by = ROOT }
-			NOT = { is_core = ROOT }
-			NOT = { is_claim = ROOT }
-			culture_group = ROOT
-			owner = {
-				NOT = { primary_culture = ROOT }
-				NOT = { accepted_culture = ROOT }
-				NOT = { culture_group = ROOT }
-				OR = {
-					NOT = { adm = 2 }
-					NOT = { dip = 2 }
-					NOT = { mil = 2	}
-				}
-			}
-			NOT = { owner = { is_subject_of = ROOT } }
-		}
-	}
+	# trigger = {
+		# owner = { culture_group = ROOT }
+		# owner = { is_subject  = no }
+		# any_neighbor_province = {
+			# NOT = { owned_by = ROOT }
+			# NOT = { is_core = ROOT }
+			# NOT = { is_claim = ROOT }
+			# culture_group = ROOT
+			# owner = {
+				# NOT = { primary_culture = ROOT }
+				# NOT = { accepted_culture = ROOT }
+				# NOT = { culture_group = ROOT }
+				# OR = {
+					# NOT = { adm = 2 }
+					# NOT = { dip = 2 }
+					# NOT = { mil = 2	}
+				# }
+			# }
+			# NOT = { owner = { is_subject_of = ROOT } }
+		# }
+	# }
 
-	mean_time_to_happen = {
-		months = 600
+	# mean_time_to_happen = {
+		# months = 600
 		
-		modifier = {
-			factor = 10
-			owner = { historical_friend_with = ROOT }
-		}
-		modifier = {
-			factor = 0.9
-			owner = { historical_rival_with = ROOT }
-		}		
-		modifier = {
-			factor = 2.0
-			owner = { NOT = { dip = 1 } }
-		}
-		modifier = {
-			factor = 2.0
-			owner = { luck = yes }
-		}
-		modifier = {
-			factor = 0.8
-			owner = {
-				dip = 5
-			}
-		}
-	}
+		# modifier = {
+			# factor = 10
+			# owner = { historical_friend_with = ROOT }
+		# }
+		# modifier = {
+			# factor = 0.9
+			# owner = { historical_rival_with = ROOT }
+		# }		
+		# modifier = {
+			# factor = 2.0
+			# owner = { NOT = { dip = 1 } }
+		# }
+		# modifier = {
+			# factor = 2.0
+			# owner = { luck = yes }
+		# }
+		# modifier = {
+			# factor = 0.8
+			# owner = {
+				# dip = 5
+			# }
+		# }
+	# }
 
-	immediate = {
-		hidden_effect = {
-			random_neighbor_province = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					NOT = { is_claim = ROOT }
-					culture_group = ROOT
-					owner = {
-						NOT = { primary_culture = ROOT }
-						NOT = { accepted_culture = ROOT }
-						NOT = { culture_group = ROOT }
-						OR = {
-							NOT = { adm = 2 }
-							NOT = { dip = 2 }
-							NOT = { mil = 2	}
-						}
-					}
-					NOT = { owner = { is_subject_of = ROOT } }
-				}
-				save_event_target_as = claim_province
-			}
-		}
-	}
+	# immediate = {
+		# hidden_effect = {
+			# random_neighbor_province = {
+				# limit = {
+					# NOT = { owned_by = ROOT }
+					# NOT = { is_core = ROOT }
+					# NOT = { is_claim = ROOT }
+					# culture_group = ROOT
+					# owner = {
+						# NOT = { primary_culture = ROOT }
+						# NOT = { accepted_culture = ROOT }
+						# NOT = { culture_group = ROOT }
+						# OR = {
+							# NOT = { adm = 2 }
+							# NOT = { dip = 2 }
+							# NOT = { mil = 2	}
+						# }
+					# }
+					# NOT = { owner = { is_subject_of = ROOT } }
+				# }
+				# save_event_target_as = claim_province
+			# }
+		# }
+	# }
 
-	is_mtth_scaled_to_size = 1
+	# is_mtth_scaled_to_size = 1
 
-	option = {
-		name = "EVTOPTA6033" # Press issue
-		ai_chance = { factor = 55 }
-		event_target:claim_province = {
-			add_claim = ROOT
-			owner = {
-				add_casus_belli = {	
-					target = ROOT
-					type = cb_insult
-					months = 12
-				}
-				add_opinion = { who = ROOT modifier = opinion_press_issue }
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTB6033" # Settle issue
-		ai_chance = { factor = 0 }
-		owner = { add_stability = -1 }
-	}
-}
+	# option = {
+		# name = "EVTOPTA6033" # Press issue
+		# ai_chance = { factor = 55 }
+		# event_target:claim_province = {
+			# add_claim = ROOT
+			# owner = {
+				# add_casus_belli = {	
+					# target = ROOT
+					# type = cb_insult
+					# months = 12
+				# }
+				# add_opinion = { who = ROOT modifier = opinion_press_issue }
+			# }
+		# }
+	# }
+	# option = {
+		# name = "EVTOPTB6033" # Settle issue
+		# ai_chance = { factor = 0 }
+		# owner = { add_stability = -1 }
+	# }
+# }
 
 province_event = {
 	id = 757

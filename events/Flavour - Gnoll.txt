@@ -50,14 +50,15 @@ country_event = {
 country_event = {
 	id = gnoll.2
 	title = gnoll_kidnapping.title
-	desc = gnoll_kidnapping.desc # Some of tribesmen decided to cross [KidnapTarget.GetName] border and kidnapped several [KidnapTarget.Culture] villagers to stock them as food supply. Now the outraged villagers are arming against us and [KidnapTarget.GetName] has a good reason to attack us.\n\nWe can force kidnappers to give villagers back, yet this may cost our credibility.
+	desc = gnoll_kidnapping.desc
 	picture = GNOLL_eventPicture
 	#goto = root
-    
-	fire_only_once = no
 	
 	trigger = {
 		culture_group = culture_group_gnoll
+        any_neighbor_country = {
+            is_neighbor_of = ROOT
+        }
 	}
 	
 	mean_time_to_happen = {
@@ -115,7 +116,7 @@ country_event = {
 country_event = {
 	id = gnoll.3
 	title = gnoll_rotten_meat.title
-	desc = gnoll_rotten_meat.desc # In gnoll culture, It is a custom to eat a deceased kinsman. We never let a meat to waste, as it is biggest shame in our culture.\n\nRecently, a fellow kinsman died after a series of illness and It looks sickly even after death. Tribe oracles warn us that consuming it might be dangerous. Yet we cannot turn back to our traditions.
+	desc = gnoll_rotten_meat.desc
 	picture = GNOLL_eventPicture
 	#goto = root
     

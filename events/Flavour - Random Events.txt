@@ -2957,10 +2957,19 @@ country_event = {
 	title = wwu_random_events.34.title
 	desc = wwu_random_events.34.desc
 	picture = REFORM_eventPicture
-	
+	goto = troublesome_province
+    
 	is_triggered_only = yes
 	
-	trigger = { num_of_cities = 2 }
+	trigger = {
+		num_of_cities = 2
+		any_owned_province = {
+			is_capital = no
+			is_city = yes
+			is_state_core = root
+			is_in_capital_area = no
+		}
+	}
 
 	mean_time_to_happen = {
 		days = 1
@@ -2979,16 +2988,43 @@ country_event = {
 		}
 	}
 
+    immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					is_city = yes
+					is_state_core = root
+					is_in_capital_area = no
+				}
+				save_event_target_as = troublesome_province
+			}
+		}
+	}
+    
 	option = {
 		name = wwu_random_events.34.option.a
         
 		ai_chance = { factor = 25 }
-		random_owned_province = {
-			limit = {
-				is_capital = no
-				is_city = yes
+		event_target:troublesome_province = {
+			if = {
+				limit = {
+					NOT = {
+						ROOT = { num_of_cities = 20 }
+					}
+				}
+				add_local_autonomy = 15
 			}
-			add_local_autonomy = 15
+			else = {
+				area = {
+					limit = {
+						owned_by = root
+						is_capital = no
+						is_city = yes
+					}
+					add_local_autonomy = 15
+				}
+			}
 		}
 	}
 	option = {
@@ -3379,7 +3415,13 @@ country_event = {
 
 	is_triggered_only = yes
 	trigger = {
-		always = yes
+		has_estate = estate_nobles
+		any_owned_province = {
+			NOT = { is_colony = yes }
+			NOT = { is_overseas = yes }
+			is_capital = no
+			is_state_core = root
+		}
 	}
 	mean_time_to_happen = {
 		days = 1
@@ -3398,6 +3440,20 @@ country_event = {
 		}
 	}
 
+    immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { is_colony = yes }
+					NOT = { is_overseas = yes }
+					is_capital = no
+					is_state_core = root
+				}
+				save_event_target_as = uppity_peasants_province
+			}
+		}
+	}
+    
 	option = {
 		name = wwu_random_events.39.option.a
         
@@ -3409,11 +3465,11 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_nobility
+				has_estate = estate_nobles
 				NOT = {
 					estate_loyalty = {
-						estate = estate_nobility
-						loyalty = 40
+						estate = estate_nobles
+						loyalty = 30
 					}
 				}
 			}
@@ -3431,11 +3487,7 @@ country_event = {
 				is_at_war = no
 			}
 		}
-		random_owned_province = {
-			limit = {
-				NOT = { is_colony = yes }
-				NOT = { is_overseas = yes }
-			}
+		event_target:uppity_peasants_province = {
 			anti_tax_rebels = 1
 		}
 		add_estate_nobility_loyalty_effect = yes
@@ -4354,6 +4406,14 @@ country_event = {
 	
 	trigger = {
 		stability = 0
+		NOT = { government = tribal }
+		NOT = { government = native }
+		any_owned_province = {
+			is_state = yes
+			is_core = ROOT
+			is_in_capital_area = yes
+			is_capital = no
+		}
 	}
 
 	mean_time_to_happen = {
@@ -4364,17 +4424,35 @@ country_event = {
 		}		
 	}
 
+    immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					is_core = ROOT
+					is_in_capital_area = yes
+					is_capital = no
+				}
+				save_event_target_as = bailiff_province
+			}
+		}
+	}
+    
 	option = {
 		name = wwu_random_events.55.option.a
         
 		ai_chance = {
-			factor = 55
+			factor = 45
 			modifier = {
 				factor = 0.5
-				NOT = { prestige = 35 }
+				NOT = { stability = 1 }
 			}
-		}
-		add_prestige = -10
+			modifier = {
+				factor = 1.5
+				stability = 2
+			}
+		}		
+		add_stability = -1
 	}
 	option = {
 		name = wwu_random_events.55.option.b
@@ -4409,10 +4487,10 @@ country_event = {
 		highlight = yes
 		trigger = { ruler_has_personality = cruel_personality }
 		required_personality = cruel_personality
-		capital_scope = {
-			spawn_rebels = {
+		event_target:bailiff_province = {
+			spawn_small_scaled_rebels = {
 				type = anti_tax_rebels
-				size = 1
+				no_defined_leader = yes
 			}
 		}
 	}
@@ -4431,6 +4509,9 @@ country_event = {
 		stability = 0
 		is_at_war = no
 		num_of_cities = 2
+        any_owned_province = {
+			is_state_core = root
+		}
 	}
 
 	mean_time_to_happen = {
@@ -4441,6 +4522,17 @@ country_event = {
 		}
 	}
 
+    immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_state_core = root
+				}
+				save_event_target_as = heresy_province
+			}
+		}
+	}
+    
 	option = {
 		name = wwu_random_events.56.option.a
         
@@ -4459,12 +4551,31 @@ country_event = {
 		}
 		reduce_estate_clergy_loyalty_effect = yes
 		add_prestige = -5
-		random_owned_province = {
-			add_province_modifier = {
-				name = "heresy"
-				duration = 3650
+		event_target:heresy_province = {
+			if = {
+				limit = {
+					NOT = {
+						ROOT = { num_of_cities = 20 }
+					}
+				}
+				add_province_modifier = {
+					name = "heresy"
+					duration = 1825
+				}
 			}
-		}		
+			else = {
+				area = {
+					limit = {
+						owned_by = root
+						is_city = yes
+					}
+					add_province_modifier = {
+						name = "heresy"
+						duration = 1825
+					}
+				}
+			}
+		}	
 	}
 	option = {
 		name = wwu_random_events.56.option.b
@@ -4483,10 +4594,29 @@ country_event = {
 		required_personality = tolerant_personality
 		add_prestige = 5
 		reduce_estate_clergy_loyalty_effect = yes
-		random_owned_province = {
-			add_province_modifier = {
-				name = "heresy"
-				duration = 1825
+		event_target:heresy_province = {
+			if = {
+				limit = {
+					NOT = {
+						ROOT = { num_of_cities = 20 }
+					}
+				}
+				add_province_modifier = {
+					name = "heresy"
+					duration = 1825
+				}
+			}
+			else = {
+				area = {
+					limit = {
+						owned_by = root
+						is_city = yes
+					}
+					add_province_modifier = {
+						name = "heresy"
+						duration = 1825
+					}
+				}
 			}
 		}
 	}
