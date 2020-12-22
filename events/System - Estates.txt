@@ -392,127 +392,304 @@ country_event = {
 }
 
 #-----------------------------------
-# Focus National Attention
+# Seek Advisor
 #-----------------------------------
 country_event = {
 	id = estate_system.10
 	title = estate_system.10.title
 	desc = estate_system.10.desc
-	picture = STREET_SPEECH_eventPicture
+	picture = KARAZHAN_eventPicture
 
 	is_triggered_only = yes
     
-    # Increase Support of Ruler
+    # Administrative
 	option = {
 		name = estate_system.10.option.a
 		
-        trigger = {
-            mil_power = 100
-            OR = {
-                AND = {
-                    government = monarchy
-                    NOT = { legitimacy = 91 }
-                }
-                AND = {
-                    government = republic
-                    NOT = { republican_tradition = 91 }
-                }
-                AND = {
-                    government = theocracy
-                    has_dlc = "Common Sense"
-                    NOT = { devotion = 91 }
-                }
-                AND = {
-                    government = theocracy
-                    NOT = { has_dlc = "Common Sense" }
-                    NOT = { legitimacy = 91 }
-                }
-                AND = {
-                    is_nomad = yes
-                    has_dlc = "The Cossacks"
-                    NOT = { horde_unity = 91 }
-                }
-                AND = {
-                    is_nomad = yes
-                    NOT = { has_dlc = "The Cossacks" }
-                    NOT = { legitimacy = 91 }
-                }
-                AND = {
-                    is_emperor_of_china = yes
-                    NOT = { meritocracy = 91 }
-                }
-            }
-        }
-        
-        add_mil_power = -100
-        
-		add_legitimacy = 10
-		add_republican_tradition = 10
-		add_devotion = 10
-		add_horde_unity = 10
-		add_meritocracy = 10
+        country_event = { id = estate_system.11 }
 	}
     
-    # Focus on Administrative Matters
-    option = {
+    # Diplomatic
+	option = {
 		name = estate_system.10.option.b
 		
-        trigger = {
-            dip_power = 100
-            mil_power = 100
-        }
-        
-        add_adm_power = 150
-        add_dip_power = -100
-        add_mil_power = -100
+        country_event = { id = estate_system.12 }
 	}
     
-    # Focus on Diplomatic Matters
-    option = {
-		name = estate_system.10.option.d
+    # Military
+	option = {
+		name = estate_system.10.option.c
 		
-        trigger = {
-            adm_power = 100
-            mil_power = 100
-        }
-        
-        add_dip_power = 150
-        add_adm_power = -100
-        add_mil_power = -100
+        country_event = { id = estate_system.13 }
 	}
     
-    # Focus on Military Matters
+    # Exit
     option = {
-		name = estate_system.10.option.d
-		
-        trigger = {
-            adm_power = 100
-            dip_power = 100
-        }
-        
-        add_mil_power = 150
-        add_dip_power = -100
-        add_adm_power = -100
-	}
-    
-    # Focus on Recruitment
-    option = {
-		name = estate_system.10.option.e
-		
-        trigger = {
-            mil_power = 150
-        }
-        
-        add_mil_power = -150
-		add_manpower = 5
-	}
-    
-    # None
-    option = {
-		name = estate_system.10.option.x
-		
-	}
+		name = estate_system.option.exit
+    }
 }
 
+# Administrative
+country_event = {
+	id = estate_system.11
+	title = estate_system.11.title
+	desc = estate_system.11.desc
+	picture = KING_LLANE_eventPicture
 
+	is_triggered_only = yes
+    
+	option = {
+		name = estate_system.11.option.a
+		
+        define_advisor = {
+            type = philosopher
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.b
+		
+        define_advisor = {
+            type = natural_scientist
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.c
+		
+        define_advisor = {
+            type = artist
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.d
+		
+        define_advisor = {
+            type = treasurer
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.e
+		
+        define_advisor = {
+            type = theologian
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.f
+		
+        define_advisor = {
+            type = master_of_mint
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.g
+		
+        define_advisor = {
+            type = inquisitor
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    
+    # Exit
+    option = {
+		name = estate_system.option.return
+        
+        country_event = { id = estate_system.10 }
+    }
+}
+
+# Diplomatic
+country_event = {
+	id = estate_system.12
+	title = estate_system.12.title
+	desc = estate_system.12.desc
+	picture = KING_LLANE_eventPicture
+
+	is_triggered_only = yes
+    
+	option = {
+		name = estate_system.12.option.a
+		
+        define_advisor = {
+            type = statesman
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.b
+		
+        define_advisor = {
+            type = naval_reformer
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.c
+		
+        define_advisor = {
+            type = trader
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.d
+		
+        define_advisor = {
+            type = spymaster
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.e
+		
+        define_advisor = {
+            type = colonial_governor
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.f
+		
+        define_advisor = {
+            type = diplomat
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.g
+		
+        define_advisor = {
+            type = navigator
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    
+    # Exit
+    option = {
+		name = estate_system.option.return
+        
+        country_event = { id = estate_system.10 }
+    }
+}
+
+# Military
+country_event = {
+	id = estate_system.13
+	title = estate_system.13.title
+	desc = estate_system.13.desc
+	picture = KING_LLANE_eventPicture
+
+	is_triggered_only = yes
+    
+    option = {
+		name = estate_system.13.option.a
+		
+        define_advisor = {
+            type = army_reformer
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.b
+		
+        define_advisor = {
+            type = army_organiser
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.c
+		
+        define_advisor = {
+            type = commandant
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.d
+		
+        define_advisor = {
+            type = quartermaster
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.e
+		
+        define_advisor = {
+            type = recruitmaster
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.f
+		
+        define_advisor = {
+            type = fortification_expert
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.g
+		
+        define_advisor = {
+            type = grand_captain
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+
+    # Exit
+    option = {
+		name = estate_system.option.return
+        
+        country_event = { id = estate_system.10 }
+    }
+}
 
