@@ -244,11 +244,6 @@ country_event = {
 	}
 	
 	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden scripted effect, is used by scripted effect and must always be cleared in after = { } using erase_advisor_flags_effect.
-			chance_of_primary = 85 #Not percentages!
-			chance_of_tertiary = 5
-			chance_of_secondary = 15
-		}
 		hidden_effect = {
 			random_list = {
 				33 = { set_country_flag = treasurer_flag }
@@ -286,25 +281,22 @@ country_event = {
 		trigger_switch = {
 			on_trigger = has_country_flag
 			treasurer_flag = {
-				generate_advisor_of_type_and_semi_random_religion_effect = {
+				generate_advisor_of_type_effect = {
 					advisor_type=treasurer
-					advisor_type_if_not_state=trader
 					skill=1
 					discount=yes
 				}
 			}
 			philosopher_flag = {
-				generate_advisor_of_type_and_semi_random_religion_effect = {
+				generate_advisor_of_type_effect = {
 					advisor_type=philosopher
-					advisor_type_if_not_state=artist
 					skill=1
 					discount=yes
 				}
 			}
 			diplomat_flag = {
-				generate_advisor_of_type_and_semi_random_religion_effect = {
+				generate_advisor_of_type_effect = {
 					advisor_type=diplomat
-					advisor_type_if_not_state=spymaster
 					skill=1
 					discount=yes
 				}
@@ -313,7 +305,6 @@ country_event = {
 		add_prestige = -5
 	}
 	after = {
-		erase_advisor_flags_effect = yes
 		trigger_switch = {
 			on_trigger = has_country_flag
 			treasurer_flag = { clr_country_flag = treasurer_flag }
@@ -424,7 +415,7 @@ country_event = {
 	picture = TOURNAMENT_eventPicture
 	
 	trigger = {
-        is_civilied = yes
+        is_civilized = yes
 		has_heir = yes
 		heir_age = 15
 		is_lesser_in_union = no

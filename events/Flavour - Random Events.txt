@@ -3589,8 +3589,14 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 
 	is_triggered_only = yes
+
 	trigger = {
 		NOT = { adm = 3 }
+		any_neighbor_country = {
+			is_neighbor_of = ROOT
+			is_free_or_tributary_trigger = yes
+			NOT = { alliance_with = root }
+		}
 	}
 
 	mean_time_to_happen = {
@@ -3610,22 +3616,29 @@ country_event = {
 		}
 	}
 
+	immediate = {
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					is_neighbor_of = ROOT
+					is_free_or_tributary_trigger = yes
+					NOT = { alliance_with = root }
+				}
+				save_event_target_as = dissidents_in_here
+			}
+		}
+	}
+
 	option = {
 		name = wwu_random_events.41.option.a
-        
 		ai_chance = { factor = 55 }
 		add_years_of_income = -0.1
-		random_country = {
-			limit = {
-				is_neighbor_of = ROOT
-				is_free_or_tributary_trigger = yes
-			}
+		event_target:dissidents_in_here = {
 			add_opinion = { who = ROOT modifier = opinion_supports_dissidents }
 		}
 	}
 	option = {
 		name = wwu_random_events.41.option.b
-        
 		ai_chance = { factor = 45 }
 		add_prestige = -10
 	}
@@ -4348,12 +4361,26 @@ country_event = {
 	picture = COURT_eventPicture
 
 	is_triggered_only = yes
+
 	trigger = {
 		is_at_war = no
 		has_any_disaster = no
 		NOT = { overextension_percentage = 0.01 }
 		NOT = { num_of_rebel_armies = 1 }
 		adm = 3
+		has_regency = no
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					controlled_by = owner
+					is_city = yes
+				}
+				save_event_target_as = random_province
+			}
+		}
 	}
 
 	mean_time_to_happen = {
@@ -4375,7 +4402,6 @@ country_event = {
 
 	option = {
 		name = wwu_random_events.54.option.a
-        
 		trigger = { NOT = { stability = 3 } }
 		ai_chance = {
 			factor = 30
@@ -4388,16 +4414,14 @@ country_event = {
 	}
 	option = {
 		name = wwu_random_events.54.option.b
-        
 		ai_chance = { factor = 70 }
-		random_owned_province = {
-			limit = { controlled_by = owner }
+		goto = random_province
+		event_target:random_province = {
 			add_base_tax = 1
 		}
 	}
 	option = {
 		name = wwu_random_events.54.option.c
-        
 		highlight = yes
 		trigger = { ruler_has_personality = drunkard_personality }
 		required_personality = drunkard_personality
