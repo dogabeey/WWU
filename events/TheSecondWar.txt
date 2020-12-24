@@ -13,7 +13,6 @@ country_event = {
 	   desc = "end_of_second_war_horde_lost.desc"
 	}
 	picture = ORCISH_INVASION_eventPicture
-	#goto = root
 
 	major = no
     
@@ -37,7 +36,7 @@ country_event = {
     
 	option = {
 		name = end_of_second_war_horde_lost.opt1
-		#log = "end_of_second_war_horde_lost.opt1"
+		
     }
 }
 # If orcs won the first war, the second war may end with Capital city falling.
@@ -53,7 +52,6 @@ country_event = {
 	   desc = "end_of_second_war_horde_won.desc"
 	}
 	picture = ORCISH_INVASION_eventPicture
-	#goto = root
 
 	major = no
     
@@ -77,7 +75,7 @@ country_event = {
     
 	option = {
 		name = end_of_second_war_horde_won.opt1
-		#log = "end_of_second_war_horde_won.opt1"
+		
     }
 }
 # If humans won the first war, the second war may end with crushing of remaining orcs.
@@ -93,7 +91,6 @@ country_event = {
 	   desc = "end_of_second_war_ally_won.desc"
 	}
 	picture = ORCISH_INVASION_eventPicture
-	#goto = root
 
 	major = no
     
@@ -120,7 +117,7 @@ country_event = {
     
 	option = {
 		name = end_of_second_war_ally_won.opt1
-		#log = "end_of_second_war_ally_won.opt1"
+		
     }
 }
 # If humans won the first war, the second war may end with orcs retake Stormwind.
@@ -136,7 +133,6 @@ country_event = {
 	   desc = "end_of_second_war_ally_lost.desc"
 	}
 	picture = ORCISH_INVASION_eventPicture
-	#goto = root
 
 	major = no
     
@@ -160,7 +156,7 @@ country_event = {
     
 	option = {
 		name = end_of_second_war_ally_lost.opt1
-		#log = "end_of_second_war_ally_lost.opt1"
+		
     }
 }
 #Demon soul
@@ -169,7 +165,6 @@ country_event = {
 	title = demon_soul_event.title
 	desc = demon_soul_event.desc
 	picture = ORCISH_INVASION_eventPicture
-	#goto = root
 
     hidden = no
 	fire_only_once = yes
@@ -201,7 +196,7 @@ country_event = {
     
 	option = {
 		name = demon_soul_event.opt1
-		#log = "demon_soul_event.opt1"
+		
 		add_country_modifier = {
 			name = demon_soul
 			duration = -1
@@ -232,7 +227,6 @@ country_event = {
 	   desc = "council_revelation.desc.2"
 	}
 	picture = ORC_WARLOCK_KILJAEDEN_eventPicture
-	#goto = root
     
 	trigger = {
 		current_age = the_second_war
@@ -257,7 +251,7 @@ country_event = {
     
 	option = {
 		name = council_revelation.opt1
-		#log = "council_revelation.opt1"
+		
 		custom_tooltip = council_revelation.opt1.tt
 		add_casus_belli = {
 			target = event_target:horde_leader
@@ -276,7 +270,6 @@ country_event = {
 	title = guldan_swear_fealty.title
 	desc = guldan_swear_fealty.desc
 	picture = ORC_WARLOCK_KILJAEDEN_eventPicture
-	#goto = root
 
     hidden = no
 	fire_only_once = no
@@ -299,7 +292,7 @@ country_event = {
     
 	option = {
 		name = guldan_swear_fealty.opt1
-		#log = "guldan_swear_fealty.opt1" # Pardon him for his crimes.
+		
 		custom_tooltip = guldan_swear_fealty.opt1.tt
 		set_country_flag = deathknights_active
 		hidden_effect = {
@@ -308,12 +301,12 @@ country_event = {
     }
 	option = {
 		name = guldan_swear_fealty.opt2
-		#log = "guldan_swear_fealty.opt2" # Execute him in public.
+		
 		add_prestige = 10
     }
 	option = {
 		name = guldan_swear_fealty.opt3
-		#log = "guldan_swear_fealty.opt3" # Banish him.
+		
 		add_prestige = 5
     }
 }
@@ -323,7 +316,6 @@ country_event = {
 	title = guldan_betrayal.title
 	desc = guldan_betrayal.desc
 	picture = ORC_WARLOCK_KILJAEDEN_eventPicture
-	#goto = root
 
     hidden = no
 	fire_only_once = no
@@ -336,7 +328,7 @@ country_event = {
     
 	option = {
 		name = guldan_betrayal_happened.opt1
-		#log = "guldan_betrayal_happened.opt1" # Pardon him for his crimes.
+		
 		custom_tooltip = guldan_betrayal_happened.opt1.tt
 		clr_country_flag = deathknights_active
 		if = { 
@@ -423,7 +415,6 @@ country_event = {
 	   desc = "orcish_reform.desc.2"
 	}
 	picture = ORC_WARLOCK_KILJAEDEN_eventPicture
-	#goto = root
 
     hidden = no
 	fire_only_once = no
@@ -450,7 +441,7 @@ country_event = {
     
 	option = {
 		name = orcish_reform.opt1
-		#log = "orcish_reform.opt1" # It is time to start root out the legion agents.
+		
 		add_adm_power = -75
 		add_dip_power = -75
 		add_mil_power = -75
@@ -477,7 +468,7 @@ country_event = {
 	
 	option = {
 		name = orcish_reform.opt2
-		#log = "orcish_reform.opt2" # Slowly weaken legion's grasp.
+		
         
 		custom_tooltip = orcish_reform.opt2.tt
 		hidden_effect = {
@@ -496,7 +487,7 @@ country_event = {
 	
 	option = {
 		name = orcish_reform.opt3
-		#log = "orcish_reform.opt3" # Wait for a better moment.
+		
 		add_prestige = -5
 		add_horde_unity = -10
 		custom_tooltip = orcish_reform.opt3.tt
@@ -504,7 +495,7 @@ country_event = {
 	
 	option = {
 		name = orcish_reform.opt4
-		#log = "orcish_reform.opt4" # We will stay loyal.
+		
 		set_country_flag = stood_loyal_to_fel
 		custom_tooltip = orcish_reform.opt4.tt
 		hidden_effect = {
@@ -527,7 +518,6 @@ country_event = {
 	title = shadow_council_reveal.title
 	desc = shadow_council_reveal.title
 	picture = ORCISH_INVASION_eventPicture
-	#goto = root
 
 	major = no
     is_triggered_only = yes

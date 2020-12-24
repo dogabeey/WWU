@@ -5,7 +5,6 @@ country_event = {
 	title = gilneas.1.title #Build the Wall!
 	desc = gilneas.1.desc #We should build a wall to forever remove our nation from other people's troubles.
 	picture = DIPLOMACY_eventPicture
-	#goto = root
     
 	fire_only_once = yes
 	
@@ -34,9 +33,9 @@ country_event = {
 	
 	option = {
 		name = gilneas.1.option.a
-		#log = "gilneas.1.option.a" #We care for ourselves and only ourselves.
+		
 
-        #if = { limit = { has_global_flag = enable_event_logging } #log = "[Root.GetName] - gilneas.1.option.a" }
+        #if = { limit = { has_global_flag = enable_event_logging } 
 		ai_chance = { factor = 100 }
 		add_prestige = -20
 		every_owned_province = {
@@ -55,9 +54,9 @@ country_event = {
 	
 	option = {
 		name = gilneas.1.option.b
-		#log = "gilneas.1.option.b" #We mustn't let our fellow humans stand alone.
+		
 
-        #if = { limit = { has_global_flag = enable_event_logging } #log = "[Root.GetName] - gilneas.1.option.b" }
+        #if = { limit = { has_global_flag = enable_event_logging } 
 		ai_chance = { factor = 0 }
 		add_prestige = 20
 	}
@@ -65,10 +64,9 @@ country_event = {
 
 country_event = {
 	id = gilneas.3
-	title = scourge_invasion_of_gilneas.title
-	desc = scourge_invasion_of_gilneas.desc
+	title = gilneas.3.title
+	desc = gilneas.3.desc
 	picture = UNDEAD_eventPicture
-	#goto = root
     
 	fire_only_once = yes
 	
@@ -88,8 +86,8 @@ country_event = {
 	}
 	
 	option = {
-		name = scourge_invasion_of_gilneas.opt1
-		#log = "scourge_invasion_of_gilneas.opt1" # Accept Arugal's offer
+		name = gilneas.3.opt1
+		
 		add_manpower = 25
 		add_country_modifier = { 
 			name = curse_of_the_worgen
@@ -110,22 +108,21 @@ country_event = {
 				}
 			}
 		}
-		custom_tooltip = scourge_invasion_of_gilneas.opt1.tooltip
+		custom_tooltip = gilneas.3.opt1.tooltip
 	}
 	
 	option = {
-		name = scourge_invasion_of_gilneas.opt2
-		#log = "scourge_invasion_of_gilneas.opt2" # That deal smells furry
+		name = gilneas.3.opt2
+		
 		add_prestige = 5
 	}
 }
 
 country_event = {
 	id = gilneas.4
-	title = worgen_unleashed.title
-	desc = worgen_unleashed.desc
+	title = gilneas.4.title
+	desc = gilneas.4.desc
 	picture = UNDEAD_eventPicture
-	#goto = root
     
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -139,8 +136,8 @@ country_event = {
 	}
 	
 	option = {
-		name = worgen_unleashed.opt1
-		#log = "worgen_unleashed.opt1"
+		name = gilneas.4.opt1
+		
 		
 		#remove_country_modifier = curse_of_the_worgen
 	}
@@ -151,7 +148,6 @@ country_event = {
 	title = worgen_convert.title
 	desc = worgen_convert.desc
 	picture = UNDEAD_eventPicture
-	#goto = root
     
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -166,7 +162,7 @@ country_event = {
 	
 	option = {
 		name = worgen_convert.opt1
-		#log = "worgen_convert.opt1"
+		
 		remove_country_modifier = curse_of_the_worgen
 		change_primary_culture = culture_gilnean_worgen
 		change_technology_group = tech_worgen

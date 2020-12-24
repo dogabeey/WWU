@@ -1944,8 +1944,27 @@ country_event = {
 
 	is_triggered_only = yes
 	trigger = {
+		OR = {
+			has_regency = no
+			has_consort_regency = yes
+		}
 		any_neighbor_country = {
 			is_at_war = no
+			is_lesser_in_union = no
+			same_continent = root
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					is_at_war = no
+					is_lesser_in_union = no
+					same_continent = root
+				}
+				save_event_target_as = insulted_party
+			}
 		}
 	}
 
@@ -1957,13 +1976,11 @@ country_event = {
 			dip = 5
 		}
 	}
-
+    
 	option = {
 		name = wwu_random_events.22.option.a
-        
-		ai_chance = { factor = 55 }
-		random_country = {
-			limit = { is_neighbor_of = ROOT  }
+        ai_chance = { factor = 55 }
+		event_target:insulted_party = {
 			reverse_add_casus_belli = {	
 				target = ROOT
 				type = cb_insult
@@ -1973,8 +1990,7 @@ country_event = {
 	}
 	option = {
 		name = wwu_random_events.22.option.b
-        
-		ai_chance = { factor = 45 }
+        ai_chance = { factor = 45 }
 		every_neighbor_country = {
 			limit = { is_at_war = no }
 			add_opinion = { who = ROOT modifier = opinion_eased_tension }
@@ -2201,6 +2217,18 @@ country_event = {
 		}
 	}
 
+    immediate = {
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					NOT = { is_subject_of = root }
+					NOT = { alliance_with = root }
+				}
+				save_event_target_as = neighbour_country
+			}
+		}
+	}
+    
 	option = {
 		name = wwu_random_events.25.option.a
         
@@ -5311,5 +5339,315 @@ country_event = {
 				add_stability = -1
 			}
 		}
+	}
+}
+
+# Threats to the crown
+country_event = {
+	id = wwu_random_events.68
+	title = "EVTNAME1072"
+	desc = "EVTDESC1072"
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+		num_of_cities = 25
+		NOT = { treasury = 100 }
+		is_at_war = yes
+		NOT = { mil = 3 }
+		num_of_loans = 20
+	}
+
+	mean_time_to_happen = {
+		months = 264
+
+		modifier = {
+			factor = 0.9
+			wwu_economic_ideas = 6
+		}		
+		modifier = {
+			factor = 0.9
+			wwu_economic_ideas = 7
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { wwu_economic_ideas = 3 }
+		}		
+		modifier = {
+			factor = 0.95
+			NOT = { wwu_economic_ideas = 1 }
+		}
+		modifier = {
+			factor = 0.9
+			has_wartaxes = yes
+		}
+	}
+
+	option = {
+		name = "EVTOPTA1072"
+		
+		ai_chance = { factor = 50 }
+		add_prestige = 5
+		add_years_of_income = -0.25
+		add_country_modifier = {
+			name = "military_funding"
+			duration = 1825
+		}
+	}
+	option = {
+		name = "EVTOPTB1072"
+		
+		ai_chance = { factor = 50 }
+		add_prestige = -5
+		add_dip_power = 50
+	}
+}
+
+# National fragmentation
+country_event = {
+	id = wwu_random_events.69
+	title = "EVTNAME1073"
+	desc = "EVTDESC1073"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		num_of_cities = 25
+		NOT = { adm = 3 }
+		NOT = { stability = 0 }
+	}
+
+	mean_time_to_happen = {
+		months = 216
+
+		modifier = {
+			factor = 0.9
+			NOT = { adm = 1 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { stability = -2 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { wwu_economic_ideas = 2 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { wwu_economic_ideas = 1 }
+		}
+		modifier = {
+			factor = 0.9
+			vassal = 2
+		}
+	}
+
+	option = {
+		name = "EVTOPTA1073"
+		
+		ai_chance = { factor = 50 }
+		add_years_of_income = -0.25
+	}
+	option = {
+		name = "EVTOPTB1073"
+		
+		ai_chance = { factor = 50 }
+		add_stability = -1
+	}
+}
+
+# Economic reform 
+country_event = {
+	id = wwu_random_events.70
+	title = "EVTNAME1074"
+	desc = "EVTDESC1074"
+	picture = ECONOMY_eventPicture
+	
+	trigger = {
+		num_of_cities = 25
+		advisor = treasurer
+		num_of_loans = 20
+	}
+
+	mean_time_to_happen = {
+		months = 264
+
+		modifier = {
+			factor = 0.9
+			treasurer = 2
+		}
+		modifier = {
+			factor = 0.9
+			treasurer = 3
+		}
+	}
+
+	option = {
+		name = "EVTOPTA1074"
+		
+		ai_chance = { factor = 70 }
+		add_prestige = -10
+		add_country_modifier = {
+			name = "debt_funding_plan"
+			duration = 1825
+		}
+	}
+	option = {
+		name = "EVTOPTB1074"
+		
+		ai_chance = { factor = 30 }
+		add_country_modifier = {
+			name = "tax_reform"
+			duration = 1825
+		}
+	}
+}
+
+# Prospering times
+country_event = {
+	id = wwu_random_events.71
+	title = "EVTNAME1075"
+	desc = "EVTDESC1075"
+	picture = ECONOMY_eventPicture
+	
+	trigger = {
+		num_of_cities = 25
+		OR = {
+			has_idea_group = wwu_innovation_ideas
+			advisor = artist
+			stability = 3
+		}
+		stability = 1
+		NOT = { has_country_flag = prosper_time_event }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			factor = 0.75
+			full_idea_group = wwu_innovation_ideas
+		}
+		modifier = {
+			factor = 0.9
+			advisor = philosopher
+		}
+		modifier = {
+			factor = 0.9
+			artist = 3
+		}
+		modifier = {
+			factor = 0.9
+			artist = 2
+		}
+	}
+	immediate = {
+		set_country_flag = prosper_time_event
+	}
+
+	option = {
+		name = "EVTOPTA1075"
+		
+		ai_chance = { factor = 50 }		
+		add_adm_power = 25
+		random_owned_province = {
+			add_base_tax = 1
+		}
+	}
+	option = {
+		name = "EVTOPTB1075"
+		
+		ai_chance = { factor = 30 }
+		add_mil_power = 25	
+		random_owned_province = {
+			add_base_manpower = 1
+		}
+		
+	}
+	option = {
+		name = "EVTOPTC1075"
+		
+		ai_chance = { factor = 20 }
+		add_dip_power = 25
+		random_owned_province = {
+			add_base_production = 1
+		}
+	}
+}
+
+# Colonial Ventures
+country_event = {
+	id = wwu_random_events.72
+	title = "EVTNAME1076"
+	desc = "EVTDESC1076"
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		num_of_cities = 25
+		has_idea_group = wwu_exploration_ideas
+		NOT = { has_country_modifier = naval_improvements }
+		NOT = { has_country_modifier = naval_disarmament }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			factor = 0.9
+			num_of_conquistadors = 1
+		}
+		modifier = {
+			factor = 0.9
+			num_of_explorers = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_idea = colonial_ventures
+		}
+		modifier = {
+			factor = 0.9
+			stability = 1
+		}
+		modifier = {
+			factor = 0.9
+			stability = 2
+		}
+		modifier = {
+			factor = 0.9
+			stability = 3
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { stability = -2 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA1076"
+		
+		ai_chance = { factor = 5 }
+		add_country_modifier = {
+			name = "naval_improvements"
+			duration = 3650
+		}
+	}
+	option = {
+		name = "EVTOPTB1076"
+		
+		ai_chance = { factor = 5 }
+		add_country_modifier = {
+			name = "naval_disarmament"
+			duration = 3650
+		}	
 	}
 }

@@ -1,20 +1,21 @@
+namespace = wwu_dynastic
+
 # A beloved heir dies
 country_event = {
-	id = 9451
-	title = "EVTNAME9451"
-	desc = "EVTDESC9451"
+	id = wwu_dynastic.1
+	title = wwu_dynastic.1.title
+	desc = wwu_dynastic.1.desc
 	picture = DEATH_OF_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		has_heir = yes
 		heir_claim = 90
 		is_female = no
 		is_lesser_in_union = no
 		has_regency = no
 		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
-		NOT = { has_reform = scourge_reform }
+        
 		any_owned_province = {
 			num_free_building_slots = 1
 			NOT = { has_building = wow_temple }
@@ -27,8 +28,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9451"
-		#log = "EVTOPTA9451"
+		name = wwu_dynastic.1.option.a
 		kill_heir = yes
 		random_owned_province = {
 			limit = {
@@ -42,8 +42,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB9451"
-		#log = "EVTOPTB9451"
+		name = wwu_dynastic.1.option.b
 		kill_heir = yes
 		define_heir = {
 			dynasty = ROOT
@@ -54,13 +53,13 @@ country_event = {
 
 # Palace Coup
 country_event = {
-	id = 9452
-	title = "EVTNAME9452"
-	desc = "EVTDESC9452"
-	picture = WOW_ASSASSINATION_eventPicture
-	#goto = root
+	id = wwu_dynastic.2
+	title = wwu_dynastic.2.title
+	desc = wwu_dynastic.2.desc
+	picture = ASSASSINATION_eventPicture
 	
 	trigger = {
+        is_civilized = yes
 		has_heir = yes
 		heir_age = 15
 		heir_claim = 90
@@ -70,8 +69,6 @@ country_event = {
 		}
 		has_regency = no
 		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
-		NOT = { has_reform = scourge_reform }
 	}
 	
 	mean_time_to_happen = {
@@ -83,8 +80,8 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9452"
-		#log = "EVTOPTA9452"
+		name = wwu_dynastic.2.option.a
+        
 		kill_ruler = yes
 		add_country_modifier = {
 			name = "illegitimate_ruler"
@@ -93,21 +90,21 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB9452"
-		#log = "EVTOPTB9452"
+		name = wwu_dynastic.2.option.b
+        
 		kill_heir = yes
 	}
 }
 
 # The Weeping Song
 country_event = {
-	id = 9453
-	title = "EVTNAME9453"
-	desc = "EVTDESC9453"
+	id = wwu_dynastic.3
+	title = wwu_dynastic.3.title
+	desc = wwu_dynastic.3.desc
 	picture = COURT_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		has_heir = yes
 		has_wartaxes = yes
 		is_lesser_in_union = no
@@ -122,36 +119,33 @@ country_event = {
 		}
 		government = monarchy
 		heir_age = 4
-		NOT = { has_reform = kingdom_of_magic_reform }
 	}
 	
 	mean_time_to_happen = {
-		months = 25
+		months = 50
 	}
 	
 	option = {
-		name = "EVTOPTA9453"
-		#log = "EVTOPTA9453"
+		name = wwu_dynastic.3.option.a
 		add_treasury = -40
 		add_war_exhaustion = -2
 	}
 	
 	option = {
-		name = "EVTOPTB9453"
-		#log = "EVTOPTB9453"
+		name = wwu_dynastic.3.option.b
 		add_manpower = 1
 	}
 }
 
 # Springtime
 country_event = {
-	id = 9454
-	title = "EVTNAME9454"
-	desc = "EVTDESC9454"
+	id = wwu_dynastic.4
+	title = wwu_dynastic.4.title
+	desc = wwu_dynastic.4.desc
 	picture = COURT_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		government = monarchy
 		is_month = 3
 		NOT = { is_month = 6 }
@@ -195,16 +189,14 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9454"
-		#log = "EVTOPTA9454"
+		name = wwu_dynastic.4.option.a
 		define_heir = {
 			dynasty = ROOT
 			claim = 30
 		}
 	}
 	option = {
-		name = "EVTOPTB9454"
-		#log = "EVTOPTB9454"
+		name = wwu_dynastic.4.option.b
 		trigger = {
 			any_known_country = {
 				religion = ROOT
@@ -231,15 +223,15 @@ country_event = {
 	}
 }
 
-# Soir�e
+# Soirée
 country_event = {
-	id = 9455
-	title = "EVTNAME9455"
-	desc = "EVTDESC9455"
+	id = wwu_dynastic.5
+	title = wwu_dynastic.5.title
+	desc = wwu_dynastic.5.desc
 	picture = COURT_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		has_heir = no
 		is_lesser_in_union = no
 		government = monarchy
@@ -252,6 +244,11 @@ country_event = {
 	}
 	
 	immediate = {
+		check_if_non_state_advisor_effect = { #Hidden scripted effect, is used by scripted effect and must always be cleared in after = { } using erase_advisor_flags_effect.
+			chance_of_primary = 85 #Not percentages!
+			chance_of_tertiary = 5
+			chance_of_secondary = 15
+		}
 		hidden_effect = {
 			random_list = {
 				33 = { set_country_flag = treasurer_flag }
@@ -263,8 +260,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9455"
-		#log = "EVTOPTA9455"
+		name = wwu_dynastic.5.option.a
 		trigger = {
 			is_female = no
 		}
@@ -275,8 +271,7 @@ country_event = {
 		add_prestige = -10
 	}
 	option = {
-		name = "EVTOPTB9455"
-		#log = "EVTOPTB9455"
+		name = wwu_dynastic.5.option.b
 		trigger = {
 			is_female = yes
 		}
@@ -287,27 +282,29 @@ country_event = {
 		add_prestige = -10
 	}
 	option = {
-		name = "EVTOPTC9455"
-		#log = "EVTOPTC9455"
+		name = wwu_dynastic.5.option.c
 		trigger_switch = {
 			on_trigger = has_country_flag
 			treasurer_flag = {
-				generate_advisor_of_type_effect = {
+				generate_advisor_of_type_and_semi_random_religion_effect = {
 					advisor_type=treasurer
+					advisor_type_if_not_state=trader
 					skill=1
 					discount=yes
 				}
 			}
 			philosopher_flag = {
-				generate_advisor_of_type_effect = {
+				generate_advisor_of_type_and_semi_random_religion_effect = {
 					advisor_type=philosopher
+					advisor_type_if_not_state=artist
 					skill=1
 					discount=yes
 				}
 			}
 			diplomat_flag = {
-				generate_advisor_of_type_effect = {
+				generate_advisor_of_type_and_semi_random_religion_effect = {
 					advisor_type=diplomat
+					advisor_type_if_not_state=spymaster
 					skill=1
 					discount=yes
 				}
@@ -316,6 +313,7 @@ country_event = {
 		add_prestige = -5
 	}
 	after = {
+		erase_advisor_flags_effect = yes
 		trigger_switch = {
 			on_trigger = has_country_flag
 			treasurer_flag = { clr_country_flag = treasurer_flag }
@@ -327,43 +325,44 @@ country_event = {
 
 # Heir Falls ill
 country_event = {
-	id = 9456
-	title = "EVTNAME9456"
-	desc = "EVTDESC9456"
+	id = wwu_dynastic.6
+	title = wwu_dynastic.6.title
+	desc = wwu_dynastic.6.desc
 	picture = PLAGUE_eventPicture
-	#goto = root
 	
 	trigger = {
 		has_heir = yes
-		government = monarchy
 		has_regency = no
 		is_lesser_in_union = no
-		NOT = { has_reform = kingdom_of_magic_reform }
 	}
 	
 	mean_time_to_happen = {
 		months = 2400
 	}
 	option = {
-		name = "EVTOPTA9456"
-		#log = "EVTOPTA9456"
+		name = wwu_dynastic.6.option.a
 		add_years_of_income = -0.2
 		random_list = {
 			50 = { kill_heir = yes }
 			50 = {
 				add_legitimacy = 5
+                add_republican_tradition = 5
+                add_devotion = 5
+                add_meritocracy = 5
 				add_horde_unity = 5
 			}
 		}
 	}
 	
 	option = {
-		name = "EVTOPTB9456"
-		#log = "EVTOPTB9456"
+		name = wwu_dynastic.6.option.b
 		random_list = {
 			75 = { kill_heir = yes}
 			25 = {
 				add_legitimacy = 30
+                add_republican_tradition = 30
+                add_devotion = 30
+                add_meritocracy = 30
 				add_horde_unity = 30
 			}
 		}
@@ -372,18 +371,17 @@ country_event = {
 
 # Child in the Reeds
 country_event = {
-	id = 9457
-	title = "EVTNAME9457"
-	desc = "EVTDESC9457"
+	id = wwu_dynastic.7
+	title = wwu_dynastic.7.title
+	desc = wwu_dynastic.7.desc
 	picture = NEW_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		has_heir = no
 		is_lesser_in_union = no
 		government = monarchy
 		has_regency = no
-		NOT = { has_reform = kingdom_of_magic_reform }
 		has_government_attribute = heir
 	}
 	
@@ -396,14 +394,13 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9457"
-		#log = "EVTOPTA9457"
+		name = wwu_dynastic.7.option.a
 		define_heir = {
-			claim = 20
+			claim = 50
 			dynasty = ROOT
-			adm = 1
-			dip = 1
-			mil = 1
+			adm = 4
+			dip = 4
+			mil = 4
 			male = yes
 			no_consort_with_heir = yes
 		}
@@ -414,31 +411,23 @@ country_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB9457"
-		#log = "EVTOPTB9457"
+		name = wwu_dynastic.7.option.b
 		add_treasury = 5
 	}
 }
 
 # Tournament
 country_event = {
-	id = 9458
-	title = "EVTNAME9458"
-	desc = "EVTDESC9458"
+	id = wwu_dynastic.8
+	title = wwu_dynastic.8.title
+	desc = wwu_dynastic.8.desc
 	picture = TOURNAMENT_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilied = yes
 		has_heir = yes
 		heir_age = 15
 		is_lesser_in_union = no
-		NOT = { has_reform = kingdom_of_magic_reform }
-		NOT = {
-			is_year = 1450
-		}
-		NOT = {
-			has_country_flag = last_jousting_tournament_held
-		}
 		army_tradition =  20
 	}
 	
@@ -451,8 +440,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9458"
-		#log = "EVTOPTA9458"
+		name = wwu_dynastic.8.option.a
 		random_list = {
 			50 = { add_years_of_income = 0.05 }
 			45 = { add_legitimacy = 20}
@@ -461,14 +449,12 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB9458"
-		#log = "EVTOPTB9458"
+		name = wwu_dynastic.8.option.b
 		add_adm_power = 20
 	}
 	
 	option = {
-		name = "EVTOPTC9458"
-		#log = "EVTOPTC9458"
+		name = wwu_dynastic.8.option.c
 		add_prestige = 5
 	}
 }
@@ -476,50 +462,44 @@ country_event = {
 
 # Hunting accident
 country_event = {
-	id = 9459
-	title = "EVTNAME9459"
-	desc = "EVTDESC9459"
+	id = wwu_dynastic.9
+	title = wwu_dynastic.9.title
+	desc = wwu_dynastic.9.desc
 	picture = DEATH_OF_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
 		has_heir = yes
 		heir_age = 15
 		is_lesser_in_union = no
-		NOT = { has_reform = kingdom_of_magic_reform }
 	}
 	mean_time_to_happen = {
 		months = 2700
 	}
 	option = {
-		name = "EVTOPTA9459"
-		#log = "EVTOPTA9459"
+		name = wwu_dynastic.9.option.a
 		kill_heir = yes
 		add_stability = -1
 	}
 	option = {
-		name = "EVTOPTB9459"
-		#log = "EVTOPTB9459"
+		name = wwu_dynastic.9.option.b
 		kill_heir = yes
 		add_prestige = -10
 	}
 }
 
-
 # Heir goes out at night
 country_event = {
-	id = 9460
-	title = "EVTNAME9460"
-	desc = "EVTDESC9460"
+	id = wwu_dynastic.10
+	title = wwu_dynastic.10.title
+	desc = wwu_dynastic.10.desc
 	picture = COURT_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		has_heir = yes
 		heir_age = 15
 		is_lesser_in_union = no
 		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
 	}
 	
 	mean_time_to_happen = {
@@ -527,64 +507,25 @@ country_event = {
 		
 	}
 	option = {
-		name = "EVTOPTA9460"
-		#log = "EVTOPTA9460"
+		name = wwu_dynastic.10.option.a
 		add_prestige = -20
 	}
 	
 	option = {
-		name = "EVTOPTB9460"
-		#log = "EVTOPTB9460"
+		name = wwu_dynastic.10.option.b
 		add_heir_claim = -10
-	}
-}
-
-# Scheming Bureaucracy
-country_event = {
-	id = 9462
-	title = "EVTNAME9462"
-	desc = "EVTDESC9462"
-	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
-	
-	trigger = {
-		government = monarchy
-		NOT = { has_dlc = "Dharma" }
-		is_free_or_tributary_trigger = yes
-		adm_tech = 20
-		adm_power = 200
-		has_factions = no
-	}
-	
-	mean_time_to_happen = {
-		months = 5000
-	}
-	
-	option = {
-		name = "EVTOPTA9462"
-		#log = "EVTOPTA9462"
-		ai_chance = { factor = 100 }
-		add_adm_power = -100
-		add_stability = -1
-	}
-	option = {
-		name = "EVTOPTB9462"
-		#log = "EVTOPTB9462"
-		ai_chance = { factor = 0 }
-		kill_ruler = yes
-		add_stability = -6
 	}
 }
 
 # The Family
 country_event = {
-	id = 9463
-	title = "EVTNAME9463"
-	desc = "EVTDESC9463"
+	id = wwu_dynastic.11
+	title = wwu_dynastic.11.title
+	desc = wwu_dynastic.11.desc
 	picture = GOOD_WITH_MONARCH_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		stability = 3
 		treasury = 100
 		government = monarchy
@@ -603,8 +544,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9463"
-		#log = "EVTOPTA9463"
+		name = wwu_dynastic.11.option.a
 		random_country = {
 			limit = {
 				dynasty = ROOT
@@ -613,15 +553,14 @@ country_event = {
 				NOT = { senior_union_with = ROOT }
 				NOT = { junior_union_with = ROOT }
 			}
-			country_event = { id = 9476 }
+			country_event = { id = wwu_dynastic.14 }
 			add_opinion = { who = ROOT modifier = opinion_dynastic_helper }
 		}
 		add_treasury = -100
 		add_prestige = 10
 	}
 	option = {
-		name = "EVTOPTB9463"
-		#log = "EVTOPTB9463"
+		name = wwu_dynastic.11.option.b
 		random_country = {
 			limit = { 
 				dynasty = ROOT
@@ -630,7 +569,7 @@ country_event = {
 				NOT = { senior_union_with = ROOT }
 				NOT = { junior_union_with = ROOT }
 			}
-			country_event  = { id = 9477 }
+			country_event  = { id = wwu_dynastic.15 }
 			add_opinion = { who = ROOT modifier = opinion_ignore_dynasty }
 		}
 	}
@@ -638,13 +577,13 @@ country_event = {
 
 # Regent usurps throne
 country_event = {
-	id = 9468
-	title = "EVTNAME9468"
-	desc = "EVTDESC9468"
+	id = wwu_dynastic.12
+	title = wwu_dynastic.12.title
+	desc = wwu_dynastic.12.desc
 	picture = DEATH_OF_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		NOT = { stability = -1 }
 		is_lesser_in_union = no
 		government = monarchy
@@ -659,8 +598,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9468"
-		#log = "EVTOPTA9468"
+		name = wwu_dynastic.12.option.a
 		kill_heir = yes
 		define_ruler = {
 		}
@@ -668,13 +606,12 @@ country_event = {
 			limit = {
 				has_states_general_mechanic = yes
 			}
-			change_statists_vs_orangists = 200
+			change_statists_vs_orangists = 1
 		}
 		add_stability = -1
 	}
 	option = {
-		name = "EVTOPTB9468"
-		#log = "EVTOPTB9468"
+		name = wwu_dynastic.12.option.b
 		add_stability = -2
 		add_heir_claim = 30
 	}
@@ -682,15 +619,13 @@ country_event = {
 
 # Born under a star
 country_event = {
-	id = 9469
-	title = "EVTNAME9469"
-	desc = "EVTDESC9469"
+	id = wwu_dynastic.13
+	title = wwu_dynastic.13.title
+	desc = wwu_dynastic.13.desc
 	picture = NEW_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
-		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
+        culture_group = culture_group_human
 		is_lesser_in_union = no
 		has_heir = no
 		has_regency = no
@@ -706,135 +641,48 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9469"
-		#log = "EVTOPTA9469"
+		name = wwu_dynastic.13.option.a
 		define_heir = {
 			male = yes
 			dynasty = ROOT
-			name = "Alexander"
+			name = "Varian"
 			claim = 100
 			mil = 6
 		}
 	}
-	option = {
-		name = "EVTOPTBm9469"
-		#log = "EVTOPTBm9469"
+    option = {
+		name = wwu_dynastic.13.option.b
 		define_heir = {
 			male = yes
 			dynasty = ROOT
-			name = "Solomon"
+			name = "Llane"
 			claim = 100
 			adm = 6
 		}
 	}
-	option = {
-		name = "EVTOPTC9469"
-		#log = "EVTOPTC9469"
+    option = {
+		name = wwu_dynastic.13.option.c
 		define_heir = {
 			male = yes
 			dynasty = ROOT
-			name = "Johan"
+			name = "Anduin"
 			claim = 100
 			dip = 6
 		}
 	}
 }
 
-# Heir is of our Dynasty
-country_event = {
-	id = 9470
-	title = "EVTNAME9470"
-	desc = "EVTDESC9470"
-	picture = DIPLOMACY_eventPicture
-	#goto = root
-	
-	trigger = {
-		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
-		has_regency = no
-		is_lesser_in_union = no
-		num_of_royal_marriages = 4
-		has_government_attribute = heir
-		any_country = {
-			government = monarchy
-			NOT = { has_reform = kingdom_of_magic_reform }
-			marriage_with = ROOT
-			NOT = { dynasty = ROOT }
-			has_heir = no
-			is_lesser_in_union = no
-		}
-	}
-	
-	immediate = {
-		hidden_effect = {
-			random_country = {
-				limit = {
-					government = monarchy
-					marriage_with = ROOT
-					NOT = { dynasty = ROOT }
-					has_heir = no
-					is_lesser_in_union = no
-				}
-				save_event_target_as = marriage_policy_paid_off_here
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 1500
-		modifier = {
-			factor = 0.9
-			num_of_royal_marriages = 6
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA9470"
-		#log = "EVTOPTA9470"
-		trigger = {
-			NOT = { dynasty = "von Habsburg" }
-		}
-		event_target:marriage_policy_paid_off_here = {
-			define_heir = { #Generated immediately, rather than in the followup event, so that the actual heir matches the tooltip for ROOT.
-				dynasty = ROOT
-				age = 14
-			}
-			hidden_effect = {
-				country_event = { id = dynastic_events.8 }
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTB9470"
-		#log = "EVTOPTB9470"
-		trigger = {
-			dynasty = "von Habsburg"
-		}
-		event_target:marriage_policy_paid_off_here = {
-			define_heir = { #Generated immediately, rather than in the followup event, so that the actual heir matches the tooltip for ROOT.
-				dynasty = ROOT
-				age = 14
-			}
-			hidden_effect = {
-				country_event = { id = dynastic_events.8 }
-			}
-		}
-	}
-}
-
 # The Family Opt 1
 country_event = {
-	id = 9476
-	title = "EVTNAME9476"
-	desc = "EVTDESC9476"
+	id = wwu_dynastic.14
+	title = wwu_dynastic.14.title
+	desc = wwu_dynastic.14.desc
 	picture = DIPLOMACY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA9476"
-		#log = "EVTOPTA9476"
+		name = wwu_dynastic.14.option.a
 		add_treasury = 100
 		if = {
 			limit = {
@@ -864,17 +712,15 @@ country_event = {
 
 # The Family Opt 2
 country_event = {
-	id = 9477
-	title = "EVTNAME9477"
-	desc = "EVTDESC9477"
+	id = wwu_dynastic.15
+	title = wwu_dynastic.15.title
+	desc = wwu_dynastic.15.desc
 	picture = DIPLOMACY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA9477"
-		#log = "EVTOPTA9477"
+		name = wwu_dynastic.15.option.a
 		random_list = {
 			10 = {
 				add_stability_or_adm_power = yes
@@ -891,18 +737,17 @@ country_event = {
 
 # Fear and Loathing 1/3
 province_event = {
-	id = 9481
-	title = "EVTNAME9481"
-	desc = "EVTDESC9481"
-	picture = WOW_ASSASSINATION_eventPicture
-	#goto = root
+	id = wwu_dynastic.16
+	title = wwu_dynastic.16.title
+	desc = wwu_dynastic.16.desc
+	picture = ASSASSINATION_eventPicture
 	
 	trigger = {
 		is_capital = yes
 		owner = {
+            is_civilized = yes
 			has_regency = no
 			has_heir = yes
-			NOT = { has_reform = kingdom_of_magic_reform }
 			is_lesser_in_union = no
 			NOT = { has_country_flag = murdering_bastard }
 			NOT = { has_country_flag = contained_insanity }
@@ -912,11 +757,15 @@ province_event = {
 	
 	mean_time_to_happen = {
 		months = 4000
+		modifier = {
+			factor = 0.75
+			owner = { ruler_has_personality = malevolent_personality }
+		}
 	}
 	
 	option = {
-		name = "EVTOPTA9481"
-		#log = "EVTOPTA9481"
+		name = wwu_dynastic.16.option.a
+        
 		owner = {
 			kill_heir = yes
 			set_country_flag = murdering_bastard
@@ -924,10 +773,9 @@ province_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB9481"
-		#log = "EVTOPTB9481"
+		name = wwu_dynastic.16.option.c
 		owner = {
-			add_legitimacy = 5
+			add_prestige = 5
 			set_country_flag = contained_insanity
 		}
 	}
@@ -935,11 +783,10 @@ province_event = {
 
 # Fear and Loathing 2/3
 country_event = {
-	id = 9482
-	title = "EVTNAME9482"
-	desc = "EVTDESC9482"
+	id = wwu_dynastic.17
+	title = wwu_dynastic.17.title
+	desc = wwu_dynastic.17.desc
 	picture = DEATH_OF_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
 		has_country_flag = murdering_bastard
@@ -953,15 +800,13 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9482"
-		#log = "EVTOPTA9482"
+		name = wwu_dynastic.17.option.a
 		kill_ruler = yes
 		clr_country_flag = murdering_bastard
 	}
 	
 	option = {
-		name = "EVTOPTB9482"
-		#log = "EVTOPTB9482"
+		name = wwu_dynastic.17.option.b
 		add_prestige = -5
 		add_treasury = -100
 		set_country_flag = contained_insanity
@@ -970,11 +815,10 @@ country_event = {
 
 # Fear and Loathing 3/3
 country_event = {
-	id = 9483
-	title = "EVTNAME9483"
-	desc = "EVTDESC9483"
+	id = wwu_dynastic.18
+	title = wwu_dynastic.18.title
+	desc = wwu_dynastic.18.desc
 	picture = DEATH_OF_HEIR_eventPicture
-	#goto = root
 
 	trigger = {
 		has_country_flag = contained_insanity
@@ -987,16 +831,14 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9483"
-		#log = "EVTOPTA9483"
+		name = wwu_dynastic.18.option.a
 		add_stability = -3
 		add_prestige = -20
 		clr_country_flag = contained_insanity
 	}
 	
 	option = {
-		name = "EVTOPTB9483"
-		#log = "EVTOPTB9483"
+		name = wwu_dynastic.18.option.b
 		kill_ruler = yes
 		add_country_modifier = {
 			name = "relief_from"
@@ -1008,11 +850,10 @@ country_event = {
 
 # Fear and Loathing removal on ruler death, ontriggered
 country_event = {
-	id = 9492
-	title = "EVTNAME9492"
-	desc = "EVTDESC9492"
+	id = wwu_dynastic.19
+	title = wwu_dynastic.19.title
+	desc = wwu_dynastic.19.desc
 	picture = DEATH_OF_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
 		OR = {
@@ -1024,8 +865,8 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA9492"
-		#log = "EVTOPTA9492"
+		name = wwu_dynastic.19.option.a
+        
 		add_country_modifier = {
 			name = "relief_from"
 			duration = 3650
@@ -1037,13 +878,13 @@ country_event = {
 
 # Wedding bells
 country_event = {
-	id = 9484
-	title = "EVTNAME9484"
-	desc = "EVTDESC9484"
+	id = wwu_dynastic.20
+	title = wwu_dynastic.20.title
+	desc = wwu_dynastic.20.desc
 	picture = GOOD_WITH_MONARCH_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		prestige = 30
 		government = monarchy
 		is_lesser_in_union = no
@@ -1066,6 +907,7 @@ country_event = {
 			is_lesser_in_union = no
 			alliance_with = ROOT
 			ai = yes
+			NOT = { marriage_with = root }
 		}
 	}
 	
@@ -1074,8 +916,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9484"
-		#log = "EVTOPTA9484"   #Time to settle down
+		name = wwu_dynastic.20.option.a
 		random_country = {
 			limit = {
 				religion = ROOT
@@ -1083,6 +924,7 @@ country_event = {
 				is_lesser_in_union = no
 				alliance_with = ROOT
 				ai = yes
+				NOT = { marriage_with = root }
 			}
 			create_marriage = ROOT
 		}
@@ -1090,8 +932,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB9484"
-		#log = "EVTOPTB9484"  #No
+		name = wwu_dynastic.20.option.b
 		add_prestige = 5
 		add_country_modifier = {
 			name = "sought_after_bachelor"
@@ -1102,18 +943,19 @@ country_event = {
 
 # A modest proposal
 country_event = {
-	id = 9485
-	title = "EVTNAME9485"
-	desc = "EVTDESC9485"
+	id = wwu_dynastic.21
+	title = wwu_dynastic.21.title
+	desc = wwu_dynastic.21.desc
 	picture = DIPLOMACY_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		any_known_country = {
 			has_country_modifier = sought_after_bachelor
 			is_lesser_in_union = no
 			government = monarchy
 			religion_group = ROOT
+			NOT = { marriage_with = ROOT }
 		}
 		government = monarchy
 		is_lesser_in_union = no
@@ -1124,16 +966,16 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9485"
-		#log = "EVTOPTA9485"
+		name = wwu_dynastic.21.option.a
 		random_country = {
 			limit = {
 				has_country_modifier = sought_after_bachelor
 				religion_group = ROOT
+				NOT = { marriage_with = ROOT }
 			}
 			random_list = {
-				20 = { country_event = { id = 9486 } }
-				80 = { country_event = { id = 9487 } }
+				20 = { country_event = { id = wwu_dynastic.22 } }
+				80 = { country_event = { id = wwu_dynastic.23 } }
 			}
 		}
 		add_treasury = -15
@@ -1141,8 +983,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB9485"
-		#log = "EVTOPTB9485"
+		name = wwu_dynastic.21.opton.b
 		add_treasury = 10
 		add_adm_power = 10
 	}
@@ -1150,17 +991,15 @@ country_event = {
 
 # Wedding bells
 country_event = {
-	id = 9486
-	title = "EVTNAME9486"
-	desc = "EVTDESC9486"
+	id = wwu_dynastic.22
+	title = wwu_dynastic.22.title
+	desc = wwu_dynastic.22.desc
 	picture = GOOD_WITH_MONARCH_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA9486"
-		#log = "EVTOPTA9486"
+		name = wwu_dynastic.22.option.a
 		if = {
 			limit = {
 				has_dlc = "Rights of Man"
@@ -1177,25 +1016,22 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB9486"
-		#log = "EVTOPTB9486"
+		name = wwu_dynastic.22.option.b
 		reverse_add_opinion = { who = FROM modifier = opinion_witchcraft }
 	}
 }
 
 # Wedding bells
 country_event = {
-	id = 9487
-	title = "EVTNAME9487"
-	desc = "EVTDESC9487"
+	id = wwu_dynastic.23
+	title = wwu_dynastic.23.title
+	desc = wwu_dynastic.23.desc
 	picture = GOOD_WITH_MONARCH_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA9487"
-		#log = "EVTOPTA9487"
+		name = wwu_dynastic.23.option.a
 		if = {
 			limit = {
 				has_dlc = "Rights of Man"
@@ -1212,23 +1048,20 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB9487"
-		#log = "EVTOPTB9487"
+		name = wwu_dynastic.23.option.b
 		reverse_add_opinion = { who = FROM modifier = opinion_refused_marriage }
 	}
 }
 
 #Last war was a failure
 country_event = {
-	id = 9488
-	title = "EVTNAME9488"
-	desc = "EVTDESC9488"
+	id = wwu_dynastic.24
+	title = wwu_dynastic.24.title
+	desc = wwu_dynastic.24.desc
 	picture = MILITARY_CAMP_eventPicture
-	#goto = root
 	
 	trigger = {
 		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
 		has_heir = yes
 		is_heir_leader = yes
 		heir_age = 20
@@ -1245,16 +1078,14 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9488"
-		#log = "EVTOPTA9488"
+		name = wwu_dynastic.24.option.a
 		kill_ruler = yes
 		add_war_exhaustion = -4
 		add_stability_or_adm_power = yes
 	}
 	
 	option = {
-		name = "EVTOPTB9488"
-		#log = "EVTOPTB9488"
+		name = wwu_dynastic.24.option.b
 		kill_heir = yes
 		add_war_exhaustion = -2
 	}
@@ -1262,13 +1093,13 @@ country_event = {
 
 # The Moon
 country_event = {
-	id = 9489
-	title = "EVTNAME9489"
-	desc = "EVTDESC9489"
+	id = wwu_dynastic.25
+	title = wwu_dynastic.25.title
+	desc = wwu_dynastic.25.desc
 	picture = IMPORTANT_STATUE_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		war_exhaustion = 4
 		adm = 3
 	}
@@ -1278,35 +1109,38 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9489"
-		#log = "EVTOPTA9489"
+		name = wwu_dynastic.25.option.a
 		add_prestige = 5
 	}
 	
 	option = {
-		name = "EVTOPTB9489"
-		#log = "EVTOPTB9489"
+		name = wwu_dynastic.25.option.b
 		add_mil_power = 25
 	}
 }
 
 # Seeing the real you
 country_event = {
-	id = 9490
-	title = "EVTNAME9490"
-	desc = "EVTDESC9490"
+	id = wwu_dynastic.26
+	title = wwu_dynastic.26.title
+	desc = wwu_dynastic.26.desc
 	picture = NEW_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		is_lesser_in_union = no
 		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
 		has_heir = no
 		is_female = no
 		has_regency = no
 		num_of_royal_marriages = 1
 		has_government_attribute = heir
+		if = {
+			limit = {
+				has_dlc = "Rights of Man"
+			}
+			has_consort = yes
+		}
 		NOT = {
 			has_country_modifier = a_woman_scorned
 		}
@@ -1317,16 +1151,14 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA9490"
-		#log = "EVTOPTA9490"
+		name = wwu_dynastic.26.option.a
 		define_heir = {
 			dynasty = ROOT
 		}
 	}
 	
 	option = {
-		name = "EVTOPTB9490"
-		#log = "EVTOPTB9490"
+		name = wwu_dynastic.26.option.b
 		add_years_of_income = 0.5
 		add_country_modifier = {
 			name = "a_woman_scorned"
@@ -1335,23 +1167,18 @@ country_event = {
 	}
 }
 
-### Suggestions by Ex Mudder, scripted by Sara Wendel-�rtqvist
-
-namespace = dynastic_events
-
 # Starlight
 country_event = {
-	id = dynastic_events.1
-	title = dynastic_events.1.t
-	desc = dynastic_events.1.d
+	id = wwu_dynastic.27
+	title = wwu_dynastic.27.title
+	desc = wwu_dynastic.27.desc
 	picture = NEW_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		has_heir = no
 		ruler_age = 40
 		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
 		is_lesser_in_union = no
 		has_government_attribute = heir
 	}
@@ -1382,8 +1209,7 @@ country_event = {
 	}
 	
 	option = {
-		name = dynastic_events.1.a
-		#log = "dynastic_events.1.a"
+		name = wwu_dynastic.27.option.a
 		define_heir = {
 			name = "Elisabeth"
 			dynasty = ROOT
@@ -1396,8 +1222,7 @@ country_event = {
 	}
 	
 	option = {
-		name = dynastic_events.1.b
-		#log = "dynastic_events.1.b"
+		name = wwu_dynastic.27.option.b
 		define_heir = {
 			dynasty = ROOT
 			name = "Caterine"
@@ -1409,8 +1234,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = dynastic_events.1.c
-		#log = "dynastic_events.1.c"
+		name = wwu_dynastic.27.option.c
 		define_heir = {
 			dynasty = ROOT
 			claim = 50
@@ -1421,8 +1245,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = dynastic_events.1.e
-		#log = "dynastic_events.1.e"
+		name = wwu_dynastic.27.option.d
 		define_heir = {
 			dynasty = ROOT
 			name = "Sara"
@@ -1437,17 +1260,16 @@ country_event = {
 
 # Newborn Daughter
 country_event = {
-	id = dynastic_events.2
-	title = dynastic_events.2.t
-	desc = dynastic_events.2.d
+	id = wwu_dynastic.28
+	title = wwu_dynastic.28.title
+	desc = wwu_dynastic.28.desc
 	picture = NEW_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
+        is_civilized = yes
 		has_heir = no
 		ruler_age = 20
 		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
 		is_lesser_in_union = no
 		NOT = {
 			has_country_modifier = dyn_newborn_daughter
@@ -1460,10 +1282,10 @@ country_event = {
 	}
 	
 	option = {
-		name = dynastic_events.2.a
-		#log = "dynastic_events.2.a"
+		name = wwu_dynastic.28.option.a
 		add_horde_unity = 10
 		add_legitimacy = -10
+
 		define_heir = {
 			dynasty = ROOT
 			female = yes
@@ -1472,8 +1294,8 @@ country_event = {
 	}
 	
 	option = {
-		name = dynastic_events.2.b
-		#log = "dynastic_events.2.b"
+		name = wwu_dynastic.28.option.b
+        
 		add_country_modifier = {
 			name = dyn_newborn_daughter
 			duration = 365
@@ -1483,17 +1305,16 @@ country_event = {
 
 # Talented and Ambitious Daughter
 country_event = {
-	id = dynastic_events.3
-	title = dynastic_events.3.t
-	desc = dynastic_events.3.d
+	id = wwu_dynastic.29
+	title = wwu_dynastic.29.title
+	desc = wwu_dynastic.29.desc
 	picture = NEW_HEIR_eventPicture
-	#goto = root
 	
-	trigger = {
+	trigger = { 
+        is_civilized = yes
 		has_heir = no
 		ruler_age = 40
 		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
 		has_government_attribute = heir
 		is_lesser_in_union = no
 		NOT = { has_ruler_flag = talented_daughter_happened }
@@ -1530,10 +1351,10 @@ country_event = {
 	}
 	
 	option = {
-		name = dynastic_events.3.a
-		#log = "dynastic_events.3.a"
+		name = wwu_dynastic.29.option.a
 		add_horde_unity = -10
 		add_legitimacy = -10
+
 		define_heir = {
 			dynasty = ROOT
 			age = 13
@@ -1547,8 +1368,8 @@ country_event = {
 	}
 	
 	option = {
-		name = dynastic_events.3.b
-		#log = "dynastic_events.3.b"
+		name = wwu_dynastic.29.option.b
+        
 		random_owned_province = {
 			limit = {
 				is_capital = yes
@@ -1563,25 +1384,24 @@ country_event = {
 
 # The Ruler's Daughter
 country_event = {
-	id = dynastic_events.4
-	title = dynastic_events.4.t
-	desc = dynastic_events.4.d
+	id = wwu_dynastic.30
+	title = wwu_dynastic.30.title
+	desc = wwu_dynastic.30.desc
 	picture = NEW_HEIR_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	trigger = {
-		NOT = { has_country_flag = missing_diplomat_storyline }
+        is_civilized = yes
 		has_heir = no
 		num_of_cities = 2
 		has_regency = yes
 		is_lesser_in_union = no
 		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
+
 		any_known_country = {
+            is_civilized = yes
 			government = monarchy
-			NOT = { has_reform = kingdom_of_magic_reform }
 			has_regency = no
 			is_free_or_tributary_trigger = yes
 			num_of_cities = ROOT
@@ -1601,8 +1421,8 @@ country_event = {
 		hidden_effect = {
 			random_known_country = {
 				limit = {
+                    is_civilized = yes
 					government = monarchy
-					NOT = { has_reform = kingdom_of_magic_reform }
 					has_regency = no
 					is_free_or_tributary_trigger = yes
 					num_of_cities = ROOT
@@ -1617,8 +1437,8 @@ country_event = {
 	}
 	
 	option = {
-		name = dynastic_events.4.a
-		#log = "dynastic_events.4.a"
+		name = wwu_dynastic.30.option.a
+
 		define_ruler = {
 			dynasty = ROOT
 			age = 20
@@ -1632,7 +1452,7 @@ country_event = {
 			limit = {
 				has_states_general_mechanic = yes
 			}
-			change_statists_vs_orangists = 200
+			change_statists_vs_orangists = 1
 		}
 		random_known_country = {
 			limit = {
@@ -1652,8 +1472,7 @@ country_event = {
 	}
 	
 	option = {
-		name = dynastic_events.4.b
-		#log = "dynastic_events.4.b"
+		name = wwu_dynastic.30.option.b
 		random_known_country = {
 			limit = {
 				has_country_flag = dyn_woman_pretender_flag
@@ -1672,296 +1491,19 @@ country_event = {
 					limit = {
 						has_states_general_mechanic = yes
 					}
-					change_statists_vs_orangists = 200
+					change_statists_vs_orangists = 1
 				}
 			}
 		}
-		capital_scope = {
+		random_owned_province = {
+			limit = {
+				is_capital = no
+			}
 			spawn_rebels = {
 				type = pretender_rebels
 				size = 2
 				female = yes
 			}
 		}
-	}
-}
-
-# Offer Personal Union
-country_event = {
-	id = dynastic_events.5
-	title = dynastic_events.5.t
-	desc = dynastic_events.5.d
-	picture = DIPLOMACY_eventPicture
-	#goto = root
-	
-	trigger = {
-		has_heir = no
-		government = monarchy
-		NOT = { has_reform = kingdom_of_magic_reform }
-		is_free_or_tributary_trigger = yes
-		ruler_age = 16
-		NOT = {
-			ruler_age = 40
-		}
-		any_neighbor_country = {
-			government = monarchy
-			NOT = { has_reform = kingdom_of_magic_reform }
-			has_heir = no
-			ruler_age = 16
-			NOT = {
-				ruler_age = 40
-			}
-			NOT = {
-				OR = {
-					has_opinion_modifier = {
-						who = ROOT
-						modifier = opinion_spurned_pu
-					}
-					reverse_has_opinion_modifier = {
-						who = ROOT
-						modifier = opinion_spurned_pu
-					}
-				}
-			}
-			OR = {
-				AND = {
-					is_female = no
-					ROOT = {
-						is_female = yes
-					}
-				}
-				AND = {
-					is_female = yes
-					ROOT = {
-						is_female = no
-					}
-				}
-			}
-			OR = {
-				dynasty = ROOT
-				culture_group = ROOT
-			}
-			has_opinion = { who = ROOT value = 75 }
-			reverse_has_opinion = { who = ROOT value = 75 }
-			is_free_or_tributary_trigger = yes
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 500
-	}
-	
-	immediate = {
-		random_neighbor_country = {
-			limit = {
-				government = monarchy
-				NOT = { has_reform = kingdom_of_magic_reform }
-				has_heir = no
-				ruler_age = 16
-				NOT = {
-					ruler_age = 40
-				}
-				NOT = {
-					OR = {
-						has_opinion_modifier = {
-							who = ROOT
-							modifier = opinion_spurned_pu
-						}
-						reverse_has_opinion_modifier = {
-							who = ROOT
-							modifier = opinion_spurned_pu
-						}
-					}
-				}
-				OR = {
-					AND = {
-						is_female = no
-						ROOT = {
-							is_female = yes
-						}
-					}
-					AND = {
-						is_female = yes
-						ROOT = {
-							is_female = no
-						}
-					}
-				}
-				OR = {
-					dynasty = ROOT
-					culture_group = ROOT
-				}
-				has_opinion = { who = ROOT value = 75 }
-				reverse_has_opinion = { who = ROOT value = 75 }
-				is_free_or_tributary_trigger = yes
-			}
-		}
-	}
-	
-	option = {
-		name = dynastic_events.5.a
-		#log = "dynastic_events.5.a"
-		random_neighbor_country = {
-			limit = {
-				government = monarchy
-				NOT = { has_reform = kingdom_of_magic_reform }
-				has_heir = no
-				ruler_age = 16
-				NOT = {
-					ruler_age = 40
-				}
-				OR = {
-					AND = {
-						is_female = no
-						ROOT = {
-							is_female = yes
-						}
-					}
-					AND = {
-						is_female = yes
-						ROOT = {
-							is_female = no
-						}
-					}
-				}
-				OR = {
-					dynasty = ROOT
-					culture_group = ROOT
-				}
-				has_opinion = { who = ROOT value = 75 }
-				reverse_has_opinion = { who = ROOT value = 75 }
-				is_free_or_tributary_trigger = yes
-			}
-			country_event = {
-				id = dynastic_events.6
-				tooltip = dynastic_events.6.t
-			}
-		}
-	}
-	
-	option = {
-		name = dynastic_events.5.b
-		#log = "dynastic_events.5.b"
-		add_legitimacy = 10
-	}
-}
-
-# Personal Union Offered
-country_event = {
-	id = dynastic_events.6
-	title = dynastic_events.6.t
-	desc = dynastic_events.6.d
-	picture = DIPLOMACY_eventPicture
-	#goto = root
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = dynastic_events.6.a
-		#log = "dynastic_events.6.a"
-		add_legitimacy = 20
-		FROM = {
-			set_country_flag = dyn_pu_accepted_flag
-			create_union = ROOT
-			country_event = {
-				id = dynastic_events.7
-				tooltip = dynastic_events.7.t
-			}
-		}
-	}
-	
-	option = {
-		name = dynastic_events.6.b
-		#log = "dynastic_events.6.b"
-		FROM = {
-			set_country_flag = dyn_pu_refused_flag
-			add_opinion = {
-				modifier = opinion_spurned_pu
-				who = ROOT
-			}
-			add_casus_belli = {
-				target = ROOT
-				type = cb_insult
-				months = 12
-			}
-			country_event = {
-				id = dynastic_events.7
-				tooltip = dynastic_events.7.t
-			}
-		}
-	}
-}
-
-# A Political Marriage - Accepted or Not?
-country_event = {
-	id = dynastic_events.7
-	title = dynastic_events.7.t
-	desc = dynastic_events.7.d
-	picture = DIPLOMACY_eventPicture
-	#goto = root
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = dynastic_events.7.a
-		#log = "dynastic_events.7.a"
-		trigger = {
-			has_country_flag = dyn_pu_accepted_flag
-		}
-		add_legitimacy = 20
-		tooltip = {
-			create_union = FROM
-		}
-	}
-	
-	option = {
-		name = dynastic_events.7.b
-		#log = "dynastic_events.7.b"
-		trigger = {
-			has_country_flag = dyn_pu_refused_flag
-		}
-		tooltip = {
-			add_opinion = {
-				modifier = opinion_spurned_pu
-				who = FROM
-			}
-			add_casus_belli = {
-				target = FROM
-				type = cb_insult
-				months = 12
-			}
-		}
-	}
-}
-
-# Marriage Policies paid off
-country_event = {
-	id = dynastic_events.8
-	title = dynastic_events.8.t
-	desc = dynastic_events.8.d
-	picture = COURT_eventPicture
-	#goto = root
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = dynastic_events.8.a
-		#log = "dynastic_events.8.a"
-		trigger = {
-			FROM = {
-				NOT = { dynasty = "von Habsburg" }
-			}
-		}
-		custom_tooltip = dynastic_events.8.a.tt
-	}
-	option = {
-		name = dynastic_events.8.b
-		#log = "dynastic_events.8.b"
-		trigger = {
-			FROM = {
-				dynasty = "von Habsburg"
-			}
-		}
-		custom_tooltip = dynastic_events.8.a.tt
 	}
 }

@@ -7,7 +7,6 @@ country_event = {
 	title = "EVTNAMEHR01"
 	desc = "EVTDESHOR01"
 	picture = PLAGUE_eventPicture
-	#goto = root
 
 	major = yes
 	
@@ -47,7 +46,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA3001"
-		#log = "EVTOPTA3001" # Dire times are ahead of us
+		
 		
 	}
 }
@@ -58,7 +57,6 @@ country_event = {
 	title = "EVTNAMEHR02"
 	desc = "EVTDESHOR02"
 	picture = RELIGION_eventPicture
-	#goto = root
 	
 	trigger = {
 		NOT = {	has_country_modifier = 	religious_intolerance }
@@ -77,7 +75,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTA3002"
-		#log = "EVTOPTA3002"			# One nation, one belief!
+		
 		add_dip_power = -50
 		add_country_modifier = {
 			name = "religious_intolerance"
@@ -86,7 +84,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB3002"
-		#log = "EVTOPTB3002"			# Tolerate all beliefs
+		
 		add_adm_power = -50
 		add_country_modifier = {
 			name = "religious_tolerance"
@@ -101,7 +99,6 @@ country_event = {
 	title = "EVTNAMEHR03"
 	desc = "EVTDESHOR03"
 	picture = ANGRY_MOB_eventPicture
-	#goto = root
 
 	trigger = {
 		NOT = { stability = 0 }
@@ -118,7 +115,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA3003"
-		#log = "EVTOPTA3003"			# The war is our main concern
+		
 		every_owned_province = {
 			limit = { is_capital = no }
 			add_local_autonomy = 15
@@ -126,7 +123,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB3003"
-		#log = "EVTOPTB3003"			# Our domestic problems are our main concern
+		
 		if = {
 			limit = {
 				has_disaster = internal_conflicts
@@ -146,7 +143,6 @@ country_event = {
 	title = "EVTNAMEHR04"
 	desc = "EVTDESHOR04"
 	picture = ANGRY_MOB_eventPicture
-	#goto = root
 	
 	trigger = {
 		NOT = {	has_country_modifier = 	restrict_serfdom }
@@ -163,7 +159,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA3004"
-		#log = "EVTOPTA3004"			# Restrict serfdom
+		
 		random_owned_province = { noble_rebels = 1 }
 		if = {
 			limit = {
@@ -178,7 +174,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB3004"
-		#log = "EVTOPTB3004"			# Keep the masses in chains
+		
 		random_owned_province = { anti_tax_rebels = 1 }
 		if = {
 			limit = {
@@ -199,7 +195,6 @@ country_event = {
 	title = "EVTNAMEHR05"
 	desc = "EVTDESHOR05"
 	picture = BATTLE_eventPicture
-	#goto = root
 	
 	
 	trigger = {
@@ -217,7 +212,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA3005"
-		#log = "EVTOPTA3005"			# There is no immediate solution at hand
+		
 		if = {
 			limit = {
 				has_disaster = internal_conflicts
@@ -232,7 +227,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTB3005"
-		#log = "EVTOPTB3005"			# Let their voices be heard
+		
 		add_mil_power = -50
 		add_yearly_manpower = -0.25
 	}
@@ -244,7 +239,6 @@ country_event = {
 	title = "EVTNAMEHR06"
 	desc = "EVTDESHOR06"
 	picture = BAD_WITH_MONARCH_eventPicture
-	#goto = root
 	
 	trigger = {
 		NOT = {	has_country_modifier = 	support_monarch }
@@ -266,7 +260,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA3006"
-		#log = "EVTOPTA3006"			# Leave the nation's fate in his hands
+		
 		random_owned_province = { 
 			limit= {
 				development = 8
@@ -286,7 +280,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB3006"
-		#log = "EVTOPTB3006"			# Oppose him
+		
 		random_owned_province = { 
 			limit= {
 				development = 8
@@ -313,7 +307,6 @@ country_event = {
 	title = "EVTNAMEHR07"
 	desc = "EVTDESHOR07"
 	picture = FAMINE_eventPicture
-	#goto = root
 	
 	trigger = {
 		NOT = {	has_country_modifier = 	alleviate_population }
@@ -328,7 +321,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA3007"
-		#log = "EVTOPTA3007"			# Try to alleviate the suffering
+		
 		add_years_of_income = -1.0
 		if = {
 			limit = {
@@ -343,7 +336,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB3007"
-		#log = "EVTOPTB3007"			# We are helpless in the face of such a disaster...
+		
 		if = {
 			limit = {
 				has_disaster = internal_conflicts
@@ -364,7 +357,6 @@ country_event = {
 	title = "EVTNAMEHR08"
 	desc = "EVTDESHOR08"
 	picture = CIVIL_WAR_eventPicture
-	#goto = root
 	
 	
 	is_triggered_only = yes
@@ -378,7 +370,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA3008"
-		#log = "EVTOPTA3008"			# Restore order
+		
 		add_stability_or_adm_power = yes
 	}
 }

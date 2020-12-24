@@ -1,30 +1,10 @@
-# Integrating FROMCOUNTRY
-country_event = {
-	id = 610
-	title = "EVTNAME610"
-	desc = "EVTDESC610"
-	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTB610A"
-		#log = "EVTOPTB610A"
-		add_country_modifier = {
-			name = "annexers_legacy"
-			duration = 3650
-		}
-	}
-}
+﻿namespace = wwu_pretender
 
-# Chance of being triggered when an heir with a weak claim succeeds to the throne
 country_event = {
-	id = 611
-	title = "EVTNAME611"
-	desc = "EVTDESC611"
+	id = wwu_pretender.1
+	title = wwu_pretender.1.title
+	desc = wwu_pretender.1.desc
 	picture = MILITARY_CAMP_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -35,7 +15,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB611A"
+		name = wwu_pretender.1.option.a
 		if = {
 			limit = {
 				NOT = { legitimacy = 15 }
