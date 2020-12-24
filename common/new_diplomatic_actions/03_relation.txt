@@ -21,6 +21,15 @@ control_subject = {
         ai = no
         FROM = {
             is_subject_of = ROOT
+            OR = {
+                is_subject_of_type = vassal
+                is_subject_of_type = march
+                is_subject_of_type = daimyo_vassal
+                is_subject_of_type = personal_union
+                is_subject_of_type = client_vassal
+                is_subject_of_type = client_march
+                is_subject_of_type = colony
+            }
         }
 	}
     
@@ -28,6 +37,15 @@ control_subject = {
         ai = no
         FROM = {
             is_subject_of = ROOT
+            OR = {
+                is_subject_of_type = vassal
+                is_subject_of_type = march
+                is_subject_of_type = daimyo_vassal
+                is_subject_of_type = personal_union
+                is_subject_of_type = client_vassal
+                is_subject_of_type = client_march
+                is_subject_of_type = colony
+            }
         }
 	}
 	on_accept = {
@@ -68,6 +86,15 @@ return_to_overlord = {
             }
         }
         ai = no
+        OR = {
+            is_subject_of_type = vassal
+            is_subject_of_type = march
+            is_subject_of_type = daimyo_vassal
+            is_subject_of_type = personal_union
+            is_subject_of_type = client_vassal
+            is_subject_of_type = client_march
+            is_subject_of_type = colony
+        }
         FROM = {
             overlord_of = ROOT
         }
@@ -75,6 +102,15 @@ return_to_overlord = {
     
 	is_allowed = {
         ai = no
+        OR = {
+            is_subject_of_type = vassal
+            is_subject_of_type = march
+            is_subject_of_type = daimyo_vassal
+            is_subject_of_type = personal_union
+            is_subject_of_type = client_vassal
+            is_subject_of_type = client_march
+            is_subject_of_type = colony
+        }
         FROM = {
             overlord_of = ROOT
         }

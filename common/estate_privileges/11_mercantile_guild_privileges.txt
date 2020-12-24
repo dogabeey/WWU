@@ -1,0 +1,181 @@
+estate_mercantile_guild_land_rights = {
+	icon = privilege_blueprint
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 10
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		governing_capacity = 100
+	}
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 1.4
+			num_of_territories = 5
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 10
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 15
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 25 }
+				estate_influence = {
+					estate = estate_mercantile_guild
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_mercantile_guild_land_rights }
+		}
+		modifier = {
+			factor = 0
+			NOT = { num_of_territories = 1 }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 40 }
+				AND = {
+					NOT = { crown_land_share = 60 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_mercantile_guild_land_rights }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 30 }
+				AND = {
+					NOT = { crown_land_share = 50 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_mercantile_guild_land_rights }
+		}
+	}
+}
+estate_mercantile_guild_guild_oversight = {
+	icon = privilege_ancient_history
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_mercantile_guild_additional_merchants = {
+	icon = privilege_mail
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 5
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		merchants = 1
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_mercantile_guild_greased_palms = {
+	icon = privilege_gold
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+        
+	}
+	benefits = {
+		trade_steering = 0.15
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_mercantile_guild_merchant_fleet = {
+	icon = privilege_lumbermill
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+    can_select = {
+        
+	}
+    on_granted = {
+        
+	}
+	penalties = {
+	}
+	benefits = {
+        ship_power_propagation = 0.33
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+estate_mercantile_guild_mercantilism = {
+	icon = privilege_note_1
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+    can_select = {
+        
+	}
+    on_granted = {
+        
+	}
+	penalties = {
+        global_trade_power = -0.1
+	}
+	benefits = {
+		mercantilism_cost = -0.5
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+

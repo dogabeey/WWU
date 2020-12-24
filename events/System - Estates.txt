@@ -325,69 +325,58 @@ country_event = {
 		}
 	}
 
+    
 	option = {
 		name = estate_system.4.option.a
 		trigger = {
-			NOT = { has_country_flag = has_trade_company_guild }
+			NOT = { has_country_flag = has_estate_adventuring_guild }
 		}
 		hidden_effect = { 
-            set_country_flag = has_trade_company_guild 
+            set_country_flag = has_estate_adventuring_guild 
         }
 		custom_tooltip = estate_system.4.option.a.tooltip
-		
 	}
 	option = {
 		name = estate_system.4.option.b
 		trigger = {
-			NOT = { has_country_flag = has_independent_guild }
+			NOT = { has_country_flag = has_estate_mercantile_guild }
 		}
 		hidden_effect = { 
-            set_country_flag = has_independent_guild 
+            set_country_flag = has_estate_mercantile_guild 
         }
 		custom_tooltip = estate_system.4.option.b.tooltip
+		
 	}
 	option = {
 		name = estate_system.4.option.c
 		trigger = {
-			NOT = { has_country_flag = has_criminal_guild }
+			NOT = { has_country_flag = has_estate_warriors_guild }
 		}
 		hidden_effect = { 
-            set_country_flag = has_criminal_guild 
+            set_country_flag = has_estate_warriors_guild 
         }
 		custom_tooltip = estate_system.4.option.c.tooltip
 	}
 	option = {
 		name = estate_system.4.option.d
 		trigger = {
-			NOT = { has_country_flag = has_military_guild }
+            NOT = { religion_group = religion_group_rational_philosophies }
+			NOT = { has_country_flag = has_estate_religious_order }
 		}
 		hidden_effect = { 
-            set_country_flag = has_military_guild 
+            set_country_flag = has_estate_religious_order 
         }
 		custom_tooltip = estate_system.4.option.d.tooltip
 	}
 	option = {
 		name = estate_system.4.option.e
 		trigger = {
-			NOT = { has_country_flag = has_cult_guild }
+			NOT = { has_country_flag = has_estate_criminal_syndicate }
 		}
 		hidden_effect = { 
-            set_country_flag = has_cult_guild 
+            set_country_flag = has_estate_criminal_syndicate 
         }
 		custom_tooltip = estate_system.4.option.e.tooltip
-	}
-    option = {
-		name = estate_system.4.option.f
-		trigger = {
-            capital_scope = {
-                area = area_kul_tiras_capital
-            }
-			NOT = { has_country_flag = has_order_of_embers_guild }
-		}
-		hidden_effect = { 
-            set_country_flag = has_order_of_embers_guild 
-        }
-		custom_tooltip = estate_system.4.option.f.tooltip
 	}
 }
 

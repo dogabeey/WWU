@@ -303,28 +303,24 @@ scaled_estate_tribals_land_share_effect = {
 	scaled_estate_land_share_add_effect = { estate = estate_tribals }
 }
 
-scaled_estate_guild_order_of_embers_land_share_effect = {
-	scaled_estate_land_share_add_effect = { estate = estate_guild_order_of_embers }
+scaled_estate_adventuring_guild_land_share_effect = {
+	scaled_estate_land_share_add_effect = { estate = estate_adventuring_guild }
 }
 
-scaled_estate_guild_trade_land_share_effect = {
-	scaled_estate_land_share_add_effect = { estate = estate_guild_trade }
+scaled_estate_mercantile_guild_land_share_effect = {
+	scaled_estate_land_share_add_effect = { estate = estate_mercantile_guild }
 }
 
-scaled_estate_guild_criminal_land_share_effect = {
-	scaled_estate_land_share_add_effect = { estate = estate_guild_criminal }
+scaled_estate_warriors_guild_land_share_effect = {
+	scaled_estate_land_share_add_effect = { estate = estate_warriors_guild }
 }
 
-scaled_estate_guild_military_land_share_effect = {
-	scaled_estate_land_share_add_effect = { estate = estate_guild_military }
+scaled_estate_religious_order_land_share_effect = {
+	scaled_estate_land_share_add_effect = { estate = estate_religious_order }
 }
 
-scaled_estate_guild_religious_land_share_effect = {
-	scaled_estate_land_share_add_effect = { estate = estate_guild_religious }
-}
-
-scaled_estate_guild_adventure_land_share_effect = {
-	scaled_estate_land_share_add_effect = { estate = estate_guild_adventure }
+scaled_estate_criminal_syndicate_land_share_effect = {
+	scaled_estate_land_share_add_effect = { estate = estate_criminal_syndicate }
 }
 
 #Based on those above, but you can choose which estate you use
@@ -578,10 +574,10 @@ spawn_rebels_from_unhappy_estate = {
         1 = {
 			trigger = {
 				owner = {
-					has_estate = estate_guild_order_of_embers
+					has_estate = estate_adventuring_guild
 					NOT = {
 						estate_loyalty = {
-							estate = estate_guild_order_of_embers
+							estate = estate_adventuring_guild
 							loyalty = 30
 						}
 					}
@@ -590,17 +586,17 @@ spawn_rebels_from_unhappy_estate = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = $size$
-				estate = estate_guild_order_of_embers
+				estate = estate_adventuring_guild
 				as_if_faction = yes
 			}
 		}
         1 = {
 			trigger = {
 				owner = {
-					has_estate = estate_guild_trade
+					has_estate = estate_mercantile_guild
 					NOT = {
 						estate_loyalty = {
-							estate = estate_guild_trade
+							estate = estate_mercantile_guild
 							loyalty = 30
 						}
 					}
@@ -609,17 +605,17 @@ spawn_rebels_from_unhappy_estate = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = $size$
-				estate = estate_guild_trade
+				estate = estate_mercantile_guild
 				as_if_faction = yes
 			}
 		}
         1 = {
 			trigger = {
 				owner = {
-					has_estate = estate_guild_criminal
+					has_estate = estate_warriors_guild
 					NOT = {
 						estate_loyalty = {
-							estate = estate_guild_criminal
+							estate = estate_warriors_guild
 							loyalty = 30
 						}
 					}
@@ -628,17 +624,17 @@ spawn_rebels_from_unhappy_estate = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = $size$
-				estate = estate_guild_criminal
+				estate = estate_warriors_guild
 				as_if_faction = yes
 			}
 		}
         1 = {
 			trigger = {
 				owner = {
-					has_estate = estate_guild_military
+					has_estate = estate_religious_order
 					NOT = {
 						estate_loyalty = {
-							estate = estate_guild_military
+							estate = estate_religious_order
 							loyalty = 30
 						}
 					}
@@ -647,17 +643,17 @@ spawn_rebels_from_unhappy_estate = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = $size$
-				estate = estate_guild_military
+				estate = estate_religious_order
 				as_if_faction = yes
 			}
 		}
         1 = {
 			trigger = {
 				owner = {
-					has_estate = estate_guild_religious
+					has_estate = estate_criminal_syndicate
 					NOT = {
 						estate_loyalty = {
-							estate = estate_guild_religious
+							estate = estate_criminal_syndicate
 							loyalty = 30
 						}
 					}
@@ -666,26 +662,7 @@ spawn_rebels_from_unhappy_estate = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = $size$
-				estate = estate_guild_religious
-				as_if_faction = yes
-			}
-		}
-        1 = {
-			trigger = {
-				owner = {
-					has_estate = estate_guild_adventure
-					NOT = {
-						estate_loyalty = {
-							estate = estate_guild_adventure
-							loyalty = 30
-						}
-					}
-				}
-			}
-			spawn_rebels = {
-				type = pretender_rebels
-				size = $size$
-				estate = estate_guild_adventure
+				estate = estate_criminal_syndicate
 				as_if_faction = yes
 			}
 		}
@@ -746,62 +723,52 @@ pick_random_estate_if_present = {
 		}
         1 = { 
 			trigger = {
-				has_estate = estate_guild_order_of_embers
-				NOT = { has_country_flag = estate_guild_order_of_embers_$flag$ }
+				has_estate = estate_adventuring_guild
+				NOT = { has_country_flag = estate_adventuring_guild_$flag$ }
 			}
-			set_country_flag = estate_guild_order_of_embers_$flag$
+			set_country_flag = estate_adventuring_guild_$flag$
 			[[estate_action]
-			$estate_action$ = estate_guild_order_of_embers
+			$estate_action$ = estate_adventuring_guild
 			]
 		}
         1 = { 
 			trigger = {
-				has_estate = estate_guild_trade
-				NOT = { has_country_flag = estate_guild_trade_$flag$ }
+				has_estate = estate_mercantile_guild
+				NOT = { has_country_flag = estate_mercantile_guild_$flag$ }
 			}
-			set_country_flag = estate_guild_trade_$flag$
+			set_country_flag = estate_mercantile_guild_$flag$
 			[[estate_action]
-			$estate_action$ = estate_guild_trade
+			$estate_action$ = estate_mercantile_guild
 			]
 		}
         1 = { 
 			trigger = {
-				has_estate = estate_guild_criminal
-				NOT = { has_country_flag = estate_guild_criminal_$flag$ }
+				has_estate = estate_warriors_guild
+				NOT = { has_country_flag = estate_warriors_guild_$flag$ }
 			}
-			set_country_flag = estate_guild_criminal_$flag$
+			set_country_flag = estate_warriors_guild_$flag$
 			[[estate_action]
-			$estate_action$ = estate_guild_criminal
+			$estate_action$ = estate_warriors_guild
 			]
 		}
         1 = { 
 			trigger = {
-				has_estate = estate_guild_military
-				NOT = { has_country_flag = estate_guild_military_$flag$ }
+				has_estate = estate_religious_order
+				NOT = { has_country_flag = estate_religious_order_$flag$ }
 			}
-			set_country_flag = estate_guild_military_$flag$
+			set_country_flag = estate_religious_order_$flag$
 			[[estate_action]
-			$estate_action$ = estate_guild_military
+			$estate_action$ = estate_religious_order
 			]
 		}
         1 = { 
 			trigger = {
-				has_estate = estate_guild_religious
-				NOT = { has_country_flag = estate_guild_religious_$flag$ }
+				has_estate = estate_criminal_syndicate
+				NOT = { has_country_flag = estate_criminal_syndicate_$flag$ }
 			}
-			set_country_flag = estate_guild_religious_$flag$
+			set_country_flag = estate_criminal_syndicate_$flag$
 			[[estate_action]
-			$estate_action$ = estate_guild_religious
-			]
-		}
-        1 = { 
-			trigger = {
-				has_estate = estate_guild_adventure
-				NOT = { has_country_flag = estate_guild_adventure_$flag$ }
-			}
-			set_country_flag = estate_guild_adventure_$flag$
-			[[estate_action]
-			$estate_action$ = estate_guild_adventure
+			$estate_action$ = estate_criminal_syndicate
 			]
 		}
 	}
@@ -1182,7 +1149,7 @@ give_land_shares_to_estate_impulse = {
 	}
 	if = {
 		limit = {
-			has_estate = estate_guild_order_of_embers
+			has_estate = estate_adventuring_guild
 			NOT = { 
 				estate_territory = {
 					estate = $estate$
@@ -1191,7 +1158,7 @@ give_land_shares_to_estate_impulse = {
 			}
 		}
 		change_estate_land_share = {
-			estate = estate_guild_order_of_embers
+			estate = estate_adventuring_guild
 			share = -1
 		}
 		change_estate_land_share = {
@@ -1201,7 +1168,7 @@ give_land_shares_to_estate_impulse = {
 	}
 	if = {
 		limit = {
-			has_estate = estate_guild_trade
+			has_estate = estate_mercantile_guild
 			NOT = { 
 				estate_territory = {
 					estate = $estate$
@@ -1210,7 +1177,7 @@ give_land_shares_to_estate_impulse = {
 			}
 		}
 		change_estate_land_share = {
-			estate = estate_guild_trade
+			estate = estate_mercantile_guild
 			share = -1
 		}
 		change_estate_land_share = {
@@ -1220,7 +1187,7 @@ give_land_shares_to_estate_impulse = {
 	}
 	if = {
 		limit = {
-			has_estate = estate_guild_criminal
+			has_estate = estate_warriors_guild
 			NOT = { 
 				estate_territory = {
 					estate = $estate$
@@ -1229,7 +1196,7 @@ give_land_shares_to_estate_impulse = {
 			}
 		}
 		change_estate_land_share = {
-			estate = estate_guild_criminal
+			estate = estate_warriors_guild
 			share = -1
 		}
 		change_estate_land_share = {
@@ -1239,7 +1206,7 @@ give_land_shares_to_estate_impulse = {
 	}
 	if = {
 		limit = {
-			has_estate = estate_guild_military
+			has_estate = estate_religious_order
 			NOT = { 
 				estate_territory = {
 					estate = $estate$
@@ -1248,26 +1215,7 @@ give_land_shares_to_estate_impulse = {
 			}
 		}
 		change_estate_land_share = {
-			estate = estate_guild_military
-			share = -1
-		}
-		change_estate_land_share = {
-			estate = $estate$
-			share = 1
-		}
-	}
-	if = {
-		limit = {
-			has_estate = estate_guild_religious
-			NOT = { 
-				estate_territory = {
-					estate = $estate$
-					territory = $share$
-				} 
-			}
-		}
-		change_estate_land_share = {
-			estate = estate_guild_religious
+			estate = estate_religious_order
 			share = -1
 		}
 		change_estate_land_share = {
@@ -1277,7 +1225,7 @@ give_land_shares_to_estate_impulse = {
 	}
     if = {
 		limit = {
-			has_estate = estate_guild_adventure
+			has_estate = estate_criminal_syndicate
 			NOT = { 
 				estate_territory = {
 					estate = $estate$
@@ -1286,7 +1234,7 @@ give_land_shares_to_estate_impulse = {
 			}
 		}
 		change_estate_land_share = {
-			estate = estate_guild_adventure
+			estate = estate_criminal_syndicate
 			share = -1
 		}
 		change_estate_land_share = {

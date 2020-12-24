@@ -1,0 +1,191 @@
+estate_adventuring_guild_land_rights = {
+	icon = privilege_blueprint
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 10
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		governing_capacity = 100
+	}
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 1.4
+			num_of_territories = 5
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 10
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 15
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 25 }
+				estate_influence = {
+					estate = estate_adventuring_guild
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_adventuring_guild_land_rights }
+		}
+		modifier = {
+			factor = 0
+			NOT = { num_of_territories = 1 }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 40 }
+				AND = {
+					NOT = { crown_land_share = 60 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_adventuring_guild_land_rights }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 30 }
+				AND = {
+					NOT = { crown_land_share = 50 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_adventuring_guild_land_rights }
+		}
+	}
+}
+estate_adventuring_guild_guild_oversight = {
+	icon = privilege_ancient_history
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_adventuring_guild_astute_recruitment = {
+	icon = privilege_challenge
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 5
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		mercenary_discipline = 0.1
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_adventuring_guild_encourage_looting = {
+	icon = privilege_cash_flow
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+        global_unrest = 1
+	}
+	benefits = {
+		merc_maintenance_modifier = -0.25
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_adventuring_guild_muster_adventurers = {
+	icon = privilege_barracks
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+    can_select = {
+        prestige = 0
+	}
+    on_granted = {
+        add_prestige = -10
+        
+        custom_tooltip = estate_adventuring_guild_muster_adventurers_tooltip
+        hidden_effect = {
+            capital_scope = {
+                mercenary_infantry = ROOT
+                mercenary_infantry = ROOT
+                mercenary_infantry = ROOT
+                mercenary_infantry = ROOT
+                mercenary_infantry = ROOT
+            }
+        }
+	}
+	penalties = {
+        
+	}
+	benefits = {
+		
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+estate_adventuring_guild_seek_adventures = {
+	icon = privilege_dead_canary
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+        
+	}
+	benefits = {
+		monthly_splendor = 1
+        prestige_decay = -0.01
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
