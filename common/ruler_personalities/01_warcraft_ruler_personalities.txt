@@ -2,11 +2,12 @@ warrior_personality = {
 	ruler_allow = {
 		allow = {
 			NOT = { ruler_has_class = yes }
+			warrior = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				warrior = yes
 			}
 		}
@@ -15,11 +16,12 @@ warrior_personality = {
 	heir_allow = {
 		allow = {
 			NOT = { heir_has_class = yes }
+			warrior = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				warrior = yes
 			}
 		}
@@ -28,14 +30,22 @@ warrior_personality = {
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_class = yes }
+			warrior = yes
 		}
 
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				warrior = yes
 			}
 		}
+	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
 	}
 
 	enemy_strength_multiplier = 0.8
@@ -46,12 +56,21 @@ paladin_personality = {
 	ruler_allow = {
 		allow = {
 			NOT = { ruler_has_class = yes }
+			paladin = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				paladin = yes
+			}
+			modifier = {
+				factor = 1000
+				religion = religion_argent_light
+			}
+			modifier = {
+				factor = 1000
+				government = theocracy
 			}
 		}
 	}
@@ -59,12 +78,21 @@ paladin_personality = {
 	heir_allow = {
 		allow = {
 			NOT = { heir_has_class = yes }
+			paladin = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				paladin = yes
+			}
+			modifier = {
+				factor = 1000
+				religion = religion_argent_light
+			}
+			modifier = {
+				factor = 1000
+				government = theocracy
 			}
 		}
 	}
@@ -72,18 +100,33 @@ paladin_personality = {
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_class = yes }
+			paladin = yes
 		}
 
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				paladin = yes
+			}
+			modifier = {
+				factor = 25
+				religion = religion_argent_light
+			}
+			modifier = {
+				factor = 1000
+				government = theocracy
 			}
 		}
 	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
+	}
 
 	fair_fights = yes
-	different_religion_war_multiplier = 1.2
 	
 	tolerance_own = 2
 }
@@ -91,12 +134,21 @@ priest_personality = {
 	ruler_allow = {
 		allow = {
 			NOT = { ruler_has_class = yes }
+			priest = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				priest = yes
+			}
+			modifier = {
+				factor = 100
+				religion = religion_elune
+			}
+			modifier = {
+				factor = 1000
+				government = theocracy
 			}
 		}
 	}
@@ -104,12 +156,21 @@ priest_personality = {
 	heir_allow = {
 		allow = {
 			NOT = { heir_has_class = yes }
+			priest = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				priest = yes
+			}
+			modifier = {
+				factor = 100
+				religion = religion_elune
+			}
+			modifier = {
+				factor = 1000
+				government = theocracy
 			}
 		}
 	}
@@ -117,14 +178,30 @@ priest_personality = {
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_class = yes }
+			priest = yes
 		}
 
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				priest = yes
 			}
+			modifier = {
+				factor = 100
+				religion = religion_elune
+			}
+			modifier = {
+				factor = 1000
+				government = theocracy
+			}
 		}
+	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
 	}
 
 	easy_war_chance_multiplier = 0.8
@@ -137,12 +214,21 @@ rogue_personality = {
 	ruler_allow = {
 		allow = {
 			NOT = { ruler_has_class = yes }
+			rogue = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				rogue = yes
+			}
+			modifier = {
+				factor = 1000
+				has_country_modifier = is_evil
+			}
+			modifier = {
+				factor = 25
+				religion = religion_shadow
 			}
 		}
 	}
@@ -150,12 +236,21 @@ rogue_personality = {
 	heir_allow = {
 		allow = {
 			NOT = { heir_has_class = yes }
+			rogue = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				rogue = yes
+			}
+			modifier = {
+				factor = 1000
+				has_country_modifier = is_evil
+			}
+			modifier = {
+				factor = 25
+				religion = religion_shadow
 			}
 		}
 	}
@@ -163,14 +258,30 @@ rogue_personality = {
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_class = yes }
+			rogue = yes
 		}
 
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				rogue = yes
 			}
+			modifier = {
+				factor = 25
+				has_country_modifier = is_evil
+			}
+			modifier = {
+				factor = 25
+				religion = religion_shadow
+			}
 		}
+	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
 	}
 
 	wants_condottieri = yes
@@ -182,12 +293,16 @@ mage_personality = {
 	ruler_allow = {
 		allow = {
 			NOT = { ruler_has_class = yes }
+			mage = yes
 		}
-	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				mage = yes
+			}
+			modifier = {
+				factor = 26
+				religion = religion_arcane
 			}
 		}
 	}
@@ -195,12 +310,17 @@ mage_personality = {
 	heir_allow = {
 		allow = {
 			NOT = { heir_has_class = yes }
+			mage = yes
 		}
-	
+		
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				mage = yes
+			}
+			modifier = {
+				factor = 25
+				religion = religion_arcane
 			}
 		}
 	}
@@ -208,14 +328,26 @@ mage_personality = {
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_class = yes }
+			mage = yes
 		}
 
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				mage = yes
 			}
+			modifier = {
+				factor = 25
+				religion = religion_arcane
+			}
 		}
+	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
 	}
 
 	knowledge_sharing = yes
@@ -226,12 +358,26 @@ warlock_personality = {
 	ruler_allow = {
 		allow = {
 			NOT = { ruler_has_class = yes }
+			warlock = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				warlock = yes
+			}
+			modifier = {
+				factor = 75
+				religion = religion_fel
+			}
+			modifier = {
+				factor = 25
+				religion = religion_chaos
+			}
+			modifier = {
+				factor = 25
+				has_country_modifier = is_evil
+				NOT = { religion = religion_fel }
 			}
 		}
 	}
@@ -239,12 +385,26 @@ warlock_personality = {
 	heir_allow = {
 		allow = {
 			NOT = { heir_has_class = yes }
+			warlock = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				warlock = yes
+			}
+			modifier = {
+				factor = 75
+				religion = religion_fel
+			}
+			modifier = {
+				factor = 25
+				religion = religion_chaos
+			}
+			modifier = {
+				factor = 25
+				has_country_modifier = is_evil
+				NOT = { religion = religion_fel }
 			}
 		}
 	}
@@ -252,14 +412,35 @@ warlock_personality = {
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_class = yes }
+			warlock = yes
 		}
-
+	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				warlock = yes
 			}
+			modifier = {
+				factor = 75
+				religion = religion_fel
+			}
+			modifier = {
+				factor = 25
+				religion = religion_chaos
+			}
+			modifier = {
+				factor = 25
+				has_country_modifier = is_evil
+				NOT = { religion = religion_fel }
+			}
 		}
+	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
 	}
 
 	wants_threaten_war = yes
@@ -270,12 +451,17 @@ druid_personality = {
 	ruler_allow = {
 		allow = {
 			NOT = { ruler_has_class = yes }
+			druid = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				druid = yes
+			}
+			modifier = {
+				factor = 100
+				religion = religion_druidic
 			}
 		}
 	}
@@ -283,12 +469,17 @@ druid_personality = {
 	heir_allow = {
 		allow = {
 			NOT = { heir_has_class = yes }
+			druid = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				druid = yes
+			}
+			modifier = {
+				factor = 100
+				religion = religion_druidic
 			}
 		}
 	}
@@ -296,14 +487,26 @@ druid_personality = {
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_class = yes }
+			druid = yes
 		}
-
+	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				druid = yes
 			}
+			modifier = {
+				factor = 100
+				religion = religion_druidic
+			}
 		}
+	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
 	}
 
 	heretic_ally_acceptance = 25
@@ -315,12 +518,27 @@ hunter_personality = {
 	ruler_allow = {
 		allow = {
 			NOT = { ruler_has_class = yes }
+			hunter = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				hunter = yes
+			}
+			modifier = {
+				factor = 25
+				culture_group = culture_group_thalassian
+				is_female = yes
+			}
+			modifier = {
+				factor = 25
+				culture_group = culture_group_darnassian
+				is_female = yes
+			}
+			modifier = {
+				factor = 25
+				religion = religion_primitive
 			}
 		}
 	}
@@ -328,12 +546,27 @@ hunter_personality = {
 	heir_allow = {
 		allow = {
 			NOT = { heir_has_class = yes }
+			hunter = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				hunter = yes
+			}
+			modifier = {
+				factor = 25
+				culture_group = culture_group_thalassian
+				has_female_heir = yes
+			}
+			modifier = {
+				factor = 25
+				culture_group = culture_group_darnassian
+				has_female_heir = yes
+			}
+			modifier = {
+				factor = 25
+				religion = religion_primitive
 			}
 		}
 	}
@@ -341,16 +574,38 @@ hunter_personality = {
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_class = yes }
+			hunter = yes
 		}
-
+	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				hunter = yes
+			}
+			modifier = {
+				factor = 25
+				culture_group = culture_group_thalassian
+				has_female_consort = yes
+			}
+			modifier = {
+				factor = 25
+				culture_group = culture_group_darnassian
+				has_female_consort = yes
+			}
+			modifier = {
+				factor = 25
+				religion = religion_primitive
 			}
 		}
 	}
 
+	
+	allow = {
+		
+	}
+	
+	chance = {
+	}
 	enemy_strength_multiplier = 1.2
 	
 	leader_land_manuever = 1
@@ -359,12 +614,21 @@ shaman_personality = {
 	ruler_allow = {
 		allow = {
 			NOT = { ruler_has_class = yes }
+			shaman = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				shaman = yes
+			}
+			modifier = {
+				factor = 50
+				religion = religion_ancestral
+			}
+			modifier = {
+				factor = 50
+				culture_group = culture_group_orc
 			}
 		}
 	}
@@ -372,12 +636,21 @@ shaman_personality = {
 	heir_allow = {
 		allow = {
 			NOT = { heir_has_class = yes }
+			shaman = yes
 		}
 	
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				shaman = yes
+			}
+			modifier = {
+				factor = 50
+				religion = religion_ancestral
+			}
+			modifier = {
+				factor = 50
+				culture_group = culture_group_orc
 			}
 		}
 	}
@@ -385,20 +658,215 @@ shaman_personality = {
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_class = yes }
+			shaman = yes
 		}
 
 		chance = {
 			modifier = {
-				factor = 1
+				factor = 100
 				shaman = yes
 			}
+			modifier = {
+				factor = 50
+				religion = religion_ancestral
+			}
+			modifier = {
+				factor = 50
+				culture_group = culture_group_orc
+			}
 		}
+	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
 	}
 
 	gift_chance = 25
 	wants_avoid_debase = yes
 	
 	prestige_decay = -0.01
-	stability_cost_modifier = -0.2
+	stability_cost_modifier = -0.1
 }
+death_knight_personality = {
+	ruler_allow = {
+		allow = {
+			NOT = { ruler_has_class = yes }
+			death_knight = yes
+		}
+	
+		chance = {
+			modifier = {
+				factor = 100
+				death_knight = yes
+			}
+		}
+	}
 
+	heir_allow = {
+		allow = {
+			NOT = { heir_has_class = yes }
+			death_knight = yes
+		}
+	
+		chance = {
+			modifier = {
+				factor = 100
+				death_knight = yes
+			}
+		}
+	}
+	
+	consort_allow = {
+		allow = {
+			NOT = { consort_has_class = yes }
+			death_knight = yes
+		}
+	
+		chance = {
+			modifier = {
+				factor = 100
+				death_knight = yes
+			}
+		}
+	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
+	}
+
+	different_religion_war_multiplier = 1.2
+	heretic_ally_acceptance = -50
+	
+	global_spy_defence = 0.25
+	tolerance_own = 1
+}
+monk_personality = {
+	ruler_allow = {
+		allow = {
+			NOT = { ruler_has_class = yes }
+			monk = yes
+		}
+	
+		chance = {
+			modifier = {
+				factor = 100
+				monk = yes
+			}
+		}
+	}
+
+	heir_allow = {
+		allow = {
+			NOT = { heir_has_class = yes }
+			monk = yes
+		}
+	
+		chance = {
+			modifier = {
+				factor = 100
+				monk = yes
+			}
+		}
+	}
+	
+	consort_allow = {
+		allow = {
+			NOT = { consort_has_class = yes }
+			monk = yes
+		}
+	
+		chance = {
+			modifier = {
+				factor = 100
+				monk = yes
+			}
+		}
+	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
+	}
+
+	different_religion_war_multiplier = 1.2
+	heretic_ally_acceptance = -50
+	
+	global_spy_defence = 0.25
+	tolerance_own = 1
+}
+demon_hunter_personality = {
+	ruler_allow = {
+		allow = {
+			NOT = { ruler_has_class = yes }
+			demon_hunter = yes
+		}
+	
+		chance = {
+			modifier = {
+				factor = 100
+				demon_hunter = yes
+			}
+			modifier = {
+				factor = 100
+				technology_group = tech_illidari
+			}
+		}
+	}
+
+	heir_allow = {
+		allow = {
+			NOT = { heir_has_class = yes }
+			demon_hunter = yes
+		}
+	
+		chance = {
+			modifier = {
+				factor = 100
+				demon_hunter = yes
+			}
+			modifier = {
+				factor = 100
+				technology_group = tech_illidari
+			}
+		}
+	}
+	
+	consort_allow = {
+		allow = {
+			NOT = { consort_has_class = yes }
+			demon_hunter = yes
+		}
+	
+		chance = {
+			modifier = {
+				factor = 100
+				demon_hunter = yes
+			}
+			modifier = {
+				factor = 100
+				technology_group = tech_illidari
+			}
+		}
+	}
+	
+	allow = {
+		
+	}
+	
+	chance = {
+	}
+
+	different_religion_war_multiplier = 1.2
+	heretic_ally_acceptance = -50
+	
+	global_spy_defence = 0.25
+	tolerance_own = 1
+}

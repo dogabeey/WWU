@@ -5,7 +5,8 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			historical_alliance = yes
+			
+			historical_alliance_head = yes
 			NOT = { has_country_modifier = alliance_head }
 			all_country = { NOT = { has_country_modifier = alliance_head } }
 		}
@@ -47,7 +48,8 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			historical_horde = yes
+			
+			historical_horde_head = yes
 			NOT = { has_country_modifier = horde_head }
 			all_country = { NOT = { has_country_modifier = horde_head } }
 		}
@@ -55,6 +57,23 @@ country_decisions = {
 		allow = {
 			is_subject = no
 			total_development = 150
+			OR = {
+				historical_horde_head = yes
+				AND = {
+					all_country = { 
+						historical_horde_head = yes
+						NOT = { total_development = 150 }
+					}
+					historical_horde = yes
+				}
+				AND = {
+					all_country = { 
+						historical_horde = yes
+						NOT = { total_development = 150 }
+					}
+					culture_group = culture_group_orc
+				}
+			}
 		}
 		
 		effect = {
@@ -70,6 +89,7 @@ country_decisions = {
 	}
 	leave_alliance = {
 		potential = {
+			
 			is_subject_of_type = faction_alliance
 		}
 		
@@ -90,12 +110,18 @@ country_decisions = {
 			
 			modifier = {
 				factor = 0
-				NOT = { liberty_desire = 100 }
+				overlord = { 
+					reverse_has_opinion = {
+						who = ROOT
+						value = -100
+					}
+				}
 			}
 		}
 	}
 	leave_horde = {
 		potential = {
+			
 			is_subject_of_type = faction_horde
 		}
 		
@@ -116,12 +142,12 @@ country_decisions = {
 			
 			modifier = {
 				factor = 0
-				NOT = { liberty_desire = 100 }
-			}
-			modifier = {
-				factor = 0
-				overlord = { tag = B88 }
-				NOT = { the_second_war_or_later = yes }
+				overlord = { 
+					reverse_has_opinion = {
+						who = ROOT
+						value = -100
+					}
+				}
 			}
 		}
 	}

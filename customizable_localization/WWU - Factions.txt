@@ -1,0 +1,46 @@
+#AVIALABLE CUSTOM LOCALISATION KEYS
+#When adding new custom loc keys, add them to the appropriate category (or add a new one) and describe them. Name the strings "String_X" where x is its content.
+# To not display anything, you can use 'localisation_key = ""'
+# Please add one example sentence for each key.
+
+defined_text = {
+    name = GetAllianceActiveInactive
+
+    text = {
+        localisation_key = alliance_active
+        trigger = {
+			event_target:alliance_head_target = {
+				exists = yes
+			}
+        }
+    }
+    text = {
+        localisation_key = alliance_inactive
+        trigger = {
+			event_target:alliance_head_target = {
+				exists = no
+			}
+        }
+    }
+}
+
+defined_text = {
+    name = GetHordeActiveInactive
+
+    text = {
+        localisation_key = horde_active
+        trigger = {
+			event_target:horde_head_target = {
+				exists = yes
+			}
+        }
+    }
+    text = {
+        localisation_key = horde_inactive
+        trigger = {
+			event_target:horde_head_target = {
+				exists = no
+			}
+        }
+    }
+}

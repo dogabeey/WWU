@@ -14,22 +14,99 @@ country_event = {
     #major = yes
     
 	trigger = {
-        current_age = the_first_war
+		OR = {
+			current_age = the_first_war
+			current_age = the_second_war
+		}
         capital_scope = { continent = continent_outland }
-        culture_group = culture_group_orc
+		OR = {
+			faction_horde = 1
+			AND = {
+				any_country = {
+					faction_horde = 1
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				is_subject_of_type = faction_horde
+			}
+			AND = {
+				any_country = {
+					faction_horde = 1
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				any_country = {
+					is_subject_of_type = faction_horde
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				has_country_flag = joined_guldan
+			}
+			AND = {
+				any_country = {
+					faction_horde = 1
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				any_country = {
+					has_country_flag = joined_guldan
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				any_country = {
+					is_subject_of_type = faction_horde
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				culture_group = culture_group_ogre
+				capital_scope = {
+					continent = continent_outland
+				}
+			}
+		}
 		any_province = {
-			region = region_blasted_lands
+			OR = {
+				region = region_blasted_lands
+				region = region_swamp_of_sorrows
+			}
 			is_empty = yes
 		}
 		NOT = {
 			any_owned_province = {
-                region = region_blasted_lands
+				OR = {
+					region = region_blasted_lands
+					region = region_swamp_of_sorrows
+				}
 			}
 		}
 	}
 	
     mean_time_to_happen = {
-		days = 1
+		months = 1
     }
     
     immediate = {
@@ -37,10 +114,14 @@ country_event = {
     
 	option = {
 		name = the_first_war.1.option.a
+		
         
         random_province = {
             limit = {
-                region = region_blasted_lands
+				OR = {
+					region = region_blasted_lands
+					region = region_swamp_of_sorrows
+				}
                 is_empty = yes
             }
 
@@ -53,9 +134,6 @@ country_event = {
 			add_permanent_claim = ROOT
 		}
 		region_deadwind_pass = {
-			add_permanent_claim = ROOT
-		}
-		region_swamp_of_sorrows = {
 			add_permanent_claim = ROOT
 		}
     }
@@ -83,10 +161,14 @@ country_event = {
     
 	option = {
 		name = the_first_war.2.option.a
+		
 
         random_province = {
             limit = {
-                region = region_blasted_lands
+				OR = {
+					region = region_blasted_lands
+					region = region_swamp_of_sorrows
+				}
                 is_empty = yes
             }
 
@@ -147,6 +229,7 @@ country_event = {
     
 	option = {
 		name = the_first_war.3.option.a
+		
 
         custom_tooltip = AZEROTHIAN_ALLIANCE_FALTERS
         hidden_effect = {
@@ -184,7 +267,7 @@ country_event = {
         any_country = {
             has_country_modifier = first_war_human
             any_owned_province = {
-                area = area_stormwind # Grab the owner of a capital in Stormwind, normally A01
+                area = area_stormwind # Grab the owner of a capital in Stormwind, normally STW
                 controller = {
                     has_country_modifier = first_war_orc
                 }
@@ -201,6 +284,7 @@ country_event = {
     
 	option = {
 		name = the_first_war.4.option.a
+		
 
         custom_tooltip = AZEROTHIAN_ALLIANCE_RALLIES
         hidden_effect = {
@@ -268,6 +352,7 @@ country_event = {
     
     option = {
 		name = the_first_war.5.option.a
+		
     }
 }
 #---------------------------------------
@@ -285,6 +370,7 @@ country_event = {
     
 	option = {
 		name = the_first_war.8.option.a
+		
 		ai_chance = { factor = 1 }
 		set_global_flag = tfw_human_victory_path
         add_country_modifier = {

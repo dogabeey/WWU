@@ -2,6 +2,7 @@ country_decisions = {
 	construct_ula_tek_canal = {
 		major = yes
 		potential = {
+			
 			OR = {
 				ai = no
 				AND = {
@@ -41,6 +42,7 @@ country_decisions = {
 	cancel_ula_tek_canal = {
 		major = yes
 		potential = {
+			
 			ai = no
 			owns_or_vassal_of = 2214
 			is_subject = no
@@ -66,6 +68,7 @@ country_decisions = {
 	construct_deeprun_tram = {
 		major = yes
 		potential = {
+			
 			OR = {
 				ai = no
 				AND = {
@@ -85,8 +88,8 @@ country_decisions = {
 				country = ROOT
 				province = 2505
 			}
-			adm_tech = 4
-			dip_tech = 4
+			adm_tech = 6
+			dip_tech = 6
 			treasury = 5000
             2505 = { NOT = { has_province_flag = has_tram_construction } }
 		}
@@ -107,18 +110,20 @@ country_decisions = {
 	cancel_deeprun_tram = {
 		major = yes
 		potential = {
+			owns_or_vassal_of = 2505
 			ai = no
 			2505 = {
 				has_construction = canal
 			}
 		}
 		allow = {
+			owns_or_vassal_of = 2505
 			2505 = {
 				has_construction = canal
 			}
 		}
 		effect = {
-			2505 = {	# Shrine of Ula-tek
+			2505 = {
 				cancel_construction = yes
                 clr_province_flag = has_tram_construction
 			}

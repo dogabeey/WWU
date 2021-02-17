@@ -1,0 +1,376 @@
+namespace = internal_conflicts
+
+
+# Internal Conflicts
+country_event = {
+	id = internal_conflicts.1
+	title = "EVTNAMEHR01"
+	desc = "EVTDESHOR01"
+	picture = PLAGUE_eventPicture
+
+	major = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = had_internal_conflicts
+		}
+		add_stability = -2
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				fort_level = 1
+			}
+			spawn_rebels = {
+					type = noble_rebels
+					size = 2
+					win = yes
+				}
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+			}
+			spawn_rebels = {
+					type = anti_tax_rebels
+					size = 2
+					win = yes
+				}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA3001"
+		
+		
+	}
+}
+
+# Religious struggles
+country_event = {
+	id = internal_conflicts.2
+	title = "EVTNAMEHR02"
+	desc = "EVTDESHOR02"
+	picture = RELIGION_eventPicture
+	
+	trigger = {
+		NOT = {	has_country_modifier = 	religious_intolerance }
+		NOT = {	has_country_modifier = 	religious_tolerance }
+		any_owned_province = {
+			is_overseas = no
+			has_owner_religion = no
+		}
+		is_at_war = yes
+	}
+
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "EVTOPTA3002"
+		
+		add_dip_power = -50
+		add_country_modifier = {
+			name = "religious_intolerance"
+			duration = 3650
+		}
+	}
+	option = {
+		name = "EVTOPTB3002"
+		
+		add_adm_power = -50
+		add_country_modifier = {
+			name = "religious_tolerance"
+			duration = 3650
+		}
+	}
+}
+
+# National instability
+country_event = {
+	id = internal_conflicts.3
+	title = "EVTNAMEHR03"
+	desc = "EVTDESHOR03"
+	picture = ANGRY_MOB_eventPicture
+
+	trigger = {
+		NOT = { stability = 0 }
+		is_at_war = yes
+		NOT = { has_country_modifier = domestic_improvements }
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {
+		name = "EVTOPTA3003"
+		
+		every_owned_province = {
+			limit = { is_capital = no }
+			add_local_autonomy = 15
+		}
+	}
+	option = {
+		name = "EVTOPTB3003"
+		
+		if = {
+			limit = {
+				has_disaster = internal_conflicts
+			}
+			add_disaster_modifier = {
+				name = "domestic_improvements"
+				duration = -1
+				disaster = internal_conflicts
+			}
+		}
+	}
+}
+
+# Unrest among the peasants
+country_event = {
+	id = internal_conflicts.4
+	title = "EVTNAMEHR04"
+	desc = "EVTDESHOR04"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+		NOT = {	has_country_modifier = 	restrict_serfdom }
+		NOT = {	has_country_modifier = 	enforce_serfdom }		
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	
+	option = {
+		name = "EVTOPTA3004"
+		
+		random_owned_province = { noble_rebels = 1 }
+		if = {
+			limit = {
+				has_disaster = internal_conflicts
+			}
+			add_disaster_modifier = {
+				name = "restrict_serfdom"
+				duration = -1
+				disaster = internal_conflicts
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB3004"
+		
+		random_owned_province = { anti_tax_rebels = 1 }
+		if = {
+			limit = {
+				has_disaster = internal_conflicts
+			}
+			add_disaster_modifier = {
+				name = "enforce_serfdom"
+				duration = -1
+				disaster = internal_conflicts
+			}
+		}
+	}
+}
+
+# War exhaustion
+country_event = {
+	id = internal_conflicts.5
+	title = "EVTNAMEHR05"
+	desc = "EVTDESHOR05"
+	picture = BATTLE_eventPicture
+	
+	
+	trigger = {
+		NOT = {	has_country_modifier = 	decreased_morale }
+		war_exhaustion = 5
+	}
+	
+
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {
+		name = "EVTOPTA3005"
+		
+		if = {
+			limit = {
+				has_disaster = internal_conflicts
+			}
+			add_disaster_modifier = {
+				name = "decreased_morale"
+				duration = -1
+				disaster = internal_conflicts
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTB3005"
+		
+		add_mil_power = -50
+		add_yearly_manpower = -0.25
+	}
+}
+
+# Inefficient ruler
+country_event = {
+	id = internal_conflicts.6
+	title = "EVTNAMEHR06"
+	desc = "EVTDESHOR06"
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		NOT = {	has_country_modifier = 	support_monarch }
+		NOT = {	has_country_modifier = 	oppose_monarch }
+		OR = {
+			NOT = { adm = 3 }
+			NOT = { dip = 3 }
+			NOT = { mil = 3 }
+		}
+		government = monarchy
+		any_owned_province = { development = 8 }
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA3006"
+		
+		random_owned_province = { 
+			limit= {
+				development = 8
+			}
+			pretender_rebels = 3 
+		}
+		if = {
+			limit = {
+				has_disaster = internal_conflicts
+			}
+			add_disaster_modifier = {
+				name = "support_monarch"
+				duration = -1
+				disaster = internal_conflicts
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB3006"
+		
+		random_owned_province = { 
+			limit= {
+				development = 8
+			}
+			noble_rebels = 3 
+		}
+		random_owned_province = { noble_rebels = 2 }
+		if = {
+			limit = {
+				has_disaster = internal_conflicts
+			}
+			add_disaster_modifier = {
+				name = "oppose_monarch"
+				duration = -1
+				disaster = internal_conflicts
+			}
+		}
+	}
+}
+
+# Famine
+country_event = {
+	id = internal_conflicts.7
+	title = "EVTNAMEHR07"
+	desc = "EVTDESHOR07"
+	picture = FAMINE_eventPicture
+	
+	trigger = {
+		NOT = {	has_country_modifier = 	alleviate_population }
+		NOT = {	has_country_modifier = 	starvation }
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA3007"
+		
+		add_years_of_income = -1.0
+		if = {
+			limit = {
+				has_disaster = internal_conflicts
+			}
+			add_disaster_modifier = {
+				name = "alleviate_population"
+				duration = -1
+				disaster = internal_conflicts
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB3007"
+		
+		if = {
+			limit = {
+				has_disaster = internal_conflicts
+			}
+			add_disaster_modifier = {
+				name = "starvation"
+				duration = -1
+				disaster = internal_conflicts
+			}
+		}
+	}
+}
+
+
+# Stability returns
+country_event = {
+	id = internal_conflicts.8
+	title = "EVTNAMEHR08"
+	desc = "EVTDESHOR08"
+	picture = CIVIL_WAR_eventPicture
+	
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	major = yes
+	
+	
+
+	option = {
+		name = "EVTOPTA3008"
+		
+		add_stability_or_adm_power = yes
+	}
+}

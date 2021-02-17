@@ -17,21 +17,24 @@ country_event = {
 	option = {
 		name = wow_ruler.1.option.a
 		
-        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.1.option.a" }
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } 
         change_adm = -1
 	}
     
     option = {
 		name = wow_ruler.1.option.b
 		
-        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.1.option.b" }
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } 
         change_dip = -1
 	}
     
     option = {
 		name = wow_ruler.1.option.c
 		
-        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.1.option.c" }
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } 
         change_mil = -1
 	}
 }
@@ -53,21 +56,24 @@ country_event = {
 	option = {
 		name = wow_ruler.2.option.a
 		
-        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.2.option.a" }
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } 
         change_adm = 1
 	}
     
     option = {
 		name = wow_ruler.2.option.b
 		
-        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.2.option.b" }
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } 
         change_dip = 1
 	}
     
     option = {
 		name = wow_ruler.2.option.c
 		
-        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.2.option.c" }
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } 
         change_mil = 1
 	}
 }
@@ -104,6 +110,7 @@ country_event = {
             culture_group = culture_group_arrakoa
             culture_group = culture_group_dryad
             culture_group = culture_group_satyr
+            culture_group = culture_group_shalassian
 			#Special Case
 			tag = P59
         }
@@ -116,12 +123,14 @@ country_event = {
         NOT = { primary_culture = culture_felblood_elf }
         NOT = { primary_culture = culture_cultist }
         NOT = { primary_culture = culture_rothide }
+        NOT = { primary_culture = culture_withered }
     }
    
 	option = {
 		name = wow_ruler.3.option.a
+		
 
-        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.3.option.a" }
+        ###if = { limit = { has_global_flag = enable_event_logging } 
 		clear_scripted_personalities = yes
         add_ruler_personality = immortal_personality
         set_ruler_flag = set_immortality
@@ -136,14 +145,14 @@ country_event = {
 	desc = wow_ruler.4.desc
 	picture = DIPLOMACY_eventPicture
 	
-	
+	mean_time_to_happen = {
+		months = 240
+	}
 	
     trigger = {
         has_dlc = "Rights of Man"
         ruler_has_personality = immortal_personality 
         OR = {
-			# All
-            ruler_age = 500 # No king rules forever
             # Dwarfs
             AND = {
                 OR = {
@@ -181,7 +190,8 @@ country_event = {
 	option = {
 		name = wow_ruler.4.option.a
 		
-        ###if = { limit = { has_global_flag = enable_event_logging } log = "[Root.GetName] - wow_ruler.4.option.a" }
+		
+        ###if = { limit = { has_global_flag = enable_event_logging } 
         remove_ruler_personality = immortal_personality
 	}
 }

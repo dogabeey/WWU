@@ -1,14 +1,16 @@
+discover_home_continent = yes
 # Lordaeron
 government 			= monarchy
+add_government_reform = autocracy_reform
 mercantilism 		= 10
 technology_group 	= tech_human
 religion			= religion_church_of_the_light
 primary_culture 	= culture_lordaeron
 capital 			= 543
-government_rank = 6
-religious_school = order_of_silver_hand
 
-historical_friend = A01
+religious_school = order_of_the_silver_hand
+
+historical_friend = STW
 historical_friend = A90
 
 546.1.1 = { 
@@ -22,24 +24,37 @@ monarch = {
  } 
 
 592.1.1 = { 
-monarch = { 
-     name = "Terenas II" 
-     dynasty = "Menethil" 
+	monarch = { 
+		name = "Terenas II" 
+		dynasty = "Menethil" 
 		adm = 6
 		dip = 5
 		mil = 3 
- 	} 
- } 
+	}
+	heir = { 
+		name = "Arthas" 
+		dynasty = "Menethil" 
+		adm = 6
+		dip = 5
+		mil = 3 
+		birth_date = 588.1.1
+	} 
+} 
  
 597.1.1 = {
-add_country_modifier = {
-    name = alliance_member
-    duration = -1
+	add_country_modifier = {
+	name = alliance_head
+	duration = -1
+	}
+	
 }
-add_country_modifier = {
-name = alliance_head
-duration = -1
+
+600.1.1 = {
+	remove_historical_friend = A90
 }
+
+612.1.1 = {
+	add_heir_personality = paladin_personality
 }
 
 617.1.1 = {
@@ -47,8 +62,8 @@ duration = -1
 }
 
 618.1.1 = {
-remove_country_modifier = alliance_member
-remove_country_modifier = alliance_head
+	remove_country_modifier = alliance_head
 }
+
 
 

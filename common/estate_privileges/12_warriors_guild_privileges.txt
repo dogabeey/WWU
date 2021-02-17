@@ -1,0 +1,177 @@
+estate_warriors_guild_land_rights = {
+	icon = privilege_blueprint
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 10
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		governing_capacity = 100
+	}
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 1.4
+			num_of_territories = 5
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 10
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 15
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 25 }
+				estate_influence = {
+					estate = estate_warriors_guild
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_warriors_guild_land_rights }
+		}
+		modifier = {
+			factor = 0
+			NOT = { num_of_territories = 1 }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 40 }
+				AND = {
+					NOT = { crown_land_share = 60 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_warriors_guild_land_rights }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 30 }
+				AND = {
+					NOT = { crown_land_share = 50 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_warriors_guild_land_rights }
+		}
+	}
+}
+estate_warriors_guild_guild_oversight = {
+	icon = privilege_ancient_history
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_warriors_guild_regular_drills = {
+	icon = privilege_challenge
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+        army_tradition = 1
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_warriors_guild_loyal_warriors = {
+	icon = privilege_brush_off
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+        infantry_cost = -0.15
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_warriors_guild_deathmarch = {
+	icon = privilege_combat_readiness
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = -0.1
+	influence = 0.1
+    
+	penalties = {
+        
+	}
+	benefits = {
+        movement_speed = 0.2
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_warriors_guild_muster_warriors = {
+	icon = privilege_barracks
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+    can_select = {
+        prestige = 0
+	}
+    on_granted = {
+        add_prestige = -10
+        
+        custom_tooltip = estate_warriors_guild_muster_warriors_tooltip
+        hidden_effect = {
+            capital_scope = {
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+            }
+        }
+	}
+	penalties = {
+        
+	}
+	benefits = {
+		
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}

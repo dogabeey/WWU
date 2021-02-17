@@ -1,0 +1,61 @@
+vassal_break = {
+	potential = {
+		NOT = { has_country_flag = complete_stasis }
+		vassal = 3
+	}
+
+	can_start = {
+		NOT = { prestige = 25 }
+		check_variable = {
+			which = angry_subjects
+			which = all_subjects
+		}
+	}
+	
+	
+	can_stop = {
+		NOT = { check_variable = {
+			which = angry_subjects
+			which = all_subjects
+		} }
+	}
+		
+	progress = {
+	    modifier = {
+			factor = 1
+			check_variable = {
+				which = angry_subjects
+				which = all_subjects
+			}
+		}
+		modifier = {
+			factor = 1
+			NOT = { stability = 0 }
+		}
+        modifier = {
+			factor = 1
+			war_exhaustion = 5
+		} 	
+	}
+	
+	can_end = {
+		NOT = { check_variable = {
+			which = angry_subjects
+			which = all_subjects
+		} }
+	}
+
+	modifier = {
+	    stability_cost_modifier = 0.5
+		global_unrest = 5
+	}	
+	
+	
+	on_start = vassal_break.1
+	on_end = vassal_break.2
+	
+	on_monthly = {
+		events = {
+		}
+	}
+}

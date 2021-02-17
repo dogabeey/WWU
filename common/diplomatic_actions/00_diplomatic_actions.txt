@@ -71,18 +71,66 @@
 # sell_ships_action
 # counterespionage
 # abandon_union_action
+# takeondebt
+# influence_nation
+# claim_states
+# steer_trade
+# stealmap
+# spy_network
+# invite_to_trade_league
+# request_to_join_trade_league
+# sharemap
+# intervene_in_war
+# break_alliance
+# tributary_state_action
+# ask_for_tributary_state_action
+# knowledge_sharing
 
-milaccess= {
+enforce_peace = {
 	condition = {
-        tooltip = DIP_INCOMP_PORTALNOTOPEN
+        tooltip = DIP_INCOMP_NOTAVAILABLE
 		
 		potential = {
+			OR = {
+				has_country_flag = complete_stasis
 				FROM = {
 					has_country_flag = complete_stasis
 				}
-				1586 = {
-					has_province_modifier = dark_portal_closed
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+callaction = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
 				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+milaccess= {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
 		}
         allow = {
             always = no
@@ -243,38 +291,61 @@ declarewar = {
         }
 	}
 }
-allianceaction = {
+fabricate_claim = {
 	condition = {
-        tooltip = DIP_INCOMP_ORG
+        tooltip = DIP_INCOMP_NOTAVAILABLE
 		
 		potential = {
 			OR = {
-				is_organization = yes
-				FROM = { is_organization = yes }
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
 			}
 		}
         allow = {
             always = no
         }
 	}
+}
+embargoaction = {
+	condition = {
+        tooltip = DIP_INCOMP_NOTAVAILABLE
+		
+		potential = {
+			OR = {
+				has_country_flag = complete_stasis
+				FROM = {
+					has_country_flag = complete_stasis
+				}
+			}
+		}
+        allow = {
+            always = no
+        }
+	}
+}
+allianceaction = {
 	condition = {
         tooltip = DIP_INCOMP_DRAGONKIN
 		
 		potential = {
 			OR = {
 				AND = {
+					NOT = { has_global_flag = dragons_allowed_alliance }
 					culture_group = culture_group_dragonkin
 					FROM = { 
-						OR = {
-							NOT = { culture_group = culture_group_dragonkin }
-							NOT = { is_ancient = yes }
+						NOT = {
+							culture_group = culture_group_dragonkin
+							is_ancient = yes
 						}
 					}
 				}
 				AND = {
-					OR = {
-						NOT = { culture_group = culture_group_dragonkin }
-						NOT = { is_ancient = yes }
+					NOT = { has_global_flag = dragons_allowed_alliance }
+					NOT = {
+						culture_group = culture_group_dragonkin
+						is_ancient = yes
 					}
 					FROM = { 
 						culture_group = culture_group_dragonkin
@@ -587,22 +658,7 @@ annexationaction = {
             always = no
         }
 	}
-	#condition = {
-	#	tooltip = ANNEXINVALID
-	#	potential = {
-	#		FROM = {
-	#			vassal_of = ROOT
-	#		}
-	#	}
-	#	allow = {
-	#		FROM = {
-	#			years_in_vassalage_under = {
-	#				who = ROOT
-	#				years = 10
-	#			}
-	#		}
-	#	}
-	#}
+	
 }
 
 integrationaction = {
@@ -638,11 +694,24 @@ integrationaction = {
 
 vassalaction = {
 	condition = {
+		tooltip = DIP_INCOMP_TOOMANYFACTIONMEMBER
+		potential = {
+			OR = {
+				faction_alliance = 6
+				faction_horde = 6
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	
+	condition = {
 		tooltip = DIP_INCOMP_ORG
 		potential = {
 			OR = {
 				is_organization = yes
-				NOT = { is_organization = yes }
+				FROM = { is_organization = yes }
 			}
 		}
 		allow = {
@@ -674,22 +743,6 @@ vassalaction = {
 				has_country_flag = complete_stasis
 				FROM = {
 					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
-	
-	condition = {
-        tooltip = DIP_INCOMP_REMNANT
-		
-		potential = {
-			OR = {
-				has_reform = remnant_basic_reform
-				FROM = {
-					has_reform = remnant_basic_reform
 				}
 			}
 		}
@@ -747,6 +800,41 @@ form_coalition = {
 					modifier = aggressive_expansion
 					who = FROM
 					value = -50
+				}
+			}
+		}
+	}
+}
+
+
+request_to_join_trade_league = {
+	condition = {
+		tooltip = NOT_RELEVANT_TRADE_REGION_FROM
+		potential = {
+		}
+		allow = {
+			home_trade_node = {
+				trade_share = {
+					country = from
+					share = 1
+				}
+			}
+		}
+	}
+}
+
+invite_to_trade_league = {
+	condition = {
+		tooltip = NOT_RELEVANT_TRADE_REGION
+		potential = {
+		}
+		allow = {
+			from = {
+				home_trade_node = {
+					trade_share = {
+						country = root
+						share = 1
+					}
 				}
 			}
 		}

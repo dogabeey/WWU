@@ -37,6 +37,7 @@ province_event = {
 
 	option = {
 		name = "republic_factions.1.a"
+		
 		owner = {
 			add_faction_influence = {
 				faction = mr_traders
@@ -61,6 +62,7 @@ province_event = {
 
 	option = {
 		name = "republic_factions.1.b"
+		
 		owner = {
 			add_faction_influence = {
 				faction = mr_guilds
@@ -104,6 +106,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.2.a"
+		
 		add_faction_influence = {
 			faction = mr_traders
 			influence = 10
@@ -117,6 +120,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.2.b"
+		
 		add_faction_influence = {
 			faction = mr_guilds
 			influence = 10
@@ -154,6 +158,7 @@ province_event = {
 
 	option = {
 		name = "republic_factions.3.a"
+		
 		owner = {
 			add_faction_influence = {
 				faction = mr_traders
@@ -175,6 +180,7 @@ province_event = {
 
 	option = {
 		name = "republic_factions.3.b"
+		
 		owner = {
 			add_faction_influence = {
 				faction = mr_guilds
@@ -223,6 +229,7 @@ province_event = {
 
 	option = {
 		name = "republic_factions.4.a"
+		
 		owner = {
 			add_faction_influence = {
 				faction = mr_guilds
@@ -242,6 +249,7 @@ province_event = {
 
 	option = {
 		name = "republic_factions.4.b"
+		
 		owner = {
 			add_faction_influence = {
 				faction = mr_aristocrats
@@ -283,6 +291,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.5.a"
+		
 		add_faction_influence = {
 			faction = mr_guilds
 			influence = 10
@@ -305,6 +314,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.5.b"
+		
 		add_faction_influence = {
 			faction = mr_aristocrats
 			influence = 10
@@ -337,12 +347,14 @@ country_event = {
 
 	option = {
 		name = "republic_factions.6.a"
+		
 		kill_advisor = random
 		add_adm_power = -50
 	}
 
 	option = {
 		name = "republic_factions.6.b"
+		
 		add_adm_power = -100
 	}
 }
@@ -371,6 +383,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.7.a"
+		
 		add_faction_influence = {
 			faction = mr_guilds
 			influence = 10
@@ -397,6 +410,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.7.b"
+		
 		add_faction_influence = {
 			faction = mr_aristocrats
 			influence = 10
@@ -443,6 +457,7 @@ province_event = {
 
 	option = {
 		name = "republic_factions.8.a"
+		
 		owner = {
 			add_faction_influence = {
 				faction = mr_aristocrats
@@ -466,6 +481,7 @@ province_event = {
 
 	option = {
 		name = "republic_factions.8.b"
+		
 		owner = {
 			add_faction_influence = {
 				faction = mr_traders
@@ -514,16 +530,9 @@ country_event = {
 		days = 1
 	}
 	
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 25
-		}
-	}
-
 	option = {
 		name = "republic_factions.9.a"
+		
 		add_faction_influence = {
 			faction = mr_aristocrats
 			influence = 10
@@ -532,9 +541,8 @@ country_event = {
 			faction = mr_traders
 			influence = -10
 		}
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=commandant
-			advisor_type_if_not_state=commandant
 			scaled_skill = yes
 			discount=yes
 		}
@@ -543,6 +551,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.9.b"
+		
 		add_faction_influence = {
 			faction = mr_traders
 			influence = 10
@@ -551,16 +560,12 @@ country_event = {
 			faction = mr_aristocrats
 			influence = -10
 		}
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=trader
-			advisor_type_if_not_state=trader
 			scaled_skill = yes
 			discount=yes
 		}
 		add_mil_power = -30
-	}
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 
@@ -588,6 +593,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.10.a"
+		
 		add_faction_influence = {
 			faction = mr_aristocrats
 			influence = 10
@@ -602,6 +608,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.10.b"
+		
 		add_faction_influence = {
 			faction = mr_traders
 			influence = 10
@@ -628,6 +635,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.11.a"
+		
 		FROM = {
 			random_active_trade_node = {
 				add_trade_modifier = {
@@ -667,6 +675,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.12.a"
+		
 		remove_advisor = artist
 		add_faction_influence = {
 			faction = mr_guilds
@@ -682,6 +691,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.12.b"
+		
 		add_years_of_income = 0.5
 		add_corruption = 0.5
 		add_republican_tradition = -5
@@ -710,6 +720,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.13.a"
+		
 		remove_advisor = trader
 		add_faction_influence = {
 			faction = mr_traders
@@ -721,6 +732,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.13.b"
+		
 		add_years_of_income = 0.5
 		add_republican_tradition = -3
 		add_corruption = 0.5
@@ -749,6 +761,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.14.a"
+		
 		remove_advisor = commandant
 		add_faction_influence = {
 			faction = mr_aristocrats
@@ -764,6 +777,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.14.b"
+		
 		add_years_of_income = 0.6
 		add_corruption = 2
 		add_republican_tradition = -10
@@ -791,11 +805,13 @@ country_event = {
 
 	option = {
 		name = "republic_factions.15.a"
+		
 		add_adm_power = -50
 	}
 
 	option = {
 		name = "republic_factions.15.b"
+		
 		add_republican_tradition = -5
 		add_faction_influence = {
 			faction = mr_guilds
@@ -825,11 +841,13 @@ country_event = {
 
 	option = {
 		name = "republic_factions.16.a"
+		
 		add_dip_power = -50
 	}
 
 	option = {
 		name = "republic_factions.16.b"
+		
 		add_republican_tradition = -5
 		add_faction_influence = {
 			faction = mr_traders
@@ -859,11 +877,13 @@ country_event = {
 
 	option = {
 		name = "republic_factions.17.a"
+		
 		add_mil_power = -50
 	}
 
 	option = {
 		name = "republic_factions.17.b"
+		
 		add_republican_tradition = -5
 		add_faction_influence = {
 			faction = mr_aristocrats
@@ -897,6 +917,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.18.a"
+		
 		add_country_modifier = {
 			name = "guilds_cooperating"
 			duration = 1095
@@ -925,6 +946,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.19.a"
+		
 		add_country_modifier = {
 			name = "traders_look_abroad"
 			duration = 1095
@@ -953,6 +975,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.20.a"
+		
 		add_country_modifier = {
 			name = "aristocracy_united"
 			duration = 1095
@@ -987,6 +1010,7 @@ province_event = {
 
 	option = {
 		name = "republic_factions.21.a"
+		
 		owner = {
 			every_owned_province = {
 				limit = {
@@ -1023,6 +1047,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.22.a"
+		
 		random_active_trade_node = {
 			add_trade_modifier = {
 				who = root
@@ -1055,6 +1080,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.23.a"
+		
 		random_owned_province = {
 			limit = {
 				is_overseas = no
@@ -1089,6 +1115,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.24.a"
+		
 		add_faction_influence = {
 			faction = mr_aristocrats
 			influence = -20
@@ -1097,6 +1124,7 @@ country_event = {
 
 	option = {
 		name = "republic_factions.24.b"
+		
 		add_stability = -1
 	}
 }
@@ -1199,7 +1227,8 @@ country_event = {
 	}
 
 	option = {
-		name = "republic_factions.101.a" # We cannot allow the Republic to engulf in anarchy of the masses.
+		name = "republic_factions.101.a"
+		
 		add_stability = -1
 		add_prestige = -15
 		add_republican_tradition = -20
@@ -1259,7 +1288,8 @@ country_event = {
 	}
 
 	option = {
-		name = "republic_factions.101.b" # if these savages burn shops, what will they do next?
+		name = "republic_factions.101.b"
+		
 		custom_tooltip = republic_factions.103.b.tt
 		add_stability = -1
 		add_years_of_income = -0.25
@@ -1366,7 +1396,8 @@ country_event = {
 	}
 
 	option = {
-		name = "republic_factions.102.a" # Let us not be intimidated by a bunch of scoundrels!
+		name = "republic_factions.102.a"
+		
 		add_stability = -1
 		add_prestige = -15
 		add_republican_tradition = -20
@@ -1426,7 +1457,8 @@ country_event = {
 	}
 
 	option = {
-		name = "republic_factions.102.b" # Would they seriously prefer full bellies in a ruined Republic?
+		name = "republic_factions.102.b"
+		
 		custom_tooltip = republic_factions.103.b.tt
 		add_stability = -1
 		add_years_of_income = -0.25
@@ -1536,7 +1568,8 @@ country_event = {
 	}
 
 	option = {
-		name = "republic_factions.103.a" # We cannot possibly surrender to grocers!
+		name = "republic_factions.103.a"
+		
 		add_stability = -1
 		add_prestige = -15
 		add_republican_tradition = -20
@@ -1596,7 +1629,8 @@ country_event = {
 	}
 
 	option = {
-		name = "republic_factions.103.b" # Well… What do these villains seriously want?
+		name = "republic_factions.103.b"
+		
 		custom_tooltip = republic_factions.103.b.tt
 		add_stability = -1
 		add_years_of_income = -0.25

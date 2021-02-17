@@ -1,24 +1,9 @@
-# From original EU4
 country_decisions = {
-
-	cultural_shift = {
+	wwu_cultural_shift = {
 		potential = {
 			capital_scope = {
 				NOT = { culture = ROOT }
 			}
-			NOT = { is_landless = yes }
-			#####################################
-			# Add some exceptions if needed
-			#####################################
-			#OR = {
-			#	NOT = { tag = POL }
-			#	AND = {
-			#		tag = PLC
-			#		capital_scope = { culture_group = polish } 
-			#	}
-			#}
-			#NOT = { tag = POL }
-			#####################################
 		}
 		allow =  {
 			dominant_culture = capital
@@ -28,13 +13,10 @@ country_decisions = {
 		}
 	  	effect = {
 			change_primary_culture = capital
-			if = {
-				limit = { NOT = { has_reform = remnant_basic_reform } }
-				add_adm_power = -200
-				add_dip_power = -200
-				add_mil_power = -200
-				add_stability = -3
-			}
+			add_adm_power = -200
+            add_dip_power = -200
+            add_mil_power = -200
+            add_stability = -3
 			add_country_modifier = {
 				name = changed_primary_culture
 				duration = 1000
@@ -51,16 +33,16 @@ country_decisions = {
 			OR = {
 				is_savage = yes
 				is_pure_evil = yes
-				has_reform =  military_organization_reform
+				mil = 5
 				AND = {
 					current_age = the_first_war
 					is_at_war = yes
 				}
 			}
 			any_owned_province = {
-				NOT = { culture = ROOT }
+				NOT = { accepted_culture = ROOT }
+				NOT = { culture_group = ROOT }
 			}
-			NOT = { is_landless = yes }
 		}
 		allow =  {
 			mil_power = 100
@@ -74,9 +56,22 @@ country_decisions = {
 				desc = purged_race_nation.desc
 			}
 			random_owned_province = {
-				limit = { NOT = { culture = ROOT } }
+				limit = { 
+					NOT = { accepted_culture = ROOT } 
+					NOT = { culture_group = ROOT }
+				}
 				add_devastation = 20
+				every_country = {
+					limit = {
+						culture_group = PREV
+					}
+					add_opinion = {
+						who = ROOT
+						modifier = purged_our_people
+					} 
+				}
 				change_culture = ROOT
+				change_religion = ROOT
 				add_province_modifier = {
 					name = purged_race_province
 					duration = 3650
@@ -93,28 +88,41 @@ country_decisions = {
 		potential = {
 			NOT = { is_pure_evil = yes }
 			NOT = { is_savage = yes }
-			NOT = { is_landless = yes }
 		}
 		allow =  {
 			adm_power = 100
 			years_of_income = 0.33
 			NOT = { has_country_modifier = emigrated_race_nation }
 			any_owned_province = {
-				NOT = { culture = ROOT }
+				NOT = { accepted_culture = ROOT }
+				NOT = { culture_group = ROOT }
 			}
 		}
 	  	effect = {
 			add_adm_power = -100
+			add_years_of_income = -0.33
 			add_country_modifier = {
 				name = emigrated_race_nation
 				duration = 1000
 				desc = emigrated_race_nation.desc
 			}
-			add_years_of_income = -0.33
 			random_owned_province = {
-				limit = { NOT = { culture = ROOT } }
-				add_devastation = 5
+				limit = { 
+					NOT = { accepted_culture = ROOT }
+					NOT = { culture_group = ROOT } 
+				}
+				every_country = {
+					limit = {
+						culture_group = PREV
+					}
+					add_opinion = {
+						who = ROOT
+						modifier = dishonorable_act
+					} 
+				}
 				change_culture = ROOT
+				change_religion = ROOT
+				add_devastation = 5
 			}
 		}
 		ai_will_do = {

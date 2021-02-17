@@ -1,0 +1,155 @@
+namespace = ancient_ruler
+
+country_event = {
+	id = ancient_ruler.1
+	title = ancient_ruler.1.title
+	desc = ancient_ruler.1.desc
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	trigger = {
+		OR = {
+            has_reform = ancient_kingdom_reform
+            has_reform = ancient_republic_reform
+            has_reform = ancient_theocracy_reform
+            has_reform = ancient_clan_reform
+        }
+		months_of_ruling = 120
+		OR = {
+			NOT = { stability = 2 }
+			NOT = { legitimacy = 40 }
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 35
+				}
+			}
+			
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		# Stability
+		modifier = {
+			NOT = { stability = 0 }
+			
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { stability = -1 }
+			
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { stability = -2 }
+			
+			factor = 0.9
+		}
+		# Legitimacy
+		modifier = {
+			NOT = { legitimacy_equivalent = 40 }
+			
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { legitimacy_equivalent = 30 }
+			
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { legitimacy_equivalent = 20 }
+			
+			factor = 0.9
+		}
+		# Elders
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 40
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 35
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 30
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 25
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 20
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 15
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 10
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 5
+				}
+			}
+			factor = 0.95
+		}
+		
+	}
+	
+	option = {
+		name = ancient_ruler.1.opt1
+		
+		exile_ruler_as = old_ruler
+		custom_tooltip = ancient_ruler.1.opt1.tt
+	}
+	
+	option = {
+		name = ancient_ruler.1.opt2
+		
+		add_prestige = -10
+		add_militarised_society = -10
+		add_stability = -1
+		ai_chance = { factor = 0 }
+	}
+}

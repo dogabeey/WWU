@@ -4,7 +4,7 @@ namespace = overextension
 country_event = {
 	id = overextension.1
 	title = "EVTNAME748"
-	desc = "EVTDESC748"
+	desc = "EVTDESFER8"
 	picture = MILITARY_CAMP_eventPicture
 	
 	trigger = {
@@ -18,6 +18,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA748"
+		
 		add_war_exhaustion = 1
 		add_yearly_manpower = -0.5
 	}
@@ -27,7 +28,7 @@ country_event = {
 country_event = {
 	id = overextension.2
 	title = "EVTNAME749"
-	desc = "EVTDESC749"
+	desc = "EVTDESFER9"
 	picture = DEBATE_REPUBLICAN_eventPicture
 	
 	trigger = {
@@ -41,6 +42,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA749"
+		
 		add_stability = -1
 	}
 }
@@ -64,6 +66,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA750"
+		
 		add_prestige = -25
 	}
 }
@@ -87,6 +90,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA751"
+		
 		add_inflation = 1
 	}
 }
@@ -110,6 +114,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA752"
+		
 		add_army_tradition = -10
 	}
 }
@@ -142,6 +147,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA753"
+		
 		random_active_trade_node = {
 			limit = {
 				NOT = { 
@@ -176,7 +182,7 @@ country_event = {
 	id = overextension.7
 	title = "EVTNAME773"
 	desc = "EVTDESC773"
-	picture = ASSASSINATION_eventPicture
+	picture = WOW_ASSASSINATION_eventPicture
 
 	is_triggered_only = yes
 	
@@ -199,6 +205,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA773"
+		
 		random_active_trade_node = {
 			limit = {
 				has_merchant = PREV
@@ -230,7 +237,6 @@ country_event = {
 	
 	trigger = {
 		legitimacy_or_horde_unity = 15
-		NOT = { has_reform = celestial_empire }
 		government = monarchy
 		is_lesser_in_union = no
 	}
@@ -241,12 +247,13 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA754"
+		
 		if = {
-			limit = { NOT = { has_reform = steppe_horde } }
+			limit = { NOT = { has_reform = warband_reform } }
 			add_legitimacy = -15
 		}
 		if = {
-			limit = { has_reform = steppe_horde }
+			limit = { has_reform = warband_reform }
 			add_horde_unity = -15
 		}
 	}
@@ -271,6 +278,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA755"
+		
 		add_dip_power = -50
 	}
 }
@@ -299,6 +307,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA756"
+		
 		reduce_meritocracy_effect = yes
 		if = {
 			limit = {

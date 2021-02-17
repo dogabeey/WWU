@@ -10,7 +10,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_reform = steppe_horde
+		has_reform = warband_reform
 		NOT = { has_country_flag = no_new_succession_crisis_if_pretender_rebels }
 		num_of_cities = 4
 		OR = {
@@ -43,6 +43,7 @@ country_event = {
 	
 	option = {
 		name = tribal_succession.1.a
+		
 		trigger = {
 			NOT = { legitimacy_or_horde_unity = 50 }
 		}
@@ -72,6 +73,7 @@ country_event = {
 	
 	option = {
 		name = tribal_succession.1.b
+		
 		trigger = {
 			has_regency = yes
 		}
@@ -91,7 +93,7 @@ country_event = {
 	picture = NEW_HEIR_eventPicture
 	
 	trigger = {
-		has_reform = steppe_horde
+		has_reform = warband_reform
 		has_ruler_modifier = tribal_succession_crisis
 		NOT = {
 			has_spawned_rebels = pretender_rebels
@@ -105,6 +107,7 @@ country_event = {
 	
 	option = {
 		name = tribal_succession.2.a
+		
 		remove_country_modifier = tribal_succession_crisis
 		add_stability_or_adm_power = yes
 		add_horde_unity = 25

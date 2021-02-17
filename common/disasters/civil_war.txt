@@ -1,8 +1,10 @@
 civil_war = {
 	potential = {
+		NOT = { has_country_flag = complete_stasis }
+		always = no
 		num_of_cities = 5
 		any_owned_province = {
-			base_tax = 5
+			development = 15
 			is_capital = no
 		}
 		NOT = { 
@@ -22,32 +24,14 @@ civil_war = {
 		has_any_disaster = no
 		has_regency = no
 		average_home_autonomy = 30
-		if = {
-			limit = {
-				has_reform = celestial_empire
-				has_dlc = "Mandate of Heaven"
-			}
-			NOT = { imperial_mandate = 70 }
-			else = {
-				NOT = { legitimacy_or_horde_unity = 20 }
-			}
-		}
+		NOT = { legitimacy_or_horde_unity = 20 }
 	}
 	
 	
 	can_stop = {
 		OR = {
 			has_any_disaster = yes
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-					has_reform = celestial_empire
-				}
-				imperial_mandate = 75
-				else = {
-					legitimacy_or_horde_unity = 75
-				}
-			}
+			legitimacy_or_horde_unity = 75
 			has_regency = yes
 		}
 	}
@@ -84,16 +68,7 @@ civil_war = {
 	
 	
 	can_end = {
-		if = {
-			limit = {
-				has_dlc = "Mandate of Heaven"
-				has_reform = celestial_empire
-			}
-			imperial_mandate = 90
-			else = {
-				legitimacy_or_horde_unity = 90
-			}
-		}
+		legitimacy_or_horde_unity = 90
 	}
 	
 

@@ -58,6 +58,7 @@ country_event = {
 
 	option = {
 		name = "tributary_events.1.a"
+		
 		trigger_switch = {
 			on_trigger = has_country_flag
 			overlord_inspired_official = {
@@ -67,7 +68,7 @@ country_event = {
 					discount = yes
 					religion = event_target:overlord_country
 				}
-				add_estate_church_loyalty_effect = yes
+				add_estate_clergy_loyalty_effect = yes
 				clr_country_flag = overlord_inspired_official
 			}
 			overlord_inspired_trader = {
@@ -77,7 +78,7 @@ country_event = {
 					discount = yes
 					religion = event_target:overlord_country
 				}
-				add_estate_burghers_loyalty_effect = yes
+				add_estate_traders_loyalty_effect = yes
 				clr_country_flag = overlord_inspired_trader
 			}
 			overlord_inspired_institutions_spread = {
@@ -92,13 +93,14 @@ country_event = {
 					name = "tributary_diplomatic_influence"
 					duration = 5475
 				}
-				add_estate_nobles_loyalty_effect = yes
+				add_estate_nobility_loyalty_effect = yes
 				clr_country_flag = overlord_inspired_dip_rep
 			}
 		}
 	}
 	option = {
 		name = "tributary_events.1.b"
+		
 		increase_legitimacy_medium_effect = yes
 		add_stability_or_adm_power = yes
 	}
@@ -137,7 +139,8 @@ country_event = {
 	}
 	
 	option = {
-		name = "tributary_events.2.a" #A good way to make new far-away friends.
+		name = "tributary_events.2.a"
+		
 		add_prestige = 10
 		random_country = {
 			limit = {
@@ -154,7 +157,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.2.b" #Our Neighbors are Impressed
+		name = "tributary_events.2.b"
+		
 		increase_legitimacy_small_effect = yes
 		random_neighbor_country = {
 			limit = {
@@ -208,14 +212,16 @@ country_event = {
 
 	option = {
 		name = "tributary_events.3.a"
+		
 		increase_legitimacy_medium_effect = yes
-		add_estate_nobles_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	
 	option = {
 		name = "tributary_events.3.b"
+		
 		add_stability_or_adm_power = yes
-		add_estate_church_loyalty_effect = yes
+		add_estate_clergy_loyalty_effect = yes
 	}
 }
 
@@ -260,6 +266,7 @@ country_event = {
 	
 	option = {
 		name = "tributary_events.4.a"
+		
 		add_country_modifier = {
 			name = influential_tributary_network
 			duration = 3650
@@ -267,6 +274,7 @@ country_event = {
 	}
 	option = {
 		name = "tributary_events.4.b"
+		
 		add_dip_power = 50
 	}
 }
@@ -313,7 +321,8 @@ country_event = {
 	}
 	
 	option = {
-		name = "tributary_events.5.a" #Spread and tech modifier
+		name = "tributary_events.5.a"
+		
 		event_target:tributary_advanced_underling = {
 			add_opinion = {
 				who = ROOT
@@ -326,7 +335,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.5.b" #Direct Spread in capital, might be more valuable depending on circumstances.
+		name = "tributary_events.5.b"
+		
 		trigger = {
 			always = no #TODO, needs better effects/triggers
 			any_subject_country = {
@@ -345,7 +355,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.5.c" #Let us allow them their freedom
+		name = "tributary_events.5.c"
+		
 		add_prestige = 5
 	}
 }
@@ -367,7 +378,7 @@ country_event = {
 			can_be_overlord = tributary_state #Block when it doesn't make sense.
 			num_of_ports = 1
 			NOT = {
-				has_reform = steppe_horde
+				has_reform = warband_reform
 			}
 		}
 		any_owned_province = {
@@ -418,6 +429,7 @@ country_event = {
 
 	option = {
 		name = "tributary_events.6.a"
+		
 		custom_tooltip = tributary_events.6.a.tt
 		add_corruption = 1
 		event_target:tributary_trader_port = {
@@ -431,6 +443,7 @@ country_event = {
 	}
 	option = {
 		name = "tributary_events.6.b"
+		
 		event_target:tributary_trader_port = {
 			add_province_modifier = { #Destroyed on Conquest
 				name = "tributary_overlord_trading_port"
@@ -478,7 +491,8 @@ country_event = {
 	}
 
 	option = {
-		name = "tributary_events.7.a" #Let them know they're alive
+		name = "tributary_events.7.a"
+		
 		add_prestige = -5
 		event_target:tributary_criminal_country = {
 			country_event = { id = tributary_events.8 }
@@ -493,7 +507,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.7.b" #I don't dare
+		name = "tributary_events.7.b"
+		
 		add_prestige = -10
 		reduce_mandate_effect = yes
 		reduce_legitimacy_small_effect = yes
@@ -524,7 +539,8 @@ country_event = {
 	}
 
 	option = {
-		name = "tributary_events.8.a" #Clear out the traders
+		name = "tributary_events.8.a"
+		
 		add_years_of_income = -0.5
 		overlord = {
 			add_opinion = {
@@ -545,7 +561,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.8.b" #Refuse to Pay
+		name = "tributary_events.8.b"
+		
 		overlord = {
 			add_opinion = {
 				who = ROOT
@@ -605,10 +622,12 @@ country_event = {
 	
 	option = {
 		name = "tributary_events.9.a"
+		
 		add_dip_power = -50
 	}
 	option = {
 		name = "tributary_events.9.b"
+		
 		add_years_of_income = -0.33
 	}
 }
@@ -671,6 +690,7 @@ country_event = {
 	
 	option = {
 		name = "tributary_events.10.a"
+		
 		add_adm_power = 15
 		event_target:ningbo_country = {
 			country_event = { id = tributary_events.11 }
@@ -678,6 +698,7 @@ country_event = {
 	}
 	option = {
 		name = "tributary_events.10.b"
+		
 		add_dip_power = 50
 	}
 }
@@ -692,7 +713,8 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = "tributary_events.11.a" #Unfortunate
+		name = "tributary_events.11.a"
+		
 		FROM = {
 			random_active_trade_node = {
 				limit = {
@@ -711,11 +733,12 @@ country_event = {
 				}
 			}
 		}
-		reduce_estate_burghers_loyalty_effect = yes
-		add_estate_nobles_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
+		add_estate_nobility_loyalty_effect = yes
 	}
 	option = {
-		name = "tributary_events.11.b" #Compensate overlord
+		name = "tributary_events.11.b"
+		
 		add_years_of_income = -1
 		hidden_effect = {
 			export_to_variable = { which = money_to_give value = years_of_income who = ROOT }
@@ -723,8 +746,8 @@ country_event = {
 		FROM = {
 			country_event = { id = tributary_events.12 }
 		}
-		add_estate_burghers_loyalty_effect = yes
-		reduce_estate_nobles_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
+		reduce_estate_nobility_loyalty_effect = yes
 	}
 }
 
@@ -739,6 +762,7 @@ country_event = {
 	
 	option = {
 		name = "tributary_events.12.a"
+		
 		custom_tooltip = tributary_events.12.a.tt
 		
 		FROM = {
@@ -824,25 +848,27 @@ country_event = {
 	}
 	
 	option = {
-		name = "tributary_events.13.a" #I want in on this
+		name = "tributary_events.13.a"
+		
 		add_corruption = 1
 		event_target:exotic_tributary = {
 			country_event = { id = tributary_events.15 }
 		}
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 		add_country_modifier = {
 			name = "tributary_smuggling_ring_overlord"
 			duration = 5475
 		}
 	}
 	option = {
-		name = "tributary_events.13.b" #Attempt to stop it (may happen anyway but with us cut out)
+		name = "tributary_events.13.b"
+		
 		add_mandate_effect = yes
 		add_legitimacy = 5
 		add_devotion = 5
 		add_horde_unity = 5
 		add_republican_tradition = 2.5
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 		event_target:exotic_tributary = {
 			country_event = { id = tributary_events.14 }
 		}
@@ -863,17 +889,19 @@ country_event = {
 	}
 
 	option = {
-		name = "tributary_events.14.a" #Happy Overlord
+		name = "tributary_events.14.a"
+		
 		FROM = {
 			add_opinion = {
 				who = ROOT
 				modifier = tributary_stopped_smugglers
 			}
 		}
-		reduce_estate_burghers_loyalty_effect = yes
+		reduce_estate_traders_loyalty_effect = yes
 	}
 	option = {
-		name = "tributary_events.14.b" #Gives benefit to subject but not overlord
+		name = "tributary_events.14.b"
+		
 		add_corruption = 1
 		add_country_modifier = {
 			name = "tributary_smuggling_ring_subject"
@@ -885,7 +913,7 @@ country_event = {
 				modifier = tributary_aiding_smugglers
 			}
 		}
-		add_estate_burghers_loyalty_effect = yes
+		add_estate_traders_loyalty_effect = yes
 	}
 }
 
@@ -904,6 +932,7 @@ country_event = {
 
 	option = {
 		name = "tributary_events.15.a"
+		
 		add_country_modifier = {
 			name = "tributary_smuggling_ring_subject"
 			duration = 3650 #Shorter duration, many of the beneiciaries will be in the overlord country.
@@ -941,6 +970,7 @@ country_event = {
 	
 	option = {
 		name = "tributary_events.16.a"
+		
 		random_owned_province = {
 			limit = {
 				OR = {
@@ -956,6 +986,7 @@ country_event = {
 	}
 	option = {
 		name = "tributary_events.16.b"
+		
 		increase_legitimacy_medium_effect = yes
 		overlord = {
 			add_opinion = {
@@ -1014,6 +1045,7 @@ country_event = {
 
 	option = {
 		name = "tributary_events.17.a"
+		
 		add_meritocracy_effect = yes
 		trigger_switch = {
 			on_trigger = has_country_flag
@@ -1073,6 +1105,7 @@ country_event = {
 	
 	option = {
 		name = "tributary_events.18.a"
+		
 		add_years_of_income = -0.5
 		add_country_modifier = {
 			name = tributary_mission_piracy
@@ -1081,6 +1114,7 @@ country_event = {
 	}
 	option = {
 		name = "tributary_events.18.b"
+		
 		add_country_modifier = {
 			name = tributary_mission_piracy
 			duration = 3650
@@ -1133,6 +1167,7 @@ country_event = {
 	
 	option = {
 		name = "tributary_events.19.a"
+		
 		add_years_of_income = -0.75
 		event_target:tributary_loyal = {
 			country_event = { id = tributary_events.22 }
@@ -1144,6 +1179,7 @@ country_event = {
 	}
 	option = {
 		name = "tributary_events.19.b"
+		
 		reduce_mandate_effect = yes
 		reduce_legitimacy_medium_effect = yes
 		every_subject_country = {
@@ -1170,6 +1206,7 @@ country_event = {
 	
 	option = {
 		name = "tributary_events.20.a"
+		
 		FROM = {
 			add_opinion = {
 				who = ROOT
@@ -1192,6 +1229,7 @@ country_event = {
 	
 	option = {
 		name = "tributary_events.21.a"
+		
 		FROM = {
 			add_opinion = {
 				who = ROOT
@@ -1213,6 +1251,7 @@ country_event = {
 	
 	option = {
 		name = "tributary_events.22.a"
+		
 		add_years_of_income = 1
 		increase_legitimacy_medium_effect = yes
 		FROM = {
@@ -1273,6 +1312,7 @@ country_event = {
 
 	option = {
 		name = "tributary_events.23.a"
+		
 		add_meritocracy_effect = yes
 		trigger_switch = {
 			on_trigger = has_country_flag
@@ -1352,7 +1392,8 @@ country_event = {
 	}
 
 	option = {
-		name = "tributary_events.24.a" #
+		name = "tributary_events.24.a"
+		
 		trigger_switch = {
 			on_trigger = has_country_flag
 			adventurer_officer = {
@@ -1414,7 +1455,6 @@ country_event = {
 		OR = {
 			AND = {
 				government = monarchy
-				NOT = { has_reform = celestial_empire }
 				NOT = { legitimacy_or_horde_unity = 80 }
 			}
 			AND = {
@@ -1455,7 +1495,8 @@ country_event = {
 	}
 
 	option = {
-		name = "tributary_events.25.a" #
+		name = "tributary_events.25.a"
+		
 		if = {
 			limit = {
 				government = monarchy
@@ -1503,7 +1544,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.25.b" #
+		name = "tributary_events.25.b"
+		
 		add_years_of_income = -1
 		overlord = {
 			add_trust = {
@@ -1536,7 +1578,7 @@ country_event = {
 		is_subject_of_type = tributary_state
 		overlord = {
 			can_be_overlord = tributary_state #Block when it doesn't make sense.
-			has_reform = steppe_horde
+			has_reform = warband_reform
 			is_neighbor_of = ROOT
 		}
 		NOT = { has_country_modifier = horde_slave_raid }
@@ -1547,7 +1589,8 @@ country_event = {
 	}
 
 	option = {
-		name = "tributary_events.26.a" #
+		name = "tributary_events.26.a"
+		
 		add_prestige = -10
 		add_country_modifier = {
 			name = "horde_slave_raid"
@@ -1613,7 +1656,8 @@ country_event = {
 	}
 
 	option = {
-		name = "tributary_events.27.a" #
+		name = "tributary_events.27.a"
+		
 		custom_tooltip = tributary_events.27.a.tt
 		trigger_switch = {
 			on_trigger = has_country_flag
@@ -1645,7 +1689,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.27.b" #
+		name = "tributary_events.27.b"
+		
 		hidden_effect = {
 			trigger_switch = {
 				on_trigger = has_country_flag
@@ -1674,7 +1719,8 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "tributary_events.28.a" #
+		name = "tributary_events.28.a"
+		
 		overlord = {
 			reverse_add_opinion = {
 				who = ROOT
@@ -1700,7 +1746,8 @@ country_event = {
 	}
 	
 	option = {
-		name = "tributary_events.29.a" #
+		name = "tributary_events.29.a"
+		
 		add_trust = {
 			who = FROM
 			value = -5
@@ -1775,7 +1822,8 @@ country_event = {
 	}
 
 	option = {
-		name = "tributary_events.30.a" # Give them all help!
+		name = "tributary_events.30.a"
+		
 		hidden_effect = {
 			event_target:tributary_warring_rival = {
 				set_country_flag = overlord_all_the_support
@@ -1858,7 +1906,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.30.b" # Give them our troops!
+		name = "tributary_events.30.b"
+		
 		hidden_effect = {
 			event_target:tributary_warring_rival = {
 				set_country_flag = overlord_manpower_support
@@ -1921,7 +1970,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.30.c" # Give them funding!
+		name = "tributary_events.30.c"
+		
 		hidden_effect = {
 			event_target:tributary_warring_rival = {
 				set_country_flag = overlord_funding_support
@@ -1982,7 +2032,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.30.e" # Give them only a mission.
+		name = "tributary_events.30.e"
+		
 		hidden_effect = {
 			event_target:tributary_warring_rival = {
 				set_country_flag = overlord_military_mission
@@ -2016,7 +2067,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = "tributary_events.30.f" # Give them nothing
+		name = "tributary_events.30.f"
+		
 		add_prestige = -5
 		ai_chance = {
 			factor = 5
@@ -2058,6 +2110,7 @@ country_event = {
 
 	option = {
 		name = "tributary_events.31.a"
+		
 		trigger_switch = {
 			on_trigger = has_country_flag
 			overlord_all_the_support = {
@@ -2150,6 +2203,7 @@ country_event = {
 
 	option = {
 		name = "tributary_events.32.a"
+		
 		remove_country_modifier = overlord_military_mission
 	}
 }

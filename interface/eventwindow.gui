@@ -1,3 +1,5 @@
+#This is mine
+
 guiTypes = {
 	windowType = {
 		name = "EventWindow"
@@ -31,7 +33,7 @@ guiTypes = {
 		{
 			name ="event_picture"
 			spriteType = "GFX_event_event_test"
-			position = { x = 30 y = 81 }
+			position = { x = 30 y = 93 }
 			Orientation = "UPPER_LEFT"
 		}
 		
@@ -39,7 +41,7 @@ guiTypes = {
 		{
 			name ="event_bg_middle"
 			spriteType = "GFX_event_bg_middle"
-			position = { x = -43 y = 223 }
+			position = { x = -43 y = 370 }
 			Orientation = "UPPER_LEFT"
 		}
 		
@@ -54,6 +56,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "Title"
 			position = { x = -43 y = 39 }
+			
 			font = "vic_29s"
 			borderSize = {x = 0 y = 0}
 			text = "Long text here!"	
@@ -61,10 +64,19 @@ guiTypes = {
 			maxHeight = 32
 			format = centre
 		}
+		guiButtonType = {
+			name = "event_goto_province"
+			position = { x = 0 y = 14 }
+			quadTextureSprite ="GFX_event_goto_province"
+			buttonFont = "Main_14_black"
+			shortcut = "f"
+			clicksound = click
+		}
 		
 		instantTextBoxType = {
 			name = "Description"
-			position = { x = 31 y = 230 }
+			position = { x = 31 y = 371 } # Was 230
+			textureFile = ""
 			font = "vic_18_black"
 			borderSize = {x = 0 y = 0}
 			text = "Long text here!"	
@@ -93,13 +105,23 @@ guiTypes = {
 		backGround = ""
 		size = { x = 547 y = 30 }
 		moveable = 0
+		
 		fullScreen = no
 		
 		guiButtonType = {
 			name = "event_option_button"
 			quadTextureSprite = "GFX_event_button_547"
 			buttonFont = "vic_18"
-			allwaystransparent = yes
+		}
+		guiButtonType = {
+			name = "event_option_goto_button"
+			position = { x = -60 y = 0 }
+			quadTextureSprite ="GFX_event_option_goto_province"
+			buttonFont = "Main_14_black"
+			clicksound = click
+			tooltipText = "GOTO"
+
+			orientation = "UPPER_RIGHT"
 		}
 	}
 	

@@ -1,0 +1,1064 @@
+namespace = wwu_tribes
+
+# "Born of War"
+country_event = {
+	id = wwu_tribes.1
+	title = "wwu_tribes.1.title"
+	desc = "wwu_tribes.1.desc"
+	picture = MONGOL_BANNERS_eventPicture	
+
+	is_triggered_only = yes	
+	
+	trigger = {
+		has_reform = warband_reform
+		is_at_war = no
+		NOT = { had_recent_war = 2 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 1.1
+			NOT = { MIL = 3 }
+		}			
+	}
+
+	option = {
+		name = "wwu_tribes.1.option.a"
+		ai_chance = { factor = 10 }
+		add_prestige = -10
+	}
+	option = {
+		name = "wwu_tribes.1.option.b"
+		trigger = { has_idea_group = wwu_administrative_ideas }		
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				prestige = 50
+			}			
+		}
+		add_army_tradition = -5		
+	}	
+}
+
+# "Exhaustion is for the Weak"
+country_event = {
+	id = wwu_tribes.2
+	title = "wwu_tribes.2.title"
+	desc = "wwu_tribes.2.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = warband_reform
+		war_exhaustion = 2
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+	}
+
+	option = {
+		name = "wwu_tribes.2.option.a"
+		ai_chance = { factor = 10 }
+		add_war_exhaustion = -2
+	}
+	option = {
+		name = "wwu_tribes.2.option.b"
+		trigger = { has_idea_group = wwu_espionage_ideas }		
+		ai_chance = { factor = 90 }
+		add_war_exhaustion = -5
+		add_prestige = 3
+	}	
+} 
+
+# "This is a Good Day to Die"
+country_event = {
+	id = wwu_tribes.3
+	title = "wwu_tribes.3.title"
+	desc = "wwu_tribes.3.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		has_reform = warband_reform
+		is_at_war = yes
+		NOT = { manpower_percentage = 0.9 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.3.option.a"
+		ai_chance = { factor = 10 }
+		add_yearly_manpower = 1.00
+	}
+	option = {
+		name = "wwu_tribes.3.option.b"
+		trigger = { has_idea_group = wwu_quality_ideas }		
+		ai_chance = { factor = 90 }
+		add_army_tradition = 10	
+		add_prestige = 2
+	}	
+}
+
+# "Friendly Tribe Migrates into [Root.GetName]"
+country_event = {
+	id = wwu_tribes.4
+	title = "wwu_tribes.4.title"
+	desc = "wwu_tribes.4.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		OR = {
+			has_reform = warband_reform
+			has_reform = tribal_federation_reform
+            has_reform = tribal_despotism_reform
+		}
+		has_estate = estate_tribals
+		estate_territory = {
+			estate = estate_tribals
+			territory = 10
+		}
+		any_owned_province = {
+			NOT = { base_manpower = 3 }
+			culture_group = root
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { base_manpower = 3 }
+					culture_group = root
+				}
+				save_event_target_as = friendly_tribe_province
+			}
+		}
+	}
+
+	option = {
+		name = "wwu_tribes.4.option.a"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = 10
+			}
+		}
+		event_target:friendly_tribe_province = {
+			add_base_manpower = 1
+		}
+	}
+}
+
+# "Hostile Tribes Raid 
+country_event = {
+	id = wwu_tribes.5
+	title = "wwu_tribes.5.title"
+	desc = "wwu_tribes.5.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		OR = {
+			has_reform = warband_reform
+			has_reform = tribal_federation_reform
+            has_reform = tribal_despotism_reform
+		}
+		any_owned_province = {
+			any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					owner = {
+						OR = {
+							has_reform = warband_reform
+							has_reform = tribal_federation_reform
+                            has_reform = tribal_despotism_reform
+						}
+						NOT = { has_opinion = { who = ROOT value = 0 }
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = {
+						NOT = { owned_by = ROOT }
+						owner = {
+							OR = {
+								has_reform = warband_reform
+								has_reform = tribal_federation_reform
+                                has_reform = tribal_despotism_reform
+							}
+							NOT = { has_opinion = { who = ROOT value = 0 } }
+						}
+					}
+				}
+				save_event_target_as = hostile_migrating_tribes_province
+				random_neighbor_province = {
+					limit = {
+						owner = {
+							OR = {
+								has_reform = warband_reform
+								has_reform = tribal_federation_reform
+                                has_reform = tribal_despotism_reform
+							}
+							NOT = { has_opinion = { who = ROOT value = 0 } }
+						}
+					}
+					owner = { save_event_target_as = hostile_migrating_tribes_country }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "wwu_tribes.5.option.a"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = -10
+			}
+		}
+		event_target:hostile_migrating_tribes_province = {
+			add_devastation = 5
+		}
+		add_opinion = { who = event_target:hostile_migrating_tribes_country modifier = opinion_angry }
+	}
+}
+
+# "Migrating Tribes in [migration_province.GetName]"
+country_event = {
+	id = wwu_tribes.6
+	title = "wwu_tribes.6.title"
+	desc = "wwu_tribes.6.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		OR = {
+            has_reform = warband_reform
+            has_reform = tribal_federation_reform
+            has_reform = tribal_despotism_reform
+        }
+		any_neighbor_country = {  
+			has_opinion = { who = ROOT value = 0 }
+			OR = {
+                has_reform = warband_reform
+                has_reform = tribal_federation_reform
+                has_reform = tribal_despotism_reform
+            }
+		}
+		any_owned_province = { 
+			trade_goods = grain
+			any_neighbor_province = {  
+				NOT = { owned_by = ROOT }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					trade_goods = grain
+					any_neighbor_province = {  
+						NOT = { owned_by = ROOT }
+					}
+				}
+				save_event_target_as = migration_province
+			}
+		}
+	}
+
+	option = {
+		name = "wwu_tribes.6.option.a"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = 10
+			}
+		}
+		event_target:migration_province = {
+			add_base_production = 1
+		}
+	}
+}
+
+# "Migrating Tribes in [migration_province.GetName]"
+country_event = {
+	id = wwu_tribes.7
+	title = "wwu_tribes.7.title"
+	desc = "wwu_tribes.7.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		OR = {
+            has_reform = warband_reform
+            has_reform = tribal_federation_reform
+            has_reform = tribal_despotism_reform
+        }
+		any_neighbor_country = {  
+			has_opinion = { who = ROOT value = 50 }
+			OR = {
+                has_reform = warband_reform
+                has_reform = tribal_federation_reform
+                has_reform = tribal_despotism_reform
+            }
+		}
+		any_owned_province = { 
+			trade_goods = wool
+			any_neighbor_province = {  
+				NOT = { owned_by = ROOT }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					trade_goods = wool
+					any_neighbor_province = {  
+						NOT = { owned_by = ROOT }
+					}
+				}
+				save_event_target_as = migration_province
+			}
+		}
+	}
+	
+	option = {
+		name = "wwu_tribes.7.option.a"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = 10
+			}
+		}
+		event_target:migration_province = {
+			add_base_production = 1
+		}		
+	}
+}
+
+# "War Games"
+country_event = {
+	id = wwu_tribes.8
+	title = "wwu_tribes.8.title"
+	desc = "wwu_tribes.8.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		has_reform = warband_reform
+		is_at_war = no
+		has_regency = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.8.option.a"
+		ai_chance = { factor = 100 }
+		random_list = {
+			25 = {
+				country_event = { id = wwu_tribes.9 days = 3 random = 2 }
+			}
+			25 = {
+				country_event = { id = wwu_tribes.10 days = 3 random = 2 }
+			}
+			25 = {
+				country_event = { id = wwu_tribes.11 days = 3 random = 2 }
+			}
+			25 = {
+				country_event = { id = wwu_tribes.12 days = 3 random = 2 }
+			}
+			15 = {
+				country_event = { id = wwu_tribes.15 days = 3 random = 2 }
+			}
+			5 = {
+				country_event = { id = wwu_tribes.16 days = 3 random = 2 }
+			}			
+		}		
+	}
+}
+
+# "Glorious Chief"
+country_event = {
+	id = wwu_tribes.9
+	title = "wwu_tribes.9.title"
+	desc = "wwu_tribes.9.desc"
+	picture = MONGOL_BANNERS_eventPicture	
+	
+	is_triggered_only = yes	
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.9.option.a"
+		ai_chance = { factor = 33 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = 10
+			}
+		}
+		add_horde_unity = 33
+	}
+	option = {
+		name = "wwu_tribes.9.option.b"
+		ai_chance = { factor = 33 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = 10
+			}
+		}
+		add_prestige = 25
+	}	
+}
+
+# "Successful Games"
+country_event = {
+	id = wwu_tribes.10
+	title = "wwu_tribes.10.title"
+	desc = "wwu_tribes.10.desc"
+	picture = MONGOL_BANNERS_eventPicture	
+	
+	is_triggered_only = yes	
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.10.option.a"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = 10
+			}
+		}
+		add_stability_or_adm_power = yes
+		add_army_tradition = 5		
+	}
+}
+
+# "Ruinous Games"
+country_event = {
+	id = wwu_tribes.11
+	title = "wwu_tribes.11.title"
+	desc = "wwu_tribes.11.desc"
+	picture = MONGOL_BANNERS_eventPicture	
+	
+	is_triggered_only = yes	
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.11.option.a"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = -10
+			}
+		}
+		add_stability = -1
+		add_army_tradition = -5		
+	}
+}
+
+# "Legendary Games"
+country_event = {
+	id = wwu_tribes.12
+	title = "wwu_tribes.12.title"
+	desc = "wwu_tribes.12.desc"
+	picture = MONGOL_BANNERS_eventPicture	
+	
+	is_triggered_only = yes	
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.12.option.a"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = 10
+			}
+		}
+		add_prestige = 15
+		add_yearly_manpower = 0.1
+	}
+}
+
+# "Clansmen Flock our Hosts"
+country_event = {
+	id = wwu_tribes.13
+	title = "wwu_tribes.13.title"
+	desc = "wwu_tribes.13.desc"
+	picture = MONGOL_BANNERS_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		OR = {
+            has_reform = warband_reform
+            has_reform = tribal_federation_reform
+            has_reform = tribal_despotism_reform
+        }
+		NOT = { manpower_percentage = 0.5 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.13.option.a"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = 10
+			}
+		}
+		add_yearly_manpower = 0.15
+	}
+}
+
+# "Restless Warband"
+country_event = {
+	id = wwu_tribes.14
+	title = "wwu_tribes.14.title"
+	desc = "wwu_tribes.14.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		has_reform = warband_reform
+		NOT = { manpower_percentage = 0.5 }
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.14.option.a"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = -10
+			}
+		}
+		add_yearly_manpower = -0.75
+		add_prestige = -5
+	}
+}
+
+
+# "Rising Star"
+country_event = {
+	id = wwu_tribes.15
+	title = "wwu_tribes.15.title"
+	desc = "wwu_tribes.15.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_tribals
+				modifier = EST_VAL_RANDOMSTEPPE_LEADER
+			}
+		}
+	}
+
+	option = {
+		name = "wwu_tribes.15.option.a"
+		ai_chance = { factor = 50 }
+		add_prestige = 2
+		create_general = { tradition = 50 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = 15
+			}
+			add_estate_influence_modifier = {
+				desc = EST_VAL_RANDOMSTEPPE_LEADER
+				estate = estate_tribals
+				influence = 10
+				duration = 3650
+			}
+		}
+	}
+	option = {
+		name = "wwu_tribes.15.option.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_estate = estate_tribals
+				NOT = {
+					estate_loyalty = {
+						estate = estate_tribals
+						loyalty = 40
+					}
+				}
+			}
+		}
+		trigger = {
+			has_estate = estate_tribals
+		}
+		add_estate_loyalty = {
+			estate = estate_tribals
+			loyalty = -15
+		}
+	}
+}
+
+#  "Shining Star"
+country_event = {
+	id = wwu_tribes.16
+	title = "wwu_tribes.16.title"
+	desc = "wwu_tribes.16.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+	
+	trigger = {
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_tribals
+				modifier = EST_VAL_RANDOMSTEPPE_LEADER
+			}
+		}
+	}
+
+	option = {
+		name = "wwu_tribes.16.option.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.25
+				estate_influence = {
+					estate = estate_tribals
+					influence = 60
+				}
+			}
+		}
+		add_prestige = 5
+		create_general = { tradition = 75 }
+		if = {
+			limit = {
+				has_estate = estate_tribals
+			}
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = 15
+			}
+			add_estate_influence_modifier = {
+				desc = EST_VAL_RANDOMSTEPPE_LEADER
+				estate = estate_tribals
+				influence = 10
+				duration = 3650
+			}
+		}
+	}
+	option = {
+		name = "wwu_tribes.15.option.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_estate = estate_tribals
+				NOT = {
+					estate_loyalty = {
+						estate = estate_tribals
+						loyalty = 40
+					}
+				}
+			}
+		}
+		trigger = {
+			has_estate = estate_tribals
+		}
+		add_estate_loyalty = {
+			estate = estate_tribals
+			loyalty = -15
+		}
+	}
+}
+
+# "Tribal Feud"
+country_event = {
+	id = wwu_tribes.17
+	title = "wwu_tribes.17.title"
+	desc = "wwu_tribes.17.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		OR = {
+            has_reform = warband_reform
+            has_reform = tribal_federation_reform
+            has_reform = tribal_despotism_reform
+        }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.17.option.a"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_dlc = "The Cossacks"
+				has_reform = warband_reform
+			}
+			add_horde_unity = -10
+		}
+		else = {
+			add_stability = -1
+		}
+		if = {
+			limit = { has_estate = estate_tribals }
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = -10
+			}
+		}
+	}
+}
+
+# "Hunting Accident"
+country_event = {
+	id = wwu_tribes.19
+	title = "wwu_tribes.19.title"
+	desc = "wwu_tribes.19.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		OR = {
+            has_reform = warband_reform
+            has_reform = tribal_federation_reform
+            has_reform = tribal_despotism_reform
+        }
+		has_heir = yes
+		heir_age = 11
+		has_female_heir = no
+		is_free_or_tributary_trigger = yes
+		is_lesser_in_union = no
+		OR = {
+			NOT = { legitimacy = 50 }
+			NOT = { horde_unity = 50 }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.19.option.a"
+		ai_chance = { factor = 100 }	
+		add_prestige = -10
+		kill_heir = yes
+	}
+}
+
+# "We Look Weak"
+country_event = {
+	id = wwu_tribes.20
+	title = "wwu_tribes.20.title"
+	desc = "wwu_tribes.20.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		OR = {
+            has_reform = warband_reform
+            has_reform = tribal_federation_reform
+            has_reform = tribal_despotism_reform
+        }
+		NOT = { army_size_percentage = 0.5 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.20.option.a"
+		ai_chance = { factor = 100 }
+		add_prestige = -10
+		if = {
+			limit = { has_estate = estate_tribals }
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = -10
+			}
+		}
+	}
+}
+
+# "Authority Undermined"
+country_event = {
+	id = wwu_tribes.21
+	title = "wwu_tribes.21.title"
+	desc = "wwu_tribes.21.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		has_reform = warband_reform
+		NOT = { army_size_percentage = 0.5 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.21.option.a"
+		ai_chance = { factor = 100 }
+		add_horde_unity = -5
+		add_prestige = -10
+		if = {
+			limit = { has_estate = estate_tribals }
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = -10
+			}
+		}
+	}
+}
+
+# "Military Tradition Scorned"
+country_event = {
+	id = wwu_tribes.22
+	title = "wwu_tribes.22.title"
+	desc = "wwu_tribes.22.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		has_reform = warband_reform
+		NOT = { army_size_percentage = 0.5 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.22.option.a"
+		ai_chance = { factor = 100 }
+		add_army_tradition = -5
+		if = {
+			limit = { has_estate = estate_tribals }
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = -10
+			}
+		}
+		random = {
+			chance = 15
+			add_stability = -1
+		}
+	}
+}
+
+# "Military Tradition Scorned"
+country_event = {
+	id = wwu_tribes.23
+	title = "wwu_tribes.23.title"
+	desc = "wwu_tribes.23.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		has_reform = warband_reform
+		NOT = { army_size_percentage = 0.5 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.23.option.a"
+		ai_chance = { factor = 100 }
+		add_prestige = -2		
+		add_yearly_manpower = -0.2
+		if = {
+			limit = { has_estate = estate_tribals }
+			add_estate_loyalty = {
+				estate = estate_tribals
+				loyalty = -10
+			}
+		}
+		random = {
+			chance = 15
+			add_stability = -1
+		}
+	}
+}
+
+# "War, What is it Good For"
+country_event = {
+	id = wwu_tribes.24
+	title = "wwu_tribes.24.title"
+	desc = "wwu_tribes.24.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture	
+	
+	is_triggered_only = yes	
+
+	trigger = {
+		has_reform = warband_reform
+		OR = {
+			legitimacy = 99
+			horde_unity = 99
+		}
+		is_at_war = yes	
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+	}
+
+	option = {
+		name = "wwu_tribes.24.option.a"
+		add_prestige = 10
+		add_stability_or_adm_power = yes
+	}
+}
+

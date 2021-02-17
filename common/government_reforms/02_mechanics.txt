@@ -1,0 +1,117 @@
+#--------------------------------------------
+# Mechanics
+#--------------------------------------------
+monarchy_mechanic = {
+    basic_reform = yes
+	monarchy = yes
+    
+    heir = yes
+	queen = yes
+    
+    custom_attributes = {
+        enables_monarchy_ideagroup = yes
+    }
+    
+    valid_for_nation_designer = no
+}
+republic_mechanic = {
+    basic_reform = yes
+    
+    republic = yes
+    
+	republican_name = yes
+	royal_marriage = no
+    
+	duration = 4
+    
+	has_term_election = yes
+    election_on_death = yes
+    
+	custom_attributes = {
+		enables_republic_ideagroup = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+    
+	valid_for_nation_designer = no
+}
+theocracy_mechanic = {
+    basic_reform = yes
+    
+	religion = yes
+    
+    valid_for_nation_designer = no
+    
+    heir = yes
+    
+	rulers_can_be_generals = no
+	heirs_can_be_generals = no
+	royal_marriage = no
+    
+	different_religion_acceptance = -20
+	different_religion_group_acceptance = -50
+    
+    conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_devotion = yes
+	}
+    
+    custom_attributes = {
+		enables_theocracy_ideagroup = yes
+	}
+}
+tribal_mechanic = {
+    basic_reform = yes
+    
+	tribal = yes
+	monarchy = yes
+    
+    heir = yes
+	queen = no
+    royal_marriage = no
+    
+    valid_for_nation_designer = no
+    
+    custom_attributes = {
+		enables_tribal_ideagroup = yes
+	}
+}
+native_mechanic = {
+	basic_reform = yes
+    
+	native_mechanic = yes
+    allow_migration = yes
+}
+pirate_mechanic = {
+    basic_reform = yes
+    
+	republican_name = yes
+	royal_marriage = no
+	can_form_trade_league = no
+    
+	republic = yes
+    
+	valid_for_nation_designer = no
+    
+    potential = {	
+		has_dlc = "Golden Century"
+	}
+	
+	nation_designer_trigger = {
+		capital_scope = {
+			has_port = yes
+		}
+	}
+    
+    factions_frame = 9
+	factions = {
+		pr_buccaneers
+		pr_smugglers
+		pr_captains
+	}
+}

@@ -1,0 +1,185 @@
+control_subject = {
+	category = relation
+	alert_index = 3
+	alert_tooltip = control_subject_tooltip
+	
+	require_acceptance = no
+	
+	is_visible = {
+        NOT = {
+            OR = {
+                has_reform = scourge_reform
+                has_reform = scourge_domain_reform
+            }
+            FROM = {
+                OR = {
+                    has_reform = scourge_reform
+                    has_reform = scourge_domain_reform
+                }
+            }
+        }
+        ai = no
+        FROM = {
+            is_subject_of = ROOT
+            OR = {
+                is_subject_of_type = vassal
+                is_subject_of_type = march
+                is_subject_of_type = daimyo_vassal
+                is_subject_of_type = personal_union
+                is_subject_of_type = client_vassal
+                is_subject_of_type = client_march
+                is_subject_of_type = colony
+            }
+        }
+	}
+    
+	is_allowed = {
+        ai = no
+        FROM = {
+            is_subject_of = ROOT
+            OR = {
+                is_subject_of_type = vassal
+                is_subject_of_type = march
+                is_subject_of_type = daimyo_vassal
+                is_subject_of_type = personal_union
+                is_subject_of_type = client_vassal
+                is_subject_of_type = client_march
+                is_subject_of_type = colony
+            }
+        }
+	}
+	on_accept = {
+        switch_tag = FROM
+	}
+	on_decline = {
+        switch_tag = FROM
+	}
+	
+	ai_acceptance = {
+        add_entry = {
+			name = BASE
+			set_variable = { which = ai_value value = 1000 }
+		}
+	}
+	ai_will_do = {
+        always = no
+	}
+}
+return_to_overlord = {
+	category = relation
+	alert_index = 3
+	alert_tooltip = return_to_overlord_tooltip
+	
+	require_acceptance = no
+	
+	is_visible = {
+        NOT = {
+            OR = {
+                has_reform = scourge_reform
+                has_reform = scourge_domain_reform
+            }
+            FROM = {
+                OR = {
+                    has_reform = scourge_reform
+                    has_reform = scourge_domain_reform
+                }
+            }
+        }
+        ai = no
+        OR = {
+            is_subject_of_type = vassal
+            is_subject_of_type = march
+            is_subject_of_type = daimyo_vassal
+            is_subject_of_type = personal_union
+            is_subject_of_type = client_vassal
+            is_subject_of_type = client_march
+            is_subject_of_type = colony
+        }
+        FROM = {
+            overlord_of = ROOT
+        }
+	}
+    
+	is_allowed = {
+        ai = no
+        OR = {
+            is_subject_of_type = vassal
+            is_subject_of_type = march
+            is_subject_of_type = daimyo_vassal
+            is_subject_of_type = personal_union
+            is_subject_of_type = client_vassal
+            is_subject_of_type = client_march
+            is_subject_of_type = colony
+        }
+        FROM = {
+            overlord_of = ROOT
+        }
+	}
+	on_accept = {
+        switch_tag = FROM
+	}
+	on_decline = {
+        switch_tag = FROM
+	}
+	
+	ai_acceptance = {
+        add_entry = {
+			name = BASE
+			set_variable = { which = ai_value value = 1000 }
+		}
+	}
+	ai_will_do = {
+        always = no
+	}
+}
+control_scourge = {
+	category = relation
+	alert_index = 3
+	alert_tooltip = control_scourge_tooltip
+	
+	require_acceptance = no
+	
+	is_visible = {
+        ai = no
+        OR = {
+            has_reform = scourge_reform
+            has_reform = scourge_domain_reform
+        }
+        FROM = {
+            OR = {
+                has_reform = scourge_reform
+                has_reform = scourge_domain_reform
+            }
+        }
+	}
+    
+	is_allowed = {
+        OR = {
+            has_reform = scourge_reform
+            has_reform = scourge_domain_reform
+        }
+        FROM = {
+            OR = {
+                has_reform = scourge_reform
+                has_reform = scourge_domain_reform
+            }
+        }
+	}
+	on_accept = {
+        switch_tag = FROM
+	}
+	on_decline = {
+        switch_tag = FROM
+	}
+	
+	ai_acceptance = {
+        add_entry = {
+			name = BASE
+			set_variable = { which = ai_value value = 1000 }
+		}
+	}
+	ai_will_do = {
+        always = no
+	}
+}
+

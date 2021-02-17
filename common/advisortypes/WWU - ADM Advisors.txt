@@ -1,0 +1,181 @@
+# If you add advisortypes, and use those tags, do not change them without changing everywhere they are used.
+#
+# Additional arguments: allow_only_male/allow_only_female
+# Contains skill_scaled_modifier for which the effects get multiplied by the advisor's skill level
+# Uses all 'modifiers' possible that are exported as a Modifier.
+
+# Note that ai_will_do calculates a priority.
+# An advisor may be chosen over another if its random priority exceeds it. RandomPriority(advisor) := rand[1, 2[ * Priority(advisor).
+
+#-----------------------------------------------------------------
+# Administrative Advisors
+#-----------------------------------------------------------------
+philosopher = {
+	monarch_power = ADM
+	
+	# Bonus
+	prestige = 1
+
+    
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+natural_scientist = {
+	monarch_power = ADM
+	
+	# Bonus
+	production_efficiency = 0.10
+
+    
+	skill_scaled_modifier = { meritocracy = 0.5 }	
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+artist = {
+	monarch_power = ADM
+	
+	# Bonus
+	stability_cost_modifier = -0.10
+
+    
+	skill_scaled_modifier = { meritocracy = 0.5 }	
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+treasurer = {
+	monarch_power = ADM
+	
+	# Bonus
+	global_tax_modifier = 0.1
+	
+    
+	skill_scaled_modifier = { meritocracy = 0.5 }	
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+theologian = {
+	monarch_power = ADM
+	
+	# Bonus
+	global_unrest = -2
+
+    
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = {
+		factor = 1
+
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+master_of_mint = {
+	monarch_power = ADM
+	
+	# Bonus
+	inflation_reduction = 0.10
+	
+    
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+inquisitor = {
+	monarch_power = ADM
+	
+	# Bonus
+	global_missionary_strength = 0.02
+	
+    
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+#-----------------------------------------------------------------
+# Unique
+#-----------------------------------------------------------------
+# Katrana Prestor
+diplomat_katrana_prestor = {
+	monarch_power = ADM
+	
+	# Bonus
+	improve_relation_modifier = 0.2
+
+	skill_scaled_modifier = { meritocracy = 0.25 }	
+
+	chance = {
+		factor = 0
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+# Eitrigg
+recruitmaster_eitrigg = {
+	monarch_power = ADM
+	
+	# Bonus
+	global_manpower_modifier = 0.10
+	
+    
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = {
+		factor = 0
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			is_at_war = no
+		}
+	}
+}

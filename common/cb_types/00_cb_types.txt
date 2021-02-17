@@ -23,7 +23,7 @@ cb_restore_personal_union = {
 	prerequisites = {
 		OR = {
 			government = monarchy
-			has_reform = dutch_republic
+			has_reform = magocracy_reform
 		}
 		is_revolution_target = no
 		FROM = {
@@ -309,49 +309,49 @@ cb_colonial_independance_war = {
 	war_goal = defend_capital_independence
 }
 
-# Nationalism
-cb_nationalist = {
+# # Nationalism
+# cb_nationalist = {
 
-	prerequisites = {
-		dip_tech = 23
-		is_free_or_tributary_trigger = yes
-		culture_group_claim = FROM
-		is_revolution_target = no
-	}
+	# prerequisites = {
+		# dip_tech = 23
+		# is_free_or_tributary_trigger = yes
+		# culture_group_claim = FROM
+		# is_revolution_target = no
+	# }
 
-	war_goal = take_province_nationalist
-}
+	# war_goal = take_province_nationalist
+# }
 
-# Napoleonic era imperialism
-cb_imperial = {
-	valid_for_subject = no
+# # Napoleonic era imperialism
+# cb_imperial = {
+	# valid_for_subject = no
 
-	prerequisites = {
-		OR = {
-			dip_tech = 23
-			invasion_nation = yes
-		}
-		is_free_or_tributary_trigger = yes
-		is_revolution_target = no
-		NOT = { has_reform = war_against_the_world_reform }
-	}
+	# prerequisites = {
+		# OR = {
+			# dip_tech = 23
+			# invasion_nation = yes
+		# }
+		# is_free_or_tributary_trigger = yes
+		# is_revolution_target = no
+		# NOT = { has_reform = war_against_the_world_reform }
+	# }
 
-	war_goal = take_capital_imperial
-}
+	# war_goal = take_capital_imperial
+# }
 
 # War Against the World CB for pirates
 cb_war_against_the_world = {
 	valid_for_subject = no
 	
 	prerequisites = {
-		has_reform = war_against_the_world_reform
-		dip_tech = 23
+		has_reform = wwu_war_against_the_world_doctrine_reform
 		is_free_or_tributary_trigger = yes
 		is_revolution_target = no
 	}
 
 	war_goal = take_capital_pirates
 }
+
 # Colonialist CB
 cb_colonial = {
 
@@ -380,22 +380,41 @@ cb_crusade = {
 	prerequisites = {
 		OR = {
 			AND = {
-				religion = religion_argent_light
-				is_neighbor_of = FROM
-				FROM = {
-					OR = { 
-						religion = religion_fel
-						religion = religion_the_damned 
-					}
-				}
-			}
-			AND = {
-				religion = religion_scarlet_light
+				religion_group = religion_group_the_light
 				is_neighbor_of = FROM
 				FROM = {
 					OR = { 
 						religion_group = religion_group_the_void
 						religion_group = religion_group_disorder
+					}
+				}
+			}
+			AND = {
+				religion_group = religion_group_the_void
+				is_neighbor_of = FROM
+				FROM = {
+					OR = { 
+						religion_group = religion_group_the_light
+						religion_group = religion_group_disorder
+					}
+				}
+			}
+			AND = {
+				religion_group = religion_group_disorder
+				is_neighbor_of = FROM
+				FROM = {
+					OR = { 
+						religion_group = religion_group_the_light
+						religion_group = religion_group_the_void
+					}
+				}
+			}
+			AND = {
+				religion = religion_scarlet_light
+				FROM = {
+					OR = { 
+						religion_group = religion_group_the_light
+						religion_group = religion_group_the_void
 					}
 				}
 			}
@@ -651,3 +670,34 @@ cb_forced_break_alliance = {
 	
 	war_goal = superiority_insult
 }
+
+# Force religion on Heathens
+cb_world_crusade = {
+	valid_for_subject = no
+
+	prerequisites = {
+		has_reform = wwu_religious_permanent_revolution_reform
+		OR = {
+			is_neighbor_of = FROM
+			claim = FROM
+			cb_on_religious_enemies = yes
+		}
+		NOT = { religion_group = FROM }
+		NOT = {	has_matching_religion = FROM }
+		is_revolutionary = no
+	}
+
+	war_goal = superiority_world_crusade
+}
+
+cb_hegemon = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_hegemon = no
+		from = { is_hegemon = yes }
+	}
+
+	war_goal = take_capital_imperial
+}
+

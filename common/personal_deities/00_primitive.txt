@@ -1,17 +1,68 @@
 # Do not change tags in here without changing every other reference to them.
 # If adding new dieties, make sure they are uniquely named.
 #---------------------------------------------
+# Ogre
+#---------------------------------------------
+deity_nath = {
+	drill_gain_modifier = 0.1
+	infantry_fire = 1
+	
+	allow = { 
+        religion = religion_primitive
+        OR = { 
+			culture_group = culture_group_ogre
+			culture_group = culture_group_orc
+		}
+	}
+	
+	sprite = 20
+	
+	ai_will_do = {
+		factor = 1			
+	}	
+}
+
+deity_gruul = { 
+	siege_ability = 0.15
+	artillery_power = 0.10
+	
+	allow = { 
+        religion = religion_primitive
+        culture_group = culture_group_ogre
+	}
+	sprite = 21
+	
+	ai_will_do = {
+		factor = 1			
+	}	
+}
+
+deity_borrok = { 
+	prestige_from_land = 1
+	army_tradition_from_battle = 1
+	
+	allow = { 
+        religion = religion_primitive
+        culture_group = culture_group_ogre
+	}
+	sprite = 25
+	
+	ai_will_do = {
+		factor = 1			
+	}	
+}
+#---------------------------------------------
 # Wolvar
 #---------------------------------------------
-diety_kartak = { 
-	siege_ability = 0.10
-	production_efficiency = 0.10
+deity_kartak = { 
+	same_culture_advisor_cost = 0.20
+	production_efficiency = 0.15
 	
 	allow = { 
         religion = religion_primitive
         culture_group = culture_group_wolfvar
 	}
-	sprite = 19
+	sprite = 24
 	
 	ai_will_do = {
 		factor = 1
@@ -22,15 +73,15 @@ diety_kartak = {
 	}	
 }
 
-diety_robot = { 
-	defensiveness = 0.10
-	trade_efficiency = 0.10
+deity_robot = { 
+	build_cost = -0.15
+	build_time = -0.3
 	
 	allow = { 
         religion = religion_primitive
         culture_group = culture_group_wolfvar
 	}
-	sprite = 20
+	sprite = 17
 	
 	ai_will_do = {
 		factor = 1
@@ -47,15 +98,15 @@ diety_robot = {
 	}
 }
 
-diety_shoveltusk = { 
-	defensiveness = 0.10
-	trade_efficiency = 0.10
+deity_shoveltusk = { 
+	global_unrest = -2
+	prestige_decay = -0.01
 	
 	allow = { 
         religion = religion_primitive
         culture_group = culture_group_wolfvar
 	}
-	sprite = 21
+	sprite = 18
 	
 	ai_will_do = {
         factor = 1
@@ -72,15 +123,15 @@ diety_shoveltusk = {
 	}	
 }
 
-diety_proto_drake = { 
-	defensiveness = 0.10
-	trade_efficiency = 0.10
+deity_proto_drake = { 
+	global_autonomy = -0.05
+	enemy_core_creation = 0.50
 	
 	allow = { 
         religion = religion_primitive
         culture_group = culture_group_wolfvar
 	}
-	sprite = 22
+	sprite = 19
 	
 	ai_will_do = {
 		factor = 1
@@ -96,15 +147,15 @@ diety_proto_drake = {
 #---------------------------------------------
 # Tuskarr
 #---------------------------------------------
-diety_tayutka = { 
-	siege_ability = 0.10
-	production_efficiency = 0.10
+deity_tayutka = { 
+	
+	diplomats = 1
 	
     allow = { 
         religion = religion_primitive
         culture_group = culture_group_tuskarr
 	}
-	sprite = 13
+	sprite = 16
 	
 	ai_will_do = {
 		factor = 1
@@ -115,15 +166,15 @@ diety_tayutka = {
 	}	
 }
 
-diety_issliruk = { 
-	siege_ability = 0.10
-	production_efficiency = 0.10
+deity_issliruk = { 
+	leader_naval_manuever = 1
+	sunk_ship_morale_hit_recieved = -0.3
 	
     allow = { 
         religion = religion_primitive
         culture_group = culture_group_tuskarr
 	}
-	sprite = 13
+	sprite = 22
 	
 	ai_will_do = {
 		factor = 1
@@ -134,15 +185,15 @@ diety_issliruk = {
 	}	
 }
 
-diety_karkut = { 
-	siege_ability = 0.10
-	production_efficiency = 0.10
+deity_karkut = { 
+	diplomatic_reputation = 1.5
+	diplomatic_upkeep = 1
 	
     allow = { 
         religion = religion_primitive
         culture_group = culture_group_tuskarr
 	}
-	sprite = 13
+	sprite = 16
 	
 	ai_will_do = {
 		factor = 1
@@ -153,15 +204,14 @@ diety_karkut = {
 	}	
 }
 
-diety_oacha_noa = { 
-	siege_ability = 0.10
-	production_efficiency = 0.10
+deity_oacha_noa = { 
+	colonists = 1
 	
     allow = { 
         religion = religion_primitive
         culture_group = culture_group_tuskarr
 	}
-	sprite = 13
+	sprite = 23
 	
 	ai_will_do = {
 		factor = 1

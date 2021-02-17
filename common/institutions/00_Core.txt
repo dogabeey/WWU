@@ -5,16 +5,29 @@ civic_code = {
     historical_start_date = 546.1.1
 	historical_start_province = 1022
 	
-	penalty = 0.50
+	penalty = 0.05
     
 	bonus = {
 		global_tax_modifier = 0.1
 	}
 	history = {
-        is_year = 546
-		owner = {
-	    NOT = { government = tribal }
-		NOT = { government = native }
+		OR = {
+			AND = {
+				is_year = 546
+				owner = {
+					NOT = { government = tribal }
+					NOT = { government = native }
+				}
+			}
+			AND = {
+				is_year = 600
+				owner = {
+					OR = { 
+						government = tribal
+						government = native 
+					}
+				}
+			}
 		}
 	}
 	
@@ -73,39 +86,49 @@ civic_code = {
 }
 
 #-----------------------------------------------------------------------------
-# Phlogiston
+# inst_demonology
 #-----------------------------------------------------------------------------
-phlogiston = {
-    historical_start_date = 600.1.1
-	historical_start_province = 941
+inst_demonology = {
+    historical_start_date = 550.1.1
+	historical_start_province = 1593 # Throne of Kil'jaedan
 	
-	penalty = 0.50
+	penalty = 0.05
     
 	bonus = {
-		production_efficiency = 0.2
+		leader_land_fire = 1
 	}
 	history = {
-        is_year = 600
-        owner = {
-            OR = {
-                primary_culture = culture_iron
-                primary_culture = culture_frostborn
-                primary_culture = culture_ironforge
-                primary_culture = culture_wildhammer
-                primary_culture = culture_dark_iron
-                primary_culture = culture_gnome
-                primary_culture = culture_mecha_gnome
-                primary_culture = culture_kezani
-                primary_culture = culture_bilgewater
-                primary_culture = culture_steamwheedle
-                primary_culture = culture_venture
-                primary_culture = culture_blackwater
-            }
-        }
+		OR = {
+			AND = {
+				is_year = 550
+				owner = {
+					OR = {
+						culture_group = culture_group_orc
+						culture_group = culture_group_demonic
+						religion = religion_fel
+					}
+				}
+			}
+			AND = {
+				is_year = 575
+				owner = {
+					OR = {
+						culture_group = culture_group_orc
+						culture_group = culture_group_demonic
+						culture_group = culture_group_ogre
+						culture_group = culture_group_jungle_troll
+						religion = religion_fel
+						religion = religion_arcane
+					}
+				}
+			}
+			is_year = 600
+		}
 	}
 	
     can_start = {
-		is_year = 600
+		is_year = 550
+		continent = continent_outland
 		is_state = yes
 		is_island = no
 		OR = {
@@ -115,10 +138,10 @@ phlogiston = {
 		}
 	}
 	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.100
+	on_start = warcraft_institutions.10
     
 	can_embrace = {
-		owner = { has_institution = civic_code }
+		always = yes
 	}
     
     embracement_speed = {
@@ -126,9 +149,9 @@ phlogiston = {
 			scale = yes
 			factor = 0.5
 			custom_trigger_tooltip = {
-				tooltip = tt_anhe_phlogiston
+				tooltip = tt_anhe_inst_demonology
 				any_friendly_coast_border_province = {
-					phlogiston = 100
+					inst_demonology = 100
 				}
 			}
 		}
@@ -136,10 +159,10 @@ phlogiston = {
 			factor = 0.3
 			scale = yes
 			custom_trigger_tooltip = {
-				tooltip = tt_afcbphe_phlogiston
+				tooltip = tt_afcbphe_inst_demonology
 				any_neighbor_province = {
 					NOT = { owned_by = ROOT }
-					phlogiston = 100
+					inst_demonology = 100
 				}
 			}
 		}
@@ -149,13 +172,13 @@ phlogiston = {
 			scale = yes
 			potential = {
 				owner = {
-					has_institution = phlogiston
+					has_institution = inst_demonology
 				}
 			}
 			custom_trigger_tooltip = {
-				tooltip = tt_embraced_phlogiston
+				tooltip = tt_embraced_inst_demonology
 				owner = {
-					has_institution = phlogiston
+					has_institution = inst_demonology
 				}
 			}
 		}
@@ -280,30 +303,25 @@ clockwerk_engineering = {
     historical_start_date = 650.1.1
 	historical_start_province = 3038
 	
-	penalty = 0.50
+	penalty = 0.05
     
 	bonus = {
 		shock_damage = 0.15
         shock_damage_received = -0.15
 	}
 	history = {
-        is_year = 650
-        owner = {
-            OR = {
-                primary_culture = culture_iron
-                primary_culture = culture_frostborn
-                primary_culture = culture_ironforge
-                primary_culture = culture_wildhammer
-                primary_culture = culture_dark_iron
-                primary_culture = culture_gnome
-                primary_culture = culture_mecha_gnome
-                primary_culture = culture_kezani
-                primary_culture = culture_bilgewater
-                primary_culture = culture_steamwheedle
-                primary_culture = culture_venture
-                primary_culture = culture_blackwater
-            }
-        }
+		OR = {
+			AND = {
+				is_year = 650
+						culture_group = culture_group_gnomish
+			}
+			AND = {
+				is_year = 700
+					NOT = {
+						culture_group = culture_group_gnomish
+					}
+			}
+		}
 	}
     
     can_start = {
@@ -317,10 +335,10 @@ clockwerk_engineering = {
 		}
 	}
 	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.200
+	on_start = warcraft_institutions.20
     
     can_embrace = {
-		owner = { has_institution = phlogiston }
+		owner = { has_institution = inst_demonology }
 	}
     
     embracement_speed = {
@@ -482,29 +500,50 @@ boomsticks = {
     historical_start_date = 700.1.1
 	historical_start_province = 3048
 	
-	penalty = 0.50
+	penalty = 0.05
     
 	bonus = {
         fire_damage = 0.15
         fire_damage_received = -0.15
 	}
 	history = {
-        is_year = 700
         owner = {
-            OR = {
-                primary_culture = culture_iron
-                primary_culture = culture_frostborn
-                primary_culture = culture_ironforge
-                primary_culture = culture_wildhammer
-                primary_culture = culture_dark_iron
-                primary_culture = culture_gnome
-                primary_culture = culture_mecha_gnome
-                primary_culture = culture_kezani
-                primary_culture = culture_bilgewater
-                primary_culture = culture_steamwheedle
-                primary_culture = culture_venture
-                primary_culture = culture_blackwater
-            }
+			OR = {
+				AND = {
+					is_year = 700
+					OR = {
+						primary_culture = culture_iron
+						primary_culture = culture_frostborn
+						primary_culture = culture_ironforge
+						primary_culture = culture_wildhammer
+						primary_culture = culture_dark_iron
+						primary_culture = culture_gnome
+						primary_culture = culture_mecha_gnome
+						primary_culture = culture_kezani
+						primary_culture = culture_bilgewater
+						primary_culture = culture_steamwheedle
+						primary_culture = culture_venture
+						primary_culture = culture_blackwater
+					}
+				}
+				AND = {
+					is_year = 750
+					NOT = {
+						primary_culture = culture_iron
+						primary_culture = culture_frostborn
+						primary_culture = culture_ironforge
+						primary_culture = culture_wildhammer
+						primary_culture = culture_dark_iron
+						primary_culture = culture_gnome
+						primary_culture = culture_mecha_gnome
+						primary_culture = culture_kezani
+						primary_culture = culture_bilgewater
+						primary_culture = culture_steamwheedle
+						primary_culture = culture_venture
+						primary_culture = culture_blackwater
+					}
+			}
+			}
         }
 	}
     
@@ -519,7 +558,7 @@ boomsticks = {
 		}
 	}
 	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.300
+	on_start = warcraft_institutions.30
     
     can_embrace = {
 		owner = { has_institution = clockwerk_engineering }
@@ -684,28 +723,29 @@ oil_extraction = {
     historical_start_date = 750.1.1
 	historical_start_province = 1098
 	
-	penalty = 0.50
+	penalty = 0.05
     
 	bonus = {
         naval_attrition = -0.25
 	}
 	history = {
-        is_year = 750
         owner = {
-            OR = {
-                primary_culture = culture_iron
-                primary_culture = culture_frostborn
-                primary_culture = culture_ironforge
-                primary_culture = culture_wildhammer
-                primary_culture = culture_dark_iron
-                primary_culture = culture_gnome
-                primary_culture = culture_mecha_gnome
-                primary_culture = culture_kezani
-                primary_culture = culture_bilgewater
-                primary_culture = culture_steamwheedle
-                primary_culture = culture_venture
-                primary_culture = culture_blackwater
-            }
+			OR = {
+				AND = {
+					is_year = 750
+						OR = {
+							culture_group = culture_group_goblin
+							culture_group = culture_group_gnomish
+						}
+				}
+				AND = {
+					is_year = 800
+						NOT = {
+							culture_group = culture_group_goblin
+							culture_group = culture_group_gnomish
+						}
+				}
+			}
         }
 	}
     
@@ -720,7 +760,7 @@ oil_extraction = {
 		}
 	}
 	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.400
+	on_start = warcraft_institutions.40
     
     can_embrace = {
 		owner = { has_institution = boomsticks }
@@ -885,29 +925,30 @@ mechanical_constructs = {
     historical_start_date = 800.1.1
 	historical_start_province = 941
 	
-	penalty = 0.50
+	penalty = 0.05
     
 	bonus = {
         build_cost = -0.25
         build_time = -0.25
 	}
 	history = {
-        is_year = 800
         owner = {
-            OR = {
-                primary_culture = culture_iron
-                primary_culture = culture_frostborn
-                primary_culture = culture_ironforge
-                primary_culture = culture_wildhammer
-                primary_culture = culture_dark_iron
-                primary_culture = culture_gnome
-                primary_culture = culture_mecha_gnome
-                primary_culture = culture_kezani
-                primary_culture = culture_bilgewater
-                primary_culture = culture_steamwheedle
-                primary_culture = culture_venture
-                primary_culture = culture_blackwater
-            }
+			OR = {
+				AND = {
+					is_year = 800
+						OR = {
+							culture_group = culture_group_goblin
+							culture_group = culture_group_gnomish
+						}
+				}
+				AND = {
+					is_year = 850
+						NOT = {
+							culture_group = culture_group_goblin
+							culture_group = culture_group_gnomish
+						}
+				}
+			}
         }
 	}
     
@@ -922,7 +963,7 @@ mechanical_constructs = {
 		}
 	}
 	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.500
+	on_start = warcraft_institutions.50
     
     can_embrace = {
 		owner = { has_institution = oil_extraction }
@@ -1087,29 +1128,31 @@ pneumatics = {
     historical_start_date = 850.1.1
 	historical_start_province = 1097
 	
-	penalty = 0.50
+	penalty = 0.05
     
 	bonus = {
         artillery_power = 0.1
         siege_ability = 0.1
 	}
+	
 	history = {
-        is_year = 850
         owner = {
-            OR = {
-                primary_culture = culture_iron
-                primary_culture = culture_frostborn
-                primary_culture = culture_ironforge
-                primary_culture = culture_wildhammer
-                primary_culture = culture_dark_iron
-                primary_culture = culture_gnome
-                primary_culture = culture_mecha_gnome
-                primary_culture = culture_kezani
-                primary_culture = culture_bilgewater
-                primary_culture = culture_steamwheedle
-                primary_culture = culture_venture
-                primary_culture = culture_blackwater
-            }
+			OR = {
+				AND = {
+					is_year = 750
+						OR = {
+							culture_group = culture_group_goblin
+							culture_group = culture_group_gnomish
+						}
+				}
+				AND = {
+					is_year = 800
+						NOT = {
+							culture_group = culture_group_goblin
+							culture_group = culture_group_gnomish
+						}
+				}
+			}
         }
 	}
     
@@ -1124,7 +1167,7 @@ pneumatics = {
 		}
 	}
 	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.600
+	on_start = warcraft_institutions.60
     
     can_embrace = {
 		owner = { has_institution = mechanical_constructs }

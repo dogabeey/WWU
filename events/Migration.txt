@@ -1,0 +1,81 @@
+# namespace = migration
+
+# country_event = {
+	# id = migration.1
+	# title = e_l
+	# desc = e_l
+	# picture = BUILDING_DEVELOPMENT_HUMAN_eventPicture
+	# hidden = yes
+	
+	# trigger = {
+		# any_owned_province = {
+			# is_colony = yes
+		# }
+		# OR = {
+			# has_reform = expeditionary_tribe_reform
+			# has_reform = ancient_clan_reform
+		# }
+		# NOT = { 
+			# all_owned_province = {
+				# OR = {
+					# AND = {
+						# has_province_modifier = newly_established_province
+						# is_city = yes
+					# }
+					# is_colony = yes
+				# }
+			# } 
+		# }
+	# }
+	
+	# mean_time_to_happen = {
+		# months = 2
+	# }
+	
+	# immediate = {
+	# }
+	
+	# option = {
+		# name = e_l
+		# random_owned_province = {
+			# limit = {
+				# is_colony = yes
+			# }
+			# add_province_modifier = {
+				# name = newly_established_province
+				# desc = newly_established_province_desc
+				# duration = 1825
+			# }
+			# save_event_target_as = new_colony
+		# }
+		# set_variable = { which = min_prov_dev value = 0 }
+		# every_owned_province = {
+			# limit = {
+				# NOT = { has_province_modifier = newly_established_province }
+				# NOT = { is_colony = yes }
+			# }
+			# export_to_variable = {
+				# which = min_prov_dev
+				# value = development
+			# }
+			# if = {
+				# limit = {
+					# OR = {
+						# NOT = { check_variable = { which = min_prov_dev which = PREV } }
+						# PREV = { is_variable_equal = { which = min_prov_dev value = 0 } }
+					# }
+				# }
+				# PREV = {
+					# set_variable = { which = min_prov_dev which = PREV }
+				# }
+				# save_event_target_as = smallest_city
+			# }
+		# }
+		# event_target:smallest_city = {
+			# cede_province = ---
+			# event_target:new_colony = {
+				# add_colonysize = 1000
+			# }
+		# }
+	# }
+# }

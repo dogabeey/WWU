@@ -1,7 +1,7 @@
 ########################################
 # Events for Subject Interaction
 #
-# written by Sara Wendel-Örtqvist
+# written by Sara Wendel-ï¿½rtqvist
 ########################################
 
 namespace = subject_interaction_events
@@ -40,7 +40,8 @@ country_event = {
 	}
 	
 	option = {
-		name = subject_interaction_events.1.a # Ask for help from Overlord
+		name = subject_interaction_events.1.a
+		
 		random_owned_province = {
 			limit = {
 				is_capital = yes
@@ -60,7 +61,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = subject_interaction_events.1.b # Deal with it ourselves
+		name = subject_interaction_events.1.b
+		
 		add_prestige = 10
 		random_owned_province = {
 			limit = {
@@ -85,6 +87,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.2.a
+		
 		add_treasury = -100
 		add_manpower = -2
 		FROM = {
@@ -104,6 +107,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.2.b
+		
 		FROM = {
 			set_country_flag = si_no_help_flag
 			country_event = {
@@ -128,6 +132,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.3.a
+		
 		trigger = {
 			has_country_flag = si_pretender_help_flag
 		}
@@ -143,6 +148,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.3.b
+		
 		trigger = {
 			has_country_flag = si_no_help_flag
 		}
@@ -201,6 +207,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.4.a
+		
 		add_legitimacy = -10
 		add_horde_unity = -10
 		random_subject_country = {
@@ -224,6 +231,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.4.b
+		
 		add_prestige = 10
 	}
 }
@@ -241,7 +249,6 @@ country_event = {
 		has_dlc = "Common Sense"
 		has_regency = no
 		government = monarchy
-		NOT = { has_reform = celestial_empire }
 		NOT = { legitimacy_or_horde_unity = 100 }
 		any_subject_country = {
 			government = monarchy
@@ -275,6 +282,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.5.a
+		
 		if = {
 			limit = { NOT = { legitimacy_or_horde_unity = 91 } }
 			add_legitimacy = 10
@@ -302,7 +310,7 @@ country_event = {
 		has_dlc = "Common Sense"
 		has_regency = no
 		government = monarchy
-		NOT = { has_reform = steppe_horde }
+		NOT = { has_reform = warband_reform }
 		num_of_cities = 2
 		NOT = {
 			legitimacy = 50
@@ -342,7 +350,8 @@ country_event = {
 	}
 	
 	option = {
-		name = subject_interaction_events.6.a # Depose our cousin!
+		name = subject_interaction_events.6.a
+		
 		random_subject_country = {
 			limit = {
 				has_country_flag = si_subject_state
@@ -370,6 +379,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.6.b
+		
 		add_corruption = 0.5
 		add_treasury = -100
 		random_subject_country = {
@@ -429,6 +439,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.7.a
+		
 		add_prestige = 10
 		random_subject_country = {
 			limit = {
@@ -447,6 +458,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.7.b
+		
 		random_subject_country = {
 			limit = {
 				has_country_flag = si_subject_state
@@ -475,6 +487,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.8.a
+		
 		trigger = {
 			has_country_flag = si_reprimanded_flag
 		}
@@ -488,6 +501,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.8.b
+		
 		trigger = {
 			has_country_flag = si_resourceful_flag
 		}
@@ -535,6 +549,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.9.a
+		
 		add_yearly_manpower = -2.5
 		random_known_country = {
 			limit = {
@@ -556,6 +571,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.9.b
+		
 		add_prestige = 5
 		add_country_modifier = {
 			name = "bad_discipline"
@@ -575,6 +591,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.10.a
+		
 		add_yearly_manpower = 1
 		tooltip = {
 			add_opinion = {
@@ -622,6 +639,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.11.a
+		
 		random_known_country = {
 			limit = {
 				overlord_of = ROOT
@@ -633,6 +651,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.11.b
+		
 		add_prestige = 10
 	}
 }
@@ -648,6 +667,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.12.a
+		
 		add_army_tradition = -5
 		FROM = {
 			tooltip = {
@@ -666,6 +686,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.12.b
+		
 		add_treasury = -25
 		FROM = {
 			tooltip = {
@@ -688,6 +709,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.12.c
+		
 		add_treasury = -50
 		add_manpower = -5
 		FROM = {
@@ -708,6 +730,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.12.e
+		
 		FROM = {
 			set_country_flag = si_sent_nothing_flag
 			country_event = {
@@ -733,6 +756,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.13.a
+		
 		trigger = {
 			has_country_flag = si_sent_general_flag
 		}
@@ -747,6 +771,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.13.b
+		
 		trigger = {
 			has_country_flag = si_sent_advisor_flag
 		}
@@ -767,6 +792,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.13.c
+		
 		trigger = {
 			has_country_flag = si_sent_gold_flag
 		}
@@ -782,6 +808,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.13.e
+		
 		trigger = {
 			has_country_flag = si_sent_nothing_flag
 		}
@@ -826,6 +853,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.14.a
+		
 		custom_tooltip = subject_interaction_events.14.ct
 		add_country_modifier = {
 			name = si_state_smuggling
@@ -834,6 +862,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.14.b
+		
 		add_prestige = 5
 	}
 }
@@ -877,6 +906,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.15.a
+		
 		ai_chance = {
 			factor = 1
 		}
@@ -902,6 +932,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.15.b
+		
 		ai_chance = {
 			factor = 0
 		}
@@ -940,6 +971,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.16.a
+		
 		trigger = {
 			has_country_flag = si_stop_smuggling_flag
 		}
@@ -954,6 +986,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.16.b
+		
 		trigger = {
 			has_country_flag = si_small_smuggling_flag
 		}
@@ -994,6 +1027,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.17.a
+		
 		add_country_modifier = {
 			name = si_scutage_unwilling_vassals
 			duration = 1825
@@ -1032,6 +1066,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.18.a
+		
 		every_subject_country = {
 			limit = {
 				is_at_war = no
@@ -1101,6 +1136,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.19.a
+		
 		random_owned_province = {
 			limit = {
 				any_neighbor_province = {
@@ -1131,6 +1167,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.19.b
+		
 		hidden_effect = {
 			random_subject_country = {
 				limit = {
@@ -1189,10 +1226,12 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.20.a
+		
 		add_adm_power = -50 #
 	}
 	option = {
 		name = subject_interaction_events.20.b
+		
 		add_years_of_income = -0.25
 	}
 }
@@ -1220,6 +1259,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.21.a
+		
 		add_prestige = -10
 		random_known_country = {
 			limit = {
@@ -1234,6 +1274,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.21.b
+		
 		add_dip_power = -50
 	}
 }
@@ -1280,6 +1321,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.22.a
+		
 		random_known_country = {
 			limit = {
 				has_country_modifier = si_liberty_desire_timer
@@ -1330,6 +1372,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.23.a
+		
 		add_prestige = -5
 		random_known_country = {
 			limit = {
@@ -1358,6 +1401,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.23.b
+		
 		random_known_country = {
 			limit = {
 				has_country_flag = si_loyalist_rebellion_flag
@@ -1413,6 +1457,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.24.a
+		
 		random_subject_country = {
 			limit = {
 				has_send_officers = yes
@@ -1451,6 +1496,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.25.a
+		
 		add_prestige = 5
 		add_mil_power = 50
 		random_subject_country = {
@@ -1492,6 +1538,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.26.a
+		
 		add_country_modifier = {
 			name = si_better_exports
 			duration = 3650
@@ -1543,6 +1590,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.27.a
+		
 		random_subject_country = {
 			limit = {
 				has_divert_trade = yes
@@ -1575,7 +1623,6 @@ country_event = {
 		has_dlc = "Common Sense"
 		NOT = { legitimacy_or_horde_unity = 50 }
 		government = monarchy
-		NOT = { has_reform = celestial_empire }
 		any_subject_country = {
 			government = monarchy
 			OR = {
@@ -1618,6 +1665,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.29.a
+		
 		random_subject_country = {
 			limit = {
 				has_country_flag = si_legitimacy_flag
@@ -1632,6 +1680,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.29.b
+		
 		add_prestige = -5
 		add_legitimacy = -5
 		add_horde_unity = -5
@@ -1685,6 +1734,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.30.a
+		
 		add_treasury = -100
 		random_subject_country = {
 			limit = {
@@ -1700,6 +1750,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.30.b
+		
 		add_prestige = 10
 		random_subject_country = {
 			limit = {
@@ -1782,6 +1833,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.31.a
+		
 		random_subject_country = {
 			limit = {
 				has_country_flag = si_core_flag
@@ -1802,6 +1854,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.31.b
+		
 		random_subject_country = {
 			limit = {
 				has_country_flag = si_core_flag
@@ -1829,6 +1882,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.31.c
+		
 		add_prestige = -10
 		hidden_effect = {
 			random_subject_country = {
@@ -1891,7 +1945,8 @@ country_event = {
 	}
   
 	option = {
-		name = subject_interaction_events.32.a	#
+		name = subject_interaction_events.32.a
+		
 		random_subject_country = {
 			limit = {
 				has_country_flag = targeted_subject_turning_against_overlord_si
@@ -1908,7 +1963,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = subject_interaction_events.32.b  
+		name = subject_interaction_events.32.b
+		
 		add_dip_power = -45
 		hidden_effect = {
 			random_subject_country = {
@@ -1931,7 +1987,8 @@ country_event = {
 	is_triggered_only = yes
   
 	option = {
-		name = subject_interaction_events.33.a  
+		name = subject_interaction_events.33.a
+		
 		add_liberty_desire = 15
 	}
 }
@@ -1964,14 +2021,16 @@ country_event = {
 	}
   
 	option = {
-		name = subject_interaction_events.34.a	# Long term gain
+		name = subject_interaction_events.34.a
+		
 		add_country_modifier = {
 			name = "loyal_subjects"
 			duration = 1825 #About 5 years
 		}
 	}
 	option = {
-		name = subject_interaction_events.34.b	# Short term gain
+		name = subject_interaction_events.34.b
+		
 		add_dip_power = 60
 	}
 }
@@ -1981,7 +2040,7 @@ country_event = {
 	id = subject_interaction_events.35
 	title = subject_interaction_events.35.t
 	desc = subject_interaction_events.35.d
-	picture = ASSASSINATION_eventPicture
+	picture = WOW_ASSASSINATION_eventPicture
 
 	is_triggered_only = yes
 	
@@ -2006,14 +2065,16 @@ country_event = {
 	}
   
 	option = {
-		name = subject_interaction_events.35.a	# Long term loss
+		name = subject_interaction_events.35.a
+		
 		add_country_modifier = {
 			name = "disloyal_subjects"
 			duration = 1825 #About 5 years
 		}
 	}
 	option = {
-		name = subject_interaction_events.35.b	# Short term loss
+		name = subject_interaction_events.35.b
+		
 		add_dip_power = -60
 	}
 }
@@ -2050,7 +2111,8 @@ country_event = {
 	}
   
 	option = {
-		name = subject_interaction_events.36.a  
+		name = subject_interaction_events.36.a
+		
 		add_yearly_manpower = 1
 		random_subject_country = {
 			limit = {
@@ -2068,7 +2130,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = subject_interaction_events.36.b  
+		name = subject_interaction_events.36.b
+		
 		add_prestige = -10
 		random_subject_country = {
 			limit = {
@@ -2089,7 +2152,8 @@ country_event = {
 	is_triggered_only = yes
   
 	option = {
-		name = subject_interaction_events.37.a  
+		name = subject_interaction_events.37.a
+		
 		add_liberty_desire = 15
 		add_yearly_manpower = -0.5
 	}
@@ -2143,7 +2207,8 @@ country_event = {
 	}
   
 	option = {
-		name = subject_interaction_events.38.a  
+		name = subject_interaction_events.38.a
+		
 		add_years_of_income = 0.15
 		random_subject_country = {
 			limit = {
@@ -2161,7 +2226,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = subject_interaction_events.38.b  
+		name = subject_interaction_events.38.b
+		
 		add_prestige = 10
 		hidden_effect = {
 			random_subject_country = {
@@ -2184,7 +2250,8 @@ country_event = {
 	is_triggered_only = yes
   
 	option = {
-		name = subject_interaction_events.39.a  
+		name = subject_interaction_events.39.a
+		
 		add_liberty_desire = 15
 		add_years_of_income = -0.5
 	}
@@ -2236,10 +2303,12 @@ country_event = {
   
 	option = {
 		name = subject_interaction_events.40.a
+		
 		overlord = { country_event = { id = subject_interaction_events.41 } }
 	}
 	option = {
 		name = subject_interaction_events.40.b
+		
 		add_prestige = 10
 		event_target:rightful_province = {
 			remove_core = ROOT
@@ -2259,6 +2328,7 @@ country_event = {
   
 	option = {
 		name = subject_interaction_events.41.a
+		
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -2295,6 +2365,7 @@ country_event = {
 	}
 	option = {
 		name = subject_interaction_events.41.b
+		
 		ai_chance = {
 			factor = 75
 		}
@@ -2322,7 +2393,8 @@ country_event = {
 	is_triggered_only = yes
   
 	option = {
-		name = subject_interaction_events.42.a  
+		name = subject_interaction_events.42.a
+		
 		add_prestige = -10
 		add_liberty_desire = 15
 	}
@@ -2358,7 +2430,8 @@ country_event = {
 	}
   
 	option = {
-		name = subject_interaction_events.43.a	#
+		name = subject_interaction_events.43.a
+		
 		add_years_of_income = -0.25
 		random_subject_country = {
 			limit = {
@@ -2376,7 +2449,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = subject_interaction_events.43.b  
+		name = subject_interaction_events.43.b
+		
 		add_prestige = 10
 		hidden_effect = {
 			random_subject_country = {
@@ -2399,7 +2473,8 @@ country_event = {
 	is_triggered_only = yes
   
 	option = {
-		name = subject_interaction_events.44.a  
+		name = subject_interaction_events.44.a
+		
 		add_war_exhaustion = -4
 	}
 }
@@ -2422,6 +2497,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.45.a
+		
 		remove_country_modifier = si_state_smuggling
 	}
 }
@@ -2444,6 +2520,7 @@ country_event = {
 	
 	option = {
 		name = subject_interaction_events.45.a
+		
 		remove_country_modifier = si_state_smuggling
 	}
 }

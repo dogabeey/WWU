@@ -1,0 +1,116 @@
+namespace = council_government
+
+# New Monarch
+country_event = {
+	id = council_government.1
+	title = council_government.1.title
+	desc = council_government.1.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_government_attribute = council_system
+	}
+
+	option = {
+		name = council_government.1.option.a
+        
+		trigger = {
+			has_adm_advisor = yes
+		}
+		use_adm_talent_on_country = yes
+		hidden_effect = {
+			export_to_variable = {
+				which = adv_rel
+				value = dip_advisor_religion
+			}
+			export_to_variable = {
+				which = adv_cul
+				value = dip_advisor_culture
+			}
+		}
+		define_ruler = {
+			adm = 3
+			religion = variable:adv_rel
+			culture = variable:adv_cul
+			claim = 75
+		}
+	}
+	
+	option = {
+		name = council_government.1.option.b
+        
+		trigger = {
+			has_dip_advisor = yes
+		}
+		use_dip_talent_on_country = yes
+		
+		hidden_effect = {
+			export_to_variable = {
+				which = adv_rel
+				value = dip_advisor_religion
+			}
+			export_to_variable = {
+				which = adv_cul
+				value = dip_advisor_culture
+			}
+		}
+		define_ruler = {
+			dip = 3
+			religion = variable:adv_rel
+			culture = variable:adv_cul
+			claim = 75
+		}
+	}
+	
+	option = {
+		name = council_government.1.option.c
+        
+		trigger = {
+			has_mil_advisor = yes
+		}
+		use_mil_talent_on_country = yes
+		
+		hidden_effect = {
+			export_to_variable = {
+				which = adv_rel
+				value = mil_advisor_religion
+			}
+			export_to_variable = {
+				which = adv_cul
+				value = mil_advisor_culture
+			}
+		}
+		define_ruler = {
+			mil = 3
+			religion = variable:adv_rel
+			culture = variable:adv_cul
+			claim = 75
+		}
+	}
+	
+	option = {
+		name = council_government.1.option.d
+        
+		trigger = {
+			NOT = { has_adm_advisor = yes }
+			NOT = { has_dip_advisor = yes }
+			NOT = { has_mil_advisor = yes }
+		}
+		export_to_variable = {
+			which = adv_rel
+			value = mil_advisor_religion
+		}
+		export_to_variable = {
+			which = adv_cul
+			value = mil_advisor_culture
+		}
+		define_ruler = {
+			adm = 2
+			dip = 2
+			mil = 2
+			claim = 75
+		}
+	}
+}

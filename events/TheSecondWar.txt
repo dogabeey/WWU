@@ -20,7 +20,7 @@ country_event = {
 		NOT = { has_country_flag = tsw_ending_notified }
 		current_age = the_second_war
 		NOT = { has_global_flag = tfw_human_victory_path }
-		1586 = { has_province_modifier = dark_portal_closed }
+		1586 = { owned_by = Z99 }
 	}
 	
     mean_time_to_happen = {
@@ -36,6 +36,7 @@ country_event = {
     
 	option = {
 		name = end_of_second_war_horde_lost.opt1
+		
     }
 }
 # If orcs won the first war, the second war may end with Capital city falling.
@@ -74,6 +75,7 @@ country_event = {
     
 	option = {
 		name = end_of_second_war_horde_won.opt1
+		
     }
 }
 # If humans won the first war, the second war may end with crushing of remaining orcs.
@@ -115,6 +117,7 @@ country_event = {
     
 	option = {
 		name = end_of_second_war_ally_won.opt1
+		
     }
 }
 # If humans won the first war, the second war may end with orcs retake Stormwind.
@@ -153,6 +156,7 @@ country_event = {
     
 	option = {
 		name = end_of_second_war_ally_lost.opt1
+		
     }
 }
 #Demon soul
@@ -184,7 +188,7 @@ country_event = {
 	}
 	
     mean_time_to_happen = {
-		months = 240
+		months = 24
     }
     
     immediate = {
@@ -192,10 +196,22 @@ country_event = {
     
 	option = {
 		name = demon_soul_event.opt1
+		
 		add_country_modifier = {
 			name = demon_soul
 			duration = -1
 		}
+		every_country = {
+			limit = {
+				primary_culture = culture_red
+			}
+			reverse_add_casus_belli = {
+				target = A45
+				type = cb_magical_enslavement
+				months = 120
+			}
+		}
+		
     }
 }
 #Shadow council's reveal
@@ -211,10 +227,6 @@ country_event = {
 	   desc = "council_revelation.desc.2"
 	}
 	picture = ORC_WARLOCK_KILJAEDEN_eventPicture
-
-    hidden = no
-	fire_only_once = no
-	major = no
     
 	trigger = {
 		current_age = the_second_war
@@ -224,21 +236,31 @@ country_event = {
 	}
 	
     mean_time_to_happen = {
-		months = 120
+		months = 1
     }
     
     immediate = {
 		set_country_flag = shadowmoon_revealed
-		B88 = { clr_country_flag = complete_stasis } # Shadow council is no longer immune.
+		random_country = {
+			limit = { faction_horde = 1 }
+			remove_country_modifier = the_shadow_council # Shadow Council liberty desire is gone.
+			save_event_target_as = horde_leader
+			country_event = { id = the_second_war.20 }
+		}
     }
     
 	option = {
 		name = council_revelation.opt1
+		
 		custom_tooltip = council_revelation.opt1.tt
 		add_casus_belli = {
-			target = B88
+			target = event_target:horde_leader
 			type = cb_insult
 			months = 36
+		}
+		add_opinion = {
+			who = event_target:horde_leader
+			modifier = shadow_council_is_revealed
 		}
     }
 }
@@ -261,7 +283,7 @@ country_event = {
 	}
 	
     mean_time_to_happen = {
-		months = 36
+		months = 12
     }
     
     immediate = {
@@ -269,23 +291,22 @@ country_event = {
     }
     
 	option = {
-		name = guldan_swear_fealty.opt1 # Pardon him for his crimes.
+		name = guldan_swear_fealty.opt1
+		
 		custom_tooltip = guldan_swear_fealty.opt1.tt
 		set_country_flag = deathknights_active
 		hidden_effect = {
-			country_event = { id = the_second_war.8 days = 730 }
+			country_event = { id = the_second_war.8 days = 365 }
 		}
     }
 	option = {
-		name = guldan_swear_fealty.opt2 # Execute him in public.
+		name = guldan_swear_fealty.opt2
+		
 		add_prestige = 10
-		add_estate_loyalty = {
-			estate = estate_the_legion
-			loyalty = -30
-		}
     }
 	option = {
-		name = guldan_swear_fealty.opt3 # Banish him.
+		name = guldan_swear_fealty.opt3
+		
 		add_prestige = 5
     }
 }
@@ -306,7 +327,8 @@ country_event = {
     }
     
 	option = {
-		name = guldan_betrayal_happened.opt1 # Pardon him for his crimes.
+		name = guldan_betrayal_happened.opt1
+		
 		custom_tooltip = guldan_betrayal_happened.opt1.tt
 		clr_country_flag = deathknights_active
 		if = { 
@@ -406,7 +428,7 @@ country_event = {
 	}
 	
     mean_time_to_happen = {
-		months = 24
+		months = 15
 		modifier = {
 			factor = 5
 			has_country_flag = stood_loyal_to_fel
@@ -418,7 +440,8 @@ country_event = {
     }
     
 	option = {
-		name = orcish_reform.opt1 # It is time to start root out the legion agents.
+		name = orcish_reform.opt1
+		
 		add_adm_power = -75
 		add_dip_power = -75
 		add_mil_power = -75
@@ -429,12 +452,6 @@ country_event = {
 		}
 		custom_tooltip = orcish_reform.opt1.tt
 		hidden_effect = {
-			every_owned_province = {
-				limit = {
-					has_estate = estate_the_legion
-				}
-				remove_estate = estate_the_legion
-			}
 			every_owned_province = {
 				ROOT = {
 					random_owned_province = {
@@ -450,23 +467,9 @@ country_event = {
     }
 	
 	option = {
-		name = orcish_reform.opt2 # Slowly weaken legion's grasp.
-		trigger = {
-			estate_influence = {
-				estate = estate_the_legion
-				influence = 10
-			}
-		}
-		add_estate_influence_modifier = {
-			estate = estate_the_legion
-			influence = -5
-			duration = 7300
-			desc = ESTATE_LEGION_INFLUENCE_DESC
-		}
-		add_estate_loyalty = {
-			estate = estate_the_legion
-			loyalty = -5
-		}
+		name = orcish_reform.opt2
+		
+        
 		custom_tooltip = orcish_reform.opt2.tt
 		hidden_effect = {
 			every_owned_province = {
@@ -483,14 +486,16 @@ country_event = {
     }
 	
 	option = {
-		name = orcish_reform.opt3 # Wait for a better moment.
+		name = orcish_reform.opt3
+		
 		add_prestige = -5
 		add_horde_unity = -10
 		custom_tooltip = orcish_reform.opt3.tt
     }
 	
 	option = {
-		name = orcish_reform.opt4 # We will stay loyal.
+		name = orcish_reform.opt4
+		
 		set_country_flag = stood_loyal_to_fel
 		custom_tooltip = orcish_reform.opt4.tt
 		hidden_effect = {
@@ -504,6 +509,34 @@ country_event = {
 					}
 				}
 			}
+		}
+    }
+}
+
+country_event = {
+	id = the_second_war.20
+	title = shadow_council_reveal.title
+	desc = shadow_council_reveal.title
+	picture = ORCISH_INVASION_eventPicture
+
+	major = no
+    is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = shadow_council_reveal_notified }
+	}
+	
+    immediate = {
+		hidden_effect = {
+			set_country_flag = shadow_council_reveal_notified
+		}
+    }
+    
+	option = {
+		name = shadow_council_reveal.opt1
+		add_country_modifier = {
+			name = council_is_revealed
+			duration = 3650
 		}
     }
 }

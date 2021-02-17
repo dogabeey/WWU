@@ -1,5 +1,5 @@
 country_decisions = {
-	upgrade_lesser = {
+	overcome_primitive_instinct = {
         major = yes
         
         potential = {
@@ -8,13 +8,13 @@ country_decisions = {
         
 		allow = {
             NOT = { is_at_war = yes }
+            total_development = 100
 			adm_power = 200
 			dip_power = 200
 			mil_power = 200
 			adm_tech = 10
 			dip_tech = 10
 			mil_tech = 10
-			total_development = 100
 		}
         
 		effect = {
@@ -22,6 +22,21 @@ country_decisions = {
 			add_adm_power = -200
 			add_dip_power = -200
 			add_mil_power = -200
+            
+            if = {
+                limit = {
+                    has_reform = primitive_clan_reform
+                }
+                remove_government_reform = primitive_clan_reform
+                add_government_reform = tribal_despotism_reform
+            }
+            if = {
+                limit = {
+                    has_reform = primitive_tribe_reform
+                }
+                remove_government_reform = primitive_tribe_reform
+                add_government_reform = native_tribe_reform
+            }
 		}		
         
 		ai_importance = 400

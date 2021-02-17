@@ -1,0 +1,502 @@
+estate_traders_land_rights = {
+	icon = privilege_blueprint
+	
+    # Costs
+    max_absolutism = -5
+	land_share = 10
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		governing_capacity = 100
+	}
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 1.4
+			num_of_territories = 5
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 10
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 15
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 25 }
+				estate_influence = {
+					estate = estate_traders
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_traders_land_rights }
+		}
+		modifier = {
+			factor = 0
+			NOT = { num_of_territories = 1 }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 40 }
+				AND = {
+					NOT = { crown_land_share = 60 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_traders_land_rights }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 30 }
+				AND = {
+					NOT = { crown_land_share = 50 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_traders_land_rights }
+		}
+	}
+}
+
+estate_traders_land_of_commerce = {
+	icon = privilege_cash_flow
+	
+    # Costs
+    max_absolutism = -10
+	land_share = 10
+	loyalty = 0.0
+	influence = 0.1
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		country_diplomatic_power = 1
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 30 }
+				estate_influence = {
+					estate = estate_traders
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_traders_land_of_commerce }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 35 }
+				AND = {
+					NOT = { crown_land_share = 55 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_traders_land_of_commerce }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { dip = 2 }
+		}
+		modifier = {
+			factor = 0.8
+			dip = 5
+		}
+	}
+}
+
+estate_traders_azerothian_navigators = {
+	icon = privilege_sailor
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	penalties = {
+        
+	}
+	benefits = {
+		movement_speed = 0.1
+        global_colonial_growth = 10
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_traders_patronage_of_the_arts = {
+	icon = privilege_crown
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	penalties = {
+		global_tax_modifier = -0.05
+	}
+	benefits = {
+		prestige = 1
+	}
+	on_granted = {
+		if = {
+			limit = { prestige = 50 }
+			add_prestige = 10
+		}
+		else_if = {
+			limit = { prestige = 0 }
+			add_prestige = 15
+		}
+		else_if = {
+			limit = { prestige = -25 }
+			add_prestige = 20
+		}
+		else_if = {
+			limit = { prestige = -50 }
+			add_prestige = 25
+		}
+		else = {
+			add_prestige = 30
+		}
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_traders_commercial_board_of_advice = {
+	icon = privilege_note_2
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	penalties = {
+		stability_cost_modifier = 0.1
+	}
+	benefits = {
+		dip_advisor_cost = -0.25
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 1.25
+			NOT = { dip = 2 }
+		}
+		modifier = {
+			factor = 0.8
+			dip = 5
+		}
+	}
+}
+
+estate_traders_settlement_charter = {
+	icon = privilege_tour_of_duty
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	is_valid = {
+		OR = {
+			num_of_colonists = 1
+			num_of_colonies = 1
+		}
+	}
+	penalties = {
+		native_uprising_chance = 0.5
+	}
+	benefits = {
+		global_colonial_growth = 10
+		colonist_placement_chance = 0.05
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_traders_indebted_to_merchants = {
+	icon = privilege_trading_post
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.1
+    
+	on_granted = {
+		custom_tooltip = estate_traders_indebted_to_merchants_effect_tooltip
+		add_mercantilism = -1
+		tooltip = {
+			add_inflation = 0.5
+		}
+		hidden_effect = {
+			add_loan = {
+				fixed_interest = 1
+				duration = 60
+				estate_loan = yes
+			}
+			add_loan = {
+				fixed_interest = 1
+				duration = 60
+				estate_loan = yes
+			}
+			add_loan = {
+				fixed_interest = 1
+				duration = 60
+				estate_loan = yes
+			}
+			add_loan = {
+				fixed_interest = 1
+				duration = 60
+				estate_loan = yes
+			}
+			add_loan = {
+				fixed_interest = 1
+				duration = 60
+				estate_loan = yes
+			}
+		}
+	}
+	penalties = {
+		trade_efficiency = -0.05
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_traders_free_enterprise = {
+	icon = privilege_storehouse
+    
+	# Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+estate_traders_exclusive_trade_rights = {
+	icon = privilege_stonks
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	is_valid = {
+		has_dlc = "Emperor"
+		any_active_trade_node = {
+			calc_true_if = {
+				amount = 3
+				all_trade_node_member_province = {
+					owned_by = root
+					province_has_center_of_trade_of_level = 1
+				}
+			}
+		}
+	}
+	on_granted = {
+		random_active_trade_node = {
+			limit = {
+				calc_true_if = {
+					amount = 3
+					all_trade_node_member_province = {
+						owned_by = root
+						province_has_center_of_trade_of_level = 1
+					}
+				}
+			}
+			custom_tooltip = estate_traders_exclusive_trade_rights_enact_tooltip
+			hidden_effect = {
+				every_trade_node_member_province = {
+					limit = {
+						owned_by = root
+						province_has_center_of_trade_of_level = 1
+					}
+					add_province_modifier = {
+						name = estate_traders_exclusive_trade_rights_mod
+						duration = -1
+					}
+				}
+			}
+		}
+		add_mercantilism = 3
+	}
+	on_revoked = {
+		custom_tooltip = estate_traders_exclusive_trade_rights_revoke_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_traders_exclusive_trade_rights_mod
+				}
+				remove_province_modifier = estate_traders_exclusive_trade_rights_mod
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_traders_exclusive_trade_rights_revoke_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_traders_exclusive_trade_rights_mod
+				}
+				remove_province_modifier = estate_traders_exclusive_trade_rights_mod
+			}
+		}
+	}
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_traders_control_over_monetary_policy = {
+	icon = privilege_clemency
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	is_valid = {
+		has_dlc = "Emperor"
+	}
+	penalties = {
+		all_power_cost = 0.05
+	}
+	benefits = {
+		inflation_reduction = 0.15
+		interest = -0.5
+		production_efficiency = 0.05
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 10
+			OR = {
+				inflation = 15
+				num_of_loans = 15
+			}
+		}
+	}
+}
+
+estate_traders_private_caravans = {
+	icon = privilege_compass
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	is_valid = {
+		has_dlc = "Emperor"
+		trade_income_percentage = 0.35
+	}
+	penalties = {
+	}
+	benefits = {
+		caravan_power = 0.2
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_traders_enforced_interfaith_dialogue = {
+	icon = privilege_balance_of_power
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	is_valid = {
+		any_owned_province = {
+			NOT = { religion = root }
+		}
+		has_estate_privilege = estate_traders_enforced_interfaith_dialogue
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_clergy_enforced_one_faith }
+	}
+	penalties = {
+		clergy_loyalty_modifier = -0.1
+	}
+	benefits = {
+		tolerance_heathen = 2
+		tolerance_heretic = 2
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_traders_statutory_rights = {
+	icon = privilege_ancient_text
+	
+    # Costs
+    max_absolutism = -10
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.1
+    
+	is_valid = {
+		has_estate_privilege = estate_traders_statutory_rights
+	}
+	on_granted = {
+		change_estate_land_share = {
+			estate = all
+			share = -30
+		}
+	}
+	penalties = {
+		min_autonomy = 25
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 0
+	}
+	cooldown_years = 20
+}

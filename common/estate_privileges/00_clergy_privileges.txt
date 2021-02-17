@@ -1,0 +1,354 @@
+estate_clergy_land_rights = {
+	icon = privilege_blueprint
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 10
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		governing_capacity = 100
+	}
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 1.4
+			num_of_territories = 5
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 10
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 15
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 25 }
+				estate_influence = {
+					estate = estate_clergy
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_clergy_land_rights }
+		}
+		modifier = {
+			factor = 0
+			NOT = { num_of_territories = 1 }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 40 }
+				AND = {
+					NOT = { crown_land_share = 60 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_clergy_land_rights }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 30 }
+				AND = {
+					NOT = { crown_land_share = 50 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_clergy_land_rights }
+		}
+	}
+}
+
+estate_clergy_clergy_in_administration = {
+	icon = privilege_clarity_of_purpose
+    
+    # Costs
+    max_absolutism = -10
+	land_share = 10
+	loyalty = 0.0
+	influence = 0.1
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		country_admin_power = 1
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 30 }
+				estate_influence = {
+					estate = estate_clergy
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_clergy_clergy_in_administration }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 35 }
+				AND = {
+					NOT = { crown_land_share = 55 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_clergy_clergy_in_administration }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { adm = 2 }
+		}
+		modifier = {
+			factor = 0.8
+			adm = 5
+		}
+	}
+}
+
+estate_clergy_independent_advisors = {
+	icon = privilege_book_1
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	penalties = {
+		stability_cost_modifier = 0.1
+	}
+	benefits = {
+		adm_advisor_cost = -0.25
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 1.25
+			NOT = { adm = 2 }
+		}
+		modifier = {
+			factor = 0.8
+			adm = 5
+		}
+	}
+}
+
+estate_clergy_distant_outposts = {
+	icon = privilege_backpack
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	is_valid = {
+		OR = {
+			num_of_colonists = 1
+			num_of_colonies = 1
+		}
+	}
+	penalties = {
+	}
+	benefits = {
+		native_assimilation = 0.5
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_clergy_expanded_bureaucracy = {
+	icon = privilege_craftsman
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	penalties = {
+	}
+	benefits = {
+        possible_policy = 1
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+estate_clergy_administrative_oversight = {
+	icon = privilege_ancient_history
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+estate_clergy_internal_development = {
+	icon = privilege_lumbermill
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+		NOT = { has_estate_privilege = estate_clergy_enforced_one_faith }
+	}
+	on_granted = {
+	}
+	modifier_by_land_ownership = {
+		development_cost = -0.5
+	}
+	penalties = {
+		stability_cost_to_declare_war = 1
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_clergy_enforced_one_faith = {
+	icon = privilege_lunar_guidance
+
+    # Costs
+    max_absolutism = -10
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	is_valid = {
+		any_owned_province = {
+			NOT = { religion = root }
+		}
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_traders_enforced_interfaith_dialogue }
+	}
+	penalties = {
+		tolerance_heathen = -2
+		tolerance_heretic = -2
+	}
+	benefits = {
+		global_missionary_strength = 0.03
+		tolerance_own = 1
+	}
+	cooldown_years = 20
+	on_cooldown_expires = {
+		remove_estate_privilege = estate_clergy_enforced_one_faith
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_clergy_liberation_of_our_own = {
+	icon = privilege_power_strikes
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.05
+	influence = 0.05
+    
+	is_valid = {
+		has_dlc = "Emperor"
+		OR = {
+			any_known_country = {
+				any_owned_province = {
+                    is_core = ROOT
+                }
+			}
+		}
+	}
+	can_select = {
+		any_known_country = {
+			any_owned_province = {
+                is_core = ROOT
+            }
+		}
+	}
+	on_granted = {
+		custom_tooltip = estate_clergy_liberation_of_our_own_tooltip
+	}
+	on_revoked = {
+		custom_tooltip = estate_clergy_liberation_of_our_own_tooltip
+	}
+	conditional_modifier = {
+		trigger = {
+			any_known_country = {
+				any_owned_province = {
+                    is_core = ROOT
+                }
+				war_with = root
+			}
+		}
+		modifier = {
+			clergy_loyalty_modifier = 0.1
+			land_morale = 0.15
+		}
+	}
+	penalties = {
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_clergy_statutory_rights = {
+	icon = privilege_ancient_text
+
+    # Costs
+    max_absolutism = -10
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.1
+    
+	is_valid = {
+		has_estate_privilege = estate_clergy_statutory_rights
+	}
+	on_granted = {
+		change_estate_land_share = {
+			estate = all
+			share = -30
+		}
+	}
+	penalties = {
+		min_autonomy = 25
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 0
+	}
+	cooldown_years = 20
+}

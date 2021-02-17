@@ -1,0 +1,282 @@
+cb_faction_revolution = {
+	exclusive = yes
+	independence = yes
+
+	prerequisites = {
+		OR = {
+			is_subject_of_type = faction_alliance
+			is_subject_of_type = faction_horde
+		}
+		is_subject_of = FROM
+		total_development = 100
+		
+	}
+
+	war_goal = change_overlord
+}
+
+cb_continental = {
+	valid_for_subject = no
+
+	prerequisites = {
+		num_of_colonists = 1
+		any_owned_province = {
+			has_port = yes
+		}
+		FROM = {
+			any_owned_province = {
+				NOT = { same_continent = ROOT }
+				has_port = yes
+			}
+		}
+	}
+	
+	war_goal = continental_landing
+}
+
+cb_scourge = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_neighbor_of = FROM
+		FROM = {
+			NOT = { religion = religion_the_damned }
+		}
+		religion = religion_the_damned
+	}
+	
+	war_goal = superiority_horde
+}
+
+#cb_warband_raid = {
+#	valid_for_subject = no
+#
+#	prerequisites = {
+#        is_neighbor_of = FROM
+#		government = tribal
+#        FROM = {
+#            government = tribal
+#        }
+#	}
+#	
+#	war_goal = superiority_horde
+#}
+
+cb_silvermoon_land = {
+    valid_for_subject = yes
+    
+    prerequisites = {   
+        tag = A91
+		OR = {
+            region_isle_of_quel_danas = {
+                owned_by = FROM
+            }
+            region_eversong_woods = {
+                owned_by = FROM
+            }
+            region_ghostlands = {
+                owned_by = FROM
+            }
+            region_isle_of_quel_danas = {
+                owned_by = FROM
+            }
+        }
+	}	
+    
+    war_goal = superiority_horde
+}
+
+cb_draenei_scum = {
+	valid_for_subject = no
+
+	prerequisites = {
+		capital_scope = { continent = continent_outland }
+        culture_group = culture_group_orc
+        OR = {
+            has_country_flag = joined_nerzhul
+            has_country_flag = joined_guldan
+            has_country_flag = accepted_the_demonsblood
+        }
+		FROM = {
+			capital_scope = { continent = continent_outland }
+            culture_group = culture_group_draenei
+		}
+	}
+	
+	war_goal = superiority_horde
+}
+
+cb_orc_scum = {
+	valid_for_subject = no
+
+	prerequisites = {
+		capital_scope = { continent = continent_outland }
+        culture_group = culture_group_orc
+        has_country_flag = accepted_the_demonsblood
+		FROM = {
+			capital_scope = { continent = continent_outland }
+            culture_group = culture_group_orc
+            government = tribal
+            NOT = { has_country_flag = accepted_the_demonsblood }
+		}
+	}
+	
+	war_goal = superiority_horde
+}
+
+cb_the_dying_times = {
+	valid_for_subject = no
+
+	prerequisites = {
+		capital_scope = { continent = continent_outland }
+        culture_group = culture_group_orc
+        government = tribal
+		FROM = {
+			capital_scope = { continent = continent_outland }
+            culture_group = culture_group_orc
+            government = tribal
+		}
+        has_global_flag = the_dying_times
+	}
+	
+	war_goal = superiority_horde
+}
+
+cb_azeroth_assault = {
+	valid_for_subject = yes
+
+	prerequisites = {
+        has_global_flag = the_first_war
+        culture_group = culture_group_orc
+        religion = religion_fel
+		FROM = {
+			capital_scope = { continent = continent_eastern_kingdoms }
+            culture_group = culture_group_human
+		}
+	}
+	
+	war_goal = war_against_men
+}
+
+cb_against_evil = {
+	valid_for_subject = no
+
+	prerequisites = {
+		NOT = { has_country_modifier = is_evil }
+        NOT = { government = tribal }
+		FROM = {
+			has_country_modifier = is_evil
+			capital_scope = { continent = ROOT }
+		}
+	}
+	
+	war_goal = war_against_evil
+}
+
+cb_for_the_alliance = {
+	valid_for_subject = no
+
+	prerequisites = {
+		faction_alliance = 1
+		FROM = {
+			faction_horde = 1
+		}
+	}
+	
+	war_goal = factions_war
+}
+
+cb_for_the_horde = {
+	valid_for_subject = no
+
+	prerequisites = {
+		faction_horde = 1
+		FROM = {
+			faction_alliance = 1
+		}
+	}
+	
+	war_goal = factions_war
+}
+
+cb_titan_rivalry = {
+	valid_for_subject = no
+
+	prerequisites = {
+		OR = {
+			AND = {
+				religion = religion_titan
+				FROM = { religion = religion_titan_corrupt }
+			}
+			AND = {
+				religion = religion_titan_corrupt
+				FROM = { religion = religion_titan }
+			}
+		}
+	}
+	
+	war_goal = titan_clash
+}
+
+cb_legion_invasion = {
+	valid_for_subject = no
+	is_triggered_only = yes
+	
+	prerequisites = {
+		tag = B92
+	}
+	
+	war_goal = legion_invasion_goal
+}
+
+cb_enslavement = {
+	valid_for_subject = no
+	
+	prerequisites = {
+		has_government_attribute = can_enslave
+		NOT = { enslavement = 1 }
+		FROM = {
+			is_neighbor_of = ROOT
+			NOT = { total_development = 75 }
+			NOT = { num_of_cities = 3 }
+		}
+	}
+	
+	war_goal = forced_enslavement_goal
+}
+
+cb_magical_enslavement = {
+	valid_for_subject = no
+	
+	prerequisites = {
+		OR = {
+			AND = {
+				NOT = { magical_enslavement = 1 }
+				OR = {
+					religion = religion_old_gods
+					religion = religion_fel
+				}
+				FROM = {
+					is_neighbor_of = ROOT
+					NOT = { total_development = 100 }
+					NOT = { num_of_cities = 5 }
+				}
+			}
+			AND = {
+				has_country_modifier = lich_kings_crown
+				FROM = {
+					culture_group = ROOT
+				}
+			}
+		}
+	}
+	
+	war_goal = forced_magical_enslavement_goal
+}
+
+cb_fury_of_dragons = {
+	valid_for_subject = no
+	is_triggered_only = yes
+	
+	war_goal = annex_country
+}

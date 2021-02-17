@@ -1,0 +1,886 @@
+#---------------------------------------
+# Invite to Alliance
+#---------------------------------------
+invite_to_alliance = {
+	category = alliance
+	
+	alert_index = 45
+	alert_tooltip = invite_to_alliance_tooltip
+	
+	require_acceptance = yes # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		has_country_modifier = alliance_head
+	}
+	is_allowed = {
+		is_subject = no
+		NOT = { has_disaster = alliance_splintering_disaster }
+		FROM = {
+			is_subject = no
+			NOT = { has_country_modifier = recently_rejected_alliance }
+			NOT = { has_country_modifier = recently_rejected_alliance_request }
+			NOT = { has_country_modifier = is_evil }
+			total_development = 75
+		}
+	}
+	on_accept = {
+		ROOT = {
+			create_subject = {
+				subject_type = faction_alliance
+				subject = FROM
+			}
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = {
+		add_entry = {
+			name = INV_BASE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_ROOTPRESTIGE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = prestige
+			}
+			subtract_variable = { which = ai_value value = 25 }
+			divide_variable = { which = ai_value value = 2 }
+		}
+		add_entry = {
+			name = INV_OPINION
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 100 }
+		}
+		add_entry = {
+			name = INV_CIVILIZED
+			limit = {
+				FROM = { NOT = { is_civilized = yes } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_LESSER
+			limit = {
+				is_lesser = yes
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -1000
+			}
+		}
+		add_entry = {
+			name = INV_TOOMANYVASSAL
+			limit = {
+				faction_alliance = 6
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_FARTOOMANYVASSAL
+			limit = {
+				faction_alliance = 8
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -175
+			}
+		}
+		add_entry = {
+			name = INV_FARFARTOOMANYVASSAL
+			limit = {
+				faction_alliance = 10
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -225
+			}
+		}
+		add_entry = {
+			name = INV_HISTORICALALLIANCE
+			limit = {
+				FROM = { historical_alliance = yes }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 150
+			}
+		}
+		add_entry = {
+			name = INV_HISTORICALHORDE
+			limit = {
+				FROM = { historical_horde = yes }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -250
+			}
+		}
+		add_entry = {
+			name = INV_NOTHASALLIANCEFRIEND
+			limit = {
+				NOT = {
+					OR = {
+						alliance_with = FROM
+						any_country = {
+							alliance_with = FROM
+							alliance_with = ROOT
+						}
+					}
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_HASHORDEFRIEND
+			limit = {
+				any_country = {
+					OR = {
+						is_subject_of_type = faction_horde
+						has_country_modifier = horde_head
+					}
+					alliance_with = FROM
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_NEVERALLIANCE
+			limit = {
+				FROM = {
+					never_alliance = yes
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -1000
+			}
+		}
+	}
+
+	ai_will_do = {
+		always = yes
+	}
+}
+
+#---------------------------------------
+# Invite to Horde
+#---------------------------------------
+invite_to_horde = {
+	category = alliance
+	
+	alert_index = 46
+	alert_tooltip = invite_to_horde_tooltip
+	
+	require_acceptance = yes # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		has_country_modifier = horde_head
+	}
+	is_allowed = {
+		is_subject = no
+		NOT = { has_disaster = alliance_splintering_disaster }
+		FROM = {
+			is_subject = no
+			NOT = { has_country_modifier = is_evil }
+			NOT = { has_country_modifier = recently_rejected_horde }
+			NOT = { has_country_modifier = recently_rejected_horde_request }
+			total_development = 75
+		}
+	}
+	on_accept = {
+		ROOT = {
+			create_subject = {
+				subject_type = faction_horde
+				subject = FROM
+			}
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = {
+		add_entry = {
+			name = INV_BASE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_ROOTPRESTIGE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = prestige
+			}
+			subtract_variable = { which = ai_value value = 25 }
+			divide_variable = { which = ai_value value = 2 }
+		}
+		add_entry = {
+			name = INV_OPINION
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 100 }
+		}
+		add_entry = {
+			name = INV_LESSER
+			limit = {
+				is_lesser = yes
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -1000
+			}
+		}
+		add_entry = {
+			name = INV_TOOMANYVASSAL
+			limit = {
+				faction_horde = 6
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_FARTOOMANYVASSAL
+			limit = {
+				faction_horde = 8
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -175
+			}
+		}
+		add_entry = {
+			name = INV_FARFARTOOMANYVASSAL
+			limit = {
+				faction_horde = 10
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -225
+			}
+		}
+		add_entry = {
+			name = INV_SAVAGE
+			limit = {
+				FROM = { NOT = { is_savage = yes } }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_HISTORICALALLIANCE
+			limit = {
+				FROM = { historical_alliance = yes }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -250
+			}
+		}
+		add_entry = {
+			name = INV_HISTORICALHORDE
+			limit = {
+				FROM = { historical_horde = yes }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 150
+			}
+		}
+		add_entry = {
+			name = INV_HASALLIANCEFRIEND
+			limit = {
+				any_country = {
+					OR = {
+						is_subject_of_type = faction_alliance
+						has_country_modifier = alliance_head
+					}
+					alliance_with = FROM
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_NOTHASALLIANCEFRIEND
+			limit = {
+				NOT = {
+					OR = {
+						alliance_with = FROM
+						any_country = {
+							alliance_with = FROM
+							alliance_with = ROOT
+						}
+					}
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_NEVERHORDE
+			limit = {
+				FROM = {
+					never_horde = yes
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -1000
+			}
+		}
+	}
+
+	ai_will_do = {
+		always = yes
+	}
+}
+
+#---------------------------------------
+# Join the Alliance
+#---------------------------------------
+join_the_alliance = {
+	category = alliance
+	
+	alert_index = 45
+	alert_tooltip = join_the_alliance_tooltip
+	
+	require_acceptance = yes # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		is_subject = no
+		FROM = {
+			NOT = { has_disaster = alliance_splintering_disaster }
+			is_subject = no
+			has_country_modifier = alliance_head
+		}
+	}
+	is_allowed = {
+		is_subject = no
+		NOT = { has_country_modifier = is_evil }
+		NOT = { has_country_modifier = recently_rejected_alliance }
+		NOT = { has_country_modifier = recently_rejected_alliance_request }
+		total_development = 75
+}
+	on_accept = {
+		FROM = {
+			create_subject = {
+				subject_type = faction_alliance
+				subject = ROOT
+			}
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = {
+		add_entry = {
+			name = INV_BASE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_ROOTPRESTIGE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = prestige
+			}
+			subtract_variable = { which = ai_value value = 25 }
+			divide_variable = { which = ai_value value = 2 }
+		}
+		add_entry = {
+			name = INV_OPINION
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 100 }
+		}
+		add_entry = {
+			name = INV_CIVILIZED
+			limit = {
+				NOT = { is_civilized = yes }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_LESSER
+			limit = {
+				is_lesser = yes
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -1000
+			}
+		}
+		add_entry = {
+			name = INV_TOOMANYVASSAL
+			limit = {
+				FROM = {
+					faction_alliance = 6
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_FARTOOMANYVASSAL
+			limit = {
+				FROM = {
+					faction_alliance = 8
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -175
+			}
+		}
+		add_entry = {
+			name = INV_FARFARTOOMANYVASSAL
+			limit = {
+				FROM = {
+					faction_alliance = 10
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -225
+			}
+		}
+		add_entry = {
+			name = INV_HISTORICALALLIANCE
+			limit = {
+				historical_alliance = yes
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 150
+			}
+		}
+		add_entry = {
+			name = INV_HISTORICALHORDE
+			limit = {
+				historical_horde = yes
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -250
+			}
+		}
+		add_entry = {
+			name = INV_HASHORDEFRIEND
+			limit = {
+				any_country = {
+					OR = {
+						is_subject_of_type = faction_horde
+						has_country_modifier = horde_head
+					}
+					alliance_with = ROOT
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_NOTHASALLIANCEFRIEND
+			limit = {
+				NOT = {
+					OR = {
+						alliance_with = FROM
+						any_country = {
+							alliance_with = FROM
+							alliance_with = ROOT
+						}
+					}
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_NEVERALLIANCE
+			limit = {
+				never_alliance = yes
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -1000
+			}
+		}
+	}
+
+	ai_will_do = {
+		always = yes
+	}
+}
+
+#---------------------------------------
+# Join the Horde
+#---------------------------------------
+join_the_horde = {
+	category = alliance
+	
+	alert_index = 46
+	alert_tooltip = join_the_horde_tooltip
+	
+	require_acceptance = yes # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		FROM = {
+			NOT = { has_disaster = alliance_splintering_disaster }
+			is_subject = no
+			has_country_modifier = horde_head
+		}
+	}
+	is_allowed = {
+		is_subject = no
+		NOT = { has_country_modifier = is_evil }
+		NOT = { has_country_modifier = recently_rejected_horde }
+		NOT = { has_country_modifier = recently_rejected_horde_request }
+		total_development = 75
+	}
+	on_accept = {
+		FROM = {
+			create_subject = {
+				subject_type = faction_horde
+				subject = ROOT
+			}
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = {
+		add_entry = {
+			name = INV_BASE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_ROOTPRESTIGE
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = prestige
+			}
+			subtract_variable = { which = ai_value value = 25 }
+			divide_variable = { which = ai_value value = 2 }
+		}
+		add_entry = {
+			name = INV_OPINION
+			limit = {
+				always = yes
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 100 }
+		}
+		add_entry = {
+			name = INV_SAVAGE
+			limit = {
+				NOT = { is_savage = yes }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -50
+			}
+		}
+		add_entry = {
+			name = INV_LESSER
+			limit = {
+				is_lesser = yes
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -1000
+			}
+		}
+		add_entry = {
+			name = INV_TOOMANYVASSAL
+			limit = {
+				FROM = {
+					faction_horde = 6
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_FARTOOMANYVASSAL
+			limit = {
+				FROM = {
+					faction_horde = 8
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -175
+			}
+		}
+		add_entry = {
+			name = INV_FARFARTOOMANYVASSAL
+			limit = {
+				FROM = {
+					faction_horde = 10
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -225
+			}
+		}
+		add_entry = {
+			name = INV_HISTORICALALLIANCE
+			limit = {
+				historical_alliance = yes
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -250
+			}
+		}
+		add_entry = {
+			name = INV_HISTORICALHORDE
+			limit = {
+				historical_horde = yes
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 150
+			}
+		}
+		add_entry = {
+			name = INV_HASALLIANCEFRIEND
+			limit = {
+				any_country = {
+					OR = {
+						is_subject_of_type = faction_alliance
+						has_country_modifier = alliance_head
+					}
+					alliance_with = ROOT
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_NOTHASALLIANCEFRIEND
+			limit = {
+				NOT = {
+					OR = {
+						alliance_with = FROM
+						any_country = {
+							alliance_with = FROM
+							alliance_with = ROOT
+						}
+					}
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -100
+			}
+		}
+		add_entry = {
+			name = INV_NEVERHORDE
+			limit = {
+				never_horde = yes
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -1000
+			}
+		}
+	}
+
+	ai_will_do = {
+		always = yes
+	}
+}
+
+#---------------------------------------
+# Kick from Alliance
+#---------------------------------------
+kick_from_alliance = {
+	category = alliance
+	
+	alert_index = 40
+	alert_tooltip = kick_from_alliance_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		always = yes
+		has_country_modifier = alliance_head
+		FROM = {
+			is_subject_of_type = faction_alliance
+		}
+	}
+	is_allowed = {
+		prestige = 0
+	}
+	on_accept = {
+		FROM = {
+			add_country_modifier = {
+				name = recently_rejected_alliance_request
+				duration = 365
+			}
+			country_event = { id = factions.1 }
+			grant_independence = yes
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = {
+	}
+
+	ai_will_do = {
+		FROM = {
+			NOT = { 
+				has_opinion = {
+					who = ROOT
+					value = -100
+				}
+			}
+		}
+	}
+}
+
+#---------------------------------------
+# Kick from Horde
+#---------------------------------------
+kick_from_horde = {
+	category = alliance
+	
+	alert_index = 40
+	alert_tooltip = kick_from_horde_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		always = yes
+		has_country_modifier = horde_head
+		FROM = {
+			is_subject_of_type = faction_horde
+		}
+	}
+	is_allowed = {
+		prestige = 0
+	}
+	on_accept = {
+		FROM = {
+			add_country_modifier = {
+				name = recently_rejected_horde_request
+				duration = 365
+			}
+			country_event = { id = factions.1 }
+			grant_independence = yes
+		}
+	}
+	on_decline = 	{ 
+	}
+	
+	ai_acceptance = {
+	}
+
+	ai_will_do = {
+		FROM = {
+			NOT = { 
+				has_opinion = {
+					who = ROOT
+					value = -100
+				}
+			}
+		}
+	}
+}

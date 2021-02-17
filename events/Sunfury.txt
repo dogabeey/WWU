@@ -1,0 +1,67 @@
+namespace = sunfury
+
+# Reject The Burning Legion!
+country_event = {
+	id = sunfury.1
+	title = sunfury.1.title
+	desc = sunfury.1.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    
+	fire_only_once = yes
+	
+	trigger = {
+		current_age = the_burning_crusade
+		tag = A93 # Country is Sunfury
+		exists = A91 # Silvermoon exists
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+		immediate = {
+	}
+	
+	
+	option = {
+		name = sunfury.1.option.a
+		ai_chance = { factor = 100 }
+		        
+        B92 = {
+            add_opinion = {
+                who = ROOT
+                modifier = loyal_to_the_legion
+            }
+        }
+        add_opinion = {
+            who = B92
+            modifier = loyal_to_the_legion
+        }
+	}
+	
+	option = {
+		name = sunfury.1.option.b
+        
+		ai_chance = { factor = 0 }
+        
+		add_prestige = 100
+		add_stability = -2
+		change_religion = religion_arcane
+        
+		every_owned_province = {
+            change_religion = religion_arcane
+        }
+        
+		B92 = {
+			add_opinion = {
+                who = ROOT
+                modifier = betrayed_the_legion
+            }
+        }
+        add_opinion = {
+            who = B92
+            modifier = betrayed_the_legion
+        }
+	}
+}

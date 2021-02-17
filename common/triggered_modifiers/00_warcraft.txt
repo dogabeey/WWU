@@ -6,17 +6,19 @@ collapse_of_the_draenei_civilisation = {
 		NOT = { the_first_war_or_later = yes }
         capital_scope = { continent = continent_outland }
         culture_group = culture_group_draenei
+		ai = yes
 	}
 	
 	trigger = {
 		NOT = { the_first_war_or_later = yes }
 		capital_scope = { continent = continent_outland }
         culture_group = culture_group_draenei
+		ai = yes
 	}
 	
-	stability_cost_modifier = 0.2
-    global_manpower_modifier = -0.25
-    global_tax_modifier = -0.2
+	stability_cost_modifier = 0.5
+    global_manpower_modifier = -0.5
+    global_tax_modifier = -0.5
     global_trade_power = -0.5
 }
 the_power_of_fel = {
@@ -30,11 +32,10 @@ the_power_of_fel = {
         culture_group = culture_group_orc
         religion = religion_fel
 	}
-
-	manpower_recovery_speed = 0.5 
+	
     discipline = 0.1
-    land_morale = 0.25
-	range = 2
+    land_morale = 0.1
+	infantry_cost = -0.5
 }
 first_war_human = {
     potential = {
@@ -48,37 +49,76 @@ first_war_human = {
 		current_age = the_first_war
 		culture_group = culture_group_human
 	}
-
-	manpower_recovery_speed = -0.2
+    land_morale = -0.2
+    discipline = -0.2
 }
 first_war_orc = {
     potential = {
-		capital_scope = {
-			continent = continent_eastern_kingdoms
-		}
+		current_age = the_first_war
 		culture_group = culture_group_orc
-		religion = religion_fel
+		NOT = {
+			OR = {
+				has_global_flag = orc_invasion_difficulty_easy
+				has_global_flag = orc_invasion_difficulty_very_easy
+			}
+		}
     }
 	trigger = {
 		current_age = the_first_war
 		culture_group = culture_group_orc
+		religion = religion_fel
+		OR = {
+			faction_horde = 1
+			is_subject_of_type = faction_horde
+		}
 	}
 
-	manpower_recovery_speed = 0.2
+	province_warscore_cost = -0.75
+	unjustified_demands = -0.75
+    land_morale = 0.25
+    discipline = 0.1
 }
-occupation_of_the_blasted_lands = {
+first_war_orc_easy = {
     potential = {
-        has_global_flag = the_first_war
-        culture_group = culture_group_orc
-        religion = religion_fel
+		current_age = the_first_war
+		culture_group = culture_group_orc
+		has_global_flag = orc_invasion_difficulty_easy
     }
 	trigger = {
-        region_blasted_lands = {
-            is_empty = yes
-        }
+		current_age = the_first_war
+		culture_group = culture_group_orc
+		religion = religion_fel
+		OR = {
+			faction_horde = 1
+			is_subject_of_type = faction_horde
+		}
 	}
 
-	colonists = 1
+	province_warscore_cost = -0.35
+	unjustified_demands = -0.35
+    land_morale = 0.15
+    discipline = 0.1
+}
+first_war_orc_very_easy = {
+    potential = {
+		current_age = the_first_war
+		culture_group = culture_group_orc
+		has_global_flag = orc_invasion_difficulty_very_easy
+    }
+	trigger = {
+		current_age = the_first_war
+		culture_group = culture_group_orc
+		religion = religion_fel
+		OR = {
+			faction_horde = 1
+			is_subject_of_type = faction_horde
+		}
+	}
+
+	province_warscore_cost = -0.25
+	unjustified_demands = -0.25
+    land_morale = 0.1
+    discipline = 0.1
 }
 
 
@@ -86,43 +126,14 @@ occupation_of_the_blasted_lands = {
 #-----------------------------------------------------
 # Other
 #-----------------------------------------------------
-scourge_mindlessness = {
-	potential = {
-		primary_culture = culture_scourge
-	}
-	
-	trigger = {
-		primary_culture = culture_scourge
-	}
-	
-	tolerance_own = 10
-    global_unrest = -10
-}
-
-power_of_the_dragons = {
-	potential = {
-		technology_group = tech_dragonkin
-	}
-
-	trigger = {
-		technology_group = tech_dragonkin
-        num_of_provinces_in_states = 10
-	}
-
-	discipline = 0.1
-    land_morale = 0.1
-    infantry_power = 0.1
-    artillery_power = 0.1
-    cavalry_power = 0.1
-    siege_ability = 0.25
-
-    global_tax_income = 64
-}
 power_of_the_sunwell = {
     potential = {
         OR = {
-            technology_group = tech_thalassian
+            religion = religion_fel
             religion = religion_arcane
+            religion = religion_shadow
+            religion = religion_chaos
+            religion = religion_light_of_the_sunwell
         }
     }
     
@@ -177,17 +188,19 @@ fear_of_stromkar = {
 
 is_evil = {
     potential = {
-	
+		always = yes
     }
     
 	trigger = {
 		OR = {
 			corruption = 15
-			overextension_percentage = 2
+			overextension_percentage = 1.5
 			has_country_modifier = summoned_oldgod
 			has_country_modifier = lich_kings_crown
-			has_country_modifier = burned_world_tree
-			has_reform = criminal_organization_reform
+			has_country_modifier = sacrificed_a_loa
+			has_ruler_modifier = burned_world_tree
+			enslavement = 1
+			magical_enslavement = 1
 		}
 	}
     global_unrest = 2
@@ -209,25 +222,21 @@ nether_magic = {
 
 kul_tiras_proudmoore = {
     potential = {
-		has_estate = estate_nobles
-		primary_culture = culture_kul_tiran
+		has_estate = estate_nobility
+		tag = A14
     }
     
 	trigger = {
 		estate_influence = {
-			estate = estate_nobles
+			estate = estate_nobility
 			influence = 75
 		}
 		NOT = { estate_influence = {
-			estate = estate_tidesages
+			estate = estate_clergy
 			influence = 75
 		} }
 		NOT = { estate_influence = {
 			estate = estate_traders
-			influence = 75
-		} }
-		NOT = { estate_influence = {
-			estate = estate_order
 			influence = 75
 		} }
 	}
@@ -237,17 +246,17 @@ kul_tiras_proudmoore = {
 
 kul_tiras_waycrest = {
     potential = {
-		has_estate = estate_order
-		primary_culture = culture_kul_tiran
+		has_estate = estate_guild_order_of_embers
+		tag = A14
     }
     
 	trigger = {
 		NOT = { estate_influence = {
-			estate = estate_nobles
+			estate = estate_nobility
 			influence = 75 
 		} }
 		NOT = { estate_influence = {
-			estate = estate_tidesages
+			estate = estate_clergy
 			influence = 75
 		} }
 		NOT = { estate_influence = {
@@ -255,7 +264,7 @@ kul_tiras_waycrest = {
 			influence = 75
 		} }
 		estate_influence = {
-			estate = estate_order
+			estate = estate_guild_order_of_embers
 			influence = 75
 		}
 	}
@@ -265,17 +274,17 @@ kul_tiras_waycrest = {
 
 kul_tiras_stormsong = {
     potential = {
-		has_estate = estate_tidesages
-		primary_culture = culture_kul_tiran
+		has_estate = estate_clergy
+		tag = A14
     }
     
 	trigger = {
 		NOT = { estate_influence = {
-			estate = estate_nobles
+			estate = estate_nobility
 			influence = 75
 		} }
 		estate_influence = {
-			estate = estate_tidesages
+			estate = estate_clergy
 			influence = 75
 		}
 		NOT = { estate_influence = {
@@ -283,7 +292,7 @@ kul_tiras_stormsong = {
 			influence = 75
 		} }
 		NOT = { estate_influence = {
-			estate = estate_order
+			estate = estate_guild_order_of_embers
 			influence = 75
 		} }
 	}
@@ -294,16 +303,16 @@ kul_tiras_stormsong = {
 kul_tiras_ashvane = {
     potential = {
 		has_estate = estate_traders
-		primary_culture = culture_kul_tiran
+		tag = A14
     }
     
 	trigger = {
 		NOT = { estate_influence = {
-			estate = estate_nobles
+			estate = estate_nobility
 			influence = 75
 		} }
 		NOT = { estate_influence = {
-			estate = estate_tidesages
+			estate = estate_clergy
 			influence = 75
 		} }
 		estate_influence = {
@@ -311,7 +320,7 @@ kul_tiras_ashvane = {
 			influence = 75
 		}
 		NOT = { estate_influence = {
-			estate = estate_order
+			estate = estate_guild_order_of_embers
 			influence = 75
 		} }
 	}
@@ -348,6 +357,33 @@ hidden_from_world = {
 	defensiveness = 1
 }
 
+no_cavalry = {
+	potential = {
+		has_no_cav = yes
+	}
+	
+	trigger = {
+		has_no_cav = yes
+	}
+	
+	infantry_fire = 1
+	infantry_cost = 0.1
+}
+
+has_invalid_dynasty = {
+	potential = {
+		has_reform = wwu_hereditary_rule_reform
+	}
+	
+	trigger = {
+		has_wrong_dynasty = yes
+	}
+	
+	legitimacy = -0.33
+	global_unrest = 2
+	global_autonomy = 0.025
+}
+
 dark_portal_stasis = {
 	potential = {
 		tag = Z99
@@ -361,4 +397,47 @@ dark_portal_stasis = {
 	global_regiment_cost = 100
 	global_unrest = -100
 	diplomats = -5
+}
+
+alliance_vs_horde = {
+	potential = {
+		OR = {
+			is_member_of_faction = { faction = alliance }
+			is_member_of_faction = { faction = horde }
+		}
+	}
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_member_of_faction = { faction = alliance }
+				any_country = {
+					is_member_of_faction = { faction = horde }
+					war_with = PREV
+				}
+			}
+			AND = {
+				is_member_of_faction = { faction = horde }
+				any_country = {
+					is_member_of_faction = { faction = alliance }
+					war_with = PREV
+				}
+			}
+			AND = {
+				tag = B88
+				war_with = STW
+			}
+			AND = {
+				tag = STW
+				war_with = B88
+			}
+			is_in_war = {
+				casus_belli = cb_azeroth_assault
+			}
+		}
+	}
+	
+	manpower_recovery_speed = 1
+	mercenary_cost = -0.2
+	war_exhaustion = -0.2
 }

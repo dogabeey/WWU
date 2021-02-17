@@ -1,64 +1,75 @@
-namespace = scourge
+namespace = scourge_events
 
+# "Nerzhul's Arrival to Icecrown Citadel"
 country_event = {
-	id = scourge.1
-	title = arrival_of_nerzhul.title
-	desc = arrival_of_nerzhul.desc
+	id = scourge_events.1
+	title = scourge_events.1.title
+	desc = scourge_events.1.desc
 	picture = FROZENTHRONE_eventPicture
-	
-	
+
+    major = yes
+    
 	trigger = {
+        ai = no
 		current_age = the_second_war
 		has_global_flag = the_third_war
-		NOT = { has_country_flag = notified_about_scourge }
+		NOT = { has_global_flag = nerzhul_arrived }
 	}
 	
-	mean_time_to_happen = { months = 12 }
+	mean_time_to_happen = { 
+        months = 12 
+    }
     
-	
 	immediate = {
-		set_country_flag = notified_about_scourge
-		set_global_flag = nerzhul_arrived
+		hidden_effect = { set_global_flag = nerzhul_arrived }
     }
 	
 	option = {
-		name = arrival_of_nerzhul.opt1
-	}
-}
-
-country_event = {
-	id = scourge.2
-	title = rise_of_scourge.title
-	desc = rise_of_scourge.desc
-	picture = FROZENTHRONE_eventPicture
-	fire_only_once = yes
-	hidden = yes
-	
-	trigger = {
-		NOT = { exists = P11 }
-		has_global_flag = nerzhul_arrived
-	}
-	
-	mean_time_to_happen = { months = 1 }
-	
-	immediate = {
-		set_country_flag = notified_about_scourge
-		set_global_flag = nerzhul_arrived
-    }
-	
-	option = {
-		name = rise_of_scourge.opt1
-		1268 = {
-			cede_province = P11
-			change_religion = religion_the_damned
-			change_culture = culture_scourge
-			add_base_tax = 4
-			add_base_manpower = 4
-			add_base_production = 4
-			add_building = wow_fort_3
-		}
-		region_icecrown = {
-			add_core = P11
-		}
+		name = scourge_events.1.option.a
+		
+        custom_tooltip = scourge_appears_tt
+        hidden_effect = {
+            if = {
+                limit = {
+                    NOT = { exists = P11 }
+                }
+                
+                # Icecrown Citadel
+                1267 = {
+                    add_base_tax = 4
+                    add_base_manpower = 4
+                    add_base_production = 4
+                    add_building = wow_fort_3
+                }
+                region_icecrown = {
+                    add_core = P11
+                }
+                area_icecrown_interior = {
+                    cede_province = P11
+                    change_religion = religion_the_damned
+                    change_culture = culture_scourge
+                }
+                area_aldurthar = {
+                    cede_province = P11
+                    change_religion = religion_the_damned
+                    change_culture = culture_scourge
+                }
+                area_the_conflagration = {
+                    cede_province = P11
+                    change_religion = religion_the_damned
+                    change_culture = culture_scourge
+                }
+                
+                
+                if = {
+                    limit = {
+                        has_country_flag = exiled_nerzhul_flag
+                    }
+                    P11 = {
+                        set_ruler = exiled_nerzhul
+                    }
+                }
+            }
+        }
 	}
 }

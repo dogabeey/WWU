@@ -1,0 +1,93 @@
+allow_alliances_with_mortals = {
+	empire = hre
+	potential = {
+		has_dlc = "Emperor"
+	}
+	member = {
+		diplomatic_reputation = 0.5
+	}
+	emperor = {
+		diplomatic_reputation = 1
+		global_spy_defence = -0.1
+	}
+	on_effect = {
+		set_global_flag = dragons_allowed_alliance
+	}
+	off_effect = {
+		clr_global_flag = dragons_allowed_alliance
+	}
+	gui_container = mainline
+}
+enforce_peace = {
+	empire = hre
+	potential = {
+		has_dlc = "Emperor"
+	}
+	member = {
+		technology_cost = -0.05
+	}
+	emperor = {
+		prestige = 0.5
+	}
+	on_effect = {
+		internal_hre_cb = no
+	}
+	off_effect = {
+		internal_hre_cb = yes
+	}
+	gui_container = left_branch
+}
+declare_the_end_of_age_of_mortals = {
+	empire = hre
+	potential = {
+		has_dlc = "Emperor"
+	}
+	member = {
+		land_morale = 0.05
+	}
+	emperor = {
+		prestige = 0.5
+		diplomatic_upkeep = -1
+	}
+	on_effect = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					NOT = { is_ancient = yes }
+				} 	
+				every_elector = { 
+					limit = {
+						is_neighbor_of = PREV
+					}
+					add_casus_belli = {
+						target = PREV
+						type = cb_fury_of_dragons
+						months = 120
+					}
+				}
+			}
+		}
+		custom_tooltip = declare_the_end_of_age_of_mortals_tt
+		clr_global_flag = dragons_allowed_alliance
+	}
+	off_effect = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					NOT = { is_ancient = yes }
+				} 	
+				every_elector = { 
+					limit = {
+						is_neighbor_of = PREV
+					}
+					remove_casus_belli = {
+						target = PREV
+						type = cb_fury_of_dragons
+					}
+				}
+			}
+		}
+		custom_tooltip = declare_the_end_of_age_of_mortals_tt
+	}
+	gui_container = right_branch
+}

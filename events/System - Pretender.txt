@@ -1,0 +1,84 @@
+namespace = wwu_pretender
+
+country_event = {
+	id = wwu_pretender.1
+	title = wwu_pretender.1.title
+	desc = wwu_pretender.1.desc
+	picture = MILITARY_CAMP_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = { 
+		num_of_cities = 3 
+		government = monarchy
+		NOT = { legitimacy = 75 }
+	}
+	
+	option = {
+		name = wwu_pretender.1.option.a
+		if = {
+			limit = {
+				NOT = { legitimacy = 15 }
+			}
+			random_owned_province = {
+				limit = { 
+					is_in_capital_area = yes
+				}
+				pretender_rebels = 3
+			}
+			random_owned_province = {
+				limit = { 
+					is_in_capital_area = yes
+				}
+				pretender_rebels = 2
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { legitimacy = 30 }
+			}
+			random_owned_province = {
+				limit = { 
+					is_in_capital_area = yes
+				}
+				pretender_rebels = 3
+			}
+			random_owned_province = {
+				limit = { 
+					is_in_capital_area = yes
+				}
+				pretender_rebels = 1
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { legitimacy = 45 }
+			}
+			random_owned_province = {
+				limit = { 
+					NOT = { is_in_capital_area = yes }
+				}
+				pretender_rebels = 3
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { legitimacy = 60 }
+			}
+			random_owned_province = {
+				limit = { 
+					NOT = { is_in_capital_area = yes }
+				}
+				pretender_rebels = 2
+			}
+		}
+		else = {
+			random_owned_province = {
+				limit = { 
+					NOT = { is_in_capital_area = yes }
+				}
+				pretender_rebels = 1
+			}
+		}
+	}
+}

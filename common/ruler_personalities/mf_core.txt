@@ -1233,21 +1233,18 @@ impartial_personality = {
 	ruler_allow = {
 		allow = {
 			NOT = { ruler_has_personality = cruel_personality }
-			NOT = { ruler_has_personality = delusional_personality }
 		}
 	}
 	
 	heir_allow = {
 		allow = {
 			NOT = { heir_has_personality = cruel_personality }
-			NOT = { heir_has_personality = delusional_personality }
 		}
 	}
 	
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = cruel_personality }
-			NOT = { consort_has_personality = delusional_personality }
 		}
 	}
 	
@@ -2655,7 +2652,7 @@ pyromaniac_personality = {
 	
 	raze_power_gain = 0.1
 	loot_amount = 0.1
-	years_of_nationalism = 1
+	
 	
 	nation_designer_cost = 0
 }
@@ -3748,7 +3745,7 @@ barbaric_personality = {
 	
 	random_insults = yes
 	
-	possible_mercenaries = 0.10
+	mercenary_manpower = 0.10
 	merc_maintenance_modifier = -0.1
 	improve_relation_modifier = -0.25
 	diplomatic_reputation = -1
@@ -4554,114 +4551,6 @@ content_personality = {
 	nation_designer_cost = -1
 }
 
-delusional_personality = {
-	ruler_allow = {
-		allow = {
-			NOT = { ruler_has_personality = well_advised_personality }
-			NOT = { ruler_has_personality = calm_personality }
-			NOT = { ruler_has_personality = charismatic_negotiator_personality }
-			NOT = { ruler_has_personality = silver_tongue_personality }
-			NOT = { ruler_has_personality = tactical_genius_personality }
-		}
-	
-		chance = {
-			modifier = {
-				factor = -0.5
-				OR = {
-					ruler_has_personality = malevolent_personality
-					ruler_has_personality = obsessive_perfectionist_personality
-					ruler_has_personality = loose_lips_personality
-					ruler_has_personality = naive_personality
-					ruler_has_personality = cruel_personality
-					ruler_has_personality = greedy_personality
-					ruler_has_personality = sinner_personality
-					ruler_has_personality = drunkard_personality
-					ruler_has_personality = infertile_personality
-					ruler_has_personality = embezzler_personality
-					ruler_has_personality = babbling_buffoon_personality
-					ruler_has_personality = content_personality
-				}
-			}
-		}
-	}
-
-	heir_allow = {
-		allow = {
-			NOT = { heir_has_personality = well_advised_personality }
-			NOT = { heir_has_personality = calm_personality }
-			NOT = { heir_has_personality = charismatic_negotiator_personality }
-			NOT = { heir_has_personality = silver_tongue_personality }
-			NOT = { heir_has_personality = tactical_genius_personality }
-		}
-	
-		chance = {
-			modifier = {
-				factor = -0.5
-				OR = {
-					heir_has_personality = malevolent_personality
-					heir_has_personality = obsessive_perfectionist_personality
-					heir_has_personality = loose_lips_personality
-					heir_has_personality = naive_personality
-					heir_has_personality = cruel_personality
-					heir_has_personality = greedy_personality
-					heir_has_personality = sinner_personality
-					heir_has_personality = drunkard_personality
-					heir_has_personality = infertile_personality
-					heir_has_personality = embezzler_personality
-					heir_has_personality = babbling_buffoon_personality
-					heir_has_personality = content_personality
-				}
-			}
-		}
-	}
-	
-	consort_allow = {
-		allow = {
-			NOT = { consort_has_personality = well_advised_personality }
-			NOT = { consort_has_personality = calm_personality }
-			NOT = { consort_has_personality = charismatic_negotiator_personality }
-			NOT = { consort_has_personality = silver_tongue_personality }
-			NOT = { consort_has_personality = tactical_genius_personality }
-		}
-	
-		chance = {
-			modifier = {
-				factor = -0.5
-				OR = {
-					consort_has_personality = malevolent_personality
-					consort_has_personality = obsessive_perfectionist_personality
-					consort_has_personality = loose_lips_personality
-					consort_has_personality = naive_personality
-					consort_has_personality = cruel_personality
-					consort_has_personality = greedy_personality
-					consort_has_personality = sinner_personality
-					consort_has_personality = drunkard_personality
-					consort_has_personality = infertile_personality
-					consort_has_personality = embezzler_personality
-					consort_has_personality = babbling_buffoon_personality
-					consort_has_personality = content_personality
-				}
-			}
-		}
-	}
-	
-	allow = {
-		
-	}
-	
-	chance = {
-		
-	}
-	
-	peace_desire = -10
-	war_chance_multiplier = 1.2
-	other_ai_help_us_multiplier = -0.3
-	
-	war_exhaustion = 0.1
-	improve_relation_modifier = -0.25
-	
-	nation_designer_cost = -1
-}
 
 envious_personality = {
 	ruler_allow = {

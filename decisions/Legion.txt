@@ -1,0 +1,37 @@
+# country_decisions = {
+	# send_invasion_force = {
+		# major = yes
+		# potential = {
+			
+		    # tag = B92
+		# }
+		# allow =  {
+			# mil_power = 150
+			# any_province = {
+				# has_ruler_leader_from = ROOT
+				# NOT = { owned_by = ROOT }
+			# }
+		# }
+		# effect = {
+			# add_mil_power = -150
+			# random_province = {
+				# limit = {
+					# has_ruler_leader_from = ROOT
+					# owner = { NOT = { tag = ROOT } }
+				# }
+				# owner = {
+					# ROOT = {
+						# declare_war_with_cb = {
+							# who = PREV
+							# casus_belli = cb_legion_invasion
+						# }
+					# }
+				# }
+				# cede_province = ROOT
+			# }
+		# }
+		# ai_will_do = {
+			# factor = 0
+		# }
+	# }
+# }

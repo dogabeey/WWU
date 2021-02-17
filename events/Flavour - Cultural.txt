@@ -1,0 +1,386 @@
+namespace = wwu_cultural
+
+country_event = {
+	id = wwu_cultural.1
+	title = wwu_cultural.1.title
+	desc = wwu_cultural.1.desc
+	picture = THEATRE_eventPicture
+
+	trigger = {
+		NOT = {
+			has_country_modifier = ethereal_traders
+		}
+		years_of_income = 0.1
+		adm_power = 10
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+	}
+	
+	immediate = {
+		set_country_flag = ethereal_traders
+	}
+		
+	option = {
+		name = wwu_cultural.1.opt1
+		
+		add_country_modifier = {
+			name = ethereal_traders
+			duration = 1460
+		}
+		add_adm_power = -10
+		add_years_of_income = -0.1
+	}
+	option = {
+		name = wwu_cultural.1.opt2
+		
+		add_prestige = -5
+	}
+}
+
+# Libert�, Egalit�, Fraternit�
+country_event = {
+	id = wwu_cultural.2
+	title = wwu_cultural.2.title
+	desc = wwu_cultural.2.desc
+	picture = REFORM_eventPicture
+
+	trigger = {
+		adm_power = 10
+		adm = 3
+		prestige = 40
+		NOT = {
+			has_country_modifier = followers_of_black_ox
+			has_country_modifier = followers_of_jade_serpent
+			has_country_modifier = followers_of_red_crane
+			has_country_modifier = followers_of_white_tiger
+			accepted_culture = culture_black_ox
+			accepted_culture = culture_jade_serpent
+			accepted_culture = culture_red_crane
+			accepted_culture = culture_white_tiger
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 720
+	}
+	
+	option = {
+		name = wwu_cultural.2.opt1
+		
+		random_owned_province = {
+			change_culture = culture_black_ox
+		}
+		add_country_modifier = {
+			name = followers_of_black_ox
+			duration = 1460
+		}
+	}
+	option = {
+		name = wwu_cultural.2.opt2
+		
+		random_owned_province = {
+			change_culture = culture_jade_serpent
+		}
+		add_country_modifier = {
+			name = followers_of_jade_serpent
+			duration = 1460
+		}
+	}
+	option = {
+		name = wwu_cultural.2.opt3
+		
+		random_owned_province = {
+			change_culture = culture_red_crane
+		}
+		add_country_modifier = {
+			name = followers_of_red_crane
+			duration = 1460
+		}
+	}
+	option = {
+		name = wwu_cultural.2.opt4
+		
+		random_owned_province = {
+			change_culture = culture_white_tiger
+		}
+		add_country_modifier = {
+			name = followers_of_white_tiger
+			duration = 1460
+		}
+	}
+	option = {
+		name = wwu_cultural.2.opt5
+		
+	}
+}
+
+country_event = {
+	id = wwu_cultural.3
+	title = wwu_cultural.3.title
+	desc = wwu_cultural.3.desc
+	picture = IMPORTANT_STATUE_eventPicture
+
+	trigger = {
+		prestige = 25
+		adm_power = 30
+		dip_power = 10
+		years_of_income = 0.4
+	}
+	
+	mean_time_to_happen = {
+		months = 1800
+	}
+	
+	option = {
+		name = wwu_cultural.3.opt1
+		
+		add_country_modifier = {
+			name = darkmoon_faire_event
+			duration = 365
+		}
+	}
+	option = {
+		name = wwu_cultural.3.opt2
+		
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = wwu_cultural.4
+	title = wwu_cultural.4.title
+	desc = wwu_cultural.4.desc
+	picture = TOURNAMENT_eventPicture
+
+	trigger = {
+		army_tradition = 30
+		prestige = 40
+	}
+	
+	mean_time_to_happen = {
+		months = 1800
+	}
+	
+	option = {
+		name = wwu_cultural.4.opt1
+		
+		trigger = {
+			has_heir = yes
+		}
+		random_list = {
+			1 = {
+				kill_heir = yes
+			}
+			2 = {
+				add_prestige = 30
+				change_heir_mil = 1
+			}
+			3 = {
+				add_prestige = 5
+				change_heir_mil = 1
+			}
+		}
+	}
+	option = {
+		name = wwu_cultural.4.opt2
+		
+		add_treasury = -150
+		add_prestige = 10
+	}
+	option = {
+		name = wwu_cultural.4.opt2
+		
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = wwu_cultural.5
+	title = wwu_cultural.5.title
+	desc = wwu_cultural.5.desc
+	picture = IMPORTANT_STATUE_eventPicture
+
+	trigger = {
+		treasury = 1000
+		adm_power = 20
+		NOT = {
+			has_country_modifier = tundra_mammoth
+			has_country_modifier = expedition_yak
+			has_country_modifier = bloodfang_spider
+			has_country_modifier = caravan_brutosaur
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1800
+	}
+	
+	option = {
+		name = wwu_cultural.5.opt1
+		
+		add_country_modifier = {
+			name = tundra_mammoth
+			duration = 3650
+		}
+		add_treasury = -200
+	}
+	
+	option = {
+		name = wwu_cultural.5.opt2
+		
+		add_country_modifier = {
+			name = expedition_yak
+			duration = 3650
+		}
+		add_treasury = -400
+	}
+	
+	option = {
+		name = wwu_cultural.5.opt3
+		
+		add_country_modifier = {
+			name = bloodfang_spider
+			duration = 3650
+		}
+		add_treasury = -800
+	}
+	
+	option = {
+		name = wwu_cultural.5.opt4
+		
+		add_country_modifier = {
+			name = caravan_brutosaur
+			duration = 3650
+		}
+		add_treasury = -1600
+	}
+	
+	option = {
+		name = wwu_cultural.5.opt5
+		
+		add_prestige = -2
+	}
+}
+
+country_event = {
+	id = wwu_cultural.6
+	title = "wwu_cultural.6.title"
+	desc = "wwu_cultural.6.desc"
+	picture = COURT_eventPicture
+	
+	trigger = {
+		NOT = {
+			stability = 0
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 700
+	}
+	
+	option = {
+		name = "wwu_cultural.6.opt1"
+		
+		add_stability_or_adm_power = yes
+	}
+}
+
+country_event = {
+	id = wwu_cultural.7
+	title = wwu_cultural.7.title
+	desc = wwu_cultural.7.desc
+	picture = INVENTION_eventPicture
+
+	trigger = {
+		government = monarchy
+		adm_power = 30
+	}
+	
+	mean_time_to_happen = {
+		months = 1800
+	}
+	
+	option = {
+		name = wwu_cultural.7.opt1
+		
+		add_country_modifier = {
+			name = researching_runic_tables
+			duration = 365
+		}
+		add_adm_power = -30
+	}
+	option = {
+		name = wwu_cultural.7.opt2
+		
+	}
+}
+
+# Endorse Renaissance Philosophy
+country_event = {
+	id = wwu_cultural.8
+	title = wwu_cultural.8.title
+	desc = wwu_cultural.8.desc
+	picture = ADVISOR_eventPicture
+
+	trigger = {
+		advisor = natural_scientist
+		any_owned_province = {
+			trade_goods = gold
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+	}
+	
+	option = {
+		name = wwu_cultural.8.opt1
+		
+		random_province = {
+			limit = { trade_goods = gold }
+			add_base_production = 3
+			add_base_tax = 2
+			change_culture = culture_tunnel_rat
+		}
+	}
+	option = {
+		name = wwu_cultural.8.opt2
+		
+	}
+}
+
+country_event = {
+	id = wwu_cultural.9
+	title = wwu_cultural.9.title
+	desc = wwu_cultural.9.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		NOT = {
+			has_country_modifier = the_sound_of_music
+		}
+		adm_power = 10
+		years_of_income = 0.1
+	}
+	
+	mean_time_to_happen = {
+		months = 700
+	}
+	option = {
+		name = wwu_cultural.9.opt1
+		
+		add_country_modifier = {
+			name = the_sound_of_music
+			duration = 365
+		}
+		add_adm_power = -10
+		add_years_of_income = -0.1
+	}
+	option = {
+		name = wwu_cultural.9.opt2
+		
+		add_prestige = -5
+	}
+}
