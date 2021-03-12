@@ -6,7 +6,6 @@ country_event = {
 	title = "EVTNAME748"
 	desc = "EVTDESFER8"
 	picture = MILITARY_CAMP_eventPicture
-	#goto = root
 	
 	trigger = {
 		is_at_war = yes
@@ -19,7 +18,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA748"
-		#log = "EVTOPTA748"
+		
 		add_war_exhaustion = 1
 		add_yearly_manpower = -0.5
 	}
@@ -31,7 +30,6 @@ country_event = {
 	title = "EVTNAME749"
 	desc = "EVTDESFER9"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	trigger = {
 		stability = -2
@@ -44,7 +42,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA749"
-		#log = "EVTOPTA749"
+		
 		add_stability = -1
 	}
 }
@@ -55,7 +53,6 @@ country_event = {
 	title = "EVTNAME750"
 	desc = "EVTDESC750"
 	picture = DIPLOMACY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -69,7 +66,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA750"
-		#log = "EVTOPTA750"
+		
 		add_prestige = -25
 	}
 }
@@ -80,7 +77,6 @@ country_event = {
 	title = "EVTNAME751"
 	desc = "EVTDESC751"
 	picture = OVEREXTENSION_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -94,7 +90,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA751"
-		#log = "EVTOPTA751"
+		
 		add_inflation = 1
 	}
 }
@@ -105,7 +101,6 @@ country_event = {
 	title = "EVTNAME752"
 	desc = "EVTDESC752"
 	picture = LAND_MILITARY_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -119,7 +114,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA752"
-		#log = "EVTOPTA752"
+		
 		add_army_tradition = -10
 	}
 }
@@ -130,7 +125,6 @@ country_event = {
 	title = "EVTNAME753"
 	desc = "EVTDESC753"
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -153,7 +147,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA753"
-		#log = "EVTOPTA753"
+		
 		random_active_trade_node = {
 			limit = {
 				NOT = { 
@@ -189,7 +183,6 @@ country_event = {
 	title = "EVTNAME773"
 	desc = "EVTDESC773"
 	picture = WOW_ASSASSINATION_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -212,7 +205,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA773"
-		#log = "EVTOPTA773"
+		
 		random_active_trade_node = {
 			limit = {
 				has_merchant = PREV
@@ -239,13 +232,11 @@ country_event = {
 	title = "EVTNAME754"
 	desc = "EVTDESC754"
 	picture = COURT_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	trigger = {
 		legitimacy_or_horde_unity = 15
-		NOT = { has_reform = celestial_empire }
 		government = monarchy
 		is_lesser_in_union = no
 	}
@@ -256,13 +247,13 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA754"
-		#log = "EVTOPTA754"
+		
 		if = {
-			limit = { NOT = { has_reform = steppe_horde } }
+			limit = { NOT = { has_reform = warband_reform } }
 			add_legitimacy = -15
 		}
 		if = {
-			limit = { has_reform = steppe_horde }
+			limit = { has_reform = warband_reform }
 			add_horde_unity = -15
 		}
 	}
@@ -274,7 +265,6 @@ country_event = {
 	title = "EVTNAME755"
 	desc = "EVTDESC755"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 	
@@ -288,7 +278,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA755"
-		#log = "EVTOPTA755"
+		
 		add_dip_power = -50
 	}
 }
@@ -299,7 +289,6 @@ country_event = {
 	title = "EVTNAME756"
 	desc = "EVTDESC756"
 	picture = OVEREXTENSION_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -318,7 +307,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA756"
-		#log = "EVTOPTA756"
+		
 		reduce_meritocracy_effect = yes
 		if = {
 			limit = {

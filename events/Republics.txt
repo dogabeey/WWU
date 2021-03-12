@@ -6,7 +6,6 @@ country_event = {
 	title = republics.1.t
 	desc = republics.1.d
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	trigger = {
 		government = republic
@@ -20,13 +19,13 @@ country_event = {
 	
 	option = {
 		name = republics.1.a
-		#log = "republics.1.a"
+		
 		add_republican_tradition = -25
 		add_prestige = 10
 	}
 	option = {
 		name = republics.1.b
-		#log = "republics.1.b"
+		
 		add_republican_tradition = 20
 		add_stability = -1
 	}
@@ -38,7 +37,6 @@ country_event = {
 	title = republics.2.t
 	desc = republics.2.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	trigger = {
 		government = republic
@@ -52,13 +50,13 @@ country_event = {
 	
 	option = {
 		name = republics.2.a
-		#log = "republics.2.a"
+		
 		add_republican_tradition = 2
 		add_mercantilism = -3
 	}
 	option = {
 		name = republics.2.b
-		#log = "republics.2.b"
+		
 		add_republican_tradition = -2
 		add_mercantilism = 3
 	}
@@ -70,7 +68,6 @@ country_event = {
 	title = republics.3.t
 	desc = republics.3.d
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	trigger = {
 		government = republic
@@ -110,14 +107,6 @@ country_event = {
 			if = {
 				limit = { is_tribal = yes }
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
-			}
-			if = {
-				limit = {
-					is_tribal = no  
-					has_dlc = "Res Publica"
-				}
-				add_government_reform = peasants_republic
 			}
 			if = {
 				limit = {
@@ -125,26 +114,17 @@ country_event = {
 					NOT = { has_dlc = "Res Publica" }
 				}
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
 			}
 		}
 	}
 	
 	option = {
 		name = republics.3.a
-		#log = "republics.3.a"
+		
 		tooltip = {
 			if = {
 				limit = { is_tribal = yes }
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
-			}
-			if = {
-				limit = {
-					is_tribal = no  
-					has_dlc = "Res Publica"
-				}
-				add_government_reform = peasants_republic
 			}
 			if = {
 				limit = {
@@ -152,7 +132,6 @@ country_event = {
 					NOT = { has_dlc = "Res Publica" }
 				}
 				change_government = monarchy
-				set_legacy_government = despotic_monarchy
 			}
 		}
 	}
@@ -164,7 +143,6 @@ country_event = {
 	title = republics.4.t
 	desc = republics.4.d
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -183,7 +161,7 @@ country_event = {
 	
 	option = {
 		name = republics.4.a
-		#log = "republics.4.a"
+		
 		add_republican_tradition = 5
 		add_adm_power = -40
 		add_dip_power = -40
@@ -198,7 +176,7 @@ country_event = {
 
 	option = {
 		name = republics.4.b
-		#log = "republics.4.b"
+		
 		add_republican_tradition = -5
 		add_adm_power = 20
 		add_dip_power = 20
@@ -213,7 +191,6 @@ country_event = {
 	title = republics.5.t
 	desc = republics.5.d
 	picture = ECONOMY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -228,13 +205,13 @@ country_event = {
 	
 	option = {
 		name = republics.5.a
-		#log = "republics.5.a"
+		
 		add_inflation = 2
 	}
 
 	option = {
 		name = republics.5.b
-		#log = "republics.5.b"
+		
 		add_republican_tradition = -10
 	}
 }
@@ -245,7 +222,6 @@ country_event = {
 	title = republics.6.t
 	desc = republics.6.d
 	picture = ANGRY_MOB_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -265,14 +241,14 @@ country_event = {
 	
 	option = {
 		name = republics.6.a
-		#log = "republics.6.a"
+		
 		add_years_of_income = 0.5
 		add_republican_tradition = -10
 	}
 
 	option = {
 		name = republics.6.b
-		#log = "republics.6.b"
+		
 		add_stability = -1
 	}
 }
@@ -283,7 +259,6 @@ country_event = {
 	title = republics.7.t
 	desc = republics.7.d
 	picture = COURT_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -305,14 +280,14 @@ country_event = {
 	
 	option = {
 		name = republics.7.a
-		#log = "republics.7.a"
+		
 		add_stability_or_adm_power = yes
 		add_republican_tradition = -10
 	}
 
 	option = {
 		name = republics.7.b
-		#log = "republics.7.b"
+		
 		add_republican_tradition = 5
 	}
 }
@@ -323,7 +298,6 @@ country_event = {
 	title = republics.8.t
 	desc = republics.8.d
 	picture = STREET_SPEECH_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -340,14 +314,14 @@ country_event = {
 	
 	option = {
 		name = republics.8.a
-		#log = "republics.8.a"
+		
 		add_war_exhaustion = -10
 		add_republican_tradition = -10
 	}
 
 	option = {
 		name = republics.8.b
-		#log = "republics.8.b"
+		
 		add_stability = -1
 	}
 }
@@ -358,7 +332,6 @@ country_event = {
 	title = republics.9.t
 	desc = republics.9.d
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -390,7 +363,7 @@ country_event = {
 	
 	option = {
 		name = republics.9.a
-		#log = "republics.9.a"
+		
 		add_stability = -1
 	}
 }
@@ -401,7 +374,6 @@ country_event = {
 	title = republics.10.t
 	desc = republics.10.d
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -433,7 +405,7 @@ country_event = {
 	
 	option = {
 		name = republics.10.a
-		#log = "republics.10.a"
+		
 		add_mil_power = -50
 	}
 }
@@ -444,7 +416,6 @@ country_event = {
 	title = republics.11.t
 	desc = republics.11.d
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -476,7 +447,7 @@ country_event = {
 	
 	option = {
 		name = republics.11.a
-		#log = "republics.11.a"
+		
 		add_adm_power = -50
 	}
 }
@@ -487,7 +458,6 @@ country_event = {
 	title = republics.12.t
 	desc = republics.12.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -519,7 +489,7 @@ country_event = {
 	
 	option = {
 		name = republics.12.a
-		#log = "republics.12.a"
+		
 		add_dip_power = -50
 	}
 }
@@ -530,7 +500,6 @@ country_event = {
 	title = republics.13.t
 	desc = republics.13.d
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -562,7 +531,7 @@ country_event = {
 	
 	option = {
 		name = republics.13.a
-		#log = "republics.13.a"
+		
 		add_prestige = -10
 	}
 }
@@ -573,7 +542,6 @@ country_event = {
 	title = "EVTNAME9550"
 	desc = "EVTDESC9550"
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -594,7 +562,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA9550"
-		#log = "EVTOPTA9550"		# We need more merchants
+		
 		ai_chance = { factor = 40 }
 		set_country_flag = trade_focus
 		add_country_modifier = {
@@ -604,7 +572,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9550"
-		#log = "EVTOPTB9550"		# It's efficiency we lack
+		
 		ai_chance = { factor = 60 }
 		set_country_flag = trade_focus
 		add_country_modifier = {
@@ -620,7 +588,6 @@ country_event = {
 	title = "EVTNAME9551"
 	desc = "EVTDESC9551"
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -628,7 +595,7 @@ country_event = {
 		has_government_attribute = is_merchant_republic
 		num_of_ports = 1
 		NOT = { colony = 1 }
-		oceaneer_ideas = 2
+		wwu_trade_ideas = 2
 		#Akavir = { has_discovered = ROOT }
 		NOT = {
 			has_country_modifier = local_trade_focus
@@ -662,7 +629,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA9551"
-		#log = "EVTOPTA9551" #Local trade is where our focus should be
+		
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "local_trade_focus"
@@ -671,7 +638,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9551"
-		#log = "EVTOPTB9551" #Perhaps it's time to broaden our horizons
+		
 		ai_chance = { factor = 45 }
 		add_country_modifier = {
 			name = "global_trade_focus"
@@ -686,7 +653,6 @@ country_event = {
 	title = "EVTNAME9552"
 	desc = "EVTDESC9552"
 	picture = ECONOMY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -762,7 +728,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA9552"
-		#log = "EVTOPTA9552" # Invest it all in research
+		
 		ai_chance = { factor = 55 }
 		add_dip_power = 35
 		hidden_effect = {
@@ -775,7 +741,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9552"
-		#log = "EVTOPTB9552" # Save some for future expenses
+		
 		ai_chance = { factor = 45 }
 		add_years_of_income = 0.10
 		hidden_effect = {
@@ -794,7 +760,6 @@ country_event = {
 	title = "EVTNAME9553"
 	desc = "EVTDESC9553"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -861,7 +826,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA9553"
-		#log = "EVTOPTA9553" # Try to mediate between the two parties
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -876,7 +841,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9553"
-		#log = "EVTOPTB9553" # Propose some other changes
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -895,7 +860,6 @@ country_event = {
 	title = "EVTNAME9554"
 	desc = "EVTDESC9554"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -966,7 +930,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA9554"
-		#log = "EVTOPTA9554"		# It's all according to plan
+		
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "military_focus"
@@ -976,7 +940,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9554"
-		#log = "EVTOPTB9554"		# Perhaps our focus has been a bit misdirected
+		
 		ai_chance = { factor = 45 }
 		add_country_modifier = {
 			name = "trade_focus"
@@ -992,7 +956,6 @@ country_event = {
 	title = "EVTNAME9555"
 	desc = "EVTDESC9555"
 	picture = ADVISOR_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -1004,29 +967,21 @@ country_event = {
 		statesman = 1
 		NOT = { statesman = 2 }
 	}
-
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 25
-		}
-	}
 	
 	mean_time_to_happen = {
 		days = 1
 
 		modifier = {
 			factor = 0.9
-			NOT = { invention_ideas = 2 }
+			NOT = { wwu_innovation_ideas = 2 }
 		}
 		modifier = {
 			factor = 0.9
-			NOT = { invention_ideas = 1 }
+			NOT = { wwu_innovation_ideas = 1 }
 		}
 		modifier = {
 			factor = 1.1
-			invention_ideas = 7
+			wwu_innovation_ideas = 7
 		}
 		modifier = {
 			factor = 0.9
@@ -1052,7 +1007,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9555"
-		#log = "EVTOPTA9555" # Find someone to replace him
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1062,9 +1017,8 @@ country_event = {
 			}
 		}
 		remove_advisor = statesman
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=statesman
-			advisor_type_if_not_state=statesman
 			skill = 1
 			discount=yes
 		}
@@ -1072,7 +1026,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9555"
-		#log = "EVTOPTB9555" # Give him another chance
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1084,9 +1038,6 @@ country_event = {
 		add_stability = -1
 		add_republican_tradition = 10
 	}
-	after = {
-		erase_advisor_flags_effect = yes
-	}
 }
 
 # Heated Debates
@@ -1095,7 +1046,6 @@ country_event = {
 	title = "EVTNAME9556"
 	desc = "EVTDESC9556"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -1145,7 +1095,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9556"
-		#log = "EVTOPTA9556" # That is probably wise
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1158,7 +1108,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9556"
-		#log = "EVTOPTB9556" # It's not really a problem
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1177,7 +1127,6 @@ country_event = {
 	title = "EVTNAME9557"
 	desc = "EVTDESC9557"
 	picture = BATTLE_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -1239,7 +1188,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9557"
-		#log = "EVTOPTA9557" #Offense is probably the only option
+		
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = offensive_modifier
@@ -1249,7 +1198,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9557"
-		#log = "EVTOPTB9557" #Defense sounds better at this stage
+		
 		ai_chance = { factor = 45 }
 		add_country_modifier = {
 			name = defensive_modifier
@@ -1265,7 +1214,6 @@ country_event = {
 	title = "EVTNAME9558"
 	desc = "EVTDESC9558"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -1285,11 +1233,11 @@ country_event = {
 
 		modifier = {
 			factor = 1.1
-			economic_ideas = 7
+			wwu_economic_ideas = 7
 		}
 		modifier = {
 			factor = 0.9
-			NOT = { economic_ideas = 1 }
+			NOT = { wwu_economic_ideas = 1 }
 		}
 		modifier = {
 			factor = 0.9
@@ -1311,7 +1259,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9558"
-		#log = "EVTOPTA9558" # It's probably best to leave things as they are
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1324,7 +1272,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9558"
-		#log = "EVTOPTB9558" # Some restructuring might be needed
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1343,7 +1291,6 @@ country_event = {
 	title = "EVTNAME9559"
 	desc = "EVTDESC9559"
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -1412,7 +1359,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9559"
-		#log = "EVTOPTA9559"		# That's not possible
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1428,7 +1375,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9559"
-		#log = "EVTOPTB9559"		# That's the only reasonable explanation
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1450,7 +1397,6 @@ country_event = {
 	title = "EVTNAME9560"
 	desc = "EVTDESC9560"
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -1458,7 +1404,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = bad_relations_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		any_neighbor_country = {
 			NOT = { has_opinion = { who = ROOT value = 0 } }
 			OR = {
@@ -1487,7 +1433,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9560"
-		#log = "EVTOPTA9560" # Of course it was one of them
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1506,7 +1452,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9560"
-		#log = "EVTOPTB9560" # It's better to play it safe until we know more
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1525,7 +1471,6 @@ country_event = {
 	title = "EVTNAME9561"
 	desc = "EVTDESC9561"
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -1533,7 +1478,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = political_chaos_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		NOT = { adm = 2 }
 	}
 
@@ -1576,7 +1521,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9561"
-		#log = "EVTOPTA9561" # That's just the nature of politics
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1592,7 +1537,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9561"
-		#log = "EVTOPTB9561" # Some restructuring might be necessary
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1612,7 +1557,6 @@ country_event = {
 	title = "EVTNAME9562"
 	desc = "EVTDESC9562"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -1620,7 +1564,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = influenced_decisions_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 	}
 
 	mean_time_to_happen = {
@@ -1662,7 +1606,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9562"
-		#log = "EVTOPTA9562"		# It has to stop
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1678,7 +1622,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9562"
-		#log = "EVTOPTB9562"		# That can't be true
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1697,7 +1641,6 @@ country_event = {
 	title = "EVTNAME9563"
 	desc = "EVTDESC9563"
 	picture = ECONOMY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -1705,7 +1648,7 @@ country_event = {
 		NOT = { 
 			has_country_modifier = financial_disagreements_timer 
 		}
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		num_of_loans = 1
 	}
 
@@ -1764,7 +1707,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9563"
-		#log = "EVTOPTA9563" # Mint more money
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1778,7 +1721,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9563"
-		#log = "EVTOPTB9563" # Raise taxes
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -1798,14 +1741,13 @@ country_event = {
 	title = "EVTNAME9564"
 	desc = "EVTDESC9564"
 	picture = MILITARY_CAMP_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
 	trigger = {
 		NOT = { has_country_modifier = trade_and_production_cutbacks }
 		NOT = { has_country_modifier = military_cutbacks }
-		has_reform = noble_republic
+		has_reform = noble_republic_reform
 		is_at_war = yes
 		OR = {
 			NOT = { trade_efficiency = 0.4 }
@@ -1888,7 +1830,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9564"
-		#log = "EVTOPTA9564" # Well, trade and production aren't as important
+		
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "trade_and_production_cutbacks"
@@ -1897,7 +1839,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9564"
-		#log = "EVTOPTB9564" # Cut back on military expenses
+		
 		ai_chance = { factor = 45 }
 		add_country_modifier = {
 			name = "military_cutbacks"
@@ -1912,7 +1854,6 @@ country_event = {
 	title = "EVTNAME9565"
 	desc = "EVTDESC9565"
 	picture = MILITARY_CAMP_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -1921,8 +1862,8 @@ country_event = {
 		NOT = { has_country_modifier = land_modifier }
 		government = republic
 		has_parliament = yes
-		oceaneer_ideas = 1
-		magic_ideas = 1
+		wwu_trade_ideas = 1
+		wwu_quality_ideas = 1
 		num_of_ports = 1
 	}
 
@@ -1973,7 +1914,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9565"
-		#log = "EVTOPTA9565" # A large navy is the only option
+		
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = naval_modifier
@@ -1982,7 +1923,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9565"
-		#log = "EVTOPTB9565" # A large army would be more beneficial
+		
 		ai_chance = { factor = 45 }
 		add_country_modifier = {
 			name = land_modifier
@@ -2001,7 +1942,6 @@ country_event = {
 	title = "EVTNAME9566"
 	desc = "EVTDESC9566"
 	picture = MILITARY_CAMP_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2027,7 +1967,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9566"
-		#log = "EVTOPTA9566"		# They fail to see the bigger picture
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2041,7 +1981,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9566"
-		#log = "EVTOPTB9566"		# It's not of any interest anymore
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2061,7 +2001,6 @@ country_event = {
 	title = "EVTNAME9567"
 	desc = "EVTDESC9567"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2101,7 +2040,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9567"
-		#log = "EVTOPTA9567" # They are exaggerating
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2115,7 +2054,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9567"
-		#log = "EVTOPTB9567" # Take appropriate measurements
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2138,7 +2077,6 @@ country_event = {
 	title = "EVTNAME9568"
 	desc = "EVTDESC9568"
 	picture = ECONOMY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2193,7 +2131,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9568"
-		#log = "EVTOPTA9568" # A short term bost is probably the best option
+		
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "short_term_boost"
@@ -2202,7 +2140,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9568"
-		#log = "EVTOPTB9568" # Consider the long term consequences
+		
 		ai_chance = { factor = 45 }
 		add_country_modifier = {
 			name = "long_term_boost"
@@ -2218,7 +2156,6 @@ country_event = {
 	title = "EVTNAME9569"
 	desc = "EVTDESC9569"
 	picture = ECONOMY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2285,7 +2222,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9569"
-		#log = "EVTOPTA9569" # Convince them that we can afford it
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2298,7 +2235,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9569"
-		#log = "EVTOPTB9569" # Agree to make some cutbacks
+		
 		ai_chance = { factor = 45 }
 		set_country_flag = military_maintenance
 		add_country_modifier = {
@@ -2315,7 +2252,6 @@ country_event = {
 	title = "EVTNAME9570"
 	desc = "EVTDESC9570"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2373,7 +2309,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9570"
-		#log = "EVTOPTA9570" # That won't be necessary
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2390,7 +2326,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9570"
-		#log = "EVTOPTB9570"		# Get to it
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2410,7 +2346,6 @@ country_event = {
 	title = "EVTNAME9571"
 	desc = "EVTDESC9571"
 	picture = ADVISOR_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2419,19 +2354,19 @@ country_event = {
 		NOT = { 
 			has_country_modifier = a_new_constitution_timer
 		}
-		NOT = { economic_ideas = 4 }
+		NOT = { wwu_economic_ideas = 4 }
 	}
 
 	mean_time_to_happen = {
-		months = 500
+		days = 1
 
 		modifier = {
 			factor = 0.9
-			NOT = { economic_ideas = 2 }
+			NOT = { wwu_economic_ideas = 2 }
 		}
 		modifier = {
 			factor = 0.9
-			NOT = { economic_ideas = 1 }
+			NOT = { wwu_economic_ideas = 1 }
 		}
 		modifier = {
 			factor = 0.9
@@ -2467,17 +2402,9 @@ country_event = {
 		}
 	}
 	
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 25
-		}
-	}
-	
 	option = {
 		name = "EVTOPTA9571"
-		#log = "EVTOPTA9571"		# It will be solved soon enough
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2494,7 +2421,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9571"
-		#log = "EVTOPTB9571"		# Request some help
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2504,16 +2431,12 @@ country_event = {
 			}
 		}
 		add_years_of_income = -0.3
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=statesman
-			advisor_type_if_not_state=statesman
 			skill = 3
 			discount=yes
 		}
 		add_republican_tradition = 1
-	}
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 
@@ -2523,7 +2446,6 @@ country_event = {
 	title = "EVTNAME9572"
 	desc = "EVTDESC9572"
 	picture = ECONOMY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2587,7 +2509,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9572"
-		#log = "EVTOPTA9572" # An even spread should do the trick
+		
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "even_spread_of_investments"
@@ -2597,7 +2519,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9572"
-		#log = "EVTOPTB9572" # There's no need for any extra investments
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2617,7 +2539,6 @@ country_event = {
 	title = "EVTNAME9573"
 	desc = "EVTDESC9573"
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2679,7 +2600,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9573"
-		#log = "EVTOPTA9573"		# Ignore them
+		
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "financial_arguments"
@@ -2689,7 +2610,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9573"
-		#log = "EVTOPTB9573"		# Hear them out once more
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2709,7 +2630,6 @@ country_event = {
 	title = "EVTNAME9574"
 	desc = "EVTDESC9574"
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2774,7 +2694,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA9574"
-		#log = "EVTOPTA9574" # It's nothing to worry about
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2794,7 +2714,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9574"
-		#log = "EVTOPTB9574" # It's better to be safe than sorry
+		
 		ai_chance = { factor = 45 }
 		add_years_of_income = -0.20
 		add_country_modifier = {
@@ -2810,7 +2730,6 @@ country_event = {
 	title = "EVTNAME9575"
 	desc = "EVTDESC9575"
 	picture = LIBERUM_VETO_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2822,7 +2741,7 @@ country_event = {
 			has_country_modifier = bothersome_parliament
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		has_regency = no
@@ -2867,7 +2786,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9575"
-		#log = "EVTOPTA9575"		# Make it a bit more clear to them
+		
 		ai_chance = { factor = 55 }
 		add_country_modifier = {
 			name = "centralization_modifier"
@@ -2881,7 +2800,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9575"
-		#log = "EVTOPTB9575"		# Let them think they have a say in things
+		
 		ai_chance = { factor = 45 }	
 		add_country_modifier = {
 			name = "bothersome_parliament"
@@ -2897,7 +2816,6 @@ country_event = {
 	title = "EVTNAME9576"
 	desc = "EVTDESC9576"
 	picture = ECONOMY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -2906,7 +2824,7 @@ country_event = {
 			has_country_modifier = over_budget_timer
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		stability = -2
@@ -2964,7 +2882,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9576"
-		#log = "EVTOPTA9576"		# Try to convince them of otherwise
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2977,7 +2895,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9576"
-		#log = "EVTOPTB9576"		# Let them worry
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -2996,7 +2914,6 @@ country_event = {
 	title = "EVTNAME9577"
 	desc = "EVTDESC9577"
 	picture = ECONOMY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -3005,7 +2922,7 @@ country_event = {
 			has_country_modifier = embezzlement_timer 
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		has_advisor = yes
@@ -3054,7 +2971,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA9577"
-		#log = "EVTOPTA9577" # There's probably a good explanation for this
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -3068,7 +2985,7 @@ country_event = {
 	}	
 	option = {
 		name = "EVTOPTB9577"
-		#log = "EVTOPTB9577" # Get rid of him
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -3094,7 +3011,6 @@ country_event = {
 	title = "EVTNAME9578"
 	desc = "EVTDESC9578"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -3106,7 +3022,7 @@ country_event = {
 			has_country_modifier = spies_investigate
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		has_regency = no
@@ -3162,7 +3078,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA9578"
-		#log = "EVTOPTA9578" # You can never be too careful
+		
 		ai_chance = { factor = 55 }
 		add_years_of_income = -0.30
 		add_country_modifier = {
@@ -3179,7 +3095,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9578"
-		#log = "EVTOPTB9578" # They wouldn't dare!
+		
 		ai_chance = { factor = 45 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -3204,7 +3120,6 @@ country_event = {
 	title = "EVTNAME9579"
 	desc = "EVTDESC9579"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -3216,7 +3131,7 @@ country_event = {
 			has_country_modifier = counter_espionage
 		}
 		OR = {
-			has_reform = noble_elite_reform
+			has_reform = noble_republic_reform
 			government = dictatorship
 		}
 		any_neighbor_country = {
@@ -3273,7 +3188,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA9579"
-		#log = "EVTOPTA9579" # Confront them
+		
 		ai_chance = { factor = 55 }
 		hidden_effect = {
 			add_country_modifier = {
@@ -3294,7 +3209,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB9579"
-		#log = "EVTOPTB9579" # Send a few spies of your own
+		
 		ai_chance = { factor = 45 }
 		add_country_modifier = {
 			name = counter_espionage

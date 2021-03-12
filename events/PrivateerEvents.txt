@@ -6,7 +6,6 @@ province_event = {
 	title = "privateers.1.t"
 	desc = "privateers.1.d"
 	picture = HARBOUR_eventPicture
-	#goto = root
 
 	trigger = {
 		has_port = yes
@@ -36,14 +35,14 @@ province_event = {
 	# Give them money to build arm their ships for defense
 	option = {
 		name = "privateers.1.a"
-		#log = "privateers.1.a"
+		
 		owner = { add_treasury = -100 }
 	}
 
 	# Refuse to help, reducing local trade power
 	option = {
 		name = "privateers.1.b"
-		#log = "privateers.1.b"
+		
 		add_province_modifier = {
 			name = "refused_aid_traders"
 			duration = 1825
@@ -58,13 +57,12 @@ country_event = {
 	title = "privateers.2.t"
 	desc = "privateers.2.d"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 
 	trigger = {
-		NOT = { has_reform = colonial_government }
+		NOT = { has_reform = colonial_government_reform }
 		any_active_trade_node = {
 			any_privateering_country = {
-				has_reform = colonial_government
+				has_reform = colonial_government_reform
 				NOT = {
 					colonial_parent = { tag = ROOT }
 				}
@@ -83,7 +81,7 @@ country_event = {
 			}
 			random_privateering_country = {
 				limit = {
-					has_reform = colonial_government
+					has_reform = colonial_government_reform
 				}
 				set_country_flag = invalid_letter_marque
 			}
@@ -92,7 +90,7 @@ country_event = {
 
 	option = {
 		name = "privateers.2.a"
-		#log = "privateers.2.a"
+		
 		random_country = {
 			limit = {
 				has_country_flag = invalid_letter_marque
@@ -107,7 +105,7 @@ country_event = {
 
 	option = {
 		name = "privateers.2.b"
-		#log = "privateers.2.b"
+		
 		random_country = {
 			limit = {
 				has_country_flag = invalid_letter_marque
@@ -129,13 +127,12 @@ country_event = {
 	title = "privateers.3.t"
 	desc = "privateers.3.d"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 
 	trigger = {
-		NOT = { has_reform = colonial_government }
+		NOT = { has_reform = colonial_government_reform }
 		any_active_trade_node = {
 			any_privateering_country = {
-				has_reform = colonial_government
+				has_reform = colonial_government_reform
 				colonial_parent = { tag = ROOT }
 			}
 		}
@@ -152,7 +149,7 @@ country_event = {
 			}
 			random_privateering_country = {
 				limit = {
-					has_reform = colonial_government
+					has_reform = colonial_government_reform
 					colonial_parent = { tag = ROOT }
 				}
 				set_country_flag = invalid_letter_marque
@@ -162,7 +159,7 @@ country_event = {
 
 	option = {
 		name = "privateers.3.a"
-		#log = "privateers.3.a"
+		
 		random_country = {
 			limit = {
 				has_country_flag = invalid_letter_marque
@@ -178,7 +175,7 @@ country_event = {
 
 	option = {
 		name = "privateers.3.b"
-		#log = "privateers.3.b"
+		
 		random_country = {
 			limit = {
 				has_country_flag = invalid_letter_marque
@@ -199,7 +196,6 @@ country_event = {
 	title = "privateers.4.t"
 	desc = "privateers.4.d"
 	picture = BORDER_TENSION_eventPicture
-	#goto = root
 
 	trigger = {
 		has_privateers = yes
@@ -212,7 +208,7 @@ country_event = {
 	# Allow the privateer to continue skirting rules
 	option = {
 		name = "privateers.4.a"
-		#log = "privateers.4.a"
+		
 		add_country_modifier = {
 			name = "reckless_privateer"
 			duration = 3650
@@ -223,7 +219,7 @@ country_event = {
 	# Revoke his letter of marque
 	option = {
 		name = "privateers.4.b"
-		#log = "privateers.4.b"
+		
 		add_country_modifier = {
 			name = "curtailed_privateer"
 			duration = 3650
@@ -237,7 +233,6 @@ country_event = {
 	title = "privateers.5.t"
 	desc = "privateers.5.d"
 	picture = SHIP_SAILING_eventPicture
-	#goto = root
 
 	trigger = {
 		has_privateers = yes
@@ -254,7 +249,7 @@ country_event = {
 
 	option = {
 		name = "privateers.5.a"
-		#log = "privateers.5.a"
+		
 		add_country_modifier = {
 			name = "rogue_privateer"
 			duration = 1825
@@ -268,7 +263,6 @@ country_event = {
 	title = "privateers.6.t"
 	desc = "privateers.6.d"
 	picture = SHIP_SAILING_eventPicture
-	#goto = root
 
 	trigger = {
 		has_privateers = yes
@@ -286,23 +280,25 @@ country_event = {
 		months = 720
 		modifier = {
 			factor = 0.7
-			has_idea_group = colonization_ideas
+			has_idea_group = wwu_exploration_ideas
 		}
 	}
 
 	# Fund expedition
 	option = {
 		name = "privateers.6.a"
-		#log = "privateers.6.a"
+		
 		add_treasury = -100
 		set_country_flag = funded_explorer_privateer
-		create_explorer = 5
+		create_explorer = {
+            tradition = 5
+        }
 	}
 
 	# Tell the privateer to stay where he is
 	option = {
 		name = "privateers.6.b"
-		#log = "privateers.6.b"
+		
 		add_prestige = -5
 	}
 }
@@ -313,7 +309,6 @@ country_event = {
 	title = "privateers.7.t"
 	desc = "privateers.7.d"
 	picture = SHIP_SAILING_eventPicture
-	#goto = root
 
 	trigger = {
 		has_privateers = yes
@@ -331,7 +326,7 @@ country_event = {
 
 	option = {
 		name = "privateers.7.a"
-		#log = "privateers.7.a"
+		
 		add_country_modifier = {
 			name = "employed_pirates"
 			duration = 1825
@@ -340,7 +335,7 @@ country_event = {
 
 	option = {
 		name = "privateers.7.b"
-		#log = "privateers.7.b"
+		
 		add_prestige = 10
 		random_active_trade_node = {
 			random_privateering_country = {
@@ -363,13 +358,12 @@ country_event = {
 	title = "privateers.8.t"
 	desc = "privateers.8.d"
 	picture = SHIP_SAILING_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 
 	option = {
 		name = "privateers.8.a"
-		#log = "privateers.8.a"
+		
 		add_country_modifier = {
 			name = "employed_pirates"
 			duration = 1825
@@ -378,7 +372,7 @@ country_event = {
 
 	option = {
 		name = "privateers.8.b"
-		#log = "privateers.8.b"
+		
 		add_prestige = 10
 	}
 }
@@ -389,7 +383,6 @@ country_event = {
 	title = "privateers.9.t"
 	desc = "privateers.9.d"
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 
 	trigger = {
 		has_privateers = yes
@@ -412,14 +405,14 @@ country_event = {
 	# Treat the slavers as pirates
 	option = {
 		name = "privateers.9.a"
-		#log = "privateers.9.a"
+		
 		add_dip_power = 20
 	}
 
 	# Treat the slavers as foreign traders
 	option = {
 		name = "privateers.9.b"
-		#log = "privateers.9.b"
+		
 		random_trade_node = {
 			limit = {
 				privateer_power = {
@@ -449,7 +442,6 @@ country_event = {
 #	title = "privateers.10.t"
 #	desc = "privateers.10.d"
 #	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 #
 #	trigger = {
 #		has_government_attribute = is_merchant_republic
@@ -495,7 +487,6 @@ country_event = {
 	title = "privateers.11.t"
 	desc = "privateers.11.d"
 	picture = ACCUSATION_eventPicture
-	#goto = root
 
 	trigger = {
 		has_privateers = yes
@@ -514,7 +505,7 @@ country_event = {
 	# Confess and support the privateers
 	option = {
 		name = "privateers.11.a"
-		#log = "privateers.11.a"
+		
 		random_trade_node = {
 			limit = {
 				privateer_power = {
@@ -534,7 +525,7 @@ country_event = {
 	# Deny all knowledge and refuse all responsibility
 	option = {
 		name = "privateers.11.b"
-		#log = "privateers.11.b"
+		
 		add_country_modifier = {
 			name = "denied_knowledge_privateer"
 			duration = 1835
@@ -548,7 +539,6 @@ country_event = {
 	title = "privateers.12.t"
 	desc = "privateers.12.d"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	#goto = root
 
 	trigger = {
 		trade_income_percentage = 0.50
@@ -569,7 +559,7 @@ country_event = {
 
 	option = {
 		name = "privateers.12.a"
-		#log = "privateers.12.a"
+		
 		add_country_modifier = {
 			name = "merchants_prepare_war"
 			duration = 1835
@@ -586,7 +576,7 @@ country_event = {
 
 	option = {
 		name = "privateers.12.b"
-		#log = "privateers.12.b"
+		
 		add_prestige = -10
 		add_country_modifier = {
 			name = "merchants_ignored"
@@ -601,7 +591,6 @@ country_event = {
 	title = "privateers.13.t"
 	desc = "privateers.13.d"
 	picture = ACCUSATION_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 
@@ -611,7 +600,7 @@ country_event = {
 
 	option = {
 		name = "privateers.13.a"
-		#log = "privateers.13.a"
+		
 		add_prestige = 5
 		hidden_effect = {
 			country_event = {
@@ -623,7 +612,7 @@ country_event = {
 
 	option = {
 		name = "privateers.13.b"
-		#log = "privateers.13.b"
+		
 		add_stability = -1
 		remove_country_modifier = merchants_prepare_war
 		clr_country_flag = promised_merchants_war
@@ -655,7 +644,6 @@ country_event = {
 	title = "privateers.14.t"
 	desc = "privateers.14.d"
 	picture = ANGRY_MOB_eventPicture
-	#goto = root
 
 	is_triggered_only = yes
 
@@ -665,7 +653,7 @@ country_event = {
 
 	option = {
 		name = "privateers.14.a"
-		#log = "privateers.14.a"
+		
 		add_stability = -1
 	}
 }
@@ -676,7 +664,6 @@ country_event = {
 	title = "privateers.15.t"
 	desc = "privateers.15.d"
 	picture = NAVAL_MILITARY_eventPicture
-	#goto = root
 
 	trigger = {
 		has_country_modifier = merchants_prepare_war
@@ -699,7 +686,7 @@ country_event = {
 
 	option = {
 		name = "privateers.15.a"
-		#log = "privateers.15.a"
+		
 		clr_country_flag = promised_merchants_war
 	}
 }

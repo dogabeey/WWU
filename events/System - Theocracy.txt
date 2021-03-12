@@ -1,0 +1,57 @@
+namespace = wwu_theocracy
+
+# "Heir needed in $COUNTRY$"
+country_event = {
+	id = wwu_theocracy.1
+	title = wwu_theocracy.1.title
+	desc = wwu_theocracy.1.desc
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		government = theocracy
+        has_government_attribute = heir
+        has_heir = no
+        is_lesser_in_union = no
+	}
+
+	option = {
+		name = wwu_theocracy.1.option.a
+        
+		define_heir = {
+            adm = 4
+            hidden = yes
+        }
+		add_devotion = -5
+		add_prestige = 10
+	}
+    option = {
+		name = wwu_theocracy.1.option.b
+        
+		define_heir = {
+            dip = 4
+            hidden = yes
+        }
+		add_devotion = -5
+		add_prestige = 10
+	}
+    option = {
+		name = wwu_theocracy.1.option.c
+        
+		define_heir = {
+            mil = 4
+            hidden = yes
+        }
+		add_devotion = -5
+		add_prestige = 10
+	}
+    option = {
+		name = wwu_theocracy.1.option.d
+        
+		define_heir = {
+            hidden = yes
+        }
+		add_devotion = 10
+	}
+}

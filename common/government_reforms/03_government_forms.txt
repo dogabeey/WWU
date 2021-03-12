@@ -1,0 +1,1506 @@
+# Note: modifier or attribute changes here need to be replicated in legacy versions.
+#--------------------------------------------
+# Monarchy
+#--------------------------------------------
+autocracy_reform = {
+	icon = "autocracy"
+	legacy_equivalent = autocracy_legacy
+    
+	modifiers = {
+		harsh_treatment_cost = -0.25
+		max_absolutism = 5
+	}
+	
+	ai = { factor = 1 }
+    
+    valid_for_new_country = yes   # Can be converted to via nation release
+    allow_normal_conversion = yes # Can be picked as a new reform
+	allow_convert = yes           # Can be converted to via peace term
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+}
+feudalism_reform = {
+	icon = "feudalism"
+    legacy_equivalent = feudalism_legacy
+    
+	modifiers = {
+		vassal_income = 0.25
+		nobility_influence_modifier = 0.05
+	}
+    
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+    
+	ai = { factor = 1 }
+    
+    valid_for_new_country = yes   # Can be converted to via nation release
+    allow_normal_conversion = yes # Can be picked as a new reform
+	allow_convert = yes           # Can be converted to via peace term
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+}
+alliance_reform = {
+	icon = "alliance"
+	legacy_equivalent = alliance_legacy
+    
+    potential = {
+		faction_alliance = 1
+	}
+    
+	maintain_dynasty = yes
+	allow_vassal_alliance = yes
+	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	assimilation_cultures = {
+		culture_group_human = {
+			ship_durability = 0.10
+		}
+		culture_group_darnassian = {
+			free_leader_pool = 1
+		}
+		culture_group_vrykul = {
+			land_attrition = -0.1
+		}
+		culture_group_broken = {
+			state_maintenance_modifier = -0.10
+		}
+		culture_group_draenei = {
+			missionaries = 1
+		}
+		culture_group_furbolg = {
+			global_trade_goods_size_modifier = 0.10
+		}
+		culture_group_wolfvar = {
+			production_efficiency = 0.10
+		}
+		culture_group_gorloc = {
+			diplomats = 1
+		}
+		culture_group_kobold = {
+			global_institution_spread = 0.10
+		}
+		culture_group_harpy = {
+			core_creation = -0.1
+		}
+		culture_group_worgen = {
+			advisor_cost = -0.1
+		}
+		culture_group_pandaren = {
+			land_morale = 0.1
+		}
+		culture_group_tauren = {
+			idea_cost = -0.10
+		}
+		culture_group_orc = {
+			discipline = 0.05
+		}
+		culture_group_thalassian = {
+			merchants = 1
+		}
+		culture_group_goblin = {
+			movement_speed = 0.1
+		}
+		culture_group_gnoll = {
+			mil_advisor_cost = -0.1
+		}
+		culture_group_centaur = {
+			caravan_power = 0.1
+		}
+		culture_group_naga = {
+			prestige_decay = -0.01
+		}
+		culture_group_dragonkin = {
+			global_autonomy = -0.01
+		}
+		culture_group_demonic = {
+			leader_land_fire = 1
+		}
+		culture_group_satyr = {
+			trade_efficiency = 0.10
+		}
+	}
+    
+	modifiers = {
+        improve_relation_modifier = 0.1
+		monarch_military_power = 1
+	}
+    
+	ai = { factor = 0 }	
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+	allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+}
+horde_reform = {
+	icon = "horde"
+	legacy_equivalent = horde_legacy
+    
+    potential = {
+		faction_horde = 1
+	}
+    
+	allow_vassal_alliance = yes
+	
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+	conditional = {
+		allow = { 
+			has_dlc = "Cradle of Civilization"
+			NOT = { has_country_modifier = the_shadow_council }
+		}
+		heir = no
+		foreign_slave_rulers = yes
+	}
+	conditional = {
+		allow = { NOT = { has_dlc = "Cradle of Civilization" } }
+		
+		custom_attributes = {
+			generals_become_rulers = yes
+		}
+	}
+	
+	modifiers = {
+        army_tradition = 1
+		monarch_military_power = 1
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+	allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+}
+ancient_kingdom_reform = {
+	icon = "ancient_kingdom"
+	legacy_equivalent = ancient_kingdom_legacy
+    
+    potential = {
+		is_ancient = yes
+	}
+    
+    maintain_dynasty = yes
+    
+	custom_attributes = {
+		locked_government_type = yes
+	}
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+	}
+    
+	modifiers = {
+		prestige = 1
+        governing_capacity_modifier = 0.2
+        max_absolutism = -10
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+	allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+    nation_designer_trigger = {
+        is_ancient = yes
+    }
+}
+admiralty_reform = {
+	icon = "admiralty"
+    legacy_equivalent = admiralty_legacy
+    
+	potential = {
+		OR = {
+            num_of_ports = 20
+            primary_culture = culture_kul_tiran
+        }
+	}
+	
+	modifiers = {
+		naval_forcelimit_modifier = 0.25
+        navy_tradition = 1
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+	allow_convert = no              # Can be converted to via peace term
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+}
+scourge_reform = {
+	icon = "scourge"
+    legacy_equivalent = scourge_legacy
+    
+    potential = {
+		OR = {
+			technology_group = tech_undead
+			technology_group = tech_scourge
+		}
+	}
+    
+	royal_marriage = no
+    maintain_dynasty = no
+	
+	custom_attributes = {
+        champion_system = yes
+        locked_government_type = yes
+	}
+    conditional = {
+		allow = { has_dlc = "Third Rome" }
+		government_abilities = {
+			russian_mechanic
+		}
+	}
+    
+	modifiers = {
+		land_forcelimit_modifier = 0.5
+        land_maintenance_modifier = -0.1
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+	allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+    nation_designer_trigger = {
+        OR = {
+			technology_group = tech_undead
+			technology_group = tech_scourge
+		}
+    }
+}
+kingdom_of_magic_reform = {
+	icon = "kingdom_of_magic"
+    legacy_equivalent = kingdom_of_magic_legacy
+    
+    potential = {
+		OR = {
+			religion = religion_arcane
+			religion = religion_chaos
+			religion = religion_fel
+		}
+	}
+    
+	queen = yes
+
+	custom_attributes = {
+		council_system = yes
+        locked_government_type = yes
+	}
+	
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		heir = no
+		foreign_slave_rulers = yes
+	}
+	
+	modifiers = {
+        global_institution_spread = 0.25
+		advisor_cost = -0.25
+		max_absolutism = -10
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+	allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+    
+    nation_designer_trigger = {
+        OR = {
+			religion = religion_arcane
+			religion = religion_chaos
+			religion = religion_fel
+		}
+    }
+}
+naga_domain_reform = {
+    icon = "naga_domain"
+    legacy_equivalent = naga_domain_legacy
+    
+    potential = {
+		technology_group = tech_naga
+	}
+    
+    heir = no
+	queen = no
+    
+    custom_attributes = {
+		locked_government_type = yes
+	}
+
+	modifiers = {
+        loot_amount = 0.25
+		naval_maintenance_modifier = -0.1
+        sailor_maintenance_modifer = -0.1
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no    # Can be converted to via nation release
+    allow_normal_conversion = no # Can be picked as a new reform
+	allow_convert = no            # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+    nation_designer_trigger = {
+        technology_group = tech_naga
+    }
+}
+scourge_domain_reform = {
+    icon = "scourge_domain"
+    legacy_equivalent = scourge_domain_legacy
+    
+    potential = {
+		technology_group = tech_scourge
+	}
+    
+    heir = no
+	queen = no
+    
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    conditional = {
+		allow = { has_dlc = "Third Rome" }
+		government_abilities = {
+			russian_mechanic
+		}
+	}
+    
+	modifiers = {
+		land_forcelimit_modifier = 0.33
+        land_maintenance_modifier = -0.1
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no    # Can be converted to via nation release
+    allow_normal_conversion = no # Can be picked as a new reform
+	allow_convert = yes            # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+    nation_designer_trigger = {
+        technology_group = tech_scourge
+    }
+}
+dragonflight_brood_reform = {
+	icon = "dragonflight_brood"
+    legacy_equivalent = dragonflight_brood_legacy
+    
+	potential = {
+		culture_group = culture_group_dragonkin
+	}
+    
+	modifiers = {
+		all_power_cost = -0.1
+        improve_relation_modifier = 0.1
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+
+    valid_for_nation_designer = no
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        culture_group = culture_group_dragonkin
+    }
+}
+
+#--------------------------------------------
+# Republic
+#--------------------------------------------
+noble_republic_reform = {
+	icon = "noble_republic"
+    legacy_equivalent = noble_republic_legacy
+    
+	potential = {
+		NOT = { has_reform = free_city_reform }
+		NOT = { has_reform = trading_city_reform }
+		NOT = { has_reform = colonial_government_reform }
+	}
+    
+    duration = 12
+	royal_marriage = yes
+    
+	factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+    
+	modifiers = {
+		global_manpower_modifier = 0.15
+		max_absolutism = -20
+	}
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+mercantile_republic_reform = {
+	icon = "mercantile_republic"
+    legacy_equivalent = mercantile_republic_legacy
+    
+    potential = {
+		NOT = { has_reform = free_city_reform }
+		NOT = { has_reform = trading_city_reform }
+		NOT = { has_reform = colonial_government_reform }
+	}
+    
+    boost_income = yes
+	duration = 4
+    
+    factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+    
+    custom_attributes = {
+		is_merchant_republic = yes
+	}
+
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city_reform
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city_reform
+	}
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+    
+    modifiers = {
+		merchants = 1
+		trade_efficiency = 0.1
+		max_absolutism = -20
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+despotic_republic_reform = {
+	icon = "despotic_republic"
+    legacy_equivalent = despotic_republic_legacy
+    
+    potential = {
+		NOT = { has_reform = free_city_reform }
+		NOT = { has_reform = trading_city_reform }
+		NOT = { has_reform = colonial_government_reform }
+	}
+    
+    dictatorship = yes
+	has_term_election = no
+	
+    custom_attributes = {
+		generals_become_rulers = yes
+	}
+    
+	modifiers = {
+		stability_cost_modifier = -0.1
+		global_unrest = -2
+        max_absolutism = -20
+	}
+	
+    ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+ancient_republic_reform = {
+	icon = "ancient_republic"
+	legacy_equivalent = ancient_republic_legacy
+    
+    potential = {
+		is_ancient = yes
+	}
+    
+	has_term_election = no
+	
+    conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+	}
+    
+	modifiers = {
+		prestige = 1
+        governing_capacity_modifier = 0.2
+        max_absolutism = -20
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        is_ancient = yes
+    }
+}
+magocracy_reform = {
+	icon = "magocracy"
+    legacy_equivalent = magocracy_legacy
+    
+    potential = {
+		NOT = { has_reform = free_city_reform }
+		NOT = { has_reform = trading_city_reform }
+		NOT = { has_reform = colonial_government_reform }
+		OR = {
+			religion = religion_arcane
+			religion = religion_chaos
+			religion = religion_fel
+		}
+	}
+    
+	royal_marriage = no
+	has_term_election = yes
+	election_on_death = yes
+	duration = 10
+	
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		election_on_death = no
+		foreign_slave_rulers = yes
+	}
+    conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+
+	modifiers = {
+		global_institution_spread = 0.25
+		technology_cost = -0.1
+		max_absolutism = -20
+	}
+    
+    ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        OR = {
+			religion = religion_arcane
+			religion = religion_chaos
+			religion = religion_fel
+		}
+    }
+}
+free_city_reform = {
+	icon = "free_city"
+    legacy_equivalent = free_city_legacy
+    
+    potential = {
+		has_reform = free_city_reform
+	}
+    
+    free_city = yes
+    fixed_rank = 1
+    duration = 4
+    
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+	modifiers = {
+		trade_efficiency = 0.1
+		development_cost = -0.1
+		max_absolutism = -20
+	}
+
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+		capital_scope = { is_part_of_hre = yes }
+		NOT = { num_custom_nation_provinces = 2 }
+	}
+}
+trading_city_reform = {
+	icon = "trading_city"
+    legacy_equivalent = trading_city_legacy
+    
+    potential = {
+		has_reform = trading_city_reform
+	}
+    
+    is_trading_city = yes
+    duration = 4
+    boost_income = yes
+	
+	factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+    
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = mercantile_republic_reform
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = mercantile_republic_reform
+	}
+    
+    modifiers = {
+        merchants = 1
+		trade_steering = 0.10
+		global_trade_power = 0.1
+		max_absolutism = -20
+	}
+	
+    ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+
+    valid_for_nation_designer = no
+    nation_designer_cost = 0
+}
+colonial_government_reform = {
+	icon = "colonial_government"
+    legacy_equivalent = colonial_government_legacy
+    
+    potential = {
+		is_colonial_nation = yes
+	}
+    
+	duration = 4
+	fixed_rank = 1
+    
+    custom_attributes = {
+		locked_government_type = yes
+	}
+
+	modifiers = {
+		colonists = 1
+        colonist_placement_chance = 0.05
+	}
+
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+
+    valid_for_nation_designer = no
+    nation_designer_cost = 0
+}
+tinker_republic_reform = {
+	icon = "tinker_republic"
+    legacy_equivalent = tinker_republic_legacy
+    
+    potential = {
+		religion = religion_tech
+	}
+    
+    boost_income = yes
+	duration = 6
+    
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city_reform
+	}
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+    
+    modifiers = {
+		technology_cost = -0.1
+        idea_cost = -0.1
+		max_absolutism = -20
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        religion = religion_tech
+    }
+}
+
+#--------------------------------------------
+# Theocracy
+#--------------------------------------------
+theocracy_reform = {
+	icon = "theocracy"
+    legacy_equivalent = theocracy_legacy
+    
+	modifiers = {
+		missionaries = 1
+		tolerance_own = 1
+        max_absolutism = -10
+	}
+	
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+monastic_order_reform = {
+	icon = "monastic_order"
+    legacy_equivalent = monastic_order_legacy
+    
+    monastic = yes
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	
+    factions = {
+		wwu_monks
+		wwu_priests
+		wwu_knights
+	}
+	
+	modifiers = {
+		defensiveness = 0.1
+	    land_morale = 0.1
+	}
+	
+    ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+ancient_theocracy_reform = {
+	icon = "ancient_theocracy"
+	legacy_equivalent = ancient_theocracy_legacy
+    
+    potential = {
+		is_ancient = yes
+	}
+    
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+	}
+    
+	modifiers = {
+		prestige = 1
+        global_missionary_strength = 0.03
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        is_ancient = yes
+    }
+}
+scarlet_crusade_reform = {
+	icon = "scarlet_crusade"
+    legacy_equivalent = scarlet_crusade_legacy
+    
+    potential = {
+        religion = religion_church_of_the_light
+    }
+    
+    monastic = yes
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	
+    factions = {
+		wwu_monks
+		wwu_priests
+		wwu_knights
+	}
+	
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+	modifiers = {
+		discipline = 0.1
+        tolerance_own = 1
+	}
+	
+    ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        religion = religion_church_of_the_light
+    }
+}
+argent_crusade_reform = {
+	icon = "argent_crusade"
+    legacy_equivalent = argent_crusade_legacy
+    
+    potential = {
+        religion = religion_argent_light
+    }
+    
+	monastic = yes
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	
+    factions = {
+		wwu_monks
+		wwu_priests
+		wwu_knights
+	}
+	
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+	modifiers = {
+        tolerance_own = 1
+		infantry_power = 0.1
+	}
+	
+    ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        religion = religion_argent_light
+    }
+}
+demonic_order_reform = {
+	icon = "demonic_order"
+    legacy_equivalent = demonic_order_legacy
+    
+    potential = {
+        OR = {
+            religion = religion_chaos
+            religion = religion_fel
+        }
+    }
+    
+    monastic = yes
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	royal_marriage = no
+	different_religion_group_acceptance = -100
+    
+    lock_level_when_selected = yes
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+	modifiers = {
+        land_morale = 0.1
+        warscore_cost_vs_other_religion = -0.25
+	}
+    
+    conditional = {
+		allow = { has_dlc = "The Cossacks" }
+		government_abilities = {
+			cossacks_mechanic
+		}
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        OR = {
+            religion = religion_chaos
+            religion = religion_fel
+        }
+    }
+}
+druidic_circle_reform = {
+	icon = "druidic_circle"
+    legacy_equivalent = druidic_circle_legacy
+    
+    potential = {
+        OR = {
+            religion = religion_druidic
+            religion = religion_ancestral
+        }
+    }
+    
+    monastic = yes
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	royal_marriage = no
+
+	modifiers = {
+		diplomatic_reputation = 2
+        unjustified_demands = -0.1
+	}
+    
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        OR = {
+            religion = religion_druidic
+            religion = religion_ancestral
+        }
+    }
+}
+elemental_cult_reform = {
+	icon = "elemental_cult"
+    legacy_equivalent = elemental_cult_legacy
+    
+	potential = {
+        OR = {
+            culture_group = culture_group_earth
+            culture_group = culture_group_fire
+            culture_group = culture_group_water
+            culture_group = culture_group_air
+            culture_group = culture_group_nature
+        }
+    }
+    
+	modifiers = {
+		global_unrest = -2
+		warscore_cost_vs_other_religion = -0.2
+	}
+    
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        OR = {
+            culture_group = culture_group_earth
+            culture_group = culture_group_fire
+            culture_group = culture_group_water
+            culture_group = culture_group_air
+            culture_group = culture_group_nature
+        }
+    }
+}
+shadow_cult_reform = {
+	icon = "shadow_cult"
+    legacy_equivalent = shadow_cult_legacy
+    
+	potential = {
+        religion = religion_shadow
+    }
+    
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+    
+	modifiers = {
+		culture_conversion_cost = -0.2
+        stability_cost_modifier = -0.2
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        religion = religion_shadow
+    }
+}
+
+#--------------------------------------------
+# Tribal
+#--------------------------------------------
+warband_reform = {
+	icon = "warband"
+    legacy_equivalent = warband_legacy
+    
+    nomad = yes
+	generals_become_rulers = yes
+    
+	modifiers = {
+		army_tradition_from_battle = 1.0
+	}
+	
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			tribal_federation_mechanic
+		}
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+tribal_federation_reform = {
+	icon = "tribal_federation"
+    legacy_equivalent = tribal_federation_legacy
+    
+	heir = yes
+	queen = yes
+    
+	modifiers = {
+		global_tax_modifier = 0.2
+		reinforce_speed = 0.1
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+tribal_despotism_reform = {
+	icon = "tribal_despotism"
+    legacy_equivalent = tribal_despotism_legacy
+    
+	heir = yes
+	queen = yes
+	
+	custom_attributes = {
+		can_enslave = yes
+	}
+    
+	modifiers = {
+		global_unrest = -1
+		core_creation = -0.1
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+ancient_clan_reform = {
+	icon = "ancient_clan"
+    legacy_equivalent = ancient_clan_legacy
+    
+	potential = {
+		is_ancient = yes
+	}
+    
+	heir = yes
+	queen = yes
+	maintain_dynasty = yes
+    
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+	}
+    
+	modifiers = {
+		prestige = 1
+		yearly_corruption = -0.05
+	}
+	
+    ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        is_ancient = yes
+    }
+}
+primitive_clan_reform = {
+	icon = "primitive_clan"
+    legacy_equivalent = primitive_clan_legacy
+    
+    potential = {
+        is_lesser = yes
+    }
+    
+    nomad = yes
+	heir = no
+	queen = no
+    
+	modifiers = {
+        global_unrest = -1
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        is_lesser = yes
+    }
+}
+expeditionary_force_reform = {
+	icon = "expeditionary_force"
+    legacy_equivalent = expeditionary_force_legacy
+    
+    republic = yes
+    duration = 10
+    
+	heir = no
+	queen = no
+
+	modifiers = {
+		global_regiment_cost = -0.2
+        global_regiment_recruit_speed = -0.33
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+criminal_organization_reform = {
+	icon = "criminal_organization"
+	legacy_equivalent = criminal_organization_legacy
+    
+    monarchy = yes
+    
+	heir = yes
+	queen = no
+    
+	modifiers = {
+		loot_amount = 0.33
+        available_province_loot = 1.0
+	}
+    
+    ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+
+#------------------------------------------------------------
+# Native
+#------------------------------------------------------------
+native_tribe_reform = {
+	icon = "native_tribe"
+    legacy_equivalent = native_tribe_legacy
+    
+    potential = {
+        has_reform = native_tribe_reform
+    }
+    
+	republican_name = yes
+	royal_marriage = no
+    fixed_rank = 1
+    
+	modifiers = {
+		stability_cost_modifier = -0.33
+		land_maintenance_modifier = -0.2
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+primitive_tribe_reform = {
+	icon = "primitive_tribe"
+    legacy_equivalent = primitive_tribe_legacy
+    
+    potential = {
+        is_lesser = yes
+        has_reform = primitive_tribe_reform
+    }
+    
+	republican_name = yes
+	royal_marriage = no
+    fixed_rank = 1
+    
+	modifiers = {
+		global_unrest = -1
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+
+#------------------------------------------------------------
+# Pirate
+#------------------------------------------------------------
+pirate_republic_reform = {
+	icon = "pirate_republic_wwu"
+    legacy_equivalent = pirate_republic_legacy
+    
+    has_term_election = yes
+	duration = 4
+    
+    custom_attributes = {
+		force_admiral_leader = yes
+	}
+    
+	modifiers = {
+		republican_tradition = -1
+		max_absolutism = -20
+		naval_forcelimit_modifier = 0.5
+		capture_ship_chance = 0.33
+		may_perform_slave_raid_on_same_religion = yes
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+pirate_kingdom_reform = {
+	icon = "pirate_kingdom"
+    legacy_equivalent = pirate_kingdom_legacy
+    
+	has_term_election = no
+    
+    custom_attributes = {
+		admirals_become_rulers = yes
+	}
+    
+	modifiers = {
+		republican_tradition = -1
+		max_absolutism = -20
+		naval_forcelimit_modifier = 0.5
+		capture_ship_chance = 0.33
+		pr_captains_influence = 0.1
+		harsh_treatment_cost = -0.2
+		leader_naval_fire = 1
+		may_perform_slave_raid_on_same_religion = yes
+	}
+
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+

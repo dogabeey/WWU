@@ -1,0 +1,244 @@
+# A66 Gurubashi
+# A67 Bloodscalp
+# A69 Skullsplitter
+# STW Stormwind
+namespace = wwu_gurubashi_conflict
+
+# Border Friction between Azerothian farmers and Stranglethorn Trolls
+country_event = {
+	id = wwu_gurubashi_conflict.1
+	title = wwu_gurubashi_conflict.1.title
+	desc = wwu_gurubashi_conflict.1.desc
+	picture = TROLL_BERSERKER_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		tag = A66
+		current_age = rise_of_the_horde
+		is_at_war = no
+		manpower_percentage = 0.25
+		any_country = {
+			OR = {
+				tag = STW
+				is_subject_of = STW
+			}
+			any_country = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+			
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+		modifier = {
+			factor = 2
+			
+			alliance_with = STW
+		}
+		modifier = {
+			factor = 2
+			
+			has_opinion = {
+				who = STW
+				value = 50
+			}
+		}
+	}
+
+	option = {
+		name = wwu_gurubashi_conflict.1.opt1
+		
+		add_prestige = -5
+	}
+	option = {
+		name = wwu_gurubashi_conflict.1.opt2
+		
+		add_prestige = 5
+		STW = { country_event = { id = wwu_gurubashi_conflict.2 tooltip = wwu_gurubashi_conflict.1.opt2.tt } }
+	}
+	option = {
+		name = wwu_gurubashi_conflict.1.opt3
+		
+		add_prestige = 10
+		STW = { country_event = { id = wwu_gurubashi_conflict.3 tooltip = wwu_gurubashi_conflict.1.opt3.tt } }
+		STW = {
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = {
+						owned_by = ROOT
+					}
+				}
+				add_base_production = -2
+			}
+		}
+		reverse_add_opinion = {
+			who = STW
+			modifier = dishonorable_act
+		}
+	}
+	option = {
+		name = wwu_gurubashi_conflict.1.opt4
+		
+		add_prestige = 15
+		STW = { country_event = { id = wwu_gurubashi_conflict.4 tooltip = wwu_gurubashi_conflict.1.opt4.tt } }
+		STW = {
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = {
+						owned_by = ROOT
+					}
+				}
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				add_devastation = 20
+			}
+		}
+		reverse_add_opinion = {
+			who = STW
+			modifier = razed
+		}
+	}
+}
+
+# Stormwind Response for diplomatic note
+country_event = {
+	id = wwu_gurubashi_conflict.2
+	title = wwu_gurubashi_conflict.2.title
+	desc = wwu_gurubashi_conflict.2.desc
+	picture = TROLL_BERSERKER_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_gurubashi_conflict.2.opt1
+		
+		add_prestige = 5
+		A66 = { country_event = { id = wwu_gurubashi_conflict.5 tooltip = wwu_gurubashi_conflict.2.opt1.tt } }
+	}
+	option = {
+		name = wwu_gurubashi_conflict.2.opt2
+		
+		add_prestige = -5
+		A66 = { country_event = { id = wwu_gurubashi_conflict.6 tooltip = wwu_gurubashi_conflict.2.opt2.tt } }
+		every_owned_province = {
+			limit = {
+				any_neighbor_province = {
+					owned_by = FROM
+				}
+			}
+			add_base_production = -1
+		}
+	}
+}
+# Stormwind Response for attacking farmers
+country_event = {
+	id = wwu_gurubashi_conflict.3
+	title = wwu_gurubashi_conflict.3.title
+	desc = wwu_gurubashi_conflict.3.desc
+	picture = TROLL_BERSERKER_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_gurubashi_conflict.3.opt1
+		
+		add_casus_belli = {
+			target = FROM
+			type = cb_insult
+			months = 120
+		}
+	}
+	option = {
+		name = wwu_gurubashi_conflict.3.opt2
+		
+		add_prestige = -10
+		add_opinion = {
+			who = A66
+			modifier = eased_tension
+		}
+		reverse_add_opinion = {
+			who = A66
+			modifier = eased_tension
+		}
+		A66 = { country_event = { id = wwu_gurubashi_conflict.6 tooltip = wwu_gurubashi_conflict.3.opt2.tt } }
+	}
+}
+# Stormwind Response for raze province
+country_event = {
+	id = wwu_gurubashi_conflict.4
+	title = wwu_gurubashi_conflict.4.title
+	desc = wwu_gurubashi_conflict.4.desc
+	picture = TROLL_BERSERKER_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_gurubashi_conflict.4.opt1
+		
+		add_casus_belli = {
+			target = FROM
+			type = cb_insult
+			months = 120
+		}
+	}
+	option = {
+		name = wwu_gurubashi_conflict.4.opt2
+		
+		ai_chance = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+		}
+		add_prestige = 10
+		add_yearly_manpower = 1
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_annex
+		}
+	}
+}
+# Gurubashi Response for ignoring demands
+country_event = {
+	id = wwu_gurubashi_conflict.5
+	title = wwu_gurubashi_conflict.5.title
+	desc = wwu_gurubashi_conflict.5.desc
+	picture = TROLL_BERSERKER_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_gurubashi_conflict.5.opt1
+		
+		add_prestige = -5
+	}
+	
+	option = {
+		name = wwu_gurubashi_conflict.5.opt2
+		
+		add_prestige = 10
+		add_manpower = 10
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_annex
+		}
+	}
+}
+# Gurubashi Response for accepting demands
+country_event = {
+	id = wwu_gurubashi_conflict.6
+	title = wwu_gurubashi_conflict.6.title
+	desc = wwu_gurubashi_conflict.6.desc
+	picture = TROLL_BERSERKER_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_gurubashi_conflict.6.opt1
+		
+		add_prestige = 15
+		country_event = { id = wwu_gurubashi_conflict.1 days = 360 random = 90 }
+	}
+}

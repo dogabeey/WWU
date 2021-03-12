@@ -1,13 +1,9 @@
-# From original EU4
 country_decisions = {
-
-	cultural_shift = {
+	wwu_cultural_shift = {
 		potential = {
-			
 			capital_scope = {
 				NOT = { culture = ROOT }
 			}
-			NOT = { is_landless = yes }
 		}
 		allow =  {
 			dominant_culture = capital
@@ -17,13 +13,10 @@ country_decisions = {
 		}
 	  	effect = {
 			change_primary_culture = capital
-			if = {
-				limit = { NOT = { has_reform = remnant_basic_reform } }
-				add_adm_power = -200
-				add_dip_power = -200
-				add_mil_power = -200
-				add_stability = -3
-			}
+			add_adm_power = -200
+            add_dip_power = -200
+            add_mil_power = -200
+            add_stability = -3
 			add_country_modifier = {
 				name = changed_primary_culture
 				duration = 1000
@@ -37,11 +30,10 @@ country_decisions = {
 	
 	cultural_purge = {
 		potential = {
-			
 			OR = {
 				is_savage = yes
 				is_pure_evil = yes
-				has_reform =  military_organization_reform
+				mil = 5
 				AND = {
 					current_age = the_first_war
 					is_at_war = yes
@@ -51,7 +43,6 @@ country_decisions = {
 				NOT = { accepted_culture = ROOT }
 				NOT = { culture_group = ROOT }
 			}
-			NOT = { is_landless = yes }
 		}
 		allow =  {
 			mil_power = 100
@@ -95,10 +86,8 @@ country_decisions = {
 	
 	forced_emigration = {
 		potential = {
-			
 			NOT = { is_pure_evil = yes }
 			NOT = { is_savage = yes }
-			NOT = { is_landless = yes }
 		}
 		allow =  {
 			adm_power = 100

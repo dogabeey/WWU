@@ -6,7 +6,6 @@ country_event = {
 	title = trade.1.t
 	desc = trade.1.d
 	picture = NAVAL_MILITARY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -16,28 +15,28 @@ country_event = {
 			NOT = { is_strongest_trade_power = root }
 		}
 		
-		has_idea_group = oceaneer_ideas
+		has_idea_group = wwu_trade_ideas
 	}
 	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			mercantile_ideas = 1
+			wwu_trade_ideas = 1
 		}
 		modifier = {
 			factor = 3
-			mercantile_ideas = 3
+			wwu_trade_ideas = 3
 		}
 		modifier = {
 			factor = 5
-			mercantile_ideas = 7
+			wwu_trade_ideas = 7
 		}
 	}
 	
 	option = {
 		name = trade.1.a
-		#log = "trade.1.a"
+		
 		add_prestige = -30
 		capital_scope = {
 			if = {
@@ -54,7 +53,7 @@ country_event = {
 	}
 	option = {
 		name = trade.1.b
-		#log = "trade.1.b"
+		
 		add_stability = -1
 	}
 }
@@ -65,7 +64,6 @@ country_event = {
 	title = trade.2.t
 	desc = trade.2.d
 	picture = NAVAL_MILITARY_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	trigger = {
@@ -88,21 +86,21 @@ country_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			mercantile_ideas = 1
+			wwu_trade_ideas = 1
 		}
 		modifier = {
 			factor = 3
-			mercantile_ideas = 3
+			wwu_trade_ideas = 3
 		}
 		modifier = {
 			factor = 5
-			mercantile_ideas = 7
+			wwu_trade_ideas = 7
 		}
 	}
 	
 	option = {
 		name = trade.2.a
-		#log = "trade.2.a"
+		
 		capital_scope = {
 			add_trade_modifier = {
 				who = root
@@ -115,7 +113,7 @@ country_event = {
 	}
 	option = {
 		name = trade.2.b
-		#log = "trade.2.b"
+		
 		add_stability = -1
 	}
 }
@@ -126,7 +124,6 @@ country_event = {
 	title = trade.3.t
 	desc = trade.3.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -147,7 +144,7 @@ country_event = {
 
 	option = {
 		name = trade.3.a
-		#log = "trade.3.a"
+		
 		ai_chance = { factor = 100 }
 		random_active_trade_node = {
 			limit = {
@@ -170,7 +167,7 @@ country_event = {
 	}
 	option = {
 		name = trade.3.b
-		#log = "trade.3.b"
+		
 		random_active_trade_node = {
 			limit = {
 				NOT = { most_province_trade_power = { tag = ROOT } }
@@ -198,7 +195,6 @@ country_event = {
 	title = trade.4.t
 	desc = trade.4.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -225,7 +221,7 @@ country_event = {
 	}
 	option = {
 		name = trade.4.a
-		#log = "trade.4.a"
+		
 		add_country_modifier = {
 			name = "severe_trade_crisis"
 			duration = 365
@@ -233,7 +229,7 @@ country_event = {
 	}
 	option = {
 		name = trade.4.b
-		#log = "trade.4.b"
+		
 		add_dip_power = -25
 		add_country_modifier = {
 			name = "minor_trade_crisis"
@@ -248,7 +244,6 @@ country_event = {
 	title = trade.5.t
 	desc = trade.5.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -270,17 +265,17 @@ country_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			NOT = { mercantile_ideas = 3 }
+			NOT = { wwu_trade_ideas = 3 }
 		}
 		modifier = {
 			factor = 1.5
-			NOT = { mercantile_ideas = 7 }
+			NOT = { wwu_trade_ideas = 7 }
 		}		
 	}
 	
 	option = {
 		name = trade.5.a
-		#log = "trade.5.a"
+		
 		random_active_trade_node = {
 			limit = {
 				NOT = { strongest_trade_power = { tag = ROOT } }
@@ -301,7 +296,7 @@ country_event = {
 	}
 	option = {
 		name = trade.5.b
-		#log = "trade.5.b"
+		
 		add_dip_power = -10
 		random_active_trade_node = {
 			limit = {
@@ -318,7 +313,6 @@ country_event = {
 	title = trade.6.t
 	desc = trade.6.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -337,7 +331,7 @@ country_event = {
 
 	option = {
 		name = trade.6.a
-		#log = "trade.6.a"
+		
 		random_active_trade_node = {
 			limit = {
 				is_sea = yes
@@ -354,7 +348,6 @@ country_event = {
 	title = trade.7.t
 	desc = trade.7.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -373,12 +366,12 @@ country_event = {
 	
 	option = {
 		name = trade.7.a
-		#log = "trade.7.a"
+		
 		add_dip_power = -10
 	}
 	option = {
 		name = trade.7.b
-		#log = "trade.7.b"
+		
 		random_active_trade_node = {
 			limit = {
 				NOT = { owned_by = ROOT }
@@ -406,7 +399,6 @@ country_event = {
 	title = trade.8.t
 	desc = trade.8.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -419,7 +411,7 @@ country_event = {
 	
 	option = {
 		name = trade.8.a
-		#log = "trade.8.a"
+		
 		random_active_trade_node = {
 			limit = {
 				has_most_province_trade_power = root
@@ -436,7 +428,6 @@ country_event = {
 	title = trade.9.t
 	desc = trade.9.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -444,29 +435,16 @@ country_event = {
 		mercantilism = 55
 		num_of_merchants = 3
 	}
-	
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 35
-		}
-	}
-	
+
 	option = {
 		name = trade.9.a
-		#log = "trade.9.a"
+		
 		add_meritocracy_effect = yes
-		generate_advisor_of_type_and_semi_random_religion_effect = {
+		generate_advisor_of_type_effect = {
 			advisor_type=treasurer
-			advisor_type_if_not_state=treasurer
 			skill = 3
 			discount=yes
 		}
-	}
-	
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 
@@ -476,7 +454,6 @@ country_event = {
 	title = trade.10.t
 	desc = trade.10.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 
@@ -496,12 +473,12 @@ country_event = {
 	
 	option = {
 		name = trade.10.a
-		#log = "trade.10.a"
+		
 		add_dip_power = -15
 	}
 	option = {
 		name = trade.10.b
-		#log = "trade.10.b"
+		
 		random_active_trade_node = {
 			limit = {
 				not = { has_most_province_trade_power = root }
@@ -529,7 +506,6 @@ country_event = {
 	title = trade.11.t
 	desc = trade.11.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -540,7 +516,7 @@ country_event = {
 	
 	option = {
 		name = trade.11.a
-		#log = "trade.11.a"
+		
 		add_country_modifier = {
 			name = bad_free_trade_merchants
 			duration = 730
@@ -554,30 +530,18 @@ country_event = {
 	title = trade.12.t
 	desc = trade.12.d
 	picture = MERCHANTS_TALKING_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		check_if_non_state_advisor_effect = { #Hidden, must be followed by erase_advisor_flags_effect
-			chance_of_primary = 75 #Not percentages!
-			chance_of_tertiary = 10
-			chance_of_secondary = 25
-		}
-	}
-	
 	option = {
 		name = trade.12.a
-		#log = "trade.12.a"
+		
 		add_meritocracy_effect = yes
 		define_advisor = {
 			type = trader
 			skill = 2
 			discount = yes
 		}
-	}
-	after = {
-		erase_advisor_flags_effect = yes
 	}
 }
 
@@ -590,7 +554,6 @@ country_event = {
 	title = "EVTNAME9520"
 	desc = "EVTDESC9520"
 	picture = TRADEGOODS_eventPicture
-	#goto = root
 
 	trigger = {
 		has_country_modifier = the_abolish_slavery_act
@@ -603,11 +566,11 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA9520"
-		#log = "EVTOPTA9520"
+		
 		every_owned_province = {
 			limit = { trade_goods = slaves }
 			change_trade_goods = unknown
-			remove_building = wow_large_farm
+			remove_building = wow_farm
 			if = {
 				limit = { has_province_modifier = slave_entrepot }
 				remove_province_modifier = slave_entrepot

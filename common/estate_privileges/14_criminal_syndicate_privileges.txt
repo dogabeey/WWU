@@ -1,0 +1,179 @@
+estate_criminal_syndicate_land_rights = {
+	icon = privilege_blueprint
+    
+    # Costs
+    max_absolutism = -5
+	land_share = 10
+	loyalty = 0.05
+	influence = 0.05
+    
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		governing_capacity = 100
+	}
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 1.4
+			num_of_territories = 5
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 10
+		}
+		modifier = {
+			factor = 1.5
+			num_of_territories = 15
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 25 }
+				estate_influence = {
+					estate = estate_criminal_syndicate
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_criminal_syndicate_land_rights }
+		}
+		modifier = {
+			factor = 0
+			NOT = { num_of_territories = 1 }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 40 }
+				AND = {
+					NOT = { crown_land_share = 60 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_criminal_syndicate_land_rights }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 30 }
+				AND = {
+					NOT = { crown_land_share = 50 }
+				}
+			}
+			NOT = { has_estate_privilege = estate_criminal_syndicate_land_rights }
+		}
+	}
+}
+estate_criminal_syndicate_guild_oversight = {
+	icon = privilege_ancient_history
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_criminal_syndicate_plunder_caravans = {
+	icon = privilege_preparation
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+        global_foreign_trade_power = -0.05
+	}
+	benefits = {
+        caravan_power = 0.1
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_criminal_syndicate_infiltration = {
+	icon = privilege_master_of_subtelty
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+        spy_offence = 0.33
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_criminal_syndicate_vetting = {
+	icon = privilege_power_strikes
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = -0.05
+	influence = 0.1
+    
+	penalties = {
+	}
+	benefits = {
+        global_spy_defence = 0.33
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_criminal_syndicate_quell_dissidents = {
+	icon = privilege_cash_flow
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.1
+    
+	penalties = {
+        
+	}
+	benefits = {
+        reduced_liberty_desire = 20 
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+estate_criminal_syndicate_intimidate_officials = {
+	icon = privilege_cheap_shot
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.15
+    
+	penalties = {
+        
+	}
+	benefits = {
+        core_creation = -0.05
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}

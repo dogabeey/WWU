@@ -5,7 +5,6 @@ country_event = {
 	title = dynasty_change.title
 	desc = dynasty_change.desc
 	picture = ELECTION_REPUBLICAN_eventPicture
-	#goto = root
 	
 	trigger = {
 		tag = A14
@@ -25,7 +24,7 @@ country_event = {
 	
 	option = {
 		name = dynasty_change.opt1
-		#log = "dynasty_change.opt1" # Leave the throne to the influental family.
+		
 		add_prestige = -10
 		if = {
 			limit = {
@@ -83,7 +82,7 @@ country_event = {
 	
 	option = {
 		name = dynasty_change.opt2
-		#log = "dynasty_change.opt2"
+		
 		add_prestige = 10
 		define_heir = {
 			max_random_mil = 5
@@ -159,7 +158,6 @@ country_event = {
 	title = dynasty_change_admiralty.title
 	desc = dynasty_change_admiralty.desc
 	picture = ELECTION_REPUBLICAN_eventPicture
-	#goto = root
 	
 	trigger = {
 		NOT = { tag = A14 }
@@ -173,8 +171,8 @@ country_event = {
 	
 	option = {
 		name = dynasty_change_admiralty.opt1
-		#log = "dynasty_change_admiralty.opt1"
-		trigger = { has_estate = estate_nobles }
+		
+		trigger = { has_estate = estate_nobility }
 		define_heir = {
 			max_random_mil = 7
 			max_random_adm = 4
@@ -182,33 +180,29 @@ country_event = {
 			claim = 70
 		}
 		add_estate_influence_modifier = {
-			estate = estate_nobles
+			estate = estate_nobility
 			desc = ESTATE_RULE_POWER
 			influence = 20
 			duration = 7300
 		}
 		add_estate_loyalty = {
-			estate = estate_nobles
+			estate = estate_nobility
 			loyalty = 15
 		}
 		#
 		add_estate_loyalty = {
-			estate = estate_church
+			estate = estate_clergy
 			loyalty = -10
 		}
 		add_estate_loyalty = {
-			estate = estate_burghers
-			loyalty = -10
-		}
-		add_estate_loyalty = {
-			estate = estate_cossacks
+			estate = estate_traders
 			loyalty = -10
 		}
 	}
 	option = {
 		name = dynasty_change_admiralty.opt2
-		#log = "dynasty_change_admiralty.opt2"
-		trigger = { has_estate = estate_church }
+		
+		trigger = { has_estate = estate_clergy }
 		define_heir = {
 			max_random_mil = 4
 			max_random_adm = 4
@@ -216,33 +210,33 @@ country_event = {
 			claim = 70
 		}
 		add_estate_influence_modifier = {
-			estate = estate_nobles
+			estate = estate_nobility
 			desc = ESTATE_RULE_POWER
 			influence = 20
 			duration = 7300
 		}
 		add_estate_loyalty = {
-			estate = estate_church
+			estate = estate_clergy
 			loyalty = 15
 		}
 		#
 		add_estate_loyalty = {
-			estate = estate_nobles
+			estate = estate_nobility
 			loyalty = -10
 		}
 		add_estate_loyalty = {
-			estate = estate_burghers
+			estate = estate_traders
 			loyalty = -10
 		}
 		add_estate_loyalty = {
-			estate = estate_cossacks
+			estate = estate_guild_order_of_embers
 			loyalty = -10
 		}
 	}
 	option = {
 		name = dynasty_change_admiralty.opt3
-		#log = "dynasty_change_admiralty.opt3"
-		trigger = { has_estate = estate_burghers }
+		
+		trigger = { has_estate = estate_traders }
 		define_heir = {
 			max_random_mil = 4
 			max_random_adm = 7
@@ -250,60 +244,22 @@ country_event = {
 			claim = 70
 		}
 		add_estate_influence_modifier = {
-			estate = estate_burghers
+			estate = estate_traders
 			desc = ESTATE_RULE_POWER
 			influence = 20
 			duration = 7300
 		}
 		add_estate_loyalty = {
-			estate = estate_burghers
+			estate = estate_traders
 			loyalty = 15
 		}
 		#
 		add_estate_loyalty = {
-			estate = estate_nobles
+			estate = estate_nobility
 			loyalty = -10
 		}
 		add_estate_loyalty = {
-			estate = estate_church
-			loyalty = -10
-		}
-		add_estate_loyalty = {
-			estate = estate_cossacks
-			loyalty = -10
-		}
-	}
-	option = {
-		name = dynasty_change_admiralty.opt4
-		#log = "dynasty_change_admiralty.opt4"
-		trigger = { has_estate = estate_cossacks }
-		define_heir = {
-			max_random_mil = 6
-			max_random_adm = 6
-			max_random_dip = 6
-			claim = 50
-		}
-		add_estate_influence_modifier = {
-			estate = estate_cossacks
-			desc = ESTATE_RULE_POWER
-			influence = 20
-			duration = 7300
-		}
-		add_estate_loyalty = {
-			estate = estate_cossacks
-			loyalty = 15
-		}
-		#
-		add_estate_loyalty = {
-			estate = estate_nobles
-			loyalty = -10
-		}
-		add_estate_loyalty = {
-			estate = estate_church
-			loyalty = -10
-		}
-		add_estate_loyalty = {
-			estate = estate_burghers
+			estate = estate_clergy
 			loyalty = -10
 		}
 	}

@@ -6,12 +6,11 @@ country_event = {
 	title = tribal_succession.1.t
 	desc = tribal_succession.1.d
 	picture = KING_SICK_IN_BED_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
 	trigger = {
-		has_reform = steppe_horde
+		has_reform = warband_reform
 		NOT = { has_country_flag = no_new_succession_crisis_if_pretender_rebels }
 		num_of_cities = 4
 		OR = {
@@ -44,7 +43,7 @@ country_event = {
 	
 	option = {
 		name = tribal_succession.1.a
-		#log = "tribal_succession.1.a"
+		
 		trigger = {
 			NOT = { legitimacy_or_horde_unity = 50 }
 		}
@@ -74,7 +73,7 @@ country_event = {
 	
 	option = {
 		name = tribal_succession.1.b
-		#log = "tribal_succession.1.b"
+		
 		trigger = {
 			has_regency = yes
 		}
@@ -92,10 +91,9 @@ country_event = {
 	title = tribal_succession.2.t
 	desc = tribal_succession.2.d
 	picture = NEW_HEIR_eventPicture
-	#goto = root
 	
 	trigger = {
-		has_reform = steppe_horde
+		has_reform = warband_reform
 		has_ruler_modifier = tribal_succession_crisis
 		NOT = {
 			has_spawned_rebels = pretender_rebels
@@ -109,7 +107,7 @@ country_event = {
 	
 	option = {
 		name = tribal_succession.2.a
-		#log = "tribal_succession.2.a"
+		
 		remove_country_modifier = tribal_succession_crisis
 		add_stability_or_adm_power = yes
 		add_horde_unity = 25

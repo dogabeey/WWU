@@ -1,0 +1,32 @@
+init_full_unity = {
+	init_culture_unity = yes
+	init_religion_unity = yes
+	init_core_unity = yes
+}
+init_culture_unity = {
+	every_owned_province = {
+		limit = {
+			NOT = { culture = ROOT }
+			NOT = { has_province_flag = override_country_culture }  # Put this flag to province histories if you don't want to force province have country culture.
+		}
+		change_culture = ROOT
+	}
+}
+init_religion_unity = {
+	every_owned_province = {
+		limit = {
+			NOT = { religion = ROOT }
+			NOT = { has_province_flag = override_country_religion }  # Put this flag to province histories if you don't want to force province have country religion.
+		}
+		change_religion = ROOT
+	}
+}
+init_core_unity = {
+	every_owned_province = {
+		limit = {
+			NOT = { is_core = ROOT }
+			NOT = { has_province_flag = override_country_core }  # Put this flag to province histories if you don't want to force province have core.
+		}
+		add_core = ROOT
+	}
+}

@@ -1,0 +1,684 @@
+namespace = estate_system
+
+country_event = {
+	id = estate_system.1
+	title = estate_system.1.name
+	desc = estate_system.1.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	hidden = yes
+
+	trigger = {
+		has_estate_privilege = estate_nobility_supremacy_over_government
+		NOT = { has_any_active_estate_agenda = yes }
+	}
+
+	immediate = {
+		country_event = { id = estate_system.2 }
+	}
+
+	option = {
+		name = estate_system.1.a
+	}
+}
+
+country_event = {
+	id = estate_system.2
+	title = estate_system.2.name
+	desc = estate_system.2.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pick_random_estate_if_present = { flag = present_agenda estate_action = generate_estate_agenda }
+			pick_random_estate_if_present = { flag = present_agenda estate_action = generate_estate_agenda }
+			pick_random_estate_if_present = { flag = present_agenda estate_action = generate_estate_agenda }
+		}
+	}
+
+	after = {
+		clr_country_flag = estate_clergy_present_agenda
+		clr_country_flag = estate_traders_present_agenda
+		clr_country_flag = estate_nobility_present_agenda
+		clr_country_flag = estate_peasants_present_agenda
+		clr_country_flag = estate_tribals_present_agenda
+		clear_estate_agenda_cache = ROOT
+	}
+
+	option = {
+		name = estate_system.2.a
+		trigger = { has_country_flag = estate_clergy_present_agenda }
+        
+		start_estate_agenda = estate_clergy
+        
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_clergy
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_clergy
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_clergy
+				}
+			}
+		}
+	}
+
+	option = {
+		name = estate_system.2.b
+		trigger = { has_country_flag = estate_traders_present_agenda }
+        
+		start_estate_agenda = estate_traders
+        
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_traders
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_traders
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_traders
+				}
+			}
+		}
+	}
+
+	option = {
+		name = estate_system.2.c
+		trigger = { has_country_flag = estate_nobility_present_agenda }
+        
+		start_estate_agenda = estate_nobility
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_nobility
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_nobility
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_nobility
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = estate_system.2.d
+		trigger = { has_country_flag = estate_peasants_present_agenda }
+        
+		start_estate_agenda = estate_peasants
+        
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_peasants
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_peasants
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_peasants
+				}
+			}
+		}
+	}
+
+	option = {
+		name = estate_system.2.e
+		trigger = { has_country_flag = estate_tribals_present_agenda }
+        
+		start_estate_agenda = estate_tribals
+        
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_tribals
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_tribals
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_tribals
+				}
+			}
+		}
+	}
+}
+
+# Estates bailing out the player
+country_event = {
+	id = estate_system.3
+	title = estate_system.3.name
+	desc = estate_system.3.desc
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	trigger = {
+		NOT = { crown_land_share = 11 }
+		OR = {
+			AND = {
+				government = monarchy
+				has_estate = estate_nobility
+			}
+			AND = {
+				government = republic
+				has_estate = estate_traders
+			}
+			AND = {
+				government = theocracy
+				has_estate = estate_clergy
+			}
+		}
+		NOT = {
+            has_estate_privilege = estate_nobility_statutory_rights
+            has_estate_privilege = estate_traders_statutory_rights
+            has_estate_privilege = estate_clergy_statutory_rights
+        }
+	}
+
+	mean_time_to_happen = {
+		months = 128
+		modifier = {
+			factor = 0.5
+			NOT = { crown_land_share = 6 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { crown_land_share = 4 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { crown_land_share = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { crown_land_share = 1 }
+		}
+	}
+
+	option = { # Accept the Bail Out
+		name = estate_system.3.a
+        
+		custom_tooltip = seize_land_unavailable_from_privilege
+		if = {
+			limit = {
+				government = monarchy
+			}
+			set_estate_privilege = estate_nobility_statutory_rights
+		}
+		else_if = {
+			limit = {
+				government = republic
+			}
+			set_estate_privilege = estate_traders_statutory_rights
+		}
+		else_if = {
+			limit = {
+				government = theocracy
+			}
+			set_estate_privilege = estate_clergy_statutory_rights
+		}
+	}
+
+	option = { # Refuse the Bail Out
+		name = estate_system.3.b
+	}
+}
+
+# Founding of Guilds
+country_event = {
+	id = estate_system.4
+	title = estate_system.4.title
+	desc = estate_system.4.desc
+	picture = THEATRE_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = { 
+				name = adventurers_allowed
+				duration = -1
+			}
+		}
+	}
+
+    
+	option = {
+		name = estate_system.4.option.a
+		trigger = {
+			NOT = { has_country_flag = has_estate_adventuring_guild }
+		}
+		hidden_effect = { 
+            set_country_flag = has_estate_adventuring_guild 
+        }
+		custom_tooltip = estate_system.4.option.a.tooltip
+	}
+	option = {
+		name = estate_system.4.option.b
+		trigger = {
+			NOT = { has_country_flag = has_estate_mercantile_guild }
+		}
+		hidden_effect = { 
+            set_country_flag = has_estate_mercantile_guild 
+        }
+		custom_tooltip = estate_system.4.option.b.tooltip
+		
+	}
+	option = {
+		name = estate_system.4.option.c
+		trigger = {
+			NOT = { has_country_flag = has_estate_warriors_guild }
+		}
+		hidden_effect = { 
+            set_country_flag = has_estate_warriors_guild 
+        }
+		custom_tooltip = estate_system.4.option.c.tooltip
+	}
+	option = {
+		name = estate_system.4.option.d
+		trigger = {
+            NOT = { religion_group = religion_group_rational_philosophies }
+			NOT = { has_country_flag = has_estate_religious_order }
+		}
+		hidden_effect = { 
+            set_country_flag = has_estate_religious_order 
+        }
+		custom_tooltip = estate_system.4.option.d.tooltip
+	}
+	option = {
+		name = estate_system.4.option.e
+		trigger = {
+			NOT = { has_country_flag = has_estate_criminal_syndicate }
+		}
+		hidden_effect = { 
+            set_country_flag = has_estate_criminal_syndicate 
+        }
+		custom_tooltip = estate_system.4.option.e.tooltip
+	}
+}
+
+#-----------------------------------
+# Seek Advisor
+#-----------------------------------
+country_event = {
+	id = estate_system.10
+	title = estate_system.10.title
+	desc = estate_system.10.desc
+	picture = KARAZHAN_eventPicture
+
+	is_triggered_only = yes
+    
+    # Administrative
+	option = {
+		name = estate_system.10.option.a
+		
+        country_event = { id = estate_system.11 }
+	}
+    
+    # Diplomatic
+	option = {
+		name = estate_system.10.option.b
+		
+        country_event = { id = estate_system.12 }
+	}
+    
+    # Military
+	option = {
+		name = estate_system.10.option.c
+		
+        country_event = { id = estate_system.13 }
+	}
+    
+    # Exit
+    option = {
+		name = estate_system.option.exit
+    }
+}
+
+# Administrative
+country_event = {
+	id = estate_system.11
+	title = estate_system.11.title
+	desc = estate_system.11.desc
+	picture = KING_LLANE_eventPicture
+
+	is_triggered_only = yes
+    
+	option = {
+		name = estate_system.11.option.a
+		
+        define_advisor = {
+            type = philosopher
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.b
+		
+        define_advisor = {
+            type = natural_scientist
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.c
+		
+        define_advisor = {
+            type = artist
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.d
+		
+        define_advisor = {
+            type = treasurer
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.e
+		
+        define_advisor = {
+            type = theologian
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.f
+		
+        define_advisor = {
+            type = master_of_mint
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.11.option.g
+		
+        define_advisor = {
+            type = inquisitor
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    
+    # Exit
+    option = {
+		name = estate_system.option.return
+        
+        country_event = { id = estate_system.10 }
+    }
+}
+
+# Diplomatic
+country_event = {
+	id = estate_system.12
+	title = estate_system.12.title
+	desc = estate_system.12.desc
+	picture = KING_LLANE_eventPicture
+
+	is_triggered_only = yes
+    
+	option = {
+		name = estate_system.12.option.a
+		
+        define_advisor = {
+            type = statesman
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.b
+		
+        define_advisor = {
+            type = naval_reformer
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.c
+		
+        define_advisor = {
+            type = trader
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.d
+		
+        define_advisor = {
+            type = spymaster
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.e
+		
+        define_advisor = {
+            type = colonial_governor
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.f
+		
+        define_advisor = {
+            type = diplomat
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.12.option.g
+		
+        define_advisor = {
+            type = navigator
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    
+    # Exit
+    option = {
+		name = estate_system.option.return
+        
+        country_event = { id = estate_system.10 }
+    }
+}
+
+# Military
+country_event = {
+	id = estate_system.13
+	title = estate_system.13.title
+	desc = estate_system.13.desc
+	picture = KING_LLANE_eventPicture
+
+	is_triggered_only = yes
+    
+    option = {
+		name = estate_system.13.option.a
+		
+        define_advisor = {
+            type = army_reformer
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.b
+		
+        define_advisor = {
+            type = army_organiser
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.c
+		
+        define_advisor = {
+            type = commandant
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.d
+		
+        define_advisor = {
+            type = quartermaster
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.e
+		
+        define_advisor = {
+            type = recruitmaster
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.f
+		
+        define_advisor = {
+            type = fortification_expert
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+    option = {
+		name = estate_system.13.option.g
+		
+        define_advisor = {
+            type = grand_captain
+            skill = 1
+        }
+        
+        add_treasury = -100
+	}
+
+    # Exit
+    option = {
+		name = estate_system.option.return
+        
+        country_event = { id = estate_system.10 }
+    }
+}
+

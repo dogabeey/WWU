@@ -133,6 +133,7 @@ power_of_the_sunwell = {
             religion = religion_arcane
             religion = religion_shadow
             religion = religion_chaos
+            religion = religion_light_of_the_sunwell
         }
     }
     
@@ -221,25 +222,21 @@ nether_magic = {
 
 kul_tiras_proudmoore = {
     potential = {
-		has_estate = estate_nobles
+		has_estate = estate_nobility
 		tag = A14
     }
     
 	trigger = {
 		estate_influence = {
-			estate = estate_nobles
+			estate = estate_nobility
 			influence = 75
 		}
 		NOT = { estate_influence = {
-			estate = estate_church
+			estate = estate_clergy
 			influence = 75
 		} }
 		NOT = { estate_influence = {
-			estate = estate_burghers
-			influence = 75
-		} }
-		NOT = { estate_influence = {
-			estate = estate_cossacks
+			estate = estate_traders
 			influence = 75
 		} }
 	}
@@ -249,25 +246,25 @@ kul_tiras_proudmoore = {
 
 kul_tiras_waycrest = {
     potential = {
-		has_estate = estate_cossacks
+		has_estate = estate_guild_order_of_embers
 		tag = A14
     }
     
 	trigger = {
 		NOT = { estate_influence = {
-			estate = estate_nobles
+			estate = estate_nobility
 			influence = 75 
 		} }
 		NOT = { estate_influence = {
-			estate = estate_church
+			estate = estate_clergy
 			influence = 75
 		} }
 		NOT = { estate_influence = {
-			estate = estate_burghers
+			estate = estate_traders
 			influence = 75
 		} }
 		estate_influence = {
-			estate = estate_cossacks
+			estate = estate_guild_order_of_embers
 			influence = 75
 		}
 	}
@@ -277,25 +274,25 @@ kul_tiras_waycrest = {
 
 kul_tiras_stormsong = {
     potential = {
-		has_estate = estate_church
+		has_estate = estate_clergy
 		tag = A14
     }
     
 	trigger = {
 		NOT = { estate_influence = {
-			estate = estate_nobles
+			estate = estate_nobility
 			influence = 75
 		} }
 		estate_influence = {
-			estate = estate_church
+			estate = estate_clergy
 			influence = 75
 		}
 		NOT = { estate_influence = {
-			estate = estate_burghers
+			estate = estate_traders
 			influence = 75
 		} }
 		NOT = { estate_influence = {
-			estate = estate_cossacks
+			estate = estate_guild_order_of_embers
 			influence = 75
 		} }
 	}
@@ -305,25 +302,25 @@ kul_tiras_stormsong = {
 
 kul_tiras_ashvane = {
     potential = {
-		has_estate = estate_burghers
+		has_estate = estate_traders
 		tag = A14
     }
     
 	trigger = {
 		NOT = { estate_influence = {
-			estate = estate_nobles
+			estate = estate_nobility
 			influence = 75
 		} }
 		NOT = { estate_influence = {
-			estate = estate_church
+			estate = estate_clergy
 			influence = 75
 		} }
 		estate_influence = {
-			estate = estate_burghers
+			estate = estate_traders
 			influence = 75
 		}
 		NOT = { estate_influence = {
-			estate = estate_cossacks
+			estate = estate_guild_order_of_embers
 			influence = 75
 		} }
 	}
@@ -375,7 +372,7 @@ no_cavalry = {
 
 has_invalid_dynasty = {
 	potential = {
-		has_reform = hereditary_monarchy
+		has_reform = wwu_hereditary_rule_reform
 	}
 	
 	trigger = {
@@ -428,10 +425,10 @@ alliance_vs_horde = {
 			}
 			AND = {
 				tag = B88
-				war_with = A01
+				war_with = STW
 			}
 			AND = {
-				tag = A01
+				tag = STW
 				war_with = B88
 			}
 			is_in_war = {

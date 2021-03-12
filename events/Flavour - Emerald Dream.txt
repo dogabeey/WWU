@@ -1,0 +1,403 @@
+namespace = wwu_emerald_dream
+
+# Piety = Purity
+# General Events 
+country_event = {
+	id = wwu_emerald_dream.1
+	title = wwu_emerald_dream.1.title 
+	desc = wwu_emerald_dream.1.desc 
+	picture = DREAM_eventPicture
+	
+    is_triggered_only = yes
+    
+    trigger = {
+		has_country_modifier = dreaming
+    }
+	
+	mean_time_to_happen = { 
+        days = 1
+    }
+
+    option = {
+		name = wwu_emerald_dream.1.opt1
+		
+		change_adm = 1
+    }  
+    option = {
+		name = wwu_emerald_dream.1.opt2
+		
+		change_dip = 1
+    }  
+    option = {
+		name = wwu_emerald_dream.1.opt3
+		
+		change_mil = 1
+    }  
+}
+country_event = {
+	id = wwu_emerald_dream.2
+	title = wwu_emerald_dream.2.title 
+	desc = wwu_emerald_dream.2.desc 
+	picture = DREAM_eventPicture
+	
+    is_triggered_only = yes
+    
+    trigger = {
+		has_country_modifier = dreaming
+    }
+	
+	mean_time_to_happen = { 
+        days = 1
+    }
+
+    option = {
+		name = wwu_emerald_dream.2.opt1
+		
+		add_piety = 0.2
+    }  
+    option = {
+		name = wwu_emerald_dream.2.opt2
+		
+		random_owned_province = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+    }  
+    option = {
+		name = wwu_emerald_dream.2.opt3
+		
+		add_adm_power = 75
+		add_dip_power = 75
+		add_mil_power = 75
+    }  
+}
+
+#Mid Events (Purity between -25 and 25)
+country_event = {
+	id = wwu_emerald_dream.3
+	title = wwu_emerald_dream.3.title 
+	desc = wwu_emerald_dream.3.desc 
+	picture = DREAM_eventPicture
+	
+    is_triggered_only = yes
+    
+    trigger = {
+		has_country_modifier = dreaming
+        NOT = { piety = 0.25 }
+		piety = -0.25
+    }
+	
+	mean_time_to_happen = { 
+        days = 1
+    }
+
+    option = {
+		name = wwu_emerald_dream.3.opt1
+		
+		add_yearly_manpower = -0.5
+		add_piety = 0.1
+    }  
+    option = {
+		name = wwu_emerald_dream.3.opt2
+		
+		add_adm_power = -150
+		add_piety = 0.1
+    }  
+    option = {
+		name = wwu_emerald_dream.3.opt3
+		
+		add_piety = -0.1
+    }  
+}
+country_event = {
+	id = wwu_emerald_dream.4
+	title = wwu_emerald_dream.4.title 
+	desc = wwu_emerald_dream.4.desc 
+	picture = DREAM_eventPicture
+	
+    is_triggered_only = yes
+    
+    trigger = {
+		has_country_modifier = dreaming
+        NOT = { piety = 0.25 }
+		piety = -0.25
+    }
+	
+	mean_time_to_happen = { 
+        days = 1
+    }
+
+    option = {
+		name = wwu_emerald_dream.4.opt1
+		
+		random_list = {
+			1 = {
+				custom_tooltip = wwu_emerald_dream.4.opt1.tt1 # He is innocent
+				add_prestige = -10
+				add_piety = -0.05
+			}
+			1 = {
+				custom_tooltip = wwu_emerald_dream.4.opt1.tt2 # He is guilty
+				add_prestige = 5
+				add_piety = 0.1
+			}
+		}
+    }  
+    option = {
+		name = wwu_emerald_dream.4.opt2
+		
+		random_list = {
+			2 = {
+				custom_tooltip = wwu_emerald_dream.4.opt2.tt1 # He is innocent
+				add_prestige = -5
+			}
+			1 = {
+				custom_tooltip = wwu_emerald_dream.4.opt2.tt2 # He escapes
+				add_piety = -0.05
+			}
+			1 = {
+				custom_tooltip = wwu_emerald_dream.4.opt2.tt3 # He can't escape
+				add_prestige = 5
+				add_piety = 0.1
+			}
+		}
+		
+    }  
+    option = {
+		name = wwu_emerald_dream.4.opt3
+		
+		random_list = {
+			1 = {
+				custom_tooltip = wwu_emerald_dream.4.opt3.tt1 # He is innocent
+			}
+			1 = {
+				custom_tooltip = wwu_emerald_dream.4.opt3.tt2 # He is guilty
+				add_prestige = -10
+				add_piety = -0.1
+			}
+		}
+    }  
+}
+#Purified Event ( Piety >25 )
+country_event = {
+	id = wwu_emerald_dream.5
+	title = wwu_emerald_dream.5.title
+	desc = wwu_emerald_dream.5.desc
+	picture = DREAM_eventPicture
+	
+    is_triggered_only = yes
+    
+    trigger = {
+		has_country_modifier = dreaming
+        piety = 0.25
+    }
+	
+	mean_time_to_happen = { 
+        days = 1
+    }
+    
+    option = {
+		name = wwu_emerald_dream.5.opt1
+		
+		random_list = {
+			2 = {
+				custom_tooltip = wwu_emerald_dream.5.failure # 
+				add_yearly_manpower = -1
+				random = { 
+					chance = 50
+					kill_ruler = yes
+				}
+			}
+			8 = {
+				custom_tooltip = wwu_emerald_dream.5.success #
+				add_prestige = 5
+				add_piety = 0.05
+				add_adm_power = 50
+			}
+		}
+    }  
+    option = {
+		name = wwu_emerald_dream.5.opt2
+		
+		random_list = {
+			4 = {
+				custom_tooltip = wwu_emerald_dream.5.failure # 
+				add_yearly_manpower = -1
+				random = { 
+					chance = 50
+					kill_ruler = yes
+				}
+			}
+			6 = {
+				custom_tooltip = wwu_emerald_dream.5.success #
+				add_prestige = 10
+				add_piety = 0.1
+				add_adm_power = 100
+			}
+		}
+    }  
+    option = {
+		name = wwu_emerald_dream.5.opt3
+		
+		random_list = {
+			6 = {
+				custom_tooltip = wwu_emerald_dream.5.failure # 
+				add_yearly_manpower = -1
+				random = { 
+					chance = 50
+					kill_ruler = yes
+				}
+			}
+			4 = {
+				custom_tooltip = wwu_emerald_dream.5.success #
+				add_prestige = 15
+				add_piety = 0.15
+				add_adm_power = 150
+			}
+		}
+    }  
+    option = {
+		name = wwu_emerald_dream.5.opt4
+		
+		random_list = {
+			8 = {
+				custom_tooltip = wwu_emerald_dream.5.failure # 
+				add_yearly_manpower = -1
+				random = { 
+					chance = 50
+					kill_ruler = yes
+				}
+			}
+			2 = {
+				custom_tooltip = wwu_emerald_dream.5.success #
+				add_prestige = 30
+				add_piety = 0.25
+				add_adm_power = 250
+			}
+		}
+    }  
+    option = {
+		name = wwu_emerald_dream.5.opt5
+		
+    }  
+}
+country_event = {
+	id = wwu_emerald_dream.6
+	title = wwu_emerald_dream.6.title
+	desc = wwu_emerald_dream.6.desc
+	picture = DREAM_eventPicture
+	
+    is_triggered_only = yes
+    
+    trigger = {
+		has_country_modifier = dreaming
+        piety = 0.25
+    }
+	
+	mean_time_to_happen = { 
+        days = 1
+    }
+
+    option = {
+		name = wwu_emerald_dream.6.opt1
+		
+		add_yearly_manpower = 1
+		add_army_professionalism = -0.05
+		add_piety = -0.05
+    }  
+    option = {
+		name = wwu_emerald_dream.6.opt2
+		
+		add_yearly_manpower = 0.5
+		add_army_professionalism = -0.05
+    }  
+    option = {
+		name = wwu_emerald_dream.6.opt3
+		
+    }
+}
+#Corrupted (Piety <-0.25)
+country_event = {
+	id = wwu_emerald_dream.7
+	title = wwu_emerald_dream.7.title
+	desc = wwu_emerald_dream.7.desc
+	picture = DREAM_eventPicture
+	
+	is_triggered_only = yes
+    
+    trigger = {
+		has_country_modifier = dreaming
+        NOT = { piety = -0.25 }
+    }
+	
+	mean_time_to_happen = { 
+        days = 1
+    }
+
+    option = {
+		name = wwu_emerald_dream.7.opt1
+		
+		add_yearly_manpower = -1
+		add_mil_power = -50
+		add_piety = -0.05
+    }  
+    option = {
+		name = wwu_emerald_dream.7.opt2
+		
+		random_owned_province = {
+			add_devastation = 20
+		}
+		add_adm_power = -50
+		add_piety = 0.05
+    }  
+    option = {
+		highlight = yes
+		name = wwu_emerald_dream.7.opt3 # Ask help of a fellow druidic nation
+		trigger = {
+			OR = {
+				ruler_has_personality = well_connected_personality
+				any_country = {
+					religion = religion_druidic
+					has_opinion = {
+						who = ROOT
+						value = 10
+					}
+				}
+			}
+		}
+		add_dip_power = -50
+		add_piety = 0.1
+    }
+}
+country_event = {
+	id = wwu_emerald_dream.8
+	title = wwu_emerald_dream.8.title 
+	desc = wwu_emerald_dream.8.desc 
+	picture = DREAM_eventPicture
+	
+    is_triggered_only = yes
+     
+    trigger = {
+		has_country_modifier = dreaming
+		NOT = { piety = -0.25 }
+		has_heir = yes
+    }
+
+	mean_time_to_happen = { 
+        days = 1
+    }
+	
+    option = {
+		name = wwu_emerald_dream.8.opt1
+		
+		kill_ruler = yes
+    }  
+    option = {
+		highlight = yes
+		name = wwu_emerald_dream.8.opt2 # There must be cure
+		trigger = {
+			full_idea_group = wwu_absolutism_ideas
+		}
+    }
+}

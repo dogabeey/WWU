@@ -1,0 +1,95 @@
+estate_mercantile_guild = {
+	icon = 8
+    color = { 200 150 150 }
+    
+    influence_from_dev_modifier = 0.4
+    
+	independence_government = republic
+	starting_reform = noble_republic_reform
+	independence_tech_group = tech_human
+    
+	# ----- Conditions -----
+    trigger = {
+        has_country_flag = has_estate_mercantile_guild
+    }
+
+	# ----- Country -----
+    country_modifier_happy = {
+        trade_efficiency = 0.25
+        trade_range_modifier = 0.25
+        trade_steering = 0.25
+    }
+    country_modifier_neutral = {
+        trade_efficiency = 0.1
+        trade_range_modifier = 0.1
+        trade_steering = 0.1
+    }    
+    country_modifier_angry = {
+        trade_efficiency = -0.25
+        trade_range_modifier = -0.25
+        trade_steering = -0.25
+    }
+    
+	land_ownership_modifier = {
+		mercantile_guild_loyalty_modifier = 0.2
+	}
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 2
+			culture_group = owner
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { religion = owner }
+			NOT = { culture_group = owner }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 0.75
+			development = 15
+		}
+		modifier = {
+			factor = 0.75
+			development = 20
+		}
+	}
+
+	# ----- Influence -----
+    base_influence = 10
+
+    # ----- Loyalty -----
+    loyalty_modifier = {
+        desc = EST_VAL_HIGH_PRESTIGE
+        trigger = {
+            prestige = 50
+        }
+        loyalty = 10
+    }
+    loyalty_modifier = {
+        desc = EST_VAL_LOW_PRESTIGE
+        trigger = {
+            NOT = { prestige = 0 }
+        }
+        loyalty = -10
+    }
+    
+    # ----- Privileges -----
+	privileges = {
+		estate_mercantile_guild_land_rights
+        estate_mercantile_guild_guild_oversight
+        estate_mercantile_guild_additional_merchants
+        estate_mercantile_guild_greased_palms
+        estate_mercantile_guild_merchant_fleet
+        estate_mercantile_guild_mercantilism
+	}
+
+    # ----- Agendas -----
+	agendas = {
+        
+	}
+}

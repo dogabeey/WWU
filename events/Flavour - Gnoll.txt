@@ -1,0 +1,168 @@
+namespace = gnoll
+
+country_event = {
+	id = gnoll.1
+	title = gnoll_battle_tactics.title
+	desc = gnoll_battle_tactics.desc
+	picture = GNOLL_eventPicture
+    
+	fire_only_once = no
+	
+	trigger = {
+		culture_group = culture_group_gnoll
+		any_country = {
+			war_with = ROOT
+			any_owned_province = {
+				controlled_by = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = gnoll_battle_tactics.opt1
+		
+		random_country = {
+			limit = {
+				war_with = ROOT
+			}
+			add_manpower = -1
+		}
+	}
+	
+	option = {
+		name = gnoll_battle_tactics.opt2
+		
+		add_war_exhaustion = -1
+	}
+	
+	option = {
+		name = gnoll_battle_tactics.opt3
+		
+		add_army_tradition = 5
+	}
+}
+
+country_event = {
+	id = gnoll.2
+	title = gnoll_kidnapping.title
+	desc = gnoll_kidnapping.desc
+	picture = GNOLL_eventPicture
+	
+	trigger = {
+		culture_group = culture_group_gnoll
+        any_neighbor_country = {
+            is_neighbor_of = ROOT
+        }
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+
+	immediate = {
+		random_neighbor_country = {
+			save_event_target_as = KidnapTarget
+		}
+	}
+	
+	option = {
+		name = gnoll_kidnapping.opt1
+		
+		reverse_add_opinion = {
+			who = event_target:KidnapTarget
+			modifier = dishonorable_act
+		}
+		reverse_add_casus_belli = {
+			target = event_target:KidnapTarget
+			type = cb_conquest
+			months = 12
+		}
+		add_country_modifier = { 
+			name = fresh_meat
+			duration = 365 
+			desc = fresh_meat.desc
+			hidden = no
+		}
+	}
+	
+	option = {
+		name = gnoll_kidnapping.opt2
+		
+		reverse_add_opinion = {
+			who = event_target:KidnapTarget
+			modifier = ate_our_citizen
+		}
+		reverse_add_casus_belli = {
+			target = event_target:KidnapTarget
+			type = cb_conquest
+			months = 12
+		}
+		add_prestige = 15
+	}
+	
+	option = {
+		name = gnoll_kidnapping.opt3
+		
+		add_prestige = -10
+	}
+}
+
+country_event = {
+	id = gnoll.3
+	title = gnoll_rotten_meat.title
+	desc = gnoll_rotten_meat.desc
+	picture = GNOLL_eventPicture
+    
+	fire_only_once = no
+	
+	trigger = {
+		culture_group = culture_group_gnoll
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = gnoll_rotten_meat.opt1
+		
+		random = { 
+			chance = 10
+			kill_heir = yes
+		}
+		random = { 
+			chance = 10
+			kill_ruler = yes
+		}
+		random = { 
+			chance = 10
+			remove_consort = yes
+		}
+		random = { 
+			chance = 10
+			kill_advisor = random
+		}
+	}
+	
+	option = {
+		name = gnoll_rotten_meat.opt2
+		
+		random = { 
+			chance = 50
+			random_province = {
+				add_devastation = -5
+				add_unrest = 10
+			}
+		}
+	}
+	
+	option = {
+		name = gnoll_rotten_meat.opt3
+		
+		add_prestige = -10
+	}
+}

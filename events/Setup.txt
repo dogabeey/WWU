@@ -1,41 +1,41 @@
-namespace = setup
+namespace = wwu_setup
 
-
+#---------------------------------------
+# World
+#---------------------------------------
 country_event = {
-	id = setup.1
-	title = setup.1.title
-	desc = setup.1.desc
+	id = wwu_setup.1
+	title = wwu_setup.1.title
+	desc = wwu_setup.1.desc
 	picture = WOW_ASSASSINATION_eventPicture
-	#goto = root
 	
     hidden = yes
     is_triggered_only = yes
 
     trigger = {
-        NOT = { has_global_flag = completed_setup }
+        NOT = { has_global_flag = completed_wwu_setup }
+        ai = no
     }
 
     immediate = {
-        set_global_flag = completed_setup
-    }
-
-    option = {
-		name = setup.1.option.a
-		#log = "setup.1.option.a"
+        set_global_flag = completed_wwu_setup
         
-        # --- Logging flags
-        #   Comment these for release builds
-        set_global_flag = enable_onaction_logging
-        set_global_flag = enable_event_logging
-
-
-        # Configure HRE
+        # World State
+        set_faction_conflict = yes
         hre_inheritable = yes
+		set_hre_religion = religion_sect_of_dragons
+		set_hre_heretic_religion = religion_old_gods
+        #set_papacy_active = no
+        
+        # Initializes variables which are used in on_actions
+		init_variables = yes
 		
-		add_militarised_society = 60
-		
+		# Religious and Cultural Unity for ALL NATIONS on start and Core creation.
+		# This will override history files in default setting. See script file to see how to avoid overriding.
+		init_full_unity = yes
+        
         # Game flags
-        #   Used to detect which bookmark the flag starts in, accounting for time adjustments
+        #  Used to detect which bookmark the flag starts in, accounting for time adjustments
         if = {
             limit = {
                 is_year = 592
@@ -147,36 +147,50 @@ country_event = {
             }
             set_global_flag = doomed_world
         }
-    }  
-}
-################################
-# global setup events
-################################
-country_event = {
-	id = setup.2
-	title = setup.1.title
-	desc = setup.1.desc
-	picture = WOW_ASSASSINATION_eventPicture
-	#goto = root
-	
-    hidden = yes
-    fire_only_once = yes
-	
-
-    trigger = {
-        always = yes
     }
 
-    mean_time_to_happen = { days = 1 }
-
     option = {
-		name = setup.1.option.a
-		#log = "setup.1.option.a"
-		every_province = {
-			limit = { 
-				is_center_of_trade_1 = yes 
-			}
-			add_center_of_trade_level = 1
-		}
+		name = wwu_setup.1.option.a
+    }  
+}
+
+#---------------------------------------
+# Country
+#---------------------------------------
+country_event = {
+	id = wwu_setup.2
+	title = wwu_setup.2.title
+	desc = wwu_setup.2.desc
+	picture = WOW_ASSASSINATION_eventPicture
+	
+    is_triggered_only = yes
+    hidden = yes
+
+    trigger = {
+        NOT = { has_country_flag = completed_country_wwu_setup }
+    }
+    
+    immediate = {
+        if = {
+             limit = { ai = no }
+             
+             set_country_flag = trade_control_flag
+        }
+        
+        # Government
+        if = {
+            limit = {
+                has_reform = wwu_hereditary_rule_reform
+                has_heir = no
+            }
+            set_country_flag = country_has_no_heir
+            #
+        }
+        
+        
+    }
+    
+    option = {
+		name = wwu_setup.2.option.a
     }  
 }

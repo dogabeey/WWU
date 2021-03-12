@@ -8,12 +8,11 @@ country_event = {
 	title = the_missing_diplomat.1.title
 	desc = the_missing_diplomat.1.desc
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	fire_only_once = yes
 	
 	trigger = {
-		tag = A01
+		tag = STW
 		current_age = rise_of_the_qiraji
 		NOT = { heir_age = 13 }
 	}
@@ -27,7 +26,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.1.opt1
-		#log = "the_missing_diplomat.1.opt1"
+		
 		exile_ruler_as = varian_wrynn
 		hidden_effect = {
 			set_country_flag = varian_wrynn_lost # Clear this when either 'Varian' is found
@@ -45,7 +44,6 @@ country_event = {
 	title = the_missing_diplomat.2.title
 	desc = the_missing_diplomat.2.desc
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 		
@@ -88,7 +86,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.2.opt1
-		#log = "the_missing_diplomat.2.opt1" # Bring Merchants Guild's Headmaster into questioning
+		
 		trigger = {
 			NOT = { has_country_flag = option_1_is_selected }
 		}
@@ -107,7 +105,7 @@ country_event = {
 		}
 		
 		add_estate_loyalty = {
-			estate = estate_burghers
+			estate = estate_traders
 			loyalty = -10
 		}
 		add_dip_power = -25
@@ -118,7 +116,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.2.opt2
-		#log = "the_missing_diplomat.2.opt2" # Bring leader of one of the noble families into questioning.
+		
 		trigger = {
 			NOT = { has_country_flag = option_2_is_selected }
 		}
@@ -136,7 +134,7 @@ country_event = {
 			}
 		}
 		add_estate_loyalty = {
-			estate = estate_nobles
+			estate = estate_nobility
 			loyalty = -10
 		}
 		add_mil_power = -25
@@ -147,7 +145,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.2.opt3
-		#log = "the_missing_diplomat.2.opt3" # Bring the archbishop into questioning.
+		
 		trigger = {
 			NOT = { has_country_flag = option_3_is_selected }
 		}
@@ -165,7 +163,7 @@ country_event = {
 			}
 		}
 		add_estate_loyalty = {
-			estate = estate_church
+			estate = estate_clergy
 			loyalty = -10
 		}
 		add_adm_power = -25
@@ -176,7 +174,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.2.opt4
-		#log = "the_missing_diplomat.2.opt4" # Bring one of the old officers from old Stonemasons Guild into questioning.
+		
 		trigger = {
 			NOT = { has_country_flag = option_4_is_selected }
 		}
@@ -194,7 +192,7 @@ country_event = {
 			}
 		}
 		add_estate_loyalty = {
-			estate = estate_workers
+			estate = estate_traders
 			loyalty = -10
 		}
 		add_years_of_income = -0.2
@@ -209,7 +207,6 @@ country_event = {
 	title = the_missing_diplomat.3.title
 	desc = the_missing_diplomat.3.desc
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -223,7 +220,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.3.opt1
-		#log = "the_missing_diplomat.3.opt1"
+		
 		add_yearly_manpower = -0.35
 		add_mil_power = -50
 		country_event = { id = the_missing_diplomat.5 days = 30 random = 15 tooltip = the_missing_diplomat.3.opt1.tt }
@@ -231,7 +228,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.3.opt2
-		#log = "the_missing_diplomat.3.opt2"
+		
 		add_treasury = -50
 		add_dip_power = -40
 		country_event = { id = the_missing_diplomat.5 days = 60 random = 20 tooltip = the_missing_diplomat.3.opt2.tt }
@@ -239,14 +236,14 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.3.opt3
-		#log = "the_missing_diplomat.3.opt3"
+		
 		add_adm_power = -30
 		country_event = { id = the_missing_diplomat.5 days = 90 random = 30 tooltip = the_missing_diplomat.3.opt3.tt }
 	}
 	
 	option = {
 		name = the_missing_diplomat.3.opt4
-		#log = "the_missing_diplomat.3.opt4"
+		
 		custom_tooltip = the_missing_diplomat.3.opt4.tt
 		add_prestige = -15
 		clr_country_flag = missing_diplomat_storyline
@@ -281,7 +278,6 @@ country_event = {
 		desc = "the_missing_diplomat.4.desc.4"
 	}
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -295,13 +291,13 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.4.opt1
-		#log = "the_missing_diplomat.4.opt1"
+		
 		if = {
 			limit = {
 				has_country_flag = option_1_is_selected_temp
 			}
 			add_estate_loyalty = {
-				estate = estate_burghers
+				estate = estate_traders
 				loyalty = -10
 			}
 			add_dip_power = -25
@@ -312,7 +308,7 @@ country_event = {
 				has_country_flag = option_2_is_selected_temp
 			}
 			add_estate_loyalty = {
-				estate = estate_nobles
+				estate = estate_nobility
 				loyalty = -10
 			}
 			add_mil_power = -25
@@ -323,7 +319,7 @@ country_event = {
 				has_country_flag = option_3_is_selected_temp
 			}
 			add_estate_loyalty = {
-				estate = estate_church
+				estate = estate_clergy
 				loyalty = -10
 			}
 			add_adm_power = -25
@@ -331,7 +327,7 @@ country_event = {
 		}
 		else = {
 			add_estate_loyalty = {
-				estate = estate_workers
+				estate = estate_traders
 				loyalty = -10
 			}
 			country_event = { id = the_missing_diplomat.2 }
@@ -344,7 +340,6 @@ country_event = {
 	title = the_missing_diplomat.5.title
 	desc = the_missing_diplomat.5.desc
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -358,14 +353,14 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.5.opt1
-		#log = "the_missing_diplomat.5.opt1"
+		
 		add_yearly_manpower = -0.75
 		country_event = { id = the_missing_diplomat.6 days = 60 random = 15 tooltip = the_missing_diplomat.5.opt1.tt }
 	}
 	
 	option = {
 		name = the_missing_diplomat.5.opt2
-		#log = "the_missing_diplomat.5.opt2"
+		
 		add_yearly_sailors = -2
 		country_event = { id = the_missing_diplomat.7 days = 60 random = 15 tooltip = the_missing_diplomat.5.opt2.tt }
 	}
@@ -376,7 +371,6 @@ country_event = {
 	title = the_missing_diplomat.6.title
 	desc = the_missing_diplomat.6.desc
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -390,7 +384,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.6.opt1
-		#log = "the_missing_diplomat.6.opt1"
+		
 		custom_tooltip = the_missing_diplomat.6.opt1.tt
 		add_prestige = 20
 		change_adm = -4
@@ -404,7 +398,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.6.opt2
-		#log = "the_missing_diplomat.6.opt2"
+		
 		kill_ruler = yes
 		add_prestige = -20
 		hidden_effect = { clr_country_flag = missing_diplomat_storyline }
@@ -416,7 +410,6 @@ country_event = {
 	title = the_missing_diplomat.7.title
 	desc = the_missing_diplomat.7.desc
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -431,7 +424,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.7.opt1
-		#log = "the_missing_diplomat.7.opt1"
+		
 		custom_tooltip = the_missing_diplomat.7.opt1.tt
 		add_years_of_income = -3
 		add_prestige = 10
@@ -446,7 +439,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.7.opt2
-		#log = "the_missing_diplomat.7.opt2"
+		
 		custom_tooltip = the_missing_diplomat.7.opt1.tt
 		add_mil_power = -100
 		add_yearly_manpower = -0.3
@@ -462,7 +455,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.7.opt3
-		#log = "the_missing_diplomat.7.opt3"
+		
 		kill_ruler = yes
 		add_prestige = -20
 		hidden_effect = { clr_country_flag = missing_diplomat_storyline }
@@ -474,7 +467,6 @@ country_event = {
 	title = the_missing_diplomat.8.title
 	desc = the_missing_diplomat.8.desc
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -487,7 +479,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.8.opt1
-		#log = "the_missing_diplomat.8.opt1"
+		
 		custom_tooltip = the_missing_diplomat.8.opt1.tt
 		add_prestige = 10
 		change_adm = 4
@@ -526,7 +518,6 @@ country_event = {
 	title = the_missing_diplomat.9.title
 	desc = the_missing_diplomat.9.desc
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -539,7 +530,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.9.opt1
-		#log = "the_missing_diplomat.9.opt1"
+		
 		custom_tooltip = the_missing_diplomat.9.opt1.tt
 		add_prestige = 10
 		change_adm = 3
@@ -578,7 +569,6 @@ country_event = {
 	title = the_missing_diplomat.10.title
 	desc = the_missing_diplomat.10.desc
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	trigger = {
 		has_country_flag = missing_diplomat_storyline
@@ -597,7 +587,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.10.opt1
-		#log = "the_missing_diplomat.10.opt1"
+		
 		add_prestige = 10
 		add_stability = 1
 	}
@@ -608,7 +598,6 @@ country_event = {
 	title = the_missing_diplomat.11.title
 	desc = the_missing_diplomat.11.desc
 	picture = STORMWIND_eventPicture
-	#goto = root
 	
 	is_triggered_only = yes
 	
@@ -623,7 +612,7 @@ country_event = {
 	
 	option = {
 		name = the_missing_diplomat.11.opt1
-		#log = "the_missing_diplomat.11.opt1"
+		
 		add_prestige = -10
 		remove_advisor = diplomat_katrana_prestor
 		remove_advisor = statesman_bolvar_fordragon
@@ -641,19 +630,19 @@ country_event = {
 					culture = culture_black
 					religion = religion_old_gods
 				}
-				create_union = A01
+				create_union = STW
 			}
 		}
 		else_if = {
 			limit = {
 				any_country = {
-					total_development = A01
+					total_development = STW
 					primary_culture = culture_black
 				}
 			}
 			random_country = {
 				limit = {
-					total_development = A01
+					total_development = STW
 					primary_culture = culture_black
 				}
 				define_ruler = {
@@ -667,7 +656,7 @@ country_event = {
 					culture = culture_black
 					religion = religion_old_gods
 				}
-				create_union = A01
+				create_union = STW
 			}
 		}
 		else = {
@@ -682,7 +671,7 @@ country_event = {
 				culture = culture_black
 				religion = religion_old_gods
 			}
-			create_union = A01
+			create_union = STW
 		}
 		capital_scope = {
 			change_culture = culture_black
