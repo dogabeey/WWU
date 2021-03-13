@@ -56,12 +56,6 @@ first_war_orc = {
     potential = {
 		current_age = the_first_war
 		culture_group = culture_group_orc
-		NOT = {
-			OR = {
-				has_global_flag = orc_invasion_difficulty_easy
-				has_global_flag = orc_invasion_difficulty_very_easy
-			}
-		}
     }
 	trigger = {
 		current_age = the_first_war
@@ -82,7 +76,6 @@ first_war_orc_easy = {
     potential = {
 		current_age = the_first_war
 		culture_group = culture_group_orc
-		has_global_flag = orc_invasion_difficulty_easy
     }
 	trigger = {
 		current_age = the_first_war
@@ -103,7 +96,6 @@ first_war_orc_very_easy = {
     potential = {
 		current_age = the_first_war
 		culture_group = culture_group_orc
-		has_global_flag = orc_invasion_difficulty_very_easy
     }
 	trigger = {
 		current_age = the_first_war
@@ -132,7 +124,6 @@ power_of_the_sunwell = {
             religion = religion_fel
             religion = religion_arcane
             religion = religion_shadow
-            religion = religion_chaos
             religion = religion_light_of_the_sunwell
         }
     }
@@ -246,7 +237,6 @@ kul_tiras_proudmoore = {
 
 kul_tiras_waycrest = {
     potential = {
-		has_estate = estate_guild_order_of_embers
 		tag = A14
     }
     
@@ -263,10 +253,6 @@ kul_tiras_waycrest = {
 			estate = estate_traders
 			influence = 75
 		} }
-		estate_influence = {
-			estate = estate_guild_order_of_embers
-			influence = 75
-		}
 	}
 	
 	mercenary_cost = -0.25
@@ -289,10 +275,6 @@ kul_tiras_stormsong = {
 		}
 		NOT = { estate_influence = {
 			estate = estate_traders
-			influence = 75
-		} }
-		NOT = { estate_influence = {
-			estate = estate_guild_order_of_embers
 			influence = 75
 		} }
 	}
@@ -319,10 +301,6 @@ kul_tiras_ashvane = {
 			estate = estate_traders
 			influence = 75
 		}
-		NOT = { estate_influence = {
-			estate = estate_guild_order_of_embers
-			influence = 75
-		} }
 	}
 	
 	privateer_efficiency = 0.25

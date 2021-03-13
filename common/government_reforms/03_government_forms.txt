@@ -161,17 +161,13 @@ horde_reform = {
 	conditional = {
 		allow = { 
 			has_dlc = "Cradle of Civilization"
-			NOT = { has_country_modifier = the_shadow_council }
 		}
 		heir = no
 		foreign_slave_rulers = yes
 	}
-	conditional = {
-		allow = { NOT = { has_dlc = "Cradle of Civilization" } }
-		
-		custom_attributes = {
-			generals_become_rulers = yes
-		}
+
+	custom_attributes = {
+		generals_become_rulers = yes
 	}
 	
 	modifiers = {
@@ -306,7 +302,6 @@ kingdom_of_magic_reform = {
     potential = {
 		OR = {
 			religion = religion_arcane
-			religion = religion_chaos
 			religion = religion_fel
 		}
 	}
@@ -343,7 +338,6 @@ kingdom_of_magic_reform = {
     nation_designer_trigger = {
         OR = {
 			religion = religion_arcane
-			religion = religion_chaos
 			religion = religion_fel
 		}
     }
@@ -631,7 +625,6 @@ magocracy_reform = {
 		NOT = { has_reform = colonial_government_reform }
 		OR = {
 			religion = religion_arcane
-			religion = religion_chaos
 			religion = religion_fel
 		}
 	}
@@ -668,7 +661,6 @@ magocracy_reform = {
     nation_designer_trigger = {
         OR = {
 			religion = religion_arcane
-			religion = religion_chaos
 			religion = religion_fel
 		}
     }
@@ -1025,10 +1017,7 @@ demonic_order_reform = {
     legacy_equivalent = demonic_order_legacy
     
     potential = {
-        OR = {
-            religion = religion_chaos
-            religion = religion_fel
-        }
+		religion = religion_fel
     }
     
     monastic = yes
@@ -1064,10 +1053,7 @@ demonic_order_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
     nation_designer_trigger = {
-        OR = {
-            religion = religion_chaos
-            religion = religion_fel
-        }
+        religion = religion_fel
     }
 }
 druidic_circle_reform = {

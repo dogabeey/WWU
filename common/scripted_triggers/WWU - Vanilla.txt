@@ -458,7 +458,6 @@ province_viable_for_industrialization_events_trigger = { #Province Scope
 		is_in_capital_area = yes
 		continent = CAPITAL
 	}
-	enlightenment = 100
 }
 
 unindustrialized_province_trigger = { #Province Scope
@@ -522,9 +521,7 @@ has_nobles_trade_good_trigger = {
 	OR = {
 		trade_goods = copper
 		trade_goods = iron
-		trade_goods = livestock
 		trade_goods = grain
-		trade_goods = gems
 	}
 }
 
@@ -541,12 +538,9 @@ has_burghers_trade_good_trigger = {
 		trade_goods = cloth
 		trade_goods = silk
 		trade_goods = dyes
-		trade_goods = coal
 		trade_goods = spices
 		trade_goods = tropical_wood
-		trade_goods = glass
 		trade_goods = chinaware
-		trade_goods = paper
 		trade_goods = ivory
 	}
 }
@@ -555,15 +549,8 @@ has_church_trade_good_trigger = {
 	OR = {
 		trade_goods = wool
 		trade_goods = fur
-		AND = {
-			trade_goods = slaves
-			ROOT = { religion = religion_the_legion }
-		}
-		trade_goods = incense
-		AND = {
-			trade_goods = fish
-			ROOT = { religion_group = religion_water }
-		}
+		trade_goods = slaves
+		trade_goods = fish
 	}
 }
 

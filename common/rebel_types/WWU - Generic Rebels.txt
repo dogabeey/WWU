@@ -1020,24 +1020,6 @@ tribal_rebels = {
 			}
 		}
 		modifier = {
-			factor = 2.0
-			owner = {
-				estate_territory = {
-					estate = estate_tribes
-					territory = 20
-				}
-			}
-		}
-		modifier = {
-			factor = 2.0
-			owner = {
-				estate_territory = {
-					estate = estate_tribes
-					territory = 30
-				}
-			}
-		}
-		modifier = {
 			factor = 1
 			owner = {
 				horde_unity = 20
@@ -1114,13 +1096,6 @@ tribal_rebels = {
  	}
 	siege_won_effect = {
 		add_local_autonomy = 10	
-		owner = {
-			change_estate_land_share = {
-				estate = estate_tribes
-				share = 10.0
-				province = ROOT
-			}
-		}
 	}	
 	
 	# Country scope
@@ -1150,17 +1125,6 @@ tribal_rebels = {
 				has_rebel_faction = REB
 			}
 			add_local_autonomy = 30
-		}
-		add_estate_influence_modifier = {
-			estate = estate_tribes
-			desc = EST_VAL_SUCCESFUL_TRIBAL_REVOLT
-			duration = 3650
-			influence = 15
-		}
-		add_prestige = -20
-		change_estate_land_share = {
-			estate = estate_tribes
-			share = 10.0
 		}
 	}
 }
@@ -1253,7 +1217,7 @@ heretic_rebels = {
  		}
 	}
 	siege_won_effect = {
-		add_reform_desire = 0.001
+		owner = { add_reform_desire = 0.001 }
 		add_province_modifier = {
 			name = "heresy"
 			duration = 730
