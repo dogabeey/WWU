@@ -32,7 +32,6 @@ replace_path="common/scripted_effects"
 replace_path="common/scripted_triggers"
 replace_path="common/state_edicts"
 replace_path="common/units"
-
 replace_path="history/provinces"
 replace_path="history/countries"
 replace_path="history/diplomacy"
