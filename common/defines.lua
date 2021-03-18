@@ -508,7 +508,7 @@ NCountry = {
 
 	ESTATE_AGENDA_DENIAL_LOYALTY_PENALTY = -5,	-- Loylaty penalty of denying an estate agenda
 	ESTATE_AGENDA_DEFAULT_MAX_ACTIVE_DAYS = 7300, -- Default max amount of days an agenda can stay active
-	ESTATE_AGENDA_ABOUT_TO_EXPIRE_WARNING = 365, -- How many days it should start warning for agenda about to expire
+	ESTATE_AGENDA_ABOUT_TO_EXPIRE_WARNING = 1095, -- How many days it should start warning for agenda about to expire
 
 	ESTATE_LOYALTY_INFLUENCE_ON_LIBERTY_DESIRE = -0.3, -- Estate loyalty influence on libarty desire of vassals (if it has vassal_liberty_affected_by_loyalty)
 
@@ -2177,6 +2177,7 @@ NGovernment = {
 	SANCTION_HOLY_WAR_COST = 50,
 	SANCTION_HOLY_WAR_LIST_SIZE = 7,
 	INVITE_MINORITIES_GAIN = 1,
+	FEUDAL_THEOCRACY_INTERACTION_COOLDOWN_YEARS = 5,
     
     MAMLUK_ABILITY_POOL_SIZE = 150,
 	MAMLUK_ABILITY_COST = 100,
