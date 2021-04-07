@@ -68,16 +68,20 @@ religion_group_order = {
 		icon = 13
 
 		country = {
-            advisor_cost = -0.1
+            		advisor_cost = -0.1
 			advisor_pool = 1
 		}
-		
+		country_as_secondary = {
+            		advisor_cost = -0.1
+			advisor_pool = 1
+		}		
+
 		has_patriarchs = yes
 		
 		orthodox_icons = {
             # Order
             spec_arcane = {
-				improve_relation_modifier = 0.1
+				improve_relation_modifier = 0.2
                 
 				allow = {
 					always = yes
@@ -99,7 +103,7 @@ religion_group_order = {
 			}
 
 			spec_fire = {
-				fire_damage = 0.05
+				fire_damage = 0.1
                 
 				allow = {
 					always = yes
@@ -111,7 +115,7 @@ religion_group_order = {
             
             # Disorder
 			spec_affliction = {
-				siege_ability = 0.2
+				siege_ability = 0.4
 				yearly_patriarch_authority = -0.02
                 
 				allow = {
@@ -123,8 +127,8 @@ religion_group_order = {
 			}
 
 			spec_destruction = {
-				shock_damage = 0.2
-				yearly_patriarch_authority = -0.02
+				shock_damage = 0.3
+				yearly_patriarch_authority = -0.01
 				
 				allow = {
 					always = yes
@@ -135,7 +139,7 @@ religion_group_order = {
 			}
 
 			spec_demonology = {
-				yearly_corruption = -0.05
+				yearly_corruption = -0.15
 				yearly_patriarch_authority = -0.01
 				
 				allow = {
@@ -147,7 +151,7 @@ religion_group_order = {
 			}
 
 			spec_havoc = {
-				core_creation = -0.1
+				core_creation = -0.30
 				yearly_patriarch_authority = -0.03
 				
 				allow = {
@@ -285,7 +289,7 @@ religion_group_order = {
 		icon = 24
 		
 		country = {
-			diplomatic_reputation = 1
+			diplomatic_reputation = 2
             diplomatic_upkeep = 1
 		}
 
@@ -774,7 +778,7 @@ religion_group_elemental = {
 		icon = 25
 		
 		country = {	
-			global_manpower_modifier = 0.05
+			global_manpower_modifier = 0.25
 			recover_army_morale_speed = 0.05
 		}
 		province = {
@@ -801,7 +805,7 @@ religion_group_elemental = {
 		icon = 26
 		
 		country = {	
-			production_efficiency = 0.1
+			production_efficiency = 0.2
 		}
 		province = {
 			local_missionary_strength = -0.01
@@ -827,7 +831,7 @@ religion_group_elemental = {
 		icon = 27
 		
 		country = {
-			unjustified_demands = -0.15
+			unjustified_demands = -0.5
 		}
 		province = {
 			local_missionary_strength = -0.01
@@ -853,7 +857,10 @@ religion_group_elemental = {
 		icon = 28
 		
 		country = {
-			naval_forcelimit_modifier = 0.15
+			naval_forcelimit_modifier = 0.5
+		}
+		country_as_secondary = {
+			naval_forcelimit_modifier = 0.5
 		}
 		province = {
 			local_missionary_strength = -0.01
@@ -946,7 +953,7 @@ religion_group_the_light = {
 			picture = "GFX_icon_brotherhood_of_northshire"
 
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			adm_tech_cost_modifier = -0.05
+			adm_tech_cost_modifier = -0.1
 		}
 		the_conclave = {
 			potential_invite_scholar = {
@@ -1007,7 +1014,7 @@ religion_group_the_light = {
 			picture = "GFX_icon_the_conclave"
 
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			adm_tech_cost_modifier = -0.05
+			adm_tech_cost_modifier = -0.1
 		}
 		order_of_the_silver_hand = {
 			potential_invite_scholar = {
@@ -1072,7 +1079,7 @@ religion_group_the_light = {
 			picture = "GFX_icon_order_of_the_silver_hand"
 
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			adm_tech_cost_modifier = -0.05
+			adm_tech_cost_modifier = -0.1
 		}
 		crimson_legion = {
 			potential_invite_scholar = {
@@ -1125,7 +1132,7 @@ religion_group_the_light = {
 			picture = "GFX_icon_crimson_legion"
 
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			adm_tech_cost_modifier = -0.05
+			adm_tech_cost_modifier = -0.1
 		}
 		blood_knights = {
 			potential_invite_scholar = {
@@ -1178,7 +1185,7 @@ religion_group_the_light = {
 			picture = "GFX_icon_blood_knights"
 
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			adm_tech_cost_modifier = -0.05
+			adm_tech_cost_modifier = -0.1
 		}
 		argent_light = {
 			potential_invite_scholar = {
@@ -1272,7 +1279,7 @@ religion_group_the_light = {
 			picture = "GFX_icon_the_lightforged"
 
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			adm_tech_cost_modifier = -0.05
+			adm_tech_cost_modifier = -0.1
 		}
 		the_sunwalkers = {
 			potential_invite_scholar = {
@@ -1324,7 +1331,7 @@ religion_group_the_light = {
 			picture = "GFX_icon_the_sunwalkers"
 
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			adm_tech_cost_modifier = -0.05
+			adm_tech_cost_modifier = -0.1
 		}
 	}
 	
@@ -1333,6 +1340,10 @@ religion_group_the_light = {
 		icon = 1
 		
 		country = {
+			tolerance_own = 1
+			global_tax_modifier = 0.2
+		}
+		country_as_secondary = {
 			tolerance_own = 1
 			global_tax_modifier = 0.2
 		}
@@ -1358,7 +1369,7 @@ religion_group_the_light = {
             		
 			tolerance_own = 2
 			missionaries = 1
-			global_missionary_strength = 0.02
+			global_missionary_strength = 0.03
 			
 			tolerance_heathen = -8
 			tolerance_heretic = -6
@@ -1432,7 +1443,7 @@ religion_group_the_light = {
 		
 		country = {
 			
-			tolerance_own = 3
+			tolerance_own = 4
 		}
 		
 		misguided_heretic = yes
@@ -1471,6 +1482,11 @@ religion_group_nature = {
 			diplomatic_reputation = 2
 			monthly_piety = -0.01
 		}
+			
+		country_as_secondary = {
+			
+			ae_impact = -0.2
+		}
         
 		on_convert = {
 			change_religion = religion_druidic
@@ -1494,7 +1510,12 @@ religion_group_nature = {
 		misguided_heretic = yes
 		
 		country = {
-			ae_impact = -0.15
+			ae_impact = -0.2
+		}
+		country_as_secondary = {
+			
+			diplomatic_reputation = 2
+			monthly_piety = -0.01
 		}
 		
 		on_convert = {
@@ -1669,8 +1690,8 @@ religion_group_nature = {
 		icon = 12
 		
 		country = {
-			tolerance_own = 1
-			war_exhaustion_cost = -0.1
+			tolerance_own = 2
+			war_exhaustion_cost = -0.2
 		}
 		
 		personal_deity = yes
@@ -1706,6 +1727,10 @@ religion_group_the_void = {
 		icon = 8
 
 		country = {
+			advisor_cost = -0.15
+		}
+		country_as_secondary = {
+			
 			advisor_cost = -0.15
 		}
 		province = {

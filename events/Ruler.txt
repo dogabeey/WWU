@@ -1,43 +1,6 @@
 namespace = wow_ruler
 
-# Reduction for Immortals
-country_event = {
-	id = wow_ruler.1
-	title = wow_ruler.1.title
-	desc = wow_ruler.1.desc
-	picture = DIPLOMACY_eventPicture
-	
-	is_triggered_only = yes
-    
-    trigger = {
-        has_dlc = "Rights of Man"
-        ruler_has_personality = immortal_personality
-    }
-   
-	option = {
-		name = wow_ruler.1.option.a
-		
-		
-        ###if = { limit = { has_global_flag = enable_event_logging } 
-        change_adm = -1
-	}
-    
-    option = {
-		name = wow_ruler.1.option.b
-		
-		
-        ###if = { limit = { has_global_flag = enable_event_logging } 
-        change_dip = -1
-	}
-    
-    option = {
-		name = wow_ruler.1.option.c
-		
-		
-        ###if = { limit = { has_global_flag = enable_event_logging } 
-        change_mil = -1
-	}
-}
+
 
 # Increase for Immortals
 country_event = {
@@ -164,11 +127,7 @@ country_event = {
                 }
                 ruler_age = 300
             }
-            # High Elf
-            AND = {
-                culture_group = culture_group_thalassian
-                ruler_age = 350
-            }
+
             # Mogu
             AND = {
                 culture_group = culture_group_mogu
