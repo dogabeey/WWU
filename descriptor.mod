@@ -1,4 +1,4 @@
-name="World of Warcraft Universalis (Steam)"
+name="World of Warcraft Universalis"
 replace_path="common/ages"
 replace_path="common/advisortypes"
 replace_path="common/bookmarks"
