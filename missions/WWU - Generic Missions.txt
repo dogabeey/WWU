@@ -11,9 +11,7 @@ army_professionalism_missions = {
 		icon = mission_assemble_an_army
 		required_missions = { build_army_mission }
 		position = 2
-		trigger = {
-			army_professionalism = 0.05
-		}
+		trigger = { if = { limit = { has_dlc = "Cradle of Civilization" } army_professionalism = 0.25 } else = { army_size_percentage = 1.25 } }
 		effect = {
 			add_army_professionalism = 0.025
 		}
