@@ -13,8 +13,12 @@ country_decisions = {
 			has_discovered = 2214
 			2214 = {
 				range = ROOT
-				NOT = { has_great_project = ula_tek_canal }
-				NOT = { has_construction = canal }
+				NOT = { 
+                    has_great_project = {
+                        type = ula_tek_canal
+                    } 
+                }
+				NOT = { has_construction = ula_tek_canal }
 			}
 			adm_tech = 2
 		}
@@ -47,12 +51,12 @@ country_decisions = {
 			owns_or_vassal_of = 2214
 			is_subject = no
 			2214 = {
-				has_construction = canal
+				has_construction = ula_tek_canal
 			}
 		}
 		allow = {
 			2214 = {
-				has_construction = canal
+				has_construction = ula_tek_canal
 			}
 		}
 		effect = {
@@ -78,8 +82,12 @@ country_decisions = {
 			}
 			has_discovered = 2505
 			2505 = {
-				NOT = { has_great_project = deeprun_tram }
-				NOT = { has_construction = canal }
+                NOT = { 
+                    has_great_project = {
+                        type = deeprun_tram
+                    } 
+                }
+				NOT = { has_construction = deeprun_tram }
 			}
 			the_second_war_or_later = yes
 		}
@@ -113,13 +121,13 @@ country_decisions = {
 			owns_or_vassal_of = 2505
 			ai = no
 			2505 = {
-				has_construction = canal
+				has_construction = deeprun_tram
 			}
 		}
 		allow = {
 			owns_or_vassal_of = 2505
 			2505 = {
-				has_construction = canal
+				has_construction = deeprun_tram
 			}
 		}
 		effect = {

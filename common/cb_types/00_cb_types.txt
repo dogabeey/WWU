@@ -25,7 +25,7 @@ cb_restore_personal_union = {
 			government = monarchy
 			has_reform = magocracy_reform
 		}
-		is_revolution_target = no
+		is_revolutionary = no
 		FROM = {
 			government = monarchy
 			is_subject = no
@@ -101,7 +101,7 @@ cb_dishonored_call = {
 	valid_for_subject = no
 
 	is_triggered_only = yes
-	months = 36
+	months = 96
 
 	war_goal = superiority_insult
 }
@@ -249,7 +249,7 @@ cb_humiliate = {
 			}
 		}
 		is_neighbor_of = FROM
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = humiliate
@@ -261,7 +261,6 @@ cb_conquest = {
 
 	prerequisites = {
 		claim = FROM
-		is_revolution_target = no
 	}
 
 	war_goal = take_claim
@@ -272,7 +271,6 @@ cb_core = {
 
 	prerequisites = {
 		core_claim = FROM
-		is_revolution_target = no
 	}
 
 	war_goal = take_core
@@ -303,7 +301,6 @@ cb_colonial_independance_war = {
 	prerequisites = {
 		is_subject = yes
 		is_colonial_nation_of = FROM
-		is_revolution_target = no
 	}
 
 	war_goal = defend_capital_independence
@@ -346,7 +343,7 @@ cb_war_against_the_world = {
 	prerequisites = {
 		has_reform = wwu_war_against_the_world_doctrine_reform
 		is_free_or_tributary_trigger = yes
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = take_capital_pirates
@@ -357,7 +354,7 @@ cb_colonial = {
 
 	prerequisites = {
 		colony_claim = FROM
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = take_colony
@@ -440,7 +437,7 @@ cb_defender_of_the_faith = {
 		is_neighbor_of = FROM
 		NOT = {	has_matching_religion = FROM }
 		cb_on_religious_enemies = yes
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = defend_country_faith
@@ -461,7 +458,7 @@ cb_trade_war = {
 				FROM = { has_government_attribute = is_merchant_republic }
 			}
 		}
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = superiority_trade_mutual
@@ -486,7 +483,7 @@ cb_trade_league_dispute = {
 		is_trade_league_leader = yes
 		NOT = { ROOT = { trade_embargo_by = FROM } }
 		ROOT = { trade_league_embargoed_by = FROM }
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = superiority_trade_mutual
@@ -511,11 +508,7 @@ cb_super_badboy = {
 		coalition_target = FROM
 		NOT = { FROM = { is_in_coalition_war = yes } }
 		num_of_coalition_members = 3
-		has_opinion_modifier = {
-			modifier = aggressive_expansion
-			who = FROM
-		}
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = superiority_punitive
@@ -528,7 +521,7 @@ cb_claim_throne = {
 
 	prerequisites = {
 		succession_claim = FROM
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = take_capital_throne
@@ -544,7 +537,7 @@ cb_tribal_feud = {
 			is_savage = yes
 		}
 		is_neighbor_of = FROM
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = take_province_tribal_feud
@@ -562,7 +555,7 @@ cb_revoke_electorate = {
 		}
 		is_emperor = yes
 		NOT = { religion = FROM }
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = revoke_elector
@@ -597,7 +590,7 @@ cb_privateers = {
 				}
 			}
 		}
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	war_goal = blockade_ports
@@ -611,7 +604,6 @@ cb_support_rebels = {
 	prerequisites = {
 		has_dlc = "Art of War"
 		has_spawned_supported_rebels = FROM
-		is_revolution_target = no
 	}
 
 	war_goal = take_capital_support_rebels
@@ -627,7 +619,7 @@ cb_humiliate_rotw = {
 		}
 		ai = no
 		is_rival = FROM
-		is_revolution_target = no
+		is_revolutionary = no
 	}
 
 	attacker_disabled_po = {
@@ -661,6 +653,7 @@ cb_take_mandate = {
 
 	war_goal = take_capital_take_mandate
 }
+
 # Forced our ally to break alliance
 cb_forced_break_alliance = {
 
@@ -701,3 +694,49 @@ cb_hegemon = {
 	war_goal = take_capital_imperial
 }
 
+# Force migration
+cb_force_migration = {
+
+	valid_for_subject = no
+
+	prerequisites = {
+		has_dlc = "Conquest of Paradise"
+		is_native_tribe = yes
+		FROM = {
+			is_migratory_tribe = yes
+			capital_scope = {
+				tribal_land_of = ROOT
+			}
+		}
+	}
+	war_goal = force_migration
+}
+
+# 
+cb_native_american_tribal_feud = {
+	valid_for_subject = no
+
+	prerequisites = {
+		has_dlc = "Conquest of Paradise"
+		is_native_tribe = yes
+		FROM = {
+			is_native_tribe = yes
+			if = {
+				limit = { 
+					capital_scope = {
+						tribal_land_of = FROM
+					}
+				}
+				is_neighbor_of = ROOT # This is faster method so let's do this for the general case
+			}
+			else = {
+				any_tribal_land = {
+					any_neighbor_province = {
+						tribal_land_of = ROOT
+					}
+				}
+			}
+		}
+	}
+	war_goal = take_native_american_land
+}

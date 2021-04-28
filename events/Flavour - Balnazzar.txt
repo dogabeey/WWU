@@ -1,0 +1,95 @@
+namespace = wwu_balnazzar
+
+# Balnazzar's Reveal
+country_event = {
+    id = wwu_balnazzar.1
+    title = wwu_balnazzar.1.title
+    desc = wwu_balnazzar.1.desc
+    picture = NATHREZIM_eventPicture
+    
+    major = yes
+    
+    trigger = {
+        always = no
+        tag = A22 # Scarlet Crusade
+        OR = {
+            NOT = { stability = -2 }
+            dominant_culture = culture_forsaken
+        }
+    }
+    
+    mean_time_to_happen = {
+        months = 12
+    }
+    
+    option = {
+        name = wwu_balnazzar.1.option.a
+        
+        
+        ##if = { limit = { has_global_flag = enable_event_logging } 
+
+        change_tag = X01 # The Risen
+        change_primary_culture = culture_forsaken
+        change_religion = religion_fel
+        every_owned_province = {
+            change_culture = culture_forsaken
+            change_religion = religion_fel
+        }
+        add_stability = 6
+        
+        if = {
+            limit = {    
+                1011 = {
+                    NOT = { owned_by = ROOT }
+                }
+            }
+            1011 = {
+                cede_province = ROOT
+            }
+        }
+        
+        if = {
+            limit = {    
+                1028 = {
+                    NOT = { owned_by = ROOT }
+                }
+            }
+            1028 = {
+                cede_province = ROOT
+            }
+        }
+        
+        
+        if = {
+            limit = {    
+                519 = {
+                    NOT = { owned_by = ROOT }
+                }
+            }
+            519 = {
+                cede_province = ROOT
+            }
+        }
+        
+        if = {
+            limit = {    
+                539 = {
+                    NOT = { owned_by = ROOT }
+                }
+            }
+            539 = {
+                cede_province = ROOT
+            }
+        }
+        
+        define_ruler = {
+            name = "Balnazzar"
+            dynasty = ""
+            ADM = 3
+            DIP = 1
+            MIL = 6
+            attach_leader = "Balnazzar"
+        }
+    }
+}
+# Credit to Master_Jinora for the event ideas

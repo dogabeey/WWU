@@ -1,0 +1,33 @@
+namespace = wwu_undead_plague
+
+# Insidious Happenings 
+country_event = {
+	id = wwu_undead_plague.1
+	title = wwu_undead_plague.1.title
+	desc = wwu_undead_plague.1.desc
+	picture = FORSAKEN_eventPicture
+	
+	trigger = {
+		tag = A22 # Scarlet Crusade
+		NOT = { stability = 0 }
+		any_owned_province = {
+			is_capital = no
+			NOT = { culture = culture_forsaken }
+		}
+		always = no
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = wwu_undead_plague.1.option.a
+		
+		random_owned_province = {
+			limit = { is_capital = no }
+		
+			change_culture = culture_forsaken
+		}
+	}
+}

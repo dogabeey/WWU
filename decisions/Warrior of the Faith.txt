@@ -1,0 +1,28 @@
+country_decisions = {
+	enact_warrior_faith = {
+        potential = {
+            NOT = { has_country_modifier = warrior_of_the_faith }
+		}
+		allow = {
+			treasury = 1500
+            adm_power = 100
+            stability = 3
+		}
+	  	effect = {
+			add_treasury = -1500
+			add_adm_power = -100
+            add_country_modifier = {
+                name = warrior_of_the_faith
+                duration = -1
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                NOT = { adm_power = 400 }
+            }
+		}
+	}
+}

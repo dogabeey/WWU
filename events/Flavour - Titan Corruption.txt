@@ -1,0 +1,327 @@
+namespace = wwu_titan_corruption
+
+country_event = {
+	id = wwu_titan_corruption.1
+	title = wwu_titan_corruption.1.title
+	desc = wwu_titan_corruption.1.desc
+	picture = TITANS_eventPicture
+
+	trigger = {
+		religion = religion_titan
+		has_country_flag = revealed_to_world
+		any_neighbor_country = {
+			OR = {
+				religion_group = religion_group_disorder
+				religion_group = religion_group_the_void
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			factor = 2
+			stability = 3
+		}
+		modifier = {
+			factor = 2
+			religious_unity = 0.9
+		}
+		modifier = {
+			factor = 0.5
+			any_country = {
+				OR = {
+					religion_group = religion_group_disorder
+					religion_group = religion_group_the_void
+				}
+				alliance_with = ROOT
+			}
+		}
+		# Amount of neighboring evil religion
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_country = {
+					OR = {
+						religion_group = religion_group_disorder
+						religion_group = religion_group_the_void
+					}
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_country = {
+					OR = {
+						religion_group = religion_group_disorder
+						religion_group = religion_group_the_void
+					}
+				}
+				amount = 3
+			}
+		}
+		# Corruption
+		modifier = {
+			factor = 0.9
+			corruption = 2
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 4
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 6
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 8
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 10
+		}
+	}
+	
+	immediate = {
+		
+    }
+	
+	option = {
+		name = wwu_titan_corruption.1.opt1
+		
+		capital_scope = {
+			change_religion = religion_titan_corrupt
+			add_permanent_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 9000
+			}
+		}
+		set_country_flag = converting_to_titan_corrupt
+	}
+}
+
+
+country_event = {
+	id = wwu_titan_corruption.2
+	title = wwu_titan_corruption.2.title
+	desc = wwu_titan_corruption.2.desc
+	picture = TITANS_eventPicture
+
+	trigger = {
+		religion = religion_titan_corrupt
+		has_country_flag = revealed_to_world
+		any_neighbor_country = {
+			OR = {
+				religion_group = religion_group_nature
+				religion_group = religion_group_the_light
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			factor = 2
+			stability = 3
+		}
+		modifier = {
+			factor = 2
+			religious_unity = 0.9
+		}
+		modifier = {
+			factor = 0.5
+			any_country = {
+				OR = {
+					religion_group = religion_group_nature
+					religion_group = religion_group_the_light
+				}
+				alliance_with = ROOT
+			}
+		}
+		# Amount of neighboring evil religion
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_country = {
+					OR = {
+						religion_group = religion_group_nature
+						religion_group = religion_group_the_light
+					}
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_country = {
+					OR = {
+						religion_group = religion_group_nature
+						religion_group = religion_group_the_light
+					}
+				}
+				amount = 3
+			}
+		}
+		# Corruption
+		modifier = {
+			factor = 0.9
+			corruption = 2
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 4
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 6
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 8
+		}
+		modifier = {
+			factor = 0.9
+			corruption = 10
+		}
+	}
+	
+	immediate = {
+		
+    }
+	
+	option = {
+		name = wwu_titan_corruption.2.opt1
+		
+		capital_scope = {
+			change_religion = religion_titan
+			add_permanent_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 9000
+			}
+		}
+		set_country_flag = converting_to_titan
+	}
+}
+
+country_event = {
+	id = wwu_titan_corruption.3
+	title = wwu_titan_corruption.3.title
+	desc = wwu_titan_corruption.3.desc
+	picture = SHA_eventPicture
+    
+	trigger = {
+		has_country_flag = converting_to_titan_corrupt
+	}
+	
+	mean_time_to_happen = {
+		months = 70
+	}
+	
+	option = {
+		name = wwu_titan_corruption.3.opt1
+		
+		every_owned_province =
+		{
+			limit = {
+				NOT = { religion = religion_titan_corrupt }
+			}
+			change_religion = religion_titan_corrupt
+		}
+		change_religion = religion_titan_corrupt
+		clr_country_flag = converting_to_titan_corrupt
+	}
+	option = {
+		name = wwu_titan_corruption.3.opt2
+		
+		random_list = {
+			45 = {
+				add_stability = -1
+			}
+			45 = {
+				random_province =
+				{
+					limit = {
+						owned_by = ROOT
+					}
+					change_religion = religion_titan_corrupt
+				}
+				random_province =
+				{
+					limit = {
+						owned_by = ROOT
+					}
+					change_religion = religion_titan_corrupt
+				}
+			}
+			10 = {
+				clr_country_flag = converting_to_titan_corrupt
+				custom_tooltip = converting_to_titan_corrupt_clear
+			}
+		}
+	}
+}
+
+country_event = {
+	id = wwu_titan_corruption.4
+	title = wwu_titan_corruption.4.title
+	desc = wwu_titan_corruption.4.desc
+	picture = SHA_eventPicture
+    
+	trigger = {
+		has_country_flag = converting_to_titan
+	}
+	
+	mean_time_to_happen = {
+		months = 70
+	}
+	
+	option = {
+		name = wwu_titan_corruption.4.opt1
+		
+		every_owned_province =
+		{
+			limit = {
+				NOT = { religion = religion_titan }
+			}
+			change_religion = religion_titan
+		}
+		change_religion = religion_titan
+		clr_country_flag = converting_to_titan
+	}
+	option = {
+		name = wwu_titan_corruption.4.opt2
+		
+		random_list = {
+			45 = {
+				add_stability = -1
+			}
+			45 = {
+				random_province =
+				{
+					limit = {
+						owned_by = ROOT
+					}
+					change_religion = religion_titan
+				}
+				random_province =
+				{
+					limit = {
+						owned_by = ROOT
+					}
+					change_religion = religion_titan
+				}
+			}
+			10 = {
+				clr_country_flag = converting_to_titan
+				custom_tooltip = converting_to_titan_clear
+			}
+		}
+	}
+}
+

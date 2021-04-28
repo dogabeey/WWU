@@ -1,0 +1,762 @@
+namespace = rise_of_the_horde
+
+# Kil'jaeden's Scheme
+#   Ner'zhul (Shadowmoon) contacted by Kil'jaeden, event to all clans to accept Ner'zhul's guidance to attack the Draenei
+#   Those that accept will appear in the Blasted Lands during the initial attack
+#   +50 opinion of those that have 'Allies of Ner'zhul'
+#   -50 opinion of those that have 'Shunned Ner'zhul'
+#   AI:
+#       Blackrock (always)
+#       Bleeding Hollow (always)
+country_event = {
+	id = rise_of_the_horde.1
+	title = rise_of_the_horde.1.title
+	desc = rise_of_the_horde.1.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    #major = yes
+    fire_only_once = yes
+    
+	trigger = {
+        has_global_flag = rise_of_the_horde
+		tag = A34
+	}
+	
+    mean_time_to_happen = {
+		months = 6
+	}
+    
+	option = {
+		name = rise_of_the_horde.1.option.a
+		
+
+        set_global_flag = nerzhul_recruitment
+        set_country_flag = joined_nerzhul
+        custom_tooltip = incite_draenei_violence
+        
+        add_ruler_modifier = {
+            name = kiljaedens_favour
+            duration = -1
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+    }
+    
+    option = {
+		name = rise_of_the_horde.1.option.b
+		
+
+        trigger = {
+            ai = no
+        }
+
+        custom_tooltip = trapped_on_draenor
+        
+        ai_chance = {
+            factor = 0
+        }
+    }
+}
+
+# Messenger from Ner'zhul
+# It appears that the shaman Ner'zhul has been contacted by his dearly departed wife, Rulkan. He urges that we attack our Draenei neighbours before they strike us first.\n\nWhether this is true or not remains to be seen, but to refuse his guidance would turn the Shadowmoon clan against us.
+# Follow his guidance
+# Reject his guidance
+country_event = {
+	id = rise_of_the_horde.2
+	title = rise_of_the_horde.2.title
+	desc = rise_of_the_horde.2.desc
+	picture = ORCISH_INVASION_eventPicture
+
+	trigger = {
+        has_global_flag = rise_of_the_horde
+        has_global_flag = nerzhul_recruitment
+        
+        NOT = { has_country_flag = set_side_for_nerzhul_event }
+        capital_scope = { continent = continent_outland }
+        culture_group = culture_group_orc
+        government = tribal
+        NOT = { tag = A34 }
+	}
+    
+    mean_time_to_happen = {
+		months = 3
+	}
+    
+    immediate = {
+        set_country_flag = set_side_for_nerzhul_event
+    }
+	
+    # Join
+	option = {
+		name = rise_of_the_horde.2.option.a
+		
+
+        A34 = {
+            add_opinion = {
+                who = ROOT
+                modifier = allies_of_nerzhul
+            }
+        }
+        add_opinion = {
+            who = A34
+            modifier = allies_of_nerzhul
+        }
+        
+        add_ruler_modifier = {
+            name = kiljaedens_favour
+            duration = -1
+        }
+        
+        set_country_flag = joined_nerzhul
+        
+        ai_chance = {
+            factor = 90
+        }
+    }
+    
+    # Reject
+    option = {
+		name = rise_of_the_horde.2.option.b
+		
+
+        A34 = {
+            add_opinion = {
+                who = ROOT
+                modifier = enemies_of_nerzhul
+            }
+        }
+        add_opinion = {
+            who = A34
+            modifier = enemies_of_nerzhul
+        }
+        
+        set_country_flag = refused_nerzhul
+        
+        ai_chance = {
+            factor = 10
+            
+            modifier = {
+                factor = 6
+                tag = A46
+            }
+        }
+    }
+}
+
+# 1 year
+# Doubts of Ner'zhul
+#   Ner'zhul doubts Kil'jaeden, Gul'dan has usurped him, Ner'zhul is replaced, kept alive to watch
+#   Clear 'Allies of Ner'zhul'
+#   Clear 'Shunned Ner'zhul'
+#   'The First Warlocks' fires
+country_event = {
+	id = rise_of_the_horde.3
+	title = rise_of_the_horde.3.title
+	desc = rise_of_the_horde.3.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    #major = yes
+    fire_only_once = yes
+    
+	trigger = {
+        has_global_flag = rise_of_the_horde
+        
+        had_global_flag = { flag = nerzhul_recruitment days = 365 }
+		tag = A34
+	}
+	
+    mean_time_to_happen = {
+		months = 12
+	}
+    
+    immediate = {
+        hidden_effect = {
+            every_country = {
+                limit = {
+                    has_country_flag = set_side_for_nerzhul_event
+                }
+                if = { 
+                    limit = { 
+                        exists = A34
+                    }
+                    remove_opinion = {
+                        who = A34
+                        modifier = allies_of_nerzhul
+                    }
+                    A34 = {
+                        remove_opinion = {
+                            who = ROOT
+                            modifier = allies_of_nerzhul
+                        }
+                    }
+                }
+                if = { 
+                    limit = { 
+                        exists = A34
+                    }
+                    remove_opinion = {
+                        who = A34
+                        modifier = enemies_of_nerzhul
+                    }
+                    A34 = {
+                        remove_opinion = {
+                            who = ROOT
+                            modifier = enemies_of_nerzhul
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+	option = {
+		name = rise_of_the_horde.3.option.a
+		
+
+        set_global_flag = guldan_recruitment
+        set_country_flag = joined_guldan
+        
+        define_heir = {
+            name = "Teron'gor"
+            dynasty = "Shadowmoon"
+			age = 18
+            adm = 5
+            dip = 4
+            mil = 6
+        }
+        #exile_ruler_as = exiled_nerzhul
+        set_country_flag = exiled_nerzhul_flag
+		
+        add_ruler_modifier = {
+            name = kiljaedens_favour
+            duration = -1
+        }
+    }
+}
+
+# The First Warlocks
+#   All clans get event from Shadowmoon (Gul'dan), offering them the art of demonology/necromancy
+#   Those that accept will comprise the initial horde during the First War
+#       Gain 'Allies of Gul'dan'
+#   Those that reject it grant a CB to all those that don't on themselves
+#       Gain 'Enemies of Gul'dan'
+country_event = {
+	id = rise_of_the_horde.4
+	title = rise_of_the_horde.4.title
+	desc = rise_of_the_horde.4.desc
+	picture = ORCISH_INVASION_eventPicture
+
+	trigger = {
+        has_global_flag = rise_of_the_horde
+        has_global_flag = guldan_recruitment
+        
+        NOT = { has_country_flag = set_side_for_guldan_event }
+        capital_scope = { continent = continent_outland }
+        culture_group = culture_group_orc
+        government = tribal
+        NOT = { tag = A34 }
+	}
+    
+    mean_time_to_happen = {
+		months = 12
+	}
+    
+    immediate = {
+        set_country_flag = set_side_for_guldan_event
+		A34 = {
+			set_country_flag = joined_guldan
+		}
+    }
+	
+    # Join
+	option = {
+		name = rise_of_the_horde.4.option.a
+		
+
+        A34 = {
+            add_opinion = {
+                who = ROOT
+                modifier = allies_of_guldan
+            }
+        }
+        add_opinion = {
+            who = A34
+            modifier = allies_of_guldan
+        }
+        
+        add_ruler_modifier = {
+            name = kiljaedens_favour
+            duration = -1
+        }
+        
+        set_country_flag = joined_guldan
+        
+        random_owned_province = {
+            change_religion = religion_fel
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+		
+		every_country = {
+			limit = {
+				capital_scope = { continent = continent_outland }
+				culture_group = culture_group_draenei
+			}
+			capital_scope = {
+				add_permanent_claim = ROOT
+			}
+		}
+    }
+    
+    # Reject
+    option = {
+		name = rise_of_the_horde.4.option.b
+		
+
+        A34 = {
+            add_opinion = {
+                who = ROOT
+                modifier = enemies_of_guldan
+            }
+        }
+        add_opinion = {
+            who = A34
+            modifier = enemies_of_guldan
+        }
+        
+        set_country_flag = refused_guldan
+        
+        ai_chance = {
+            factor = 0
+        }
+    }
+}
+
+# The Shadow Council
+#   Grant a buff to Shadowmoon
+country_event = {
+	id = rise_of_the_horde.5
+	title = rise_of_the_horde.5.title
+	desc = rise_of_the_horde.5.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    major = yes
+    fire_only_once = yes
+    
+	trigger = {
+        has_global_flag = rise_of_the_horde
+        has_global_flag = blood_of_mannoroth
+		tag = A34
+	}
+
+    mean_time_to_happen = {
+		months = 12
+    }
+    
+	option = {
+		name = rise_of_the_horde.5.option.a#
+		
+        
+        set_country_flag = set_blood_of_mannoroth
+        set_country_flag = drank_the_demonsblood
+        
+		1671 = {
+			kill_units = {
+				who = owner
+				type = infantry
+				amount = 100
+			}
+			remove_core = A55
+			cede_province = B88
+			add_core = B88
+			change_culture = culture_horde
+			change_religion = religion_fel
+			
+			add_building = wow_fort_2
+			add_base_tax = 3
+			add_base_production = 3
+			add_base_manpower = 3
+			add_unit_construction = {
+				type = infantry
+				amount = 5
+				speed = 0.1
+				cost = 0
+			}
+			add_unit_construction = {
+				type = cavalry
+				amount = 5
+				speed = 0.1
+				cost = 0
+			}
+		}
+        
+        if = { 
+            limit = { NOT = { religion = religion_fel } }
+            
+            change_religion = religion_fel
+            
+            every_owned_province = {
+                change_religion = religion_fel
+            }
+        }
+    }
+}
+
+# Collapse of the Draenei
+#   Fires when Shattrath is attacked by an Orc clan (add mission for all Orc clans whom have 'Allies of Gul'dan' for this)
+#   Fires 'Blood of Mannoroth' for all clans
+# Triggered by lost battle
+country_event = {
+	id = rise_of_the_horde.6
+	title = rise_of_the_horde.6.title
+	desc = rise_of_the_horde.6.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    #major = yes
+    fire_only_once = yes
+    is_triggered_only = yes
+    
+	trigger = {
+        has_global_flag = guldan_recruitment
+        capital_scope = { continent = continent_outland }
+        culture_group = culture_group_draenei
+        FROM = {
+            capital_scope = { continent = continent_outland }
+            culture_group = culture_group_orc
+            government = tribal
+        }
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.6.option.a
+		
+        
+        set_global_flag = blood_of_mannoroth
+    }
+}
+
+# Blood of Mannoroth
+#   Clear 'Allies of Gul'dan'
+#   Clear 'Enemies of Gul'dan'
+#   Those that accept (AI except Frostwolves always accept) gain: 'Fel-infused'
+#   Those that refuse gain: 'Refusal of Fel'
+#   All 'Fel-infused' clans gain CB on 'Refusal of Fel' clans
+country_event = {
+	id = rise_of_the_horde.7
+	title = rise_of_the_horde.7.title
+	desc = rise_of_the_horde.7.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    #major = yes
+
+	trigger = {
+        has_global_flag = rise_of_the_horde
+        has_global_flag = blood_of_mannoroth
+        
+        capital_scope = { continent = continent_outland }
+        culture_group = culture_group_orc
+        NOT = { has_country_flag = set_blood_of_mannoroth }
+	}
+    
+    immediate = {
+        set_country_flag = set_blood_of_mannoroth
+    }
+	
+    mean_time_to_happen = {
+		months = 1
+    }
+
+    # Join
+	option = {
+		name = rise_of_the_horde.7.option.a
+		
+
+        B88 = {
+            add_opinion = {
+                who = ROOT
+                modifier = accepted_the_demonsblood
+            }
+        }
+        add_opinion = {
+            who = B88
+            modifier = accepted_the_demonsblood
+        }
+        
+        set_country_flag = drank_the_demonsblood
+        
+        change_religion = religion_fel
+        
+        every_owned_province = {
+            change_religion = religion_fel
+        }
+        
+        ai_chance = {
+            factor = 90
+            
+            modifier = {
+                factor = 0.5
+                NOT = { has_country_flag = joined_guldan }
+            }
+        }
+    }
+    
+    # Reject
+    option = {
+		name = rise_of_the_horde.7.option.b
+		
+
+        B88 = {
+            add_opinion = {
+                who = ROOT
+                modifier = rejected_the_demonsblood
+            }
+        }
+        add_opinion = {
+            who = B88
+            modifier = rejected_the_demonsblood
+        }
+        
+        set_country_flag = refused_the_demonsblood
+        
+        ai_chance = {
+            factor = 10
+            
+            modifier = {
+                factor = 0.5
+                has_country_flag = joined_guldan
+            }
+        }
+    }
+}
+
+
+# The Dying Time
+#   Once all Draenei states are destroyed (add mission to encourage this)
+#   Kil'jaeden ceases contact, the orcs are without an enemy with all Draenei holdings destroyed
+#   All clans gain CB on one another called 'The Dying Times'
+country_event = {
+	id = rise_of_the_horde.8
+	title = rise_of_the_horde.8.title
+	desc = rise_of_the_horde.8.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    #major = yes
+    fire_only_once = yes
+    
+	trigger = {
+        has_global_flag = rise_of_the_horde
+        has_global_flag = blood_of_mannoroth
+		A54 = {
+			OR = {
+				NOT = { total_development = 50 } 
+				is_subject = yes
+			}
+		}
+		A55 = {
+			OR = {
+				NOT = { total_development = 50 } 
+				is_subject = yes
+			}
+		}
+		F49 = {
+			OR = {
+				NOT = { total_development = 50 } 
+				is_subject = yes
+			}
+		}
+	}
+	
+    mean_time_to_happen = {
+		months = 12
+    }
+    
+	option = {
+		name = rise_of_the_horde.8.option.a
+		
+        
+        set_global_flag = the_dying_times
+    }
+}
+
+# "Contact with Medivh"
+country_event = {
+	id = rise_of_the_horde.9
+	title = rise_of_the_horde.9.title
+	desc = rise_of_the_horde.9.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    #major = yes
+    fire_only_once = yes
+    
+	trigger = {
+        had_global_flag = { flag = the_dying_times days = 180 }
+        has_global_flag = rise_of_the_horde
+        
+		OR = {
+			has_country_modifier = horde_head
+			tag = B88
+			tag = U03
+		}
+	}
+	
+    mean_time_to_happen = {
+		months = 12
+    }
+    
+	option = {
+		name = rise_of_the_horde.9.option.a
+		
+		set_global_flag = dark_portal_can_be_built
+    }
+}
+
+# The Dark Portal
+#   Once the 'Dark Portal' project is complete, this fires
+#   All 'Fel-infused' clans gain a random province in the Blasted lands, + 1 colonist for 10 years (to simulate the expansion in the Blasted Lands)
+country_event = {
+	id = rise_of_the_horde.10
+	title = rise_of_the_horde.10.title
+	desc = rise_of_the_horde.10.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    major = yes
+	fire_only_once = yes
+	
+    trigger = {
+		current_age = rise_of_the_horde
+		1008 = {
+			has_great_project = {
+                type = dark_portal_1
+            }
+		}
+		OR = {
+			has_country_modifier = horde_head
+			tag = B88
+			tag = U03
+		}
+	}
+	
+    mean_time_to_happen = {
+		months = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.10.option.a
+		
+		
+        clr_global_flag = the_dying_times
+        clr_global_flag = rise_of_the_horde
+        set_global_flag = the_first_war
+        set_global_flag = dark_portal_built
+		set_faction_conflict = yes
+    }
+}
+
+country_event = {
+	id = rise_of_the_horde.20
+	title = rise_of_the_horde.20.title
+	desc = rise_of_the_horde.20.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    fire_only_once = yes
+    
+	trigger = {
+		exists = B88
+		OR = {
+			AND = {
+				has_country_flag = joined_guldan
+				ai = no
+			}
+			AND = {
+				NOT = {
+					any_country = {
+						has_country_flag = joined_guldan
+						ai = no
+					}
+				}
+				tag = B88
+			}
+		}
+	}	
+	
+	option = {
+		name = rise_of_the_horde.20.option.a
+		
+		custom_tooltip = rise_of_the_horde.20.tt
+		swap_non_generic_missions = yes
+		hidden_effect = {
+			set_global_flag = horde_was_formed
+			ROOT = {
+				add_country_modifier = {
+					name = the_shadow_council
+					duration = -1
+				}
+				change_government = monarchy
+				set_global_flag = set_blood_of_mannoroth
+				set_country_flag = drank_the_demonsblood
+			}
+			every_country = {
+				limit = { 
+					has_country_flag = joined_guldan
+				}
+				ROOT = {
+					add_country_modifier = {
+						name = horde_head
+						duration = -1
+					}
+					create_subject = {
+						subject_type = faction_horde
+						subject = PREV
+					}
+				}
+			}
+		}
+	}
+    
+	option = {
+		name = rise_of_the_horde.20.option.b
+		
+		custom_tooltip = rise_of_the_horde.20.tt2
+		swap_non_generic_missions = yes
+		hidden_effect = {
+			B88 = {
+				add_country_modifier = {
+					name = the_shadow_council
+					duration = -1
+				}
+				change_government = monarchy
+				set_global_flag = set_blood_of_mannoroth
+				set_country_flag = drank_the_demonsblood
+			}
+			every_country = {
+				limit = { 
+					has_country_flag = joined_guldan
+				}
+				B88 = {
+					add_country_modifier = {
+						name = horde_head
+						duration = -1
+					}
+					create_subject = {
+						subject_type = faction_horde
+						subject = PREV
+					}
+				}
+			}
+		}
+    }
+	
+}
+
+# The Exodar
+#   Spawn the Exodar in Azuremyst Isle
+

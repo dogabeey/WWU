@@ -1,42 +1,474 @@
+#---------------------------------------------
+# Ula-tek Canal
+#---------------------------------------------
 ula_tek_canal = {
-	ambient_object = kiel_canal
-	province = 2214
-	is_canal = yes
-	time = 72
+	type = canal
+    
+    start = 2214
+    build_cost = 10000
+    
+	date = 100.1.1
+	can_be_moved = no
+    starting_tier = 3
+    
+	time = {
+		months = 120
+	}
 	
-	modifier = {
-		province_trade_power_value = 20
+	build_trigger = {
+		FROM = {
+			owns_or_vassal_of = 2214
+			is_subject = no
+			treasury = 10000
+		}
+	}
+	on_built = {
+		add_canal = kiel_canal
+		owner = { add_prestige = 30 }
+	}
+	on_destroyed = {
+		remove_canal = kiel_canal
+    }
+	can_use_modifiers_trigger = {
+    
+	}
+	can_upgrade_trigger = {
+	}
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+			province_trade_power_value = 10
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			global_trade_power = 0.01
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			province_trade_power_value = 20
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			global_trade_power = 0.02
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			province_trade_power_value = 30
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			global_trade_power = 0.03
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			province_trade_power_value = 50
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			global_trade_power = 0.05
+		}
+		on_upgraded = {
+		}
 	}
 }
+#---------------------------------------------
+# Deeprun Tram
+#---------------------------------------------
 deeprun_tram = {
-	ambient_object = kiel_canal
-	province = 2505
-	is_canal = yes
-	time = 120
+	type = canal
+    
+    start = 2505
+    build_cost = 10000
+    
+	date = 100.1.1
+	can_be_moved = no
+    starting_tier = 3
+    
+	time = {
+		months = 120
+	}
 	
-	modifier = {
-		local_unrest = -1
+	build_trigger = {
+		FROM = {
+			owns_or_vassal_of = 2505
+			is_subject = no
+			treasury = 10000
+		}
+	}
+	on_built = {
+		add_canal = kiel_canal
+		owner = { add_prestige = 30 }
+	}
+	on_destroyed = {
+		remove_canal = kiel_canal
+    }
+	can_use_modifiers_trigger = {
+    
+	}
+	can_upgrade_trigger = {
+	}
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+			province_trade_power_value = 10
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			global_unrest = -1
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			province_trade_power_value = 20
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			global_unrest = -1
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			province_trade_power_value = 30
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			global_unrest = -1
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			province_trade_power_value = 50
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			global_unrest = -1
+		}
+		on_upgraded = {
+		}
 	}
 }
+#---------------------------------------------
+# Dark Portal (1)
+#---------------------------------------------
 dark_portal_1 = {
-    ambient_object = outland_dark_portal_outland   # A ambient_object from ambient_object.txt in the map folder.
-    province = 1586            # The province that is granted the modifier
-    is_canal = yes              # Whether this Great Project should load a river tile
-    time = 12                # Time in months it takes for the Great Project to be built
+	type = canal
     
-    # Applied to the province defined above on project completion
-    modifier = {
-        movement_speed = 10
+    start = 1586
+    build_cost = 10000
+    
+	date = 100.1.1
+	can_be_moved = no
+    starting_tier = 3
+    
+	time = {
+		months = 120
+	}
+	
+	build_trigger = {
+		FROM = {
+			owns_or_vassal_of = 1586
+			is_subject = no
+			treasury = 10000
+		}
+	}
+	on_built = {
+		add_canal = outland_dark_portal_outland
+	}
+	on_destroyed = {
+		remove_canal = outland_dark_portal_outland
     }
+	can_use_modifiers_trigger = {
+    
+	}
+	can_upgrade_trigger = {
+	}
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+			movement_speed = 10
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			movement_speed = 10
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			movement_speed = 10
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			movement_speed = 10
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
 }
+#---------------------------------------------
+# Dark Portal (2)
+#---------------------------------------------
 dark_portal_2 = {
-    ambient_object = outland_dark_portal_outland   # A ambient_object from ambient_object.txt in the map folder.
-    province = 1586            # The province that is granted the modifier
-    is_canal = yes              # Whether this Great Project should load a river tile
-    time = 12                  # Time in months it takes for the Great Project to be built
+	type = canal
     
-    # Applied to the province defined above on project completion
-    modifier = {
-        movement_speed = 10
+    start = 1586
+    build_cost = 10000
+    
+	date = 100.1.1
+	can_be_moved = no
+    starting_tier = 3
+    
+	time = {
+		months = 120
+	}
+	
+	build_trigger = {
+		FROM = {
+			owns_or_vassal_of = 1586
+			is_subject = no
+			treasury = 10000
+		}
+	}
+	on_built = {
+		add_canal = outland_dark_portal_outland
+	}
+	on_destroyed = {
+		remove_canal = outland_dark_portal_outland
     }
+	can_use_modifiers_trigger = {
+    
+	}
+	can_upgrade_trigger = {
+	}
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+			movement_speed = 10
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			movement_speed = 10
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+			
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			movement_speed = 10
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+        
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			movement_speed = 10
+		}
+		area_modifier = {
+        
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
 }

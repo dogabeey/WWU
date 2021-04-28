@@ -251,8 +251,6 @@ country_event = {
 			set_ruler_flag = appointed_by_overlord
             
             add_republican_tradition = 5
-            
-            hidden_effect = { country_event = { id = GOT_EDUCATION.2 days = 1 } }
 		}
 	}
 	option = {
@@ -268,8 +266,6 @@ country_event = {
 			set_ruler_flag = appointed_by_overlord
             
             add_republican_tradition = 5
-            
-            hidden_effect = { country_event = { id = GOT_EDUCATION.2 days = 1 } }
 		}
 	}
 	option = {
@@ -285,8 +281,6 @@ country_event = {
 			set_ruler_flag = appointed_by_overlord
             
             add_republican_tradition = 5
-            
-            hidden_effect = { country_event = { id = GOT_EDUCATION.2 days = 1 } }
 		}
 	}
 }
@@ -461,5 +455,275 @@ country_event = {
             name = "lastname"
             random_gender = yes
         }
+	}
+}
+
+# "Call for Abdication"
+country_event = {
+	id = wwu_government.6
+	title = wwu_government.6.title
+	desc = wwu_government.6.desc
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	trigger = {
+		OR = {
+            has_reform = ancient_kingdom_reform
+            has_reform = ancient_republic_reform
+            has_reform = ancient_theocracy_reform
+            has_reform = ancient_clan_reform
+        }
+		months_of_ruling = 120
+		OR = {
+			NOT = { stability = 2 }
+			NOT = { legitimacy = 40 }
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 35
+				}
+			}
+			
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		# Stability
+		modifier = {
+			NOT = { stability = 0 }
+			
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { stability = -1 }
+			
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { stability = -2 }
+			
+			factor = 0.9
+		}
+		# Legitimacy
+		modifier = {
+			NOT = { legitimacy_equivalent = 40 }
+			
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { legitimacy_equivalent = 30 }
+			
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { legitimacy_equivalent = 20 }
+			
+			factor = 0.9
+		}
+		# Elders
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 40
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 35
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 30
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 25
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 20
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 15
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 10
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			NOT = { 
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 5
+				}
+			}
+			factor = 0.95
+		}
+		
+	}
+	
+	option = {
+		name = wwu_government.6.option.a
+		
+		exile_ruler_as = old_ruler
+		custom_tooltip = ancient_ruler_abdicates_tt
+	}
+	
+	option = {
+		name = wwu_government.6.option.b
+		
+		add_prestige = -10
+		add_militarised_society = -10
+		add_stability = -1
+		ai_chance = { factor = 0 }
+	}
+}
+
+# "New Rulership"
+country_event = {
+	id = wwu_government.7
+	title = wwu_government.7.title
+	desc = wwu_government.7.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_government_attribute = council_system
+	}
+
+	option = {
+		name = wwu_government.7.option.a
+        
+		trigger = {
+			has_adm_advisor = yes
+		}
+		use_adm_talent_on_country = yes
+		hidden_effect = {
+			export_to_variable = {
+				which = adv_rel
+				value = dip_advisor_religion
+			}
+			export_to_variable = {
+				which = adv_cul
+				value = dip_advisor_culture
+			}
+		}
+		define_ruler = {
+			adm = 3
+			religion = variable:adv_rel
+			culture = variable:adv_cul
+			claim = 75
+		}
+	}
+	
+	option = {
+		name = wwu_government.7.option.b
+        
+		trigger = {
+			has_dip_advisor = yes
+		}
+		use_dip_talent_on_country = yes
+		
+		hidden_effect = {
+			export_to_variable = {
+				which = adv_rel
+				value = dip_advisor_religion
+			}
+			export_to_variable = {
+				which = adv_cul
+				value = dip_advisor_culture
+			}
+		}
+		define_ruler = {
+			dip = 3
+			religion = variable:adv_rel
+			culture = variable:adv_cul
+			claim = 75
+		}
+	}
+	
+	option = {
+		name = wwu_government.7.option.c
+        
+		trigger = {
+			has_mil_advisor = yes
+		}
+		use_mil_talent_on_country = yes
+		
+		hidden_effect = {
+			export_to_variable = {
+				which = adv_rel
+				value = mil_advisor_religion
+			}
+			export_to_variable = {
+				which = adv_cul
+				value = mil_advisor_culture
+			}
+		}
+		define_ruler = {
+			mil = 3
+			religion = variable:adv_rel
+			culture = variable:adv_cul
+			claim = 75
+		}
+	}
+	
+	option = {
+		name = wwu_government.7.option.d
+        
+		trigger = {
+			NOT = { has_adm_advisor = yes }
+			NOT = { has_dip_advisor = yes }
+			NOT = { has_mil_advisor = yes }
+		}
+		export_to_variable = {
+			which = adv_rel
+			value = mil_advisor_religion
+		}
+		export_to_variable = {
+			which = adv_cul
+			value = mil_advisor_culture
+		}
+		define_ruler = {
+			adm = 2
+			dip = 2
+			mil = 2
+			claim = 75
+		}
 	}
 }

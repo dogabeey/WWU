@@ -352,7 +352,7 @@ on_death_foreign_slave_ruler = {
 	#log = "[Root.GetName]: Triggered death_foreign_slave_ruler"
 	events = {
 		factions.3
-		council_government.1
+		wwu_government.7 # New Rulership
 	}
 }
 
@@ -1214,7 +1214,7 @@ on_four_year_pulse_4 = {
 on_five_year_pulse = {
 	#log = "[Root.GetName]: Triggered five_year_pulse"
     random_events = {
-        10 = wow_ruler.1
+        #10 = wow_ruler.1
         10 = wow_ruler.2
         100 = 0
     }
@@ -1835,6 +1835,59 @@ on_emperor_elected = {
 				}
 			}
 		}
+	}
+}
+
+on_federation_leader_change = {
+	if = {
+		limit = { tag = FROM }
+		disband_federation = THIS
+	}
+	else = {
+		# New strongest member becomes the new federation leader
+		set_federation_leader = THIS
+	}
+
+	# TODO IMPLEMENT EVENTS
+}
+
+#FROM = country pillaged, ROOT = country doing the pillaging
+on_pillaged_capital = {
+}
+
+#FROM = country dev was transferred from, ROOT = country doing the transferring
+on_transfer_development = {
+}
+
+on_colonial_type_change = {
+	clr_country_flag = encourage_cash_crops_flag
+}
+
+on_estate_led_regency = {
+}
+
+on_estate_led_regency_surpassed = {
+	if = {
+		limit = {
+			num_of_powerful_estates = 1
+			has_estate_led_regency = {
+				estate = any
+			}
+			NOT = {
+				estate_led_regency_influence = 70
+			}
+		}
+		#country_event = { id = estate_regency_events.1 }
+	}
+}
+
+on_extended_regency = {
+	random_events = {
+		#100 = extended_regency_events.4
+		#100 = extended_regency_events.5
+		#100 = extended_regency_events.6
+		
+		300 = 0
 	}
 }
 
