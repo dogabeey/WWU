@@ -5,14 +5,6 @@
 # ROOT = country
 can_join_hre_league = {
 	condition = {
-		tooltip = "WOW_DRAGONKIN_ONLY"
-		potential = {
-		}
-		allow = {
-			culture_group = culture_group_dragonkin
-		}
-	}
-	condition = {
 		tooltip = "CANNOT_JOIN_LEAGUE_AT_WAR"
 		potential = {
 		}
@@ -64,15 +56,6 @@ can_increase_stability = {
 
 # ROOT = province, FROM = country
 can_add_province_to_hre = {
-	condition = {
-		tooltip = "WOW_DRAGONKIN_ONLY_PROVINCE"
-		potential = {
-		}
-		allow = {
-			owner = { culture_group = culture_group_dragonkin }
-		}
-	}
-	
 }
 
 can_remove_province_from_hre = {
@@ -130,19 +113,7 @@ can_change_culture = {
 }
 
 can_move_capital = {
-	condition = {
-		tooltip = "WOW_CANT_MOVE_CAPITAL_OUTLAND"
-		potential = {
-			owner = { 
-				capital_scope = {
-					NOT = { continent = continent_outland }
-				}
-			}
-		}
-		allow = {
-			NOT = { continent = continent_outland }
-		}
-	}
+
 }
 
 can_move_trade_port = {
@@ -237,15 +208,7 @@ can_expel_minority_from = {
 
 # Called by can_add_province_to_hre
 is_possible_hre_province = {
-	condition = {
-		tooltip = "WOW_DRAGONKIN_ONLY"
-		potential = {
-		}
-		allow = {
-			culture_group = culture_group_dragonkin
-		}
-	}
-	
+    
 }
 
 will_demand_annexation = {

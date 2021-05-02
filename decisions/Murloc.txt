@@ -1,0 +1,121 @@
+country_decisions = {
+
+	encourage_worship_murloc = {
+		potential = {
+			culture_group = culture_group_murloc
+            NOT = { has_country_modifier = encouraged_worship }
+		}
+		
+		allow = {
+			adm_power = 100
+            NOT = { has_country_modifier = encouraged_worship }
+		}
+		
+		effect = {
+			add_adm_power = -100
+            add_country_modifier = {
+                name = encouraged_worship
+                duration = 3650
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    embrace_magic = {
+		potential = {
+			culture_group = culture_group_murloc
+            NOT = { has_country_modifier = embraced_magic }
+		}
+		
+		allow = {
+			dip = 5
+            NOT = { has_country_modifier = embraced_magic }
+		}
+		
+		effect = {
+            add_ruler_modifier = {
+                name = embraced_magic
+                duration = -1
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    gather_treasure = {
+		potential = {
+			culture_group = culture_group_murloc
+            NOT = { has_country_modifier = treasures_of_azeroth }
+		}
+		
+		allow = {
+			adm = 4
+            NOT = { has_country_modifier = treasures_of_azeroth }
+		}
+		
+		effect = {
+            add_ruler_modifier = {
+                name = treasures_of_azeroth
+                duration = -1
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    muster_murlocs = {
+		potential = {
+			culture_group = culture_group_murloc
+            NOT = { has_country_modifier = murloc_muster }
+		}
+		
+		allow = {
+			mil_power = 100
+            NOT = { has_country_modifier = murloc_muster }
+            is_at_war = yes
+		}
+		
+		effect = {
+			add_mil_power = -100
+            
+            add_country_modifier = {
+                name = murloc_muster
+                duration = 3650
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    call_a_gmmmlmmmrrmrmrmgrg = {
+		potential = {
+			culture_group = culture_group_murloc
+            NOT = { has_country_modifier = gmmmlmmmrrmrmrmgrg }
+		}
+		
+		allow = {
+			mil = 5
+            NOT = { has_country_modifier = gmmmlmmmrrmrmrmgrg }
+		}
+		
+		effect = {
+            add_ruler_modifier = {
+                name = gmmmlmmmrrmrmrmgrg
+                duration = -1
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

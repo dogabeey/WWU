@@ -1,0 +1,61 @@
+namespace = wwu_setup_burning_legion
+
+# # This event signals the tail-end of the Third War
+# # Burning Legion
+# country_event = {
+	# id = wwu_setup_burning_legion.1
+	# title = wwu_setup_burning_legion.1.title
+	# desc = wwu_setup_burning_legion.1.desc
+	# picture = ARCHIMONDE_eventPicture
+
+    # major = yes
+	# fire_only_once = yes
+    
+	# trigger = {
+        # OR = {
+            # ai = no
+            # is_great_power = yes
+        # }
+        # NOT = { exists = TBL }
+        # NOT = { has_global_flag = setup_burning_legion }
+        # current_age = age_burning_legion
+    # }
+    
+    # immediate = {
+        # hidden_effect = {
+            # set_global_flag = setup_burning_legion
+        # }
+    # }
+    
+    # mean_time_to_happen = {
+		# months = 240
+	# }
+
+	# option = {
+		# name = wwu_setup_burning_legion.1.option.a
+        
+        # region_mount_hyjal = {
+            # limit = {
+                # NOT = { area = area_mount_hyjal_1 }
+                # NOT = { area = area_mount_hyjal_2 }
+                # NOT = { area = area_mount_hyjal_3 }
+                # NOT = { area = area_mount_hyjal_4 }
+                # NOT = { area = area_mount_hyjal_5 }
+                # NOT = { area = area_mount_hyjal_6 }
+                # NOT = { area = area_mount_hyjal_7 }
+                # NOT = { area = area_mount_hyjal_23 }
+                # NOT = { area = area_mount_hyjal_24 }
+                # NOT = { area = area_mount_hyjal_25 }
+                # NOT = { area = area_mount_hyjal_26 }
+            # }
+            # cede_province = TBL
+            # add_core = TBL
+            # change_culture = demon
+            # change_religion = fel
+        # }
+        
+        # ai_chance = {
+            # factor = 100
+        # }
+	# }
+# }

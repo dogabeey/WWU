@@ -1,0 +1,144 @@
+#------------------------------------
+# Elemental
+#------------------------------------
+religion_group_elemental = {
+	defender_of_faith = no
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+	religion_ancestral = {
+		color = { 150 74 41 }
+		icon = 20
+
+		country = {
+            stability_cost_modifier = -0.3
+		}
+		country_as_secondary = {
+            stability_cost_modifier = -0.15
+		}
+        
+        uses_karma = yes
+        
+        hre_religion = yes
+        
+		on_convert = {
+			change_religion = religion_ancestral
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+    
+	religion_fire = {
+		color = { 241 124 42 }
+		icon = 25
+		
+		country = {	
+			fire_damage = 0.2
+		}
+        country_as_secondary = {	
+			fire_damage = 0.1
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+        
+        hre_heretic_religion = yes
+        
+		on_convert = {
+			change_religion = religion_fire
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+	
+	religion_earth = {
+		color = { 47 27 76 }
+		icon = 26
+		
+		country = {	
+			defensiveness = 0.5
+		}
+        country_as_secondary = {	
+			defensiveness = 0.25
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		
+		on_convert = {
+			change_religion = religion_earth
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+
+	religion_air = {
+		color = { 5 181 190 }
+		icon = 27
+		
+        country = {
+			movement_speed = 0.3
+		}
+        country_as_secondary = {
+			movement_speed = 0.15
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		
+		on_convert = {
+			change_religion = religion_air
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+
+	religion_water = {
+		color = { 59 172 229 }
+		icon = 28
+		
+		country = {
+			naval_morale = 0.2
+		}
+        country_as_secondary = {
+			naval_morale = 0.1
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		
+		on_convert = {
+			change_religion = religion_water
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+    
+    # Ordos
+    
+    # Deep Mother
+}

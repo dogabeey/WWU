@@ -1,4 +1,87 @@
 country_decisions = {    
+    seek_kaja_mite = {
+        potential = {
+            culture_group = culture_group_goblin
+            NOT = { has_country_modifier = seek_kaja_mite }
+        }
+        allow = {
+            NOT = { has_country_modifier = seek_kaja_mite }
+            treasury = 1000
+        }
+        effect = {
+            add_treasury = -1000
+            add_country_modifier = {
+                name = seek_kaja_mite
+                duration = 8900
+            }
+            hidden_effect = { set_country_flag = seek_kajamite }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    consult_with_the_trade_princes = {
+        potential = {
+            culture_group = culture_group_goblin
+            NOT = { has_country_modifier = aggressive_marketing }
+        }
+        allow = {
+            NOT = { trade_income_percentage = 0.3 }
+            dip_power = 100
+        }
+        effect = {
+            add_dip_power = -100
+            add_country_modifier = {
+                name = aggressive_marketing
+                duration = 5475
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    establish_illicit_connections = {
+        potential = {
+            culture_group = culture_group_goblin
+            NOT = { has_country_modifier = illicit_connections }
+        }
+        allow = {
+            dip = 4
+            NOT = { has_country_modifier = illicit_connections }
+        }
+        effect = {
+            add_ruler_modifier = {
+                name = illicit_connections
+                duration = -1
+            }
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    
+    blackmail_labourers = {
+        potential = {
+            culture_group = culture_group_goblin
+            NOT = { has_country_modifier = blackmailed_labourers }
+        }
+        allow = {
+            mil = 4
+            NOT = { has_country_modifier = blackmailed_labourers }
+        }
+        effect = {
+            add_ruler_modifier = {
+                name = blackmailed_labourers
+                duration = -1
+            }
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    
     alchemy_surge = {
         potential = {
             religion = religion_greed

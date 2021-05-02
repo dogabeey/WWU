@@ -1,0 +1,95 @@
+country_decisions = {
+	curb_infighting = {
+		potential = {
+			culture_group = culture_group_gnoll
+            NOT = { has_country_modifier = curbed_infighting }
+		}
+		
+		allow = {
+			mil = 4
+            NOT = { has_country_modifier = curbed_infighting }
+		}
+		
+		effect = {
+            add_country_modifier = {
+                name = curbed_infighting
+                duration = 3650
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    divine_magic = {
+		potential = {
+			culture_group = culture_group_gnoll
+            NOT = { has_country_modifier = divined_magic }
+		}
+		
+		allow = {
+			adm = 4
+            NOT = { has_country_modifier = divined_magic }
+		}
+		
+		effect = {
+            add_country_modifier = {
+                name = divined_magic
+                duration = 3650
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    initiate_weapons_trade = {
+		potential = {
+			culture_group = culture_group_gnoll
+            NOT = { has_country_modifier = weapons_trade }
+		}
+		
+		allow = {
+			mil_power = 100
+            NOT = { has_country_modifier = weapons_trade }
+		}
+		
+		effect = {
+			add_mil_power = -100
+            
+            add_country_modifier = {
+                name = weapons_trade
+                duration = 3650
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    challenge_alpha = {
+		potential = {
+			culture_group = culture_group_gnoll
+            NOT = { has_country_modifier = challenged_alpha }
+		}
+		
+		allow = {
+			dip = 4
+            NOT = { has_country_modifier = challenged_alpha }
+		}
+		
+		effect = {
+            add_ruler_modifier = {
+                name = challenged_alpha
+                duration = -1
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

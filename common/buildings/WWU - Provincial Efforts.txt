@@ -1,0 +1,120 @@
+# Do not change tags in here without changing every other reference to them.
+# If adding new buildings, make sure they are uniquely named.
+
+# cost = x #==> cost in $ to build (subject to other modifiers)
+# time = x #==> number of months to build.
+# modifier = m # a modifier on the province that the building gives
+# build_trigger  = t # an and build_trigger  that needs to be fullfilled to build and keep the building
+# one_per_country = yes/no # if yes, only one of these can exist in a country
+# manufactory = { trade_good trade_good } # list of trade goods that get a production bonus
+# onmap = yes/no # show as a sprite on the map
+# indestructible = yes # Stops the buildings being destroyed by bankruptcy
+
+# FROM = owner
+# ROOT = province
+
+# AI will consider buildings it does not have the tech for at 20% of scripted AI weight (in case it wants to save slots)
+
+#----------------------------------
+# Generic
+#----------------------------------
+province_action_tax = {
+	cost = 1000
+	time = 64
+    
+    on_built = {
+        add_base_tax = 1
+        remove_building = province_action_tax
+    }
+	
+	ai_will_do = {
+		factor = 100
+        
+        modifier = {
+            factor = 0.5
+            
+            base_tax = 20
+        }
+        modifier = {
+            factor = 0
+            
+            NOT = { treasury = 10000 }
+        }
+	}
+}
+province_action_production = {
+	cost = 1000
+	time = 64
+
+    on_built = {  
+        add_base_production = 1
+        remove_building = province_action_production
+    }
+	
+	ai_will_do = {
+		factor = 100
+        
+        modifier = {
+            factor = 0.5
+            
+            base_production = 20
+        }
+        modifier = {
+            factor = 0
+            
+            NOT = { treasury = 10000 }
+        }
+	}
+}
+province_action_manpower = {
+	cost = 1000
+	time = 64
+    
+    on_built = { 
+        add_base_manpower = 1
+        remove_building = province_action_manpower
+    }
+	
+	ai_will_do = {
+		factor = 100
+        
+        modifier = {
+            factor = 0.5
+            
+            base_production = 20
+        }
+        modifier = {
+            factor = 0
+            
+            NOT = { treasury = 10000 }
+        }
+	}
+}
+province_action_trade_center = {
+	cost = 3000
+	time = 120
+    
+    build_trigger = {
+        num_free_building_slots = 2
+        NOT = { province_has_center_of_trade_of_level = 1 }
+    }
+    on_built = {  
+        center_of_trade = 1
+        remove_building = province_action_trade_center
+    }
+	
+	ai_will_do = {
+        factor = 100
+        
+		modifier = {
+            factor = 0.5
+            
+            NOT = { base_production = 10 }
+        }
+        modifier = {
+            factor = 0
+            
+            NOT = { treasury = 10000 }
+        }
+	}
+}

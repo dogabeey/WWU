@@ -1,0 +1,216 @@
+#------------------------------------
+# Void
+#------------------------------------
+religion_group_the_void = {
+	defender_of_faith = no
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+    harmonized_modifier = harmonized_void
+    
+	religion_shadow = {
+		color = { 0 0 64 }
+		icon = 8
+
+		country = {
+			unjustified_demands = -0.2
+		}
+        country_as_secondary = {
+			unjustified_demands = -0.1
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+
+		uses_church_power = yes				# Uses church power/aspect mechanics
+		aspects = {
+            shadow_word_pain
+            shadow_word_death
+            shadow_mend
+            call_shadowfiend
+            master_of_duality
+            psychic_scream
+		}
+		aspects_name = SHADOW_ASPECTS
+        
+		on_convert = {
+			change_religion = religion_shadow
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+	
+    # N'Zoth
+    
+    # Yogg-Saron
+    
+    # Y'Shaarj
+    
+    # C'thun
+    
+    # Twilight Cult
+    
+    # Nightmare
+    
+    # Fleshshaping
+    
+	religion_old_gods = {
+		color = { 106 54 112 }
+		icon = 15
+		
+		country = {
+			tolerance_own = 2
+            warscore_cost_vs_other_religion = -0.1
+		}
+        country_as_secondary = {
+			warscore_cost_vs_other_religion = -0.1
+		}
+        province = {
+			local_missionary_strength = -0.03
+		}
+        
+        aspects_name = CORRUPTING_ASPECTS
+        uses_church_power = yes				# Uses church power/aspect mechanics
+		aspects = {
+            maddenning_howl
+            call_from_beyond
+            shadowy_barrier
+            beacon_of_madness
+            lunatic_gaze
+            widsom_of_the_mad
+		}
+        
+		on_convert = {
+			change_religion = religion_old_gods
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		heretic = { }
+	}
+	
+	religion_the_damned = {
+		color = { 128 128 128 }
+		icon = 17
+		
+		country = {
+			global_manpower_modifier = 0.3
+            reinforce_speed = 0.33
+		}
+        country_as_secondary = {
+			global_manpower_modifier = 0.15
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		
+        uses_church_power = yes
+		aspects = {
+			unrelenting_conversion
+            unity_in_death
+            patchwork_minions
+            blight
+            flesh_supplies
+            raze_and_ruin
+            acolytes_of_the_damned
+            plague_bombs
+            corrupted_minds
+		}
+        aspects_name = UNDEAD_ASPECTS
+		
+		on_convert = {
+			change_religion = religion_the_damned
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+	
+	religion_void = {
+		color = { 12 0 49 }
+		icon = 22
+		
+		country = {
+			fire_damage = 0.1
+		}
+        country_as_secondary = {
+			fire_damage = 0.1
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+
+		uses_church_power = yes				# Uses church power/aspect mechanics
+		aspects = {
+            manifest_the_void
+            void_corruption
+            parasitic_horrors
+            void_tendrils
+            demonic_allies
+            summon_voidwalkers
+            voidform
+		}
+		aspects_name = VOID_ASPECTS
+        
+		on_convert = {
+			change_religion = religion_void
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+
+	religion_forgotten_shadow = {
+		color = { 15 96 113 }
+		icon = 7
+		
+		country = {
+			global_unrest = -2
+		}
+        country_as_secondary = {
+			global_unrest = -1
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		
+        uses_church_power = yes
+		aspects = {
+            shadow_word_pain
+            shadow_word_death
+            shadow_mend
+            call_shadowfiend
+            master_of_duality
+            psychic_scream
+		}
+        aspects_name = FORGOTTEN_ASPECTS
+        
+		on_convert = {
+			change_religion = religion_forgotten_shadow
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+}

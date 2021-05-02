@@ -1,0 +1,586 @@
+namespace = wwu_archaeology
+
+# "Archaeological Dig"
+country_event = {
+	id = wwu_archaeology.1
+	title = wwu_archaeology.1.title
+	desc = wwu_archaeology.1.desc
+	picture = ARCHAEOLOGY_eventPicture
+    hidden = yes
+    
+	trigger = {
+		has_country_flag = archaeological_project_started
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		clr_country_flag = archaeological_project_started
+		
+			hidden_effect = {
+				random_list = {
+					10 = {
+							country_event = { id = wwu_archaeology.2 }
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = apocalypse }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.3 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = apocalypse }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = twinblades_of_deceiver }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.4 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = twinblades_of_deceiver }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = thasdorah }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.5 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = thasdorah }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = aluneth }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.6 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = aluneth }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = sheilun }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.7 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = sheilun }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = ashbringer }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.8 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = ashbringer }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = xalatath }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.9 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = xalatath }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = doomhammer }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.10 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = doomhammer }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = the_dreadblades }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.11 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = the_dreadblades }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = skull_of_manari }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.12 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = skull_of_manari }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = warswords_of_valarjar }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.13 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = warswords_of_valarjar }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+					1 = {
+						if = {
+							limit = {
+								NOT = {
+									any_country = { has_country_modifier = scythe_of_elune }
+								}
+							}
+							
+							country_event = { id = wwu_archaeology.14 }
+						}
+						if = {
+							limit = {
+								any_country = { has_country_modifier = scythe_of_elune }
+							}
+							add_country_modifier = { 
+								name = archaeology_fragment
+								duration = 7300
+								hidden = no
+							}
+							
+							country_event = { id = wwu_archaeology.15 }
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+		name = wwu_archaeology.1.option.a
+		
+		
+	}
+}
+
+# "Excavation Failure"
+country_event = {
+	id = wwu_archaeology.2
+	title = wwu_archaeology.2.title
+	desc = wwu_archaeology.2.desc
+	picture = ARCHAEOLOGY_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.2.option.a
+	}
+}
+
+# "Found Apocalypse!"
+country_event = {
+	id = wwu_archaeology.3
+	title = wwu_archaeology.3.title
+	desc = wwu_archaeology.3.desc
+	picture = APOCALYPSE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.3.option.a
+		
+		add_country_modifier = { 
+			name = apocalypse
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found Twinblades of Deceiver!"
+country_event = {
+	id = wwu_archaeology.4
+	title = wwu_archaeology.4.title
+	desc = wwu_archaeology.4.desc
+	picture = TWINBLADES_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.4.option.a
+		
+		add_country_modifier = { 
+			name = twinblades_of_deceiver
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found Thas'dorah, Legacy of the Windrunners!"
+country_event = {
+	id = wwu_archaeology.5
+	title = wwu_archaeology.5.title
+	desc = wwu_archaeology.5.desc
+	picture = THASDORAH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.5.option.a
+		
+		add_country_modifier = { 
+			name = thasdorah
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found Aluneth!"
+country_event = {
+	id = wwu_archaeology.6
+	title = wwu_archaeology.6.title
+	desc = wwu_archaeology.6.desc
+	picture = ALUNETH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.6.option.a
+		
+		add_country_modifier = { 
+			name = aluneth
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found Sheilun, Staff of The Mists!"
+country_event = {
+	id = wwu_archaeology.7
+	title = wwu_archaeology.7.title
+	desc = wwu_archaeology.7.desc
+	picture = SHEILUN_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.7.option.a
+		
+		add_country_modifier = { 
+			name = sheilun
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found The Ashbringer!"
+country_event = {
+	id = wwu_archaeology.8
+	title = wwu_archaeology.8.title
+	desc = wwu_archaeology.8.desc
+	picture = ASHBRINGER_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.8.option.a
+		
+		add_country_modifier = { 
+			name = ashbringer
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found Xalatath, Blade of The Black Empire!"
+country_event = {
+	id = wwu_archaeology.9
+	title = wwu_archaeology.9.title
+	desc = wwu_archaeology.9.desc
+	picture = XALATATH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.9.option.a
+		
+		add_country_modifier = { 
+			name = xalatath
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found Doomhammer"
+country_event = {
+	id = wwu_archaeology.10
+	title = wwu_archaeology.10.title
+	desc = wwu_archaeology.10.desc
+	picture = DOOMHAMMER_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.10.option.a
+		
+		add_country_modifier = { 
+			name = doomhammer
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found The Dreadblades!"
+country_event = {
+	id = wwu_archaeology.11
+	title = wwu_archaeology.11.title
+	desc = wwu_archaeology.11.desc
+	picture = DREADBLADES_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.11.option.a
+		
+		add_country_modifier = { 
+			name = the_dreadblades
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found Skull of Man'ari!"
+country_event = {
+	id = wwu_archaeology.12
+	title = wwu_archaeology.12.title
+	desc = wwu_archaeology.12.desc
+	picture = SKULL_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.12.option.a
+		
+		add_country_modifier = { 
+			name = skull_of_manari
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found Warswords of Valarjar!"
+country_event = {
+	id = wwu_archaeology.13
+	title = wwu_archaeology.13.title
+	desc = wwu_archaeology.13.desc
+	picture = WARSWORDS_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.13.option.a
+		
+		add_country_modifier = { 
+			name = warswords_of_valarjar
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found the Scythe of Elune!"
+country_event = {
+	id = wwu_archaeology.14
+	title = wwu_archaeology.14.title
+	desc = wwu_archaeology.14.desc
+	picture = SCYTHE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.14.option.a
+		
+		add_country_modifier = { 
+			name = scythe_of_elune
+			duration = 7300
+			hidden = no
+		}
+	}
+}
+
+# "Found Archaeology Fragments"
+country_event = {
+	id = wwu_archaeology.15
+	title = wwu_archaeology.15.title
+	desc = wwu_archaeology.15.desc
+	picture = FRAGMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.15.option.a
+		
+		add_country_modifier = { 
+			name = archaeology_fragment
+			duration = 7300
+			hidden = no
+		}
+	}
+}

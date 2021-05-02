@@ -1,0 +1,422 @@
+#------------------------------------
+# Rationalism
+#------------------------------------
+religion_group_rational_philosophies = {
+	defender_of_faith = no
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+	
+    harmonized_modifier = harmonized_rational_philosophies
+    
+	religion_rationalism = {
+		color = { 77 27 76 }
+		icon = 36
+		
+		country = {
+			idea_cost = -0.1
+		}
+        country_as_secondary = {
+			idea_cost = -0.05
+		}
+		province = {
+            local_missionary_strength = 0.02
+        }
+        
+		fervor = yes
+        
+		on_convert = {
+			change_religion = religion_rationalism
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+	
+    religion_faithless = {
+		color = { 77 27 76 }
+		icon = 35
+		
+		country = {
+			shock_damage = 0.1
+		}
+        country_as_secondary = {
+			shock_damage = 0.05
+		}
+		province = {
+            local_missionary_strength = -0.02
+        }
+        
+		fervor = yes
+        
+		on_convert = {
+			change_religion = religion_faithless
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+    
+	religion_tech = {
+		color = { 0.45 0.45 0.45 }
+		icon = 30
+        
+        country = {
+			technology_cost = -0.1
+            innovativeness_gain = 0.2
+		}
+        country_as_secondary = {
+			technology_cost = -0.05
+		}
+		province = {
+            local_missionary_strength = 0.02
+        }
+        
+		fervor = yes
+		
+		on_convert = {
+			change_religion = religion_tech
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+	}
+
+    religion_greed = {
+		color = { 0.5 0.5 0.5 }
+		icon = 34
+        
+        country = {
+			global_tax_modifier = 0.1
+            production_efficiency = 0.1
+		}
+        country_as_secondary = {
+			global_tax_modifier = 0.1
+		}
+		province = {
+            local_missionary_strength = 0.02
+        }
+		
+		fervor = yes
+		
+		on_convert = {
+			change_religion = religion_greed
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+    }
+    
+    # Schools
+    religious_schools = {
+		military_philosophy = {
+            picture = "GFX_icon_military_philosophy"
+            invite_scholar_modifier_display = military_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = military_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			army_tradition_from_battle = 1.0
+            #religion_sub_modifier = no
+		}
+        naval_philosophy = {
+            picture = "GFX_icon_naval_philosophy"
+            invite_scholar_modifier_display = naval_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = naval_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			naval_tradition_from_battle = 1.0
+            religion_sub_modifier = no
+		}
+        diplomatic_philosophy = {
+            picture = "GFX_icon_diplomatic_philosophy"
+            invite_scholar_modifier_display = diplomatic_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = diplomatic_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			diplomats = 1
+            religion_sub_modifier = no
+		}
+        trade_philosophy = {
+            picture = "GFX_icon_trade_philosophy"
+            invite_scholar_modifier_display = trade_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = trade_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			merchants = 1
+            #religion_sub_modifier = no
+		}
+        engineering_philosophy = {
+            picture = "GFX_icon_engineering_philosophy"
+            invite_scholar_modifier_display = engineering_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = engineering_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			technology_cost = -0.05
+            #religion_sub_modifier = no
+		}
+        administrative_philosophy = {
+            picture = "GFX_icon_administrative_philosophy"
+            invite_scholar_modifier_display = administrative_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = administrative_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			global_tax_modifier = 0.2
+            #religion_sub_modifier = no
+		}
+        governance_philosophy = {
+            picture = "GFX_icon_governance_philosophy"
+            invite_scholar_modifier_display = governance_philosophy_modifier
+            
+			potential_invite_scholar = {
+				always = yes
+			}
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = military_philosophy_modifier
+						has_country_modifier = naval_philosophy_modifier
+						has_country_modifier = diplomatic_philosophy_modifier
+						has_country_modifier = trade_philosophy_modifier
+						has_country_modifier = engineering_philosophy_modifier
+						has_country_modifier = administrative_philosophy_modifier
+						has_country_modifier = governance_philosophy_modifier
+					}
+				}
+                years_of_income = 1
+			}
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = military_philosophy_modifier
+                    remove_country_modifier = naval_philosophy_modifier
+                    remove_country_modifier = diplomatic_philosophy_modifier
+                    remove_country_modifier = trade_philosophy_modifier
+                    remove_country_modifier = engineering_philosophy_modifier
+                    remove_country_modifier = administrative_philosophy_modifier
+                    remove_country_modifier = governance_philosophy_modifier
+                }
+                add_years_of_income = -1
+                
+				add_country_modifier = { 
+                    name = governance_philosophy_modifier
+                    duration = 7300 
+                }
+			}
+
+			expand_administration_cost = -0.2
+            #religion_sub_modifier = no
+		}
+    }
+}

@@ -1,41 +1,57 @@
 country_decisions = {
-	establish_foothold_at_azeroth = {
-		major = yes
-		potential = {
-		    culture_group = culture_group_orc
-			capital_scope = {
-				continent = continent_outland
-			}
-			NOT = { has_country_flag = moved_capital }
-			the_first_war_or_later = yes
-		}
-		allow =  {
-			any_owned_province = {
-				NOT = { continent = continent_outland }
-			}
-		}
-		effect = {
-			set_country_flag = moved_capital
-			add_adm_power = -150
-			add_dip_power = -150
-			add_mil_power = -150
-			add_country_modifier = {
-				name = motivated_for_assault
-				duration = 3650
-			}
-			random_owned_province = {
-				limit = {
-					NOT = { continent = continent_outland }
-				}
-				move_capital_effect = yes
-				add_base_tax = 4
-				add_base_production = 4
-				add_base_manpower = 4
-				add_building = wow_fort_1
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+    encourage_bloodlust = {
+        major = yes
+        potential = {
+            culture_group = culture_group_orc
+            NOT = { has_ruler_modifier = warlust }
+        }
+        allow = {
+            culture_group = culture_group_orc
+            mil = 6
+        }
+        effect = {
+            add_ruler_modifier = { 
+                name = warlust
+                duration = -1
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                NOT = { num_of_cities = 5 }
+            }
+        }
+    }
+    
+    turn_to_shamanism = {
+        potential = {
+            culture_group = culture_group_orc
+            religion = religion_fel
+            has_global_flag = orcish_horde_lost_war
+        }
+        allow = {
+            culture_group = culture_group_orc
+            religion = religion_fel
+            stability = 3
+        }
+        effect = {
+            add_stability = -3
+            
+            set_ruler_religion = religion_ancestral
+            change_religion = religion_ancestral
+            capital_scope = {
+                change_religion = religion_ancestral
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                NOT = { num_of_cities = 5 }
+            }
+        }
+    }
 }

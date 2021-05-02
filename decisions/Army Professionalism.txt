@@ -1,0 +1,26 @@
+country_decisions = {
+    institute_yearly_assessments = {
+        potential = {
+			army_professionalism = 0.2
+            has_dlc = "Cradle of Civilization"
+            NOT = { has_country_modifier = yearly_assessments }
+        }
+        allow = {
+			army_professionalism = 0.2
+        }
+        effect = {
+			add_country_modifier = {
+                name = yearly_assessments
+                duration = 3650
+            }
+        }
+        ai_will_do = {
+            factor = 1
+            
+			modifier = {
+				factor = 0
+				NOT = { monthly_income = 100 }
+			}
+        }
+    }
+}

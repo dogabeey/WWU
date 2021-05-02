@@ -101,9 +101,9 @@ cb_dishonored_call = {
 	valid_for_subject = no
 
 	is_triggered_only = yes
-	months = 96
+	months = 240
 
-	war_goal = superiority_insult
+	war_goal = humiliate
 }
 
 # CB for vassalization missions
@@ -154,18 +154,6 @@ cb_trade_war_triggered = {
 	months = 24
 
 	war_goal = superiority_trade
-
-	attacker_disabled_po = {
-		po_demand_provinces
-		po_revoke_cores
-		po_release_vassals
-		po_release_annexed
-		po_return_cores
-		po_become_vassal
-		po_become_tributary_state
-		po_form_personal_union
-		po_transfer_vassals
-	}
 }
 
 cb_trade_conflict = {
@@ -175,18 +163,6 @@ cb_trade_conflict = {
 	months = 24
 
 	war_goal = blockade_ports
-
-	attacker_disabled_po = {
-		po_demand_provinces
-		po_revoke_cores
-		po_release_vassals
-		po_release_annexed
-		po_return_cores
-		po_become_vassal
-		po_form_personal_union
-		po_become_tributary_state
-		po_transfer_vassals
-	}
 }
 
 cb_trade_league_conflict = {
@@ -199,18 +175,6 @@ cb_trade_league_conflict = {
 	months = 24
 
 	war_goal = blockade_ports
-
-	attacker_disabled_po = {
-		po_demand_provinces
-		po_revoke_cores
-		po_release_vassals
-		po_release_annexed
-		po_return_cores
-		po_become_vassal
-		po_become_tributary_state
-		po_form_personal_union
-		po_transfer_vassals
-	}
 }
 
 cb_annex = {
@@ -443,6 +407,40 @@ cb_defender_of_the_faith = {
 	war_goal = defend_country_faith
 }
 
+# Excommunication War
+cb_excommunication = {
+	valid_for_subject = no
+
+	prerequisites = {
+		FROM = {
+			is_excommunicated = yes
+			religion = religion_fel
+		}
+		religion = religion_fel
+		is_excommunicated = no
+		FROM = {
+			is_neighbor_of = ROOT
+			any_owned_province = {
+				OR = {
+					is_core = ROOT
+					is_claim = ROOT
+					any_neighbor_province = {
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		OR = {
+			hre_religion_treaty = no
+			capital_scope = { is_part_of_hre = no }
+			FROM = { capital_scope = { is_part_of_hre = no } }
+		}
+		is_revolutionary = no
+	}
+
+	war_goal = take_province_excommunication
+}
+
 # Trade War
 cb_trade_war = {
 
@@ -462,18 +460,6 @@ cb_trade_war = {
 	}
 
 	war_goal = superiority_trade_mutual
-
-	attacker_disabled_po = {
-		po_demand_provinces
-		po_revoke_cores
-		po_release_vassals
-		po_release_annexed
-		po_return_cores
-		po_become_vassal
-		po_become_tributary_state
-		po_form_personal_union
-		po_transfer_vassals
-	}
 }
 
 # Trade War for embargoed Trade League members
@@ -487,19 +473,44 @@ cb_trade_league_dispute = {
 	}
 
 	war_goal = superiority_trade_mutual
-
-	attacker_disabled_po = {
-		po_demand_provinces
-		po_revoke_cores
-		po_release_vassals
-		po_release_annexed
-		po_return_cores
-		po_become_vassal
-		po_become_tributary_state
-		po_form_personal_union
-		po_transfer_vassals
-	}
 }
+
+# Imperial Ban
+cb_imperial_ban = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_emperor = yes
+		is_imperial_ban_allowed = yes
+		FROM = {
+			capital_scope = { is_part_of_hre = no }
+			any_owned_province = {
+				is_part_of_hre = yes
+			}
+		}
+		is_revolutionary = no
+	}
+
+	war_goal = take_province_ban
+}
+
+# Liberate Elector
+cb_liberate_elector = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_emperor = yes
+		FROM = {
+			any_subject_country = {
+				is_elector = yes
+			}
+		}
+		is_revolutionary = no
+	}
+
+	war_goal = superiority_liberation
+}
+
 # Coalition CB
 cb_super_badboy = {
 	coalition = yes
@@ -508,10 +519,14 @@ cb_super_badboy = {
 		coalition_target = FROM
 		NOT = { FROM = { is_in_coalition_war = yes } }
 		num_of_coalition_members = 3
+		has_opinion_modifier = {
+			modifier = aggressive_expansion
+			who = FROM
+		}
 		is_revolutionary = no
 	}
 
-	war_goal = superiority_punitive
+	war_goal = take_capital_punitive
 }
 
 
@@ -527,14 +542,30 @@ cb_claim_throne = {
 	war_goal = take_capital_throne
 }
 
+# Horde vs Civilized
+cb_horde_vs_civ = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_neighbor_of = FROM
+		FROM = {
+			is_nomad = no
+		}
+		is_nomad = yes
+		is_revolutionary = no
+	}
+
+	war_goal = superiority_horde
+}
+
 # Tribal vs Tribal Feud
 cb_tribal_feud = {
 	valid_for_subject = no
 
 	prerequisites = {
-		is_savage = yes
+		is_nomad = yes
 		FROM = {
-			is_savage = yes
+			is_nomad = yes
 		}
 		is_neighbor_of = FROM
 		is_revolutionary = no
@@ -609,6 +640,44 @@ cb_support_rebels = {
 	war_goal = take_capital_support_rebels
 }
 
+# Revolution
+cb_crush_the_revolution = {
+	ai_peace_desire = -50
+	valid_for_subject = no
+
+
+	prerequisites = {
+		is_neighbor_of = FROM
+		is_revolutionary = no
+		is_free_or_tributary_trigger = yes
+		NOT = { truce_with = FROM }
+		FROM = {
+			is_revolutionary = yes
+		}
+	}
+
+	war_goal = take_capital_revolution
+}
+
+cb_spread_the_revolution = {
+	valid_for_subject = no
+
+	prerequisites = {
+        is_neighbor_of = FROM
+		is_revolutionary = yes
+		OR = {
+			ai = no
+			is_revolution_target = yes
+		}
+		FROM = {
+			NOT = { is_subject_of = ROOT }
+			is_revolutionary = no
+		}
+	}
+
+	war_goal = superiority_revolution
+}
+
 # Rival Humiliate CB
 cb_humiliate_rotw = {
 	valid_for_subject = no
@@ -621,18 +690,7 @@ cb_humiliate_rotw = {
 		is_rival = FROM
 		is_revolutionary = no
 	}
-
-	attacker_disabled_po = {
-		po_demand_provinces
-		po_release_vassals
-		po_release_annexed
-		po_return_cores
-		po_become_vassal
-		po_become_tributary_state
-		po_form_personal_union
-		po_transfer_vassals
-	}
-
+    
 	war_goal = humiliate_rotw
 }
 
@@ -644,6 +702,7 @@ cb_take_mandate = {
 		has_dlc = "Mandate of Heaven"
 		is_subject = no
 		is_neighbor_of = FROM
+        culture_group = dragonflight_group
 		FROM = { is_emperor_of_china = yes }
 		OR = {
 			religion_group = religion_group_the_void
@@ -654,6 +713,23 @@ cb_take_mandate = {
 	war_goal = take_capital_take_mandate
 }
 
+# Force migration
+cb_force_migration = {
+
+	valid_for_subject = no
+
+	prerequisites = {
+		has_dlc = "The Cossacks"
+		is_neighbor_of = FROM
+		is_free_or_tributary_trigger = yes
+		FROM = {
+			can_migrate = yes
+			is_free_or_tributary_trigger = yes
+		}
+	}
+	war_goal = force_migration
+}
+
 # Forced our ally to break alliance
 cb_forced_break_alliance = {
 
@@ -662,6 +738,62 @@ cb_forced_break_alliance = {
 	months = 120
 	
 	war_goal = superiority_insult
+}
+
+cb_force_tributary = {
+
+	valid_for_subject = no
+
+	prerequisites = {
+		has_dlc = "Mandate of Heaven"
+		is_emperor_of_china = yes
+		FROM = { is_subject = no }
+		is_neighbor_of = FROM
+	}
+	
+	war_goal = take_capital_force_tributary
+}
+
+cb_force_join_hre = {
+	valid_for_subject = no
+
+	prerequisites = {
+		has_dlc = "Emperor"
+		ROOT = {
+			is_emperor = yes
+			hre_reform_passed = emperor_safeguard_tribal_stability
+			can_use_peace_treaty = {
+				who = FROM
+				treaty = po_join_empire
+			}
+		}
+		FROM = {
+			religion_group = ROOT
+			capital_scope = {
+				same_continent = ROOT
+				is_part_of_hre = no
+			}
+			any_owned_province = {
+				any_neighbor_province = {
+					is_part_of_hre = yes
+				}
+			}
+		}
+	}
+
+	war_goal = take_capital_force_join_hre
+}
+
+# A HRE prince has been annexed
+cb_imperial_realm_war = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+	months = 12
+
+	call_empire_members = yes
+
+	war_goal = superiority_reichskrieg
 }
 
 # Force religion on Heathens
@@ -694,49 +826,3 @@ cb_hegemon = {
 	war_goal = take_capital_imperial
 }
 
-# Force migration
-cb_force_migration = {
-
-	valid_for_subject = no
-
-	prerequisites = {
-		has_dlc = "Conquest of Paradise"
-		is_native_tribe = yes
-		FROM = {
-			is_migratory_tribe = yes
-			capital_scope = {
-				tribal_land_of = ROOT
-			}
-		}
-	}
-	war_goal = force_migration
-}
-
-# 
-cb_native_american_tribal_feud = {
-	valid_for_subject = no
-
-	prerequisites = {
-		has_dlc = "Conquest of Paradise"
-		is_native_tribe = yes
-		FROM = {
-			is_native_tribe = yes
-			if = {
-				limit = { 
-					capital_scope = {
-						tribal_land_of = FROM
-					}
-				}
-				is_neighbor_of = ROOT # This is faster method so let's do this for the general case
-			}
-			else = {
-				any_tribal_land = {
-					any_neighbor_province = {
-						tribal_land_of = ROOT
-					}
-				}
-			}
-		}
-	}
-	war_goal = take_native_american_land
-}

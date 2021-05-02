@@ -1,134 +1,15 @@
 #---------------------------------------------
-# Ula-tek Canal
-#---------------------------------------------
-ula_tek_canal = {
-	type = canal
-    
-    start = 2214
-    build_cost = 10000
-    
-	date = 100.1.1
-	can_be_moved = no
-    starting_tier = 3
-    
-	time = {
-		months = 120
-	}
-	
-	build_trigger = {
-		FROM = {
-			owns_or_vassal_of = 2214
-			is_subject = no
-			treasury = 10000
-		}
-	}
-	on_built = {
-		add_canal = kiel_canal
-		owner = { add_prestige = 30 }
-	}
-	on_destroyed = {
-		remove_canal = kiel_canal
-    }
-	can_use_modifiers_trigger = {
-    
-	}
-	can_upgrade_trigger = {
-	}
-	keep_trigger = {
-	}
-
-	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-			province_trade_power_value = 10
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-			global_trade_power = 0.01
-		}
-		on_upgraded = {
-        
-		}
-	}
-	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-			province_trade_power_value = 20
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-			global_trade_power = 0.02
-		}
-		on_upgraded = {
-        
-		}
-	}
-	tier_2 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-			province_trade_power_value = 30
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-			global_trade_power = 0.03
-		}
-		on_upgraded = {
-        
-		}
-	}
-	tier_3 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-			province_trade_power_value = 50
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-			global_trade_power = 0.05
-		}
-		on_upgraded = {
-		}
-	}
-}
-#---------------------------------------------
 # Deeprun Tram
 #---------------------------------------------
 deeprun_tram = {
 	type = canal
     
-    start = 2505
+    start = 2203
     build_cost = 10000
     
-	date = 100.1.1
+	date = 592.1.1
 	can_be_moved = no
-    starting_tier = 3
+    starting_tier = 0
     
 	time = {
 		months = 120
@@ -136,7 +17,7 @@ deeprun_tram = {
 	
 	build_trigger = {
 		FROM = {
-			owns_or_vassal_of = 2505
+			owns_or_vassal_of = 2203
 			is_subject = no
 			treasury = 10000
 		}
@@ -237,15 +118,15 @@ deeprun_tram = {
 	}
 }
 #---------------------------------------------
-# Dark Portal (1)
+# Dark Portal
 #---------------------------------------------
-dark_portal_1 = {
+dark_portal = {
 	type = canal
     
-    start = 1586
-    build_cost = 10000
+    start = 2028
+    build_cost = 1000
     
-	date = 100.1.1
+	date = 592.1.1
 	can_be_moved = no
     starting_tier = 3
     
@@ -255,15 +136,18 @@ dark_portal_1 = {
 	
 	build_trigger = {
 		FROM = {
-			owns_or_vassal_of = 1586
+			owns_or_vassal_of = 2028
 			is_subject = no
-			treasury = 10000
+			treasury = 1000
 		}
 	}
 	on_built = {
+		add_canal = outland_dark_portal_ek
 		add_canal = outland_dark_portal_outland
+        owner = { add_prestige = 100 }
 	}
 	on_destroyed = {
+		remove_canal = outland_dark_portal_ek
 		remove_canal = outland_dark_portal_outland
     }
 	can_use_modifiers_trigger = {
@@ -272,124 +156,7 @@ dark_portal_1 = {
 	can_upgrade_trigger = {
 	}
 	keep_trigger = {
-	}
-
-	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-			movement_speed = 10
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-			
-		}
-		on_upgraded = {
-        
-		}
-	}
-	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-			movement_speed = 10
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-			
-		}
-		on_upgraded = {
-        
-		}
-	}
-	tier_2 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-			movement_speed = 10
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-            
-		}
-		on_upgraded = {
-        
-		}
-	}
-	tier_3 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-			movement_speed = 10
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-            
-		}
-		on_upgraded = {
-		}
-	}
-}
-#---------------------------------------------
-# Dark Portal (2)
-#---------------------------------------------
-dark_portal_2 = {
-	type = canal
     
-    start = 1586
-    build_cost = 10000
-    
-	date = 100.1.1
-	can_be_moved = no
-    starting_tier = 3
-    
-	time = {
-		months = 120
-	}
-	
-	build_trigger = {
-		FROM = {
-			owns_or_vassal_of = 1586
-			is_subject = no
-			treasury = 10000
-		}
-	}
-	on_built = {
-		add_canal = outland_dark_portal_outland
-	}
-	on_destroyed = {
-		remove_canal = outland_dark_portal_outland
-    }
-	can_use_modifiers_trigger = {
-    
-	}
-	can_upgrade_trigger = {
-	}
-	keep_trigger = {
 	}
 
 	tier_0 = {

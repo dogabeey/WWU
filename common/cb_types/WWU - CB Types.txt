@@ -1,37 +1,30 @@
-cb_faction_revolution = {
-	exclusive = yes
-	independence = yes
+#--------------------------------------------
+# Triggered
+#--------------------------------------------
+cb_pirates = {
+	is_triggered_only = yes
+	months = 120
 
-	prerequisites = {
-		OR = {
-			is_subject_of_type = faction_alliance
-			is_subject_of_type = faction_horde
-		}
-		is_subject_of = FROM
-		total_development = 100
-		
-	}
-
-	war_goal = change_overlord
+	war_goal = blockade_ports
 }
 
-cb_continental = {
+#--------------------------------------------
+# Preequisitie
+#--------------------------------------------
+cb_distant_conquest = {
 	valid_for_subject = no
 
-	prerequisites = {
-		num_of_colonists = 1
-		any_owned_province = {
-			has_port = yes
-		}
-		FROM = {
-			any_owned_province = {
-				NOT = { same_continent = ROOT }
-				has_port = yes
-			}
-		}
+    prerequisites = {
+        has_idea = wwu_expansion_ideas_2
+		is_free_or_tributary_trigger = yes
+        FROM = {
+            NOT = {
+                capital_scope = { continent = ROOT }
+            }
+        }
 	}
-	
-	war_goal = continental_landing
+
+	war_goal = take_capital_justified
 }
 
 cb_scourge = {
@@ -47,20 +40,6 @@ cb_scourge = {
 	
 	war_goal = superiority_horde
 }
-
-#cb_warband_raid = {
-#	valid_for_subject = no
-#
-#	prerequisites = {
-#        is_neighbor_of = FROM
-#		government = tribal
-#        FROM = {
-#            government = tribal
-#        }
-#	}
-#	
-#	war_goal = superiority_horde
-#}
 
 cb_silvermoon_land = {
     valid_for_subject = yes
@@ -279,4 +258,29 @@ cb_fury_of_dragons = {
 	is_triggered_only = yes
 	
 	war_goal = annex_country
+}
+
+cb_justified_war = {
+	valid_for_subject = no
+
+    prerequisites = {
+		is_free_or_tributary_trigger = yes
+        FROM = {
+            capital_scope = { continent = ROOT }
+        }
+        always = no
+	}
+
+	war_goal = take_capital_justified
+}
+
+cb_merciless_war = {
+	valid_for_subject = no
+
+	prerequisites = {
+		always = no
+		is_free_or_tributary_trigger = yes
+	}
+
+	war_goal = take_capital_merciless
 }

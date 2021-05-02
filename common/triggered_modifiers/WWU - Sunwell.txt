@@ -1,0 +1,41 @@
+power_of_the_sunwell = {
+    potential = {
+        OR = {
+            religion = religion_fel
+            religion = religion_arcane
+            religion = religion_shadow
+            religion = religion_light_of_the_sunwell
+        }
+    }
+    
+	trigger = {
+       2991 = {
+            owned_by = ROOT
+       }
+	}
+    
+    global_unrest = -5
+    discipline = 0.1
+    army_tradition = 1
+    global_manpower_modifier = 0.25
+    recover_army_morale_speed = 0.05
+}
+
+loss_of_the_sunwell = {
+    potential = {
+        tag = A90 # Quel'Thalas
+    }
+    
+	trigger = {
+       2991 = {
+            NOT = { owned_by = ROOT }
+       }
+	}
+    
+    global_unrest = 5
+    
+    discipline = -0.1
+    army_tradition = -1
+    global_manpower_modifier = -0.25
+    recover_army_morale_speed = -0.05
+}

@@ -1,58 +1,129 @@
-# Class order halls from legion xpac
-
+#--------------------------------------
+# Warrior
+#--------------------------------------
 warrior_order = {
 	icon = GFX_class_warrior
+    
 	trigger = { 
-		NOT = { 
-			has_country_flag = has_warrior_order 
-		} 
-		NOT = { 
-			any_country = { 
-				has_country_flag = has_warrior_order 
-			} 
-		} 
+		always = yes
 	}
 	
-    cost = 250
+    cost = 200
     cost_type = mil_power
 	
     per_province_effect = {
         form_holy_order_effect = yes
-		owner = { set_country_flag = has_warrior_order }
     }
     per_province_abandon_effect = {
 	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_warrior_order }
     }
     modifier = {
-        local_manpower_modifier = 0.2
+        local_manpower_modifier = 1.0
     }
     ai_priority = {
         factor = 1
     }
 }
 
-paladin_order = {
-	icon = GFX_class_paladin
-    
-	trigger = { 
-        NOT = { has_country_flag = has_paladin_order } 
-        NOT = { 
-            any_country = { has_country_flag = has_paladin_order }
-        }
-    }
-
+#--------------------------------------
+# Mage
+#--------------------------------------
+mage_order = {
+	icon = GFX_class_mage
 	
-    cost = 250
+    trigger = {
+        always = yes
+    }
+	
+    cost = 200
     cost_type = adm_power
 	
     per_province_effect = {
         form_holy_order_effect = yes
-		owner = { set_country_flag = has_paladin_order }
     }
     per_province_abandon_effect = {
 	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_paladin_order }
+    }
+    modifier = {
+        local_development_cost = -0.25
+    }
+    ai_priority = {
+        factor = 1
+    }
+}
+
+#--------------------------------------
+# Hunter
+#--------------------------------------
+hunter_order = {
+	icon = GFX_class_hunter
+	
+    trigger = {
+        always = yes
+    }
+	
+    cost = 200
+    cost_type = dip_power
+	
+    per_province_effect = {
+        form_holy_order_effect = yes
+    }
+    per_province_abandon_effect = {
+	    abandon_holy_order_effect = yes
+    }
+    modifier = {
+        local_production_efficiency = 0.5
+    }
+    ai_priority = {
+        factor = 1
+    }
+}
+
+#--------------------------------------
+# Rogue
+#--------------------------------------
+rogue_order = {
+	icon = GFX_class_rogue
+	
+    trigger = {
+        always = yes
+    }
+	
+    cost = 200
+    cost_type = dip_power
+	
+    per_province_effect = {
+        form_holy_order_effect = yes
+    }
+    per_province_abandon_effect = {
+	    abandon_holy_order_effect = yes
+    }
+    modifier = {
+        trade_goods_size_modifier = 0.25
+    }
+    ai_priority = {
+        factor = 1
+    }
+}
+
+#--------------------------------------
+# Paladin
+#--------------------------------------
+paladin_order = {
+	icon = GFX_class_paladin
+    
+	trigger = { 
+        religion_group = religion_group_the_light
+    }
+	
+    cost = 200
+    cost_type = adm_power
+	
+    per_province_effect = {
+        form_holy_order_effect = yes
+    }
+    per_province_abandon_effect = {
+	    abandon_holy_order_effect = yes
     }
     modifier = {
         local_unrest = -2
@@ -62,237 +133,169 @@ paladin_order = {
     }
 }
 
+#--------------------------------------
+# Priest
+#--------------------------------------
 priest_order = {
 	icon = GFX_class_priest
-	trigger = 
-	{ 
-		NOT = { has_country_flag = has_priest_order } 
-		NOT = { any_country = { has_country_flag = has_priest_order } } 
-	}
+    
+	trigger = {
+        religion_group = religion_group_the_light
+    }
 	
-    cost = 250
-    cost_type = dip_power
+    cost = 200
+    cost_type = adm_power
 	
     per_province_effect = {
         form_holy_order_effect = yes
-		owner = { set_country_flag = has_priest_order }
     }
     per_province_abandon_effect = {
 	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_priest_order }
     }
     modifier = {
-        local_religious_unity_contribution = -0.15
+        local_tax_modifier = 1.0
     }
     ai_priority = {
         factor = 1
     }
 }
-mage_order = {
-	icon = GFX_class_mage
-	trigger = { NOT = { has_country_flag = has_mage_order } NOT = { any_country = { has_country_flag = has_mage_order } } }
 
-	
-    cost = 250
-    cost_type = dip_power
-	
-    per_province_effect = {
-        form_holy_order_effect = yes
-		owner = { set_country_flag = has_mage_order }
-    }
-    per_province_abandon_effect = {
-	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_mage_order }
-    }
-    modifier = {
-        local_build_time = -0.3
-    }
-    ai_priority = {
-        factor = 1
-    }
-}
+#--------------------------------------
+# Warlock
+#--------------------------------------
 warlock_order = {
 	icon = GFX_class_warlock
-	trigger = { NOT = { has_country_flag = has_warlock_order } NOT = { any_country = { has_country_flag = has_warlock_order } } }
-
 	
-    cost = 250
+    trigger = {
+        religion = religion_fel
+    }
+	
+    cost = 200
     cost_type = mil_power
 	
     per_province_effect = {
         form_holy_order_effect = yes
-		owner = { set_country_flag = has_warlock_order }
     }
     per_province_abandon_effect = {
 	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_warlock_order }
     }
     modifier = {
-        local_hostile_movement_speed = -0.2
+        local_hostile_attrition = 5
     }
     ai_priority = {
         factor = 1
     }
 }
-hunter_order = {
-	icon = GFX_class_hunter
-	trigger = { NOT = { has_country_flag = has_hunter_order } NOT = { any_country = { has_country_flag = has_hunter_order } } }
 
-	
-    cost = 250
-    cost_type = adm_power
-	
-    per_province_effect = {
-        form_holy_order_effect = yes
-		owner = { set_country_flag = has_hunter_order }
-    }
-    per_province_abandon_effect = {
-	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_hunter_order }
-    }
-    modifier = {
-        local_production_efficiency = 0.2
-    }
-    ai_priority = {
-        factor = 1
-    }
-}
+#--------------------------------------
+# Druid
+#--------------------------------------
 druid_order = {
 	icon = GFX_class_druid
-	trigger = { NOT = { has_country_flag = has_druid_order } NOT = { any_country = { has_country_flag = has_druid_order } } }
-
 	
-    cost = 250
+    trigger = {
+        OR = {
+            religion = religion_ancestral
+            religion_group = religion_group_nature
+        }
+    }
+	
+    cost = 200
     cost_type = adm_power
 	
     per_province_effect = {
         form_holy_order_effect = yes
-		owner = { set_country_flag = has_druid_order }
     }
     per_province_abandon_effect = {
 	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_druid_order }
     }
     modifier = {
-        local_development_cost = -0.2
+        local_state_maintenance_modifier = -0.5
     }
     ai_priority = {
         factor = 1
     }
 }
+
+#--------------------------------------
+# Shaman
+#--------------------------------------
 shaman_order = {
 	icon = GFX_class_shaman
-	trigger = { NOT = { has_country_flag = has_shaman_order } NOT = { any_country = { has_country_flag = has_shaman_order } } }
-
 	
-    cost = 250
-    cost_type = dip_power
+    trigger = {
+        religion_group = religion_group_elemental
+    }
 	
-    per_province_effect = {
-        form_holy_order_effect = yes
-		owner = { set_country_flag = has_shaman_order }
-    }
-    per_province_abandon_effect = {
-	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_shaman_order }
-    }
-    modifier = {
-        supply_limit_modifier = 0.25
-    }
-    ai_priority = {
-        factor = 1
-    }
-}
-rogue_order = {
-	icon = GFX_class_rogue
-	trigger = { NOT = { has_country_flag = has_rogue_order } NOT = { any_country = { has_country_flag = has_rogue_order } } }
-
-	
-    cost = 250
-    cost_type = mil_power
-	
-    per_province_effect = {
-        form_holy_order_effect = yes
-		owner = { set_country_flag = has_rogue_order }
-    }
-    per_province_abandon_effect = {
-	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_rogue_order }
-    }
-    modifier = {
-        local_institution_spread = 0.2
-    }
-    ai_priority = {
-        factor = 1
-    }
-}
-demon_hunter_order = {
-	icon = GFX_class_demon_hunter
-	trigger = { NOT = { has_country_flag = has_demon_hunter_order } NOT = { any_country = { has_country_flag = has_demon_hunter_order } } }
-
-	
-    cost = 250
-    cost_type = mil_power
-	
-    per_province_effect = {
-        form_holy_order_effect = yes
-		owner = { set_country_flag = has_demon_hunter_order }
-    }
-    per_province_abandon_effect = {
-	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_demon_hunter_order }
-    }
-    modifier = {
-        local_hostile_attrition = 4
-    }
-    ai_priority = {
-        factor = 1
-    }
-}
-death_knight_order = {
-	icon = GFX_class_death_knight
-	trigger = { NOT = { has_country_flag = has_death_knight_order } NOT = { any_country = { has_country_flag = has_death_knight_order } } }
-
-	
-    cost = 250
+    cost = 200
     cost_type = adm_power
 	
     per_province_effect = {
         form_holy_order_effect = yes
-		owner = { set_country_flag = has_death_knight_order }
     }
     per_province_abandon_effect = {
 	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_death_knight_order }
     }
     modifier = {
-        
+        local_monthly_devastation = -0.1
     }
     ai_priority = {
         factor = 1
     }
 }
-monk_order = {
-	icon = GFX_class_monk
-	trigger = { 
-		NOT = { has_country_flag = has_monk_order } 
-		NOT = { any_country = { has_country_flag = has_monk_order } } 
-	}
 
+#--------------------------------------
+# Death Knight
+#--------------------------------------
+death_knight_order = {
+	icon = GFX_class_death_knight
 	
-    cost = 250
-    cost_type = dip_power
+    trigger = {
+        OR = {
+            technology_group = tech_undead
+            technology_group = tech_scourge
+        }
+    }
+	
+    cost = 200
+    cost_type = mil_power
 	
     per_province_effect = {
         form_holy_order_effect = yes
-		owner = { set_country_flag = has_monk_order }
     }
     per_province_abandon_effect = {
 	    abandon_holy_order_effect = yes
-		owner = { clr_country_flag = has_monk_order }
     }
     modifier = {
-        local_friendly_movement_speed = 0.2
+        local_regiment_cost = -0.5
+        regiment_recruit_speed = -0.5
+    }
+    ai_priority = {
+        factor = 1
+    }
+}
+
+#--------------------------------------
+# Monk
+#--------------------------------------
+monk_order = {
+	icon = GFX_class_monk
+    
+	trigger = { 
+		technology_group = tech_pandaren
+	}
+	
+    cost = 200
+    cost_type = adm_power
+	
+    per_province_effect = {
+        form_holy_order_effect = yes
+    }
+    per_province_abandon_effect = {
+	    abandon_holy_order_effect = yes
+    }
+    modifier = {
+        local_autonomy = -0.05
     }
     ai_priority = {
         factor = 1

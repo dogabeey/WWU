@@ -54,5 +54,57 @@ country_decisions = {
                 NOT = { adm_power = 400 }
             }
 		}
+    }
+    
+    mobilise_workforces = {
+        potential = {
+			culture_group = culture_group_human
+            NOT = { has_country_modifier = mobilised_workforces }
+		}
+		allow =  {
+			culture_group = culture_group_human
+            mil = 4
+            mil_power = 100
+		}
+	  	effect = {
+			add_mil_power = -100
+            add_country_modifier = {
+                name = mobilised_workforces
+                duration = 3650
+            }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+    }
+    
+    encourage_research = {
+        potential = {
+			culture_group = culture_group_human
+            NOT = { has_country_modifier = illusion_of_grandeur }
+            NOT = { has_country_modifier = enchanted_spyglass }
+            NOT = { has_country_modifier = scrying_orb }
+            NOT = { has_country_modifier = arcane_familiars }
+            NOT = { has_country_modifier = conjured_feasts }
+            NOT = { has_country_modifier = enchanted_broom }
+            NOT = { has_country_modifier = embued_tome }
+            NOT = { has_country_modifier = mana_shields }
+            NOT = { has_country_modifier = invisibility_cloaks }
+            NOT = { has_country_modifier = arcane_crystal }
+		}
+		allow =  {
+			culture_group = culture_group_human
+            treasury = 1000
+		}
+	  	effect = {
+			add_treasury = -1000
+            
+            custom_tooltip = HUMAN_MAGI_DISCOVERY_TT
+            hidden_effect = { set_country_flag = human_magi_discovery }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+    }
 	}
 }

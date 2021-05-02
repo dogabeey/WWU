@@ -1,0 +1,468 @@
+########################################
+# Events for Innovativeness
+#
+# written by Henrik Lohmander and Daniel Tolman
+########################################
+
+namespace = innovativeness_events
+normal_or_historical_nations = yes
+
+# Scripted Effects:
+# add_innovativeness_small_effect / reduce_innovativeness_small_effect (1)
+# add_innovativeness_big_effect / reduce_innovativeness_big_effect (3)
+
+#1 Decreases
+#0 Increases
+
+# Promising Inventor
+country_event = {
+	id = innovativeness_events.4
+	title = "innovativeness_events.4.t"
+	desc = "innovativeness_events.4.d"
+	picture = SCIENTISTS_eventPicture
+	
+	trigger = {
+		has_dlc = "Rule Britannia"
+		any_neighbor_country = {
+			OR = {
+				adm_tech = ROOT
+				dip_tech = ROOT
+				mil_tech = ROOT
+			}
+			num_of_cities = ROOT
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					OR = {
+						adm_tech = ROOT
+						dip_tech = ROOT
+						mil_tech = ROOT
+					}
+					num_of_cities = ROOT
+				}
+				save_event_target_as = inventor_country
+			}
+			set_saved_name = {
+				key = inventor
+				type = advisor
+				scope = event_target:inventor_country
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "innovativeness_events.4.a" #
+		ai_chance = {
+			factor = 40
+		}
+		add_innovativeness_small_effect = yes
+		event_target:inventor_country = {
+			add_opinion = {
+				who = ROOT
+				modifier = harbored_inventor
+			}
+			every_ally = {
+				limit = { NOT = { tag = ROOT } }
+				add_opinion = {
+					who = ROOT
+					modifier = harbored_inventor
+				}
+			}
+		}
+	}
+	option = {
+		name = "innovativeness_events.4.b"
+		ai_chance = {
+			factor = 60
+		}
+		add_prestige = 10
+		event_target:inventor_country = {
+			add_opinion = {
+				who = ROOT
+				modifier = turned_away_inventor
+			}
+		}
+	}
+	after = {
+		clear_saved_name = inventor
+	}
+}
+
+
+# Education for the Poor?
+country_event = {
+	id = innovativeness_events.5
+	title = "innovativeness_events.5.t"
+	desc = "innovativeness_events.5.d"
+	picture = ROYAL_SOCIETY_eventPicture
+	
+	trigger = {
+		has_dlc = "Rule Britannia"
+		innovativeness = 1
+		any_owned_province = {
+			NOT = { development = 12 }
+			is_capital = no
+			#continent = CAPITAL
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { development = 12 }
+					is_capital = no
+					#continent = CAPITAL
+				}
+				save_event_target_as = poor_province
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "innovativeness_events.5.a" #
+		ai_chance = {
+			factor = 40
+		}
+		add_innovativeness_small_effect = yes
+		if = {
+			limit = { has_estate = estate_clergy }
+			add_estate_influence_modifier = {
+				estate = estate_clergy
+				desc = EST_VAL_PUBLIC_SCHOOLS
+				influence = 10
+				duration = 3650
+			}
+		}
+		event_target:poor_province = {
+			add_province_modifier = {
+				name = "public_schools"
+				duration = 10950
+			}
+		}
+	}
+	option = {
+		name = "innovativeness_events.5.b"
+		ai_chance = {
+			factor = 60
+		}
+		reduce_estate_clergy_loyalty_effect = yes
+		add_prestige = -5
+	}
+}
+
+# [Root.GetRoyalOrState] Patronage
+country_event = {
+	id = innovativeness_events.6
+	title = "innovativeness_events.6.t"
+	desc = "innovativeness_events.6.d"
+	picture = SCIENTISTS_eventPicture
+	
+	trigger = {
+		has_dlc = "Rule Britannia"
+		innovativeness = 5
+		is_civilized = yes
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "innovativeness_events.6.a" #They shall have our endorsement.
+		ai_chance = {
+			factor = 60
+		}
+		add_innovativeness_big_effect = yes
+		add_adm_power = -35
+		add_years_of_income = -0.7
+		add_country_modifier = {
+			name = "new_royal_society"
+			duration = 5475
+		}
+	}
+	option = {
+		name = "innovativeness_events.6.b" #What a waste of time!
+		ai_chance = {
+			factor = 40
+		}
+		add_prestige = -5
+	}
+}
+
+# Academy of [university_province.GetName]
+country_event = {
+	id = innovativeness_events.7
+	title = "innovativeness_events.7.t"
+	desc = "innovativeness_events.7.d"
+	picture = UNIVERSITY_eventPicture
+	
+	trigger = {
+		has_dlc = "Rule Britannia"
+		innovativeness = 5
+		any_owned_province = {
+			has_owner_culture = yes
+			OR = {
+				has_building = wow_tavern
+				development = 15
+				is_capital = yes
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					has_owner_culture = yes
+					OR = {
+						has_building = wow_tavern
+						development = 15
+						is_capital = yes
+					}
+				}
+				save_event_target_as = university_province
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "innovativeness_events.7.a" #Enlarge the University? Sounds like a good idea.
+		ai_chance = {
+			factor = 60
+		}
+		add_innovativeness_big_effect = yes
+		add_years_of_income = -0.5
+		add_adm_power = -25
+	}
+	option = {
+		name = "innovativeness_events.7.b" #Let us listen to the conservatives.
+		ai_chance = {
+			factor = 40
+		}
+		add_stability_or_adm_power = yes
+	}
+}
+
+# Dissenting Academies
+country_event = {
+	id = innovativeness_events.8
+	title = "innovativeness_events.8.t"
+	desc = "innovativeness_events.8.d"
+	picture = PRINTING_PRESS_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Rule Britannia"
+		innovativeness = 5
+		num_of_owned_provinces_with = {
+			religion_group = ROOT
+			NOT = { religion = ROOT }
+			is_state = yes
+			value = 5
+		}
+		NOT = {
+			has_country_modifier = dissenting_academies
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "innovativeness_events.8.a" # let them continue teaching
+		add_innovativeness_small_effect = yes
+		add_country_modifier = {
+			name = "dissenting_academies"
+			duration = 3650
+		}
+	}
+	option = {
+		name = "innovativeness_events.8.b" # enforce religious unity
+		reduce_innovativeness_small_effect = yes
+	}
+}
+
+# Treatise on Natural Philosophy
+country_event = {
+	id = innovativeness_events.9
+	title = "innovativeness_events.9.t"
+	desc = "innovativeness_events.9.d"
+	picture = SCIENTISTS_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Rule Britannia"
+		innovativeness = 5
+		NOT = {
+			has_country_modifier = "religion_mocked"
+			has_country_modifier = "blasphemous_scientist_punished"
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = {
+		hidden_effect = {
+			set_saved_name = {
+				key = scientist
+				type = advisor
+				scope = ROOT
+			}
+		}
+	}
+	# lose clergy loyalty
+	option = {
+		name = "innovativeness_events.9.a"
+		add_innovativeness_small_effect = yes
+		reduce_estate_clergy_loyalty_effect = yes
+		add_country_modifier = {
+			name = "religion_mocked"
+			duration = 3650
+		}
+		
+	}
+	option = {
+		name = "innovativeness_events.9.b"
+		add_estate_clergy_loyalty_effect = yes
+		add_country_modifier = { # tolerance own
+			name = "blasphemous_scientist_punished"
+			duration = 3650
+		}
+	}
+	after = {
+		clear_saved_name = scientist
+	}
+	
+}
+
+# Unpopular Mathematician
+country_event = {
+	id = innovativeness_events.10
+	title = "innovativeness_events.10.t"
+	desc = "innovativeness_events.10.d"
+	picture = SCIENTISTS_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Rule Britannia"
+		innovativeness = 5
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = {
+		hidden_effect = {
+			set_saved_name = {
+				key = mathematician
+				type = advisor
+				scope = ROOT
+			}
+		}
+	}
+	option = {
+		name = "innovativeness_events.10.a"
+		add_innovativeness_small_effect = yes
+		add_prestige = -20
+	}
+	option = {
+		name = "innovativeness_events.10.b"
+		add_prestige = 10
+		increase_legitimacy_small_effect = yes
+	}
+	after = {
+		clear_saved_name = mathematician
+	}
+}
+
+# New Scientific Instruments
+country_event = {
+	id = innovativeness_events.13
+	title = "innovativeness_events.13.t"
+	desc = "innovativeness_events.13.d"
+	picture = SCIENTISTS_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Rule Britannia"
+		innovativeness = 5
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	# purely positive?
+	option = {
+		name = "innovativeness_events.13.a"
+		add_innovativeness_small_effect = yes
+	}
+}
+
+# Cabinet of Curiosities
+country_event = {
+	id = innovativeness_events.15
+	title = "innovativeness_events.15.t"
+	desc = "innovativeness_events.15.d"
+	picture = CHAMBER_OF_CURIOSITIES_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Rule Britannia"
+		innovativeness = 5
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = { # create a collection for the monarch
+		name = "innovativeness_events.15.a"
+		add_innovativeness_small_effect = yes
+		add_treasury = -200
+		add_country_modifier = {
+			name = "cabinet_of_curiosities"
+			duration = 3650
+		}
+	}
+	option = { # this is silly. build a church instead
+		name = "innovativeness_events.15.b"
+		add_estate_clergy_loyalty_effect = yes
+		random_owned_province = {
+			limit = {
+				NOT = {
+					has_building = wow_temple
+				}
+				num_free_building_slots = 1
+			}
+			add_building = wow_temple
+		}
+	}
+}

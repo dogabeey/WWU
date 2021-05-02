@@ -1,0 +1,59 @@
+fear_of_stromkar = {
+    potential = {
+        has_country_modifier = stromkar_the_warbreaker
+    }
+    
+	trigger = {
+        is_at_war = yes
+        any_country = {
+            war_with = ROOT
+            technology_group = tech_troll
+        }
+	}
+    
+    land_morale = 0.2
+}
+
+nether_magic = {
+    potential = {
+        always = yes
+    }
+    
+	trigger = {
+		capital_scope = {
+			continent = continent_outland
+		}
+	}
+    
+    envoy_travel_time = -0.75
+}
+
+hidden_from_world = {
+	potential = {
+		culture_group = culture_group_titan
+		NOT = { has_country_flag = revealed_to_world }
+	}
+	
+	trigger = {
+		culture_group = culture_group_titan
+		NOT = { has_country_flag = revealed_to_world }
+	}
+	
+	diplomats = -2
+	defensiveness = 1
+}
+
+warrior_of_the_faith = {
+	potential = {
+        has_country_modifier = warrior_of_the_faith
+    }
+    
+    missionaries = 1
+    missionary_maintenance_cost = -0.2
+    land_morale = 0.05
+    naval_morale = 0.05
+    prestige = 1
+    war_exhaustion = -0.03
+    manpower_in_true_faith_provinces = 0.2
+}
+
