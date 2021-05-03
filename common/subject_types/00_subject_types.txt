@@ -96,6 +96,7 @@ default = {
 	is_colony_subtype = no
 	is_march = no
 	forms_trade_companies = yes
+	can_concentrate_development = yes
 
 	max_government_rank = 0								# 0 means no limit
 	cities_required_for_bonuses = 0						# How many cities the subject needs before giving bonuses to overlord
@@ -196,34 +197,25 @@ vassal = {
 	diplomacy_subject_sprite = GFX_diplomacy_amvassal
 
 	# Properties:
-	has_power_projection = yes
-	gives_daimyo_bonuses = yes
 	transfer_trade_if_merchant_republic = yes
 	can_be_annexed = yes
-	
-	takes_diplo_slot = no
+	has_power_projection = no
 	gets_help_with_rebels = yes
-	separatists_become_subjects = yes
-	allows_taking_land_without_independence = yes
-	
-	can_send_missionary_to_subject = yes
-	counts_for_borders = yes
-	share_rebel_popup = yes	
-	can_have_subjects_of_other_types = yes
-	overlord_can_be_subject = yes
-	overlord_protects_external = yes
+	forms_trade_companies = no
 
 	max_government_rank = 1
 
-	liberty_desire_development_ratio = 0.50
+	liberty_desire_development_ratio = 0.25
+	liberty_desire_same_dynasty = -5.0
 	pays_overlord = 1.0
 	forcelimit_bonus = 1.0
-	forcelimit_to_overlord = 0
-	
-	military_focus = 1.25
+	forcelimit_to_overlord = 0.1
 
-	relative_power_class = 1.75
-	
+	relative_power_class = 2
+	should_quit_wars_on_activation = yes
+
+	takes_diplo_slot = no
+
 	can_fight = {
 		same_overlord = vassal
 		same_overlord = client_vassal
@@ -282,7 +274,7 @@ vassal = {
 }
 
 march = {
-	copy_from = default
+	copy_from = vassal
 	
 	# Graphics:
 	sprite = GFX_icon_march
@@ -290,43 +282,16 @@ march = {
 	diplomacy_subject_sprite = GFX_diplomacy_weakmarch
 
 	# Properties:
-	transfer_trade_if_merchant_republic = yes
+	pays_overlord = 0.0
+	military_focus = 1.5
+	base_liberty_desire = -15.0
 	can_be_annexed = no
-	
-	has_power_projection = yes
-	takes_diplo_slot = no
-	gets_help_with_rebels = yes
-	
-	sword_hunt = yes
-	sankin_kotai = yes
-	expel_ronin = yes
-
-	base_liberty_desire = -50
-	pays_overlord = 0.5
-	forcelimit_bonus = 1.0
-	forcelimit_to_overlord = 0
-	
-	relative_power_class = 1
-	
-	can_marry = {
-		same_overlord = vassal
-		same_overlord = march
-	}
+	forcelimit_to_overlord = 0.2
+	is_march = yes
+	forms_trade_companies = no
 
 	# Subject Interactions:
-	
-	scutage = yes
-	place_relative_on_throne = yes
-	sacrifice_ruler = yes
-	sacrifice_heir = yes
-	divert_trade = yes
-	seize_territory = yes
-	
-	force_seppuku = yes
-	contribute_to_capital = yes
-	return_land = yes
-	conscript_general = yes
-	
+	scutage = no
 	subsidize_armies = yes
 	fortify_march = yes
 	
@@ -370,11 +335,13 @@ personal_union = {
 	can_have_subjects_of_other_types = yes
 	can_union_break = yes
 	transfer_subjects_when_made = yes
+	can_concentrate_development = no
 
 	liberty_desire_negative_prestige = 1.0
 	military_focus = 0.66
 
 	relative_power_class = 1
+	should_quit_wars_on_activation = yes
 
 	restoration_cb = cb_restore_personal_union
 	
@@ -383,14 +350,6 @@ personal_union = {
 	enforce_culture = yes
 	siphon_income = yes
 	support_loyalists = yes
-	
-	scutage = yes
-	divert_trade = yes
-	seize_territory = yes
-	
-	subsidize_armies = yes
-	
-	send_officers = yes
 
 	# Modifiers:
 	modifier_overlord = {
@@ -412,6 +371,9 @@ client_vassal = {
 	# Properties:
 	created_by_overlord = yes
 
+	base_liberty_desire = -25.0
+	liberty_desire_revolution = 0
+
 	# Subject Interactions:
 	customize_subject = yes
 }
@@ -427,9 +389,8 @@ client_march = {
 	# Properties:
 	created_by_overlord = yes
 
-	base_liberty_desire = -9999.0
-	pays_overlord = 1.0
-	forcelimit_bonus = 2.5
+	base_liberty_desire = -100.0
+	liberty_desire_revolution = 0
 
 	# Subject Interactions:
 	customize_subject = yes
@@ -445,7 +406,6 @@ colony = {
 	diplomacy_subject_sprite = GFX_diplomacy_subjectcolony
 
 	# Properties:
-	transfer_trade_power = yes
 	can_release_and_play = yes
 	uses_tariffs = yes
 	eats_overlords_colonies = yes
@@ -458,14 +418,16 @@ colony = {
 	overlord_enforce_peace_attacking = yes
 	can_transfer_in_peace = no
 	press_sailors = yes
-	forcelimit_bonus = 1.0
+	transfer_trade_power = yes
+	can_concentrate_development = no
 	
-	liberty_desire_development_ratio = 0.075
+	liberty_desire_development_ratio = 0.1
 
 	max_government_rank = 1
 	cities_required_for_bonuses = 10
 
 	relative_power_class = 0
+	should_quit_wars_on_activation = yes
 
 	can_fight = {
 		other_overlord = colony
@@ -585,7 +547,6 @@ self_governing_colony = {
 	sailors_to_overlord = 0.05
 
 	# Subject Interactions:
-	transfer_trade_power = no
 	replace_governor = no
 	block_settlement_growth = no
 	allow_settlement_growth = no
@@ -600,6 +561,7 @@ self_governing_colony = {
 		modifier = self_governing_colony_subject
 	}
 }
+
 
 tributary_state = {
 	#If similar subject added check if it needs to be added to these scripted triggers:
@@ -622,7 +584,6 @@ tributary_state = {
 	diplomacy_subject_sprite = GFX_diplomacy_amtributary
 
 	# Properties:
-	transfer_trade_power = no
 	can_fight_independence_war = no
 	joins_overlords_wars = no
 	joins_colonial_wars = no
@@ -631,6 +592,7 @@ tributary_state = {
 	takes_diplo_slot = no
 	base_liberty_desire = -5
 	relative_power_class = 1
+	should_quit_wars_on_activation = no
 	can_send_tribute = yes
 	can_have_subjects_of_other_types = yes
 	uses_military_focus = no
@@ -642,6 +604,8 @@ tributary_state = {
 	can_set_mil_focus = no
 	can_send_missionary_to_subject = no
 	overlord_can_fabricate_for = no
+	does_overlord_size_count_for_warscore_cost = no
+	can_concentrate_development = no
 	
 	liberty_desire_development_ratio = 0.175
 	trust_on_start = 0
@@ -678,6 +642,8 @@ tributary_state = {
 	send_additional_troops = yes
 	demand_artifacts = yes
 	demand_additional_tribute = yes
+	block_settlement_growth = no
+	allow_settlement_growth = no
 	placate_rulers = no
 	knowledge_sharing = no
 	# (continuous)

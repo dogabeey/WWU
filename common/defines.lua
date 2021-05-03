@@ -122,6 +122,8 @@ NDiplomacy = {
 	EMPEROR_REVOKE_MODIFIER_DAYS = 1800,			-- How long the temporary modifier applied after revoking will last
 	TRUCE_YEARS = 2, 								-- _DDEF_TRUCE_YEARS_; Years of Truce
 	SCALED_TRUCE_YEARS = 3,						-- Additional years of truce based on % of warscore taken in war (100% warscore = full scaled truce years)
+	REQUEST_HEIR_TRUCE = 2,
+	REQUEST_HEIR_AE = 20,
 	WARNING_YEARS = 20,								-- Years before warning expire
 	ANNUL_TREATIES_YEARS = 10,						-- Years before annul treaties expire
 	COALITION_YEARS = 20,							-- Years before coalition expire
@@ -129,6 +131,7 @@ NDiplomacy = {
 	REVANCHISM_MONTHLY_DECAY = 0.833,			-- about 20 years to decay all of it.
 	MONARCH_GOV_CHANGE_LEGITIMACY_PENALTY = 0.0,	-- Penalty(%) on the legitimacy when changing gov type to the monarchy
 	EXTEND_REGENCY_LEGITIMACY_PENALTY = 10,  		-- Penalty for extending a regency
+	EXTEND_REGENCY_IMPERIAL_AUTHORITY_PENALTY = 20, -- Penalty for extending a regency
 	DEFAULT_EXTEND_REGENCY_YEARS = 5,
 	BASE_SPY_DISCOVERY_CHANCE = 0.25,
 	JUSTIFY_TRADE_CONFLICT_LIMIT = 0.2,			-- How big share of the trade power needed on the target to be able to justify a trade conflict
@@ -971,6 +974,7 @@ NCountry = {
 	TRADE_FAVORS_FOR_HEIR_REQUIRED_OPINION = 50,
 	TRADE_FAVORS_FOR_TRUST_REQUIRED_OPINION = 50,
 	TRADE_FAVORS_FOR_WAR_PREP_REQUIRED_OPINION = 50,
+	USING_FAVORS_AI_BOOST = 50,
 	NEW_FAVOR_HEIR_AGE_RANDOM_FACTOR = 12,
 	NEW_FAVOR_HEIR_AGE_MIN_FACTOR = 18,
 	NEW_HEIR_QUEEN_CHANCE = 100,					-- Chance to get a Queen when an Heir is created.
@@ -1048,6 +1052,9 @@ NCountry = {
 	FEDERATION_DESIRABILITY_WANTS_WEAKEN = -10,
 	FEDERATION_DESIRABILITY_DONT_WANT_TO_CHANGE = -10,
 	FEDERATION_ACTION_COOLDOWN = 5,
+	BREAK_ALLIANCE_ACTION_COOLDOWN = 10,
+	TRADE_FAVORS_ACTION_COOLDOWN = 5,
+	REDUCE_RELATION_ACTION_COOLDOWN = 15,
 	
 	FEDERATION_ADVANCEMENT_COHESION_REQUIREMENT = 100.0,
 	FEDERATION_ADVANCEMENT_COHESION_COST = 80.0,
@@ -1175,6 +1182,7 @@ NMilitary = {
 
 	DEVELOPMENT_FOR_BLOCKADE_COST = 0.5,
 	
+
 	ARMY_DRILL_YEARLY_DECAY = -1.0,					-- Loss from not Drilling
 	ARMY_DRILL_YEARLY_GAIN = 10.0,					-- Gain from Drilling
 	ARMY_DRILL_MAX = 100.0,
@@ -1691,6 +1699,7 @@ NAI = {
 
 	DIPLOMATIC_ACTION_TRADE_FAVORS_FOR_GOLD_BASE_SCORE = 50,
 	DIPLOMATIC_ACTION_TRADE_FAVORS_FOR_GOLD_PREPARING_FOR_WAR_SCORE = 100,
+	DIPLOMATIC_ACTION_TRADE_FAVORS_FOR_GOLD_WANTS_GOLD = 100,
 	DIPLOMATIC_ACTION_TRADE_FAVORS_FOR_GOLD_CAPITALIST_MULT = 1.5,
 
 	DIPLOMATIC_ACTION_TRADE_FAVORS_FOR_MEN_BASE_SCORE = 50,
