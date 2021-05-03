@@ -39,7 +39,6 @@ country_decisions = {
     }
     red_portal_passage = {
         potential = {
-			
             calc_true_if = { all_owned_province = { has_building = wow_portal_red } amount = 2 }
 			has_country_flag = portal_menu
         }
@@ -73,7 +72,12 @@ country_decisions = {
 				save_event_target_as = receiver
 			}
 			teleport_unit_with_any_amount = yes
-			clr_province_flag = sender_province
+			every_owned_province= {
+				limit = {
+					has_province_flag = sender_province
+				}
+				clr_province_flag = sender_province
+			}
         }
         ai_will_do = {
             factor = 0
@@ -115,7 +119,12 @@ country_decisions = {
 				save_event_target_as = receiver
 			}
 			teleport_unit_with_any_amount = yes
-			clr_province_flag = sender_province
+			every_owned_province= {
+				limit = {
+					has_province_flag = sender_province
+				}
+				clr_province_flag = sender_province
+			}
         }
         ai_will_do = {
             factor = 0
@@ -157,7 +166,12 @@ country_decisions = {
 				save_event_target_as = receiver
 			}
 			teleport_unit_with_any_amount = yes
-			clr_province_flag = sender_province
+			every_owned_province= {
+				limit = {
+					has_province_flag = sender_province
+				}
+				clr_province_flag = sender_province
+			}
         }
         ai_will_do = {
             factor = 0
@@ -199,7 +213,12 @@ country_decisions = {
 				save_event_target_as = receiver
 			}
 			teleport_unit_with_any_amount = yes
-			clr_province_flag = sender_province
+			every_owned_province= {
+				limit = {
+					has_province_flag = sender_province
+				}
+				clr_province_flag = sender_province
+			}
         }
         ai_will_do = {
             factor = 0
