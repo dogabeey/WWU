@@ -420,8 +420,598 @@ interaction = {
 		country_event = { 
             id = estate_system.10
         }
+        add_estate_influence_modifier = {
+            estate = all
+            desc = EST_VAL_SEARCHED_FOR_ADVISOR
+            duration = 7300
+            influence = 5
+            short = yes
+        }
     }
 	ai_will_do = {
 		factor = 0
 	}
 }
+
+interaction = {
+    key = invest_in_administration
+    random_seed = random
+	cooldown_months = 12
+
+    trigger = {
+		if = {
+            limit = {
+                NOT = { total_development = 100 }
+            }
+            treasury = 250
+        }
+        else_if = {
+            limit = {
+                total_development = 100
+                NOT = { total_development = 200 }
+            }
+            treasury = 300
+        }
+        else_if = {
+            limit = {
+                total_development = 200
+                NOT = { total_development = 300 }
+            }
+            treasury = 350
+        }
+        else_if = {
+            limit = {
+                total_development = 300
+                NOT = { total_development = 400 }
+            }
+            treasury = 400
+        }
+        else_if = {
+            limit = {
+                total_development = 400
+                NOT = { total_development = 500 }
+            }
+            treasury = 450
+        }
+        else_if = {
+            limit = {
+                total_development = 500
+                NOT = { total_development = 600 }
+            }
+            treasury = 500
+        }
+        else_if = {
+            limit = {
+                total_development = 600
+                NOT = { total_development = 700 }
+            }
+            treasury = 550
+        }
+        else_if = {
+            limit = {
+                total_development = 700
+                NOT = { total_development = 800 }
+            }
+            treasury = 600
+        }
+        else_if = {
+            limit = {
+                total_development = 800
+                NOT = { total_development = 900 }
+            }
+            treasury = 650
+        }
+        else_if = {
+            limit = {
+                total_development = 900
+                NOT = { total_development = 1000 }
+            }
+            treasury = 700
+        }
+        else_if = {
+            limit = {
+                total_development = 1000
+            }
+            treasury = 750
+        }
+    }
+
+    effect = {
+		if = {
+            limit = {
+                NOT = { total_development = 100 }
+            }
+            add_treasury = -250
+            add_adm_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 100
+                NOT = { total_development = 200 }
+            }
+            add_treasury = -300
+            add_adm_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 200
+                NOT = { total_development = 300 }
+            }
+            add_treasury = -350
+            add_adm_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 300
+                NOT = { total_development = 400 }
+            }
+            add_treasury = -400
+            add_adm_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 400
+                NOT = { total_development = 500 }
+            }
+            add_treasury = -450
+            add_adm_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 500
+                NOT = { total_development = 600 }
+            }
+            add_treasury = -500
+            add_adm_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 600
+                NOT = { total_development = 700 }
+            }
+            add_treasury = -550
+            add_adm_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 700
+                NOT = { total_development = 800 }
+            }
+            add_treasury = -600
+            add_adm_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 800
+                NOT = { total_development = 900 }
+            }
+            add_treasury = -650
+            add_adm_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 900
+                NOT = { total_development = 1000 }
+            }
+            add_treasury = -700
+            add_adm_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 1000
+            }
+            add_treasury = -750
+            add_adm_power = 100
+        }
+        add_estate_influence_modifier = {
+            estate = all
+            desc = EST_VAL_INVESTED_IN_ADMINISTRATION
+            duration = 7300
+            influence = 5
+            short = yes
+        }
+    }
+	ai_will_do = {
+		factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { treasury = 2000 }
+        }
+        modifier = {
+            factor = 0
+            
+            adm_power = 200
+        }
+	}
+}
+
+interaction = {
+    key = invest_in_diplomatic_corps
+    random_seed = random
+	cooldown_months = 12
+
+    trigger = {
+		if = {
+            limit = {
+                NOT = { total_development = 100 }
+            }
+            treasury = 250
+        }
+        else_if = {
+            limit = {
+                total_development = 100
+                NOT = { total_development = 200 }
+            }
+            treasury = 300
+        }
+        else_if = {
+            limit = {
+                total_development = 200
+                NOT = { total_development = 300 }
+            }
+            treasury = 350
+        }
+        else_if = {
+            limit = {
+                total_development = 300
+                NOT = { total_development = 400 }
+            }
+            treasury = 400
+        }
+        else_if = {
+            limit = {
+                total_development = 400
+                NOT = { total_development = 500 }
+            }
+            treasury = 450
+        }
+        else_if = {
+            limit = {
+                total_development = 500
+                NOT = { total_development = 600 }
+            }
+            treasury = 500
+        }
+        else_if = {
+            limit = {
+                total_development = 600
+                NOT = { total_development = 700 }
+            }
+            treasury = 550
+        }
+        else_if = {
+            limit = {
+                total_development = 700
+                NOT = { total_development = 800 }
+            }
+            treasury = 600
+        }
+        else_if = {
+            limit = {
+                total_development = 800
+                NOT = { total_development = 900 }
+            }
+            treasury = 650
+        }
+        else_if = {
+            limit = {
+                total_development = 900
+                NOT = { total_development = 1000 }
+            }
+            treasury = 700
+        }
+        else_if = {
+            limit = {
+                total_development = 1000
+            }
+            treasury = 750
+        }
+    }
+
+    effect = {
+		if = {
+            limit = {
+                NOT = { total_development = 100 }
+            }
+            add_treasury = -250
+            add_dip_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 100
+                NOT = { total_development = 200 }
+            }
+            add_treasury = -300
+            add_dip_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 200
+                NOT = { total_development = 300 }
+            }
+            add_treasury = -350
+            add_dip_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 300
+                NOT = { total_development = 400 }
+            }
+            add_treasury = -400
+            add_dip_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 400
+                NOT = { total_development = 500 }
+            }
+            add_treasury = -450
+            add_dip_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 500
+                NOT = { total_development = 600 }
+            }
+            add_treasury = -500
+            add_dip_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 600
+                NOT = { total_development = 700 }
+            }
+            add_treasury = -550
+            add_dip_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 700
+                NOT = { total_development = 800 }
+            }
+            add_treasury = -600
+            add_dip_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 800
+                NOT = { total_development = 900 }
+            }
+            add_treasury = -650
+            add_dip_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 900
+                NOT = { total_development = 1000 }
+            }
+            add_treasury = -700
+            add_dip_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 1000
+            }
+            add_treasury = -750
+            add_dip_power = 100
+        }
+        add_estate_influence_modifier = {
+            estate = all
+            desc = EST_VAL_INVESTED_IN_DIPLOMATIC_CORPS
+            duration = 7300
+            influence = 5
+            short = yes
+        }
+    }
+	ai_will_do = {
+		factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { treasury = 2000 }
+        }
+        modifier = {
+            factor = 0
+            
+            dip_power = 200
+        }
+	}
+}
+
+interaction = {
+    key = invest_in_military_structure
+    random_seed = random
+	cooldown_months = 12
+
+    trigger = {
+		if = {
+            limit = {
+                NOT = { total_development = 100 }
+            }
+            treasury = 250
+        }
+        else_if = {
+            limit = {
+                total_development = 100
+                NOT = { total_development = 200 }
+            }
+            treasury = 300
+        }
+        else_if = {
+            limit = {
+                total_development = 200
+                NOT = { total_development = 300 }
+            }
+            treasury = 350
+        }
+        else_if = {
+            limit = {
+                total_development = 300
+                NOT = { total_development = 400 }
+            }
+            treasury = 400
+        }
+        else_if = {
+            limit = {
+                total_development = 400
+                NOT = { total_development = 500 }
+            }
+            treasury = 450
+        }
+        else_if = {
+            limit = {
+                total_development = 500
+                NOT = { total_development = 600 }
+            }
+            treasury = 500
+        }
+        else_if = {
+            limit = {
+                total_development = 600
+                NOT = { total_development = 700 }
+            }
+            treasury = 550
+        }
+        else_if = {
+            limit = {
+                total_development = 700
+                NOT = { total_development = 800 }
+            }
+            treasury = 600
+        }
+        else_if = {
+            limit = {
+                total_development = 800
+                NOT = { total_development = 900 }
+            }
+            treasury = 650
+        }
+        else_if = {
+            limit = {
+                total_development = 900
+                NOT = { total_development = 1000 }
+            }
+            treasury = 700
+        }
+        else_if = {
+            limit = {
+                total_development = 1000
+            }
+            treasury = 750
+        }
+    }
+
+    effect = {
+		if = {
+            limit = {
+                NOT = { total_development = 100 }
+            }
+            add_treasury = -250
+            add_mil_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 100
+                NOT = { total_development = 200 }
+            }
+            add_treasury = -300
+            add_mil_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 200
+                NOT = { total_development = 300 }
+            }
+            add_treasury = -350
+            add_mil_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 300
+                NOT = { total_development = 400 }
+            }
+            add_treasury = -400
+            add_mil_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 400
+                NOT = { total_development = 500 }
+            }
+            add_treasury = -450
+            add_mil_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 500
+                NOT = { total_development = 600 }
+            }
+            add_treasury = -500
+            add_mil_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 600
+                NOT = { total_development = 700 }
+            }
+            add_treasury = -550
+            add_mil_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 700
+                NOT = { total_development = 800 }
+            }
+            add_treasury = -600
+            add_mil_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 800
+                NOT = { total_development = 900 }
+            }
+            add_treasury = -650
+            add_mil_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 900
+                NOT = { total_development = 1000 }
+            }
+            add_treasury = -700
+            add_mil_power = 100
+        }
+        else_if = {
+            limit = {
+                total_development = 1000
+            }
+            add_treasury = -750
+            add_mil_power = 100
+        }
+        add_estate_influence_modifier = {
+            estate = all
+            desc = EST_VAL_INVESTED_IN_MILITARY_STRUCTURE
+            duration = 7300
+            influence = 5
+            short = yes
+        }
+    }
+	ai_will_do = {
+		factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { treasury = 2000 }
+        }
+        modifier = {
+            factor = 0
+            
+            mil_power = 200
+        }
+	}
+}
+
