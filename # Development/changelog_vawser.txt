@@ -5,10 +5,47 @@
 #--------------------------------------
 # TODO
 #--------------------------------------
+Look at story events, setup progression within ages + spawning events
+
 Update other missions for new format
 
-runic
-earth_mother
-anima
-deep_mother
-ordos
+Setup the high lakes (reduce heightmap, add triangles)
+
+Add shared basic units
+ Add 1 unique unit for each tech type
+ 
+Use guru mechanic for religions
+gurus = {
+    guru_nanak = {
+        trigger = {
+            always = yes
+        }
+        chance = {
+            factor = 1000
+        }
+        modifier = {
+            country_admin_power = 1
+        }
+        teachings = {
+            share_and_consume = {
+                type = ADM
+                cost = 50
+
+                global_unrest = -1
+            }
+            work_honestly = {
+                type = DIP
+                cost = 50
+
+                production_efficiency = 0.05
+            }
+            recite_his_name = {
+                type = MIL
+                cost = 50
+
+                global_regiment_cost = -0.025
+            }
+        }
+    }
+}
+
