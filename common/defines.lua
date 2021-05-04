@@ -2267,7 +2267,7 @@ NReligion = {
 	MAX_CHURCH_POWER = 200,
 	ASPECT_REMOVE_COST = 0,										-- Stabhit for removing an Aspect of Faith.
 	MAX_UNLOCKED_ASPECTS = 3,									-- Maximum number of Aspects of Faith the player can have unlocked at once.
-	CHURCH_POWER_RATE_SCALE = 0.1,								-- Scaling value for rate at which church power is gained.
+	CHURCH_POWER_RATE_SCALE = 0.01,								-- Scaling value for rate at which church power is gained.
 
 	KARMA_FOR_OFFENSIVE_WAR = 0,
 	KARMA_FOR_HONORING_CTA = 0,

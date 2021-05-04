@@ -1,8 +1,18 @@
 naval_hegemon = {
 	allow = {
 		is_great_power = yes
-		num_of_heavy_ship = 50
-		NOT = { any_other_great_power = { num_of_heavy_ship = root } }
+		OR = {
+            num_of_heavy_ship = 100
+            num_of_galley = 200
+        }
+		NOT = { 
+            any_other_great_power = { 
+                OR = {
+                    num_of_heavy_ship = root
+                    num_of_galley = root
+                }
+            }
+        }
 		NOT = { has_country_modifier = lost_hegemony }
 	}
 	
@@ -22,5 +32,4 @@ naval_hegemon = {
 	max = {
 		backrow_artillery_damage = 0.20
 	}
-	
 }
