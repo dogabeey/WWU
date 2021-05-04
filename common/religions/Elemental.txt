@@ -1,7 +1,7 @@
 #------------------------------------
 # Elemental
 #------------------------------------
-religion_group_elemental = {
+elemental_group = {
 	defender_of_faith = no
 	can_form_personal_unions = yes
 	
@@ -10,9 +10,9 @@ religion_group_elemental = {
 	
 	crusade_name = CRUSADE
 	
-	religion_ancestral = {
+	shamanism = {
 		color = { 150 74 41 }
-		icon = 20
+		icon = 12
 
 		country = {
             stability_cost_modifier = -0.3
@@ -23,10 +23,8 @@ religion_group_elemental = {
         
         uses_karma = yes
         
-        hre_religion = yes
-        
 		on_convert = {
-			change_religion = religion_ancestral
+			change_religion = shamanism
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -36,7 +34,58 @@ religion_group_elemental = {
 		}
 	}
     
-	religion_fire = {
+    ordos = {
+        color = { 241 124 42 }
+		icon = 25
+		
+		country = {	
+			fire_damage = 0.1
+			recover_army_morale_speed = 0.05
+		}
+        country_as_secondary = {	
+			fire_damage = 0.1
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		
+		on_convert = {
+			change_religion = ordos
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+    }
+    
+    deep_mother = {
+        color = { 149 112 5 }
+		icon = 27
+		
+		country = {
+			land_maintenance_modifier = -0.2
+		}
+        country_as_secondary = {
+			land_maintenance_modifier = -0.2
+		}
+        province = {
+			local_missionary_strength = 0.01
+		}
+        
+        on_convert = {
+			change_religion = deep_mother
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+    }
+    
+	fire = {
 		color = { 241 124 42 }
 		icon = 25
 		
@@ -50,10 +99,8 @@ religion_group_elemental = {
 			local_missionary_strength = -0.02
 		}
         
-        hre_heretic_religion = yes
-        
 		on_convert = {
-			change_religion = religion_fire
+			change_religion = fire
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -63,7 +110,7 @@ religion_group_elemental = {
 		}
 	}
 	
-	religion_earth = {
+	earth = {
 		color = { 47 27 76 }
 		icon = 26
 		
@@ -78,7 +125,7 @@ religion_group_elemental = {
 		}
 		
 		on_convert = {
-			change_religion = religion_earth
+			change_religion = earth
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -88,7 +135,7 @@ religion_group_elemental = {
 		}
 	}
 
-	religion_air = {
+	wind = {
 		color = { 5 181 190 }
 		icon = 27
 		
@@ -103,7 +150,7 @@ religion_group_elemental = {
 		}
 		
 		on_convert = {
-			change_religion = religion_air
+			change_religion = wind
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -113,7 +160,7 @@ religion_group_elemental = {
 		}
 	}
 
-	religion_water = {
+	water = {
 		color = { 59 172 229 }
 		icon = 28
 		
@@ -128,7 +175,7 @@ religion_group_elemental = {
 		}
 		
 		on_convert = {
-			change_religion = religion_water
+			change_religion = water
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -137,8 +184,4 @@ religion_group_elemental = {
 			}			
 		}
 	}
-    
-    # Ordos
-    
-    # Deep Mother
 }

@@ -136,29 +136,49 @@ allianceaction = {
         potential = {
 			OR = {
 				AND = {
-					religion = religion_old_gods
+					OR = {
+						religion = cthun
+						religion = nzoth
+						religion = yogg_saron
+						religion = yshaarj
+						religion = twilight_cult
+						religion = nightmare
+					}
 					FROM = {
-						NOT = { religion_group = religion_group_the_void }
+						NOT = { religion_group = shadow_group }
 						NOT = { is_lesser = yes }
 					}
 				}
 				AND = {
-					religion_group = religion_group_disorder
+					religion_group = disorder_group
 					FROM = {
-						NOT = { religion_group = religion_group_disorder }
+						NOT = { religion_group = disorder_group }
 						NOT = { is_lesser = yes }
 					}
 				}
 				AND = {
-					NOT = { religion_group = religion_group_the_void }
+					NOT = { religion_group = shadow_group }
 					FROM = {
-						religion = religion_old_gods
+						OR = {
+							religion = cthun
+							religion = nzoth
+							religion = yogg_saron
+							religion = yshaarj
+							religion = twilight_cult
+							religion = nightmare
+						}
 					}
 				}
 				AND = {
-					NOT = { religion_group = religion_group_disorder }
+					NOT = { religion_group = disorder_group }
 					FROM = {
-						religion_group = religion_group_disorder
+						religion_group = disorder_group
+					}
+				}
+				AND = {
+					NOT = { religion_group = death_group }
+					FROM = {
+						religion_group = death_group
 					}
 				}
 			}
@@ -173,15 +193,15 @@ allianceaction = {
         potential = {
 			OR = {
 				AND = {
-					religion = religion_the_damned
+					religion = cult_of_the_damned
 					FROM = {
-						NOT = { religion_group = religion_group_the_void }
+						NOT = { religion_group = shadow_group }
 					}
 				}
 				AND = {
-					NOT = { religion_group = religion_group_the_void }
+					NOT = { religion_group = shadow_group }
 					FROM = {
-						religion = religion_the_damned
+						religion = cult_of_the_damned
 					}
 				}
 			}
@@ -205,8 +225,9 @@ allianceaction = {
 					NOT = { is_lesser = yes }
 					NOT = { is_savage = yes }
 					NOT = { is_neighbor_of = FROM }
-					NOT = { religion_group = religion_group_the_void }
-					NOT = { religion_group = religion_group_disorder }
+					NOT = { religion_group = shadow_group }
+					NOT = { religion_group = death_group }
+					NOT = { religion_group = disorder_group }
 					FROM = {
 						is_lesser = yes
 					}

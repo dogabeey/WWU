@@ -12,7 +12,35 @@ religion_group_nature = {
 	
     harmonized_modifier = harmonized_nature
     
-	religion_druidic = {
+    celestials = {
+        color = { 49 177 85 }
+		icon = 24
+		
+		country = {
+			diplomatic_reputation = 1
+            diplomatic_upkeep = 1
+		}
+        country_as_secondary = {
+			diplomatic_reputation = 1
+		}
+        province = {
+			local_missionary_strength = -0.01
+		}
+        
+		personal_deity = yes
+        
+        on_convert = {
+			change_religion = celestials
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+    }
+    
+	druidism = {
 		color = { 0.1 0.4 0.1 }
 		icon = 11
 		
@@ -26,8 +54,10 @@ religion_group_nature = {
 			local_missionary_strength = -0.01
 		}
         
+        hre_heretic_religion = yes
+        
 		on_convert = {
-			change_religion = religion_druidic
+			change_religion = druidism
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -39,7 +69,7 @@ religion_group_nature = {
 		uses_piety = yes
 	}
 	
-	religion_elune = {
+	elune = {
 		color = { 178 255 255 }
 		icon = 4
 		
@@ -57,7 +87,7 @@ religion_group_nature = {
 		}
         
 		on_convert = {
-			change_religion = religion_elune
+			change_religion = elune
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -80,109 +110,8 @@ religion_group_nature = {
             elune_elune_protection
 		}
 	}
-	
-	
-	religion_loa = {
-		color = { 25 15 25 }
-		icon = 6
-
-		country = {
-			global_unrest = -1
-			land_maintenance_modifier = -0.1
-		}
-        
-		province = {
-			local_missionary_strength = -0.01
-		}
-
-		on_convert = {
-			change_religion = religion_loa
-			add_prestige = -100
-
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}			
-		}
-
-        personal_deity = yes
-	}
-	
-	religion_blood = {
-		color = { 200 50 50 }
-		icon = 21
-
-		country = {
-			manpower_in_true_faith_provinces = 1.0
-		}
-		country_as_secondary = {
-			manpower_in_true_faith_provinces = 0.25
-		}
-		province = {
-			local_missionary_strength = -0.03
-		}
-        
-        uses_anglican_power = yes
-		aspects = {
-			bloodmancy_conduct_blood_rituals_aspect
-            bloodmancy_induce_bloodlust_aspect
-            bloodmancy_siphon_ghunns_essence_aspect
-            bloodmancy_summon_blood_avatar_aspect
-            bloodmancy_purify_tainted_blood_aspect
-            bloodmancy_consume_blood_aspect
-		}
-		aspects_name = BLOOD_ASPECTS
-        
-		on_convert = {
-			change_religion = religion_blood
-			add_prestige = -100
-
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}			
-		}
-	}
-	
-    religion_hakkari = {
-		color = { 255 0 0 }
-		icon = 5
-		
-		country = {
-			global_regiment_cost = -0.4
-            global_regiment_recruit_speed = -0.2
-		}
-		country_as_secondary = {
-			global_regiment_cost = -0.2
-		}
-		province = {
-			local_missionary_strength = -0.03
-		}
-        
-        uses_anglican_power = yes
-		aspects = {
-			hakkari_conduct_blood_rituals_aspect
-            hakkari_induce_bloodlust_aspect
-            hakkari_siphon_hakkars_essence_aspect
-            hakkari_summon_avatar_of_the_soulflayer_aspect
-            hakkari_purify_tainted_blood_aspect
-            hakkari_consume_blood_aspect
-		}
-		aspects_name = BLOOD_ASPECTS
-        
-		on_convert = {
-			change_religion = religion_hakkari
-			add_prestige = -100
-
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}			
-		}
-		
-	}
     
-	religion_terokk = {
+	arrakoa = {
 		color = { 63 72 156 }
 		icon = 19
 		
@@ -195,7 +124,7 @@ religion_group_nature = {
 		}
         
 		on_convert = {
-			change_religion = religion_terokk
+			change_religion = arrakoa
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -205,8 +134,7 @@ religion_group_nature = {
 		}
 	}
 	
-
-	religion_zangar = {
+	zangar = {
 		color = { 63 72 204 }
 		icon = 33
 		
@@ -222,7 +150,7 @@ religion_group_nature = {
 		}
 
 		on_convert = {
-			change_religion = religion_zangar
+			change_religion = zangar
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -232,7 +160,7 @@ religion_group_nature = {
 		}
 	}
     
-    religion_arkkorok = {
+    arkkorok = {
 		color = { 58 173 174 }
 		icon = 18
 		
@@ -249,7 +177,7 @@ religion_group_nature = {
 		}
         
 		on_convert = {
-			change_religion = religion_arkkorok
+			change_religion = arkkorok
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -259,9 +187,9 @@ religion_group_nature = {
 		}
 	}
     
-	religion_primitive = {
+	primitive = {
 		color = { 136 228 163 }
-		icon = 12
+		icon = 29
 		
 		country = {
 			improve_relation_modifier = 0.2
@@ -276,7 +204,7 @@ religion_group_nature = {
 		personal_deity = yes
 		
 		on_convert = {
-			change_religion = religion_primitive
+			change_religion = primitive
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -285,4 +213,31 @@ religion_group_nature = {
 			}			
 		}
 	}
+    
+    earth_mother = {
+        color = { 40 50 120 }
+		icon = 20
+		
+        hre_religion = yes
+        
+		country = {
+			improve_relation_modifier = 0.2
+		}
+		country_as_secondary = {
+			improve_relation_modifier = 0.1
+		}
+        province = {
+			local_missionary_strength = -0.01
+		}
+        
+        on_convert = {
+			change_religion = earth_mother
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+    }
 }

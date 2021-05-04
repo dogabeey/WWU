@@ -1,7 +1,7 @@
 #------------------------------------
 # Rationalism
 #------------------------------------
-religion_group_rational_philosophies = {
+philosophy_group = {
 	defender_of_faith = no
 	can_form_personal_unions = yes
 	
@@ -10,12 +10,12 @@ religion_group_rational_philosophies = {
 	
 	crusade_name = CRUSADE
 	
-    harmonized_modifier = harmonized_rational_philosophies
+    harmonized_modifier = harmonized_philosophy
     
-	religion_rationalism = {
-		color = { 77 27 76 }
-		icon = 36
-		
+    rationalism = {
+		color = { 88 204 213 }
+		icon = 14
+        
 		country = {
 			idea_cost = -0.1
 		}
@@ -27,9 +27,9 @@ religion_group_rational_philosophies = {
         }
         
 		fervor = yes
-        
+		
 		on_convert = {
-			change_religion = religion_rationalism
+			change_religion = rationalism
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -38,11 +38,11 @@ religion_group_rational_philosophies = {
 			}			
 		}
 	}
-	
-    religion_faithless = {
-		color = { 77 27 76 }
-		icon = 35
-		
+    
+    faithless = {
+		color = { 88 204 213 }
+		icon = 25
+        
 		country = {
 			shock_damage = 0.1
 		}
@@ -54,9 +54,9 @@ religion_group_rational_philosophies = {
         }
         
 		fervor = yes
-        
+		
 		on_convert = {
-			change_religion = religion_faithless
+			change_religion = faithless
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -66,11 +66,11 @@ religion_group_rational_philosophies = {
 		}
 	}
     
-	religion_tech = {
-		color = { 0.45 0.45 0.45 }
+    technomancy = {
+		color = { 48 232 229 }
 		icon = 30
         
-        country = {
+		country = {
 			technology_cost = -0.1
             innovativeness_gain = 0.2
 		}
@@ -84,7 +84,7 @@ religion_group_rational_philosophies = {
 		fervor = yes
 		
 		on_convert = {
-			change_religion = religion_tech
+			change_religion = technomancy
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -93,12 +93,12 @@ religion_group_rational_philosophies = {
 			}			
 		}
 	}
-
-    religion_greed = {
-		color = { 0.5 0.5 0.5 }
-		icon = 34
+    
+    avarice = {
+		color = { 114 89 235 }
+		icon = 28
         
-        country = {
+		country = {
 			global_tax_modifier = 0.1
             production_efficiency = 0.1
 		}
@@ -112,7 +112,7 @@ religion_group_rational_philosophies = {
 		fervor = yes
 		
 		on_convert = {
-			change_religion = religion_greed
+			change_religion = avarice
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -120,7 +120,7 @@ religion_group_rational_philosophies = {
 				duration = 3650
 			}			
 		}
-    }
+	
     
     # Schools
     religious_schools = {

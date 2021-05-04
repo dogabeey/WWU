@@ -341,41 +341,44 @@ cb_crusade = {
 	prerequisites = {
 		OR = {
 			AND = {
-				religion_group = religion_group_the_light
+				religion_group = light_group
 				is_neighbor_of = FROM
 				FROM = {
 					OR = { 
-						religion_group = religion_group_the_void
-						religion_group = religion_group_disorder
+						religion_group = shadow_group
+						religion_group = death_group
+						religion_group = disorder_group
 					}
 				}
 			}
 			AND = {
-				religion_group = religion_group_the_void
+				religion_group = death_group
 				is_neighbor_of = FROM
 				FROM = {
-					OR = { 
-						religion_group = religion_group_the_light
-						religion_group = religion_group_disorder
-					}
+					NOT = { religion_group = death_group }
 				}
 			}
 			AND = {
-				religion_group = religion_group_disorder
+				religion_group = shadow_group
 				is_neighbor_of = FROM
 				FROM = {
-					OR = { 
-						religion_group = religion_group_the_light
-						religion_group = religion_group_the_void
-					}
+					NOT = { religion_group = shadow_group }
 				}
 			}
 			AND = {
-				religion = religion_scarlet_light
+				religion_group = disorder_group
+				is_neighbor_of = FROM
+				FROM = {
+					NOT = { religion_group = disorder_group }
+				}
+			}
+			AND = {
+				religion = scarlet_light
 				FROM = {
 					OR = { 
-						religion_group = religion_group_the_light
-						religion_group = religion_group_the_void
+						religion_group = light_group
+						religion_group = shadow_group
+						religion_group = death_group
 					}
 				}
 			}
@@ -414,9 +417,9 @@ cb_excommunication = {
 	prerequisites = {
 		FROM = {
 			is_excommunicated = yes
-			religion = religion_fel
+			religion = fel
 		}
-		religion = religion_fel
+		religion = fel
 		is_excommunicated = no
 		FROM = {
 			is_neighbor_of = ROOT
@@ -705,8 +708,9 @@ cb_take_mandate = {
         culture_group = culture_group_dragonkin
 		FROM = { is_emperor_of_china = yes }
 		OR = {
-			religion_group = religion_group_the_void
-			religion_group = religion_group_disorder
+			religion_group = shadow_group
+			religion_group = death_group
+			religion_group = disorder_group
 		}
 	}
 

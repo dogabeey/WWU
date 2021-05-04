@@ -33,9 +33,9 @@ cb_scourge = {
 	prerequisites = {
 		is_neighbor_of = FROM
 		FROM = {
-			NOT = { religion = religion_the_damned }
+			NOT = { religion = cult_of_the_damned }
 		}
-		religion = religion_the_damned
+		religion = cult_of_the_damned
 	}
 	
 	war_goal = superiority_horde
@@ -123,7 +123,7 @@ cb_azeroth_assault = {
 	prerequisites = {
         has_global_flag = the_first_war
         culture_group = culture_group_orc
-        religion = religion_fel
+        religion = fel
 		FROM = {
 			capital_scope = { continent = continent_eastern_kingdoms }
             culture_group = culture_group_human
@@ -180,12 +180,12 @@ cb_titan_rivalry = {
 	prerequisites = {
 		OR = {
 			AND = {
-				religion = religion_titan
-				FROM = { religion = religion_titan_corrupt }
+				religion = titan_worship
+				FROM = { religion = corrupt_titan_worship }
 			}
 			AND = {
-				religion = religion_titan_corrupt
-				FROM = { religion = religion_titan }
+				religion = corrupt_titan_worship
+				FROM = { religion = titan_worship }
 			}
 		}
 	}

@@ -7,12 +7,12 @@ country_event = {
 	picture = TITANS_eventPicture
 
 	trigger = {
-		religion = religion_titan
+		religion = titan_worship
 		has_country_flag = revealed_to_world
 		any_neighbor_country = {
 			OR = {
-				religion_group = religion_group_disorder
-				religion_group = religion_group_the_void
+				religion_group = disorder_group
+				religion_group = shadow_group
 			}
 		}
 	}
@@ -32,8 +32,8 @@ country_event = {
 			factor = 0.5
 			any_country = {
 				OR = {
-					religion_group = religion_group_disorder
-					religion_group = religion_group_the_void
+					religion_group = disorder_group
+					religion_group = shadow_group
 				}
 				alliance_with = ROOT
 			}
@@ -44,8 +44,8 @@ country_event = {
 			calc_true_if = {
 				all_neighbor_country = {
 					OR = {
-						religion_group = religion_group_disorder
-						religion_group = religion_group_the_void
+						religion_group = disorder_group
+						religion_group = shadow_group
 					}
 				}
 				amount = 2
@@ -56,8 +56,8 @@ country_event = {
 			calc_true_if = {
 				all_neighbor_country = {
 					OR = {
-						religion_group = religion_group_disorder
-						religion_group = religion_group_the_void
+						religion_group = disorder_group
+						religion_group = shadow_group
 					}
 				}
 				amount = 3
@@ -94,7 +94,7 @@ country_event = {
 		name = wwu_titan_corruption.1.opt1
 		
 		capital_scope = {
-			change_religion = religion_titan_corrupt
+			change_religion = corrupt_titan_worship
 			add_permanent_province_modifier = {
 				name = "religious_zeal_at_conv"
 				duration = 9000
@@ -112,12 +112,12 @@ country_event = {
 	picture = TITANS_eventPicture
 
 	trigger = {
-		religion = religion_titan_corrupt
+		religion = corrupt_titan_worship
 		has_country_flag = revealed_to_world
 		any_neighbor_country = {
 			OR = {
 				religion_group = religion_group_nature
-				religion_group = religion_group_the_light
+				religion_group = light_group
 			}
 		}
 	}
@@ -138,7 +138,7 @@ country_event = {
 			any_country = {
 				OR = {
 					religion_group = religion_group_nature
-					religion_group = religion_group_the_light
+					religion_group = light_group
 				}
 				alliance_with = ROOT
 			}
@@ -150,7 +150,7 @@ country_event = {
 				all_neighbor_country = {
 					OR = {
 						religion_group = religion_group_nature
-						religion_group = religion_group_the_light
+						religion_group = light_group
 					}
 				}
 				amount = 2
@@ -162,7 +162,7 @@ country_event = {
 				all_neighbor_country = {
 					OR = {
 						religion_group = religion_group_nature
-						religion_group = religion_group_the_light
+						religion_group = light_group
 					}
 				}
 				amount = 3
@@ -199,7 +199,7 @@ country_event = {
 		name = wwu_titan_corruption.2.opt1
 		
 		capital_scope = {
-			change_religion = religion_titan
+			change_religion = titan_worship
 			add_permanent_province_modifier = {
 				name = "religious_zeal_at_conv"
 				duration = 9000
@@ -229,11 +229,11 @@ country_event = {
 		every_owned_province =
 		{
 			limit = {
-				NOT = { religion = religion_titan_corrupt }
+				NOT = { religion = corrupt_titan_worship }
 			}
-			change_religion = religion_titan_corrupt
+			change_religion = corrupt_titan_worship
 		}
-		change_religion = religion_titan_corrupt
+		change_religion = corrupt_titan_worship
 		clr_country_flag = converting_to_titan_corrupt
 	}
 	option = {
@@ -249,14 +249,14 @@ country_event = {
 					limit = {
 						owned_by = ROOT
 					}
-					change_religion = religion_titan_corrupt
+					change_religion = corrupt_titan_worship
 				}
 				random_province =
 				{
 					limit = {
 						owned_by = ROOT
 					}
-					change_religion = religion_titan_corrupt
+					change_religion = corrupt_titan_worship
 				}
 			}
 			10 = {
@@ -287,11 +287,11 @@ country_event = {
 		every_owned_province =
 		{
 			limit = {
-				NOT = { religion = religion_titan }
+				NOT = { religion = titan_worship }
 			}
-			change_religion = religion_titan
+			change_religion = titan_worship
 		}
-		change_religion = religion_titan
+		change_religion = titan_worship
 		clr_country_flag = converting_to_titan
 	}
 	option = {
@@ -307,14 +307,14 @@ country_event = {
 					limit = {
 						owned_by = ROOT
 					}
-					change_religion = religion_titan
+					change_religion = titan_worship
 				}
 				random_province =
 				{
 					limit = {
 						owned_by = ROOT
 					}
-					change_religion = religion_titan
+					change_religion = titan_worship
 				}
 			}
 			10 = {
