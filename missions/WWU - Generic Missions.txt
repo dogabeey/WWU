@@ -386,3 +386,64 @@ wwu_administrative_missions = {
 		}
 	}
 }
+
+# These are replaced by the story missions if a nation has unique missions
+wwu_prestige_missions = {
+	slot = 4
+	
+	generic = yes
+	
+	potential = {
+	   always = yes
+	}
+	
+    wwu_prestigious_nation_mission = {
+		icon = mission_ancient_tablet
+        position = 1
+        
+		required_missions = {  } 
+        
+		trigger = { 
+            prestige = 100
+        }
+		effect = {
+			add_country_modifier = {
+				name = "mission_prestigious_nation"
+				duration = -1
+			}
+		}
+	}
+	
+    wwu_mercantile_nation_mission = {
+		icon = mission_oil
+        position = 2
+        
+		required_missions = {  } 
+        
+		trigger = {
+			num_of_strong_trade_companies = 5
+		}
+		effect = {
+			add_country_modifier = {
+				name = "mission_mercantile_nation"
+				duration = -1
+			}
+		}
+	}
+	wwu_absolute_nation_mission = {
+		icon = mission_black_dragonflight
+        
+		required_missions = {  } 
+        
+		trigger = { 
+            absolutism = 100
+        }
+        
+		effect = {
+			add_country_modifier = {
+				name = "mission_absolute_nation"
+				duration = -1
+			}
+		}
+	}
+}
