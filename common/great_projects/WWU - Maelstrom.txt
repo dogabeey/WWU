@@ -1,0 +1,122 @@
+#--------------------------------------
+# Bilgewater Port
+#--------------------------------------
+gp_bilgewater_port = {
+    type = monument
+    
+	start = 1099
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 0
+
+    # Construction
+	build_trigger = {
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_goblin = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_goblin = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_goblin = yes
+        }
+	}
+	keep_trigger = {
+    
+	}
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            local_sailors_modifier = 1.0
+		}
+		country_modifiers = {
+            global_trade_power = 0.1
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            local_sailors_modifier = 2.0
+		}
+		country_modifiers = {
+            global_trade_power = 0.15
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            local_sailors_modifier = 3.0
+		}
+		country_modifiers = {
+            global_trade_power = 0.2
+		}
+	}
+}

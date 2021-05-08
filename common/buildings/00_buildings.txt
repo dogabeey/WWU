@@ -19,7 +19,7 @@
 # Generic
 #----------------------------------
 wow_farm = {
-	cost = 250
+	cost = 100
 	time = 12
     
 	modifier = {
@@ -27,20 +27,17 @@ wow_farm = {
         local_governing_cost = -0.25
 	}
 	
+    # Encourage AI to build these when it is likely close to capacity limit
 	ai_will_do = {
 		factor = 100
 
-		modifier = {
+        modifier = {
 			factor = 2
-            development = 10
+            num_of_states = 25  
 		}
         modifier = {
 			factor = 2
-            development = 20
-		}
-        modifier = {
-			factor = 2
-            development = 30
+            num_of_states = 50
 		}
 	}
 }
@@ -52,9 +49,16 @@ wow_internment_camp = {
 		local_unrest = -3
         culture_conversion_cost = -0.5
 	}
-	
+
 	ai_will_do = {
-		factor = 50
+		factor = 100
+        
+        # AI shouldn't waste resources on this building
+        modifier = {
+            factor = 0
+            
+            always = yes
+        }
 	}
 }
 wow_temple = {
@@ -68,6 +72,20 @@ wow_temple = {
 	
 	ai_will_do = {
 		factor = 100
+        
+        # AI should not build these in low tax provinces
+        modifier = {
+            factor = 0
+            
+            NOT = { base_tax = 5 }
+        }
+        
+        # AI should focus if province is high tax
+        modifier = {
+            factor = 2
+                    
+            base_tax = 10
+        }
 	}
 }
 wow_mine = {
@@ -79,7 +97,21 @@ wow_mine = {
 	}
 	
 	ai_will_do = {
-		factor = 100
+		factor = 150 # Production is more important than tax/manpower
+        
+        # AI should not build these in low production provinces
+        modifier = {
+            factor = 0
+            
+            NOT = { base_production = 5 }
+        }
+        
+        # AI should focus if province is high production
+        modifier = {
+            factor = 2
+                    
+            base_production = 10
+        }
 	}
 }
 wow_barracks = {
@@ -92,6 +124,20 @@ wow_barracks = {
 	
 	ai_will_do = {
 		factor = 100
+        
+        # AI should not build these in low manpower provinces
+        modifier = {
+            factor = 0
+            
+            NOT = { base_manpower = 5 }
+        }
+        
+        # AI should focus if province is high manpower
+        modifier = {
+            factor = 2
+                    
+            base_manpower = 10
+        }
 	}
 }
 wow_arsenal = {
@@ -104,12 +150,15 @@ wow_arsenal = {
 	}
 	
 	ai_will_do = {
-		factor = 50
+		factor = 100
         
+        # AI should not build these if land forcelimit is sufficient
 		modifier = {
 			factor = 0
 			owner = { land_forcelimit = 100 }
 		}
+        
+        # AI should focus these if land forcelimit is low
         modifier = {
 			factor = 2
 			owner = { NOT = { land_forcelimit = 20 } }
@@ -131,6 +180,22 @@ wow_shipyard = {
 	
 	ai_will_do = {
 		factor = 100
+        
+        # AI should not build these if navy is small
+		modifier = {
+			factor = 0
+			owner = { 
+                NOT = { naval_forcelimit = 20 }
+            }
+		}
+        # AI should focus these if navy is big
+		modifier = {
+			factor = 2
+            
+			owner = { 
+                naval_forcelimit = 100
+            }
+		}
 	}
 }
 wow_dockyard = {
@@ -148,6 +213,29 @@ wow_dockyard = {
 	
 	ai_will_do = {
 		factor = 100
+        
+        # AI should not build these in low production provinces
+        modifier = {
+            factor = 0
+            
+            NOT = { base_production = 5 }
+        }
+        
+        # AI should not build these if navy is small
+		modifier = {
+			factor = 0
+			owner = { 
+                NOT = { naval_forcelimit = 20 }
+            }
+		}
+        # AI should focus these if navy is big
+		modifier = {
+			factor = 2
+            
+			owner = { 
+                naval_forcelimit = 100
+            }
+		}
 	}
 }
 wow_marketplace = {
@@ -160,6 +248,13 @@ wow_marketplace = {
 	
 	ai_will_do = {
 		factor = 100
+        
+        # AI should not build these in low production provinces
+        modifier = {
+            factor = 0
+            
+            NOT = { base_production = 5 }
+        }
 	}
 }
 wow_tavern = {
@@ -169,11 +264,18 @@ wow_tavern = {
 	modifier = {
 		local_friendly_movement_speed = 0.25
         local_monthly_devastation = -0.1
-        #local_institution_spread = 0.25
+        local_institution_spread = 0.25
 	}
 	
 	ai_will_do = {
 		factor = 100
+        
+        # AI shouldn't waste resources on this building
+        modifier = {
+            factor = 0
+            
+            always = yes
+        }
 	}
 }
 
@@ -391,7 +493,14 @@ wow_portal_red = {
 	}
 	
 	ai_will_do = {
-		factor = 0	
+		factor = 100
+        
+        # AI shouldn't waste resources on this building
+        modifier = {
+            factor = 0
+            
+            always = yes
+        }
 	}
 }
 wow_portal_yellow = {
@@ -407,7 +516,14 @@ wow_portal_yellow = {
 	}
 	
 	ai_will_do = {
-		factor = 0	
+		factor = 100
+        
+        # AI shouldn't waste resources on this building
+        modifier = {
+            factor = 0
+            
+            always = yes
+        }
 	}
 }
 wow_portal_green = {
@@ -423,7 +539,14 @@ wow_portal_green = {
 	}
 	
 	ai_will_do = {
-		factor = 0	
+		factor = 100
+        
+        # AI shouldn't waste resources on this building
+        modifier = {
+            factor = 0
+            
+            always = yes
+        }
 	}
 }
 wow_portal_blue = {
@@ -439,7 +562,14 @@ wow_portal_blue = {
 	}
 	
 	ai_will_do = {
-		factor = 0
+		factor = 100
+        
+        # AI shouldn't waste resources on this building
+        modifier = {
+            factor = 0
+            
+            always = yes
+        }
 	}
 }
 
@@ -460,12 +590,8 @@ wow_manufactory = {
 	}
 
 	ai_will_do = {
-		factor = 1750
+		factor = 1000
 
-		modifier = {
-			factor = 0.4
-			NOT = { base_production = 6 }
-		}
 		modifier = {
 			factor = 1.5
 			base_production = 10
@@ -492,7 +618,7 @@ wow_arcane_tower = {
 	show_separate = yes
 
 	ai_will_do = {
-		factor = 1
+		factor = 100
 	}
 }
 
@@ -509,7 +635,14 @@ wow_citadel = {
 	show_separate = yes 
 
 	ai_will_do = {
-		factor = 1
+		factor = 100
+        
+        # AI should only build this in capital
+        modifier = {
+            factor = 0
+            
+            NOT = { is_capital = yes }
+        }
 	}
 }
 
@@ -525,7 +658,14 @@ wow_city_barracks = {
 	show_separate = yes 
 
 	ai_will_do = {
-		factor = 1
+		factor = 100
+        
+        # AI should only build this below 50k manpower
+        modifier = {
+            factor = 0
+            
+            max_manpower = 50
+        }
 	}
 }
 
@@ -571,7 +711,24 @@ wow_garrison = {
 	show_separate = yes 
 
 	ai_will_do = {
-		factor = 1
+		factor = 100
+        
+        modifier = {
+			factor = 2
+            num_of_states = 25  
+		}
+        modifier = {
+			factor = 2
+            num_of_states = 50
+		}
+        modifier = {
+			factor = 2
+            num_of_states = 75
+		}
+        modifier = {
+			factor = 2
+            num_of_states = 100
+		}
 	}
 }
 

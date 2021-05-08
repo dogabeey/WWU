@@ -1,12 +1,175 @@
 ﻿#--------------------------------------
 # Changelog
 #--------------------------------------
+- Updated mod for 1.31
+- Changed the heightmap/terrain look of the map.
+- Added various new provinces.
+- Added 140 monuments.
+- Overhauled units: 
+ - There are now 3 tiers, with 3 options for INF, 2 for CAV/ART
+ - Specific nations now get a unique variant of infantry/cavalry/artillery if applicable
+- Overhauled Ages:
+ - There are now four Ages: 
+  - Rise of the Horde: represents the Rise of the Horde events
+  - Orcish Horde: represents the First War/Second war events
+  - Scourge: represents the Third war events
+  - Burning Legion: is an endgame threat to challenge the player
+- Cut down the bookmarks to match the new ages. The history for the old bookmarks remains however.
+- Tided up culture groupings: there is no longer specific cultures like Bloodpaw for Furbolgs, instead it is just Furbolg, Corrupted Furbolg, etc.
+- Added Corrupt Dragon Aspect religion
+- Added C'Thun/N'Zoth/Yogg-Saron/Y'Shaarj religion (replaces Old Gods religion)
+- Added Twilight Cult religion
+- Added Nightmare religion
+- Added Anima religion
+- Added Deep Mother religion
+- Added Ordos religion
+- Added Teaching mechanic to Ordos/Deep Mother/Fire/Water/Earth/Wind religions.
+- Added Gold -> ADM/DIP/MIL estate actions.
+- Added Celestial Empire (Dragon Aspects) mechanics to the Dragonflights, where the Red Dragonflight is the leader and the other main dragonflights are tributaries, symbolising the relationship the dragonflights have to one another.
+- Added ruler Magic system, allowing your ruler to become a spellcaster and cast spells.
+- Added National Ideas so all cultural groups now have a custom NI group.
+- Removed one-per-country buildings.
+- Added Provincial Action buildings that allow you to spend gold to get base tax/base production/base manpower or to add a center of trade.
+- Overhauled mission interface so it is Warcraft themed.
 
 #--------------------------------------
 # TODO
 #--------------------------------------
-Look at story events, setup progression within ages + spawning events
+Implement events for each age:
 
+Rise of the Horde
+ - Ends when Dark Portal is built
+ - Go over current event setup, make it a bit less convoluted
+ 
+Orcish Horde 
+ - Ends when Orcish Horde capital (Outland Dark Portal) is sieged
+ - Add events for First War/Second War lore incidents
+ - Add stuff to encourage Stormwind/Orcish Horde clash
+ - Add spawn setup for Orcish Horde
+ 
+Scourge - Third War
+ - Ends when Icecrown Citadel is sieged
+ - Add spawn setup for the Scourge/Scourge of Lordaeron
+
+Burning Legion - Endgame threat
+ - Add spawn setup for the Burning LEgion
+ 
+Each age progression will automatically occur after 100 years so the game doesn't become frozen due to AI failure
+ 
 Change event pictures to the slimline versions
 
 Add monuments
+
+#--------------------------------------
+# 
+#--------------------------------------
+gp_ = {
+    type = monument
+    
+	start = 1022
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 0
+
+    # Construction
+	build_trigger = {
+    
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		
+	}
+	can_upgrade_trigger = {
+		
+	}
+	keep_trigger = {
+    
+	}
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+	}
+}
