@@ -57,6 +57,15 @@ wwu_innovation_ideas = {
 			factor = 2
 			personality = ai_militarist 
 		}
+        
+        modifier = {
+			factor = 2
+            
+			OR = {
+                culture_group = culture_group_gnomish
+                culture_group = culture_group_mecha_gnomish
+            }
+		}
     }
 }
 
@@ -121,6 +130,17 @@ wwu_religious_ideas = {
 			factor = 2
 			personality = ai_capitalist 
 		}
+        
+        modifier = {
+			factor = 2
+            
+			OR = {
+                tag = A22 # Scarlet Crusade
+                tag = SVH # Silver Hand
+                tag = SOT # Scarlet Onslaught
+                tag = AGC # Argent Crusade
+            }
+		}
     }
 }
 
@@ -169,6 +189,11 @@ wwu_economic_ideas = {
         modifier = {
 			factor = 2
 			personality = ai_capitalist 
+		}
+        modifier = {
+			factor = 2
+            
+			num_of_cities = 50
 		}
     }
 }
@@ -228,6 +253,13 @@ wwu_expansion_ideas = {
 			factor = 2
 			has_idea_group = wwu_exploration_ideas
 		}
+        
+        # Only large AI should take this idea group
+        modifier = {
+			factor = 0
+            
+			NOT = { num_of_cities = 50 }
+		}
     }
 }
 
@@ -273,6 +305,11 @@ wwu_administrative_ideas = {
         modifier = {
 			factor = 2
 			personality = ai_capitalist 
+		}
+        modifier = {
+			factor = 2
+            
+			num_of_cities = 50
 		}
     }
 }
@@ -447,9 +484,9 @@ wwu_development_ideas = {
     wwu_development_ideas_6 = {
         build_cost = -0.15
     }
-    # Monetary Policy
+    # Cultural Assimilation
     wwu_development_ideas_7 = {
-        inflation_reduction = 0.05
+        num_accepted_cultures = 1
     }
     
     ai_will_do = {
@@ -458,10 +495,6 @@ wwu_development_ideas = {
         modifier = {
 			factor = 2
 			personality = ai_capitalist 
-		}
-        modifier = {
-			factor = 2
-			inflation = 5
 		}
     }
 }

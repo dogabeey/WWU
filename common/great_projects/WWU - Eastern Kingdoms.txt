@@ -75,10 +75,10 @@ gp_seradane = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -92,10 +92,10 @@ gp_seradane = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -151,7 +151,7 @@ gp_twilight_grove = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
             is_available_to_green_dragonflight = yes
         }
 	}
@@ -168,7 +168,7 @@ gp_twilight_grove = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
             is_available_to_green_dragonflight = yes
         }
 	}
@@ -177,7 +177,7 @@ gp_twilight_grove = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
             is_available_to_green_dragonflight = yes
         }
 	}
@@ -206,10 +206,10 @@ gp_twilight_grove = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -223,10 +223,10 @@ gp_twilight_grove = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -274,7 +274,7 @@ gp_stormwind_keep = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -320,38 +320,36 @@ gp_stormwind_keep = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 0.25
 		}
 		country_modifiers = {
-            defensiveness = 0.1
             manpower_recovery_speed = 0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 0.33
 		}
 		country_modifiers = {
-            defensiveness = 0.15
-            manpower_recovery_speed = 0.15
+            manpower_recovery_speed = 0.125
 		}
 	}
 	tier_3 = {
@@ -365,11 +363,10 @@ gp_stormwind_keep = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 0.5
 		}
 		country_modifiers = {
-            defensiveness = 0.2
-            manpower_recovery_speed = 0.2
+            manpower_recovery_speed = 0.15
 		}
 	}
 }
@@ -391,7 +388,7 @@ gp_stromgarde_keep = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -437,38 +434,36 @@ gp_stromgarde_keep = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 0.25
 		}
 		country_modifiers = {
-            defensiveness = 0.1
-            siege_ability = 0.05
+            siege_ability = 0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 0.33
 		}
 		country_modifiers = {
-            defensiveness = 0.15
-            siege_ability = 0.1
+            siege_ability = 0.125
 		}
 	}
 	tier_3 = {
@@ -482,10 +477,9 @@ gp_stromgarde_keep = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 0.5
 		}
 		country_modifiers = {
-            defensiveness = 0.2
             siege_ability = 0.15
 		}
 	}
@@ -508,7 +502,7 @@ gp_gilneas_city = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -563,10 +557,10 @@ gp_gilneas_city = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -580,6 +574,24 @@ gp_gilneas_city = {
 		}
 	}
 	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            local_monthly_devastation = -0.075
+            local_development_cost = -0.15
+		}
+		country_modifiers = {
+            global_manpower_modifier = 0.125
+		}
+	}
+	tier_3 = {
 		upgrade_time = {
 			months = 120
 		}
@@ -595,24 +607,6 @@ gp_gilneas_city = {
 		}
 		country_modifiers = {
             global_manpower_modifier = 0.15
-		}
-	}
-	tier_3 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-        province_modifiers = {
-            
-		}
-		area_modifier = {
-            local_monthly_devastation = -0.15
-            local_development_cost = -0.3
-		}
-		country_modifiers = {
-            global_manpower_modifier = 0.2
 		}
 	}
 }
@@ -634,7 +628,7 @@ gp_lordaeron_city = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -692,10 +686,10 @@ gp_lordaeron_city = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -705,10 +699,28 @@ gp_lordaeron_city = {
             local_development_cost = -0.1
 		}
 		country_modifiers = {
-            prestige = 1
+            diplomatic_reputation = 1
 		}
 	}
 	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            local_monthly_devastation = -0.075
+            local_development_cost = -0.15
+		}
+		country_modifiers = {
+            diplomatic_reputation = 2
+		}
+	}
+	tier_3 = {
 		upgrade_time = {
 			months = 120
 		}
@@ -723,25 +735,7 @@ gp_lordaeron_city = {
             local_development_cost = -0.2
 		}
 		country_modifiers = {
-            prestige = 2
-		}
-	}
-	tier_3 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-        province_modifiers = {
-            
-		}
-		area_modifier = {
-            local_monthly_devastation = -0.15
-            local_development_cost = -0.3
-		}
-		country_modifiers = {
-            prestige = 3
+            diplomatic_reputation = 3
 		}
 	}
 }
@@ -763,7 +757,7 @@ gp_lights_hope_chapel = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -824,10 +818,10 @@ gp_lights_hope_chapel = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -836,15 +830,15 @@ gp_lights_hope_chapel = {
             
 		}
 		country_modifiers = {
-            global_missionary_strength = 0.03
+            global_missionary_strength = 0.01
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -853,7 +847,7 @@ gp_lights_hope_chapel = {
             
 		}
 		country_modifiers = {
-            global_missionary_strength = 0.04
+            global_missionary_strength = 0.02
 		}
 	}
 	tier_3 = {
@@ -870,7 +864,7 @@ gp_lights_hope_chapel = {
             
 		}
 		country_modifiers = {
-            global_missionary_strength = 0.05
+            global_missionary_strength = 0.03
 		}
 	}
 }
@@ -892,7 +886,7 @@ gp_stratholme = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -950,10 +944,10 @@ gp_stratholme = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -968,20 +962,20 @@ gp_stratholme = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            local_monthly_devastation = -0.1
-            local_development_cost = -0.2
+            local_monthly_devastation = -0.075
+            local_development_cost = -0.15
 		}
 		country_modifiers = {
-            army_tradition = 1
+            army_tradition = 0.75
 		}
 	}
 	tier_3 = {
@@ -995,11 +989,11 @@ gp_stratholme = {
             
 		}
 		area_modifier = {
-            local_monthly_devastation = -0.15
-            local_development_cost = -0.3
+            local_monthly_devastation = -0.1
+            local_development_cost = -0.2
 		}
 		country_modifiers = {
-            army_tradition = 1.5
+            army_tradition = 1.0
 		}
 	}
 }
@@ -1076,10 +1070,10 @@ gp_durnholde_keep = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 64
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 500
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1144,7 +1138,7 @@ gp_thoradins_wall = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -1190,10 +1184,10 @@ gp_thoradins_wall = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1207,10 +1201,10 @@ gp_thoradins_wall = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1258,7 +1252,7 @@ gp_karazhan_tower = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -1304,10 +1298,10 @@ gp_karazhan_tower = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 640
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 10000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1317,16 +1311,14 @@ gp_karazhan_tower = {
 		}
 		country_modifiers = {
             country_admin_power = 1
-            country_diplomatic_power = 1
-            country_military_power = 1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 640
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 20000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1336,16 +1328,14 @@ gp_karazhan_tower = {
 		}
 		country_modifiers = {
             country_admin_power = 2
-            country_diplomatic_power = 2
-            country_military_power = 2
 		}
 	}
 	tier_3 = {
 		upgrade_time = {
-			months = 640
+			months = 120
 		}
 		cost_to_upgrade = {
-			factor = 30000
+			factor = 1000
 		}
         province_modifiers = {
             
@@ -1355,8 +1345,6 @@ gp_karazhan_tower = {
 		}
 		country_modifiers = {
             country_admin_power = 3
-            country_diplomatic_power = 3
-            country_military_power = 3
 		}
 	}
 }
@@ -1378,7 +1366,7 @@ gp_westfall_lighthouse = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -1424,10 +1412,10 @@ gp_westfall_lighthouse = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1436,15 +1424,15 @@ gp_westfall_lighthouse = {
             province_trade_power_modifier = 1.0
 		}
 		country_modifiers = {
-            trade_range_modifier = 0.1
+            trade_range_modifier = 0.15
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1470,7 +1458,7 @@ gp_westfall_lighthouse = {
             province_trade_power_modifier = 3.0
 		}
 		country_modifiers = {
-            trade_range_modifier = 0.3
+            trade_range_modifier = 0.25
 		}
 	}
 }
@@ -1552,10 +1540,10 @@ gp_statue_of_anduin_lothar = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1564,15 +1552,15 @@ gp_statue_of_anduin_lothar = {
             
 		}
 		country_modifiers = {
-            prestige = 0.5
+            improve_relation_modifier = 0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1581,7 +1569,7 @@ gp_statue_of_anduin_lothar = {
             
 		}
 		country_modifiers = {
-            prestige = 1
+            improve_relation_modifier = 0.15
 		}
 	}
 	tier_3 = {
@@ -1598,7 +1586,7 @@ gp_statue_of_anduin_lothar = {
             
 		}
 		country_modifiers = {
-            prestige = 1.5
+            improve_relation_modifier = 0.2
 		}
 	}
 }
@@ -1677,10 +1665,10 @@ gp_uthers_tomb = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1695,10 +1683,10 @@ gp_uthers_tomb = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1707,8 +1695,8 @@ gp_uthers_tomb = {
             
 		}
 		country_modifiers = {
-            tolerance_own = 2
-            missionary_maintenance_cost = -0.2
+            tolerance_own = 1.5
+            missionary_maintenance_cost = -0.15
 		}
 	}
 	tier_3 = {
@@ -1725,8 +1713,8 @@ gp_uthers_tomb = {
             
 		}
 		country_modifiers = {
-            tolerance_own = 3
-            missionary_maintenance_cost = -0.3
+            tolerance_own = 2
+            missionary_maintenance_cost = -0.2
 		}
 	}
 }
@@ -1748,7 +1736,7 @@ gp_tyrs_hand = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -1809,38 +1797,36 @@ gp_tyrs_hand = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_tax_modifier = 1.0
 		}
 		country_modifiers = {
-            yearly_corruption = -0.02
-            advisor_pool = 1
+            state_maintenance_modifier = -0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_tax_modifier = 2.0
 		}
 		country_modifiers = {
-            yearly_corruption = -0.04
-            advisor_pool = 1
+            state_maintenance_modifier = -0.15
 		}
 	}
 	tier_3 = {
@@ -1854,11 +1840,10 @@ gp_tyrs_hand = {
             
 		}
 		area_modifier = {
-            
+            local_tax_modifier = 3.0
 		}
 		country_modifiers = {
-            yearly_corruption = -0.06
-            advisor_pool = 1
+            state_maintenance_modifier = -0.2
 		}
 	}
 }
@@ -1880,7 +1865,7 @@ gp_baradin_hold = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -1935,16 +1920,16 @@ gp_baradin_hold = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.25
 		}
 		country_modifiers = {
             yearly_army_professionalism = 0.01
@@ -1952,16 +1937,16 @@ gp_baradin_hold = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.33
 		}
 		country_modifiers = {
             yearly_army_professionalism = 0.02
@@ -1978,7 +1963,7 @@ gp_baradin_hold = {
             
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.5
 		}
 		country_modifiers = {
             yearly_army_professionalism = 0.03
@@ -2003,7 +1988,7 @@ gp_dalaran_ek = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2068,10 +2053,10 @@ gp_dalaran_ek = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2080,16 +2065,15 @@ gp_dalaran_ek = {
             
 		}
 		country_modifiers = {
-            reform_progress_growth = 0.1
             idea_cost = -0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2098,8 +2082,7 @@ gp_dalaran_ek = {
             
 		}
 		country_modifiers = {
-            reform_progress_growth = 0.2
-            idea_cost = -0.15
+            idea_cost = -0.125
 		}
 	}
 	tier_3 = {
@@ -2116,8 +2099,7 @@ gp_dalaran_ek = {
             
 		}
 		country_modifiers = {
-            reform_progress_growth = 0.3
-            idea_cost = -0.2
+            idea_cost = -0.15
 		}
 	}
 }
@@ -2139,7 +2121,7 @@ gp_ironforge = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2194,10 +2176,10 @@ gp_ironforge = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2206,16 +2188,16 @@ gp_ironforge = {
             
 		}
 		country_modifiers = {
-            artillery_power = 0.1
-            defensiveness = 0.1
+            artillery_power = 0.05
+            defensiveness = 0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2224,8 +2206,8 @@ gp_ironforge = {
             
 		}
 		country_modifiers = {
-            artillery_power = 0.15
-            defensiveness = 0.2
+            artillery_power = 0.075
+            defensiveness = 0.075
 		}
 	}
 	tier_3 = {
@@ -2242,8 +2224,8 @@ gp_ironforge = {
             
 		}
 		country_modifiers = {
-            artillery_power = 0.2
-            defensiveness = 0.3
+            artillery_power = 0.1
+            defensiveness = 0.1
 		}
 	}
 }
@@ -2265,7 +2247,7 @@ gp_blackrock_mountain = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2326,10 +2308,10 @@ gp_blackrock_mountain = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2338,15 +2320,15 @@ gp_blackrock_mountain = {
             
 		}
 		country_modifiers = {
-            discipline = 0.05
+            fire_damage = 0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2355,7 +2337,7 @@ gp_blackrock_mountain = {
             
 		}
 		country_modifiers = {
-            discipline = 0.075
+            fire_damage = 0.125
 		}
 	}
 	tier_3 = {
@@ -2372,7 +2354,7 @@ gp_blackrock_mountain = {
             
 		}
 		country_modifiers = {
-            discipline = 0.1
+            fire_damage = 0.15
 		}
 	}
 }
@@ -2394,7 +2376,7 @@ gp_black_anvil = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2455,10 +2437,10 @@ gp_black_anvil = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2467,16 +2449,15 @@ gp_black_anvil = {
             
 		}
 		country_modifiers = {
-            infantry_cost = -0.2
-            reinforce_cost_modifier = -0.2
+            infantry_power = 0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2485,8 +2466,7 @@ gp_black_anvil = {
             
 		}
 		country_modifiers = {
-            infantry_cost = -0.3
-            reinforce_cost_modifier = -0.3
+            infantry_power = 0.125
 		}
 	}
 	tier_3 = {
@@ -2503,8 +2483,7 @@ gp_black_anvil = {
             
 		}
 		country_modifiers = {
-            infantry_cost = -0.4
-            reinforce_cost_modifier = -0.4
+            infantry_power = 0.15
 		}
 	}
 }
@@ -2526,7 +2505,7 @@ gp_grim_batol = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2584,36 +2563,36 @@ gp_grim_batol = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 1.0
 		}
 		country_modifiers = {
-            land_morale = 0.1
+            land_morale = 0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 2.0
 		}
 		country_modifiers = {
-            land_morale = 0.15
+            land_morale = 0.075
 		}
 	}
 	tier_3 = {
@@ -2627,10 +2606,10 @@ gp_grim_batol = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 3.0
 		}
 		country_modifiers = {
-            land_morale = 0.2
+            land_morale = 0.1
 		}
 	}
 }
@@ -2652,7 +2631,7 @@ gp_aerie_peak = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2707,16 +2686,16 @@ gp_aerie_peak = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 0.25
 		}
 		country_modifiers = {
             movement_speed = 0.1
@@ -2724,19 +2703,19 @@ gp_aerie_peak = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 0.33
 		}
 		country_modifiers = {
-            movement_speed = 0.2
+            movement_speed = 0.15
 		}
 	}
 	tier_3 = {
@@ -2750,10 +2729,10 @@ gp_aerie_peak = {
             
 		}
 		area_modifier = {
-            
+            local_defensiveness = 0.5
 		}
 		country_modifiers = {
-            movement_speed = 0.3
+            movement_speed = 0.2
 		}
 	}
 }
@@ -2775,7 +2754,7 @@ gp_stonewrought_dam = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2821,16 +2800,16 @@ gp_stonewrought_dam = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_production_efficiency = 1.0
 		}
 		country_modifiers = {
             production_efficiency = 0.1
@@ -2838,16 +2817,16 @@ gp_stonewrought_dam = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 65
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_production_efficiency = 2.0
 		}
 		country_modifiers = {
             production_efficiency = 0.15
@@ -2864,7 +2843,7 @@ gp_stonewrought_dam = {
             
 		}
 		area_modifier = {
-            
+            local_production_efficiency = 3.0
 		}
 		country_modifiers = {
             production_efficiency = 0.2
@@ -2889,7 +2868,7 @@ gp_thandol_span = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2935,16 +2914,17 @@ gp_thandol_span = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_friendly_movement_speed = 0.25
+            local_hostile_movement_speed = -0.25
 		}
 		country_modifiers = {
             reinforce_speed = 0.1
@@ -2952,16 +2932,17 @@ gp_thandol_span = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_friendly_movement_speed = 0.33
+            local_hostile_movement_speed = -0.33
 		}
 		country_modifiers = {
             reinforce_speed = 0.15
@@ -2978,7 +2959,8 @@ gp_thandol_span = {
             
 		}
 		area_modifier = {
-            
+            local_friendly_movement_speed = 0.5
+            local_hostile_movement_speed = -0.5
 		}
 		country_modifiers = {
             reinforce_speed = 0.2
@@ -3003,7 +2985,7 @@ gp_gnomeregan = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -3061,16 +3043,16 @@ gp_gnomeregan = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            allowed_num_of_manufactories = 1
 		}
 		country_modifiers = {
             innovativeness_gain = 0.1
@@ -3079,20 +3061,20 @@ gp_gnomeregan = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            allowed_num_of_manufactories = 1
 		}
 		country_modifiers = {
             innovativeness_gain = 0.15
-            idea_cost = -0.1
+            idea_cost = -0.075
 		}
 	}
 	tier_3 = {
@@ -3106,11 +3088,11 @@ gp_gnomeregan = {
             
 		}
 		area_modifier = {
-            
+            allowed_num_of_manufactories = 1
 		}
 		country_modifiers = {
             innovativeness_gain = 0.2
-            idea_cost = -0.15
+            idea_cost = -0.1
 		}
 	}
 }
@@ -3132,7 +3114,7 @@ gp_sunwell_plateau = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -3186,10 +3168,10 @@ gp_sunwell_plateau = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -3199,15 +3181,15 @@ gp_sunwell_plateau = {
 		}
 		country_modifiers = {
             country_admin_power = 1
-            technology_cost = -0.1
+            technology_cost = -0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -3217,7 +3199,7 @@ gp_sunwell_plateau = {
 		}
 		country_modifiers = {
             country_admin_power = 1
-            technology_cost = -0.15
+            technology_cost = -0.075
 		}
 	}
 	tier_3 = {
@@ -3235,7 +3217,7 @@ gp_sunwell_plateau = {
 		}
 		country_modifiers = {
             country_admin_power = 1
-            technology_cost = -0.2
+            technology_cost = -0.1
 		}
 	}
 }
@@ -3257,7 +3239,7 @@ gp_magisters_terrace = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -3311,10 +3293,10 @@ gp_magisters_terrace = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -3323,16 +3305,16 @@ gp_magisters_terrace = {
             
 		}
 		country_modifiers = {
-            improve_relation_modifier = 0.2
+            improve_relation_modifier = 0.1
             diplomatic_reputation = 1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -3341,8 +3323,8 @@ gp_magisters_terrace = {
             
 		}
 		country_modifiers = {
-            improve_relation_modifier = 0.25
-            diplomatic_reputation = 2
+            improve_relation_modifier = 0.15
+            diplomatic_reputation = 1.5
 		}
 	}
 	tier_3 = {
@@ -3359,8 +3341,8 @@ gp_magisters_terrace = {
             
 		}
 		country_modifiers = {
-            improve_relation_modifier = 0.3
-            diplomatic_reputation = 3
+            improve_relation_modifier = 0.2
+            diplomatic_reputation = 2
 		}
 	}
 }
@@ -3382,7 +3364,7 @@ gp_thalassian_pass = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -3427,10 +3409,10 @@ gp_thalassian_pass = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -3444,10 +3426,10 @@ gp_thalassian_pass = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -3495,7 +3477,7 @@ gp_windrunner_spire = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -3549,10 +3531,10 @@ gp_windrunner_spire = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -3567,10 +3549,10 @@ gp_windrunner_spire = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -3620,7 +3602,7 @@ gp_falthrien_academy = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -3674,10 +3656,10 @@ gp_falthrien_academy = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -3686,16 +3668,16 @@ gp_falthrien_academy = {
             
 		}
 		country_modifiers = {
-            artillery_power = 0.1
-            siege_ability = 0.1
+            artillery_power = 0.05
+            siege_ability = 0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -3704,8 +3686,8 @@ gp_falthrien_academy = {
             
 		}
 		country_modifiers = {
-            artillery_power = 0.15
-            siege_ability = 0.15
+            artillery_power = 0.075
+            siege_ability = 0.075
 		}
 	}
 	tier_3 = {
@@ -3722,8 +3704,8 @@ gp_falthrien_academy = {
             
 		}
 		country_modifiers = {
-            artillery_power = 0.2
-            siege_ability = 0.2
+            artillery_power = 0.1
+            siege_ability = 0.1
 		}
 	}
 }
@@ -3745,7 +3727,7 @@ gp_sunfury_spire = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -3799,40 +3781,37 @@ gp_sunfury_spire = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            local_development_cost = -0.1
+            local_development_cost = -0.05
 		}
 		country_modifiers = {
             free_adm_policy = 1
-            free_dip_policy = 1
-            free_mil_policy = 1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            local_development_cost = -0.2
+            local_development_cost = -0.075
 		}
 		country_modifiers = {
             free_adm_policy = 1
             free_dip_policy = 1
-            free_mil_policy = 1
 		}
 	}
 	tier_3 = {
@@ -3846,7 +3825,7 @@ gp_sunfury_spire = {
             
 		}
 		area_modifier = {
-            local_development_cost = -0.3
+            local_development_cost = -0.1
 		}
 		country_modifiers = {
             free_adm_policy = 1
@@ -3929,10 +3908,10 @@ gp_dragonmaw_port = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -3941,16 +3920,16 @@ gp_dragonmaw_port = {
             local_sailors_modifier = 1.0
 		}
 		country_modifiers = {
-            naval_forcelimit_modifier = 0.1
-            naval_maintenance_modifier = -0.1
+            naval_forcelimit_modifier = 0.05
+            naval_maintenance_modifier = -0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -3959,8 +3938,8 @@ gp_dragonmaw_port = {
             local_sailors_modifier = 2.0
 		}
 		country_modifiers = {
-            naval_forcelimit_modifier = 0.15
-            naval_maintenance_modifier = -0.15
+            naval_forcelimit_modifier = 0.075
+            naval_maintenance_modifier = -0.075
 		}
 	}
 	tier_3 = {
@@ -3977,8 +3956,8 @@ gp_dragonmaw_port = {
             local_sailors_modifier = 3.0
 		}
 		country_modifiers = {
-            naval_forcelimit_modifier = 0.2
-            naval_maintenance_modifier = -0.2
+            naval_forcelimit_modifier = 0.1
+            naval_maintenance_modifier = -0.1
 		}
 	}
 }
@@ -4000,7 +3979,7 @@ gp_janeiros_point = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -4055,10 +4034,10 @@ gp_janeiros_point = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -4072,10 +4051,10 @@ gp_janeiros_point = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -4123,7 +4102,7 @@ gp_zulaman = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -4178,10 +4157,10 @@ gp_zulaman = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -4190,16 +4169,15 @@ gp_zulaman = {
             
 		}
 		country_modifiers = {
-            army_tradition_from_battle = 0.5
             infantry_power = 0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -4208,8 +4186,7 @@ gp_zulaman = {
             
 		}
 		country_modifiers = {
-            army_tradition_from_battle = 0.75
-            infantry_power = 0.15
+            infantry_power = 0.125
 		}
 	}
 	tier_3 = {
@@ -4226,8 +4203,7 @@ gp_zulaman = {
             
 		}
 		country_modifiers = {
-            army_tradition_from_battle = 1.0
-            infantry_power = 0.2
+            infantry_power = 0.15
 		}
 	}
 }
@@ -4335,7 +4311,7 @@ gp_zulmashar = {
 		}
 		country_modifiers = {
             missionaries = 1
-            global_missionary_strength = 0.02
+            global_missionary_strength = 0.015
 		}
 	}
 	tier_3 = {
@@ -4353,7 +4329,7 @@ gp_zulmashar = {
 		}
 		country_modifiers = {
             missionaries = 1
-            global_missionary_strength = 0.03
+            global_missionary_strength = 0.02
 		}
 	}
 }
@@ -4375,7 +4351,7 @@ gp_altar_of_zul = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -4430,10 +4406,28 @@ gp_altar_of_zul = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            war_exhaustion = -0.03
+            global_manpower_modifier = 0.1
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
 		}
         province_modifiers = {
             
@@ -4443,24 +4437,6 @@ gp_altar_of_zul = {
 		}
 		country_modifiers = {
             war_exhaustion = -0.04
-            global_manpower_modifier = 0.1
-		}
-	}
-	tier_2 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-        province_modifiers = {
-            
-		}
-		area_modifier = {
-            
-		}
-		country_modifiers = {
-            war_exhaustion = -0.06
             global_manpower_modifier = 0.15
 		}
 	}
@@ -4478,7 +4454,7 @@ gp_altar_of_zul = {
             
 		}
 		country_modifiers = {
-            war_exhaustion = -0.08
+            war_exhaustion = -0.05
             global_manpower_modifier = 0.2
 		}
 	}
@@ -4556,10 +4532,10 @@ gp_shadraalor = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -4574,10 +4550,10 @@ gp_shadraalor = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -4586,8 +4562,8 @@ gp_shadraalor = {
             
 		}
 		country_modifiers = {
-            global_manpower_modifier = 0.15
-            reinforce_speed = 0.15
+            global_manpower_modifier = 0.125
+            reinforce_speed = 0.125
 		}
 	}
 	tier_3 = {
@@ -4604,8 +4580,8 @@ gp_shadraalor = {
             
 		}
 		country_modifiers = {
-            global_manpower_modifier = 0.2
-            reinforce_speed = 0.2
+            global_manpower_modifier = 0.15
+            reinforce_speed = 0.15
 		}
 	}
 }
@@ -4627,7 +4603,7 @@ gp_temple_of_atalhakkar = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -4682,10 +4658,28 @@ gp_temple_of_atalhakkar = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            global_manpower_modifier = 0.15
+            infantry_cost = -0.15
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
 		}
         province_modifiers = {
             
@@ -4696,24 +4690,6 @@ gp_temple_of_atalhakkar = {
 		country_modifiers = {
             global_manpower_modifier = 0.2
             infantry_cost = -0.2
-		}
-	}
-	tier_2 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-        province_modifiers = {
-            
-		}
-		area_modifier = {
-            
-		}
-		country_modifiers = {
-            global_manpower_modifier = 0.25
-            infantry_cost = -0.25
 		}
 	}
 	tier_3 = {
@@ -4730,8 +4706,8 @@ gp_temple_of_atalhakkar = {
             
 		}
 		country_modifiers = {
-            global_manpower_modifier = 0.3
-            infantry_cost = -0.3
+            global_manpower_modifier = 0.25
+            infantry_cost = -0.25
 		}
 	}
 }
@@ -4808,10 +4784,10 @@ gp_zulkunda = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -4826,10 +4802,10 @@ gp_zulkunda = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -4838,8 +4814,8 @@ gp_zulkunda = {
             
 		}
 		country_modifiers = {
-            prestige_decay = -0.02
-            advisor_pool = 1
+            prestige_decay = -0.015
+            advisor_pool = 2
 		}
 	}
 	tier_3 = {
@@ -4856,8 +4832,8 @@ gp_zulkunda = {
             
 		}
 		country_modifiers = {
-            prestige_decay = -0.03
-            advisor_pool = 1
+            prestige_decay = -0.02
+            advisor_pool = 3
 		}
 	}
 }
@@ -4879,7 +4855,7 @@ gp_gurubashi_arena = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -4934,10 +4910,10 @@ gp_gurubashi_arena = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -4946,16 +4922,16 @@ gp_gurubashi_arena = {
             
 		}
 		country_modifiers = {
-            mercenary_cost = -0.3
+            mercenary_cost = -0.15
             mercenary_discipline = 0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -4964,7 +4940,7 @@ gp_gurubashi_arena = {
             
 		}
 		country_modifiers = {
-            mercenary_cost = -0.4
+            mercenary_cost = -0.2
             mercenary_discipline = 0.075
 		}
 	}
@@ -4982,7 +4958,7 @@ gp_gurubashi_arena = {
             
 		}
 		country_modifiers = {
-            mercenary_cost = -0.5
+            mercenary_cost = -0.25
             mercenary_discipline = 0.1
 		}
 	}
@@ -5060,10 +5036,10 @@ gp_zulmamwe = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -5073,15 +5049,15 @@ gp_zulmamwe = {
 		}
 		country_modifiers = {
             missionaries = 1
-            warscore_cost_vs_other_religion = -0.2
+            warscore_cost_vs_other_religion = -0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -5091,7 +5067,7 @@ gp_zulmamwe = {
 		}
 		country_modifiers = {
             missionaries = 1
-            warscore_cost_vs_other_religion = -0.3
+            warscore_cost_vs_other_religion = -0.15
 		}
 	}
 	tier_3 = {
@@ -5109,7 +5085,7 @@ gp_zulmamwe = {
 		}
 		country_modifiers = {
             missionaries = 1
-            warscore_cost_vs_other_religion = -0.4
+            warscore_cost_vs_other_religion = -0.2
 		}
 	}
 }
@@ -5131,7 +5107,7 @@ gp_temple_of_hakkar = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -5186,10 +5162,10 @@ gp_temple_of_hakkar = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -5199,15 +5175,14 @@ gp_temple_of_hakkar = {
 		}
 		country_modifiers = {
             manpower_in_true_faith_provinces = 1.0
-            global_regiment_recruit_speed = -0.3
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -5216,8 +5191,7 @@ gp_temple_of_hakkar = {
             
 		}
 		country_modifiers = {
-            manpower_in_true_faith_provinces = 1.0
-            global_regiment_recruit_speed = -0.4
+            manpower_in_true_faith_provinces = 2.0
 		}
 	}
 	tier_3 = {
@@ -5234,8 +5208,7 @@ gp_temple_of_hakkar = {
             
 		}
 		country_modifiers = {
-            manpower_in_true_faith_provinces = 1.0
-            global_regiment_recruit_speed = -0.5
+            manpower_in_true_faith_provinces = 3.0
 		}
 	}
 }
@@ -5322,10 +5295,10 @@ gp_acherus = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -5334,17 +5307,15 @@ gp_acherus = {
             
 		}
 		country_modifiers = {
-            infantry_power = 0.1
-            fire_damage_received = -0.1
-            shock_damage_received = -0.1
+            administrative_efficiency = 0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -5353,9 +5324,7 @@ gp_acherus = {
             
 		}
 		country_modifiers = {
-            infantry_power = 0.15
-            fire_damage_received = -0.15
-            shock_damage_received = -0.15
+            administrative_efficiency = 0.125
 		}
 	}
 	tier_3 = {
@@ -5372,9 +5341,7 @@ gp_acherus = {
             
 		}
 		country_modifiers = {
-            infantry_power = 0.2
-            fire_damage_received = -0.2
-            shock_damage_received = -0.2
+            administrative_efficiency = 0.15
 		}
 	}
 }
@@ -5396,7 +5363,7 @@ gp_scholomance = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -5461,10 +5428,10 @@ gp_scholomance = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -5474,15 +5441,14 @@ gp_scholomance = {
 		}
 		country_modifiers = {
             idea_cost = -0.1
-            shock_damage = 0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -5491,8 +5457,7 @@ gp_scholomance = {
             
 		}
 		country_modifiers = {
-            idea_cost = -0.15
-            shock_damage = 0.15
+            idea_cost = -0.125
 		}
 	}
 	tier_3 = {
@@ -5509,8 +5474,7 @@ gp_scholomance = {
             
 		}
 		country_modifiers = {
-            idea_cost = -0.2
-            shock_damage = 0.2
+            idea_cost = -0.15
 		}
 	}
 }
@@ -5597,10 +5561,10 @@ gp_deatholme = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -5615,10 +5579,10 @@ gp_deatholme = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -5628,7 +5592,7 @@ gp_deatholme = {
 		}
 		country_modifiers = {
             missionaries = 2
-            global_missionary_strength = 0.02
+            global_missionary_strength = 0.015
 		}
 	}
 	tier_3 = {
@@ -5646,7 +5610,135 @@ gp_deatholme = {
 		}
 		country_modifiers = {
             missionaries = 3
-            global_missionary_strength = 0.03
+            global_missionary_strength = 0.02
+		}
+	}
+}
+
+#--------------------------------------
+# Uldaman
+#--------------------------------------
+gp_uldaman_complex = {
+    type = monument
+    
+	start = 1968
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 1
+
+    # Construction
+	build_trigger = {
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+        }
+	}
+	keep_trigger = {
+	}
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32
+		}
+		cost_to_upgrade = {
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            idea_cost = -0.05
+            production_efficiency = 0.05
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            idea_cost = -0.075
+            production_efficiency = 0.075
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            idea_cost = -0.1
+            production_efficiency = 0.1
 		}
 	}
 }

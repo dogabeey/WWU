@@ -80,10 +80,10 @@ gp_black_temple = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -92,16 +92,15 @@ gp_black_temple = {
             
 		}
 		country_modifiers = {
-            administrative_efficiency = 0.05
             land_morale = 0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -110,8 +109,7 @@ gp_black_temple = {
             
 		}
 		country_modifiers = {
-            administrative_efficiency = 0.1
-            land_morale = 0.1
+            land_morale = 0.125
 		}
 	}
 	tier_3 = {
@@ -128,8 +126,7 @@ gp_black_temple = {
             
 		}
 		country_modifiers = {
-            administrative_efficiency = 0.15
-            land_morale = 0.1
+            land_morale = 0.15
 		}
 	}
 }
@@ -151,7 +148,7 @@ gp_karabor = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -216,10 +213,10 @@ gp_karabor = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -228,16 +225,15 @@ gp_karabor = {
             
 		}
 		country_modifiers = {
-            administrative_efficiency = 0.05
             missionaries = 1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -246,8 +242,7 @@ gp_karabor = {
             
 		}
 		country_modifiers = {
-            administrative_efficiency = 0.1
-            missionaries = 1
+            missionaries = 2
 		}
 	}
 	tier_3 = {
@@ -264,8 +259,7 @@ gp_karabor = {
             
 		}
 		country_modifiers = {
-            administrative_efficiency = 0.15
-            missionaries = 1
+            missionaries = 3
 		}
 	}
 }
@@ -287,7 +281,7 @@ gp_auchindoun = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -350,10 +344,10 @@ gp_auchindoun = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -362,7 +356,6 @@ gp_auchindoun = {
             
 		}
 		country_modifiers = {
-            tolerance_own = 1
             global_missionary_strength = 0.01
 		}
 	}
@@ -371,7 +364,7 @@ gp_auchindoun = {
 			months = 120
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 64
 		}
         province_modifiers = {
             
@@ -380,7 +373,6 @@ gp_auchindoun = {
             
 		}
 		country_modifiers = {
-            tolerance_own = 2
             global_missionary_strength = 0.02
 		}
 	}
@@ -398,7 +390,6 @@ gp_auchindoun = {
             
 		}
 		country_modifiers = {
-            tolerance_own = 3
             global_missionary_strength = 0.03
 		}
 	}
@@ -421,7 +412,7 @@ gp_shattrath_city = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -478,10 +469,10 @@ gp_shattrath_city = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -490,16 +481,15 @@ gp_shattrath_city = {
             
 		}
 		country_modifiers = {
-            yearly_corruption = -0.02
-            advisor_pool = 1
+            core_creation = -0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -508,8 +498,7 @@ gp_shattrath_city = {
             
 		}
 		country_modifiers = {
-            yearly_corruption = -0.04
-            advisor_pool = 2
+            core_creation = -0.075
 		}
 	}
 	tier_3 = {
@@ -526,8 +515,7 @@ gp_shattrath_city = {
             
 		}
 		country_modifiers = {
-            yearly_corruption = -0.06
-            advisor_pool = 3
+            core_creation = -0.1
 		}
 	}
 }
@@ -553,6 +541,7 @@ gp_the_eye = {
 
     # Construction
 	build_trigger = {
+        NOT = { current_age = age_rise_of_the_horde }
         OR = {
             has_unlocked_adaptable_usage = yes
             is_available_to_high_elf = yes
@@ -579,6 +568,7 @@ gp_the_eye = {
         }
 	}
 	keep_trigger = {
+        NOT = { current_age = age_rise_of_the_horde }
 	}
 
 	# Tiers
@@ -603,10 +593,10 @@ gp_the_eye = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -615,16 +605,16 @@ gp_the_eye = {
             
 		}
 		country_modifiers = {
-            technology_cost = -0.1
-            movement_speed = 0.2
+            technology_cost = -0.05
+            movement_speed = 0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -633,8 +623,8 @@ gp_the_eye = {
             
 		}
 		country_modifiers = {
-            technology_cost = -0.15
-            movement_speed = 0.3
+            technology_cost = -0.075
+            movement_speed = 0.075
 		}
 	}
 	tier_3 = {
@@ -651,8 +641,8 @@ gp_the_eye = {
             
 		}
 		country_modifiers = {
-            technology_cost = -0.2
-            movement_speed = 0.4
+            technology_cost = -0.1
+            movement_speed = 0.1
 		}
 	}
 }
@@ -734,10 +724,10 @@ gp_hellfire_citadel = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -747,15 +737,14 @@ gp_hellfire_citadel = {
 		}
 		country_modifiers = {
             discipline = 0.05
-            land_morale = 0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -765,7 +754,6 @@ gp_hellfire_citadel = {
 		}
 		country_modifiers = {
             discipline = 0.075
-            land_morale = 0.15
 		}
 	}
 	tier_3 = {
@@ -783,7 +771,6 @@ gp_hellfire_citadel = {
 		}
 		country_modifiers = {
             discipline = 0.1
-            land_morale = 0.2
 		}
 	}
 }
@@ -805,7 +792,7 @@ gp_oshugun = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -859,10 +846,10 @@ gp_oshugun = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -871,23 +858,24 @@ gp_oshugun = {
             
 		}
 		country_modifiers = {
-            tolerance_own = 1
-            religious_unity = 0.25
+            religious_unity = 0.3
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
+        area_modifier = {
+            
+		}
 		country_modifiers = {
-            tolerance_own = 2
-            religious_unity = 0.33
+            religious_unity = 0.4
 		}
 	}
 	tier_3 = {
@@ -900,8 +888,10 @@ gp_oshugun = {
         province_modifiers = {
             
 		}
+        area_modifier = {
+            
+		}
 		country_modifiers = {
-            tolerance_own = 3
             religious_unity = 0.5
 		}
 	}
@@ -928,6 +918,7 @@ gp_hand_of_guldan = {
 
     # Construction
 	build_trigger = {
+        NOT = { current_age = age_rise_of_the_horde }
         OR = {
             has_unlocked_adaptable_usage = yes
             is_available_to_orc = yes
@@ -960,6 +951,7 @@ gp_hand_of_guldan = {
         }
 	}
 	keep_trigger = {
+        NOT = { current_age = age_rise_of_the_horde }
 	}
 
 	# Tiers
@@ -984,10 +976,10 @@ gp_hand_of_guldan = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1002,12 +994,15 @@ gp_hand_of_guldan = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
+            
+		}
+        area_modifier = {
             
 		}
 		country_modifiers = {
@@ -1025,9 +1020,260 @@ gp_hand_of_guldan = {
         province_modifiers = {
             
 		}
+        area_modifier = {
+            
+		}
 		country_modifiers = {
             yearly_absolutism = 1
             max_absolutism = 20
+		}
+	}
+}
+
+#--------------------------------------
+# Sporeggar
+#--------------------------------------
+gp_sporeggar = {
+    type = monument
+    
+	start = 1613
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 1
+
+    # Construction
+	build_trigger = {
+        NOT = { current_age = age_rise_of_the_horde }
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_zangar = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_zangar = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_zangar = yes
+        }
+	}
+	keep_trigger = {
+        NOT = { current_age = age_rise_of_the_horde }
+	}
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32
+		}
+		cost_to_upgrade = {
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            yearly_corruption = -0.05
+            global_unrest = -1
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            yearly_corruption = -0.05
+            global_unrest = -2
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            yearly_corruption = -0.05
+            global_unrest = -3
+		}
+	}
+}
+
+#--------------------------------------
+# Stormspire
+#--------------------------------------
+gp_stormspire = {
+    type = monument
+    
+	start = 1711
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 1
+
+    # Construction
+	build_trigger = {
+        # General
+        NOT = { current_age = age_rise_of_the_horde }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		always = yes # General
+	}
+	can_upgrade_trigger = {
+		always = yes # General
+	}
+	keep_trigger = {
+        NOT = { current_age = age_rise_of_the_horde }
+	}
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32
+		}
+		cost_to_upgrade = {
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {   
+            merchants = 1
+            trade_efficiency = 0.05
+            trade_steering = 0.1
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            merchants = 1
+            trade_efficiency = 0.075
+            trade_steering = 0.15
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            merchants = 1
+            trade_efficiency = 0.1
+            trade_steering = 0.2
 		}
 	}
 }

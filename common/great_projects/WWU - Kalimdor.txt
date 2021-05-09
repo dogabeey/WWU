@@ -15,7 +15,7 @@ gp_nordrassil = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -23,7 +23,7 @@ gp_nordrassil = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	on_built = {
@@ -39,7 +39,7 @@ gp_nordrassil = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	can_upgrade_trigger = {
@@ -47,7 +47,7 @@ gp_nordrassil = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	keep_trigger = {
@@ -75,10 +75,28 @@ gp_nordrassil = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            local_unrest = -0.5
+		}
+		country_modifiers = {
+            advisor_cost = -0.05
+            advisor_pool = 1
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
 		}
         province_modifiers = {
             
@@ -87,24 +105,8 @@ gp_nordrassil = {
             local_unrest = -1
 		}
 		country_modifiers = {
-            advisor_cost = -0.1
-		}
-	}
-	tier_2 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-        province_modifiers = {
-            
-		}
-		area_modifier = {
-            local_unrest = -2
-		}
-		country_modifiers = {
-            advisor_cost = -0.15
+            advisor_cost = -0.075
+            advisor_pool = 1
 		}
 	}
 	tier_3 = {
@@ -118,10 +120,10 @@ gp_nordrassil = {
             
 		}
 		area_modifier = {
-            local_unrest = -3
+            local_unrest = -1.5
 		}
 		country_modifiers = {
-            advisor_cost = -0.2
+            advisor_cost = -0.1
             advisor_pool = 1
 		}
 	}
@@ -152,7 +154,7 @@ gp_ravencrest_monument = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	on_built = {
@@ -168,7 +170,7 @@ gp_ravencrest_monument = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	can_upgrade_trigger = {
@@ -176,7 +178,7 @@ gp_ravencrest_monument = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	keep_trigger = {
@@ -204,10 +206,10 @@ gp_ravencrest_monument = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -221,10 +223,10 @@ gp_ravencrest_monument = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -272,7 +274,7 @@ gp_temple_of_the_moon = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -280,7 +282,7 @@ gp_temple_of_the_moon = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	on_built = {
@@ -296,7 +298,7 @@ gp_temple_of_the_moon = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	can_upgrade_trigger = {
@@ -304,7 +306,7 @@ gp_temple_of_the_moon = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	keep_trigger = {
@@ -332,10 +334,28 @@ gp_temple_of_the_moon = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            missionaries = 1
+            global_missionary_strength = 0.005
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
 		}
         province_modifiers = {
             
@@ -346,24 +366,6 @@ gp_temple_of_the_moon = {
 		country_modifiers = {
             missionaries = 1
             global_missionary_strength = 0.01
-		}
-	}
-	tier_2 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-        province_modifiers = {
-            
-		}
-		area_modifier = {
-            
-		}
-		country_modifiers = {
-            missionaries = 1
-            global_missionary_strength = 0.02
 		}
 	}
 	tier_3 = {
@@ -381,7 +383,7 @@ gp_temple_of_the_moon = {
 		}
 		country_modifiers = {
             missionaries = 1
-            global_missionary_strength = 0.03
+            global_missionary_strength = 0.015
 		}
 	}
 }
@@ -411,7 +413,7 @@ gp_shrine_of_remulos = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	on_built = {
@@ -427,7 +429,7 @@ gp_shrine_of_remulos = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	can_upgrade_trigger = {
@@ -435,7 +437,7 @@ gp_shrine_of_remulos = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	keep_trigger = {
@@ -456,17 +458,18 @@ gp_shrine_of_remulos = {
             
 		}
 		country_modifiers = {
-            all_power_cost = -0.02
+            land_morale = 0.05
+            movement_speed = 0.05
 		}
 		on_upgraded = {
 		}
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -475,15 +478,16 @@ gp_shrine_of_remulos = {
             
 		}
 		country_modifiers = {
-            all_power_cost = -0.04
+            land_morale = 0.075
+            movement_speed = 0.075
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -509,7 +513,8 @@ gp_shrine_of_remulos = {
             
 		}
 		country_modifiers = {
-            all_power_cost = -0.06
+            land_morale = 0.1
+            movement_speed = 0.1
 		}
 	}
 }
@@ -539,7 +544,7 @@ gp_loretharan = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	on_built = {
@@ -555,7 +560,7 @@ gp_loretharan = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	can_upgrade_trigger = {
@@ -563,7 +568,7 @@ gp_loretharan = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	keep_trigger = {
@@ -591,10 +596,10 @@ gp_loretharan = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -603,15 +608,16 @@ gp_loretharan = {
             
 		}
 		country_modifiers = {
+            tolerance_own = 1
             army_tradition_decay = -0.01
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -620,7 +626,8 @@ gp_loretharan = {
             
 		}
 		country_modifiers = {
-            army_tradition_decay = -0.02
+            tolerance_own = 1
+            army_tradition_decay = -0.015
 		}
 	}
 	tier_3 = {
@@ -637,7 +644,8 @@ gp_loretharan = {
             
 		}
 		country_modifiers = {
-            army_tradition_decay = -0.03
+            tolerance_own = 1
+            army_tradition_decay = -0.02
 		}
 	}
 }
@@ -704,10 +712,10 @@ gp_dire_maul = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -721,10 +729,10 @@ gp_dire_maul = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -780,7 +788,7 @@ gp_isildien = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	on_built = {
@@ -796,7 +804,7 @@ gp_isildien = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	can_upgrade_trigger = {
@@ -804,7 +812,7 @@ gp_isildien = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	keep_trigger = {
@@ -832,10 +840,10 @@ gp_isildien = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -844,15 +852,16 @@ gp_isildien = {
             
 		}
 		country_modifiers = {
-            innovativeness_gain = 0.2
+            tolerance_own = 1
+            innovativeness_gain = 0.3
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -861,7 +870,8 @@ gp_isildien = {
             
 		}
 		country_modifiers = {
-            innovativeness_gain = 0.3
+            tolerance_own = 1
+            innovativeness_gain = 0.4
 		}
 	}
 	tier_3 = {
@@ -878,7 +888,8 @@ gp_isildien = {
             
 		}
 		country_modifiers = {
-            innovativeness_gain = 0.4
+            tolerance_own = 1
+            innovativeness_gain = 0.5
 		}
 	}
 }
@@ -908,7 +919,7 @@ gp_latharlazal = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
             is_available_to_naga = yes
         }
 	}
@@ -925,7 +936,7 @@ gp_latharlazal = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
             is_available_to_naga = yes
         }
 	}
@@ -934,7 +945,7 @@ gp_latharlazal = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
             is_available_to_naga = yes
         }
 	}
@@ -963,10 +974,10 @@ gp_latharlazal = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -975,15 +986,16 @@ gp_latharlazal = {
             
 		}
 		country_modifiers = {
+            tolerance_own = 1
             warscore_cost_vs_other_religion = -0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -992,7 +1004,8 @@ gp_latharlazal = {
             
 		}
 		country_modifiers = {
-            warscore_cost_vs_other_religion = -0.2
+            tolerance_own = 1
+            warscore_cost_vs_other_religion = -0.15
 		}
 	}
 	tier_3 = {
@@ -1009,7 +1022,8 @@ gp_latharlazal = {
             
 		}
 		country_modifiers = {
-            warscore_cost_vs_other_religion = -0.3
+            tolerance_own = 1
+            warscore_cost_vs_other_religion = -0.2
 		}
 	}
 }
@@ -1039,7 +1053,7 @@ gp_ametharan = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	on_built = {
@@ -1055,7 +1069,7 @@ gp_ametharan = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	can_upgrade_trigger = {
@@ -1063,7 +1077,7 @@ gp_ametharan = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	keep_trigger = {
@@ -1091,10 +1105,10 @@ gp_ametharan = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1103,15 +1117,16 @@ gp_ametharan = {
             
 		}
 		country_modifiers = {
-            idea_cost = -0.1
+            tolerance_own = 1
+            idea_cost = -0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1120,7 +1135,8 @@ gp_ametharan = {
             
 		}
 		country_modifiers = {
-            idea_cost = -0.15
+            tolerance_own = 1
+            idea_cost = -0.075
 		}
 	}
 	tier_3 = {
@@ -1137,7 +1153,8 @@ gp_ametharan = {
             
 		}
 		country_modifiers = {
-            idea_cost = -0.2
+            tolerance_own = 1
+            idea_cost = -0.1
 		}
 	}
 }
@@ -1167,7 +1184,7 @@ gp_keltheril = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	on_built = {
@@ -1183,7 +1200,7 @@ gp_keltheril = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	can_upgrade_trigger = {
@@ -1191,7 +1208,7 @@ gp_keltheril = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	keep_trigger = {
@@ -1219,10 +1236,10 @@ gp_keltheril = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1232,14 +1249,15 @@ gp_keltheril = {
 		}
 		country_modifiers = {
             advisor_pool = 1
+            global_unrest = -1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1249,6 +1267,7 @@ gp_keltheril = {
 		}
 		country_modifiers = {
             advisor_pool = 2
+            global_unrest = -1.5
 		}
 	}
 	tier_3 = {
@@ -1266,6 +1285,7 @@ gp_keltheril = {
 		}
 		country_modifiers = {
             advisor_pool = 3
+            global_unrest = -2
 		}
 	}
 }
@@ -1342,10 +1362,10 @@ gp_thaldarah_grove = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1354,15 +1374,16 @@ gp_thaldarah_grove = {
             
 		}
 		country_modifiers = {
-            governing_capacity_modifier = 0.1
+            free_dip_policy = 1
+            governing_capacity_modifier = 0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 200
 		}
         province_modifiers = {
             
@@ -1370,8 +1391,9 @@ gp_thaldarah_grove = {
 		area_modifier = {
             
 		}
-		country_modifiers = {
-            governing_capacity_modifier = 0.15
+		country_modifiers = {   
+            free_dip_policy = 1
+            governing_capacity_modifier = 0.075
 		}
 	}
 	tier_3 = {
@@ -1388,7 +1410,8 @@ gp_thaldarah_grove = {
             
 		}
 		country_modifiers = {
-            governing_capacity_modifier = 0.2
+            free_dip_policy = 1
+            governing_capacity_modifier = 0.1
 		}
 	}
 }
@@ -1465,10 +1488,10 @@ gp_sanctuary_of_malorne = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1477,16 +1500,16 @@ gp_sanctuary_of_malorne = {
             
 		}
 		country_modifiers = {
-            fire_damage_received = -0.1
-            shock_damage_received = -0.1
+            fire_damage_received = -0.05
+            movement_speed = 0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1495,8 +1518,8 @@ gp_sanctuary_of_malorne = {
             
 		}
 		country_modifiers = {
-            fire_damage_received = -0.15
-            shock_damage_received = -0.15
+            fire_damage_received = -0.075
+            movement_speed = 0.075
 		}
 	}
 	tier_3 = {
@@ -1513,8 +1536,8 @@ gp_sanctuary_of_malorne = {
             
 		}
 		country_modifiers = {
-            fire_damage_received = -0.2
-            shock_damage_received = -0.2
+            fire_damage_received = -0.1
+            movement_speed = 0.1
 		}
 	}
 }
@@ -1536,7 +1559,7 @@ gp_shrine_of_aviana = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -1594,10 +1617,10 @@ gp_shrine_of_aviana = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1611,10 +1634,10 @@ gp_shrine_of_aviana = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1623,7 +1646,7 @@ gp_shrine_of_aviana = {
             
 		}
 		country_modifiers = {
-            movement_speed = 0.2
+            movement_speed = 0.15
 		}
 	}
 	tier_3 = {
@@ -1640,7 +1663,7 @@ gp_shrine_of_aviana = {
             
 		}
 		country_modifiers = {
-            movement_speed = 0.3
+            movement_speed = 0.2
 		}
 	}
 }
@@ -1662,7 +1685,7 @@ gp_auberdine = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -1670,7 +1693,7 @@ gp_auberdine = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	on_built = {
@@ -1686,7 +1709,7 @@ gp_auberdine = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	can_upgrade_trigger = {
@@ -1694,7 +1717,7 @@ gp_auberdine = {
             has_unlocked_adaptable_usage = yes
             is_available_to_night_elf = yes
             is_available_to_high_elf = yes
-            is_available_to_nightborne_elf = yes
+            is_available_to_nightborne = yes
         }
 	}
 	keep_trigger = {
@@ -1722,28 +1745,25 @@ gp_auberdine = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
-		}
-        province_modifiers = {
-            
+			factor = 300
 		}
 		area_modifier = {
             
 		}
 		country_modifiers = {
-            naval_forcelimit_modifier = 0.1
-            global_sailors_modifier = 0.1
+            naval_forcelimit_modifier = 0.05
+            global_sailors_modifier = 0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1752,8 +1772,8 @@ gp_auberdine = {
             
 		}
 		country_modifiers = {
-            naval_forcelimit_modifier = 0.15
-            global_sailors_modifier = 0.15
+            naval_forcelimit_modifier = 0.075
+            global_sailors_modifier = 0.075
 		}
 	}
 	tier_3 = {
@@ -1770,8 +1790,8 @@ gp_auberdine = {
             
 		}
 		country_modifiers = {
-            naval_forcelimit_modifier = 0.2
-            global_sailors_modifier = 0.2
+            naval_forcelimit_modifier = 0.1
+            global_sailors_modifier = 0.1
 		}
 	}
 }
@@ -1793,7 +1813,7 @@ gp_tower_of_althalaxx = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -1850,10 +1870,10 @@ gp_tower_of_althalaxx = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1862,15 +1882,16 @@ gp_tower_of_althalaxx = {
             
 		}
 		country_modifiers = {
-            culture_conversion_cost = -0.15
+            mil_tech_cost_modifier = -0.05
+            culture_conversion_cost = -0.1
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -1879,7 +1900,8 @@ gp_tower_of_althalaxx = {
             
 		}
 		country_modifiers = {
-            culture_conversion_cost = -0.2
+            mil_tech_cost_modifier = -0.075
+            culture_conversion_cost = -0.15
 		}
 	}
 	tier_3 = {
@@ -1896,7 +1918,8 @@ gp_tower_of_althalaxx = {
             
 		}
 		country_modifiers = {
-            culture_conversion_cost = -0.25
+            mil_tech_cost_modifier = -0.1
+            culture_conversion_cost = -0.2
 		}
 	}
 }
@@ -1973,10 +1996,10 @@ gp_bael_modan_digsite = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -1993,6 +2016,27 @@ gp_bael_modan_digsite = {
 		}
 	}
 	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            legitimacy = 0.75
+            republican_tradition = 0.75
+            devotion = 0.75
+            horde_unity = 0.75
+            meritocracy = 0.75
+		}
+	}
+	tier_3 = {
 		upgrade_time = {
 			months = 120
 		}
@@ -2011,27 +2055,6 @@ gp_bael_modan_digsite = {
             devotion = 1
             horde_unity = 1
             meritocracy = 1
-		}
-	}
-	tier_3 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-        province_modifiers = {
-            
-		}
-		area_modifier = {
-            
-		}
-		country_modifiers = {
-            legitimacy = 1.5
-            republican_tradition = 1.5
-            devotion = 1.5
-            horde_unity = 1.5
-            meritocracy = 1.5
 		}
 	}
 }
@@ -2110,10 +2133,10 @@ gp_exodar = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2128,10 +2151,10 @@ gp_exodar = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2140,8 +2163,8 @@ gp_exodar = {
             
 		}
 		country_modifiers = {
-            missionaries = 2
-            global_missionary_strength = 0.02
+            missionaries = 1
+            global_missionary_strength = 0.015
 		}
 	}
 	tier_3 = {
@@ -2158,8 +2181,8 @@ gp_exodar = {
             
 		}
 		country_modifiers = {
-            missionaries = 3
-            global_missionary_strength = 0.03
+            missionaries = 1
+            global_missionary_strength = 0.02
 		}
 	}
 }
@@ -2244,16 +2267,15 @@ gp_valley_of_strength = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            local_defensiveness = 0.25
             local_manpower_modifier = 1.0
 		}
 		country_modifiers = {
@@ -2262,20 +2284,19 @@ gp_valley_of_strength = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            local_defensiveness = 0.33
             local_manpower_modifier = 2.0
 		}
 		country_modifiers = {
-            trade_efficiency = 0.1
+            trade_efficiency = 0.075
 		}
 	}
 	tier_3 = {
@@ -2289,11 +2310,10 @@ gp_valley_of_strength = {
             
 		}
 		area_modifier = {
-            local_defensiveness = 0.5
             local_manpower_modifier = 3.0
 		}
 		country_modifiers = {
-            trade_efficiency = 0.15
+            trade_efficiency = 0.1
 		}
 	}
 }
@@ -2378,10 +2398,10 @@ gp_crossroads = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2395,10 +2415,10 @@ gp_crossroads = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2446,7 +2466,7 @@ gp_great_gate = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2491,10 +2511,10 @@ gp_great_gate = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2503,15 +2523,15 @@ gp_great_gate = {
             local_defensiveness = 1.0
 		}
 		country_modifiers = {
-            land_morale = 0.1
+            land_morale = 0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2520,7 +2540,7 @@ gp_great_gate = {
             local_defensiveness = 2.0
 		}
 		country_modifiers = {
-            land_morale = 0.15
+            land_morale = 0.075
 		}
 	}
 	tier_3 = {
@@ -2537,7 +2557,7 @@ gp_great_gate = {
             local_defensiveness = 3.0
 		}
 		country_modifiers = {
-            land_morale = 0.2
+            land_morale = 0.1
 		}
 	}
 }
@@ -2559,7 +2579,7 @@ gp_thunderbluff = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2613,10 +2633,10 @@ gp_thunderbluff = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2630,10 +2650,10 @@ gp_thunderbluff = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2681,7 +2701,7 @@ gp_gadgetzan = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2727,10 +2747,10 @@ gp_gadgetzan = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2739,16 +2759,16 @@ gp_gadgetzan = {
             
 		}
 		country_modifiers = {
-            advisor_cost = -0.1
+            advisor_cost = -0.05
             idea_cost = -0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2757,8 +2777,8 @@ gp_gadgetzan = {
             
 		}
 		country_modifiers = {
-            advisor_cost = -0.15
-            idea_cost = -0.1
+            advisor_cost = -0.075
+            idea_cost = -0.075
 		}
 	}
 	tier_3 = {
@@ -2775,8 +2795,8 @@ gp_gadgetzan = {
             
 		}
 		country_modifiers = {
-            advisor_cost = -0.2
-            idea_cost = -0.15
+            advisor_cost = -0.1
+            idea_cost = -0.1
 		}
 	}
 }
@@ -2798,7 +2818,7 @@ gp_everlook = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2844,10 +2864,10 @@ gp_everlook = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2856,16 +2876,15 @@ gp_everlook = {
             
 		}
 		country_modifiers = {
-            advisor_cost = -0.1
             development_cost = -0.05
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2874,8 +2893,7 @@ gp_everlook = {
             
 		}
 		country_modifiers = {
-            advisor_cost = -0.15
-            development_cost = -0.1
+            development_cost = -0.075
 		}
 	}
 	tier_3 = {
@@ -2892,8 +2910,7 @@ gp_everlook = {
             
 		}
 		country_modifiers = {
-            advisor_cost = -0.2
-            development_cost = -0.15
+            development_cost = -0.1
 		}
 	}
 }
@@ -2915,7 +2932,7 @@ gp_ratchet = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -2961,10 +2978,10 @@ gp_ratchet = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
@@ -2973,16 +2990,15 @@ gp_ratchet = {
             
 		}
 		country_modifiers = {
-            advisor_cost = -0.1
             mercantilism_cost = -0.3
 		}
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
         province_modifiers = {
             
@@ -2991,7 +3007,6 @@ gp_ratchet = {
             
 		}
 		country_modifiers = {
-            advisor_cost = -0.15
             mercantilism_cost = -0.4
 		}
 	}
@@ -3009,7 +3024,6 @@ gp_ratchet = {
             
 		}
 		country_modifiers = {
-            advisor_cost = -0.2
             mercantilism_cost = -0.5
 		}
 	}
@@ -3032,7 +3046,7 @@ gp_zulfarrak = {
 		months = 0
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
@@ -3087,23 +3101,41 @@ gp_zulfarrak = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 300
 		}
         province_modifiers = {
             
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.25
 		}
 		country_modifiers = {
             army_tradition_decay = -0.01
-            land_morale = 0.1
+            land_morale = 0.05
 		}
 	}
 	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            local_manpower_modifier = 0.33
+		}
+		country_modifiers = {
+            army_tradition_decay = -0.015
+            land_morale = 0.075
+		}
+	}
+	tier_3 = {
 		upgrade_time = {
 			months = 120
 		}
@@ -3114,11 +3146,124 @@ gp_zulfarrak = {
             
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.5
 		}
 		country_modifiers = {
             army_tradition_decay = -0.02
-            land_morale = 0.15
+            land_morale = 0.1
+		}
+	}
+}
+
+#--------------------------------------
+# Halls of Origination
+#--------------------------------------
+gp_halls_of_origination = {
+    type = monument
+    
+	start = 1558
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 1
+
+    # Construction
+	build_trigger = {
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+            is_available_to_tolvir = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+            is_available_to_tolvir = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+            is_available_to_tolvir = yes
+        }
+	}
+	keep_trigger = {
+	}
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32
+		}
+		cost_to_upgrade = {
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            development_cost = -0.05
+            global_supply_limit_modifier = 0.05
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            development_cost = -0.075
+            global_supply_limit_modifier = 0.075
 		}
 	}
 	tier_3 = {
@@ -3135,9 +3280,389 @@ gp_zulfarrak = {
             
 		}
 		country_modifiers = {
-            army_tradition_decay = -0.03
-            land_morale = 0.2
+            development_cost = -0.1
+            global_supply_limit_modifier = 0.1
 		}
 	}
 }
 
+#--------------------------------------
+# Shaper's Terrace
+#--------------------------------------
+gp_shapers_terrace = {
+    type = monument
+    
+	start = 595
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 1
+
+    # Construction
+	build_trigger = {
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+        }
+	}
+	keep_trigger = {
+	}
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32
+		}
+		cost_to_upgrade = {
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            global_manpower_modifier = 0.05
+            land_forcelimit_modifier = 0.05
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            global_manpower_modifier = 0.075
+            land_forcelimit_modifier = 0.075
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            global_manpower_modifier = 0.1
+            land_forcelimit_modifier = 0.1
+		}
+	}
+}
+
+#--------------------------------------
+# Master's Glaive
+#--------------------------------------
+gp_masters_glaive = {
+    type = monument
+    
+	start = 1303
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 1
+
+    # Construction
+	build_trigger = {
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+            is_available_to_night_elf = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+            is_available_to_night_elf = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_titan = yes
+            is_available_to_earthen = yes
+            is_available_to_night_elf = yes
+        }
+	}
+	keep_trigger = {
+	}
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32
+		}
+		cost_to_upgrade = {
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            army_tradition_from_battle = 0.5
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            army_tradition_from_battle = 0.75
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            army_tradition_from_battle = 1.0
+		}
+	}
+}
+
+#--------------------------------------
+# Vault of C'Thun
+#--------------------------------------
+gp_vault_of_cthun = {
+    type = monument
+    
+	start = 1520
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 1
+
+    # Construction
+	build_trigger = {
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_cthun = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_cthun = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_cthun = yes
+        }
+	}
+	keep_trigger = {
+	}
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32
+		}
+		cost_to_upgrade = {
+			factor = 300
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            country_military_power = 1
+            yearly_absolutism = 0.5
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 500
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            country_military_power = 1
+            yearly_absolutism = 0.75
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            country_military_power = 1
+            yearly_absolutism = 1
+		}
+	}
+}
