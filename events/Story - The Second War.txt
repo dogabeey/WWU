@@ -4,23 +4,15 @@ namespace = the_second_war
 country_event = {
 	id = the_second_war.1
 	title = end_of_second_war_horde_lost.title
-	desc = {
-	   trigger = { has_global_flag = tfw_human_victory_path }
-	   desc = "end_of_second_war_horde_lost.desc"
-	}
-	desc = {
-	   trigger = { NOT = { has_global_flag = tfw_human_victory_path } }
-	   desc = "end_of_second_war_horde_lost.desc"
-	}
+	desc = end_of_second_war_horde_lost.desc
 	picture = ORCISH_INVASION_eventPicture
 
-	major = no
-    
 	trigger = {
-		NOT = { has_country_flag = tsw_ending_notified }
 		current_age = age_orcish_horde
+        has_global_flag = the_second_war
+        
+		NOT = { has_country_flag = tsw_ending_notified }
 		NOT = { has_global_flag = tfw_human_victory_path }
-		1586 = { owned_by = Z99 }
 	}
 	
     mean_time_to_happen = {
@@ -30,36 +22,39 @@ country_event = {
     immediate = {
 		hidden_effect = {
 			set_country_flag = tsw_ending_notified
-			if = { limit = { NOT = { has_global_flag = the_third_war } } set_global_flag = the_third_war set_global_flag = tsw_human_victory_path } 
+            
+			if = { 
+                limit = { 
+                    NOT = { has_global_flag = the_third_war } 
+                } 
+                set_global_flag = the_third_war 
+                set_global_flag = tsw_human_victory_path 
+            } 
 		}
     }
     
 	option = {
 		name = end_of_second_war_horde_lost.opt1
-		
     }
 }
 # If orcs won the first war, the second war may end with Capital city falling.
 country_event = {
 	id = the_second_war.2
 	title = end_of_second_war_horde_won.title
-	desc = {
-	   trigger = { has_global_flag = tfw_human_victory_path }
-	   desc = "end_of_second_war_horde_won.desc"
-	}
-	desc = {
-	   trigger = { NOT = { has_global_flag = tfw_human_victory_path } }
-	   desc = "end_of_second_war_horde_won.desc"
-	}
+	desc = end_of_second_war_horde_won.desc
 	picture = ORCISH_INVASION_eventPicture
 
-	major = no
-    
 	trigger = {
-		NOT = { has_country_flag = tsw_ending_notified }
 		current_age = age_orcish_horde
+        has_global_flag = the_second_war
+        
+		NOT = { has_country_flag = tsw_ending_notified }
 		NOT = { has_global_flag = tfw_human_victory_path }
-		543 = { owner = { culture_group = culture_group_orc } }
+		543 = { 
+            owner = { 
+                culture_group = culture_group_orc
+            }
+        }
 	}
 	
     mean_time_to_happen = {
@@ -69,7 +64,14 @@ country_event = {
     immediate = {
 		hidden_effect = {
 			set_country_flag = tsw_ending_notified
-			if = { limit = { NOT = { has_global_flag = the_third_war } } set_global_flag = the_third_war set_global_flag = tsw_orc_victory_path } 
+            
+			if = { 
+                limit = { 
+                    NOT = { has_global_flag = the_third_war }
+                }
+                set_global_flag = the_third_war 
+                set_global_flag = tsw_orc_victory_path 
+            } 
 		}
     }
     
@@ -82,26 +84,22 @@ country_event = {
 country_event = {
 	id = the_second_war.3
 	title = end_of_second_war_ally_won.title
-	desc = {
-	   trigger = { has_global_flag = tfw_human_victory_path }
-	   desc = "end_of_second_war_ally_won.desc"
-	}
-	desc = {
-	   trigger = { NOT = { has_global_flag = tfw_human_victory_path } }
-	   desc = "end_of_second_war_ally_won.desc"
-	}
+	desc = end_of_second_war_ally_won.desc
 	picture = ORCISH_INVASION_eventPicture
 
-	major = no
-    
 	trigger = {
-		NOT = { has_country_flag = tsw_ending_notified }
 		current_age = age_orcish_horde
+        has_global_flag = the_second_war
+        
 		has_global_flag = tfw_human_victory_path
-		NOT = { any_country = {
-			culture_group = culture_group_orc
-			capital_scope = { continent = continent_eastern_kingdoms }
-		} }
+		NOT = { has_country_flag = tsw_ending_notified }
+        
+		NOT = { 
+            any_country = {
+                culture_group = culture_group_orc
+                capital_scope = { continent = continent_eastern_kingdoms }
+            } 
+        }
 	}
 	
     mean_time_to_happen = {
@@ -111,7 +109,15 @@ country_event = {
     immediate = {
 		hidden_effect = {
 			set_country_flag = tsw_ending_notified
-			if = { limit = { NOT = { has_global_flag = the_third_war } } set_global_flag = the_third_war set_global_flag = tsw_human_victory_path } 
+            
+			if = { 
+                limit = { 
+                    NOT = { has_global_flag = the_third_war } 
+                } 
+                
+                set_global_flag = the_third_war 
+                set_global_flag = tsw_human_victory_path 
+            } 
 		}
     }
     
@@ -124,23 +130,21 @@ country_event = {
 country_event = {
 	id = the_second_war.4
 	title = end_of_second_war_ally_lost.title
-	desc = {
-	   trigger = { has_global_flag = tfw_human_victory_path }
-	   desc = "end_of_second_war_ally_lost.desc"
-	}
-	desc = {
-	   trigger = { NOT = { has_global_flag = tfw_human_victory_path } }
-	   desc = "end_of_second_war_ally_lost.desc"
-	}
+	desc = end_of_second_war_ally_lost.desc
 	picture = ORCISH_INVASION_eventPicture
 
-	major = no
-    
 	trigger = {
-		NOT = { has_country_flag = tsw_ending_notified }
 		current_age = age_orcish_horde
+        has_global_flag = the_second_war
+        
 		has_global_flag = tfw_human_victory_path
-		1022 = { owner = { culture_group = culture_group_orc } }
+		NOT = { has_country_flag = tsw_ending_notified }
+        
+		1022 = { 
+            owner = { 
+                culture_group = culture_group_orc
+            }
+        }
 	}
 	
     mean_time_to_happen = {
@@ -150,7 +154,14 @@ country_event = {
     immediate = {
 		hidden_effect = {
 			set_country_flag = tsw_ending_notified
-			if = { limit = { NOT = { has_global_flag = the_third_war } } set_global_flag = the_third_war set_global_flag = tsw_orc_victory_path } 
+            
+			if = { 
+                limit = { 
+                    NOT = { has_global_flag = the_third_war }
+                } 
+                set_global_flag = the_third_war 
+                set_global_flag = tsw_orc_victory_path
+            }
 		}
     }
     
@@ -168,18 +179,18 @@ country_event = {
 
     hidden = no
 	fire_only_once = yes
-	major = no
     
 	trigger = {
+        current_age = age_orcish_horde
+        has_global_flag = the_second_war
+        
 		OR = {
 			AND = {
-				current_age = age_orcish_horde
 				culture_group = culture_group_orc
 				NOT = { has_country_modifier = demon_soul }
 				tag = A45
 			}
 			AND = {
-				current_age = age_orcish_horde
 				culture_group = culture_group_orc
 				NOT = { has_country_modifier = demon_soul }
 				NOT = { exists = A45 }
@@ -230,6 +241,8 @@ country_event = {
     
 	trigger = {
 		current_age = age_orcish_horde
+        has_global_flag = the_second_war
+        
 		culture_group = culture_group_orc
 		NOT = {	tag = B88 }
 		NOT = { has_country_flag = shadowmoon_revealed }
@@ -273,7 +286,6 @@ country_event = {
 
     hidden = no
 	fire_only_once = no
-	major = no
     
 	trigger = {
 		has_country_flag = shadowmoon_revealed
@@ -418,10 +430,10 @@ country_event = {
 
     hidden = no
 	fire_only_once = no
-	major = no
     
 	trigger = {
 		current_age = age_orcish_horde
+        has_global_flag = the_second_war
 		culture_group = culture_group_orc
 		religion = fel
 		NOT = {	tag = B88 }
@@ -518,8 +530,7 @@ country_event = {
 	title = shadow_council_reveal.title
 	desc = shadow_council_reveal.title
 	picture = ORCISH_INVASION_eventPicture
-
-	major = no
+    
     is_triggered_only = yes
 	
 	trigger = {

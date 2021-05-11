@@ -18,7 +18,7 @@ country_event = {
     fire_only_once = yes
     
 	trigger = {
-        has_global_flag = rise_of_the_horde
+        current_age = age_rise_of_the_horde
 		tag = A34
 	}
 	
@@ -29,7 +29,6 @@ country_event = {
 	option = {
 		name = rise_of_the_horde.1.option.a
 		
-
         set_global_flag = nerzhul_recruitment
         set_country_flag = joined_nerzhul
         custom_tooltip = incite_draenei_violence
@@ -71,7 +70,7 @@ country_event = {
 	picture = ORCISH_INVASION_eventPicture
 
 	trigger = {
-        has_global_flag = rise_of_the_horde
+        current_age = age_rise_of_the_horde
         has_global_flag = nerzhul_recruitment
         
         NOT = { has_country_flag = set_side_for_nerzhul_event }
@@ -162,7 +161,7 @@ country_event = {
     fire_only_once = yes
     
 	trigger = {
-        has_global_flag = rise_of_the_horde
+        current_age = age_rise_of_the_horde
         
         had_global_flag = { flag = nerzhul_recruitment days = 365 }
 		tag = A34
@@ -250,7 +249,7 @@ country_event = {
 	picture = ORCISH_INVASION_eventPicture
 
 	trigger = {
-        has_global_flag = rise_of_the_horde
+        current_age = age_rise_of_the_horde
         has_global_flag = guldan_recruitment
         
         NOT = { has_country_flag = set_side_for_guldan_event }
@@ -349,7 +348,7 @@ country_event = {
     fire_only_once = yes
     
 	trigger = {
-        has_global_flag = rise_of_the_horde
+        current_age = age_rise_of_the_horde
         has_global_flag = blood_of_mannoroth
 		tag = A34
 	}
@@ -395,6 +394,10 @@ country_event = {
 			}
 		}
         
+        B88 = {
+            discover_home_continent = yes
+        }
+        
         if = { 
             limit = { NOT = { religion = fel } }
             
@@ -439,7 +442,6 @@ country_event = {
 	option = {
 		name = rise_of_the_horde.6.option.a
 		
-        
         set_global_flag = blood_of_mannoroth
     }
 }
@@ -459,7 +461,7 @@ country_event = {
     #major = yes
 
 	trigger = {
-        has_global_flag = rise_of_the_horde
+        current_age = age_rise_of_the_horde
         has_global_flag = blood_of_mannoroth
         
         capital_scope = { continent = continent_outland }
@@ -553,7 +555,7 @@ country_event = {
     fire_only_once = yes
     
 	trigger = {
-        has_global_flag = rise_of_the_horde
+        current_age = age_rise_of_the_horde
         has_global_flag = blood_of_mannoroth
 		A54 = {
 			OR = {
@@ -582,7 +584,6 @@ country_event = {
 	option = {
 		name = rise_of_the_horde.8.option.a
 		
-        
         set_global_flag = the_dying_times
     }
 }
@@ -599,7 +600,7 @@ country_event = {
     
 	trigger = {
         had_global_flag = { flag = the_dying_times days = 180 }
-        has_global_flag = rise_of_the_horde
+        current_age = age_rise_of_the_horde
         
 		OR = {
 			has_country_modifier = horde_head
@@ -615,7 +616,16 @@ country_event = {
 	option = {
 		name = rise_of_the_horde.9.option.a
 		
-		set_global_flag = dark_portal_can_be_built
+        hidden_effect = { set_global_flag = contact_with_medivh }
+        
+        1586 = {
+            cede_province = B88
+			add_core = B88
+			change_culture = culture_orc
+			change_religion = fel
+        }
+        
+        custom_tooltip = may_now_build_dark_portal
     }
 }
 
@@ -633,9 +643,9 @@ country_event = {
 	
     trigger = {
 		current_age = age_rise_of_the_horde
-		2028 = {
+		1586 = {
 			has_great_project = {
-                type = dark_portal
+                type = gp_dark_portal
             }
 		}
 		OR = {
@@ -651,13 +661,11 @@ country_event = {
     
 	option = {
 		name = rise_of_the_horde.10.option.a
-		
-		
+        
         clr_global_flag = the_dying_times
         clr_global_flag = rise_of_the_horde
         set_global_flag = the_first_war
         set_global_flag = dark_portal_built
-		set_faction_conflict = yes
     }
 }
 

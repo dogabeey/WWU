@@ -38,3 +38,238 @@ is_opposite_faction_of_scope = {
 		}
 	}
 }
+
+is_historical_member_of_alliance = {
+	OR = {
+		AND = {
+			OR = {
+				current_age = age_orcish_horde
+				rise_of_the_qiraji_or_later = yes
+			}
+			tag = STW # Stormwind
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A08 # Lordaeron
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A10 # Stratholme
+		}
+		AND = {
+			OR = {
+				AND = {
+					the_second_war_or_later = yes
+					NOT = { rise_of_the_qiraji_or_later = yes }
+				}
+				the_shattering_or_later = yes
+			}
+			tag = A12 # Gilneas
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A14 # Kul Tiras
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A16 # Stromgarde
+		}
+		AND = {
+			OR = {
+				AND = {
+					the_first_war_or_later = yes
+					NOT = { rise_of_the_qiraji_or_later = yes }
+				}
+				mists_of_pandaria_or_later = yes
+			}
+			tag = A18 # Dalaran
+		}
+		AND = {
+			the_second_war_or_later = yes
+			OR = {
+				AND = {
+					the_second_war_or_later = yes
+					NOT = { rise_of_the_qiraji_or_later = yes }
+				}
+				the_shattering_or_later = yes
+			}
+			tag = A28 # Wildhammer
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A29 # Ironforge
+		}
+		AND = {
+			the_shattering_or_later = yes
+			tag = A30 # Kingdom of Thaurissan
+		}
+		AND = {
+			the_second_war_or_later = yes
+			tag = A32 # Gnomeregan
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = A56 # Exodar
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { the_third_war_or_later = yes }
+			tag = A90 # Quel'Thalas
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A94 # Darnassus
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = SOL # Sons of Lothar
+		}
+		AND = {
+			mists_of_pandaria_or_later = yes
+			tag = P35 # Huojin Order
+		}
+	}
+}
+is_historical_member_of_horde = {
+	OR = {
+		# Old Horde (None of those ever made it to Thrall's modern Horde)
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A34 # Shadowmoon
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A35 # Warsong
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A36 # Shattered Hand
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A37 # Thunderlord
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A38 # Laughing Skull
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A39 # Bonechewer
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A40 # Bleeding Hollow
+		}
+		AND = {
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A41 # Blackrock
+		}
+		AND = {
+			NOT = { the_second_war_or_later = yes }
+			tag = A42 # Stormreaver
+		}
+		AND = {
+			NOT = { the_second_war_or_later = yes }
+			tag = A43 # Twilight's Hammer
+		}
+		AND = {
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A44 # Burning Blade
+		}
+		AND = {
+			NOT = { rise_of_the_qiraji_or_later = yes }
+			tag = A45 # Dragonmaw
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A46 # Frostwolf
+		}
+		AND = {
+			NOT = { the_third_war_or_later = yes }
+			tag = A58 # Amani
+		}
+		AND = {
+			NOT = { the_second_war_or_later = yes }
+			tag = B88 # Shadow Council
+		}
+		# Modern Horde (Most did not exist before vanilla but putting conditions in case of early forming)
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A48 # Orgrimmar
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = A50 # Thrallmar
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A70 # Darkspear
+		}
+		AND = {
+			the_burning_crusade_or_later = yes
+			tag = A91 # Silvermoon
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = F88 # Thunder Bluff
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = P14 # The Forsaken
+		}
+		AND = {
+			mists_of_pandaria_or_later = yes
+			tag = P36 # Tushui Order
+		}
+	}
+}
+is_historical_head_of_alliance = {
+	OR = {
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { the_frozen_throne_or_later = yes }
+			tag = A08 # Lordaeron
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = STW # Stormwind
+		}
+	}
+}
+is_historical_head_of_horde = {
+	OR = {
+		AND = {
+			NOT = { the_second_war_or_later = yes }
+			tag = B88 # Shadow Council
+		}
+		AND = {
+			the_second_war_or_later = yes
+			NOT = { beyond_the_dark_portal_or_later = yes }
+			tag = A41 # Blackrock
+		}
+		AND = {
+			rise_of_the_qiraji_or_later = yes
+			tag = A48 # Orgrimmar
+		}
+	}
+}
+
+never_alliance = { # Specifies tags, cultures, religions or techs that will never join alliance (Except Pure Evils like Scourge, Demons and Old Gods which cannot join either)
+	OR = {
+		primary_culture = culture_sand_troll
+		primary_culture = culture_jungle_troll
+		primary_culture = culture_forest_troll
+		culture_group = culture_group_orc
+		culture_group = culture_group_mogu
+	}
+}
+never_horde = { # Specifies tags, cultures, religions or techs that will never join horde (Except Pure Evils like Scourge, Demons and Old Gods which cannot join either)
+	OR = {
+		culture_group = culture_group_human
+		culture_group = culture_group_draenei
+		culture_group = culture_group_darnassian
+	}
+}

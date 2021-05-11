@@ -1,40 +1,48 @@
 #---------------------------------------------
-# Deeprun Tram
+# Dark Portal
 #---------------------------------------------
-deeprun_tram = {
+gp_dark_portal = {
 	type = canal
     
-    start = 2203
-    build_cost = 10000
+    start = 1586
+    build_cost = 0
     
-	date = 592.1.1
+	date = 1000.1.1
 	can_be_moved = no
     starting_tier = 0
     
 	time = {
-		months = 120
+		months = 64
 	}
 	
 	build_trigger = {
-		FROM = {
-			owns_or_vassal_of = 2203
-			is_subject = no
-			treasury = 10000
-		}
+		custom_trigger_tooltip = {
+            tooltip = contact_with_medivh_tt
+            
+            has_global_flag = contact_with_medivh
+        }
 	}
 	on_built = {
-		add_canal = kiel_canal
-		owner = { add_prestige = 30 }
+        owner = { 
+            1035 = { 
+                cede_province = PREV
+                add_core = PREV
+                change_culture = PREV
+                change_religion = PREV
+            }
+        }
 	}
 	on_destroyed = {
-		remove_canal = kiel_canal
+
     }
 	can_use_modifiers_trigger = {
-    
+        
 	}
 	can_upgrade_trigger = {
+        
 	}
-	keep_trigger = {
+	keep_trigger = {    
+        NOT = { has_global_flag = tfw_human_victory_path }
 	}
 
 	tier_0 = {
@@ -45,13 +53,13 @@ deeprun_tram = {
 			factor = 0
 		}
 		province_modifiers = {
-			province_trade_power_value = 10
+			
 		}
 		area_modifier = {
-        
+            
 		}
 		country_modifiers = {
-			global_unrest = -1
+            
 		}
 		on_upgraded = {
         
@@ -59,19 +67,19 @@ deeprun_tram = {
 	}
 	tier_1 = {
 		upgrade_time = {
-			months = 120
+			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 250
 		}
 		province_modifiers = {
-			province_trade_power_value = 20
+			
 		}
 		area_modifier = {
         
 		}
 		country_modifiers = {
-			global_unrest = -1
+			global_manpower_modifier = 0.1
 		}
 		on_upgraded = {
         
@@ -79,19 +87,19 @@ deeprun_tram = {
 	}
 	tier_2 = {
 		upgrade_time = {
-			months = 120
+			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 500
 		}
 		province_modifiers = {
-			province_trade_power_value = 30
+			
 		}
 		area_modifier = {
         
 		}
 		country_modifiers = {
-			global_unrest = -1
+            global_manpower_modifier = 0.15
 		}
 		on_upgraded = {
         
@@ -105,135 +113,13 @@ deeprun_tram = {
 			factor = 1000
 		}
 		province_modifiers = {
-			province_trade_power_value = 50
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-			global_unrest = -1
-		}
-		on_upgraded = {
-		}
-	}
-}
-#---------------------------------------------
-# Dark Portal
-#---------------------------------------------
-dark_portal = {
-	type = canal
-    
-    start = 2028
-    build_cost = 1000
-    
-	date = 592.1.1
-	can_be_moved = no
-    starting_tier = 3
-    
-	time = {
-		months = 120
-	}
-	
-	build_trigger = {
-		FROM = {
-			owns_or_vassal_of = 2028
-			is_subject = no
-			treasury = 1000
-		}
-	}
-	on_built = {
-		add_canal = outland_dark_portal_ek
-		add_canal = outland_dark_portal_outland
-        owner = { add_prestige = 100 }
-	}
-	on_destroyed = {
-		remove_canal = outland_dark_portal_ek
-		remove_canal = outland_dark_portal_outland
-    }
-	can_use_modifiers_trigger = {
-    
-	}
-	can_upgrade_trigger = {
-	}
-	keep_trigger = {
-    
-	}
-
-	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-			movement_speed = 10
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
 			
 		}
-		on_upgraded = {
-        
-		}
-	}
-	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-			movement_speed = 10
-		}
 		area_modifier = {
         
 		}
 		country_modifiers = {
-			
-		}
-		on_upgraded = {
-        
-		}
-	}
-	tier_2 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-			movement_speed = 10
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-            
-		}
-		on_upgraded = {
-        
-		}
-	}
-	tier_3 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-			movement_speed = 10
-		}
-		area_modifier = {
-        
-		}
-		country_modifiers = {
-            
+            global_manpower_modifier = 0.2
 		}
 		on_upgraded = {
 		}
