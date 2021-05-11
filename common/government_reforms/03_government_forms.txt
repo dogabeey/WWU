@@ -1890,29 +1890,39 @@ centaur_khanate_reform = {
 	icon = "centaur_khanate"
     legacy_equivalent = centaur_khanate_legacy
     
-	heir = yes
-	queen = yes
+    monarchy = no
+    nomad = yes
+    generals_become_rulers = yes
+	republican_name = yes
+    queen = no
+    heir = no
     
     potential = {
-        have_had_reform = centaur_khanate_reform
-    }
+		have_had_reform = centaur_khanate_reform
+	}
     
 	modifiers = {
-		cavalry_power = 0.2
+		cavalry_power = 0.1
         movement_speed = 0.1
 	}
 	
-	ai = { factor = 0 }
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			tribal_federation_mechanic
+		}
+	}
     
     custom_attributes = {
 		locked_government_type = yes
 	}
     
+	ai = { factor = 0 }
+    
     valid_for_new_country = yes     # Can be converted to via nation release
     allow_normal_conversion = yes   # Can be picked as a new reform
     allow_convert = yes             # Can be converted to via peace term
-    lock_level_when_selected = yes
-    
+
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
