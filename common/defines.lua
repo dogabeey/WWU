@@ -86,8 +86,7 @@ NDiplomacy = {
 	AUTONOMY_WARSCORE_COST_MODIFIER = 0.33,			-- How much autonomy reduces score by (at 1, 50% autonomy = 50% reduction)
 	GREAT_PROJECT_WARSCORE_COST_MODIFIER = 0.33,	-- How much each great project multiplies a war score cost by (so 1 GP adds 33%, 2 add 66% etc)
 
-
-	NUM_POSSIBLE_RIVALS = 1, 
+	NUM_POSSIBLE_RIVALS = 3,
 	RIVAL_PRESTIGE_BONUS = 0.25,
 	RIVAL_SPY_OFFENCE = 0.25,
 	SPY_NETWORK_DISTANCE_EFFECT = 0.1,			-- Mutiplied by distance between capitals to get penalty
@@ -133,6 +132,7 @@ NDiplomacy = {
 	EXTEND_REGENCY_LEGITIMACY_PENALTY = 10,  		-- Penalty for extending a regency
 	EXTEND_REGENCY_IMPERIAL_AUTHORITY_PENALTY = 20, -- Penalty for extending a regency
 	DEFAULT_EXTEND_REGENCY_YEARS = 5,
+	EXTEND_REGENCY_ALERT_LEEWAY_DAYS = 365,
 	BASE_SPY_DISCOVERY_CHANCE = 0.25,
 	JUSTIFY_TRADE_CONFLICT_LIMIT = 0.2,			-- How big share of the trade power needed on the target to be able to justify a trade conflict
 	JUSTIFY_TRADE_CONFLICT_ACTOR_LIMIT = 0.1,	-- How big share of the trade power needed on the actor to be able to justify a trade conflict
@@ -263,6 +263,7 @@ NDiplomacy = {
 	PEACE_COST_RELEASE_VASSAL = 0.5,					-- Release vassal (scales by province wealth)
 	PEACE_COST_REVOKE_ELECTOR = 60,					-- Revoke an elector title
 	PEACE_COST_UNION = 60, 							-- _DDEF_PEACE_COST_UNION_ Peace cost for forming a personal union
+	PEACE_COST_SUBJUGATE = 90, 							-- Peace cost for subjugating an enemy using the subjugation CB
 	PEACE_COST_CONVERSION = 1,					-- scaled with countrysize for forced conversion in peace.
 	PEACE_COST_RELEASE = 2, 						-- _DDEF_PEACE_COST_RELEASE_ Base Peace cost for releasing an annexed country (also increases with nr of provinces)
 	PEACE_COST_CONCEDE = 10, 						-- _DDEF_PEACE_COST_CONCEDE_ Base Peace cost for conceding defeat
@@ -1259,25 +1260,25 @@ NMilitary = {
 	INFANTRY_SPEED = 1.0, 							-- _MDEF_INFANTRY_SPEED = 10,
 	CAVALRY_SPEED = 1.0, 							-- _MDEF_CAVALRY_SPEED = 10,
 	ARTILLERY_SPEED = 1.0, 							-- _MDEF_ARTILLERY_SPEED = 10,
-	HEAVY_SHIP_SPEED = 6.0, 						-- _MDEF_HEAVY_SHIP_SPEED = 10,
-	LIGHT_SHIP_SPEED = 10.0, 						-- _MDEF_LIGHT_SHIP_SPEED = 10,
-	GALLEY_SPEED = 4.0, 							-- _MDEF_GALLEY_SPEED = 10,
+
+
 	TRANSPORT_SPEED = 6.0, 							-- _MDEF_TRANSPORT_SPEED = 10,
+
 	INFANTRY_COST = 10.0, 							-- _MDEF_INFANTRY_COST = 10,
 	CAVALRY_COST = 25.0, 							-- _MDEF_CAVALRY_COST = 10,
 	ARTILLERY_COST = 30.0, 							-- _MDEF_ARTILLERY_COST = 10,
-	FORTRESS_COST = 0.2,							-- base fort cost
+	FORTRESS_COST = 0.5,							-- base fort cost
 	HEAVY_SHIP_COST = 50, 							-- _MDEF_HEAVY_SHIP_COST = 10,
 	LIGHT_SHIP_COST = 20, 							-- _MDEF_LIGHT_SHIP_COST = 10,
 	GALLEY_COST = 10, 								-- _MDEF_GALLEY_COST = 10,
 	TRANSPORT_COST = 12,							-- _MDEF_TRANSPORT_COST = 10,
-	INFANTRY_TIME = 90, 							-- _MDEF_INFANTRY_TIME = 10,
+	INFANTRY_TIME = 60, 							-- _MDEF_INFANTRY_TIME = 10,
 	CAVALRY_TIME = 90, 								-- _MDEF_CAVALRY_TIME = 10,
-	ARTILLERY_TIME = 90, 							-- _MDEF_ARTILLERY_TIME = 10,
-	HEAVY_SHIP_TIME = 120, 							-- _MDEF_HEAVY_SHIP_TIME = 10,
-	LIGHT_SHIP_TIME = 90, 							-- _MDEF_LIGHT_SHIP_TIME = 10,
-	GALLEY_TIME = 90, 								-- _MDEF_GALLEY_TIME = 10,
-	TRANSPORT_TIME = 90, 							-- _MDEF_TRANSPORT_TIME = 10,
+	ARTILLERY_TIME = 120, 							-- _MDEF_ARTILLERY_TIME = 10,
+	HEAVY_SHIP_TIME = 730, 							-- _MDEF_HEAVY_SHIP_TIME = 10,
+	LIGHT_SHIP_TIME = 365, 							-- _MDEF_LIGHT_SHIP_TIME = 10,
+	GALLEY_TIME = 365, 								-- _MDEF_GALLEY_TIME = 10,
+	TRANSPORT_TIME = 365, 							-- _MDEF_TRANSPORT_TIME = 10,
 	MONTHLY_REINFORCE = 0.1,						-- Amount of regiment strength reinforced each month.
 	MONTHLY_REPAIR = 0.1,							-- Ship repair speed.
 	EXTRA_LAND_REINFORCE_COST = 2.00,				-- extra cost for reinforcing land units (as a multiplier of maintenance).
@@ -1554,7 +1555,9 @@ NAI = {
 	REVOLUTION_EMBRACE_MAX_ABSOLUTISM = 49, -- AI will not consider embracing the revolution (unless a disaster happens) if their absolutism if over this value
 	BASE_CAN_MAKE_CORE_DESIRE_TO_RETURN_PROVINCE = 10, --score to add to desire to keep province rather than returning it to someone or creating a trading city if you can core it straight away
 	BASE_CAN_MAKE_CORE_IN_AREA_DESIRE_TO_RETURN_PROVINCE = 8, --score to add to desire to keep province rather than returning it to someone or creating a trading city if you can core it soon
-	
+	GOVERNING_CAPACITY_OVER_PERCENTAGE_TOLERATED = 0.2,
+	DANGEROUS_OVEREXTENSION_PERCENTAGE = 0.1,
+
 	DEBASE_THRESHOLD = 10000,-- AI will not debase if it has more gold than this.
 
 	DEVELOPMENT_CAP_BASE = 10,	-- AI will not develop provinces that have more development than this or DEVELOPMENT_CAP_MULT*original development (whichever is bigger)
@@ -2419,7 +2422,7 @@ NGovernment = {
 	GOVERNMENT_REFORM_HISTORIC_AUTONOMY = 0.25,
 	GOVERNMENT_REFORM_CHANGE_PROGRESS_COST = 50.0,
 	GOVERNMENT_REFORM_COST_CENTRALIZE_STATE = 100.0,
-	CENTRALIZE_STATE_PROVINCE_COST_LIMIT = 10.0,
+	CENTRALIZE_STATE_STATE_COST_LIMIT = 10.0,
 	CENTRALIZE_STATE_REDUCTION = 20.0,
 	CENTRALIZE_STATE_YEARS = 5,
 	DICTATORSHIP_TO_MONARCHY_REFORM_PENALTY = 4,
