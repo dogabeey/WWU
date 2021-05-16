@@ -360,61 +360,63 @@ estate_peasants_increase_autonomy_in_province_x = {
 				NOT = { has_province_modifier = autonomy_decreased }
 			}
 			save_event_target_as = agenda_province
-
-			if = {
-				limit = {
-					local_autonomy = 60
-				}
-				root = {
-					set_variable = {
-						which = estate_peasants_increase_autonomy_in_province_x_var
-						value = 5
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					local_autonomy = 45
-				}
-				root = {
-					set_variable = {
-						which = estate_peasants_increase_autonomy_in_province_x_var
-						value = 4
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					local_autonomy = 30
-				}
-				root = {
-					set_variable = {
-						which = estate_peasants_increase_autonomy_in_province_x_var
-						value = 3
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					local_autonomy = 15
-				}
-				root = {
-					set_variable = {
-						which = estate_peasants_increase_autonomy_in_province_x_var
-						value = 2
-					}
-				}
-			}
-			else = {
-				root = {
-					set_variable = {
-						which = estate_peasants_increase_autonomy_in_province_x_var
-						value = 1
-					}
-				}
-			}
-			choose_random_development_bonus_effect = yes
-		}
+            choose_random_development_bonus_effect = yes
+        }
+        event_target:agenda_province = {
+            if = {
+                limit = {
+                    local_autonomy = 60
+                }
+                root = {
+                    set_variable = {
+                        which = estate_peasants_increase_autonomy_in_province_x_var
+                        value = 5
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    local_autonomy = 45
+                }
+                root = {
+                    set_variable = {
+                        which = estate_peasants_increase_autonomy_in_province_x_var
+                        value = 4
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    local_autonomy = 30
+                }
+                root = {
+                    set_variable = {
+                        which = estate_peasants_increase_autonomy_in_province_x_var
+                        value = 3
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    local_autonomy = 15
+                }
+                root = {
+                    set_variable = {
+                        which = estate_peasants_increase_autonomy_in_province_x_var
+                        value = 2
+                    }
+                }
+            }
+            else = {
+                root = {
+                    set_variable = {
+                        which = estate_peasants_increase_autonomy_in_province_x_var
+                        value = 1
+                    }
+                }
+            }
+            choose_random_development_bonus_effect = yes
+        }
 	}
 	on_invalid = {
 		event_target:agenda_province = {

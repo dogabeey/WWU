@@ -10,12 +10,6 @@ country_decisions = {
 				calc_true_if = { all_owned_province = { has_building = wow_portal_yellow } amount = 2 }
 				calc_true_if = { all_owned_province = { has_building = wow_portal_green } amount = 2 }
 				calc_true_if = { all_owned_province = { has_building = wow_portal_blue } amount = 2 }
-                1586 = {
-                    owned_by = ROOT
-                    has_great_project = {
-                        type = gp_dark_portal
-                    }
-                }
 			}
         }
         allow = {
@@ -47,124 +41,124 @@ country_decisions = {
         }
     }
     
-    dark_portal_azeroth_teleport = {
-        potential = {
-            has_country_flag = portal_menu
-            1586 = {
-                has_great_project = {
-                    type = gp_dark_portal
-                }
-            }
-        }
-        allow = {
-			1586 = {
-                has_great_project = {
-                    type = gp_dark_portal
-                }
-            }
-            1586 = { 
-                owned_by = ROOT 
-                num_of_units_in_province = {
-                    who = ROOT
-                    amount = 1
-                }
-            }
-            1035 = { owned_by = ROOT }
-            custom_trigger_tooltip = {
-                tooltip = RECENTLY_USED_TELEPORT
+    # dark_portal_azeroth_teleport = {
+        # potential = {
+            # has_country_flag = portal_menu
+            # 1586 = {
+                # has_great_project = {
+                    # type = gp_dark_portal
+                # }
+            # }
+        # }
+        # allow = {
+			# 1586 = {
+                # has_great_project = {
+                    # type = gp_dark_portal
+                # }
+            # }
+            # 1586 = { 
+                # owned_by = ROOT 
+                # num_of_units_in_province = {
+                    # who = ROOT
+                    # amount = 1
+                # }
+            # }
+            # 1035 = { owned_by = ROOT }
+            # custom_trigger_tooltip = {
+                # tooltip = RECENTLY_USED_TELEPORT
                 
-                NOT = { has_country_modifier = portal_fatigue }
-            }
-        }
-        effect = {
-            # Outland
-            1586 = {
-				save_event_target_as = sender
-				set_province_flag = sender_province
-			}
-            # Azeroth
-            1035 = {
-				save_event_target_as = receiver
-			}
+                # NOT = { has_country_modifier = portal_fatigue }
+            # }
+        # }
+        # effect = {
+            # # Outland
+            # 1586 = {
+				# save_event_target_as = sender
+				# set_province_flag = sender_province
+			# }
+            # # Azeroth
+            # 1035 = {
+				# save_event_target_as = receiver
+			# }
             
-			teleport_unit_with_any_amount = yes
+			# teleport_unit_with_any_amount = yes
             
-			every_owned_province = {
-				limit = {
-					has_province_flag = sender_province
-				}
-				clr_province_flag = sender_province
-			}
+			# every_owned_province = {
+				# limit = {
+					# has_province_flag = sender_province
+				# }
+				# clr_province_flag = sender_province
+			# }
             
-            add_country_modifier = {
-                name = portal_fatigue
-                duration = 365
-                hidden = yes
-            }
-        }
-        ai_will_do = {
-            factor = 0
-        }
-    }
-    dark_portal_outland_teleport = {
-        potential = {
-            has_country_flag = portal_menu
-            1586 = {
-                has_great_project = {
-                    type = gp_dark_portal
-                }
-            }
-        }
-        allow = {
-			1586 = {
-                has_great_project = {
-                    type = gp_dark_portal
-                }
-            }
-            1586 = { owned_by = ROOT }
-            1035 = { 
-                owned_by = ROOT 
-                num_of_units_in_province = {
-                    who = ROOT
-                    amount = 1
-                }
-            }
-            custom_trigger_tooltip = {
-                tooltip = RECENTLY_USED_TELEPORT
+            # add_country_modifier = {
+                # name = portal_fatigue
+                # duration = 365
+                # hidden = yes
+            # }
+        # }
+        # ai_will_do = {
+            # factor = 0
+        # }
+    # }
+    # dark_portal_outland_teleport = {
+        # potential = {
+            # has_country_flag = portal_menu
+            # 1586 = {
+                # has_great_project = {
+                    # type = gp_dark_portal
+                # }
+            # }
+        # }
+        # allow = {
+			# 1586 = {
+                # has_great_project = {
+                    # type = gp_dark_portal
+                # }
+            # }
+            # 1586 = { owned_by = ROOT }
+            # 1035 = { 
+                # owned_by = ROOT 
+                # num_of_units_in_province = {
+                    # who = ROOT
+                    # amount = 1
+                # }
+            # }
+            # custom_trigger_tooltip = {
+                # tooltip = RECENTLY_USED_TELEPORT
                 
-                NOT = { has_country_modifier = portal_fatigue }
-            }
-        }
-        effect = {
-            # Azeroth
-            1035 = {
-				save_event_target_as = sender
-				set_province_flag = sender_province
-			}
-            # Outland
-            1586 = {
-				save_event_target_as = receiver
-			}
+                # NOT = { has_country_modifier = portal_fatigue }
+            # }
+        # }
+        # effect = {
+            # # Azeroth
+            # 1035 = {
+				# save_event_target_as = sender
+				# set_province_flag = sender_province
+			# }
+            # # Outland
+            # 1586 = {
+				# save_event_target_as = receiver
+			# }
             
-			teleport_unit_with_any_amount = yes
+			# teleport_unit_with_any_amount = yes
             
-			every_owned_province = {
-				limit = {
-					has_province_flag = sender_province
-				}
-				clr_province_flag = sender_province
-			}
+			# every_owned_province = {
+				# limit = {
+					# has_province_flag = sender_province
+				# }
+				# clr_province_flag = sender_province
+			# }
             
-            add_country_modifier = {
-                name = portal_fatigue
-                duration = 365
-                hidden = yes
-            }
-        }
-        ai_will_do = {
-            factor = 0
-        }
-    }
+            # add_country_modifier = {
+                # name = portal_fatigue
+                # duration = 365
+                # hidden = yes
+            # }
+        # }
+        # ai_will_do = {
+            # factor = 0
+        # }
+    # }
     
     red_portal_passage = {
         potential = {

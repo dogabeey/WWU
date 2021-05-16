@@ -21,12 +21,27 @@ corrupt_ruler = {
             NOT = { religion = fel }
             NOT = { ruler_religion = fel }
         }
+        FROM = { 
+            custom_trigger_tooltip = {
+                tooltip = RECENTLY_TARGET_OF_CORRUPT_RULER
+                NOT = { has_country_modifier = cooldown_corrupt_ruler }
+            }
+        }
 	}
 	on_accept = {
 		add_papal_influence = -50
 		FROM = {
 			country_event = { id = wwu_fel.2 }
 		}
+        FROM = {
+            hidden_effect = {
+                add_country_modifier = {
+                    name = cooldown_corrupt_ruler
+                    duration = 3650
+                    hidden = yes
+                }
+            }
+        }
 	}
 	on_decline = { 
 	}
@@ -62,12 +77,27 @@ corrupt_heir = {
             NOT = { religion = fel }
             NOT = { ruler_religion = fel }
         }
+        FROM = { 
+            custom_trigger_tooltip = {
+                tooltip = RECENTLY_TARGET_OF_CORRUPT_HEIR
+                NOT = { has_country_modifier = cooldown_corrupt_heir }
+            }
+        }
 	}
 	on_accept = {
 		add_papal_influence = -25
 		FROM = {
 			country_event = { id = wwu_fel.3 }
 		}
+        FROM = {
+            hidden_effect = {
+                add_country_modifier = {
+                    name = cooldown_corrupt_heir
+                    duration = 3650
+                    hidden = yes
+                }
+            }
+        }
 	}
 	on_decline = { 
 	}

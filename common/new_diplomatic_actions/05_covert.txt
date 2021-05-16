@@ -15,6 +15,12 @@ bribe_adminstration = {
 	is_allowed = {
 		years_of_income = 3
 		FROM = { NOT = { has_country_modifier = bribed } }
+        FROM = { 
+            custom_trigger_tooltip = {
+                tooltip = RECENTLY_TARGET_OF_BRIBE_ADMINISTRATION
+                NOT = { has_country_modifier = cooldown_bribe_administration }
+            }
+        }
 	}
 	on_accept = {
 		add_years_of_income = -3
@@ -26,6 +32,15 @@ bribe_adminstration = {
 			name = bribed
 			duration = 365
 		}
+        FROM = {
+            hidden_effect = {
+                add_country_modifier = {
+                    name = cooldown_bribe_administration
+                    duration = 3650
+                    hidden = yes
+                }
+            }
+        }
 	}
 	on_decline = 	{ 
 	}
@@ -58,9 +73,12 @@ form_raid = {
 			who = FROM
 			value = 50
 		}
-		#FROM = {
-		#	has_country_modifier = is_evil
-		#}
+		FROM = { 
+            custom_trigger_tooltip = {
+                tooltip = RECENTLY_TARGET_OF_CONDUCT_RAID
+                NOT = { has_country_modifier = cooldown_conduct_raid }
+            }
+        }
 	}
 	on_accept = {
 		add_spy_network_in = {
@@ -75,6 +93,13 @@ form_raid = {
 					friend = ROOT
 				}
 			}
+            hidden_effect = {
+                add_country_modifier = {
+                    name = cooldown_conduct_raid
+                    duration = 3650
+                    hidden = yes
+                }
+            }
 		}
 	}
 	on_decline = 	{ 
@@ -113,13 +138,28 @@ assasinate_ruler = {
 				ROOT = { has_country_flag = plotting_assassination_of@PREV }
 			} }
 		}
-		FROM = { has_regency = no }
+		FROM = { 
+            has_regency = no
+            custom_trigger_tooltip = {
+                tooltip = RECENTLY_TARGET_OF_ASSASSINATE_RULER
+                NOT = { has_country_modifier = cooldown_assassinate_ruler }
+            }
+        }
 	}
 	on_accept = {
 		add_spy_network_in = {
 			who = FROM
 			value = -70
 		}
+        FROM = {
+            hidden_effect = {
+                add_country_modifier = {
+                    name = cooldown_assassinate_ruler
+                    duration = 3650
+                    hidden = yes
+                }
+            }
+        }
 		hidden_effect = {
 			set_country_flag = plotting_assassination_of@FROM
 			random_list = {
@@ -198,6 +238,12 @@ recruit_manpower = {
 			value = 35
 		}
 		manpower = 5
+        FROM = {
+            custom_trigger_tooltip = {
+                tooltip = RECENTLY_TARGET_OF_RECRUIT_MANPOWER
+                NOT = { has_country_modifier = cooldown_recruit_manpower }
+            }
+        }
 	}
 	on_accept = {
 		add_spy_network_in = {
@@ -205,9 +251,18 @@ recruit_manpower = {
 			value = -35
 		}
 		add_manpower = 5
-		FROM = { add_manpower = -5 }
+		FROM = { 
+            add_manpower = -5 
+            hidden_effect = {
+                add_country_modifier = {
+                    name = cooldown_recruit_manpower
+                    duration = 3650
+                    hidden = yes
+                }
+            }
+        }
 	}
-	on_decline = 	{ 
+	on_decline = { 
 	}
 	
 	ai_acceptance = { 
@@ -242,6 +297,10 @@ spread_religion = {
 			any_owned_province = {
 				NOT = { religion = ROOT }
 			}
+            custom_trigger_tooltip = {
+                tooltip = RECENTLY_TARGET_OF_SPREAD_RELIGION
+                NOT = { has_country_modifier = cooldown_spread_religion }
+            }
 		}
 	}
 	on_accept = {
@@ -258,6 +317,13 @@ spread_religion = {
 				limit = { NOT = { religion = ROOT } }
 				change_religion = ROOT
 			}
+            hidden_effect = {
+                add_country_modifier = {
+                    name = cooldown_spread_religion
+                    duration = 3650
+                    hidden = yes
+                }
+            }
 		}
 	}
 	on_decline = 	{ 
@@ -297,6 +363,10 @@ spread_fel = {
 			any_owned_province = {
 				NOT = { religion = ROOT }
 			}
+            custom_trigger_tooltip = {
+                tooltip = RECENTLY_TARGET_OF_SPREAD_FEL
+                NOT = { has_country_modifier = cooldown_spread_fel }
+            }
 		}
 	}
 	on_accept = {
@@ -309,6 +379,13 @@ spread_fel = {
 				limit = { NOT = { religion = ROOT } }
 				province_event = { id = wwu_fel.1 }
 			}
+            hidden_effect = {
+                add_country_modifier = {
+                    name = cooldown_spread_fel
+                    duration = 3650
+                    hidden = yes
+                }
+            }
 		}
 	}
 	on_decline = { 
