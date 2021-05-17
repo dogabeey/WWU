@@ -372,7 +372,16 @@ is_available_to_earthen = {
 }
 is_available_to_elemental = {
     AND = {
-        owner = { culture_group = culture_group_elemental }
+        owner = { 
+            OR = {
+                culture_group = culture_group_water
+                culture_group = culture_group_sha
+                culture_group = culture_group_nature
+                culture_group = culture_group_fire
+                culture_group = culture_group_earth
+                culture_group = culture_group_air
+            }
+        }
         OR = {
             has_owner_culture = yes
             has_owner_accepted_culture = yes
