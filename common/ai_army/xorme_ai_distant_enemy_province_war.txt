@@ -1,0 +1,31 @@
+province = {
+    war = {
+        active = {
+            is_at_war = yes
+        }
+        eval_multiply = {
+            factor = -1.5
+            modifier = {
+				NOT = { 
+                    OR = {
+                    owned_by = ROOT 
+                    controlled_by = ROOT
+                    }
+                }
+                owner = {
+                    war_with = ROOT
+                }
+                OR = {
+                    capital_distance = {
+                        who = ROOT
+                        distance = 75
+                    }
+                    border_distance = {
+                        who = ROOT
+                        distance = 25
+                    }
+                }
+            }
+        }
+    }
+}
