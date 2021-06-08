@@ -206,44 +206,6 @@ thunderbluff_ideas = {
 	}
 }
 
-nerubian_ideas = {
-	start = {
-		stability_cost_modifier = -0.1
-		development_cost = -0.1
-	}
-
-	bonus = {
-		tolerance_own = 1
-	}
-	
-	trigger = {
-        primary_culture = culture_nerubian
-	}
-	free = yes	
-	
-	masters_of_the_tunnels = {
-		hostile_attrition = 0.5
-	}
-	center_of_learning = {
-		technology_cost = -0.05
-	}
-	nerubian_swarm = {
-		shock_damage = 0.1
-	}
-	feircely_independent = {
-		enemy_core_creation = 0.15
-	}
-	we_must_repopulate_our_lands = {
-		colonists = 1
-	}
-	nerubian_workers = {
-		build_cost = -0.25
-	}
-	united_by_a_common_goal = {
-		global_unrest = -1
-	}
-}
-
 illidari_ideas = {
 	start = {
 		movement_speed = 0.2
@@ -487,10 +449,10 @@ scarlet_ideas = {
 	free = yes	
 	
 	start = {
-	leader_land_fire = 2
+        leader_land_fire = 2
         defensiveness = 0.1
-	may_recruit_female_generals = yes
-	female_advisor_chance = 0.5
+        may_recruit_female_generals = yes
+        female_advisor_chance = 0.5
 	}
 	bonus = {
 		discipline = 0.1
@@ -566,11 +528,623 @@ sindorei_ideas = {
     }
 }
 
+# Stormheim
+stormheim_ideas = {
+	start = {
+		state_maintenance_modifier = -0.25
+        production_efficiency = 0.1
+	}
 
-# Vulpera
+	bonus = {
+        development_cost = -0.15 
+	}
+	
+	trigger = {
+		always = no
+	}
+	free = yes		
+	
+	stormheim_ideas_1 = {
+		global_missionary_strength = 0.01
+        missionary_maintenance_cost = -0.15
+	}
+	stormheim_ideas_2 = {
+		land_forcelimit_modifier = 0.1
+        land_maintenance_modifier = -0.1
+	}
+	stormheim_ideas_3 = {
+		infantry_power = 0.1
+	}
+	stormheim_ideas_4 = {
+		recover_army_morale_speed = 0.1
+	}
+	stormheim_ideas_5 = {
+		ae_impact = -0.05
+	}
+	stormheim_ideas_6 = {
+		hostile_attrition = 2
+        garrison_size = 0.25
+	}
+	stormheim_ideas_7 = {
+		global_manpower_modifier = 0.15
+	}
+}
 
-# Sethrak
+# Shado-pan
+shado_pan_ideas = {
+	start = {
+		land_morale = 0.1
+        war_exhaustion = -0.01
+	}
 
-# Blood Troll
+	bonus = {
+        artillery_bonus_vs_fort = 2
+	}
+	
+	trigger = {
+		tag = P37
+	}
+	free = yes		
+	
+	shado_pan_ideas_1 = {
+		infantry_power = 0.1
+	}
+	shado_pan_ideas_2 = {
+		discipline = 0.05
+	}
+	shado_pan_ideas_3 = {
+		defensiveness = 0.25
+        garrison_size = 0.25
+	}
+	shado_pan_ideas_4 = {
+		mil_tech_cost_modifier = -0.1
+	}
+	shado_pan_ideas_5 = {
+        advisor_cost = -0.1
+	}
+	shado_pan_ideas_6 = {
+		yearly_army_professionalism = 0.5
+        army_tradition_decay = -0.01
+	}
+	shado_pan_ideas_7 = {
+		prestige = 0.5
+	}
+}
 
-# Tortollan
+# Yu'lon
+yulon_ideas = {
+	start = {
+        envoy_travel_time = -0.25
+		diplomatic_reputation = 1
+	}
+
+	bonus = {
+        ae_impact = -0.1
+	}
+	
+	trigger = {
+		tag = P63
+	}
+	free = yes		
+	
+	yulon_ideas_1 = {
+		adm_tech_cost_modifier = -0.1
+	}
+	yulon_ideas_2 = {
+		idea_cost = -0.1
+	}
+	yulon_ideas_3 = {
+		development_cost = -0.1
+	}
+	yulon_ideas_4 = {
+		global_manpower_modifier = 0.1
+	}
+	yulon_ideas_5 = {
+		artillery_power = 0.05
+	}
+	yulon_ideas_6 = {
+		production_efficiency = 0.1
+	}
+	yulon_ideas_7 = {
+		legitimacy = 1
+        republican_tradition = 1
+        devotion = 1
+        horde_unity = 1
+        meritocracy = 1
+	}
+}
+
+# Niuzao
+niuzao_ideas = {
+	start = {
+		army_tradition = 1
+        global_manpower_modifier = 0.1
+	}
+
+	bonus = {
+        yearly_corruption = -0.05
+	}
+	
+	trigger = {
+		tag = P64
+	}
+	free = yes		
+	
+	niuzao_ideas_1 = {
+		siege_ability = 0.1
+	}
+	niuzao_ideas_2 = {
+		leader_siege = 1
+	}
+	niuzao_ideas_3 = {
+		land_morale = 0.1
+	}
+	niuzao_ideas_4 = {
+		global_unrest = -2
+	}
+	niuzao_ideas_5 = {
+		land_forcelimit_modifier = 0.15
+	}
+	niuzao_ideas_6 = {
+		global_regiment_recruit_speed = -0.25
+	}
+	niuzao_ideas_7 = {
+		legitimacy = 1
+        republican_tradition = 1
+        devotion = 1
+        horde_unity = 1
+        meritocracy = 1
+	}
+}
+
+# Chi'ji
+chiji_ideas = {
+	start = {
+		warscore_cost_vs_other_religion = 0.1
+        global_autonomy = -0.05
+	}
+
+	bonus = {
+        years_of_nationalism = -5
+	}
+	
+	trigger = {
+		tag = P65
+	}
+	free = yes		
+	
+	chiji_ideas_1 = {
+		prestige = 1
+	}
+	chiji_ideas_2 = {
+		yearly_corruption = -0.05
+	}
+	chiji_ideas_3 = {
+		global_manpower_modifier = 0.15
+	}
+	chiji_ideas_4 = {
+		global_unrest = -2
+	}
+	chiji_ideas_5 = {
+		manpower_recovery_speed = 0.15
+	}
+	chiji_ideas_6 = {
+		movement_speed = 0.1
+	}
+	chiji_ideas_7 = {
+		legitimacy = 1
+        republican_tradition = 1
+        devotion = 1
+        horde_unity = 1
+        meritocracy = 1
+	}
+}
+
+# Xu'en
+xuen_ideas = {
+	start = {
+		prestige_decay = -0.01
+        advisor_cost = -0.1
+	}
+
+	bonus = {
+        diplomatic_reputation = 1
+	}
+	
+	trigger = {
+		tag = P66
+	}
+	free = yes		
+	
+	xuen_ideas_1 = {
+		discipline = 0.05
+	}
+	xuen_ideas_2 = {
+		defensiveness = 0.25
+	}
+	xuen_ideas_3 = {
+        prestige_decay = -0.01
+		monthly_splendor = 1
+	}
+	xuen_ideas_4 = {
+		siege_ability = 0.1
+	}
+	xuen_ideas_5 = {
+		land_forcelimit_modifier = 0.15
+	}
+	xuen_ideas_6 = {
+		tolerance_own = 1
+        prestige_per_development_from_conversion = 0.25
+	}
+	xuen_ideas_7 = {
+		legitimacy = 1
+        republican_tradition = 1
+        devotion = 1
+        horde_unity = 1
+        meritocracy = 1
+	}
+}
+
+# Golden Lotus
+golden_lotus_ideas = {
+	start = {
+		diplomats = 1
+        diplomatic_annexation_cost = -0.1
+	}
+
+	bonus = {
+        legitimacy = 1
+        republican_tradition = 1
+        devotion = 1
+        horde_unity = 1
+        meritocracy = 1
+	}
+	
+	trigger = {
+		tag = GOL
+	}
+	free = yes		
+	
+	golden_lotus_ideas_1 = {
+		land_morale = 0.1
+	}
+	golden_lotus_ideas_2 = {
+        tolerance_own = 1
+		global_spy_defence = 0.33
+	}
+	golden_lotus_ideas_3 = {
+		yearly_corruption = -0.05
+	}
+	golden_lotus_ideas_4 = {
+		improve_relation_modifier = 0.1
+	}
+	golden_lotus_ideas_5 = {
+		manpower_recovery_speed = 0.1
+	}
+	golden_lotus_ideas_6 = {
+		advisor_cost = -0.2
+        advisor_pool = 1
+	}
+	golden_lotus_ideas_7 = {
+		development_cost = -0.1
+	}
+}
+
+# Orgrimmar
+orgrimmar_ideas = {
+	start = {
+		army_tradition = 1
+        diplomats = 1
+	}
+
+	bonus = {
+        diplomatic_reputation = 1
+	}
+	
+	trigger = {
+		tag = A48
+	}
+	free = yes		
+	
+	orgrimmar_ideas_1 = {
+		improve_relation_modifier = 0.1
+        diplomatic_upkeep = 1
+	}
+	orgrimmar_ideas_2 = {
+		production_efficiency = 0.1
+	}
+	orgrimmar_ideas_3 = {
+		advisor_cost = -0.1
+	}
+	orgrimmar_ideas_4 = {
+		global_manpower_modifier = 0.15
+	}
+	orgrimmar_ideas_5 = {
+		spy_offence = 0.25
+	}
+	orgrimmar_ideas_6 = {
+		colonists = 1
+        colonist_placement_chance = 0.05
+	}
+	orgrimmar_ideas_7 = {
+		ae_impact = -0.1
+	}
+}
+
+# Darnassus
+darnassus_ideas = {
+	start = {
+		ae_impact = -0.1
+        improve_relation_modifier = 0.1
+	}
+
+	bonus = {
+        diplomatic_reputation = 1
+	}
+	
+	trigger = {
+		tag = A94
+	}
+	free = yes		
+	
+	darnassus_ideas_1 = {
+		global_manpower_modifier = 0.1
+	}
+	darnassus_ideas_2 = {
+		army_tradition = 1
+	}
+	darnassus_ideas_3 = {
+		prestige_decay = -0.01
+	}
+	darnassus_ideas_4 = {
+		general_cost = -0.25
+	}
+	darnassus_ideas_5 = {
+		fire_damage = 0.1
+	}
+	darnassus_ideas_6 = {
+		core_creation = -0.1
+	}
+	darnassus_ideas_7 = {
+		devotion = 1
+	}
+}
+
+# Nazjatar
+nazjatar_ideas = {
+	start = {
+		naval_attrition = -1.0
+		movement_speed_onto_off_boat_modifier = 1.0
+	}
+
+	bonus = {
+        governing_capacity_modifier = 0.1
+	}
+	
+	trigger = {
+		tag = NJZ
+	}
+	free = yes		
+	
+	nazjatar_ideas_1 = {
+		discipline = 0.05
+	}
+	nazjatar_ideas_2 = {
+		heavy_ship_power = 0.1
+        naval_forcelimit_modifier = 0.1
+	}
+	nazjatar_ideas_3 = {
+		global_sailors_modifier = 0.25
+        sailor_maintenance_modifer = -0.25
+	}
+	nazjatar_ideas_4 = {
+		unjustified_demands = -0.1
+	}
+	nazjatar_ideas_5 = {
+		years_of_nationalism = -5
+	}
+	nazjatar_ideas_6 = {
+		ship_durability = 0.05
+	}
+	nazjatar_ideas_7 = {
+		navy_tradition = 1
+	}
+}
+
+# Stromgarde
+stromgarde_ideas = {
+	start = {
+		diplomatic_upkeep = 1
+        num_accepted_cultures = 2
+	}
+
+	bonus = {
+        diplomatic_reputation = 1
+	}
+	
+	trigger = {
+		tag = A16
+	}
+	free = yes		
+	
+	stromgarde_ideas_1 = {
+		discipline = 0.05
+	}
+	stromgarde_ideas_2 = {
+		global_autonomy = -0.05
+	}
+	stromgarde_ideas_3 = {
+		infantry_cost = -0.1
+        infantry_power = 0.1
+	}
+	stromgarde_ideas_4 = {
+		leader_land_fire = 1
+	}
+	stromgarde_ideas_5 = {
+		garrison_growth = 1.0
+	}
+	stromgarde_ideas_6 = {
+		global_tax_modifier = 0.1
+	}
+	stromgarde_ideas_7 = {
+		legitimacy = 1
+	}
+}
+
+# Karazhan
+karazhan_ideas = {
+	start = {
+		technology_cost = -0.05
+        innovativeness_gain = 0.1
+	}
+
+	bonus = {
+        all_power_cost = -0.05
+	}
+	
+	trigger = {
+		tag = P59
+	}
+	free = yes		
+	
+	karazhan_ideas_1 = {
+		prestige = 1
+	}
+	karazhan_ideas_2 = {
+		country_admin_power = 1
+	}
+	karazhan_ideas_3 = {
+		diplomatic_reputation = 1
+	}
+	karazhan_ideas_4 = {
+		country_diplomatic_power = 1
+	}
+	karazhan_ideas_5 = {
+		fire_damage = 0.15
+	}
+	karazhan_ideas_6 = {
+		improve_relation_modifier = 0.1
+	}
+	karazhan_ideas_7 = {
+		country_military_power = 1
+	}
+}
+
+black_empire_ideas = {
+	start = {
+		development_cost = -0.1
+        culture_conversion_cost = -0.25
+	}
+    
+	bonus = {
+        all_power_cost = -0.05
+	}
+	
+	trigger = {
+		tag = U02
+	}
+	free = yes		
+	
+	black_empire_ideas_1 = {
+		province_warscore_cost = -0.25
+	}
+	black_empire_ideas_2 = {
+		core_creation = -0.2
+	}
+	black_empire_ideas_3 = {
+		global_missionary_strength = 0.03
+	}
+	black_empire_ideas_4 = {
+		general_cost = -0.25
+        leader_siege = 1
+	}
+	black_empire_ideas_5 = {
+		warscore_cost_vs_other_religion = -0.25
+	}
+	black_empire_ideas_6 = {
+		shock_damage = 0.2
+	}
+	black_empire_ideas_7 = {
+		country_military_power = 1
+	}
+}
+
+# The Unbound
+unbound_ideas = {
+	start = {
+        stability_cost_modifier = -0.1
+		global_autonomy = -0.05
+	}
+
+	bonus = {
+        colonists = 1
+	}
+	
+	trigger = {
+		tag = P77
+	}
+	free = yes		
+	
+	unbound_ideas_1 = {
+		development_cost = -0.1
+	}
+	unbound_ideas_2 = {
+		prestige_decay = -0.01
+	}
+	unbound_ideas_3 = {
+		years_of_nationalism = -5
+	}
+	unbound_ideas_4 = {
+		culture_conversion_cost = -0.25
+	}
+	unbound_ideas_5 = {
+		global_missionary_strength = 0.02
+	}
+	unbound_ideas_6 = {
+		cavalry_power = 0.1
+	}
+	unbound_ideas_7 = {
+		recover_army_morale_speed = 0.1
+	}
+}
+
+# Sisterhood of Winter
+sisterhood_of_winter_ideas = {
+	start = {
+		idea_claim_colonies = yes
+        prestige_decay = -0.01
+	}
+
+	bonus = {
+        yearly_corruption = 0.05
+	}
+	
+	trigger = {
+		tag = P79
+	}
+	free = yes		
+	
+	sisterhood_of_winter_ideas_1 = {
+		advisor_cost = -0.15
+	}
+	sisterhood_of_winter_ideas_2 = {
+        improve_relation_modifier = 0.1
+		envoy_travel_time = -0.20
+	}
+	sisterhood_of_winter_ideas_3 = {
+        missionaries = 1
+		missionary_maintenance_cost = -0.25
+	}
+	sisterhood_of_winter_ideas_4 = {
+		movement_speed = 0.15
+	}
+	sisterhood_of_winter_ideas_5 = {
+		ae_impact = -0.05
+	}
+	sisterhood_of_winter_ideas_6 = {
+		stability_cost_modifier = -0.2
+	}
+	sisterhood_of_winter_ideas_7 = {
+		land_morale = 0.1
+	}
+}
