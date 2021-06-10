@@ -1,0 +1,266 @@
+country_decisions = {
+    ai_upgrade_forts_1 = {
+		potential = {
+			ai = yes
+			is_at_war = no
+			NOT = { num_of_loans = 1 }
+			army_size_percentage = 0.70
+		}
+
+		allow = {
+			treasury = 425
+			monthly_income = 20
+			current_income_balance = 6
+			any_owned_province = {
+				AND = {
+					has_building = wow_fort_1
+					can_build = wow_fort_2
+				}
+			}
+		}
+
+		effect = {
+			random_owned_province = {
+				limit = {
+					AND = {
+						has_building = wow_fort_1
+						can_build = wow_fort_2
+					}
+				}
+				add_building_construction = {
+					building = wow_fort_2
+					speed = 1
+					cost = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1.0
+			modifier = {
+				factor = 0
+				OR = {
+					is_in_deficit = yes
+					NOT = { current_income_balance = 9 }
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					mil_tech = 19
+					monthly_income = 25
+					current_income_balance = 10
+				}
+			}
+			modifier = {
+				factor = 0 
+				any_owned_province = {
+					OR = {
+						has_construction = wow_fort_2
+						has_construction = wow_fort_3
+						has_construction = wow_fort_4
+					}
+				}
+			}
+		}
+	}
+    
+    ai_upgrade_forts_2 = {
+		potential = {
+			ai = yes
+			is_at_war = no
+			NOT = { num_of_loans = 1 }
+			army_size_percentage = 0.70
+		}
+
+		allow = {
+			treasury = 425
+			monthly_income = 20
+			current_income_balance = 6
+			any_owned_province = {
+				AND = {
+					has_building = wow_fort_2
+					can_build = wow_fort_3
+				}
+			}
+		}
+
+		effect = {
+			random_owned_province = {
+				limit = {
+					AND = {
+						has_building = wow_fort_2
+						can_build = wow_fort_3
+					}
+				}
+				add_building_construction = {
+					building = wow_fort_3
+					speed = 1
+					cost = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1.0
+			modifier = {
+				factor = 0
+				OR = {
+					is_in_deficit = yes
+					NOT = { current_income_balance = 9 }
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					mil_tech = 19
+					monthly_income = 25
+					current_income_balance = 10
+				}
+			}
+			modifier = {
+				factor = 0 
+				any_owned_province = {
+					OR = {
+						has_construction = wow_fort_2
+						has_construction = wow_fort_3
+						has_construction = wow_fort_4
+					}
+				}
+			}
+		}
+	}
+    
+    ai_upgrade_forts_3 = {
+		potential = {
+			ai = yes
+			is_at_war = no
+			NOT = { num_of_loans = 1 }
+			army_size_percentage = 0.70
+		}
+
+		allow = {
+			treasury = 425
+			monthly_income = 20
+			current_income_balance = 6
+			any_owned_province = {
+				AND = {
+					has_building = wow_fort_3
+					can_build = wow_fort_4
+				}
+			}
+		}
+
+		effect = {
+			random_owned_province = {
+				limit = {
+					AND = {
+						has_building = wow_fort_3
+						can_build = wow_fort_4
+					}
+				}
+				add_building_construction = {
+					building = wow_fort_4
+					speed = 1
+					cost = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1.0
+			modifier = {
+				factor = 0
+				OR = {
+					is_in_deficit = yes
+					NOT = { current_income_balance = 9 }
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					mil_tech = 19
+					monthly_income = 25
+					current_income_balance = 10
+				}
+			}
+			modifier = {
+				factor = 0 
+				any_owned_province = {
+					OR = {
+						has_construction = wow_fort_2
+						has_construction = wow_fort_3
+						has_construction = wow_fort_4
+					}
+				}
+			}
+		}
+	}
+    
+    ai_mercenaries_disband = {
+		potential = {
+			ai = yes
+		}
+
+		allow = {
+			AND = {
+				num_of_hired_mercenary_companies = 1
+				any_hired_mercenary_company = { hired_for_months = 8 }
+			}
+			NOT = { num_of_rebel_controlled_provinces = 2 }
+		}
+
+		effect = {
+			ROOT = {
+				random_hired_mercenary_company = {
+					limit = {
+						hired_for_months = 6
+					}
+					disband_mercenary_company = THIS
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1.0
+			modifier = {
+			factor = 0
+				ROOT = {
+					AND = {
+						is_in_deficit = no
+						NOT = { num_of_loans = 2 }
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+					ROOT = {
+						AND = {
+							army_size_percentage = 1.1
+							num_of_loans = 3
+							is_in_deficit = yes
+							manpower_percentage = 0.15
+						}
+					}
+				}
+			modifier = {
+				factor = 2.0
+				ROOT = {
+					AND = {
+						num_of_loans = 4
+						is_in_deficit = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				ROOT = {
+					AND = {
+						num_of_loans = 6
+						is_at_war = no
+					}
+				}
+			}
+		}
+	}
+}

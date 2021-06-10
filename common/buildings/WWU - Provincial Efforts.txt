@@ -28,19 +28,29 @@ province_action_tax = {
     }
 	
 	ai_will_do = {
-		factor = 100
-        
-        modifier = {
-            factor = 0.5
-            
-            base_tax = 20
-        }
-        modifier = {
-            factor = 0
-            
-            owner = { NOT = { treasury = 10000 } }
-        }
-	}
+		factor = 10.0
+
+		modifier = {
+			factor = 0
+			FROM = { num_of_loans = 3 }
+		}
+		modifier = {
+			factor = 0.3
+			FROM = { num_of_loans = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			FROM = { num_of_loans = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			FROM = { NOT = { treasury = 10000 } }
+		}
+		modifier = {
+			factor = 0.75
+			FROM = { is_in_deficit = yes }
+		}
+    }
 }
 province_action_production = {
 	cost = 1000
@@ -52,19 +62,29 @@ province_action_production = {
     }
 	
 	ai_will_do = {
-		factor = 100
-        
-        modifier = {
-            factor = 0.5
-            
-            base_production = 20
-        }
-        modifier = {
-            factor = 0
-            
-            owner = { NOT = { treasury = 10000 } }
-        }
-	}
+		factor = 10.0
+
+		modifier = {
+			factor = 0
+			FROM = { num_of_loans = 3 }
+		}
+		modifier = {
+			factor = 0.3
+			FROM = { num_of_loans = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			FROM = { num_of_loans = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			FROM = { NOT = { treasury = 10000 } }
+		}
+		modifier = {
+			factor = 0.75
+			FROM = { is_in_deficit = yes }
+		}
+    }
 }
 province_action_manpower = {
 	cost = 1000
@@ -76,19 +96,29 @@ province_action_manpower = {
     }
 	
 	ai_will_do = {
-		factor = 100
-        
-        modifier = {
-            factor = 0.5
-            
-            base_production = 20
-        }
-        modifier = {
-            factor = 0
-            
-            owner = { NOT = { treasury = 10000 } }
-        }
-	}
+		factor = 10.0
+
+		modifier = {
+			factor = 0
+			FROM = { num_of_loans = 3 }
+		}
+		modifier = {
+			factor = 0.3
+			FROM = { num_of_loans = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			FROM = { num_of_loans = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			FROM = { NOT = { treasury = 10000 } }
+		}
+		modifier = {
+			factor = 0.75
+			FROM = { is_in_deficit = yes }
+		}
+    }
 }
 province_action_trade_center = {
 	cost = 3000
@@ -104,17 +134,35 @@ province_action_trade_center = {
     }
 	
 	ai_will_do = {
-        factor = 100
-        
+		factor = 10.0
+
 		modifier = {
-            factor = 0.5
-            
-            NOT = { base_production = 10 }
-        }
+			factor = 0
+			FROM = { num_of_loans = 3 }
+		}
+		modifier = {
+			factor = 0.3
+			FROM = { num_of_loans = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			FROM = { num_of_loans = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			FROM = { NOT = { treasury = 10000 } }
+		}
+		modifier = {
+			factor = 0.75
+			FROM = { is_in_deficit = yes }
+		}
         modifier = {
-            factor = 0
-            
-            owner = { NOT = { treasury = 10000 } }
-        }
-	}
+			factor = 2.0
+			development = 20
+		}
+        modifier = {
+			factor = 2.0
+			development = 30
+		}
+    }
 }
