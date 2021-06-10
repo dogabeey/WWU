@@ -191,7 +191,13 @@ age_orcish_horde = {
 	can_start = {
 		custom_trigger_tooltip = {
 			tooltip = age_orcish_horde_condition
-			has_global_flag = dark_portal_built
+            current_age = age_rise_of_the_horde
+			any_country = {
+                technology_group = tech_orc
+                any_owned_province = {
+                    continent = continent_eastern_kingdoms
+                }
+            }
 		}
 	}
 	
@@ -403,7 +409,11 @@ age_scourge = {
 	can_start = {
 		custom_trigger_tooltip = {
 			tooltip = age_scourge_condition
-			has_global_flag = the_third_war
+            current_age = age_orcish_horde
+            any_country = {
+                is_member_of_faction = { faction = alliance }
+                owns = 1035
+            }
 		}
 	}
 	
@@ -613,7 +623,11 @@ age_burning_legion = {
 	can_start = {
 		custom_trigger_tooltip = {
 			tooltip = age_burning_legion_condition
-			always = no # Not implemented yet
+            current_age = age_scourge
+			any_country = {
+                NOT = { technology_group = tech_scourge }
+                owns = 1268
+            }
 		}
 	}
 	
