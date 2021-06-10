@@ -27,17 +27,77 @@ wow_farm = {
         local_governing_cost = -0.25
 	}
 	
-    # Encourage AI to build these when it is likely close to capacity limit
-	ai_will_do = {
-		factor = 100
+    ai_will_do = {
+		factor = 10.0
 
-        modifier = {
-			factor = 2
-            owner = { num_of_states = 25 }
+		modifier = {
+			factor = 0
+			FROM = { num_of_loans = 3 }
 		}
-        modifier = {
-			factor = 2
-            owner = { num_of_states = 50 }
+		modifier = {
+			factor = 0.3
+			FROM = { num_of_loans = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			FROM = { num_of_loans = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			FROM = { NOT = { treasury = 500 } }
+		}
+		modifier = {
+			factor = 0.75
+			FROM = { is_in_deficit = yes }
+		}
+
+		modifier = {
+			factor = 1.2
+			FROM = { treasury = 500 }
+		}
+		modifier = {
+			factor = 1.3
+			FROM = { treasury = 750 }
+		}
+		modifier = {
+			factor = 1.4
+			FROM = { treasury = 1000 }
+		}
+
+		modifier = {
+			factor = 2.0
+			FROM = { has_idea_group = wwu_innovation_ideas }
+		}
+
+		modifier = {
+			factor = 3.0
+			development = 20
+		}
+		modifier = {
+			factor = 3.5
+			development = 25
+		}
+		modifier = {
+			factor = 4.0
+			development = 30
+		}
+		modifier = {
+			factor = 4.5
+			development = 35
+		}
+		modifier = {
+			factor = 5.0
+			development = 40
+		}
+
+		modifier = {
+			factor = 7.5
+			wealthy_province_trigger = yes
+		}
+
+		modifier = {
+			factor = 7.5
+			has_every_essential_building_trigger = yes
 		}
 	}
 }
@@ -51,13 +111,13 @@ wow_internment_camp = {
 	}
 
 	ai_will_do = {
-		factor = 100
+		factor = 1.0
         
-        # AI shouldn't waste resources on this building
+        # Only let AI build these on Orc culture provinces
         modifier = {
             factor = 0
             
-            always = yes
+            NOT = { culture = culture_orc }
         }
 	}
 }
