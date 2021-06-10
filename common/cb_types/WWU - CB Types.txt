@@ -121,12 +121,18 @@ cb_the_dying_times = {
 
 cb_azeroth_assault = {
 	prerequisites = {
-        has_global_flag = the_first_war
+        OR = {
+            current_age = age_rise_of_the_horde
+            current_age = age_orcish_horde
+        }
         culture_group = culture_group_orc
         religion = fel
+        any_owned_province = {
+            continent = continent_eastern_kingdoms
+        }
+        
 		FROM = {
 			capital_scope = { continent = continent_eastern_kingdoms }
-            culture_group = culture_group_human
 		}
 	}
 	

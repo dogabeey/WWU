@@ -1,37 +1,42 @@
 namespace = rise_of_the_horde
 
 # Kil'jaeden's Scheme
-#   Ner'zhul (Shadowmoon) contacted by Kil'jaeden, event to all clans to accept Ner'zhul's guidance to attack the Draenei
-#   Those that accept will appear in the Blasted Lands during the initial attack
-#   +50 opinion of those that have 'Allies of Ner'zhul'
-#   -50 opinion of those that have 'Shunned Ner'zhul'
-#   AI:
-#       Blackrock (always)
-#       Bleeding Hollow (always)
 country_event = {
-	id = rise_of_the_horde.1
+	id =  rise_of_the_horde.1
 	title = rise_of_the_horde.1.title
 	desc = rise_of_the_horde.1.desc
 	picture = ORCISH_INVASION_eventPicture
     
-    #major = yes
     fire_only_once = yes
     
 	trigger = {
         current_age = age_rise_of_the_horde
-		tag = A34
+        
+        # Fallback if Shadowmoon is killed
+        if = {
+            limit = {
+                exists = A34
+            }
+            tag = A34
+        }
+        else = {
+            technology_group = tech_orc
+        }
 	}
+    
+    immediate = {
+        save_global_event_target_as = buring_legion_conduit_nation
+    }
 	
     mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
     
 	option = {
 		name = rise_of_the_horde.1.option.a
 		
-        set_global_flag = nerzhul_recruitment
-        set_country_flag = joined_nerzhul
-        custom_tooltip = incite_draenei_violence
+        set_global_flag = nerzhul_recruitment # Trigger Nerzhul Recruitment
+        set_country_flag = joined_nerzhul # Count as a supporter of Nerzhul
         
         add_ruler_modifier = {
             name = kiljaedens_favour
@@ -46,12 +51,11 @@ country_event = {
     option = {
 		name = rise_of_the_horde.1.option.b
 		
-
         trigger = {
             ai = no
         }
 
-        custom_tooltip = trapped_on_draenor
+        add_stability = -1
         
         ai_chance = {
             factor = 0
@@ -60,9 +64,6 @@ country_event = {
 }
 
 # Messenger from Ner'zhul
-# It appears that the shaman Ner'zhul has been contacted by his dearly departed wife, Rulkan. He urges that we attack our Draenei neighbours before they strike us first.\n\nWhether this is true or not remains to be seen, but to refuse his guidance would turn the Shadowmoon clan against us.
-# Follow his guidance
-# Reject his guidance
 country_event = {
 	id = rise_of_the_horde.2
 	title = rise_of_the_horde.2.title
@@ -73,15 +74,17 @@ country_event = {
         current_age = age_rise_of_the_horde
         has_global_flag = nerzhul_recruitment
         
+        NOT = { tag = event_target:buring_legion_conduit_nation }
+        
         NOT = { has_country_flag = set_side_for_nerzhul_event }
+        
         capital_scope = { continent = continent_outland }
         culture_group = culture_group_orc
         government = tribal
-        NOT = { tag = A34 }
 	}
     
     mean_time_to_happen = {
-		months = 3
+		months = 12
 	}
     
     immediate = {
@@ -92,15 +95,19 @@ country_event = {
 	option = {
 		name = rise_of_the_horde.2.option.a
 		
-
-        A34 = {
+        if = {
+            limit = {
+                exists = event_target:buring_legion_conduit_nation
+            }
+        }
+        event_target:buring_legion_conduit_nation = {
             add_opinion = {
                 who = ROOT
                 modifier = allies_of_nerzhul
             }
         }
         add_opinion = {
-            who = A34
+            who = event_target:buring_legion_conduit_nation
             modifier = allies_of_nerzhul
         }
         
@@ -120,15 +127,14 @@ country_event = {
     option = {
 		name = rise_of_the_horde.2.option.b
 		
-
-        A34 = {
+        event_target:buring_legion_conduit_nation = {
             add_opinion = {
                 who = ROOT
                 modifier = enemies_of_nerzhul
             }
         }
         add_opinion = {
-            who = A34
+            who = event_target:buring_legion_conduit_nation
             modifier = enemies_of_nerzhul
         }
         
@@ -145,12 +151,7 @@ country_event = {
     }
 }
 
-# 1 year
 # Doubts of Ner'zhul
-#   Ner'zhul doubts Kil'jaeden, Gul'dan has usurped him, Ner'zhul is replaced, kept alive to watch
-#   Clear 'Allies of Ner'zhul'
-#   Clear 'Shunned Ner'zhul'
-#   'The First Warlocks' fires
 country_event = {
 	id = rise_of_the_horde.3
 	title = rise_of_the_horde.3.title
@@ -162,9 +163,8 @@ country_event = {
     
 	trigger = {
         current_age = age_rise_of_the_horde
-        
         had_global_flag = { flag = nerzhul_recruitment days = 365 }
-		tag = A34
+		tag = event_target:buring_legion_conduit_nation
 	}
 	
     mean_time_to_happen = {
@@ -177,34 +177,24 @@ country_event = {
                 limit = {
                     has_country_flag = set_side_for_nerzhul_event
                 }
-                if = { 
-                    limit = { 
-                        exists = A34
-                    }
+                remove_opinion = {
+                    who = event_target:buring_legion_conduit_nation
+                    modifier = allies_of_nerzhul
+                }
+                event_target:buring_legion_conduit_nation = {
                     remove_opinion = {
-                        who = A34
+                        who = ROOT
                         modifier = allies_of_nerzhul
                     }
-                    A34 = {
-                        remove_opinion = {
-                            who = ROOT
-                            modifier = allies_of_nerzhul
-                        }
-                    }
                 }
-                if = { 
-                    limit = { 
-                        exists = A34
-                    }
+                remove_opinion = {
+                    who = event_target:buring_legion_conduit_nation
+                    modifier = enemies_of_nerzhul
+                }
+                event_target:buring_legion_conduit_nation = {
                     remove_opinion = {
-                        who = A34
+                        who = ROOT
                         modifier = enemies_of_nerzhul
-                    }
-                    A34 = {
-                        remove_opinion = {
-                            who = ROOT
-                            modifier = enemies_of_nerzhul
-                        }
                     }
                 }
             }
@@ -214,11 +204,10 @@ country_event = {
 	option = {
 		name = rise_of_the_horde.3.option.a
 		
-
         set_global_flag = guldan_recruitment
         set_country_flag = joined_guldan
         
-        define_heir = {
+        define_ruler = {
             name = "Teron'gor"
             dynasty = "Shadowmoon"
 			age = 18
@@ -226,7 +215,7 @@ country_event = {
             dip = 4
             mil = 6
         }
-        #exile_ruler_as = exiled_nerzhul
+        
         set_country_flag = exiled_nerzhul_flag
 		
         add_ruler_modifier = {
@@ -237,11 +226,6 @@ country_event = {
 }
 
 # The First Warlocks
-#   All clans get event from Shadowmoon (Gul'dan), offering them the art of demonology/necromancy
-#   Those that accept will comprise the initial horde during the First War
-#       Gain 'Allies of Gul'dan'
-#   Those that reject it grant a CB to all those that don't on themselves
-#       Gain 'Enemies of Gul'dan'
 country_event = {
 	id = rise_of_the_horde.4
 	title = rise_of_the_horde.4.title
@@ -252,11 +236,12 @@ country_event = {
         current_age = age_rise_of_the_horde
         has_global_flag = guldan_recruitment
         
+        NOT = { tag = event_target:buring_legion_conduit_nation }
         NOT = { has_country_flag = set_side_for_guldan_event }
+        
         capital_scope = { continent = continent_outland }
         culture_group = culture_group_orc
         government = tribal
-        NOT = { tag = A34 }
 	}
     
     mean_time_to_happen = {
@@ -265,7 +250,8 @@ country_event = {
     
     immediate = {
         set_country_flag = set_side_for_guldan_event
-		A34 = {
+        
+		event_target:buring_legion_conduit_nation = {
 			set_country_flag = joined_guldan
 		}
     }
@@ -274,15 +260,14 @@ country_event = {
 	option = {
 		name = rise_of_the_horde.4.option.a
 		
-
-        A34 = {
+        event_target:buring_legion_conduit_nation = {
             add_opinion = {
                 who = ROOT
                 modifier = allies_of_guldan
             }
         }
         add_opinion = {
-            who = A34
+            who = event_target:buring_legion_conduit_nation
             modifier = allies_of_guldan
         }
         
@@ -316,15 +301,14 @@ country_event = {
     option = {
 		name = rise_of_the_horde.4.option.b
 		
-
-        A34 = {
+        event_target:buring_legion_conduit_nation = {
             add_opinion = {
                 who = ROOT
                 modifier = enemies_of_guldan
             }
         }
         add_opinion = {
-            who = A34
+            who = event_target:buring_legion_conduit_nation
             modifier = enemies_of_guldan
         }
         
@@ -337,7 +321,6 @@ country_event = {
 }
 
 # The Shadow Council
-#   Grant a buff to Shadowmoon
 country_event = {
 	id = rise_of_the_horde.5
 	title = rise_of_the_horde.5.title
@@ -350,7 +333,7 @@ country_event = {
 	trigger = {
         current_age = age_rise_of_the_horde
         has_global_flag = blood_of_mannoroth
-		tag = A34
+		tag = event_target:buring_legion_conduit_nation
 	}
 
     mean_time_to_happen = {
@@ -364,12 +347,8 @@ country_event = {
         set_country_flag = set_blood_of_mannoroth
         set_country_flag = drank_the_demonsblood
         
+        # Setup Shadow Council
 		1671 = {
-			kill_units = {
-				who = owner
-				type = infantry
-				amount = 100
-			}
 			remove_core = A55
 			cede_province = B88
 			add_core = B88
@@ -380,22 +359,12 @@ country_event = {
 			add_base_tax = 3
 			add_base_production = 3
 			add_base_manpower = 3
-			add_unit_construction = {
-				type = infantry
-				amount = 5
-				speed = 0.1
-				cost = 0
-			}
-			add_unit_construction = {
-				type = cavalry
-				amount = 5
-				speed = 0.1
-				cost = 0
-			}
 		}
         
-        B88 = {
-            discover_home_continent = yes
+        hidden_effect = {
+            B88 = {
+                country_event = { id = rise_of_the_horde.33 }
+            }
         }
         
         if = { 
@@ -411,9 +380,6 @@ country_event = {
 }
 
 # Collapse of the Draenei
-#   Fires when Shattrath is attacked by an Orc clan (add mission for all Orc clans whom have 'Allies of Gul'dan' for this)
-#   Fires 'Blood of Mannoroth' for all clans
-# Triggered by lost battle
 country_event = {
 	id = rise_of_the_horde.6
 	title = rise_of_the_horde.6.title
@@ -447,11 +413,6 @@ country_event = {
 }
 
 # Blood of Mannoroth
-#   Clear 'Allies of Gul'dan'
-#   Clear 'Enemies of Gul'dan'
-#   Those that accept (AI except Frostwolves always accept) gain: 'Fel-infused'
-#   Those that refuse gain: 'Refusal of Fel'
-#   All 'Fel-infused' clans gain CB on 'Refusal of Fel' clans
 country_event = {
 	id = rise_of_the_horde.7
 	title = rise_of_the_horde.7.title
@@ -481,16 +442,20 @@ country_event = {
 	option = {
 		name = rise_of_the_horde.7.option.a
 		
-
-        B88 = {
+        if = {
+            limit = {
+                exists = B88
+            }
+            B88 = {
+                add_opinion = {
+                    who = ROOT
+                    modifier = accepted_the_demonsblood
+                }
+            }
             add_opinion = {
-                who = ROOT
+                who = B88
                 modifier = accepted_the_demonsblood
             }
-        }
-        add_opinion = {
-            who = B88
-            modifier = accepted_the_demonsblood
         }
         
         set_country_flag = drank_the_demonsblood
@@ -515,16 +480,20 @@ country_event = {
     option = {
 		name = rise_of_the_horde.7.option.b
 		
-
-        B88 = {
+        if = {
+            limit = {
+                exists = B88
+            }
+            B88 = {
+                add_opinion = {
+                    who = ROOT
+                    modifier = rejected_the_demonsblood
+                }
+            }
             add_opinion = {
-                who = ROOT
+                who = B88
                 modifier = rejected_the_demonsblood
             }
-        }
-        add_opinion = {
-            who = B88
-            modifier = rejected_the_demonsblood
         }
         
         set_country_flag = refused_the_demonsblood
@@ -542,9 +511,6 @@ country_event = {
 
 
 # The Dying Time
-#   Once all Draenei states are destroyed (add mission to encourage this)
-#   Kil'jaeden ceases contact, the orcs are without an enemy with all Draenei holdings destroyed
-#   All clans gain CB on one another called 'The Dying Times'
 country_event = {
 	id = rise_of_the_horde.8
 	title = rise_of_the_horde.8.title
@@ -603,10 +569,11 @@ country_event = {
         current_age = age_rise_of_the_horde
         
 		OR = {
+            tag = event_target:buring_legion_conduit_nation
 			has_country_modifier = horde_head
 			tag = B88
 			tag = U03
-		}
+		} 
 	}
 	
     mean_time_to_happen = {
@@ -630,8 +597,6 @@ country_event = {
 }
 
 # The Dark Portal
-#   Once the 'Dark Portal' project is complete, this fires
-#   All 'Fel-infused' clans gain a random province in the Blasted lands, + 1 colonist for 10 years (to simulate the expansion in the Blasted Lands)
 country_event = {
 	id = rise_of_the_horde.10
 	title = rise_of_the_horde.10.title
@@ -645,10 +610,11 @@ country_event = {
 		current_age = age_rise_of_the_horde
 		1586 = {
 			has_great_project = {
-                type = gp_dark_portal
+                type = gp_dark_portal_outland
             }
 		}
 		OR = {
+            tag = event_target:buring_legion_conduit_nation
 			has_country_modifier = horde_head
 			tag = B88
 			tag = U03
@@ -669,6 +635,7 @@ country_event = {
     }
 }
 
+# Setup Old Horde
 country_event = {
 	id = rise_of_the_horde.20
 	title = rise_of_the_horde.20.title
@@ -765,6 +732,111 @@ country_event = {
 	
 }
 
-# The Exodar
-#   Spawn the Exodar in Azuremyst Isle
+# Fallback: Collapse of the Draenei
+country_event = {
+	id = rise_of_the_horde.30
+	title = rise_of_the_horde.30.title
+	desc = rise_of_the_horde.30.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    fire_only_once = yes
+    
+	trigger = {
+        has_global_flag = guldan_recruitment
+        NOT = { has_global_flag = blood_of_mannoroth }
+        is_year = 600
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.30.option.a
+		
+        set_global_flag = blood_of_mannoroth
+    }
+}
 
+# Fallback: The Dying Time
+country_event = {
+	id = rise_of_the_horde.31
+	title = rise_of_the_horde.31.title
+	desc = rise_of_the_horde.31.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    fire_only_once = yes
+    
+	trigger = {
+        current_age = age_rise_of_the_horde
+        has_global_flag = blood_of_mannoroth
+        NOT = { has_global_flag = the_dying_times }
+        is_year = 605
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.31.option.a
+		
+        set_global_flag = the_dying_times
+    }
+}
+
+# Fallback: Burning Legion Conduit
+country_event = {
+	id = rise_of_the_horde.32
+	title = rise_of_the_horde.32.title
+	desc = rise_of_the_horde.32.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+	trigger = {
+        has_global_flag = nerzhul_recruitment
+        NOT = { exists = event_target:buring_legion_conduit_nation }
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.32.option.a
+		
+        save_global_event_target_as = buring_legion_conduit_nation
+    }
+}
+
+# Shadow Council - After Setup
+country_event = {
+	id = rise_of_the_horde.33
+	title = rise_of_the_horde.33.title
+	desc = rise_of_the_horde.33.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+	hidden = yes
+    is_triggered_only = yes
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.33.option.a
+		
+        discover_home_continent = yes
+        
+        capital_scope = {
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            cavalry = ROOT
+            cavalry = ROOT
+            cavalry = ROOT
+            cavalry = ROOT
+        }
+    }
+}
