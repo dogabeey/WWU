@@ -1,0 +1,105 @@
+country_decisions = {   
+    #-----------------------------------------
+    # Rationalism
+    #-----------------------------------------
+    enforce_tolerance = {
+        potential = {
+            NOT = { has_ruler_modifier = enforced_tolerance }
+            religion = rationalism
+		}
+		allow = {
+            ruler_religion = ROOT
+            dip = 3
+            scaled_dip_power_check = yes
+		}
+        effect = {  
+            scaled_dip_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = enforced_tolerance
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Faithless
+    #-----------------------------------------
+    deface_sethraliss_monuments = {
+        potential = {
+            NOT = { has_ruler_modifier = defaced_monuments }
+            religion = faithless
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = defaced_monuments
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Technomancy
+    #-----------------------------------------
+    spread_equality_through_technology = {
+        potential = {
+            NOT = { has_ruler_modifier = technological_nirvana }
+            religion = technomancy
+		}
+		allow = {
+            ruler_religion = ROOT
+            adm = 3
+            scaled_adm_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = technological_nirvana
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Avarice
+    #-----------------------------------------
+    encourage_internal_competition = {
+        potential = {
+            NOT = { has_ruler_modifier = internal_competition }
+            religion = avarice
+		}
+		allow = {
+            ruler_religion = ROOT
+            dip = 3
+            scaled_treasury_check = yes
+		}
+        effect = {
+            scaled_treasury_effect = yes
+            
+            add_ruler_modifier = {
+                name = internal_competition
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

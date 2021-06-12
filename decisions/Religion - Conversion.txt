@@ -1,0 +1,24 @@
+country_decisions = {
+    time_for_religious_monarch = {
+        potential = {
+            NOT = { ruler_religion = ROOT }
+        }
+        allow = {
+            NOT = { ruler_religion = ROOT }
+            stability = 0
+        }
+        effect = {
+            add_stability = -1
+            set_ruler_religion = ROOT
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { stability = 3 }
+            }
+        }
+    }
+}

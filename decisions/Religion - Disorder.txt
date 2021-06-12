@@ -1,32 +1,4 @@
 country_decisions = {
-    succumb_to_chaos = {
-        major = yes
-        
-		potential = {
-			ruler_religion = arcane
-		}
-		allow = {
-			stability = 1
-            ruler_religion = arcane
-		}
-		effect = {
-			add_stability = -5
-            
-			change_religion = fel
-            capital_scope = {
-                change_religion = fel
-            }
-		}
-		ai_will_do = {
-			factor = 1
-            
-			modifier = {
-				factor = 0
-                patriarch_authority = 0.05
-			}
-		}
-    }
-    
     break_from_the_burning_legion = {
 		potential = {
 			NOT = { has_country_modifier = free_from_the_burning_legion }
@@ -107,4 +79,30 @@ country_decisions = {
             }
 		}
 	}
+    
+    construct_fel_conduits = {
+        potential = {
+            religion = fel
+            NOT = { has_country_modifier = fel_conduits }
+        }
+        allow = {
+            religion = fel
+            adm_power = 100
+        }
+        effect = {
+            add_adm_power = -100
+            add_country_modifier = {
+                name = fel_conduits
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                religious_unity = 1.0
+            }
+        }
+    }
 }

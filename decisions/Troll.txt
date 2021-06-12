@@ -23,56 +23,6 @@ country_decisions = {
 		}
 	}
     
-    enforce_loa_worship = {
-		potential = {
-			is_troll_culture_group = yes
-            NOT = { has_country_modifier = enforcing_loa_worship }
-            religion = voodoo
-		}
-		
-		allow = {
-            prestige = 50
-            NOT = { has_country_modifier = enforcing_loa_worship }
-		}
-		
-		effect = {
-            add_country_modifier = {
-                name = enforcing_loa_worship
-                duration = 3650
-            }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-    
-    conduct_blood_sacrifice = {
-		potential = {
-			is_troll_culture_group = yes
-            religion = hakkari
-            NOT = { has_country_modifier = conducting_blood_worship }
-		}
-		
-		allow = {
-            NOT = { has_country_modifier = conducting_blood_worship }
-            mil_power = 100
-		}
-		
-		effect = {
-            add_mil_power = -100
-
-            add_country_modifier = {
-                name = conducting_blood_worship
-                duration = 3650
-            }
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-    
     sacrifice_prisoners = {
 		potential = {
 			is_troll_culture_group = yes

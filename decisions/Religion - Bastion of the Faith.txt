@@ -1,5 +1,6 @@
 country_decisions = {
 	enact_bastion_of_the_faith = {
+        major = yes
         potential = {
             NOT = { has_ruler_modifier = bastion_of_the_faith }
             # No other country of the same faith has the modifier
@@ -11,12 +12,63 @@ country_decisions = {
             }
 		}
 		allow = {
+            ruler_religion = ROOT
             stability = 0
             prestige = 0
-			years_of_income = 10
+			if = {
+                limit = {
+                    NOT = { total_development = 250 }
+                }
+                treasury = 500
+            }
+            else_if = {
+                limit = {
+                    total_development = 250
+                    NOT = { total_development = 500 }
+                }
+                treasury = 750
+            }
+            else_if = {
+                limit = {
+                    total_development = 500
+                    NOT = { total_development = 750 }
+                }
+                treasury = 1000
+            }
+            else_if = {
+                limit = {
+                    total_development = 1000
+                }
+                treasury = 1500
+            }
 		}
 	  	effect = {
-			add_years_of_income = -10
+			if = {
+                limit = {
+                    NOT = { total_development = 250 }
+                }
+                add_treasury = -500
+            }
+            else_if = {
+                limit = {
+                    total_development = 250
+                    NOT = { total_development = 500 }
+                }
+                add_treasury = -750
+            }
+            else_if = {
+                limit = {
+                    total_development = 500
+                    NOT = { total_development = 750 }
+                }
+                add_treasury = -1000
+            }
+            else_if = {
+                limit = {
+                    total_development = 1000
+                }
+                add_treasury = -1500
+            }
             
             add_ruler_modifier = {
                 name = bastion_of_the_faith
@@ -29,12 +81,13 @@ country_decisions = {
             modifier = {
                 factor = 0
                 
-                NOT = { years_of_income = 12 }
+                NOT = { treasury = 2000 }
             }
 		}
 	}
     
     beckon_bastion_of_the_faith = {
+        major = yes
         potential = {
             any_country = {
                 religion = ROOT
