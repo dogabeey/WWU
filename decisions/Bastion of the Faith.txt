@@ -1,0 +1,93 @@
+country_decisions = {
+	enact_bastion_of_the_faith = {
+        potential = {
+            NOT = { has_ruler_modifier = bastion_of_the_faith }
+            # No other country of the same faith has the modifier
+            NOT = {
+                any_country = {
+                    religion = ROOT
+                    has_ruler_modifier = bastion_of_the_faith
+                }
+            }
+		}
+		allow = {
+            stability = 0
+            prestige = 0
+			years_of_income = 10
+		}
+	  	effect = {
+			add_years_of_income = -10
+            
+            add_ruler_modifier = {
+                name = bastion_of_the_faith
+                duration = -1
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { years_of_income = 12 }
+            }
+		}
+	}
+    
+    beckon_bastion_of_the_faith = {
+        potential = {
+            any_country = {
+                religion = ROOT
+                has_ruler_modifier = bastion_of_the_faith
+            }
+            NOT = { has_country_modifier = call_for_action_cooldown }
+		}
+		allow = {   
+            # Is leader of defensive war (i.e. they were attacked)
+            is_in_war = {
+                defender_leader = ROOT
+            }
+            dip_power = 100
+            
+            # BOTH is neutral or better towards us
+            any_country = {
+                religion = ROOT
+                has_ruler_modifier = bastion_of_the_faith
+                has_opinion = {
+                    who = ROOT
+                    value = 0
+                }
+            }
+		}
+	  	effect = {
+            add_dip_power = -100
+            
+            # Persists into the called event below
+            hidden_effect = {
+                save_event_target_as = beckoning_country
+                add_country_modifier = {
+                    name = call_for_action_cooldown
+                    duration = 3650
+                    hidden = yes
+                }
+            }
+            
+			random_country = {
+                limit = {
+                    religion = ROOT
+                    has_ruler_modifier = bastion_of_the_faith
+                }
+                country_event = { id = wwu_bastion_of_the_faith.2 days = 7 }
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT =  { dip_power = 200 }
+            }
+		}
+	}
+}

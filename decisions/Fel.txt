@@ -26,4 +26,85 @@ country_decisions = {
 			}
 		}
     }
+    
+    break_from_the_burning_legion = {
+		potential = {
+			NOT = { has_country_modifier = free_from_the_burning_legion }
+			religion = fel
+			NOT = { tag = B92 }
+		}
+		allow = {
+			adm = 4
+            dip = 4
+			mil = 4
+		}
+		effect = {
+			add_prestige = 25
+            
+			every_country = {
+				limit = { 
+					religion = fel
+                    NOT = { has_country_modifier = free_from_the_burning_legion }
+				}
+				add_opinion = { who = ROOT modifier = opinion_broke_from_the_burning_legion }
+			}
+
+			add_country_modifier = {
+				name = "free_from_the_burning_legion"
+				duration = -1
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    return_to_the_burning_legion = {
+		potential = {
+            has_country_modifier = free_from_the_burning_legion
+			religion = fel
+			NOT = { tag = B92 }
+		}
+		allow = {
+            stability = 0
+		}
+		effect = {
+            remove_country_modifier = free_from_the_burning_legion
+			add_stability = -3
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    invite_legion_emissaries = {
+		potential = {
+            NOT = { has_country_modifier = burning_legion_emissaries }
+			religion = fel
+			NOT = { tag = B92 }
+		}
+		allow = {   
+            dip = 4
+            dip_power = 100
+		}
+		effect = {
+            add_dip_power = -100
+            add_country_modifier = {
+                name = burning_legion_emissaries
+                duration = -1
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { dip = 6 }
+            }
+		}
+	}
 }
