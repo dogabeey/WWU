@@ -170,13 +170,113 @@ country_decisions = {
         }
     }
     
+    delve_into_the_dream = {
+        potential = {
+            NOT = { has_ruler_modifier = dream_knowledge }
+            religion = druidism
+		}
+		allow = {
+            ruler_religion = ROOT
+            dip = 3
+            scaled_dip_power_check = yes
+		}
+        effect = {
+            scaled_dip_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = dream_knowledge
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
     #-----------------------------------------
     # Elune
     #-----------------------------------------
+    seek_elunes_wisdom = {
+        potential = {
+            NOT = { has_ruler_modifier = wisdom_of_elune }
+            religion = elune
+		}
+		allow = {
+            ruler_religion = ROOT
+            dip = 3
+            scaled_dip_power_check = yes
+		}
+        effect = {
+            scaled_dip_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = wisdom_of_elune
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    beckon_the_night_warrior = {
+        potential = {
+            religion = elune
+            NOT = { has_country_modifier = night_warrior_unleashed }
+        }
+        allow = {
+            religion = elune
+            is_at_war = yes
+        }
+        effect = {
+            custom_tooltip = NIGHT_WARRIOR_TT
+            add_country_modifier = {
+                name = night_warrior_unleashed
+                duration = 9125
+            }
+            
+            hidden_effect = {
+                create_general = {
+                    name = "The Night Warrior"
+                    add_fire = 4
+                    add_shock = 4
+                    add_manuever = 4
+                    add_siege = 4
+                }
+                
+                country_event = { id = wwu_elune.10 days = 1825 }
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
     
     #-----------------------------------------
     # Celestials
     #-----------------------------------------
+    seek_council_with_the_august_celestials = {
+        potential = {
+            NOT = { has_ruler_modifier = celestial_spirit }
+            religion = celestials
+		}
+		allow = {
+            ruler_religion = ROOT
+            adm = 3
+            scaled_adm_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = celestial_spirit
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
     call_upon_the_jade_serpent = {
         potential = {
             religion = celestials
@@ -317,16 +417,166 @@ country_decisions = {
     #-----------------------------------------
     # Arrakoa
     #-----------------------------------------
+    call_upon_the_spirit_of_anzu = {
+        potential = {
+            NOT = { has_ruler_modifier = spirit_of_anzu } 
+            NOT = { has_ruler_modifier = spirit_of_sethe }
+            NOT = { has_ruler_modifier = spirit_of_rukhmar }
+            religion = arrakoa
+		}
+		allow = {
+            NOT = { has_ruler_modifier = spirit_of_anzu } 
+            NOT = { has_ruler_modifier = spirit_of_sethe }
+            NOT = { has_ruler_modifier = spirit_of_rukhmar }
+            ruler_religion = ROOT
+            adm = 3
+            scaled_adm_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = spirit_of_anzu
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    call_upon_the_spirit_of_sethe = {
+        potential = {
+            NOT = { has_ruler_modifier = spirit_of_anzu } 
+            NOT = { has_ruler_modifier = spirit_of_sethe }
+            NOT = { has_ruler_modifier = spirit_of_rukhmar }
+            religion = arrakoa
+		}
+		allow = {
+            NOT = { has_ruler_modifier = spirit_of_anzu } 
+            NOT = { has_ruler_modifier = spirit_of_sethe }
+            NOT = { has_ruler_modifier = spirit_of_rukhmar }
+            ruler_religion = ROOT
+            dip = 3
+            scaled_dip_power_check = yes
+		}
+        effect = {
+            scaled_dip_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = spirit_of_sethe
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    call_upon_the_spirit_of_rukhmar = {
+        potential = {
+            NOT = { has_ruler_modifier = spirit_of_anzu } 
+            NOT = { has_ruler_modifier = spirit_of_sethe }
+            NOT = { has_ruler_modifier = spirit_of_rukhmar } 
+            religion = arrakoa
+		}
+		allow = {
+            NOT = { has_ruler_modifier = spirit_of_anzu } 
+            NOT = { has_ruler_modifier = spirit_of_sethe }
+            NOT = { has_ruler_modifier = spirit_of_rukhmar }
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = spirit_of_rukhmar
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
     
     #-----------------------------------------
     # Zangar
     #-----------------------------------------
+    spread_fungal_spores = {
+        potential = {
+            NOT = { has_ruler_modifier = fungal_spores }
+            religion = zangar
+		}
+		allow = {
+            ruler_religion = ROOT
+            adm = 3
+            scaled_adm_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = fungal_spores
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
     
     #-----------------------------------------
     # Arkkorok
     #-----------------------------------------
+    beckon_the_ocean = {
+        potential = {
+            NOT = { has_ruler_modifier = oceanic_purge }
+            religion = arkkorok
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = oceanic_purge
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
     
     #-----------------------------------------
     # Primitive
     #-----------------------------------------
+    enact_religious_rites = {
+        potential = {
+            NOT = { has_ruler_modifier = religious_rites }
+            religion = primitive
+		}
+		allow = {
+            ruler_religion = ROOT
+            adm = 3
+            scaled_adm_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = religious_rites
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
 }
