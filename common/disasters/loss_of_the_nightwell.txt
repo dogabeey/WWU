@@ -1,0 +1,112 @@
+loss_of_the_nightwell_disaster = {
+	potential = {
+		NOT = { has_country_flag = complete_stasis }
+		primary_culture = culture_nightborne
+		
+		num_of_owned_provinces_with  = {
+			value = 2
+			culture = culture_nightborne
+			is_capital = no
+		}
+	}
+
+
+	can_start = {
+		has_country_modifier = loss_of_the_nightwell
+	}
+	
+	can_stop = {
+		has_country_modifier = power_of_the_nightwell
+	}
+	
+	progress = {
+		modifier = {
+            factor = 2
+            
+            has_country_modifier = loss_of_the_nightwell
+		}
+		modifier = {
+            factor = -1
+            
+			num_of_owned_provinces_with  = {
+				value = 1
+				OR = {
+					trade_goods = arcwine
+					trade_goods = mana_source
+				}
+			}
+			hidden_trigger = {
+				NOT = {
+					num_of_owned_provinces_with  = {
+						value = 2
+						OR = {
+							trade_goods = arcwine
+							trade_goods = mana_source
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+            factor = -1
+            
+			num_of_owned_provinces_with  = {
+				value = 2
+				OR = {
+					trade_goods = arcwine
+					trade_goods = mana_source
+				}
+			}
+			hidden_trigger = {
+				NOT = {
+					num_of_owned_provinces_with  = {
+						value = 3
+						OR = {
+							trade_goods = arcwine
+							trade_goods = mana_source
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+            factor = -1
+            
+			num_of_owned_provinces_with  = {
+				value = 3
+				OR = {
+					trade_goods = arcwine
+					trade_goods = mana_source
+				}
+			}
+		}
+	}
+	
+	can_end = {
+		OR = {
+			primary_culture = culture_withered
+			has_country_modifier = power_of_the_nightwell
+			NOT = {
+				num_of_owned_provinces_with  = {
+					value = 3
+					culture = culture_nightborne
+				}
+			}
+		}
+	}
+	
+	modifier = {
+	
+	}
+
+	on_start = suramar.2
+	on_end = suramar.3
+	
+	on_monthly = {
+		random_events = { 
+			180 = 0
+			10 =  suramar.1
+		}
+	}
+}
+
