@@ -1,3 +1,6 @@
+#-------------------------------------------
+# General
+#-------------------------------------------
 estate_clergy_land_rights = {
 	icon = privilege_blueprint
     
@@ -352,3 +355,76 @@ estate_clergy_statutory_rights = {
 	}
 	cooldown_years = 20
 }
+
+#-------------------------------------------
+# Unique
+#-------------------------------------------
+estate_clergy_arcane_supremacy = {
+	icon = privilege_body_and_soul
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.05
+    
+	is_valid = {
+		religion = arcane
+	}
+	can_select = {
+		religion = arcane
+	}
+	penalties = {
+		tolerance_heathen = -1
+        tolerance_heretic = -1
+	}
+	benefits = {
+        missionaries = 1
+        missionary_maintenance_cost = -0.1
+	}
+    
+	ai_will_do = {
+		factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            religious_unity = 0.75
+        }
+	}
+}
+
+estate_clergy_ancient_diplomats = {
+	icon = privilege_reputation
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.05
+    
+	is_valid = {
+		religion = dragon_aspects
+	}
+	can_select = {
+		religion = dragon_aspects
+	}
+	penalties = {
+		global_missionary_strength = -0.02
+	}
+	benefits = {
+        diplomatic_reputation = 1
+        diplomatic_upkeep = 1
+	}
+    
+	ai_will_do = {
+		factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { religious_unity = 0.5 }
+        }
+	}
+}
+

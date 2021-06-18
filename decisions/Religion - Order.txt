@@ -30,23 +30,340 @@ country_decisions = {
 		}
     }
     
+    construct_mana_crystals = {
+        potential = {
+            NOT = { has_ruler_modifier = empowered_mana_crystals }
+            religion = arcane
+		}
+		allow = {
+            ruler_religion = ROOT
+            adm = 3
+            scaled_adm_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = empowered_mana_crystals
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
     #-----------------------------------------
     # Dragon Aspects
     #-----------------------------------------
+    reiterate_pledge_to_azeroth = {
+        potential = {
+            NOT = { has_ruler_modifier = pledge_to_azeroth }
+            religion = dragon_aspects
+		}
+		allow = {
+            ruler_religion = ROOT
+            dip = 3
+            scaled_dip_power_check = yes
+		}
+        effect = {
+            scaled_dip_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = pledge_to_azeroth
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
     
     #-----------------------------------------
     # Titan Worship
     #-----------------------------------------
+    channel_aman_thul = {
+        potential = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            religion = titan_worship
+		}
+		allow = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            ruler_religion = ROOT
+            adm = 3
+            scaled_adm_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = boon_of_aman_thul
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    channel_eonar = {
+        potential = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            religion = titan_worship
+		}
+		allow = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            ruler_religion = ROOT
+            dip = 3
+            scaled_dip_power_check = yes
+		}
+        effect = {
+            scaled_dip_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = boon_of_eonar
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    channel_norgannon = {
+        potential = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            religion = titan_worship
+		}
+		allow = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            ruler_religion = ROOT
+            adm = 3
+            scaled_adm_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = boon_of_norgannon
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    channel_golganneth = {
+        potential = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            religion = titan_worship
+		}
+		allow = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = boon_of_golganneth
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    channel_khaz_goroth = {
+        potential = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            religion = titan_worship
+		}
+		allow = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = boon_of_khaz_goroth
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    channel_aggramar = {
+        potential = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            religion = titan_worship
+		}
+		allow = {
+            NOT = { has_ruler_modifier = boon_of_aman_thul }
+            NOT = { has_ruler_modifier = boon_of_eonar }
+            NOT = { has_ruler_modifier = boon_of_norgannon }
+            NOT = { has_ruler_modifier = boon_of_golganneth }
+            NOT = { has_ruler_modifier = boon_of_khaz_goroth }
+            NOT = { has_ruler_modifier = boon_of_aggramar }
+            ruler_religion = ROOT
+            dip = 3
+            scaled_dip_power_check = yes
+		}
+        effect = {
+            scaled_dip_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = boon_of_aggramar
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
     
     #-----------------------------------------
     # Mystery of the Makers
     #-----------------------------------------
+    catalogue_the_past = {
+        potential = {
+            NOT = { has_ruler_modifier = unearthed_knowledge }
+            religion = mystery_of_the_makers
+		}
+		allow = {
+            ruler_religion = ROOT
+            adm = 3
+            dip = 3
+            mil = 3
+            scaled_adm_power_check = yes
+            scaled_dip_power_check = yes
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            scaled_dip_power_effect = yes
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = unearthed_knowledge
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
     
     #-----------------------------------------
     # Corrupt Titan Worship
     #-----------------------------------------
+    pull_souls_to_helheim = {
+        potential = {
+            NOT = { has_ruler_modifier = offering_to_helya }
+            religion = corrupt_titan_worship
+            primary_culture = culture_kvaldir
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = offering_to_helya
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
     
     #-----------------------------------------
     # Corrupt Dragon Aspect
     #-----------------------------------------
+    sate_the_worldbreaker = {
+        potential = {
+            NOT = { has_ruler_modifier = aspect_of_death }
+            religion = corrupt_dragon_aspect
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = aspect_of_death
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
 }

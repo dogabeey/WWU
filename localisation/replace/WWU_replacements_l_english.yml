@@ -14,6 +14,8 @@
  ESTATES_TITLE: "Realm Management"
  REALM_ACTIONS_TITLE: "Realm Actions"
  
+ PROPAGATE_RELIGION_TRADING_POLICY: "You can convert provinces which don't follow your faith.\n"
+ 
  #----------------------------------------------------
  # Absolutism
  #----------------------------------------------------
@@ -1264,7 +1266,7 @@
  superiority_reichskrieg:0 "Show Superiority"
  superiority_reichskrieg_desc:0 "War goal is to show them superiority by winning battles."
  
- MAPMODE_EMPIRE_DESC: "Colors the provinces that are part of the Tauren Federation.\nPurple belongs to the High Chieftain, brown belongs to an Elector, and blue belongs to a Free City. Green provinces are considered Ancestral LAnd.\nYellow-striped provinces are part of the Tauren Federation, but their Owner is not Tauren.\nOrange-striped provinces are part of the Tauren Federation, but they are subject of a non-Tauren overlord.\n"
+ MAPMODE_EMPIRE_DESC: "Colors the provinces that are part of the Tauren Federation.\nPurple belongs to the High Chieftain, brown belongs to an Elector, and blue belongs to a Outpost. Green provinces are considered Ancestral LAnd.\nYellow-striped provinces are part of the Tauren Federation, but their Owner is not Tauren.\nOrange-striped provinces are part of the Tauren Federation, but they are subject of a non-Tauren overlord.\n"
  HISTORY_JOINED_EMPIRE: "Joined the Tauren Federation."
  HISTORY_LEFT_EMPIRE: "Left the Tauren Federation."
  MOVE_CAPITAL_HRE_RULE: "We cannot move our capital into, or out of, the Tauren Federation."
@@ -1307,7 +1309,7 @@
  IS_NOT_HERETIC_HRE_RELIGION: "§Y$RELIGION$§! is NOT the opposition faith of the Tauren Federation."
  
  states_in_hre: "States in the Tauren Federation"
- free_cities_in_hre: "Free Cities in the Tauren Federation"
+ free_cities_in_hre: "Outposts in the Tauren Federation"
  
  ALLOW_TO_DISSMANTLE: "You can now dismantle the Tauren Federation, as it is under your control."
  DISMANTLE_HRE: "Dismantle"
@@ -1319,8 +1321,8 @@
  HRE_INFLUENCE: "Tribal Authority"
  HRE_MEMBER_STAT: "Members"
  HRE_MEMBER: "§Y$NAME$§W is a member of the Tauren Federation"
- HRE_FREE_CITY: "§Y$NAME$§W is a Free City in the Tauren Federation."
- NUM_OF_PRINCES:0 "The §Y$TOTAL$§! Members and §Y$CITIES$§! Free Cities in the Tauren Federation give the following to the High Chieftain:\n"
+ HRE_FREE_CITY: "§Y$NAME$§W is a Outpost in the Tauren Federation."
+ NUM_OF_PRINCES:0 "The §Y$TOTAL$§! Members and §Y$CITIES$§! Outposts in the Tauren Federation give the following to the High Chieftain:\n"
  HRE_NUM_MEMBERS_DELAYED:1 "More countries might join the Tauren Federation if they are threatened by outside powers, and have a friendly attitude towards the High Chieftain. A high Tribal Authority may help to convince them."
  HRE_INFLUENCE_DESC: "Tribal Authority represents the amount of control the High Chieftain exerts over the Members of the Tauren Federation. Authority is needed to enact decrees within the Tauren Federation."
  HRE_INFLUENCE_GAIN: "Gained by:\n - Having a large amount of member states\n - The member states being at peace\n - Provinces joining the Tauren Federation\n - Successive High Chieftains from the same country\n - Releasing members of the Tauren Federation\n - Defending the Tauren Federation in war"
@@ -1423,8 +1425,8 @@
  NOT_ENOUGH_BACKERS_IMP_REFORM: "There is not enough support in the Tauren Federation for reform, with §G$FOR$§! being for it and §R$AGAINST$§! against!"
  NOT_ENOUGH_AUTHORITY_IMP_REFORM: "You need at least §R$COST$§! Tribal Authority, but you only have §Y$CURR$§!."
  ENACT_REFORM: "Enacting §Y$REFORM$§! will remove all your current Tribal Authority."
- MEMBER_BACKING_DUE_TO: "They are backing '§G$REFORM$§!' due to: ($SCORE$)"
- MEMBER_OPPOSE_DUE_TO: "They oppose '§R$REFORM$§!' due to: ($SCORE$)"
+ MEMBER_BACKING_DUE_TO:1 "They are backing the following reforms ($SCORE$):\n$REFORMS$\ndue to:\n"
+ MEMBER_OPPOSE_DUE_TO:1 "They oppose the following reforms ($SCORE$):\n$REFORMS$\ndue to:\n"
  FOLLOWING_BACK_IMP_REF: "There are §Y$COUNT$§! members for the reform:\n$WHO$"
  ALL_AGAUNST_IMP_REF: "There are §R$COUNT$§! members against the reform:\n$WHO$"
  
@@ -1612,9 +1614,9 @@
  SET_IMPERIAL_INCIDENT:0 "The Tribal Incident $INCIDENT|Y$ will become active"
  INCIDENT_ACTIVE:1 "$INCIDENT|Y$"
  IMPERIAL_INCIDENT_TITLE_TOOLTIP:1 "The Incident $INCIDENT|Y$ is currently active. The High Chieftain's choice of action on this incident will come in effect on $EXPIRY|Y$."
- MODIFIER_FREE_CITY_IMPERIAL_AUTHORITY:0 "Tribal Authority from Free Cities"
+ MODIFIER_FREE_CITY_IMPERIAL_AUTHORITY:0 "Tribal Authority from Outposts"
  MODIFIER_IMPERIAL_MERCENARY_COST:1 "Tauren Mercenary Recruitment Cost"
- MODIFIER_MAX_FREE_CITIES:0 "Number of Free Cities"
+ MODIFIER_MAX_FREE_CITIES:0 "Number of Outposts"
  MODIFIER_MAX_ELECTORS:0 "Number of Electors"
  MODIFIER_MANPOWER_AGAINST_IMPERIAL_ENEMIES:1 "Manpower against Tauren enemies"
  IMPERIAL_INCIDENT_STARTED_TITLE:0 "Tribal Incident has begun"
@@ -1652,7 +1654,82 @@
  REICHSKRIEG_DEFENSE_OF_REALM_MODIFIER:0 "High Chieftain and Electors will be able to raise War Taxes for free while at war with enemies of the Tauren Federation"
  defense_of_the_empire_modifier:0 "Defense of the Federation"
  
+ UNLAWFUL_TERRITORY_WARN:0 "§RUnlawful territory, the High Chieftain may demand you to return it!§!"
+ UNLAWFUL_TERRITORY_WARN_DELAY:0 "Since this province is part of the Tauren Federation and not your core, it will be considered unlawful territory if you take it."
  
+ DIPLO_PART_OF_EMPIRE:0 "$PART$ is part of the Tauren Federation and $EMPEROR$ is the High Chieftain: "
+ 
+ CAPITAL_NOT_IN_EMPIRE:0 "It belongs to $COUNTRY$, whose capital $CAPITAL$ is not part of the Tauren Federation."
+ OVERLORD_CAPITAL_NOT_IN_EMPIRE:0 "It is a subject of $COUNTRY$, whose capital $CAPITAL$ is not part of the Tauren Federation."
+ 
+ PROVIRO_EMPIRE:0 "This province is a part of the Tauren Federation."
+ WCRD_EMPEROR:0 "They are a part of the Tauren Federation, and we are the High Chieftain."
+ 
+ CW_WARNEMPEROR:0 "They are a part of the Tauren Federation, and $COUNTRY$ will protect them."
+ CW_WARNEMPEROR4:0 "They are a Outpost in the Tauren Federation, and $COUNTRY$ will protect them."
+ 
+ HRE_RELATION_SELF:0 "We give ourselves §Y$POINTS$§W when ranking of who we want to vote for as the next High Chieftain."
+ HRE_RELATION:0 "$NAME$ give us §Y$POINTS$§W when ranking of who they want to vote for as the next High Chieftain."
+ 
+ DISMANTLE_HRE_PRESTIGE_DESC:0 "§G$VAL$§! prestige will be gained from dismantling the Tauren Federation."
+ 
+ REMOVE_ELECTORATE_NO_OFFICIAL_RELIGION:0 "You cannot revoke electorates unless there is an official religion in the Tauren Federation."
+ 
+ HAS_NO_PROV_IN_EMPIRE_OR_LIBERATED:0 "Has no non-core province that is a part of the Tauren Federation and that has not been liberated from a non-Tauren country."
+ 
+ FREE_CITIES_IA:0 "The §Y$NUM$§! Outposts in the Tauren Federation increase Tribal Authority by $VAL$ every month."
+ 
+ #------------------------------------------------------
+ # Free City
+ #------------------------------------------------------
+ FREE_CITY_NOT_SUBJECT:0 "Outposts cannot become subjects."
+ NO_FREE_CITY_DICTATORSHIP:0 "Dictatorships cannot become Outposts."
+ ICON_GRANT_FREECITY:0 "Grant Outpost Status"
+ GRANTFREECITYTITLE:0 "Grant Outpost Status"
+ GRANTFREECITYDESC:0 "Granting them Outpost status will strengthen their military and increase their contribution to the High Chieftain, but we will be required to protect them from attack."
+ REMOVE_FREECITY_TITLE:0 "Revoke Outpost Status"
+ REMOVE_FREECITY_DESC:0 "Revoking their Outpost status will weaken their military and reduce their contribution to the High Chieftain, but we will no longer be required to protect them."
+ grant_freecity:0 "Granted Outpost status"
+ removed_our_freecity:0 "Revoked our Outpost status"
+ TOO_LITTLE_DEV_FOR_FREE_CITY:0 "Their capital §Y$CAPITAL$§! must have at least §Y$AMT$§! development for them to become an Outpost."
+ DIPLO_TOO_LARGE_FREE_CITY:0 "$WHO$ is too large to become an Outpost: "
+ 
+ GRANTFREECITYWITHUS_TITLE:0 "Accepted Outpost Status"
+ GRANTFREECITYWITHUS_SETUP:0 "When another country accepts our offer to make them a Outpost."
+ GRANTFREECITYWITHUS_3:0 "our offer to make them a Outpost."
+ GRANTFREECITYWITHUS_LOG:0 "$RECIPIENT$ became a Outpost in the Tauren Federation."
+ 
+ WEACCGRANTFREECITY_TITLE:0 "Accepted Outpost Status"
+ WEACCGRANTFREECITY_SETUP:0 "When we accept an offer to make us a Outpost."
+ WEACCGRANTFREECITY_3:0 "and are now a Outpost in the Tauren Federation."
+ WEACCGRANTFREECITY_LOG:0 "We accepted the offer of being a Outpost in the Tauren Federation."
+ 
+ GRANTFREECITYWITHOTHER_TITLE:0 "Accepted Outpost Status"
+ GRANTFREECITYWITHOTHER_SETUP:0 "When a foreign nation accepts an offer to be a Outpost."
+ GRANTFREECITYWITHOTHER_6:0 "to become a Outpost in the Tauren Federation."
+ GRANTFREECITYWITHOTHER_LOG:0 "$RECIPIENT$ accepted offer to make them a Outpost from $ACTOR$."
+ 
+ DECGRANTFREECITYWITHUS_TITLE:0 "Declined Outpost Status"
+ DECGRANTFREECITYWITHUS_SETUP:0 "When another country declines our offer to make them a Outpost."
+ DECGRANTFREECITYWITHUS_3:0 "refuse our offer to make them a Outpost,"
+ DECGRANTFREECITYWITHUS_LOG:0 "$RECIPIENT$ refused our demand to become a Outpost in the Tauren Federation."
+ 
+ DECGRANTFREECITYWITHOTHER_TITLE:0 "Declined Outpost Status"
+ DECGRANTFREECITYWITHOTHER_SETUP:0 "When another country refuses to be a Outpost."
+ DECGRANTFREECITYWITHOTHER_3:1 "Refused the offer to make them a Outpost from"
+ DECGRANTFREECITYWITHOTHER_6:0 "There is discord within the Tauren Federation..."
+ DECGRANTFREECITYWITHOTHER_LOG:0 "$RECIPIENT$ refused the offer to make them a Outpost from $ACTOR$."
+ 
+ WE_LOST_FREECITY_TITLE:0 "Outpost Status Lost"
+ WE_LOST_FREECITY_SETUP:0 "When the High Chieftain revokes our Outpost status."
+ WE_LOST_FREECITY_2:0 "Our status as a Outpost has been revoked by"
+ WE_LOST_FREECITY_4:0 "The High Chieftain is an evil bastard and will pay dearly"
+ WE_LOST_FREECITY_LOG:0 "Our Outpost status has been revoked by $ACTOR$."
+ 
+ OTHER_LOST_FREECITY_TITLE:0 "Outpost Status Lost"
+ OTHER_LOST_FREECITY_SETUP:0 "When the High Chieftain revokes another country's Outpost status."
+ OTHER_LOST_FREECITY_4:0 "has lost their Outpost status because"
+ OTHER_LOST_FREECITY_LOG:0 "$RECIPIENT$ saw their Outpost status revoked by $ACTOR$."
  
  #------------------------------------------------------
  # Fervor

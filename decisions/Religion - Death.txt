@@ -2,28 +2,50 @@ country_decisions = {
     #-----------------------------------------
     # Cult of the Damned
     #-----------------------------------------
+    turn_the_dead = {
+        potential = {
+            NOT = { has_ruler_modifier = necromantic_surge }
+            religion = cult_of_the_damned
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = necromantic_surge
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
     
     #-----------------------------------------
     # Voodoo
     #-----------------------------------------
     enforce_loa_worship = {
-		potential = {
-            NOT = { has_country_modifier = enforcing_loa_worship }
+	    potential = {
+            NOT = { has_ruler_modifier = enforced_loa_worship }
             religion = voodoo
 		}
-		
 		allow = {
-            prestige = 50
-            NOT = { has_country_modifier = enforcing_loa_worship }
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
 		}
-		
-		effect = {
-            add_country_modifier = {
-                name = enforcing_loa_worship
-                duration = 3650
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = enforced_loa_worship
+                duration = -1
             }
-		}
-		
+        }
 		ai_will_do = {
 			factor = 1
 		}
@@ -32,33 +54,52 @@ country_decisions = {
     #-----------------------------------------
     # Hakkari
     #-----------------------------------------
-    enact_blood_sacrifice = {
+    grant_tribute_to_hakkar = {
         potential = {
+            NOT = { has_ruler_modifier = hakkari_boon }
             religion = hakkari
-            NOT = { has_country_modifier = blood_sacrifice_hakkari }
-        }
-        allow = {
-            religion = hakkari
-            adm_power = 100
-        }
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
         effect = {
-            add_adm_power = -100
-            add_country_modifier = {
-                name = blood_sacrifice_hakkari
-                duration = 3650
-            }
-        }		
-        ai_will_do = {
-            factor = 1
+            scaled_mil_power_effect = yes
             
-            modifier = {
-                factor = 0
-                religious_unity = 1.0
+            add_ruler_modifier = {
+                name = hakkari_boon
+                duration = -1
             }
         }
-    }
+		ai_will_do = {
+			factor = 1
+		}
+	}
     
     #-----------------------------------------
     # Bloodmancy
     #-----------------------------------------
+    perform_blood_rites = {
+        potential = {
+            NOT = { has_ruler_modifier = blood_rites }
+            religion = bloodmancy
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = blood_rites
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }

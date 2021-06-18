@@ -835,7 +835,12 @@ is_available_to_anima = {
 }
 is_available_to_shamanism = {
     AND = {
-        owner = { religion = shamanism }
+        owner = { 
+            OR = {
+                religion = shamanism
+                religion = tauren_shamanism
+            }
+        }
         has_owner_religion = yes
     }
 }

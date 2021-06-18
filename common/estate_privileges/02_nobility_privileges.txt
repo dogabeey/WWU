@@ -1,3 +1,6 @@
+#-------------------------------------------
+# General
+#-------------------------------------------
 estate_nobility_land_rights = {
 	icon = privilege_blueprint
 	
@@ -404,4 +407,96 @@ estate_nobility_statutory_rights = {
 	}
 
 	cooldown_years = 20
+}
+
+#-------------------------------------------
+# Unique
+#-------------------------------------------
+estate_nobility_embody_death = {
+	icon = privilege_nuke
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.05
+    
+	is_valid = {
+		religion = corrupt_dragon_aspect
+	}
+	can_select = {
+		religion = corrupt_dragon_aspect
+	}
+	penalties = {
+		diplomatic_reputation = -1
+        ae_impact = 0.1
+	}
+	benefits = {
+        infantry_power = 0.1
+	}
+    
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_nobility_fel_corruption = {
+	icon = privilege_demonic_power
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.05
+    
+	is_valid = {
+		religion = fel
+	}
+	can_select = {
+		religion = fel
+	}
+    on_granted = {
+		custom_tooltip = estate_nobility_fel_corruption_tt
+	}
+	on_revoked = {
+		custom_tooltip = estate_nobility_fel_corruption_tt
+	}
+	penalties = {
+		ae_impact = 0.2
+	}
+	benefits = {
+        
+	}
+    
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_nobility_fel_imbibement = {
+	icon = privilege_fel_skull
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.05
+    
+	is_valid = {
+		religion = fel
+	}
+	can_select = {
+		religion = fel
+	}
+	penalties = {
+		stability_cost_modifier = 0.5
+	}
+	benefits = {
+        land_morale = 0.1
+        siege_ability = 0.1
+	}
+    
+	ai_will_do = {
+		factor = 1
+	}
 }

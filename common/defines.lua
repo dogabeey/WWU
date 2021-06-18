@@ -27,6 +27,7 @@ NGame = {
 
 NDiplomacy = {
 
+	MIN_MONTHLY_COST_FOR_INFLUENCE_NATION = 5,
 	ESTATE_DISLIKE_ALLIANCE_ON_VC = -0.2,
 	HEGEMONY_LOST_DAYS = 7300,
 	HEGEMONY_MONTHLY_PROGRESS = 0.5,
@@ -71,11 +72,11 @@ NDiplomacy = {
 	TRUST_PENALTY_FOR_SEPARATE_PEACE = 10,			-- Trust penalty for signing a separate peace
 
 	OFFENSIVE_WAR_COOLDOWN = 10,					-- Years between when you can call a country into an offensive war on your behalf
-	MAX_CLIENT_STATES = 50,							-- Max client states for one country
+	MAX_CLIENT_STATES = 20,							-- Max client states for one country
 
 	ALLOW_LEADER_DEMAND_TOGGLE = 0,					-- Whether or not player is allowed to set if warleader can negotiate for them
-	VASSALIZE_BASE_DEVELOPMENT_CAP = 500, 			-- Countries with more total development than this cannot be vassalized
-	MARCH_BASE_DEVELOPMENT_CAP = 500, 				-- Countries with more total development than this cannot be made into a march
+	VASSALIZE_BASE_DEVELOPMENT_CAP = 250, 			-- Countries with more total development than this cannot be vassalized
+	MARCH_BASE_DEVELOPMENT_CAP = 250, 				-- Countries with more total development than this cannot be made into a march
 	MARCH_DEVELOPMENT_FRACTION = 0.25,
 
 
@@ -97,7 +98,7 @@ NDiplomacy = {
 	MAX_PEACE_TREATY_COST = 200,					-- in diplo power
 	DESIRED_NUM_OF_ELECTORS = 8,
 	MAX_NUM_OF_ELECTORS = 8,						-- Maximum number of electors in the interface
-	MAX_FREE_CITIES = 12,
+	MAX_FREE_CITIES = 3,
 	MIN_NUM_ELECTORS_FOR_REMOVE_ELECTORATE = 2,		-- Limit is inclusive.
 	HRE_PRINCE_AUTHORITY_THRESHOLD = 15,			-- Threshold below which you lose IA, and above which you gain it
 	IMPERIAL_AUTHORITY_FROM_PRINCES = 0.1,			-- Scales to threshold
@@ -139,19 +140,19 @@ NDiplomacy = {
 	PRESTIGE_PENALTY_ON_DISCOVER_JTC = -5,
 	MIN_ASKED_TRADE_POWER = 10,					-- Minimum % of someone's trade power can be asked for with the diplomatic action
 	MAX_ASKED_TRADE_POWER = 50,					-- Maximum % of someone's trade power can be asked for with the diplomatic action
-	MIN_PAPAL_INFLUENCE_TO_PREVENT_EXCOMMUNICATION = 0.5, -- Papal influence that prevents excommunication
+	MIN_PAPAL_INFLUENCE_TO_PREVENT_EXCOMMUNICATION = 50, -- Papal influence that prevents excommunication
 
 	HRE_VOTE_ENEMY = -200,
 	HRE_VOTE_LEGUE_ENEMY = -200,
 	HRE_VOTE_LEAGUE_LEADER = 100,
 	HRE_VOTE_LEAGUE_LEADER_FRIEND = 200,
-	HRE_VOTE_HERETIC = -10,
+	HRE_VOTE_HERETIC = -1000,
 	HRE_VOTE_OVERLORD = 50,
 	HRE_VOTE_VASSAL_ELECTOR = -50,
 	HRE_VOTE_TOO_SMALL = -25,
 	HRE_VOTE_BIG_COUNTRY = 25,
 	HRE_VOTE_VERY_BIG_COUNTRY = 50,
-	HRE_VOTE_NON_MEMBER = -100,
+	HRE_VOTE_NON_MEMBER = -1000,
 	HRE_VOTE_SAME_CULTURE_GROUP = 25,
 	HRE_VOTE_ALLIANCE = 30,
 	HRE_VOTE_ROYAL_MARRIAGE = 10,
@@ -264,6 +265,7 @@ NDiplomacy = {
 	PEACE_COST_REVOKE_ELECTOR = 60,					-- Revoke an elector title
 	PEACE_COST_UNION = 60, 							-- _DDEF_PEACE_COST_UNION_ Peace cost for forming a personal union
 	PEACE_COST_SUBJUGATE = 90, 							-- Peace cost for subjugating an enemy using the subjugation CB
+	PEACE_COST_JOIN_HRE = 90, 							-- Max Peace cost for forcing country to join the empire
 	PEACE_COST_CONVERSION = 1,					-- scaled with countrysize for forced conversion in peace.
 	PEACE_COST_RELEASE = 2, 						-- _DDEF_PEACE_COST_RELEASE_ Base Peace cost for releasing an annexed country (also increases with nr of provinces)
 	PEACE_COST_CONCEDE = 10, 						-- _DDEF_PEACE_COST_CONCEDE_ Base Peace cost for conceding defeat
@@ -380,7 +382,8 @@ NDiplomacy = {
 	BREAK_ALLIANCE_PENALTY_MONTHS = 120,			-- Break Alliance causes resentment for this many months.
 	BREAK_ALLIANCE_PENALTY_SCALER = -0.85,			-- Break Alliance resentment is scaled by this value but is capped at -100.
 	BREAK_ALLIANCE_DIPLOREP_FACTOR = 3,				-- AI acceptance factor per diplomatic reputation
-
+	AE_COALITION_THRESHOLD = -50,					-- Coalitions can form below this amount of AE opinion
+	
 	ABANDON_UNION_PRESTIGE = -25,					-- The change in prestige for the overlord when abandoning a personal union.
 
 	PAY_SUBJECT_DEBT_LIBERTY_DESIRE_REDUCTION = 5,	-- Amount of liberty desire the subject loses per paid loan
@@ -412,7 +415,7 @@ NDiplomacy = {
 	AUTODIPLO_TARGET_COALITION_HOPELESS_LIMIT = -100,
 	AUTODIPLO_TARGET_COALITION_IMPROVECAP = 80, -- Changed so this actually pushes them into the won't join level
 
-AUTODIPLO_TARGET_COALITION_START_TO_IGNORE_AE_ABOVE_THIS = -25,
+    AUTODIPLO_TARGET_COALITION_START_TO_IGNORE_AE_ABOVE_THIS = -25,
 	AUTODIPLO_TARGET_COALITION_START_TO_IGNORE_AE_ABOVE_THIS_SCORE_MULTIPLIER = 10,
 	AUTODIPLO_TARGET_COALITION_HIGHEST_PRIORITY_AE = 50,
 	AUTODIPLO_TARGET_COALITION_IMPROVE_ABOVE_0_SCORE_BONUS = 20,
@@ -563,8 +566,8 @@ NCountry = {
 	CULTURAL_UNION_MIN_RANK = 3,				-- Minimum rank to get cultural union effect with Common Sense.
 	PRIMARY_NATION_BLOCK_CONVERT_CULTURE = 0,	-- Does primary nation of a tag existing block converting culture?
 
-	MIN_DEV_FOR_FREE_CITY = 10,					-- Capital must have at least this much development to be a free city
-	MAX_PROVINCES_FOR_FREE_CITY = 1,			-- A free city cannot have more provinces than this
+	MIN_DEV_FOR_FREE_CITY = 3,					-- Capital must have at least this much development to be a free city
+	MAX_PROVINCES_FOR_FREE_CITY = 100,			-- A free city cannot have more provinces than this
 
 	HRE_RANK = 3,								-- Emperor of the HRE is displayed as this rank (for ruler title only)
 	HRE_MAX_RANK = 3,							-- for members
@@ -1029,6 +1032,8 @@ NCountry = {
 	TRIBE_MIGRATION_ADM_COST = 0,
 	TRIBE_MIGRATION_DIP_COST = 0,
 	TRIBE_MIGRATION_MIL_COST = 50,
+	SIBERIAN_TRIBE_MIGRATION_BONUS = 50,
+	SIBERIAN_TRIBE_MIGRATION_COOLDOWN_YEARS = 5,
 
 	TRIBE_SETTLE_ADM_COST = 0,
 	TRIBE_SETTLE_DIP_COST = 50,
@@ -1228,6 +1233,7 @@ NMilitary = {
 	ARMY_ATTRITION_AT_SEA = 1,						-- How many percent attrition units take while loaded onto ships traveling open sea
 	NATIVE_FEROCITY_IMPACT = 0.05,					-- how many percentage each ferocity gives in combat bonus
 	GALLEY_BONUS_INLAND_SEA = 1.0,
+	GALLEY_BONUS_COASTAL_SEA = 0.5,
 	GALLEY_DICE_MALLUS_HIGH_SEA = 0,				-- Malus dice roll when not fighting in inland sea.
 	INSUFFICIENT_SUPPORT = -0.25,
 	SIEGE_MEMORY = 11,
@@ -1366,7 +1372,7 @@ NMilitary = {
 	NAVAL_BASE_ENGAGEMENT_WIDTH = 5,   		-- Number of ships that can fire per round
 	HEAVY_SHIP_COMBAT_WIDTH = 3,
 	LIGHT_SHIP_COMBAT_WIDTH = 1,
-	GALLEY_COMBAT_WIDTH = 0.5,
+	GALLEY_COMBAT_WIDTH = 1,
 	TRANSPORT_COMBAT_WIDTH = 1,
 	NAVAL_CASUALTY_MIN_MORALE_DAMAGE = 0.2,
 	CAPTURED_SHIP_STRENGTH = 0.3,
@@ -2087,6 +2093,18 @@ NGraphics = {
 	MAPMODE_EMPIRE_PROVINCE_FOR_DEFAULT_R = 0.0,
 	MAPMODE_EMPIRE_PROVINCE_FOR_DEFAULT_G = 0.5,
 	MAPMODE_EMPIRE_PROVINCE_FOR_DEFAULT_B = 0.0,
+	
+	MAPMODE_RELIGIOUS_LEAGUE_RELIGION_R = 0.0,
+	MAPMODE_RELIGIOUS_LEAGUE_RELIGION_G = 0.5,
+	MAPMODE_RELIGIOUS_LEAGUE_RELIGION_B = 0.0,
+
+	MAPMODE_RELIGIOUS_LEAGUE_HERETIC_RELIGION_R = 0.0,
+	MAPMODE_RELIGIOUS_LEAGUE_HERETIC_RELIGION_G = 0.0,
+	MAPMODE_RELIGIOUS_LEAGUE_HERETIC_RELIGION_B = 0.5,
+
+	MAPMODE_PERPETUAL_DIET_LOCATION_R = 0.2,
+	MAPMODE_PERPETUAL_DIET_LOCATION_G = 0.8,
+	MAPMODE_PERPETUAL_DIET_LOCATION_B = 0.8,
 	
 	MAX_TRADE_NODE_FLAGS_SHOWN = 5,					-- -1 is unlimited
 	SHOW_TRADE_MODIFIERS_IN_TRADE_MAP_MODE = 1,		-- 1 = true, 0 = false

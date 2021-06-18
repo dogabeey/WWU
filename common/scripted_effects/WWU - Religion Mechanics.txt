@@ -1005,7 +1005,10 @@ battle_cult_spreading_effect = {
 				NOT = { has_unlocked_cult = shamanistic_teaching }
 			}
 			ROOT = {
-				religion = shamanism
+				OR = {
+                    religion = shamanism
+                    religion = tauren_shamanism
+                }
 			}
 		}
 		FROM = { country_event = { id = battle_teaching.24 } }
@@ -1291,7 +1294,10 @@ unlock_initial_cults = {
         }
         if = {
             limit = {
-                religion = shamanism
+                OR = {
+                    religion = shamanism
+                    religion = tauren_shamanism
+                }
             }
             unlock_cult = shamanistic_teaching
         }
