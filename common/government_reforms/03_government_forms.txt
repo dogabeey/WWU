@@ -746,42 +746,6 @@ magocracy_reform = {
 		}
     }
 }
-free_city_reform = {
-	icon = "free_city"
-    legacy_equivalent = free_city_legacy
-    
-    potential = {
-		have_had_reform = free_city_reform
-	}
-    
-    free_city = yes
-    fixed_rank = 1
-    duration = 4
-    
-    custom_attributes = {
-		locked_government_type = yes
-	}
-    
-	modifiers = {
-		trade_efficiency = 0.1
-		development_cost = -0.1
-		governing_capacity_modifier = -0.25
-	}
-
-	ai = { factor = 0 }
-    
-    valid_for_new_country = no      # Can be converted to via nation release
-    allow_normal_conversion = no    # Can be picked as a new reform
-    allow_convert = no              # Can be converted to via peace term
-    lock_level_when_selected = yes
-
-    valid_for_nation_designer = yes
-    nation_designer_cost = 0
-    nation_designer_trigger = {
-		capital_scope = { is_part_of_hre = yes }
-		NOT = { num_custom_nation_provinces = 2 }
-	}
-}
 trading_city_reform = {
 	icon = "trading_city"
     legacy_equivalent = trading_city_legacy
@@ -1163,6 +1127,7 @@ druidic_circle_reform = {
         OR = {
             religion = druidism
             religion = shamanism
+            religion = tauren_shamanism
         }
     }
     
@@ -1196,6 +1161,7 @@ druidic_circle_reform = {
         OR = {
             religion = druidism
             religion = shamanism
+            religion = tauren_shamanism
         }
     }
 }
@@ -1915,6 +1881,43 @@ tauren_tribe_reform = {
     
     valid_for_nation_designer = yes
     nation_designer_cost = 0
+}
+free_city_reform = {
+	icon = "free_city"
+    legacy_equivalent = free_city_legacy
+    
+    potential = {
+		have_had_reform = free_city_reform
+	}
+    
+    free_city = yes
+    fixed_rank = 1
+    
+    heir = yes
+	queen = yes
+    
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+	modifiers = {
+		army_tradition = 1
+		defensiveness = 0.33
+		governing_capacity_modifier = -0.25
+	}
+
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+		capital_scope = { is_part_of_hre = yes }
+	}
 }
 centaur_khanate_reform = {
 	icon = "centaur_khanate"

@@ -1,6 +1,7 @@
 country_decisions = {
 	cultural_purge = {
 		potential = {
+			NOT = { has_country_modifier = purged_race_nation }
 			OR = {
 				is_savage = yes
 				is_pure_evil = yes
@@ -9,23 +10,27 @@ country_decisions = {
 			}
 			any_owned_province = {
 				NOT = { culture_group = ROOT }
+                NOT = { accepted_culture = ROOT }
 			}
 		}
 		allow =  {
-			mil_power = 100
-			NOT = { has_country_modifier = purged_race_nation }
+			scaled_mil_power_check = yes
 		}
 	  	effect = {
-			add_mil_power = -100
+			scaled_mil_power_effect = yes
+            
 			add_country_modifier = {
 				name = purged_race_nation
-				duration = 1000
+				duration = 3650
 			}
 			random_owned_province = {
 				limit = { 
 					NOT = { culture_group = ROOT }
+                    NOT = { accepted_culture = ROOT }
 				}
-				add_devastation = 20
+                
+				add_devastation = 25
+                
 				every_country = {
 					limit = {
 						culture_group = PREV
@@ -35,8 +40,10 @@ country_decisions = {
 						modifier = purged_our_people
 					} 
 				}
+                
 				change_culture = ROOT
 				change_religion = ROOT
+                
 				add_province_modifier = {
 					name = purged_race_province
 					duration = 3650
@@ -50,27 +57,28 @@ country_decisions = {
 	
 	forced_emigration = {
 		potential = {
+			NOT = { has_country_modifier = emigrated_race_nation }
 			NOT = { is_pure_evil = yes }
 			NOT = { is_savage = yes }
-		}
-		allow =  {
-			adm_power = 100
-			years_of_income = 0.33
-			NOT = { has_country_modifier = emigrated_race_nation }
-			any_owned_province = {
+            any_owned_province = {
 				NOT = { culture_group = ROOT }
+                NOT = { accepted_culture = ROOT }
 			}
 		}
+		allow =  {
+			scaled_mil_power_check = yes
+		}
 	  	effect = {
-			add_adm_power = -100
-			add_years_of_income = -0.33
+			scaled_mil_power_effect = yes
+            
 			add_country_modifier = {
 				name = emigrated_race_nation
-				duration = 1000
+				duration = 3650
 			}
 			random_owned_province = {
 				limit = { 
-					NOT = { culture_group = ROOT } 
+					NOT = { culture_group = ROOT }
+                    NOT = { accepted_culture = ROOT }
 				}
 				every_country = {
 					limit = {

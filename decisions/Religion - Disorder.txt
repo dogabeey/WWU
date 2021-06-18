@@ -52,57 +52,49 @@ country_decisions = {
 	}
     
     invite_legion_emissaries = {
-		potential = {
-            NOT = { has_country_modifier = burning_legion_emissaries }
-			religion = fel
+        potential = {
+            NOT = { has_ruler_modifier = burning_legion_emissaries }
+            religion = fel
 			NOT = { tag = B92 }
 		}
-		allow = {   
-            dip = 4
-            dip_power = 100
+		allow = {
+            ruler_religion = ROOT
+            dip = 3
+            scaled_dip_power_check = yes
 		}
-		effect = {
-            add_dip_power = -100
-            add_country_modifier = {
+        effect = {
+            scaled_dip_power_effect = yes
+            
+            add_ruler_modifier = {
                 name = burning_legion_emissaries
                 duration = -1
             }
-		}
-		
+        }
 		ai_will_do = {
 			factor = 1
-            
-            modifier = {
-                factor = 0
-                
-                NOT = { dip = 6 }
-            }
 		}
 	}
     
     construct_fel_conduits = {
         potential = {
+            NOT = { has_ruler_modifier = fel_conduits }
             religion = fel
-            NOT = { has_country_modifier = fel_conduits }
-        }
-        allow = {
-            religion = fel
-            adm_power = 100
-        }
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
         effect = {
-            add_adm_power = -100
-            add_country_modifier = {
-                name = fel_conduits
-                duration = 3650
-            }
-        }		
-        ai_will_do = {
-            factor = 1
+            scaled_mil_power_effect = yes
             
-            modifier = {
-                factor = 0
-                religious_unity = 1.0
+            add_ruler_modifier = {
+                name = fel_conduits
+                duration = -1
             }
         }
-    }
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }
