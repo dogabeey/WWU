@@ -1,3 +1,6 @@
+#-------------------------------------------
+# General
+#-------------------------------------------
 estate_peasants_land_rights = {
 	icon = privilege_blueprint
 	
@@ -281,3 +284,40 @@ estate_peasants_religious_tolerance = {
 		factor = 0
 	}
 }
+
+#-------------------------------------------
+# Unique
+#-------------------------------------------
+estate_peasants_titanic_engineering = {
+	icon = privilege_craftsman
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.05
+    
+	is_valid = {
+		OR = {
+            religion = titan_worship
+            religion = mystery_of_the_makers
+        }
+	}
+	can_select = {
+		OR = {
+            religion = titan_worship
+            religion = mystery_of_the_makers
+        }
+	}
+	penalties = {
+		build_cost = 0.25
+	}
+	benefits = {
+        build_time = -0.5
+	}
+    
+	ai_will_do = {
+		factor = 0
+	}
+}
+
