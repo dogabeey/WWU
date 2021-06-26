@@ -1,0 +1,156 @@
+#--------------------------------------
+# Missions
+#--------------------------------------
+wwu_amani_column_4 = { 
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A58
+	} 
+    
+	wwu_bolster_amani_forces = { 
+		icon = mission_blood_rage
+        
+		required_missions = {  } 
+        
+		trigger = {
+            stability = 1
+            army_size_percentage = 1.0
+            manpower_percentage = 1.0
+		}
+		effect = { 
+            add_mil_power = 100
+            
+            region_ghostlands = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_expand_amani_reach = { 
+		icon = mission_troll_hexxer
+        
+		required_missions = { wwu_bolster_amani_forces } 
+        
+		trigger = {
+            region_ghostlands = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_ghostlands
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_amani_expansionism"
+				duration = -1
+			}
+            region_eversong_woods = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_domination_of_the_elves = { 
+		icon = mission_troll_male
+        
+		required_missions = { wwu_expand_amani_reach } 
+        
+		trigger = {
+            region_eversong_woods = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_eversong_woods
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_conquest_of_silvermoon"
+				duration = -1
+			}
+            region_isle_of_quel_danas = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_desecrate_the_sunwell = { 
+		icon = mission_orbital_strike
+        
+		required_missions = { wwu_domination_of_the_elves } 
+        
+		trigger = {
+            region_isle_of_quel_danas = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_isle_of_quel_danas
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_desecration_of_the_sunwell"
+				duration = -1
+			}
+            2991 = {
+                add_permanent_province_modifier = {
+                    name = mission_province_desecration_of_the_sunwell
+                    duration = -1
+                }
+            }
+		}
+	}
+}
+
+wwu_amani_column_5 = { 
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A58
+	} 
+    
+	wwu_bolster_the_amani_fleet = { 
+		icon = mission_ship_1
+        
+		required_missions = {  } 
+        
+		trigger = {
+            heavy_ship_fraction = 0.25
+            galley_fraction = 0.25
+            sailors_percentage = 1.0
+            navy_size_percentage = 1.0
+		}
+		effect = { 
+			add_country_modifier = {
+                name = mission_amani_grand_fleet
+                duration = -1
+            }
+		}
+	}
+    wwu_subjugate_lesser_tribes = {
+		icon = mission_camp_flag
+        
+		required_missions = { wwu_bolster_the_amani_fleet } 
+        
+		trigger = {
+            adm = 5
+            dip = 5
+            mil = 5
+            is_monarch_leader = yes
+		}
+		effect = { 
+			add_country_modifier = {
+                name = mission_amani_subjugation
+                duration = -1
+            }
+            custom_tooltip = AMANI_SUBJUGATION_AGREEMENT_TT
+		}
+	}
+}

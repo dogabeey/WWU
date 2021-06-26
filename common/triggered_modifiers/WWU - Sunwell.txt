@@ -10,6 +10,7 @@ power_of_the_sunwell = {
     
 	trigger = {
        2991 = {
+            NOT = { has_province_modifier = mission_province_desecration_of_the_sunwell }
             owned_by = ROOT
        }
 	}
@@ -31,7 +32,10 @@ loss_of_the_sunwell = {
     
 	trigger = {
        2991 = {
-            NOT = { owned_by = ROOT }
+            OR = {
+                has_province_modifier = mission_province_desecration_of_the_sunwell
+                NOT = { owned_by = ROOT }
+            }
        }
 	}
     

@@ -258,3 +258,19 @@ cb_reclaim_mulgore = {
 	war_goal = take_capital_justified
 }
 
+cb_subjugate_lesser_trolls = {
+    valid_for_subject = no
+
+	prerequisites = {
+        culture_group = culture_group_troll
+        has_country_modifier = mission_amani_subjugation
+        provinces_on_capital_continent_of = FROM
+        
+        FROM = {
+            culture_group = culture_group_troll
+            is_subject = no
+        }
+	}
+
+	war_goal = take_capital_vassalize
+}
