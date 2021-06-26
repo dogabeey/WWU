@@ -288,6 +288,28 @@ wwu_diplomatic_missions = {
 			}
 		}
 	}
+    
+    wwu_global_dominance = {
+		icon = mission_gold_pile
+		required_missions = { }
+		position = 6
+		
+		trigger = {
+			home_trade_node = {
+				highest_value_trade_node = yes
+				is_strongest_trade_power = ROOT
+			}
+			
+		}
+		
+		effect = {
+			add_prestige = 30
+			add_country_modifier = {
+				name = "mission_global_dominance"
+				duration = -1
+			}
+		}
+	}
 }
 
 wwu_administrative_missions = {
@@ -385,63 +407,20 @@ wwu_administrative_missions = {
 			}
 		}
 	}
-}
-
-# These are replaced by the story missions if a nation has unique missions
-wwu_prestige_missions = {
-	slot = 4
-	
-	generic = yes
-	
-	potential = {
-	   always = yes
-	}
-	
-    wwu_prestigious_nation_mission = {
-		icon = mission_ancient_tablet
-        position = 1
-        
-		required_missions = {  } 
-        
-		trigger = { 
-            prestige = 100
-        }
-		effect = {
-			add_country_modifier = {
-				name = "mission_prestigious_nation"
-				duration = -1
-			}
-		}
-	}
-	
-    wwu_mercantile_nation_mission = {
-		icon = mission_oil
-        position = 2
-        
-		required_missions = {  } 
-        
+    
+    wwu_faiths_bastion = {
+		icon = mission_city_of_gold
+		required_missions = { }
+		position = 6
+		
 		trigger = {
-			num_of_strong_trade_companies = 5
+			has_ruler_modifier = bastion_of_the_faith
+			religious_unity = 1
 		}
+		
 		effect = {
 			add_country_modifier = {
-				name = "mission_mercantile_nation"
-				duration = -1
-			}
-		}
-	}
-	wwu_absolute_nation_mission = {
-		icon = mission_black_dragonflight
-        
-		required_missions = {  } 
-        
-		trigger = { 
-            absolutism = 100
-        }
-        
-		effect = {
-			add_country_modifier = {
-				name = "mission_absolute_nation"
+				name = "mission_faiths_bastion"
 				duration = -1
 			}
 		}
