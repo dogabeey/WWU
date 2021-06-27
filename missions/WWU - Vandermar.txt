@@ -1,5 +1,5 @@
 #--------------------------------------
-# Vandermar
+# Missions
 #--------------------------------------
 wwu_vandermar_column_4 = { 
 	slot = 4
@@ -17,10 +17,11 @@ wwu_vandermar_column_4 = {
 		required_missions = {  } 
         
 		trigger = {
-            hidden_trigger = {
-                overlord = {
-                    ai = no # Don't allow this for AI if the overlord is the player
+            if = {
+                limit = {
+                    ai = yes
                 }
+                liberty_desire = 30
             }
             army_size_percentage = 1.0
             manpower_percentage = 1.0
