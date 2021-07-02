@@ -24,4 +24,100 @@ country_decisions = {
 			factor = 0
 		}
 	}
+    
+    ruler_focus_on_economy = {
+		potential = {
+			is_lesser = yes
+            NOT = { has_country_modifier = lesser_focus_on_economy }
+            NOT = { has_country_modifier = lesser_focus_on_diplomacy }
+            NOT = { has_country_modifier = lesser_focus_on_war }
+		}
+		allow =  {
+			NOT = { has_country_modifier = lesser_focus_on_economy }
+            NOT = { has_country_modifier = lesser_focus_on_diplomacy }
+            NOT = { has_country_modifier = lesser_focus_on_war }
+            adm_power = 100
+		}
+		effect = {
+            add_adm_power = -100
+            
+			add_ruler_modifier = {
+                name = lesser_focus_on_economy
+                duration = -1
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { personality = ai_capitalist }
+            }
+		}
+	}
+    
+    ruler_focus_on_diplomacy = {
+		potential = {
+			is_lesser = yes
+            NOT = { has_country_modifier = lesser_focus_on_economy }
+            NOT = { has_country_modifier = lesser_focus_on_diplomacy }
+            NOT = { has_country_modifier = lesser_focus_on_war }
+		}
+		allow =  {
+			NOT = { has_country_modifier = lesser_focus_on_economy }
+            NOT = { has_country_modifier = lesser_focus_on_diplomacy }
+            NOT = { has_country_modifier = lesser_focus_on_war }
+            dip_power = 100
+		}
+		effect = {
+            add_dip_power = -100
+            
+			add_ruler_modifier = {
+                name = lesser_focus_on_diplomacy
+                duration = -1
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { personality = ai_diplomat }
+            }
+		}
+	}
+    
+    ruler_focus_on_war = {
+		potential = {
+			is_lesser = yes
+            NOT = { has_country_modifier = lesser_focus_on_economy }
+            NOT = { has_country_modifier = lesser_focus_on_diplomacy }
+            NOT = { has_country_modifier = lesser_focus_on_war }
+		}
+		allow =  {
+			NOT = { has_country_modifier = lesser_focus_on_economy }
+            NOT = { has_country_modifier = lesser_focus_on_diplomacy }
+            NOT = { has_country_modifier = lesser_focus_on_war }
+            mil_power = 100
+		}
+		effect = {
+            add_mil_power = -100
+            
+			add_ruler_modifier = {
+                name = lesser_focus_on_war
+                duration = -1
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { personality = ai_militarist }
+            }
+		}
+	}
 }
