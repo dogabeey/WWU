@@ -104,20 +104,23 @@ is_merchant = {
 }
 
 is_lesser = {
-    OR = {
-        technology_group = tech_depths
-        technology_group = tech_gnoll
-        technology_group = tech_centaur
-        technology_group = tech_furbolg
-        technology_group = tech_wolfvar
-        technology_group = tech_gorloc
-        technology_group = tech_kobold
-        technology_group = tech_harpy
-        technology_group = tech_quillboar
-        technology_group = tech_primitive
-        technology_group = tech_magnataur
+    custom_trigger_tooltip = {
+        tooltip = IS_LESSER_TT
+        OR = {
+            technology_group = tech_depths
+            technology_group = tech_gnoll
+            technology_group = tech_centaur
+            technology_group = tech_furbolg
+            technology_group = tech_wolfvar
+            technology_group = tech_gorloc
+            technology_group = tech_kobold
+            technology_group = tech_harpy
+            technology_group = tech_quillboar
+            technology_group = tech_primitive
+            technology_group = tech_magnataur
+        }
+        NOT = { has_country_flag = was_lesser } # set this on a lesser race to make them lesser no more.
     }
-	NOT = { has_country_flag = was_lesser } # set this on a lesser race to make them lesser no more.
 }
 
 is_bug = {
