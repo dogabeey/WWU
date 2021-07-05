@@ -409,10 +409,18 @@ age_scourge = {
 	can_start = {
 		custom_trigger_tooltip = {
 			tooltip = age_scourge_condition
-            current_age = age_orcish_horde
-            any_country = {
-                is_member_of_faction = { faction = alliance }
-                owns = 1035
+            OR = {
+                AND = {
+                    current_age = age_orcish_horde
+                    any_country = {
+                        is_member_of_faction = { faction = alliance }
+                        owns = 1035
+                    }
+                }
+                # Fallback if the Orcs fail to invade
+                AND = {
+                    is_year = 700
+                }
             }
 		}
 	}
