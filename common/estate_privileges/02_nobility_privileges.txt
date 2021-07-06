@@ -305,35 +305,16 @@ estate_nobility_regional_governance = {
 	influence = 0.1
     
 	is_valid = {
-		has_estate_privilege = estate_nobility_regional_governance
 		OR = {
-			any_subject_country = {
-				is_march = yes
-			}
-			vassal = 1
-		}
+            num_of_vassals = 1
+            num_of_marches = 1
+        }
 	}
 	can_select = {
-		if = {
-			limit = {
-				has_dlc = "Art of War"
-			}
-			custom_trigger_tooltip = {
-				tooltip = estate_nobility_regional_governance_tooltip
-				calc_true_if = {
-					amount = 2
-					all_subject_country = {
-						OR = {
-							is_march = yes
-							is_vassal = yes
-						}
-					}
-				}
-			}
-		}
-		else = {
-			vassal = 2
-		}
+		OR = {
+            num_of_vassals = 1
+            num_of_marches = 1
+        }
 	}
 	penalties = {
 	}
