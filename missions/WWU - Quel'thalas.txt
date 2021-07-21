@@ -1,0 +1,142 @@
+#--------------------------------------
+# Missions
+#--------------------------------------
+wwu_quelthalas_column_4 = { 
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A90
+	} 
+    
+	wwu_prepare_for_troll_invasion = { 
+		icon = mission_blood_elf_male
+        
+		required_missions = {  } 
+        
+		trigger = {
+            has_casus_belli_against = A58
+            army_size_percentage = 1.0
+            manpower_percentage = 1.0
+		}
+		effect = { 
+            add_mil_power = 100
+            
+			region_eversong_woods = {
+                add_permanent_claim = ROOT
+            }
+            region_ghostlands = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_secure_silvermoon_city = { 
+		icon = mission_green_essence
+        
+		required_missions = { wwu_prepare_for_troll_invasion } 
+        
+		trigger = {
+            region_eversong_woods = {
+                type = all
+                owned_by = ROOT
+            }
+            region_ghostlands = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            OR = {
+                region = region_eversong_woods
+                region = region_ghostlands
+            }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_silvermoon_secured"
+				duration = -1
+			}
+            region_zulaman = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_crush_the_troll_remnants = { 
+		icon = mission_troll_male
+        
+		required_missions = { wwu_secure_silvermoon_city } 
+        
+		trigger = {
+            region_zulaman = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_zulaman
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_conquest_of_zulaman"
+				duration = -1
+			}
+		}
+	}
+}
+
+wwu_quelthalas_column_5 = { 
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A90
+	} 
+    
+	wwu_work_with_the_kirin_tor = { 
+		icon = mission_arcane_book
+        
+		required_missions = {  } 
+        
+		trigger = {
+            alliance_with = A18
+            A18 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 150
+                }
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+                name = mission_kirin_tor_support
+                duration = -1
+            }
+		}
+	}
+    wwu_establish_border_agreement_with_lordaeron = { 
+		icon = mission_camp_flag
+        
+		required_missions = { } 
+        
+		trigger = {
+            alliance_with = A08
+            A08 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 150
+                }
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+                name = mission_lordaeron_border_agreement
+                duration = -1
+            }
+            custom_tooltip = LORDAERON_BORDER_AGREEMENT_TT
+		}
+	}
+}

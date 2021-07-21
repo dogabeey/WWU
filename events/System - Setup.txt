@@ -1,0 +1,196 @@
+namespace = wwu_setup
+
+#---------------------------------------
+# World
+#---------------------------------------
+country_event = {
+	id = wwu_setup.1
+	title = wwu_setup.1.title
+	desc = wwu_setup.1.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { has_global_flag = completed_wwu_setup }
+        ai = no
+    }
+
+    immediate = {
+        set_global_flag = completed_wwu_setup
+        
+        # World State
+        set_historical_faction_conflict = yes
+        #hre_inheritable = yes
+        #set_papacy_active = no
+        
+        # Initializes variables which are used in on_actions
+		init_variables = yes
+		
+		# Religious and Cultural Unity for ALL NATIONS on start and Core creation.
+		# This will override history files in default setting. See script file to see how to avoid overriding.
+		init_full_unity = yes
+        
+        # Game flags
+        #  Used to detect which bookmark the flag starts in, accounting for time adjustments
+        if = {
+            limit = {
+                is_year = 592
+            }
+            set_global_flag = dark_portal_built
+        }
+        
+        # Rise of the Horde
+        if = { 
+            limit = {
+                is_year = 546
+                NOT = { is_year = 592 }
+            }
+            set_global_flag = rise_of_the_horde
+        }
+
+        # The First War
+        if = { 
+            limit = {
+                is_year = 592
+                NOT = { is_year = 598 }
+            }
+            set_global_flag = the_first_war
+        }
+
+        # The Second War
+        if = { 
+            limit = {
+                is_year = 598
+                NOT = { is_year = 600 }
+            }
+            set_global_flag = the_second_war
+        }
+		
+        # Beyond The Dark Portal
+        if = { 
+            limit = {
+                is_year = 600
+                NOT = { is_year = 617 }
+            }
+            set_global_flag = beyond_the_dark_portal
+        }
+
+        # The Third War
+        if = { 
+            limit = {
+                is_year = 617
+                NOT = { is_year = 618 }
+            }
+            set_global_flag = the_third_war 
+        }
+
+        # The Frozen Throne
+        if = { 
+            limit = {
+                is_year = 618
+                NOT = { is_year = 622 }
+            }
+            set_global_flag = the_frozen_throne
+        }
+
+        # The Rise of the Qiraji
+        if = { 
+            limit = {
+                is_year = 622
+                NOT = { is_year = 625 }
+            }
+            set_global_flag = rise_of_the_qiraji
+        }
+
+        # The Burning Crusade
+        if = { 
+            limit = {
+                is_year = 625
+                NOT = { is_year = 626 }
+            }
+            set_global_flag = the_burning_crusade
+        }
+
+        # Wrath of the Lich King
+        if = { 
+            limit = {
+                is_year = 626
+                NOT = { is_year = 631 }
+            }
+            set_global_flag = wrath_of_the_lich_king
+        }
+
+        # Cataclysm
+        if = { 
+            limit = {
+                is_year = 631
+                NOT = { is_year = 632 }
+            }
+            set_global_flag = cataclysm
+        }
+
+        # Mists of Pandaria
+        if = { 
+            limit = {
+                is_year = 632
+                NOT = { is_year = 700 }
+            }
+            set_global_flag = mists_of_pandaria
+        }
+        if = { 
+            limit = {
+                is_year = 700
+            }
+            set_global_flag = doomed_world
+        }
+    }
+
+    option = {
+		name = wwu_setup.1.option.a
+    }  
+}
+
+#---------------------------------------
+# Country
+#---------------------------------------
+country_event = {
+	id = wwu_setup.2
+	title = wwu_setup.2.title
+	desc = wwu_setup.2.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    is_triggered_only = yes
+    hidden = yes
+
+    trigger = {
+        NOT = { has_country_flag = completed_country_wwu_setup }
+    }
+    
+    immediate = {
+        if = {
+             limit = { ai = no }
+             
+             set_country_flag = trade_control_flag
+        }
+        
+        # Government
+        if = {
+            limit = {
+                has_reform = wwu_hereditary_rule_reform
+                has_heir = no
+            }
+            set_country_flag = country_has_no_heir
+            #
+        }
+        
+        discover_home_continent = yes
+        
+        set_country_flag = completed_country_wwu_setup
+    }
+    
+    option = {
+		name = wwu_setup.2.option.a
+    }  
+}

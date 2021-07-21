@@ -1,0 +1,153 @@
+namespace = suramar
+
+country_event = {
+	id = suramar.1
+	title = suramar.1.title # Loss of the Nightwell
+	desc = suramar.1.desc # Loss of the Nightwell has put our people's lives in jeopardy. As our arcwine supplies run out, our adminstration has to make difficult decisions while distributing the remaining arcwines. Two of our provinces, [withering_1.GetName] and [withering_2.GetName], now are in danger of withering due arcane deprivation.
+	picture = BLOODLUST_eventPicture
+
+    is_triggered_only = no
+
+	trigger = {
+		has_country_modifier = loss_of_the_nightwell
+		num_of_owned_provinces_with  = {
+			value = 2
+			culture = culture_nightborne
+			is_capital = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.8
+			has_country_flag  = postponed_arcwine_draught
+		}
+	}
+	
+	immediate = {
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				culture = culture_nightborne
+			}
+			
+			save_event_target_as = withering_1
+			set_province_flag = withering_flag
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				culture = culture_nightborne
+				NOT = { has_province_flag = withering_flag }
+			}
+			
+			save_event_target_as = withering_2
+			set_province_flag = withering_flag
+		}
+		
+	}
+
+	option = {
+		name = suramar.1.opt1
+		trigger = {
+			has_saved_event_target = withering_1 # Steer arcwine supplies to [withering_1.GetName] and let [withering_2.GetName] wither.
+		}
+		
+		add_adm_power = -25
+		event_target:withering_1 = {
+			add_base_production = 1
+		}
+		event_target:withering_2 = {
+			add_base_production = -1
+			change_culture = culture_withered
+			add_province_modifier = {
+				name = withered_province
+				duration = 730
+			}
+		}
+	}
+    
+    option = {
+		name = suramar.1.opt2
+		trigger = {
+			has_saved_event_target = withering_2 # Steer arcwine supplies to [withering_2.GetName] and let [withering_1.GetName] wither.
+		}
+		
+		add_adm_power = -25
+		event_target:withering_2 = {
+			add_base_production = 1
+		}
+		event_target:withering_1 = {
+			add_base_production = -1
+			change_culture = culture_withered
+			add_province_modifier = {
+				name = withered_province
+				duration = 730
+			}
+		}
+	}
+    
+    option = {
+		name = suramar.1.opt3 # Try to postpone the disaster.
+		trigger = {
+			ruler_has_personality = mage_personality
+		}
+		
+		add_mil_power = -50
+		add_dip_power = -50
+		
+		set_country_flag  = postponed_arcwine_draught
+	}
+	
+	after = {
+		event_target:withering_1 = {
+			clr_province_flag = withering_flag
+		}
+		event_target:withering_2 = {
+			clr_province_flag = withering_flag
+		}
+	}
+}
+
+country_event = {
+	id = suramar.2
+	title = suramar.2.title # Loss of the Nightwell
+	desc = suramar.2.desc # Loss of the Nightwell has put our people's lives in jeopardy. As our arcwine supplies run out, our adminstration has to make difficult decisions while distributing the remaining arcwines. We are trying to sate our thirst by ley lines or mana crystals, but we need to quickly find a permanent solution.
+	picture = BLOODLUST_eventPicture
+
+    is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+	
+	immediate = {
+	}
+
+	option = {
+		name = suramar.2.opt1 # Do... Do you have any of those mana crystals?
+	}
+}
+country_event = {
+	id = suramar.3
+	title = suramar.3.title # Loss of the Nightwell
+	desc = suramar.3.desc # Loss of the Nightwell has put our people's lives in jeopardy. As our arcwine supplies run out, our adminstration has to make difficult decisions while distributing the remaining arcwines. We are trying to sate our thirst by ley lines or mana crystals, but we need to quickly find a permanent solution.
+	picture = BLOODLUST_eventPicture
+
+    is_triggered_only = yes
+	hidden = yes
+
+	trigger = {
+		always = yes
+	}
+	
+	immediate = {
+	}
+
+	option = {
+		name = suramar.3.opt1 # 
+		change_culture = culture_nightfallen
+		add_stability = -2
+	}
+}

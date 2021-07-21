@@ -1,0 +1,171 @@
+namespace = wwu_celestials
+
+# Blessing of Yu'lon
+country_event = {
+	id = wwu_celestials.1
+	title = "wwu_celestials.1.title"
+	desc = "wwu_celestials.1.desc"
+	picture = BIG_BOOK_eventPicture	
+
+	is_triggered_only = yes	
+	
+	trigger = {
+		religion = celestials
+        has_personal_deity = deity_yulon
+        NOT = { has_country_modifier = celestial_support }
+	}
+
+	mean_time_to_happen = {
+		days = 1		
+	}
+
+	option = {
+		name = "wwu_celestials.1.option.a"
+		
+        add_country_modifier = {
+            name = blessing_of_yulon
+            duration = 3650
+        }
+	}
+    option = {
+		name = "wwu_celestials.1.option.b"
+		
+        add_corruption = -5
+	}
+}
+
+# Blessing of Chi'ji
+country_event = {
+	id = wwu_celestials.2
+	title = "wwu_celestials.2.title"
+	desc = "wwu_celestials.2.desc"
+	picture = BIG_BOOK_eventPicture	
+
+	is_triggered_only = yes	
+	
+	trigger = {
+		religion = celestials
+        has_personal_deity = deity_chiji
+        NOT = { has_country_modifier = celestial_support }
+	}
+
+	mean_time_to_happen = {
+		days = 1		
+	}
+
+	option = {
+		name = "wwu_celestials.2.option.a"
+		
+        add_country_modifier = {
+            name = blessing_of_chiji
+            duration = 3650
+        }
+	}
+    option = {
+		name = "wwu_celestials.2.option.b"
+		
+        add_stability = 1
+	}
+}
+
+# Blessing of Niuazo
+country_event = {
+	id = wwu_celestials.3
+	title = "wwu_celestials.3.title"
+	desc = "wwu_celestials.3.desc"
+	picture = BIG_BOOK_eventPicture	
+
+	is_triggered_only = yes	
+	
+	trigger = {
+		religion = celestials
+        has_personal_deity = deity_niuzao
+        NOT = { has_country_modifier = celestial_support }
+	}
+
+	mean_time_to_happen = {
+		days = 1		
+	}
+
+	option = {
+		name = "wwu_celestials.3.option.a"
+		
+        add_country_modifier = {
+            name = blessing_of_niuzao
+            duration = 3650
+        }
+	}
+    option = {
+		name = "wwu_celestials.3.option.b"
+		
+        add_prestige = 20
+	}
+}
+
+# Blessing of Xuen
+country_event = {
+	id = wwu_celestials.4
+	title = "wwu_celestials.4.title"
+	desc = "wwu_celestials.4.desc"
+	picture = BIG_BOOK_eventPicture	
+
+	is_triggered_only = yes	
+	
+	trigger = {
+		religion = celestials
+        has_personal_deity = deity_xuen
+        NOT = { has_country_modifier = celestial_support }
+	}
+
+	mean_time_to_happen = {
+		days = 1		
+	}
+
+	option = {
+		name = "wwu_celestials.4.option.a"
+		
+        add_country_modifier = {
+            name = blessing_of_xuen
+            duration = 3650
+        }
+	}
+    option = {
+		name = "wwu_celestials.4.option.b"
+		
+        add_absolutism = 5
+	}
+}
+
+# Cleanup the "Call upon" generals
+country_event = {
+	id = wwu_celestials.10
+	title = "wwu_celestials.10.title"
+	desc = "wwu_celestials.10.desc"
+	picture = BIG_BOOK_eventPicture	
+
+	is_triggered_only = yes	
+    hidden = yes
+	
+	mean_time_to_happen = {
+		days = 1		
+	}
+
+	option = {
+		name = "wwu_celestials.10.option.a"
+		
+        kill_leader = {
+            type = "The Jade Serpent"
+        }
+        kill_leader = {
+            type = "The Red Crane"
+        }
+        kill_leader = {
+            type = "The Black Ox"
+        }
+        kill_leader = {
+            type = "The White Tiger"
+        }
+	}
+}
+
+

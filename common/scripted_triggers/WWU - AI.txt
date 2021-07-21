@@ -1,0 +1,221 @@
+#-----------------------------
+# Buildings
+#-----------------------------
+has_every_essential_building_trigger = {
+	AND = {
+		has_manufactory_trigger = yes
+		has_tax_building_trigger = yes
+		has_production_building_trigger = yes
+		has_courthouse_building_trigger = yes
+	}
+}
+
+#-----------------------------
+# Terrain
+#-----------------------------
+flat_terrain_trigger = {
+	OR = {
+		has_terrain = farmlands
+		has_terrain = grasslands
+		has_terrain = steppe
+		has_terrain = drylands
+		has_terrain = savannah
+		has_terrain = marsh
+		has_terrain = coastal_desert
+		has_terrain = coastline
+        has_terrain = urban
+        has_terrain = suspended
+        has_terrain = underwater
+        has_terrain = underground
+        has_terrain = complex
+	}
+}
+
+high_terrain_trigger = {
+	OR = {
+		has_terrain = mountain
+		has_terrain = hills
+		has_terrain = highlands
+	}
+}
+
+forest_terrain_trigger = {
+	OR = {
+		has_terrain = forest
+		has_terrain = woods
+		has_terrain = jungle
+	}
+}
+
+bad_terrain_trigger = {
+	OR = {
+		has_terrain = glacier
+		has_terrain = desert
+        has_terrain = desolate_waste
+        has_terrain = nethertouched
+        has_terrain = arcanetouched
+        has_terrain = feltouched
+        has_terrain = passage
+        has_terrain = corrupted_earth
+	}
+}
+
+#-----------------------------
+# Trade Good Quality
+#-----------------------------
+# 0 -> 4
+lowest_quality_trade_goods_trigger = {
+	OR = {
+		trade_goods = grain
+		trade_goods = fish
+		trade_goods = naval_supplies
+		trade_goods = fur
+		trade_goods = slaves
+		trade_goods = wine
+		trade_goods = wool
+		trade_goods = tropical_wood
+        trade_goods = ashenvale_lumber
+        trade_goods = lumber
+        trade_goods = stone
+        trade_goods = ale
+        trade_goods = runecloth
+        trade_goods = netherweave
+        trade_goods = fossils
+        trade_goods = artifacts
+        trade_goods = crypts
+        trade_goods = arcane
+        trade_goods = fel
+        trade_goods = army_supplies
+        trade_goods = apexis
+        trade_goods = glowcap
+	}
+}
+
+# 4 -> 5
+low_quality_trade_goods_trigger = {
+	OR = {
+		trade_goods = iron
+		trade_goods = copper
+		trade_goods = chinaware
+		trade_goods = salt
+		trade_goods = sugar
+		trade_goods = coffee
+		trade_goods = tobacco
+        trade_goods = kypari
+        trade_goods = smugglers
+        trade_goods = pirates
+        trade_goods = workshops
+        trade_goods = mounts
+        trade_goods = grain_silo
+        trade_goods = moonwell
+	}
+}
+
+# 6
+medium_quality_trade_goods_trigger = {
+	OR = {
+		trade_goods = ivory
+		trade_goods = cloth
+		trade_goods = tea
+		trade_goods = cotton
+        trade_goods = dark_iron
+        trade_goods = saronite
+        trade_goods = mithril
+        trade_goods = thorium
+        trade_goods = fel_iron
+        trade_goods = khorium
+        trade_goods = adamantite
+        trade_goods = ghost_iron
+        trade_goods = gemstones
+	}
+}
+
+# 7 -> 10
+high_quality_trade_goods_trigger = {
+	OR = {
+		trade_goods = silk
+		trade_goods = dyes
+		trade_goods = cocoa
+		trade_goods = spices
+        trade_goods = oil
+        trade_goods = titanium
+        trade_goods = elementium
+        trade_goods = flying_mounts
+        trade_goods = warbeasts
+	}
+}
+
+#-----------------------------
+# Trade Good Purpose
+#-----------------------------
+additional_manpower_goods_trigger = {
+	OR = {
+		trade_goods = grain
+		trade_goods = fish
+		trade_goods = wine
+	}
+}
+
+#-----------------------------
+# Province
+#-----------------------------
+wealthy_province_trigger = {
+	AND = {
+		development = 20
+		flat_terrain_trigger = yes
+		NOT = { devastation = 1 }
+		OR = {
+			high_quality_trade_goods_trigger = yes
+			medium_quality_trade_goods_trigger = yes
+		}
+	}
+}
+
+#-----------------------------
+# Ideagroups
+#-----------------------------
+can_select_first_idea_group_trigger = {
+	AND = {
+		adm_tech = 4
+		NOT = { adm_tech = 8 }
+	}
+}
+
+can_select_second_idea_group_trigger = {
+	AND = {
+		adm_tech = 8
+		NOT = { adm_tech = 12 }
+	}
+}
+
+can_select_third_idea_group_trigger = {
+	AND = {
+		adm_tech = 12
+		NOT = { adm_tech = 16 }
+	}
+}
+
+#-----------------------------
+# Military Power
+#-----------------------------
+has_strong_military_potential_trigger = {
+	OR = {
+		has_global_modifier_value = {
+			which = discipline
+			value = 0.05
+		}
+		has_global_modifier_value = {
+			which = land_morale
+			value = 0.1
+		}
+		has_global_modifier_value = {
+			which = shock_damage
+			value = 0.1
+		}
+		has_global_modifier_value = {
+			which = fire_damage
+			value = 0.1
+		}
+	}
+}
+

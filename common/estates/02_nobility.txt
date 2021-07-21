@@ -8,19 +8,22 @@ estate_nobility = {
     custom_name = {
         desc = estate_nobility_old_gods
         trigger = {
-            religion = religion_old_gods
+            is_old_god_religion = yes
         }
     }
     custom_name = {
         desc = estate_nobility_fel
         trigger = {
-            religion = religion_fel
+            religion = fel
         }
     }
     custom_name = {
         desc = estate_nobility_be
         trigger = {
-            OR = { culture = culture_blood_elf  culture = culture_high_elf}
+            OR = { 
+                primary_culture = culture_blood_elf  
+                primary_culture = culture_high_elf
+            }
         }
     }
     custom_name = {
@@ -55,8 +58,8 @@ estate_nobility = {
 			AND = { 
 				is_nomad = yes 
 				OR = {
-					religion = religion_fel 
-					religion = religion_old_gods 
+					religion = fel 
+					is_old_god_religion = yes
 				}
 			}
             OR = {
@@ -156,6 +159,9 @@ estate_nobility = {
 		estate_nobility_regional_governance
 		estate_nobility_supremacy_over_government
 		estate_nobility_statutory_rights
+        estate_nobility_embody_death
+        estate_nobility_fel_imbibement
+        estate_nobility_fel_corruption
 	}
 
     # ----- Agendas -----

@@ -1,12 +1,10 @@
-#Written by dogabeey
-
+# Written by dogabeey
 country_decisions = {
 	form_alliance = {
 		major = yes
 		
 		potential = {
-			
-			historical_alliance_head = yes
+			is_historical_head_of_alliance = yes
 			NOT = { has_country_modifier = alliance_head }
 			all_country = { NOT = { has_country_modifier = alliance_head } }
 		}
@@ -15,17 +13,17 @@ country_decisions = {
 			is_subject = no
 			total_development = 150
 			OR = {
-				historical_alliance_head = yes
+				is_historical_head_of_alliance = yes
 				AND = {
 					all_country = { 
-						historical_alliance_head = yes
+						is_historical_head_of_alliance = yes
 						NOT = { total_development = 150 }
 					}
-					historical_alliance = yes
+					is_historical_member_of_alliance = yes
 				}
 				AND = {
 					all_country = { 
-						historical_alliance = yes
+						is_historical_member_of_alliance = yes
 						NOT = { total_development = 150 }
 					}
 					culture_group = culture_group_human
@@ -48,8 +46,7 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			
-			historical_horde_head = yes
+			is_historical_head_of_horde = yes
 			NOT = { has_country_modifier = horde_head }
 			all_country = { NOT = { has_country_modifier = horde_head } }
 		}
@@ -58,17 +55,17 @@ country_decisions = {
 			is_subject = no
 			total_development = 150
 			OR = {
-				historical_horde_head = yes
+				is_historical_head_of_horde = yes
 				AND = {
 					all_country = { 
-						historical_horde_head = yes
+						is_historical_head_of_horde = yes
 						NOT = { total_development = 150 }
 					}
-					historical_horde = yes
+					is_historical_member_of_horde = yes
 				}
 				AND = {
 					all_country = { 
-						historical_horde = yes
+						is_historical_member_of_horde = yes
 						NOT = { total_development = 150 }
 					}
 					culture_group = culture_group_orc
@@ -121,7 +118,6 @@ country_decisions = {
 	}
 	leave_horde = {
 		potential = {
-			
 			is_subject_of_type = faction_horde
 		}
 		

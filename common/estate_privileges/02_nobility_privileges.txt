@@ -1,3 +1,6 @@
+#-------------------------------------------
+# General
+#-------------------------------------------
 estate_nobility_land_rights = {
 	icon = privilege_blueprint
 	
@@ -17,7 +20,8 @@ estate_nobility_land_rights = {
 		governing_capacity = 100
 	}
 	ai_will_do = {
-		factor = 5
+		factor = 25
+        
 		modifier = {
 			factor = 1.4
 			num_of_territories = 5
@@ -87,7 +91,7 @@ estate_nobility_military_primacy = {
 		country_military_power = 1
 	}
 	ai_will_do = {
-		factor = 12
+		factor = 25
 		modifier = {
 			factor = 0
 			OR = {
@@ -142,7 +146,7 @@ estate_nobility_officer_corp = {
 		army_tradition = 0.5
 	}
 	ai_will_do = {
-		factor = 0
+		factor = 10
 	}
 }
 
@@ -301,35 +305,16 @@ estate_nobility_regional_governance = {
 	influence = 0.1
     
 	is_valid = {
-		has_estate_privilege = estate_nobility_regional_governance
 		OR = {
-			any_subject_country = {
-				is_march = yes
-			}
-			vassal = 1
-		}
+            num_of_vassals = 1
+            num_of_marches = 1
+        }
 	}
 	can_select = {
-		if = {
-			limit = {
-				has_dlc = "Art of War"
-			}
-			custom_trigger_tooltip = {
-				tooltip = estate_nobility_regional_governance_tooltip
-				calc_true_if = {
-					amount = 2
-					all_subject_country = {
-						OR = {
-							is_march = yes
-							is_vassal = yes
-						}
-					}
-				}
-			}
-		}
-		else = {
-			vassal = 2
-		}
+		OR = {
+            num_of_vassals = 1
+            num_of_marches = 1
+        }
 	}
 	penalties = {
 	}
@@ -403,4 +388,96 @@ estate_nobility_statutory_rights = {
 	}
 
 	cooldown_years = 20
+}
+
+#-------------------------------------------
+# Unique
+#-------------------------------------------
+estate_nobility_embody_death = {
+	icon = privilege_nuke
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.05
+    
+	is_valid = {
+		religion = corrupt_dragon_aspect
+	}
+	can_select = {
+		religion = corrupt_dragon_aspect
+	}
+	penalties = {
+		diplomatic_reputation = -1
+        ae_impact = 0.1
+	}
+	benefits = {
+        infantry_power = 0.1
+	}
+    
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_nobility_fel_corruption = {
+	icon = privilege_demonic_power
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.05
+    
+	is_valid = {
+		religion = fel
+	}
+	can_select = {
+		religion = fel
+	}
+    on_granted = {
+		custom_tooltip = estate_nobility_fel_corruption_tt
+	}
+	on_revoked = {
+		custom_tooltip = estate_nobility_fel_corruption_tt
+	}
+	penalties = {
+		ae_impact = 0.2
+	}
+	benefits = {
+        
+	}
+    
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_nobility_fel_imbibement = {
+	icon = privilege_fel_skull
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.05
+    
+	is_valid = {
+		religion = fel
+	}
+	can_select = {
+		religion = fel
+	}
+	penalties = {
+		stability_cost_modifier = 0.5
+	}
+	benefits = {
+        land_morale = 0.1
+        siege_ability = 0.1
+	}
+    
+	ai_will_do = {
+		factor = 1
+	}
 }

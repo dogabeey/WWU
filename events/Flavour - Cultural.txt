@@ -12,6 +12,9 @@ country_event = {
 		}
 		years_of_income = 0.1
 		adm_power = 10
+        capital_scope = {
+            continent = continent_outland
+        }
 	}
 	
 	mean_time_to_happen = {
@@ -39,7 +42,7 @@ country_event = {
 	}
 }
 
-# Libert�, Egalit�, Fraternit�
+# 
 country_event = {
 	id = wwu_cultural.2
 	title = wwu_cultural.2.title
@@ -50,16 +53,17 @@ country_event = {
 		adm_power = 10
 		adm = 3
 		prestige = 40
-		NOT = {
-			has_country_modifier = followers_of_black_ox
-			has_country_modifier = followers_of_jade_serpent
-			has_country_modifier = followers_of_red_crane
-			has_country_modifier = followers_of_white_tiger
-			accepted_culture = culture_black_ox
-			accepted_culture = culture_jade_serpent
-			accepted_culture = culture_red_crane
-			accepted_culture = culture_white_tiger
-		}
+		NOT = { has_country_modifier = followers_of_black_ox }
+		NOT = { has_country_modifier = followers_of_jade_serpent }
+		NOT = { has_country_modifier = followers_of_red_crane }
+		NOT = { has_country_modifier = followers_of_white_tiger }
+		NOT = { accepted_culture = culture_pandaren }
+		
+        NOT = {
+            capital_scope = {
+                continent = continent_outland
+            }
+        }
 	}
 	
 	mean_time_to_happen = {
@@ -70,7 +74,7 @@ country_event = {
 		name = wwu_cultural.2.opt1
 		
 		random_owned_province = {
-			change_culture = culture_black_ox
+			change_culture = culture_pandaren
 		}
 		add_country_modifier = {
 			name = followers_of_black_ox
@@ -81,7 +85,7 @@ country_event = {
 		name = wwu_cultural.2.opt2
 		
 		random_owned_province = {
-			change_culture = culture_jade_serpent
+			change_culture = culture_pandaren
 		}
 		add_country_modifier = {
 			name = followers_of_jade_serpent
@@ -92,7 +96,7 @@ country_event = {
 		name = wwu_cultural.2.opt3
 		
 		random_owned_province = {
-			change_culture = culture_red_crane
+			change_culture = culture_pandaren
 		}
 		add_country_modifier = {
 			name = followers_of_red_crane
@@ -103,7 +107,7 @@ country_event = {
 		name = wwu_cultural.2.opt4
 		
 		random_owned_province = {
-			change_culture = culture_white_tiger
+			change_culture = culture_pandaren
 		}
 		add_country_modifier = {
 			name = followers_of_white_tiger
@@ -127,6 +131,11 @@ country_event = {
 		adm_power = 30
 		dip_power = 10
 		years_of_income = 0.4
+        NOT = {
+            capital_scope = {
+                continent = continent_outland
+            }
+        }
 	}
 	
 	mean_time_to_happen = {
@@ -211,6 +220,11 @@ country_event = {
 			has_country_modifier = bloodfang_spider
 			has_country_modifier = caravan_brutosaur
 		}
+        NOT = {
+            capital_scope = {
+                continent = continent_outland
+            }
+        }
 	}
 	
 	mean_time_to_happen = {
@@ -296,6 +310,11 @@ country_event = {
 	trigger = {
 		government = monarchy
 		adm_power = 30
+        NOT = {
+            capital_scope = {
+                continent = continent_outland
+            }
+        }
 	}
 	
 	mean_time_to_happen = {
@@ -303,17 +322,17 @@ country_event = {
 	}
 	
 	option = {
-		name = wwu_cultural.7.opt1
+		name = wwu_cultural.7.option.a
 		
 		add_country_modifier = {
-			name = researching_runic_tables
-			duration = 365
+			name = gifted_child
+			duration = 3650
 		}
-		add_adm_power = -30
 	}
 	option = {
-		name = wwu_cultural.7.opt2
+		name = wwu_cultural.7.option.b
 		
+		add_prestige = 20
 	}
 }
 
@@ -329,6 +348,11 @@ country_event = {
 		any_owned_province = {
 			trade_goods = gold
 		}
+        NOT = {
+            capital_scope = {
+                continent = continent_outland
+            }
+        }
 	}
 	
 	mean_time_to_happen = {
@@ -342,7 +366,7 @@ country_event = {
 			limit = { trade_goods = gold }
 			add_base_production = 3
 			add_base_tax = 2
-			change_culture = culture_tunnel_rat
+			change_culture = culture_kobold
 		}
 	}
 	option = {
@@ -363,6 +387,11 @@ country_event = {
 		}
 		adm_power = 10
 		years_of_income = 0.1
+        NOT = {
+            capital_scope = {
+                continent = continent_outland
+            }
+        }
 	}
 	
 	mean_time_to_happen = {

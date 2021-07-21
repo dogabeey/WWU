@@ -1,0 +1,57 @@
+namespace = lesser
+
+country_event = {
+	id = lesser.1
+	title = hostile_adventurers.title # Hostile Adventurers.
+	desc = hostile_adventurers.desc # Azerothians are hunting the races they see as lesser for millenias. Recently, foreign adventurers from a neighbor nation entered to our realm and they keep killing our officers and leaders, causing great harm to our people. This cannot continue. 
+	picture = ELF_TROLL_eventPicture
+	
+	mean_time_to_happen = {
+		months = 720
+	}
+	
+	trigger = {
+		is_lesser = yes
+		any_neighbor_country = {
+			NOT = { has_opinion = {
+				who = ROOT
+				value = 25
+			} }
+			NOT = { government = tribal }
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = hostile_adventurers.opt1
+		
+		
+		random_list = {
+			2 = {
+				custom_tooltip = hostile_adventurers.opt1.tt_win
+				add_prestige = 20
+			}
+			3 = {
+				custom_tooltip = hostile_adventurers.opt1.tt_lose
+				kill_ruler = yes
+				add_prestige = 10
+			}
+		}
+	}
+	option = {
+		name = hostile_adventurers.opt2
+		
+		
+		add_country_modifier = {
+			name = increase_security
+			duration = 1825
+		}
+	}
+	option = {
+		name = hostile_adventurers.opt3
+		
+		add_prestige = -5
+	}
+}

@@ -1,3 +1,6 @@
+#-------------------------------------------
+# General
+#-------------------------------------------
 estate_peasants_land_rights = {
 	icon = privilege_blueprint
 	
@@ -17,7 +20,8 @@ estate_peasants_land_rights = {
 		governing_capacity = 100
 	}
 	ai_will_do = {
-		factor = 5
+		factor = 25
+        
 		modifier = {
 			factor = 1.4
 			num_of_territories = 5
@@ -117,7 +121,7 @@ estate_peasants_increased_taxation = {
 	benefits = {
 	}
 	ai_will_do = {
-		factor = 0
+		factor = 10
 	}
 }
 
@@ -170,15 +174,7 @@ estate_peasants_guaranteed_autonomy = {
 	benefits = {
 	}
 	ai_will_do = {
-		factor = 1000
-		modifier = {
-			factor = 0
-			NOT = {
-				any_owned_province = {
-					NOT = { religion_group = ROOT }
-				}
-			}
-		}
+		factor = 0
 	}
 }
 
@@ -256,7 +252,7 @@ estate_peasants_manpower = {
 	benefits = {
 	}
 	ai_will_do = {
-		factor = 0
+		factor = 10
 	}
 }
 
@@ -285,21 +281,43 @@ estate_peasants_religious_tolerance = {
 		religious_unity = 0.25
 	}
 	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 10
-			num_of_owned_provinces_with = {
-				NOT = { religion_group = root }
-				is_state_core = root
-				value = 15
-			}
-		}
-		modifier = {
-			factor = 0.5
-			estate_influence = {
-				estate = estate_clergy
-				influence = 75
-			}
-		}
+		factor = 0
 	}
 }
+
+#-------------------------------------------
+# Unique
+#-------------------------------------------
+estate_peasants_titanic_engineering = {
+	icon = privilege_craftsman
+
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.0
+	influence = 0.05
+    
+	is_valid = {
+		OR = {
+            religion = titan_worship
+            religion = mystery_of_the_makers
+        }
+	}
+	can_select = {
+		OR = {
+            religion = titan_worship
+            religion = mystery_of_the_makers
+        }
+	}
+	penalties = {
+		build_cost = 0.25
+	}
+	benefits = {
+        build_time = -0.5
+	}
+    
+	ai_will_do = {
+		factor = 0
+	}
+}
+

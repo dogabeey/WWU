@@ -1,39 +1,27 @@
-stormwind_missions = {
-    slot = 6                   # Which column the missions will appear in. 1 to 5.
-    generic = no             # Whether missions within this series are considered generic.
-    ai = yes               # Whether the AI will claim missions in this series.
-    has_country_shield = yes  # Whether to display the country shield on the icon.    
+#--------------------------------------
+# Stormwind
+#--------------------------------------
+# Local Threats
+wwu_stormwind_column_4 = { 
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
     
-    # Determines whether a series is loaded at all. Used to limit series to DLC.
-    potential_on_load = {
-        always = yes
-    }
-    
-    # Determines when a series appears for a country. Country scope.
-    potential = {
-        tag = STW
-		NOT = { the_third_war_or_later = yes }
-    }
-    
-    # The name of the mission, used for localization
-    reclaim_stonecairn = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 1       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
+	potential = {
+		tag = STW
+		OR = {
+            current_age = age_rise_of_the_horde
+            current_age = age_orcish_horde
         }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-			OR = {
-				area = area_stonecairn
-				area = area_eastvale
-			}
-		}
+	} 
     
-        # Determines when the mission is completed. Country scope.
-        trigger = {
+	wwu_reclaim_stonecairn = { 
+		icon = mission_runestone
+        
+		required_missions = {  } 
+        
+		trigger = {
             area_stonecairn = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -42,11 +30,15 @@ stormwind_missions = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+		}
+        provinces_to_highlight = {
+            OR = {
+				area = area_stonecairn
+				area = area_eastvale
+			}
         }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-		    every_province = {
+		effect = { 
+			every_province = {
 			    limit = {
 				    OR = {
 					    area = area_stonecairn
@@ -55,110 +47,77 @@ stormwind_missions = {
 				}
 				change_culture = ROOT
 			}
-        }
-    }
-    centralize_elwynn = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 2       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			reclaim_stonecairn
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-			region = region_elwynn_forest
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
+	}
+    wwu_centralize_elwynn = { 
+		icon = mission_lumbermill
+        
+		required_missions = { wwu_reclaim_stonecairn } 
+        
+		trigger = {
             region_elwynn_forest = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			add_country_modifier = {
-				name = "secured_the_region"
-				duration = 1800
-			}
-        }
-    }
-    secure_darkshire_connection = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 3       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			centralize_elwynn
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-			area = area_the_darkened_banks
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
+        provinces_to_highlight = {
+            region = region_elwynn_forest
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_centralized_elywnn"
+				duration = -1
+			}
+		}
+	}
+    wwu_secure_duskwood_banks = { 
+		icon = mission_secretive_plot
+        
+		required_missions = { wwu_centralize_elwynn } 
+        
+		trigger = {
             area_the_darkened_banks = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			add_country_modifier = {
-				name = "ensured_safety_of_trade"
-				duration = 1800
-			}
-        }
-    }
-    eliminate_depths_threat = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 4       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			secure_darkshire_connection
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-			area = area_westfall_shore
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
+        provinces_to_highlight = {
+            area = area_the_darkened_banks
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_darkshire_trade"
+				duration = -1
+			}
+		}
+	}
+    wwu_secure_westfall_shore = { 
+		icon = mission_storehouse
+        
+		required_missions = { wwu_secure_duskwood_banks } 
+        
+		trigger = {
             area_westfall_shore = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			add_sailors = 500
-        }
-    }
-    root_out_all_kobolds = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 5       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			eliminate_depths_threat
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
+        provinces_to_highlight = {
+            area = area_westfall_shore
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_secured_westfall_shore"
+				duration = -1
+			}
+		}
+	}
+    wwu_root_out_kobolds = { 
+		icon = mission_mining
+        
+		required_missions = { wwu_secure_westfall_shore } 
+        
+		trigger = {
             region_westfall = {
 				type = all
 				NOT = { culture_group = culture_group_kobold }
@@ -175,82 +134,67 @@ stormwind_missions = {
 				type = all
 				NOT = { culture_group = culture_group_kobold }
 			}
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			every_owned_province = {
-				limit = {
-					OR = {
-						region = region_elwynn_forest
-						region = region_westfall
-						region = region_duskwood
-						region = region_redridge_mountains
-					}
-					OR = {
-						trade_goods = copper
-						trade_goods = iron
-						trade_goods = gold
-						trade_goods = stone
-					}
-				}
-				add_base_production = 2
-			}
-        }
-    }
-    western_gnoll_threat = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 6       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			root_out_all_kobolds
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
+        provinces_to_highlight = {
+            culture_group = culture_group_kobold
+            OR = {
+                region = region_westfall
+                region = region_elwynn_forest
+                region = region_duskwood
+                region = region_redridge_mountains
+            }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_kobold_purge"
+				duration = -1
+			}
+		}
+	}
+    wwu_crush_the_gnoll_threat = { 
+		icon = mission_sparring_equipment
+        
+		required_missions = { wwu_root_out_kobolds } 
+        
+		trigger = {
             area_lakeshire = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
+                NOT = { culture_group = culture_group_gnoll }
 			}
             area_lakeshire_highway = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
+                NOT = { culture_group = culture_group_gnoll }
 			}
             area_redridge_canyons = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
+                NOT = { culture_group = culture_group_gnoll }
 			}
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			add_country_modifier = {
-				name = "secured_the_region"
-				duration = 1800
-			}
-        }
-    }
-    integrate_regions = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 7       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			western_gnoll_threat
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-			calc_true_if = {
+        provinces_to_highlight = {
+            culture_group = culture_group_gnoll
+            OR = {
+                area = area_lakeshire
+                area = area_lakeshire_highway
+                area = area_redridge_canyons
+            }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_gnoll_purge"
+				duration = -1
+			}
+		}
+	}
+    wwu_unite_azerothian_lands = { 
+		icon = mission_scroll
+        
+		required_missions = { wwu_crush_the_gnoll_threat } 
+        
+		trigger = {
+            calc_true_if = {
 				region_westfall = {
 					type = all
 					owned_by = ROOT
@@ -269,34 +213,48 @@ stormwind_missions = {
 				}
 				amount = 2
 			}
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			add_country_modifier = {
-				name = "integrated_regions"
-				duration = 1800
-			}
-        }
-    }
-    prepare_orcish_invasion = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 8       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			integrate_regions
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
 		}
+        provinces_to_highlight = {
+            OR = {
+                region = region_westfall
+                region = region_duskwood
+                region = region_redridge_mountains
+                region = region_deadwind_pass
+            }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_unity_of_stormwind"
+				duration = -1
+			}
+		}
+	}
+}
+
+# Orcish Horde
+wwu_stormwind_column_5 = { 
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
     
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-			has_global_flag = the_first_war
-			army_size_percentage = 1
-			any_owned_province = {
+	potential = {
+		tag = STW
+		OR = {
+            current_age = age_rise_of_the_horde
+            current_age = age_orcish_horde
+        }
+	} 
+    
+	wwu_prepare_for_invasion = { 
+		icon = mission_tools
+        
+		required_missions = {  } 
+        
+		trigger = {
+            current_age = age_orcish_horde
+            army_size_percentage = 1
+            any_owned_province = {
 				region = region_duskwood
 				OR = {
 					has_building = wow_fort_1
@@ -305,91 +263,91 @@ stormwind_missions = {
 					has_building = wow_fort_4
 				}
 			}
+		}
+        provinces_to_highlight = {
+            region = region_duskwood
         }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
+		effect = { 
 			add_country_modifier = {
-				name = "built_forts"
-				duration = 1800
-			}
-        }
-    }
-    cut_down_gurubashi_threat = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 9       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			prepare_orcish_invasion
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-		    OR = {
-			province_id = 601
-			province_id = 1997
+				name = "mission_prepared_for_invasion"
+				duration = -1
 			}
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-			owns = 601
-			owns = 1997
-        }
+	}
+    wwu_establish_base_in_blasted_lands = { 
+		icon = mission_headquarters
         
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			601 = {
-				add_building = wow_fort_2
-			}
-        }
-    }
-    move_into_blasted_lands = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 10       # Which row the mission appears in. 1 is top.
+		required_missions = { wwu_prepare_for_invasion } 
         
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			cut_down_gurubashi_threat
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-			province_id = 884
+		trigger = {
+            owns_core_province = 884
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-			owns = 884
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			884 = {
-				add_building = wow_fort_2
-			}
-        }
-    }
-    secure_rear_guard = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 11       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			cut_down_gurubashi_threat
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
         provinces_to_highlight = {
-			OR = {
-				area = area_crackling_banks
-				area = area_stagalbog
+            province_id = 884
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_blasted_lands_base"
+				duration = -1
 			}
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
+	}
+    wwu_push_back_the_orcish_horde = { 
+		icon = mission_haymaker
+        
+		required_missions = { 
+            wwu_establish_base_in_blasted_lands 
+            wwu_secure_the_swamp 
+        } 
+        
+		trigger = {
+            owns_core_province = 553
+			owns_core_province = 807
+			owns_core_province = 853
+		}
+        provinces_to_highlight = {
+            OR = {
+				province_id = 553
+				province_id = 807
+				province_id = 853
+			}
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_heroes_of_the_first_war"
+				duration = -1
+			}
+		}
+	}
+
+    wwu_cut_down_the_gurubashi = { 
+		icon = mission_troll_male
+        
+		required_missions = { } 
+        
+		trigger = {
+            owns_core_province = 601
+            owns_core_province = 1997
+		}
+        provinces_to_highlight = {
+            OR = {
+                province_id = 601
+                province_id = 1997
+			}
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_gurubashi_neutralized"
+				duration = -1
+			}
+		}
+	}
+    wwu_secure_the_swamp = { 
+		icon = mission_camp_flag
+        
+		required_missions = { wwu_cut_down_the_gurubashi } 
+        
+		trigger = {
             area_crackling_banks = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -398,47 +356,18 @@ stormwind_missions = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			add_country_modifier = {
-				name = "secured_the_region"
-				duration = 1800
+		}
+        provinces_to_highlight = {
+            OR = {
+				area = area_crackling_banks
+				area = area_stagalbog
 			}
         }
-    }
-    push_horde_back = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 12       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			secure_rear_guard
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-			OR = {
-				province_id = 553
-				province_id = 807
-				province_id = 853
+		effect = { 
+			add_country_modifier = {
+				name = "mission_secured_the_swamp"
+				duration = -1
 			}
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-            owns = 553
-			owns = 807
-			owns = 853
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			add_country_modifier = {
-				name = "war_heroes"
-				duration = 18000
-			}
-        }
-    }
+	}
 }

@@ -1,1325 +1,1331 @@
-#-----------------------------------------------------------------------------
-# Civic Code
-#-----------------------------------------------------------------------------
-civic_code = {
-    historical_start_date = 546.1.1
-	historical_start_province = 1022
+base_invention = {
+    historical_start_date = 1.1.1
+	historical_start_province = 2202
 	
-	penalty = 0.05
+	penalty = 0.0
     
-	bonus = {
-		global_tax_modifier = 0.1
+	bonus = {   
+        diplomats = 1
 	}
 	history = {
-		OR = {
-			AND = {
-				is_year = 546
-				owner = {
-					NOT = { government = tribal }
-					NOT = { government = native }
-				}
-			}
-			AND = {
-				is_year = 600
-				owner = {
-					OR = { 
-						government = tribal
-						government = native 
-					}
-				}
-			}
-		}
+		always = yes
 	}
-	
 	can_embrace = {
 		always = yes
 	}
 	
 	embracement_speed = {
 		modifier = {
-			scale = yes
-			factor = 0.5
-			custom_trigger_tooltip = {
-				tooltip = tt_anhe_civic_code
-				any_friendly_coast_border_province = {
-					civic_code = 100
-				}
-			}
-		}
-		modifier = {
-			factor = 0.3
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tt_afcbphe_civic_code
-				any_neighbor_province = {
-					NOT = { owned_by = ROOT }
-					civic_code = 100
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 2
-			scale = yes
-			potential = {
-				owner = {
-					has_institution = civic_code
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_embraced_civic_code
-				owner = {
-					has_institution = civic_code
-				}
-			}
+			factor = 100.0
 		}
 	}
 	
 	ai_will_do = { 
-		factor = 24
-		
-		modifier = {
-			factor = 0.25
-			is_at_war = yes
-		}
+		factor = 1
 	}
 }
 
-#-----------------------------------------------------------------------------
-# inst_demonology
-#-----------------------------------------------------------------------------
-inst_demonology = {
-    historical_start_date = 550.1.1
-	historical_start_province = 1593 # Throne of Kil'jaedan
-	
-	penalty = 0.05
+# Standardized Measures
+invention_1 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
     
 	bonus = {
-		leader_land_fire = 1
+        global_tax_modifier = 0.1
 	}
 	history = {
-		OR = {
-			AND = {
-				is_year = 550
-				owner = {
-					OR = {
-						culture_group = culture_group_orc
-						culture_group = culture_group_demonic
-						religion = religion_fel
-					}
-				}
-			}
-			AND = {
-				is_year = 575
-				owner = {
-					OR = {
-						culture_group = culture_group_orc
-						culture_group = culture_group_demonic
-						culture_group = culture_group_ogre
-						culture_group = culture_group_jungle_troll
-						religion = religion_fel
-						religion = religion_arcane
-					}
-				}
-			}
-			is_year = 600
-		}
+		always = no
 	}
-	
-    can_start = {
-		is_year = 550
-		continent = continent_outland
-		is_state = yes
-		is_island = no
-		OR = {
-			development = 20
-			is_capital = yes
-			normal_or_historical_nations = no
-		}
-	}
-	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.10
-    
 	can_embrace = {
 		always = yes
 	}
     
-    embracement_speed = {
-		modifier = {
-			scale = yes
-			factor = 0.5
-			custom_trigger_tooltip = {
-				tooltip = tt_anhe_inst_demonology
-				any_friendly_coast_border_province = {
-					inst_demonology = 100
-				}
-			}
-		}
-		modifier = {
-			factor = 0.3
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tt_afcbphe_inst_demonology
-				any_neighbor_province = {
-					NOT = { owned_by = ROOT }
-					inst_demonology = 100
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 2
-			scale = yes
-			potential = {
-				owner = {
-					has_institution = inst_demonology
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_embraced_inst_demonology
-				owner = {
-					has_institution = inst_demonology
-				}
-			}
-		}
-		
-		# Development
-		modifier = {
-			factor = 0.075
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_10
-				development = 10
-			}
-		}
-		
-        modifier = {
-			factor = 0.075
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_15
-				development = 15
-			}
-		}
-        
-        modifier = {
-			factor = 0.075
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_20
-				development = 20
-			}
-		}
-		
-		modifier = {
-			factor = 1.10
-			scale = yes
-			potential = {   
-                owner = {
-                    OR = {
-                        primary_culture = culture_iron
-                        primary_culture = culture_frostborn
-                        primary_culture = culture_ironforge
-                        primary_culture = culture_wildhammer
-                        primary_culture = culture_dark_iron
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-        
-        modifier = {
-			factor = 1.15
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                        primary_culture = culture_gnome
-                        primary_culture = culture_mecha_gnome
-                        primary_culture = culture_kezani
-                        primary_culture = culture_bilgewater
-                        primary_culture = culture_steamwheedle
-                        primary_culture = culture_venture
-                        primary_culture = culture_blackwater
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-		
-        modifier = {
-			factor = 0.9
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                       culture_group = culture_group_tauren
-                       culture_group = culture_group_darnassian
-                       culture_group = culture_group_thalassian
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_averse_to_technology
-			}
-		}
-        
-	}
-	
-	ai_will_do = { 
-		factor = 24
-		
-		modifier = {
-			factor = 0.25
-			is_at_war = yes
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.1
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.2
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.3
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.4
-		}
-	}
-}
-
-#-----------------------------------------------------------------------------
-# Clockwerk Engineering
-#-----------------------------------------------------------------------------
-clockwerk_engineering = {
-    historical_start_date = 650.1.1
-	historical_start_province = 3038
-	
-	penalty = 0.05
-    
-	bonus = {
-		shock_damage = 0.15
-        shock_damage_received = -0.15
-	}
-	history = {
-		OR = {
-			AND = {
-				is_year = 650
-						culture_group = culture_group_gnomish
-			}
-			AND = {
-				is_year = 700
-					NOT = {
-						culture_group = culture_group_gnomish
-					}
-			}
-		}
-	}
-    
     can_start = {
-		is_year = 650
-		is_state = yes
-		is_island = no
-		OR = {
-			development = 20
-			is_capital = yes
-			normal_or_historical_nations = no
-		}
-	}
-	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.20
-    
-    can_embrace = {
-		owner = { has_institution = inst_demonology }
-	}
-    
-    embracement_speed = {
-		modifier = {
-			scale = yes
-			factor = 0.5
-			custom_trigger_tooltip = {
-				tooltip = tt_anhe_clockwerk_engineering
-				any_friendly_coast_border_province = {
-					clockwerk_engineering = 100
-				}
-			}
-		}
-		modifier = {
-			factor = 0.3
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tt_afcbphe_clockwerk_engineering
-				any_neighbor_province = {
-					NOT = { owned_by = ROOT }
-					clockwerk_engineering = 100
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 2
-			scale = yes
-			potential = {
-				owner = {
-					has_institution = clockwerk_engineering
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_embraced_clockwerk_engineering
-				owner = {
-					has_institution = clockwerk_engineering
-				}
-			}
-		}
-		
-		# Development
-		modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_10
-				development = 10
-			}
-		}
-		
-        modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_15
-				development = 15
-			}
-		}
-        
-        modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_20
-				development = 20
-			}
-		}
-		
-		modifier = {
-			factor = 1.10
-			scale = yes
-			potential = {   
-                owner = {
-                    OR = {
-                        primary_culture = culture_iron
-                        primary_culture = culture_frostborn
-                        primary_culture = culture_ironforge
-                        primary_culture = culture_wildhammer
-                        primary_culture = culture_dark_iron
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-        
-        modifier = {
-			factor = 1.15
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                        primary_culture = culture_gnome
-                        primary_culture = culture_mecha_gnome
-                        primary_culture = culture_kezani
-                        primary_culture = culture_bilgewater
-                        primary_culture = culture_steamwheedle
-                        primary_culture = culture_venture
-                        primary_culture = culture_blackwater
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-		
-        modifier = {
-			factor = 0.9
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                       culture_group = culture_group_tauren
-                       culture_group = culture_group_darnassian
-                       culture_group = culture_group_thalassian
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_averse_to_technology
-			}
-		}
-
-	}
-	
-	ai_will_do = { 
-		factor = 24
-		
-		modifier = {
-			factor = 0.25
-			is_at_war = yes
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.1
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.2
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.3
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.4
-		}
-	}
-}
-
-#-----------------------------------------------------------------------------
-# Boomsticks
-#-----------------------------------------------------------------------------
-boomsticks = {
-    historical_start_date = 700.1.1
-	historical_start_province = 3048
-	
-	penalty = 0.05
-    
-	bonus = {
-        fire_damage = 0.15
-        fire_damage_received = -0.15
-	}
-	history = {
-        owner = {
-			OR = {
-				AND = {
-					is_year = 700
-					OR = {
-						primary_culture = culture_iron
-						primary_culture = culture_frostborn
-						primary_culture = culture_ironforge
-						primary_culture = culture_wildhammer
-						primary_culture = culture_dark_iron
-						primary_culture = culture_gnome
-						primary_culture = culture_mecha_gnome
-						primary_culture = culture_kezani
-						primary_culture = culture_bilgewater
-						primary_culture = culture_steamwheedle
-						primary_culture = culture_venture
-						primary_culture = culture_blackwater
-					}
-				}
-				AND = {
-					is_year = 750
-					NOT = {
-						primary_culture = culture_iron
-						primary_culture = culture_frostborn
-						primary_culture = culture_ironforge
-						primary_culture = culture_wildhammer
-						primary_culture = culture_dark_iron
-						primary_culture = culture_gnome
-						primary_culture = culture_mecha_gnome
-						primary_culture = culture_kezani
-						primary_culture = culture_bilgewater
-						primary_culture = culture_steamwheedle
-						primary_culture = culture_venture
-						primary_culture = culture_blackwater
-					}
-			}
-			}
-        }
-	}
-    
-    can_start = {
-		is_year = 700
-		is_state = yes
-		is_island = no
-		OR = {
-			development = 20
-			is_capital = yes
-			normal_or_historical_nations = no
-		}
-	}
-	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.30
-    
-    can_embrace = {
-		owner = { has_institution = clockwerk_engineering }
-	}
-    
-    embracement_speed = {
-		modifier = {
-			scale = yes
-			factor = 0.5
-			custom_trigger_tooltip = {
-				tooltip = tt_anhe_boomsticks
-				any_friendly_coast_border_province = {
-					boomsticks = 100
-				}
-			}
-		}
-		modifier = {
-			factor = 0.3
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tt_afcbphe_boomsticks
-				any_neighbor_province = {
-					NOT = { owned_by = ROOT }
-					boomsticks = 100
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 2
-			scale = yes
-			potential = {
-				owner = {
-					has_institution = boomsticks
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_embraced_boomsticks
-				owner = {
-					has_institution = boomsticks
-				}
-			}
-		}
-		
-		# Development
-		modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_10
-				development = 10
-			}
-		}
-		
-        modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_15
-				development = 15
-			}
-		}
-        
-        modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_20
-				development = 20
-			}
-		}
-		
-		modifier = {
-			factor = 1.10
-			scale = yes
-			potential = {   
-                owner = {
-                    OR = {
-                        primary_culture = culture_iron
-                        primary_culture = culture_frostborn
-                        primary_culture = culture_ironforge
-                        primary_culture = culture_wildhammer
-                        primary_culture = culture_dark_iron
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-        
-        modifier = {
-			factor = 1.15
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                        primary_culture = culture_gnome
-                        primary_culture = culture_mecha_gnome
-                        primary_culture = culture_kezani
-                        primary_culture = culture_bilgewater
-                        primary_culture = culture_steamwheedle
-                        primary_culture = culture_venture
-                        primary_culture = culture_blackwater
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-		
-        modifier = {
-			factor = 0.9
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                       culture_group = culture_group_tauren
-                       culture_group = culture_group_darnassian
-                       culture_group = culture_group_thalassian
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_averse_to_technology
-			}
-		}
-        
-	}
-	
-	ai_will_do = { 
-		factor = 24
-		
-		modifier = {
-			factor = 0.25
-			is_at_war = yes
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.1
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.2
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.3
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.4
-		}
-	}
-}
-
-#-----------------------------------------------------------------------------
-# Oil Extraction
-#-----------------------------------------------------------------------------
-oil_extraction = {
-    historical_start_date = 750.1.1
-	historical_start_province = 1098
-	
-	penalty = 0.05
-    
-	bonus = {
-        naval_attrition = -0.25
-	}
-	history = {
-        owner = {
-			OR = {
-				AND = {
-					is_year = 750
-						OR = {
-							culture_group = culture_group_goblin
-							culture_group = culture_group_gnomish
-						}
-				}
-				AND = {
-					is_year = 800
-						NOT = {
-							culture_group = culture_group_goblin
-							culture_group = culture_group_gnomish
-						}
-				}
-			}
-        }
-	}
-    
-    can_start = {
-		is_year = 750
-		is_state = yes
-		is_island = no
-		OR = {
-			development = 20
-			is_capital = yes
-			normal_or_historical_nations = no
-		}
-	}
-	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.40
-    
-    can_embrace = {
-		owner = { has_institution = boomsticks }
-	}
-    
-    embracement_speed = {
-		modifier = {
-			scale = yes
-			factor = 0.5
-			custom_trigger_tooltip = {
-				tooltip = tt_anhe_oil_extraction
-				any_friendly_coast_border_province = {
-					oil_extraction = 100
-				}
-			}
-		}
-		modifier = {
-			factor = 0.3
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tt_afcbphe_oil_extraction
-				any_neighbor_province = {
-					NOT = { owned_by = ROOT }
-					oil_extraction = 100
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 2
-			scale = yes
-			potential = {
-				owner = {
-					has_institution = oil_extraction
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_embraced_oil_extraction
-				owner = {
-					has_institution = oil_extraction
-				}
-			}
-		}
-		
-		# Development
-		modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_10
-				development = 10
-			}
-		}
-		
-        modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_15
-				development = 15
-			}
-		}
-        
-        modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_20
-				development = 20
-			}
-		}
-		
-		modifier = {
-			factor = 1.10
-			scale = yes
-			potential = {   
-                owner = {
-                    OR = {
-                        primary_culture = culture_iron
-                        primary_culture = culture_frostborn
-                        primary_culture = culture_ironforge
-                        primary_culture = culture_wildhammer
-                        primary_culture = culture_dark_iron
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-        
-        modifier = {
-			factor = 1.15
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                        primary_culture = culture_gnome
-                        primary_culture = culture_mecha_gnome
-                        primary_culture = culture_kezani
-                        primary_culture = culture_bilgewater
-                        primary_culture = culture_steamwheedle
-                        primary_culture = culture_venture
-                        primary_culture = culture_blackwater
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-		
-        modifier = {
-			factor = 0.9
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                       culture_group = culture_group_tauren
-                       culture_group = culture_group_darnassian
-                       culture_group = culture_group_thalassian
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_averse_to_technology
-			}
-		}
-        
-	}
-	
-	ai_will_do = {
-		factor = 24
-		
-		modifier = {
-			factor = 0.25
-			is_at_war = yes
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.1
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.2
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.3
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.4
-		}
-	}
-}
-
-#-----------------------------------------------------------------------------
-# Mechanical Constructs
-#-----------------------------------------------------------------------------
-mechanical_constructs = {
-    historical_start_date = 800.1.1
-	historical_start_province = 941
-	
-	penalty = 0.05
-    
-	bonus = {
-        build_cost = -0.25
-        build_time = -0.25
-	}
-	history = {
-        owner = {
-			OR = {
-				AND = {
-					is_year = 800
-						OR = {
-							culture_group = culture_group_goblin
-							culture_group = culture_group_gnomish
-						}
-				}
-				AND = {
-					is_year = 850
-						NOT = {
-							culture_group = culture_group_goblin
-							culture_group = culture_group_gnomish
-						}
-				}
-			}
-        }
-	}
-    
-    can_start = {
-		is_year = 800
-		is_state = yes
-		is_island = no
-		OR = {
-			development = 20
-			is_capital = yes
-			normal_or_historical_nations = no
-		}
-	}
-	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.50
-    
-    can_embrace = {
-		owner = { has_institution = oil_extraction }
-	}
-    
-    embracement_speed = {
-		modifier = {
-			scale = yes
-			factor = 0.5
-			custom_trigger_tooltip = {
-				tooltip = tt_anhe_mechanical_constructs
-				any_friendly_coast_border_province = {
-					mechanical_constructs = 100
-				}
-			}
-		}
-		modifier = {
-			factor = 0.3
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tt_afcbphe_mechanical_constructs
-				any_neighbor_province = {
-					NOT = { owned_by = ROOT }
-					mechanical_constructs = 100
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 2
-			scale = yes
-			potential = {
-				owner = {
-					has_institution = mechanical_constructs
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_embraced_mechanical_constructs
-				owner = {
-					has_institution = mechanical_constructs
-				}
-			}
-		}
-		
-		# Development
-		modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_10
-				development = 10
-			}
-		}
-		
-        modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_15
-				development = 15
-			}
-		}
-        
-        modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_20
-				development = 20
-			}
-		}
-		
-		modifier = {
-			factor = 1.10
-			scale = yes
-			potential = {   
-                owner = {
-                    OR = {
-                        primary_culture = culture_iron
-                        primary_culture = culture_frostborn
-                        primary_culture = culture_ironforge
-                        primary_culture = culture_wildhammer
-                        primary_culture = culture_dark_iron
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-        
-        modifier = {
-			factor = 1.15
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                        primary_culture = culture_gnome
-                        primary_culture = culture_mecha_gnome
-                        primary_culture = culture_kezani
-                        primary_culture = culture_bilgewater
-                        primary_culture = culture_steamwheedle
-                        primary_culture = culture_venture
-                        primary_culture = culture_blackwater
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-		
-        modifier = {
-			factor = 0.9
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                       culture_group = culture_group_tauren
-                       culture_group = culture_group_darnassian
-                       culture_group = culture_group_thalassian
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_averse_to_technology
-			}
-		}
-        
-	}
-	
-	ai_will_do = { 
-		factor = 24
-		
-		modifier = {
-			factor = 0.25
-			is_at_war = yes
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.1
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.2
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.3
-		}
-		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.4
-		}
-	}
-}
-
-#-----------------------------------------------------------------------------
-# Pneumatics
-#-----------------------------------------------------------------------------
-pneumatics = {
-    historical_start_date = 850.1.1
-	historical_start_province = 1097
-	
-	penalty = 0.05
-    
-	bonus = {
-        artillery_power = 0.1
-        siege_ability = 0.1
-	}
-	
-	history = {
-        owner = {
-			OR = {
-				AND = {
-					is_year = 750
-						OR = {
-							culture_group = culture_group_goblin
-							culture_group = culture_group_gnomish
-						}
-				}
-				AND = {
-					is_year = 800
-						NOT = {
-							culture_group = culture_group_goblin
-							culture_group = culture_group_gnomish
-						}
-				}
-			}
-        }
-	}
-    
-    can_start = {
-		is_year = 850
-		is_state = yes
-		is_island = no
-		OR = {
-			development = 20
-			is_capital = yes
-			normal_or_historical_nations = no
-		}
-	}
-	start_chance = 5		#in 100 for when a province can_start
-	on_start = warcraft_institutions.60
-    
-    can_embrace = {
-		owner = { has_institution = mechanical_constructs }
-	}
-    
-    embracement_speed = {
-		modifier = {
-			scale = yes
-			factor = 0.5
-			custom_trigger_tooltip = {
-				tooltip = tt_anhe_pneumatics
-				any_friendly_coast_border_province = {
-					pneumatics = 100
-				}
-			}
-		}
-		modifier = {
-			factor = 0.3
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tt_afcbphe_pneumatics
-				any_neighbor_province = {
-					NOT = { owned_by = ROOT }
-					pneumatics = 100
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 2
-			scale = yes
-			potential = {
-				owner = {
-					has_institution = pneumatics
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_embraced_pneumatics
-				owner = {
-					has_institution = pneumatics
-				}
-			}
-		}
-		
-		# Development
-		modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_10
-				development = 10
-			}
-		}
-		
-        modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_15
-				development = 15
-			}
-		}
-        
-        modifier = {
-			factor = 0.05
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_development_fm_20
-				development = 20
-			}
-		}
-		
-		modifier = {
-			factor = 1.10
-			scale = yes
-			potential = {   
-                owner = {
-                    OR = {
-                        primary_culture = culture_iron
-                        primary_culture = culture_frostborn
-                        primary_culture = culture_ironforge
-                        primary_culture = culture_wildhammer
-                        primary_culture = culture_dark_iron
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-        
-        modifier = {
-			factor = 1.15
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                        primary_culture = culture_gnome
-                        primary_culture = culture_mecha_gnome
-                        primary_culture = culture_kezani
-                        primary_culture = culture_bilgewater
-                        primary_culture = culture_steamwheedle
-                        primary_culture = culture_venture
-                        primary_culture = culture_blackwater
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_technological_affinity
-			}
-		}
-		
-        modifier = {
-			factor = 0.9
-			scale = yes
-			potential = {
-                owner = {
-                OR = {
-                       culture_group = culture_group_tauren
-                       culture_group = culture_group_darnassian
-                       culture_group = culture_group_thalassian
-                    }
-                }
-			}
-			custom_trigger_tooltip = {
-				tooltip = tt_averse_to_technology
-			}
-		}
-        
+        development = 30
     }
-	ai_will_do = { 
-		factor = 24
+    start_chance = 10
+    on_start = wwu_inventions.1
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_1
+				any_friendly_coast_border_province = {
+					invention_1 = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_1
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_1 = 100
+				}
+			}
+		}
 		
 		modifier = {
-			factor = 0.25
-			is_at_war = yes
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_1
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_1
+				owner = {
+					has_institution = invention_1
+				}
+			}
+		}
+
+        modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# Irrigation Systems
+invention_2 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        production_efficiency = 0.1
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.2
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_2
+				any_friendly_coast_border_province = {
+					invention_2 = 100
+				}
+			}
 		}
 		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.1
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_2
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_2 = 100
+				}
+			}
 		}
+		
 		modifier = {
 			factor = 2
-			neighbors_tech_discount = 0.2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_2
+				owner = {
+					has_institution = invention_2
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# Urban Planning
+invention_3 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        build_time = -0.15
+        build_cost = -0.15
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.3
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_3
+				any_friendly_coast_border_province = {
+					invention_3 = 100
+				}
+			}
 		}
 		modifier = {
-			factor = 2
-			neighbors_tech_discount = 0.3
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_3
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_3 = 100
+				}
+			}
 		}
+		
 		modifier = {
 			factor = 2
-			neighbors_tech_discount = 0.4
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_3
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_3
+				owner = {
+					has_institution = invention_3
+				}
+			}
 		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# Equal Integration
+invention_4 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        num_accepted_cultures = 1
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.4
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_4
+				any_friendly_coast_border_province = {
+					invention_4 = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_4
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_4 = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_4
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_4
+				owner = {
+					has_institution = invention_4
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# National Seal
+invention_5 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        prestige_decay = -0.01
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.5
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_5
+				any_friendly_coast_border_province = {
+					invention_5 = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_5
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_5 = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_5
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_5
+				owner = {
+					has_institution = invention_5
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# Hereditary Ambassadorship
+invention_6 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        improve_relation_modifier = 0.1
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.6
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_6
+				any_friendly_coast_border_province = {
+					invention_6 = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_6
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_6 = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_6
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_6
+				owner = {
+					has_institution = invention_6
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# Herbalism
+invention_7 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        global_unrest = -1
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.7
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_7
+				any_friendly_coast_border_province = {
+					invention_7 = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_7
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_7 = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_7
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_7
+				owner = {
+					has_institution = invention_7
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# Regimental Standards
+invention_8 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        army_tradition_decay = -0.01
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.8
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_8
+				any_friendly_coast_border_province = {
+					invention_8 = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_8
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_8 = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_8
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_8
+				owner = {
+					has_institution = invention_8
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# Assemblies
+invention_9 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        stability_cost_modifier = -0.15
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.9
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_9
+				any_friendly_coast_border_province = {
+					invention_9 = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_9
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_9 = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_9
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_9
+				owner = {
+					has_institution = invention_9
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# Sapping
+invention_10 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        siege_ability = 0.05
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.10
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_10
+				any_friendly_coast_border_province = {
+					invention_10 = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_10
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_10 = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_10
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_10
+				owner = {
+					has_institution = invention_10
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# Paymasters
+invention_11 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        yearly_corruption = -0.05
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.11
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_11
+				any_friendly_coast_border_province = {
+					invention_11 = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_11
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_11 = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_11
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_1
+				owner = {
+					has_institution = invention_11
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
+	}
+}
+
+# Entrenchment
+invention_12 = {
+    historical_start_date = 1000.1.1
+	historical_start_province = 2202
+    
+	penalty = 0.0
+    
+	bonus = {
+        defensiveness = 0.2
+	}
+	history = {
+		always = no
+	}
+	can_embrace = {
+		always = yes
+	}
+    
+    can_start = {
+        development = 30
+    }
+    start_chance = 10
+    on_start = wwu_inventions.12
+	
+	embracement_speed = {
+		modifier = {
+			scale = yes
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = tt_neighbour_invention_12
+				any_friendly_coast_border_province = {
+					invention_12 = 100
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tt_friendly_coast_invension_12
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					invention_12 = 100
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scale = yes
+			potential = {
+				owner = {
+					has_institution = invention_12
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_embraced_invension_1
+				owner = {
+					has_institution = invention_12
+				}
+			}
+		}
+		
+		# Development
+		modifier = {
+			factor = 0.05
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = tooltip_development_wwu_30
+				development = 30
+			}
+		}
+		
+		modifier = {
+			factor = 0.05
+			scale = yes
+			potential = {   
+                owner = {
+                    OR = {
+                        culture_group = culture_group_dwarven
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+        
+        modifier = {
+			factor = 0.1
+			scale = yes
+			potential = {
+                owner = {
+                    OR = {
+                        culture_group = culture_group_goblin
+                        culture_group = culture_group_gnomish
+                        culture_group = culture_group_mecha_gnomish
+                    }
+                }
+			}
+			custom_trigger_tooltip = {
+				tooltip = tt_technological_affinity
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		factor = 1
 	}
 }

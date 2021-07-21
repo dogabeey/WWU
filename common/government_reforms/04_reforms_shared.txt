@@ -6,6 +6,7 @@ wwu_states_general_reform = {
 	allow_normal_conversion = yes
 
 	trigger = {
+        NOT = { has_government_attribute = council_system }
 		NOT = { is_lesser_in_union = yes }
 		is_emperor = no
 	}
@@ -140,10 +141,16 @@ wwu_become_a_monarchy_reform = {
 	allow_normal_conversion = yes
 
 	trigger = {
-		NOT = { has_government_attribute_short_desc = locked_government_type }
+		OR = {
+            AND = {
+                NOT = { has_reform = dwarven_clan_reform }
+                NOT = { has_government_attribute = locked_government_type }
+            }
+            # Allow for this locked government
+            has_reform = dwarven_clan_reform
+        }
 		is_emperor = no
 		NOT = { is_lesser_in_union = yes }
-        NOT = { is_lesser = yes }
 	}
     
 	effect = {
@@ -170,10 +177,9 @@ wwu_become_a_republic_reform = {
 	allow_normal_conversion = yes
 
 	trigger = {
-		NOT = { has_government_attribute_short_desc = locked_government_type }
+		NOT = { has_government_attribute = locked_government_type }
 		is_emperor = no
 		NOT = { is_lesser_in_union = yes }
-        NOT = { is_lesser = yes }
 	}
     
 	effect = {
@@ -191,10 +197,9 @@ wwu_become_a_theocracy_reform = {
 	allow_normal_conversion = yes
 
 	trigger = {
-		NOT = { has_government_attribute_short_desc = locked_government_type }
+		NOT = { has_government_attribute = locked_government_type }
 		is_emperor = no
 		NOT = { is_lesser_in_union = yes }
-        NOT = { is_lesser = yes }
 	}
     
 	effect = {
@@ -217,10 +222,9 @@ wwu_become_a_warband_reform = {
     }
     
     trigger = {
-		NOT = { has_government_attribute_short_desc = locked_government_type }
+		NOT = { has_government_attribute = locked_government_type }
 		is_emperor = no
 		NOT = { is_lesser_in_union = yes }
-        NOT = { is_lesser = yes }
 	}
     
 	effect = {

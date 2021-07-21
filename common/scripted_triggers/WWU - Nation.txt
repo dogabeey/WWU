@@ -11,6 +11,20 @@ is_underwater = {
 		culture = culture_gilblin
 	}
 }
+is_underwater_country = {
+	OR = {
+		culture_group = culture_group_naga
+		culture_group = culture_group_murloc
+		culture_group = culture_group_sea_giant
+		culture_group = culture_group_lobstrok
+		culture_group = culture_group_gorloc
+		culture_group = culture_group_water
+		culture_group = culture_group_tuskarr
+		culture_group = culture_group_zangar
+		primary_culture = culture_gilblin
+	}
+}
+
 is_underground = {
 	OR = {
 		culture_group = culture_group_dwarven
@@ -90,20 +104,23 @@ is_merchant = {
 }
 
 is_lesser = {
-    OR = {
-        technology_group = tech_depths
-        technology_group = tech_gnoll
-        technology_group = tech_centaur
-        technology_group = tech_furbolg
-        technology_group = tech_wolfvar
-        technology_group = tech_gorloc
-        technology_group = tech_kobold
-        technology_group = tech_harpy
-        technology_group = tech_quillboar
-        technology_group = tech_primitive
-        technology_group = tech_magnataur
+    custom_trigger_tooltip = {
+        tooltip = IS_LESSER_TT
+        OR = {
+            technology_group = tech_depths
+            technology_group = tech_gnoll
+            technology_group = tech_centaur
+            technology_group = tech_furbolg
+            technology_group = tech_wolfvar
+            technology_group = tech_gorloc
+            technology_group = tech_kobold
+            technology_group = tech_harpy
+            technology_group = tech_quillboar
+            technology_group = tech_primitive
+            technology_group = tech_magnataur
+        }
+        NOT = { has_country_flag = was_lesser } # set this on a lesser race to make them lesser no more.
     }
-	NOT = {has_country_flag = was_lesser } # set this on a lesser race to make them lesser no more.
 }
 
 is_bug = {
@@ -125,6 +142,7 @@ is_ancient = {
 		technology_group = tech_draenei
 		has_country_flag = is_custom_ancient
         technology_group = tech_mantid
+        technology_group = tech_thalassian
 	}
 }
 
@@ -159,8 +177,13 @@ is_pure_evil = {
     OR = {
         culture_group = culture_group_demonic
         tag = B92
-		religion = religion_old_gods
-		religion = religion_the_damned
+		religion = cthun
+        religion = nzoth
+        religion = yogg_saron
+        religion = yshaarj
+		religion = twilight_cult
+        religion = nightmare
+		religion = cult_of_the_damned
     }
 }
 
@@ -188,9 +211,9 @@ has_archaeologists = {
 	OR = {
 		accepted_culture = culture_high_elf
 		accepted_culture = culture_blood_elf
-		accepted_culture = culture_kezani
-		accepted_culture = culture_bilgewater
-		accepted_culture = culture_steamwheedle
+		accepted_culture = culture_goblin
+		accepted_culture = culture_goblin
+		accepted_culture = culture_goblin
 		accepted_culture = culture_wildhammer
 		accepted_culture = culture_dark_iron
 		accepted_culture = culture_ironforge

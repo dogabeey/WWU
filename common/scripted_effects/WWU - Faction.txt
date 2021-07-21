@@ -1,47 +1,112 @@
 ## ALLIANCE - HORDE FACTIONS
 # These effects are used on_startup at on_actions file. Triggers used are set in scripted_triggers which lets game know which nations are Alliance, Horde and their respective leaders by age.
-set_faction_conflict = {
-	if = {
-		limit = {
-			historical_conflict_times = yes
-		}
-		#First leaders join
-		
-		#Then rest follows
-		every_country = {
-			limit = {
-				historical_alliance = yes
-			}
-			random_country = {
-				limit = { historical_alliance_head = yes }
-				add_country_modifier = { 
-					name = alliance_head
-					duration = -1
-				}
-				create_subject = {
-					subject_type = faction_alliance
-					subject = PREV
-				}
-			}
-		}
-		every_country = {
-			limit = {
-				historical_horde = yes
-			}
-			random_country = {
-				limit = { historical_horde_head = yes }
-				add_country_modifier = { 
-					name = horde_head
-					duration = -1
-				}
-				create_subject = {
-					subject_type = faction_horde
-					subject = PREV
-				}
-			}
-		}
-		
-	}
+set_historical_faction_conflict = {
+    every_country = {
+        limit = {
+            is_historical_member_of_alliance = yes
+        }
+        random_country = {
+            limit = { 
+                is_historical_head_of_alliance = yes 
+            }
+            add_country_modifier = { 
+                name = alliance_head
+                duration = -1
+            }
+            create_subject = {
+                subject_type = faction_alliance
+                subject = PREV
+            }
+        }
+    }
+    every_country = {
+        limit = {
+            is_historical_member_of_horde = yes
+        }
+        random_country = {
+            limit = { 
+                is_historical_head_of_horde = yes 
+            }
+            add_country_modifier = { 
+                name = horde_head
+                duration = -1
+            }
+            create_subject = {
+                subject_type = faction_horde
+                subject = PREV
+            }
+        }
+    }
+}
+
+set_first_war_faction_conflict = {
+    every_country = {
+        limit = {
+            is_historical_member_of_alliance = yes
+        }
+        random_country = {
+            limit = { 
+                is_historical_head_of_alliance = yes 
+            }
+            add_country_modifier = { 
+                name = alliance_head
+                duration = -1
+            }
+            create_subject = {
+                subject_type = faction_alliance
+                subject = PREV
+            }
+        }
+    }
+    every_country = {
+        limit = {
+            is_historical_member_of_horde = yes
+        }
+        random_country = {
+            limit = { 
+                is_historical_head_of_horde = yes 
+            }
+            add_country_modifier = { 
+                name = horde_head
+                duration = -1
+            }
+            create_subject = {
+                subject_type = faction_horde
+                subject = PREV
+            }
+        }
+    }
+}
+
+# Used in diplomatic_action
+swap_alliance_leadership = {
+    ROOT = {
+        add_country_modifier = {
+            name = alliance_head
+            duration = -1
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = alliance_head
+            }
+            remove_country_modifier = alliance_head
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = alliance_member
+            }
+            grant_independence = yes
+            
+            ROOT = {
+                create_subject = {
+                    subject_type = faction_alliance
+                    subject = FROM
+                }
+            }
+        }
+    }
 }
 
 opinions_joined_alliance = {

@@ -1,0 +1,150 @@
+country_decisions = {
+    #--------------------------------------
+    # Training
+    #--------------------------------------
+    # Undergo Magical Training
+    undergo_magical_training = {
+        potential = {
+            NOT = { ruler_has_personality = spellcaster_personality }
+            NOT = { has_ruler_modifier = magical_training }
+        }
+        allow = {
+            NOT = { ruler_has_personality = spellcaster_personality }
+            adm_power = 100
+            treasury = 1000
+        }
+        effect = {
+            add_adm_power = -100
+            add_treasury = -1000
+            
+            add_ruler_modifier = {
+                name = magical_training
+                duration = 3650
+            }
+            
+            custom_tooltip = MAGIC_UNDERGO_TRAINING
+            
+            # Play failure event if the ruler isn't a spellcaster by the end
+            hidden_effect = {
+                country_event = { id = wwu_magic.12 days = 3650 }
+            }
+            
+            # Add free points based on monarch skill
+            # Only do it for the first instance of the decision
+            hidden_effect = {
+                if = {
+                    limit = {
+                        is_variable_equal = {
+                            which = ruler_magic_training
+                            value = 0
+                        }
+                    }
+                    if = {
+                        limit = {
+                            adm = 5
+                        }
+                        add_magical_training_point = yes
+                    }
+                    if = {
+                        limit = {
+                            dip = 5
+                        }
+                        add_magical_training_point = yes
+                    }
+                    if = {
+                        limit = {
+                            mil = 5
+                        }
+                        add_magical_training_point = yes
+                    }
+                }
+            }
+            
+        }		
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    
+    # Improve Aptitude
+    improve_aptitude = {
+        potential = {
+            ruler_has_personality = spellcaster_personality
+            NOT = { has_legendary_aptitude = yes }
+        }
+        allow = {
+            ruler_has_personality = spellcaster_personality
+            adm_power = 250
+        }
+        effect = {
+            add_adm_power = -250
+            
+            add_aptitude_point = yes
+        }		
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    
+    # Improve Finesse
+    improve_finesse = {
+        potential = {
+            ruler_has_personality = spellcaster_personality
+            NOT = { has_legendary_finesse = yes }
+        }
+        allow = {
+            ruler_has_personality = spellcaster_personality
+            mil_power = 250
+        }
+        effect = {
+            add_mil_power = -250
+            
+            add_finesse_point = yes
+        }		
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    
+    # Improve Concentration
+    improve_concentration = {
+        potential = {
+            ruler_has_personality = spellcaster_personality
+            NOT = { has_legendary_concentration = yes }
+        }
+        allow = {
+            ruler_has_personality = spellcaster_personality
+            dip_power = 250
+        }
+        effect = {
+            add_dip_power = -250
+            
+            add_concentration_point = yes
+        }		
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    
+    #--------------------------------------
+    # Spells
+    #--------------------------------------
+    invoke_domain_magic = {
+        major = yes
+        
+        potential = {
+            ruler_has_personality = spellcaster_personality
+        }
+        allow = {
+            has_mana_1 = yes
+            ruler_has_personality = spellcaster_personality
+        }
+        effect = {
+            country_event = { id = wwu_magic.20 }
+        }		
+        ai_will_do = {
+            factor = 0
+        }
+    }
+}
+

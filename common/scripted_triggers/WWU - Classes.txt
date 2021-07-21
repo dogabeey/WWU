@@ -2,7 +2,7 @@ warrior = {
 	OR = {
 		culture_group = culture_group_human
 		culture_group = culture_group_orc
-		culture_group = culture_group_jungle_troll
+		primary_culture = culture_jungle_troll
 		culture_group = culture_group_dwarven
 		culture_group = culture_group_gnomish
 		culture_group = culture_group_undead
@@ -14,7 +14,7 @@ warrior = {
 		culture_group = culture_group_worgen
 		culture_group = culture_group_pandaren
 		culture_group = culture_group_shalassian
-		culture_group = culture_group_zandalar_troll
+		primary_culture = culture_zandalari_troll
 		culture_group = culture_group_vrykul
 		primary_culture = culture_void_elf
 	}
@@ -23,7 +23,7 @@ rogue = {
 	OR = {
 		culture_group = culture_group_human
 		culture_group = culture_group_orc
-		culture_group = culture_group_jungle_troll
+		primary_culture = culture_jungle_troll
 		culture_group = culture_group_gnomish
 		culture_group = culture_group_undead
 		culture_group = culture_group_darnassian
@@ -31,19 +31,19 @@ rogue = {
 		culture_group = culture_group_goblin
 		culture_group = culture_group_worgen
 		culture_group = culture_group_shalassian
-		culture_group = culture_group_zandalar_troll
+		primary_culture = culture_zandalari_troll
 		primary_culture = culture_void_elf
 	}
 }
 paladin = {
-	religion_group = religion_group_the_light
+	religion_group = light_group
 	OR = {
 		culture_group = culture_group_human
 		culture_group = culture_group_dwarven
 		culture_group = culture_group_tauren
 		culture_group = culture_group_draenei
 		culture_group = culture_group_thalassian
-		culture_group = culture_group_zandalar_troll
+		primary_culture = culture_zandalari_troll
 	}
 	NOT = {
 		primary_culture = culture_void_elf
@@ -51,12 +51,12 @@ paladin = {
 }
 priest = {
 	OR = {
-		religion_group = religion_group_the_light
-		religion_group = religion_group_nature
+		religion_group = light_group
+		religion_group = life_group
 	}
 	OR = {
 		culture_group = culture_group_human
-		culture_group = culture_group_jungle_troll
+		primary_culture = culture_jungle_troll
 		culture_group = culture_group_dwarven
 		culture_group = culture_group_undead
 		culture_group = culture_group_darnassian
@@ -65,7 +65,7 @@ priest = {
 		culture_group = culture_group_goblin
 		culture_group = culture_group_worgen
 		culture_group = culture_group_shalassian
-		culture_group = culture_group_zandalar_troll
+		primary_culture = culture_zandalari_troll
 		culture_group = culture_group_vrykul
 		primary_culture = culture_void_elf
 	}
@@ -73,53 +73,53 @@ priest = {
 hunter = {
 	OR = {
 		culture_group = culture_group_orc
-		culture_group = culture_group_jungle_troll
+		primary_culture = culture_jungle_troll
 		culture_group = culture_group_dwarven
 		culture_group = culture_group_darnassian
 		culture_group = culture_group_tauren
 		culture_group = culture_group_thalassian
 		culture_group = culture_group_worgen
 		culture_group = culture_group_shalassian
-		culture_group = culture_group_zandalar_troll
+		primary_culture = culture_zandalari_troll
 		culture_group = culture_group_vrykul
 		primary_culture = culture_void_elf
 	}
 }
 mage = {
 	OR = {
-		culture_group = culture_group_human
+		culture_group = culture_group_orc
+		primary_culture = culture_jungle_troll
 		culture_group = culture_group_dwarven
-		culture_group = culture_group_gnomish
-		culture_group = culture_group_undead
+		culture_group = culture_group_darnassian
+		culture_group = culture_group_tauren
 		culture_group = culture_group_thalassian
-		culture_group = culture_group_goblin
 		culture_group = culture_group_worgen
-		culture_group = culture_group_pandaren
 		culture_group = culture_group_shalassian
-		culture_group = culture_group_zandalar_troll
+		primary_culture = culture_zandalari_troll
 		culture_group = culture_group_vrykul
 		primary_culture = culture_void_elf
 	}
 }
 warlock = {
-	NOT = { religion_group = religion_group_the_light }
+	NOT = { religion_group = light_group }
 	OR = {
-		culture_group = culture_group_human
 		culture_group = culture_group_orc
-		culture_group = culture_group_jungle_troll
-		culture_group = culture_group_gnomish
-		culture_group = culture_group_undead
+		primary_culture = culture_jungle_troll
+		culture_group = culture_group_dwarven
+		culture_group = culture_group_darnassian
+		culture_group = culture_group_tauren
 		culture_group = culture_group_thalassian
-		culture_group = culture_group_goblin
+		culture_group = culture_group_worgen
 		culture_group = culture_group_shalassian
+		primary_culture = culture_zandalari_troll
 		culture_group = culture_group_vrykul
 		primary_culture = culture_void_elf
 	}
 }
 druid = {
 	OR = {
-		culture_group = culture_group_jungle_troll
-		culture_group = culture_group_zandalar_troll
+		primary_culture = culture_jungle_troll
+		primary_culture = culture_zandalari_troll
 		culture_group = culture_group_darnassian
 		culture_group = culture_group_tauren
 		culture_group = culture_group_worgen
@@ -129,25 +129,24 @@ druid = {
 	}
 }
 shaman = {
-	religion_group = religion_group_nature
+	religion_group = life_group
 	OR = {
 		culture_group = culture_group_orc
-		culture_group = culture_group_jungle_troll
 		culture_group = culture_group_undead
 		culture_group = culture_group_tauren
 		culture_group = culture_group_draenei
-		culture_group = culture_group_zandalar_troll
 		culture_group = culture_group_vrykul
+		primary_culture = culture_jungle_troll
+		primary_culture = culture_zandalari_troll
 	}
 }
 death_knight = {
-	religion = religion_the_damned
+	religion = cult_of_the_damned
 }
 monk = {
 	OR = {
 		culture_group = culture_group_human
 		culture_group = culture_group_orc
-		culture_group = culture_group_jungle_troll
 		culture_group = culture_group_dwarven
 		culture_group = culture_group_gnomish
 		culture_group = culture_group_undead
@@ -159,6 +158,7 @@ monk = {
 		culture_group = culture_group_worgen
 		culture_group = culture_group_pandaren
 		culture_group = culture_group_shalassian
+		primary_culture = culture_jungle_troll
 	}
 }
 demon_hunter = {

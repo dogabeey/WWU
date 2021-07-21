@@ -1,0 +1,74 @@
+namespace = thalassian
+
+# The Sunwell has been restored!
+country_event = {
+	id = thalassian.1
+	title = thalassian.1.title
+	desc = thalassian.1.desc
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		culture_group = culture_group_thalassian
+		NOT = { religion = fel }
+		NOT = { religion = shadow }
+		NOT = { secondary_religion = light_of_the_sunwell }
+        
+		OR = {
+            exists = A91
+            exists = A93
+            exists = G18
+            exists = A92
+		}
+        
+		owns = 2991 # Sunwell
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = { 
+		name = thalassian.1.option.a
+        
+		ai_chance = { factor = 0 }
+		
+		add_stability = -1
+		2991 = {
+			add_unrest = 10
+		}
+	}
+	
+	option = { 
+		name = thalassian.1.option.b
+       
+		ai_chance = { factor = 1 }
+        
+		change_religion = arcane
+        
+		2991 = {
+			change_religion = light_of_the_sunwell
+		}
+	}
+	option = { 
+		name = thalassian.1.option.c
+        
+		ai_chance = { factor = 2 }
+        
+		change_religion = light_of_the_sunwell
+        
+		every_owned_province = {
+            change_religion = light_of_the_sunwell
+        }
+        
+		660 = { change_religion = arcane }
+		add_stability = 1
+		add_prestige = 150
+        
+		2991 = {
+            add_unrest = -10
+		}
+	}
+	
+}

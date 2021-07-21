@@ -1,0 +1,43 @@
+alliance_vs_horde = {
+	potential = {
+		OR = {
+			is_member_of_faction = { faction = alliance }
+			is_member_of_faction = { faction = horde }
+		}
+	}
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_member_of_faction = { faction = alliance }
+				any_country = {
+					is_member_of_faction = { faction = horde }
+					war_with = PREV
+				}
+			}
+			AND = {
+				is_member_of_faction = { faction = horde }
+				any_country = {
+					is_member_of_faction = { faction = alliance }
+					war_with = PREV
+				}
+			}
+			AND = {
+				tag = B88
+				war_with = STW
+			}
+			AND = {
+				tag = STW
+				war_with = B88
+			}
+			is_in_war = {
+				casus_belli = cb_azeroth_assault
+			}
+		}
+	}
+	
+	manpower_recovery_speed = 1
+	mercenary_cost = -0.2
+	war_exhaustion = -0.2
+}
+

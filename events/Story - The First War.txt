@@ -1,0 +1,346 @@
+namespace = first_war
+
+# The First War - Setup factions
+country_event = {
+	id = first_war.100
+	title = first_war.100.title
+	desc = first_war.100.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    hidden = yes
+    fire_only_once = yes
+    
+	trigger = {
+		current_age = age_orcish_horde
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = first_war.100.option.a
+        
+        set_first_war_faction_conflict = yes
+    }
+}
+
+# The First War
+country_event = {
+	id = first_war.1
+	title = first_war.1.title
+	desc = first_war.1.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+	trigger = {
+		current_age = age_orcish_horde
+        
+        capital_scope = { continent = continent_outland }
+        
+		OR = {
+			faction_horde = 1  
+			AND = {
+				any_country = {
+					faction_horde = 1
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				is_subject_of_type = faction_horde
+			}
+			AND = {
+				any_country = {
+					faction_horde = 1
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				any_country = {
+					is_subject_of_type = faction_horde
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				has_country_flag = joined_guldan
+			}
+			AND = {
+				any_country = {
+					faction_horde = 1
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				any_country = {
+					has_country_flag = joined_guldan
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				any_country = {
+					is_subject_of_type = faction_horde
+					any_owned_province = {
+						OR = {
+							region = region_swamp_of_sorrows
+							region = region_blasted_lands
+						}
+					}
+				}
+				culture_group = culture_group_ogre
+				capital_scope = {
+					continent = continent_outland
+				}
+			}
+		}
+		any_province = {
+			OR = {
+				region = region_blasted_lands
+				region = region_swamp_of_sorrows
+			}
+			is_empty = yes
+		}
+		NOT = {
+			any_owned_province = {
+				OR = {
+					region = region_blasted_lands
+					region = region_swamp_of_sorrows
+				}
+			}
+		}
+	}
+	
+    mean_time_to_happen = {
+		months = 6
+    }
+    
+	option = {
+		name = first_war.1.option.a
+		
+        random_province = {
+            limit = {
+				OR = {
+					region = region_blasted_lands
+					region = region_swamp_of_sorrows
+				}
+                is_empty = yes
+            }
+
+            cede_province = ROOT
+            add_core = ROOT
+            change_culture = ROOT
+            change_religion = ROOT
+        }
+		region_elwynn_forest = {
+			add_permanent_claim = ROOT
+		}
+		region_deadwind_pass = {
+			add_permanent_claim = ROOT
+		}
+    }
+}
+
+# Instruments of Gul'dan
+country_event = {
+	id = first_war.2
+	title = first_war.2.title
+	desc = first_war.2.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+	fire_only_once = yes
+    
+	trigger = {
+        current_age = age_orcish_horde
+        
+        tag = B88
+        NOT = { exists = A43 }
+	}
+	
+    mean_time_to_happen = {
+		months = 1
+    }
+    
+	option = {
+		name = first_war.2.option.a
+		
+
+        random_province = {
+            limit = {
+				OR = {
+					region = region_blasted_lands
+					region = region_swamp_of_sorrows
+				}
+                is_empty = yes
+            }
+
+            cede_province = A43
+            add_core = A43
+            change_culture = culture_twilight_cultist
+            change_religion = fel
+        }
+        
+        hidden_effect = {
+			B88 = {
+				create_subject = {
+					subject_type = faction_horde
+					subject = A43
+				}
+			}
+            A43 = {
+                set_country_flag = first_war_orc
+            }
+        }
+    }
+}
+
+# Assault on Stormwind
+country_event = {
+	id = first_war.4
+	title = first_war.4.title
+	desc = first_war.4.desc
+	picture = ORCISH_INVASION_eventPicture
+
+    hidden = yes
+    
+	trigger = {
+        current_age = age_orcish_horde
+        
+        NOT = { has_global_flag = stormwind_attack }
+        
+        # When a human that has a province in the Stormwind area sieged down by an orc clan
+        any_country = {
+            has_country_modifier = first_war_human
+            
+            any_owned_province = {
+                area = area_stormwind # Grab the owner of a capital in Stormwind, normally STW
+                
+                controller = {
+                    has_country_modifier = first_war_orc
+                }
+            }
+        }
+	}
+	
+    mean_time_to_happen = {
+		months = 1
+    }
+    
+    immediate = {
+    }
+    
+	option = {
+		name = first_war.4.option.a
+		
+        custom_tooltip = AZEROTHIAN_ALLIANCE_RALLIES
+        
+        hidden_effect = {
+            every_country = {
+                limit = {
+                    has_country_modifier = first_war_human
+                }
+                
+                if = {
+                    limit = {
+                        has_country_modifier = fall_of_capital
+                    }
+                    remove_country_modifier = fall_of_capital 
+                }
+                
+                add_country_modifier = {
+                    name = assault_on_stormwind
+                    duration = 1825
+                }
+            }
+        }
+    }
+}
+
+# Victory of Orc Clans
+country_event = {
+	id = first_war.5
+	title = first_war.5.title
+	desc = first_war.5.desc
+	picture = ORCISH_INVASION_eventPicture
+
+    major = yes
+    
+	trigger = {
+        current_age = age_orcish_horde
+        
+        area_stormwind = {
+			owner = {
+				culture_group = culture_group_orc
+			}
+        }
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+    immediate = {
+        set_global_flag = the_second_war
+		set_global_flag = tfw_orc_victory_path
+        
+		every_country = {
+			limit = {
+				has_country_modifier = first_war_orc
+			}
+			add_country_modifier = {
+				name = tfw_orc_victory
+				duration = 3650
+			}
+		}
+    }
+    
+    option = {
+		name = first_war.5.option.a
+		
+    }
+}
+
+# Orcish Horde Quelled!
+country_event = {
+	id = first_war.6
+	title = first_war.6.title
+	desc = first_war.6.desc
+	picture = ORCISH_INVASION_eventPicture
+
+    major = yes
+    
+    trigger = {
+        current_age = age_orcish_horde
+        
+        1035 = {
+			owner = {
+				culture_group = culture_group_human
+			}
+        }
+		
+		NOT = { has_global_flag = tfw_human_victory_path }
+	}
+    
+	option = {
+		name = first_war.6.option.a
+		
+		set_global_flag = tfw_human_victory_path
+        
+        add_country_modifier = {
+            name = tfw_human_victory
+            duration = 3650
+        }
+    }
+}

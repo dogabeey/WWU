@@ -1,108 +1,113 @@
-
-##################################################################
-### Terrain Categories
-###
-###
+# ----------------------------------
+# Terrain Categories
+# ----------------------------------
+# pti
+# ocean
+# inland_ocean
+# glacier
+# farmlands
+# forest
+# hills
+# woods
+# mountain
+# impassable_mountains
+# grasslands
+# jungle
+# marsh
+# desert
+# coastal_desert
+# coastline
+# drylands
+# highlands
+# savannah
+# steppe
+# desolate_waste
+# nethertouched
+# arcanetouched
+# feltouched
+# urban
+# suspended
+# underwater
+# underground
+# passage
+# complex
 
 categories =  {
 	pti = {
+		type = pti
 	}
 
 	ocean = {
-        color = { 255 255 255 }
-        
-        # Map
-        is_water = yes
+		color = { 255 255 255 }
+
 		sound_type = sea
-        
-        # Modifiers
+		is_water = yes
+
 		movement_cost = 1.0
 	}
 
 	inland_ocean = {
-        color = { 0 0 200 }
-        
-        # Map
+		color = { 0 0 200 }
+
+		sound_type = sea
 		is_water = yes
 		inland_sea = yes
-		sound_type = sea
-        
-        # Modifiers
+
 		movement_cost = 1.0
-        
-        # Override
-        terrain_override = {
-            
-        }
 	}	
 
-    # The Glacial terrain represents areas with very harsh and cold conditions often with permanent snow coverage and glaciers. Areas with Glacial terrain are very inhospitable for human settlement or military maneuvers.
-	glacier = {
-        color = { 235 235 235 }
-        
-        # Map
-        sound_type = desert
-        
-        # Modifiers
-		movement_cost = 1.25
-		defence = 1
-		supply_limit = 4
-        
-		local_development_cost = 0.5
-        
-		nation_designer_cost_multiplier = 0.75
+    glacier = {
+		color = { 235 235 235 }
 
-        # Override
+		sound_type = desert
+
+		defence = 1
+		movement_cost = 1.25
+		supply_limit = 2		
+		local_development_cost = 0.5
+		nation_designer_cost_multiplier = 0.75		
+		
         terrain_override = {
-            1267 726 523 930 777 628 998 901 1233 1258 1261 1260 1259 530 2128 2129 708 834 862 2127 2368 2370 2369 2367 2374 761 2361 2362 2360 1225 1266 2381 846 2363 2364 2365 827 2366 2373 2371 1270 2375 2376 2377 2379 830 645 1278 2382 2383 2386 946 2385 522 2389 896 894 2390 1279 1227 764 2392 1228 828 753 541 2395 1280 2380
-            2126 2493 2404 2411 982 733 2405 713
+            726 523 930 777 628 901 1258 1261 1260 1259 530 2128 2129 708 834 862 2127 2368 2370 2369 2367 2374 1225 1266 2381 846 827 2366 2373 2371 1270 2375 2376 2377 2379 830 645 1278 2382 2383 2386 946 2385 522 2389 896 894 2390 1279 1227 764 2392 1228 828 753 541 2395 1280 2380
+            2126 2493 2404 2411 733 2405 713
+            1208 1748 1006 1750 280 263
         }
 	}
 
-	# Farmlands terrain represents highly cultivated areas where the landscape is dominated by agriculture and towns or villages.
 	farmlands = {
-        color = { 103 167 214  }	
-        
-        # Map
+		color = { 179 255 64 }
+
 		type = plains
-        sound_type = plains
-        
-        # Modifiers
+		sound_type = plains
+
 		movement_cost = 1.10
-        supply_limit = 10
-        
 		local_development_cost = -0.05
+		supply_limit = 10
 		allowed_num_of_buildings = 1
-        
 		nation_designer_cost_multiplier = 1.05
-        
-        # Override
+		
         terrain_override = {
             1426 2288 1421 2265 
-            2142 3025 2336 2120 
+            2142 2336 2120 
             2416
-            2506 2507
+            2506 2507 2175 2172
+            904 2000 922 751 1936 897 527 538 1027 2996 959 2964 2020 908 
+            740 2957 560 1237 1562 476 481
         }
 	}
 	
-    # Forest terrain represents areas of conifer forest with high density of trees and underbrush.
-	forest = {
-        color = { 91 123 45 }
-        
-        # Map
-        sound_type = forest
-        
-        # Modifiers
+    forest = {
+		color = { 31 116 16 }
+
+		type = forest
+		sound_type = forest
+		
 		movement_cost = 1.25
 		defence = 1
-		combat_width = -0.20
-		supply_limit = 3
-        
+		supply_limit = 4
 		local_development_cost = 0.2
-        
 		nation_designer_cost_multiplier = 0.9
-
-        # Override
+		
         terrain_override = {
             1498 1487 1486 1485 2305 1303
             2242 1433 1352 2248 2239 1436 1431 2245 2243 2241 1434 2244 1430 1432 2250 2247 1429 2246  
@@ -113,31 +118,27 @@ categories =  {
             1283 2397 2398 2399 2131 796 995 812 781 2402
             546 2105 2464 
             2490 2130 1101
+            2477 2476 2475 2474 2179 2190 1026
+            836 2171 973 1747 1770 2006 2009 2007 2005 278
         }
 	}
 	
-	# Hills terrain represents areas dominated by a rolling landscape of shifting elevation that are lower and less steep than mountains. Unlike the highland terrain hills represent areas with a higher density of trees and underbrush.
 	hills = {
-        color = { 113 176 151 }
-        
-        # Map
-        sound_type = mountain
-        
-        # Modifiers
+		color = { 113 176 151 }
+
+		type = hills
+		sound_type = mountains
+
 		movement_cost = 1.40
 		defence = 1
-        combat_width = -0.25
-        supply_limit = 5
-        
 		local_defensiveness = 0.1
 		local_development_cost = 0.25
-		
 		nation_designer_cost_multiplier = 0.85
+		supply_limit = 5
 		
-        # Override
         terrain_override = {
             1458 1459 1449 2311 2287 1448 1409 1443 1371 1465
-            1470 1467 1494 2309 1495 2308 2291 1390 1397 1395
+            1470 1467 1494 2309 1495 2308 2291 1390 
             1355 1349 2231 1351 2235 2236 1353 2233 2234 1321  
             1323 2136 1330 2218 2217 1328 1327 1332 1333 2216 
             2256 1304 1296 1295 1094 1086 2267 2275 1080 1079
@@ -148,10 +149,10 @@ categories =  {
             1650
             1619 1680 1681 1682 2053 1683 1684 1685 1686 1687 1688 1689 1690 2055 1692 1691 2054 1693 1694 1695 1696 1697 1699 1698 2101
             2200
-            1994 650 772 752 717 683 785 800 1992 816 838 669 1993 2190 2199 2197 2198 2196 2195 2163 2193
-            2954 552 1137 1046 3033 1945 
+            1994 650 772 752 717 683 785 800 816 838 669 1993 2199 2197 2196 2195 2193
+            2954 552 1137 1046 3033  
             855 3039
-            605 1032 656 554 536 1025 803 841 1940 622
+            605 656 554 536 1025 803 841 1940 622
             2117 2118 951 
             529 545 2132 2406 2133 2407 2408 2410 2134 1051 2418 679
             2444 732      
@@ -159,30 +160,30 @@ categories =  {
             1047 3032 1941 792 1048 655 303 3030 
             2465 2102 2466
             769 782 2103 2467 734 
-            599 2419 2413 2491 2492
+            2419 2413 2491 2492
             1105 1102 1104 1103 1106 1107
-            1920 1885 
+            1885 2187 1754 1755 1951 3040 1953 1507 2166
+            1398
+            984 902 511 1502 853 1504 799 636 870 2174 884 630 2144 2143 2178 1741 1964 1956 1955 1618 1639 1659 1742 3053 1944 3031 1134 1142 
+            3043 1949 730 1762 888 926 2969 1844 2968 624 607 2967 3066 591 606 623 976 721 3016 3019 842 
+            2963 671 702 720 686 1998 727 3058 2016 2018 662 979 2025 2024 2022 2168 2515 2124 557 743 3073 992 915 1831 2190 2477 
+            659 993 876 844 860 808 1041 2517 2979 2518 1064 2519 704 957 2003 974 2008 2011 3009 246 247 2656 2567 2660 2659 2664 2661 2676 3180 
+            2636 2687 3184 3266 3343 2390 1228 828 761 2362 2369 2078 1729 1724 2069 1904 2657 2414
         }
 	}
 
-	# Woods terrain represents areas of broadleaf forest with high density of trees and underbrush.
 	woods = {
-        color = { 165 205 108 }
-        
-        # Map
-        sound_type = forest
-        
-        # Modifiers
+		color = { 41 155 22 }
+
+		type = forest
+		sound_type = forest
+
 		movement_cost = 1.10
 		defence = 1
-        combat_width = -0.20
-        supply_limit = 6
-        
 		local_development_cost = 0.15
-		
 		nation_designer_cost_multiplier = 0.9
-
-        # Override
+		supply_limit = 6
+		
 		terrain_override = {
 			724 705 521 760 1493 1491 1499 192 2306 1488 1497 1489 1492 2303 2304 1360 1358 1356 2226 1315 1314 1316 1317 1318 2225 2223 2224 222 1320 2221 1319  1335 1337 1336 1338 1339 1340 1348 2251 2252 1302 1301 2253 1300 1299 1298 2255 1297 1093 2258 2259 2261 1091 1090 1089 1095 1088 2269 1085 2270 1084 1077 1081 2273 2266 2268 2274 1076 1078 1428 2222
             2262
@@ -190,82 +191,68 @@ categories =  {
             2459 899 880 2454 2113 849 833 2452 795 712 2445 2446 2447 767 2448 
             950 2114 934 2457 918 2455 2456
             1651 2039 2040 2038 1645 1644 1654 2041 1643 2048 1642 2045 2046 2043 
-            1021 1004 903 1057 985 970 586 653 682 637 618 602 2153 2152 2151 2150 2178 2177 2170
-            661 954 1005 986 913 587 619 603 550 567 1058 533  2145 2146 2147 2148 2144 2143  2140 2139 2138
+            1021 1004 903 1057 985 970 586 653 682 637 618 602 2153 2152 2151 2150 2177 2170
+            661 954 1005 986 913 587 619 603 550 567 1058 533  2145 2146 2147 2148 2140 2139 2138
             956 3044 839 801
             1018 509
             967 2112 2482 2485 2483 2484 2486 2487
-            1884 1886 1882 1883 2504
+            1884 1886 1882 1883 2168 2488 2489 3041 3045 872 2995 845 731 525 3012 2690 3186 2363 2364 2365 
 		}
 	}
 	
-	# Mountain terrain represents areas mainly occupied by rugged mountain ranges and narrow passes, often on high altitude and in cold climate.
+	# Used for passable areas in mountains (i.e. Redridge Path)
 	mountain = {
-        color = { 117 108 119 }
-        
-        # Map
-        sound_type = mountain
-        
-        # Modifiers
+		color = { 105 24 4 }
+
+		type = mountains
+		sound_type = mountains
+
 		movement_cost = 1.5
 		defence = 2
-        combat_width = -0.50
-        supply_limit = 2
-        
 		local_defensiveness = 0.25
-		local_development_cost = 0.5
-		
+		local_development_cost = 0.35
 		nation_designer_cost_multiplier = 0.75
-		
-        # Override
+		supply_limit = 4
+        
         terrain_override = {
-            1556 1526 1533 2322 1359 2277 2279 1341 
+            1526 1533 2322 1359 2277 2279 1341 
             2387 2388 2396 2394 2393 2391 1291 1229 576 2384 1277 947
             1269 1226 911 895 829 1275
             1624 1630 2052 1593
-            817 3045 
+            817  
             595 2099 2470
+            2516 1001 3035 3042 1996 2163 2198 1992 1952 1979 1653 1943 1766 589 1751 1749 3025
+            561 631 744 3047 1000 3007 889 1930 3063 3061 3064 3070 556 2023 2027 2170 
+            2209 2210 3178 2663 2673 3191 2641 1288 3230 2501 728 2503 2502 2378 3261 3229 3228 2361   
+            1915 3212 1903 3211 3210 3204 3332 3331 3330 
+            
         }
 	}
 	
-    # Impassable Mountains terrain represents areas of mountains too inhospitable or too difficult for an army to maneuver in.
+    # Used for the "wasteland" mountain provinces (i.e. mountain ridges)
 	impassable_mountains = {
-        color = { 128 128 128 }
+		color = { 128 128 128 }
+
+        type = mountains
+		sound_type = desert
+
+		movement_cost = 10.0
         
-        # Map
-        sound_type = desert
-        
-        # Modifiers
-		movement_cost = 2
 		defence = 3
-        local_friendly_movement_speed = -0.9
-		local_hostile_movement_speed = -0.9
-        
-		local_development_cost = 10
-        
-        # Override
-        terrain_override = {
-            2510 2511 2512 2513 2514 2515 2516 2517 2518 2519 2520 2521 2522 2523 2524 2525 2526 2528 2529 2531 2532 2533 2534 2535 2536 2537 2538 2539 2540 2541 2542 2543 2544 2545 2546 2547 2548 2549 2550 2551 2552 2553 2554 2555 2556 2557 2558 2559 2560 2561 2562 2563 2564 2565 2566 2567 2568 2571 2572 2573 2574
-        }
+		local_development_cost = 2
 	}
 
-	# Grasslands terrain represents areas of farmland where the vegetation is dominated by grass.
 	grasslands = {
-        color = { 211 201 184 }
-        
-        # Map
+		color = { 130 255 47 }
+
 		type = plains
-        sound_type = plains
-        
-        # Modifiers
+		sound_type = plains
+
 		movement_cost = 1.0
 		supply_limit = 8
-        
 		allowed_num_of_buildings = 1
-        
 		nation_designer_cost_multiplier = 1
-
-        # Override
+		
         terrain_override = {
             1445 2297 1476 1475 1484 1477 2295 1483 2296 1472 1474 1482 1471 1468 2310 2312 1350 2220 2219 1331 1329 2254 
             1647 1633 1634 2051 1638 1631 2050 1632 1636 1628 1627 1629 1635 1621 1626 1625 1623 1622 1637 
@@ -274,91 +261,71 @@ categories =  {
         }
 	}
 	
-	# Jungle terrain represents areas overgrown with dense tropical vegetation, difficult for an army to maneuver in.
 	jungle = {
-        color = { 40 180 149 }
-        
-        # Map
-        sound_type = jungle
-        
-        # Modifiers
+		color = { 98 163 18 }
+
+		type = jungle
+		sound_type = jungle
+
 		movement_cost = 1.5
 		defence = 1
-        combat_width = -0.25
-        supply_limit = 4
-        
 		local_development_cost = 0.35
-		
 		nation_designer_cost_multiplier = 0.8
+		supply_limit = 5
 		
-		# Override
         terrain_override = {
             1528 1527 1534 1535 1540 1536 1532 1539 1531 1530 1529 1537
-            1996 1997 601 585 636 652 681 697 715 750 735 783 565 1056 548 531 511 1020 1003 984 969 920 937 902 852 868 883 996 2165 2167 
+            1997 601 585 652 681 697 715 750 735 783 565 1056 548 531 1020 1003 969 920 937 852 868 883 2165 2167 
             2115 2350 2351 2349 766 826 2357 2356 2355 939 1264 2354 2100 971 762 2358 2353 2352 1263 2359 692 916 526
-            2469 2470 1108 1136
+            2470 1108 1136
             2471 2509 
-            2508 1110 1111 1112
+            2508 1110 1111 1112 997 1920
         }
 	}	
 	
-    # Marsh terrain represents tracts of wetland dominated by grasses or low-growing shrubs.
-	marsh = {
-        color = { 76 112 105 }
-        
-        # Map
-		type = plains
-        sound_type = forest
-        
-        # Modifiers
+    marsh = {
+		color = { 13 189 130 }
+
+		type = marsh
+		sound_type = forest
+
 		movement_cost = 1.3
 		defence = 1
-        combat_width = -0.25
-        supply_limit = 2
-        
 		local_development_cost = 0.25
-		
 		nation_designer_cost_multiplier = 0.85
+		supply_limit = 5
 
-        # Override
         terrain_override = {
             1454 1455 1453 1462 1452 1463 1451 1461 1450 1354
-            2474 2475 2476 2477
             2049 1606 1605 1604 1608 1607 1609 1610 2062 2063 1611 1617 2064 1612 1620 1614 1613 1615 1616 2065  
-            885 638 547 949 707 994 725 864 594 879 1995 2185 2160 2184 2183 2159 2157 2186 2155 2180 2156 2187 2191 2179 2181 2188 2158 2189 
+            885 638 547 949 707 994 725 864 594 879 1995 2185 2160 2184 2183 2159 2157 2186 2155 2180 2156 2191 2181 2188 2158 2189 
             3034 1942
             2342 2343 900
             696 216 1887
             1122 1123 1132
             1124 1126 1127
-            1128 1129 1130
+            1128 1129 1130 1032 999 3028 3015 2637 1719
         }
 	}
 	
-	# Desert terrain represents desolate and arid areas with little or no vegetation, often in a very warm climate.
 	desert = {
-        color = { 220 210 0 }
-        
-        # Map
-		type = plains
-        sound_type = desert
-        
-        # Modifiers
+		color = { 242 242 111 }
+
+		type = desert
+		sound_type = desert
+
 		movement_cost = 1.05
 		supply_limit = 4
-
-		local_development_cost = 0.35
-
+		local_development_cost = 0.50
 		nation_designer_cost_multiplier = 0.8
-
-        # Override
+		
         terrain_override = {
             1564 1574 1568 1573 1572 1577 1571 1570 1558 1575
             2330 1522 1519 1516 1517 1518 1512 1513 1514 1515 1508 1509 1510 1511 1548 1555 2321 1547 2328 1538 1545 1546 1554 1542 1543 1541 1553
-            2325 2327 1544 1562 1578
+            2325 2327 1562 1578 
             
-            362 363 364 3162 3163 366 1520 1521
-            360 361 367 2329 365 2330 3161 472 482 483 475 477 1563 
+            362 364 3162 3163 366 1521
+            360 361 367 365 2330 472 482 483 475 477 1563 
             
             1113 1118
             1115 1116 1117
@@ -366,409 +333,387 @@ categories =  {
         }
 	}
 	
-	# Coastal Desert terrain represents areas where the desert meets the ocean, resulting in a milder and less inhospitable climate.
 	coastal_desert = {
-        color = { 200 128 0 }
-        
-        # Map
-		type = plains
-        sound_type = desert
-        
-        # Modifiers
+		color = { 255 211 110 }
+
+		type = desert
+		sound_type = desert
+
 		movement_cost = 1.0
-		
-		local_development_cost = 0.25
-        
-		nation_designer_cost_multiplier = 0.9	
-        
-        # Override
+		local_development_cost = 0.35
+		nation_designer_cost_multiplier = 0.9		
+		supply_limit = 4
+
         terrain_override = {
-            1563 1565 1566 1567 1557 1576 1569
+            1563 1565 1566 1567 1557 1576 
             2326 1551 2324 2323 1552 1549
             1120 1114
         }
 	}
 	
-    # Coastline terrain represents the narrow areas where land and sea meet, compromised of cliffs or sand dunes.
-	coastline = {
-        color = { 200 128 0 }
-        
-        # Map
-		type = plains
-        sound_type = sea
-        
-        # Modifiers
+    coastline = {
+		color = { 49 175 191 }
+
+		sound_type = sea
+
 		movement_cost = 1.0
-        supply_limit = 6
-        
-		local_development_cost = 0.1
-
-		nation_designer_cost_multiplier = 0.95		
-
-        # Override
+		local_development_cost = 0.25
+		nation_designer_cost_multiplier = 0.85		
+		supply_limit = 6 
+		
         terrain_override = {
-            1456 1438 1385 1435 2249 1398 1403 1399 1306 1065
+            1456 1438 1385 2249 1403 1399 1306 1065
             1092 1075 1074 2260 2264 2271 2263 2272 1082 
             2109 1289 695
             714 867 2468 2110 564 2462 584
-            997 2166 1998 693
+            693
             2141
             1002 2335 1019 2334 2331 2332 2123 983 2337 919 2338 2116 
             2119 2125 
             748 2403 935 583 
             2412 2415 
             2449 2478 2481 2480
-            2489 2488 2453 1281 866 2341 2347
-            
+            2453 1281 866 2341 2347
             2472
-            1133 1135 
+            1133 1135  
+            1500 1478
+            2169 612 815 2154 837 627 1037 814 2173 1977 1745 1744 1743 858 962 757
+            3005 2004 258 639 3010 170 249 2666 2658 2691 2670 2644 2684 2686 2688 
+            1780 1206 1781 1779 405 1787 348 1909 1784 1775 1788 1735 1734 1736 1727 1737 1905 3328
         }
      
 	}	
 	
-	# Drylands represents large areas of dry, flat or rolling treeless land.
 	drylands = {
-        color = { 208 158 108  }
-        
-        # Map
+		color = { 232 172 102 }		
+
 		type = plains
-        sound_type = plains
-        
-        # Modifiers
+		sound_type = plains
+
 		movement_cost = 1.00
-        supply_limit = 6
-        
 		local_development_cost = 0.05
+		nation_designer_cost_multiplier = 0.95
+		supply_limit = 7
 		allowed_num_of_buildings = 1
-        
-        nation_designer_cost_multiplier = 0.95
-		
-		# Override
+
         terrain_override = {
             1550 1579 1457 1460 2318 2319 1580 1585 1581 1582 2317 2316 2320 2314 2315 2313 1583 1584 2293 1383
             2294 1384 1382 2292 1381 1380 2290 2289 1378 1379 
             1603
-            622 904 627 837 870 751 736 716 771 596 815 612 799 1999 784 2000 922 2168 2169 2154 
-            1967 1979 1974 1978 1969 1971 1972 1973 1976 1975 1970 1968 1977
+            622 736 716 771 596 1999 784 
+            1967 1974 1978 1969 1971 1972 1973 1976 1975 1970  
             
-            615 664 649 2420 1284 2422 2421 633 2425 1274 2423 2424 598 2427 2430 2432 2429 2428 544 1285 562 582 2433 779 2435 2437 2436 917 2438 1287 933 1017 898 832 2441 2440 810 794 1286
             2044 1655 1648 2047 1656 1649 1657 
-            938 953 921 2182 2162 2161 
-            563 2414
-            2431 
+            953 921 2182 2161 
         }	
 	}
 
-	# Highlands terrain represents areas dominated by a rolling landscape of shifting elevation that are lower and less steep than mountains. Unlike the hills terrain highlands represent areas with a low density of trees and underbrush.
 	highlands = {
-        color = { 135 70 0 }
-        
-        # Map
-        sound_type = mountain
-        
-        # Modifiers
+		color = { 176 129 21 }
+
+		type = hills
+		sound_type = mountains
+		
+		supply_limit = 6
 		movement_cost = 1.40
 		defence = 1
-        combat_width = -0.25
-		supply_limit = 6
-        
 		local_defensiveness = 0.1
 		local_development_cost = 0.2
-		
-        nation_designer_cost_multiplier = 0.9	
+		nation_designer_cost_multiplier = 0.9	
 
-        # Override
         terrain_override = {
             2307 2281 1408 2280 1366 1407 2278 1363 1364 1361 1367 1406 1362 1405 1357 1345 1347 1346 1344 1343 1342
-            510 2333 2122 2340 2346 2345 936 881 968
+            510 2333 2122 2340 2346 2345 936 881 968 869 938 
+            1769 1768 1771 1772 517 1875 1938 1125 537 2999 990 1916 763 958 644 789 809 
+            1825 1827 1830 1831 3013 262 261 171 168 11 169 1
+             3187 3189 2638 2639 2642 3188 2681 2682 2683 2680
         }
 	}
 
-    # Savanna terrain represents large grass-covered areas with a high degree of trees mixed in.
-	savannah = {
-        color = { 201 214 148  }	
-        
-        # Map
-		type = plains
-        sound_type = plains
-        
-        # Modifier
+    savannah = {
+		color = { 248 199 23  }
+
+        type = plains
+		sound_type = plains
+
+		supply_limit = 6
 		movement_cost = 1.00
-		supply_limit = 4
-        
 		local_development_cost = 0.15
+		nation_designer_cost_multiplier = 0.95	
 		
-        nation_designer_cost_multiplier = 0.95	
-		
-		# Override
         terrain_override = {
             1464 1446 1465 147 1444 1440 2286 1439 1423 1441 1375 1422 1442 1374 1365 1373 1368 1369 1420 2283 1372 2284 1370 2282 2285 1447 1376
         }		
 	}
 	
-	# Steppes terrain represents large and continuous open areas covered in grass that are suitable for grazing yet unsuitable for agriculture.
 	steppe = {
-        color = { 185 106 210  }
-        
-        # Map
+		color = { 147 200 83  }
+
 		type = plains
-        sound_type = plains
-        
-        # Modifiers
+		sound_type = plains
+
 		movement_cost = 1.00
+		local_development_cost = 0.20
+		nation_designer_cost_multiplier = 0.9	
 		supply_limit = 6
-        
-		local_development_cost = 0.10
-        
-		nation_designer_cost_multiplier = 0.95
 		
-		# Override
         terrain_override = {
             1394 1396 2301 1402 1401 1391 2300 1389 1392 1393 2299 1387 1400 2298 2302
         }
 	}	
 	
-	# Warcraft
-    
-    # Desolate Waste represents land that has undergone catastrophic damage, often due to war, leaving it lifeless.
 	desolate_waste = {
         color = { 100 0 50 }
         
-        # Map
 		type = plains
         sound_type = plains
         
-        # Modifiers
 		movement_cost = 1.25
-		supply_limit = 1
-        
-		local_development_cost = 0.25
-        local_defensiveness = -0.25
         
 		nation_designer_cost_multiplier = 0.95
+		supply_limit = 1
+		local_development_cost = 0.25
+        local_defensiveness = -0.25
 
-        # Override
 		terrain_override = {
-			1989 1990 1988 1987 1986 1985 1991 1984 1983 1952 1982 1981 1980 1962 1964 1961 1957 1956 1955 1958 1954 1965 1959 1960 1966 3054 3055 3056 
+			1989 1990 1988 1987 1986 1985 1991 1984 1983 1982 1981 1980 1961 1957 1958 1954 1965 1959 1960 1966 3054 3055 3056 
             1386 
             1586 1587 1588 1589 1590 1591 1592 1594 1595 1596 1597 1598 1599 1602 2028 2029 2030 2031 2032 2033 2034 2035
-            884 630 1050 807 1045 1033 1034 1043 1042 553 1035 1037 869 814 836 853 2176 2175 2172 2174 2173 2171 
+            1050 807 1045 1033 1034 1043 1042 553 1035    
 		}
-	}	
+	}
    	
-    # Nether-touched represents land that is or has been exposed to the Twisting Nether in some form
     nethertouched = {
         color = { 60 75 20 }
         
-        # Map
         sound_type = plains
         
-        # Modifiers
 		movement_cost = 1.0
 		supply_limit = 1
-        
 		local_development_cost = 0.25
-        
 		nation_designer_cost_multiplier = 0.95
 
-        # Override
 		terrain_override = {
 			1704 1702 1701 2056 1703 1710 2057 1709 2058 1706 1707 1708 1717 1716 1715 2059 1705 1711 1712 1713 2060 1714 2061 
 		}
 	}
     
-    # Arcane-touched represents land that is or has been exposed to Arcane energies in some form
     arcanetouched = {
         color = { 20 85 50 }
         
-        # Map
         sound_type = plains
         
-        # Modifiers
 		movement_cost = 1.0
 		supply_limit = 1
-        
 		local_development_cost = 0.25
-        
 		nation_designer_cost_multiplier = 0.95
 
-        # Override
 		terrain_override = {
 			893 1273 825 1276 706
 		}
 	}
     
-    # Fel-touched represents land that is or has been exposed to Fel energies in some form
     feltouched = {
         color = { 77 55 44 }
         
-        # Map
         sound_type = plains
-        
-        # Modifiers
 		movement_cost = 1.0
 		supply_limit = 1
-        
 		local_development_cost = 0.25
-        
 		nation_designer_cost_multiplier = 0.95
-
-        # Override
+        
 		terrain_override = {
-            1671 1673 1672 2036 1677 2037 1670 1669 166 1678 1665 1664 1676 1667 1679 1668 1675 1661 1674 1662 1663 1666
+            1671 1673 1672 2036 1677 2037 1670 1669 166 1678 1665 1664 1676 1667 1679 1668 1675 1661 1674 1662 1663 1666 2668 2667 
 		}
-	}	
+	}
     
-    # Urban represents land dominated by dwellings occupied by citizens of the nation whom owns the land.
-	urban = {
-        color = { 0 0 20 }
-        
-        # Map
-        sound_type = plains
-        
-        # Modifiers
-		movement_cost = 1.00
-		defence = 1
-		supply_limit = 8
-        
-		local_defensiveness = 0.5
-		local_development_cost = -0.1
+    urban = {
+		color = { 145 82 74 }
+
+		type = plains
+		sound_type = plains
 		
-        nation_designer_cost_multiplier = 3
+		supply_limit = 10
+		movement_cost = 1.0
+		defence = 1
+		local_defensiveness = 0.25
+		local_development_cost = -0.1
 
 		terrain_override = {
-			1073 1087 1377 660 676 2988 1022 1473 543 863 1641 1268 1559 1322 728 794
+			1073 1087 660 676 2988 1022 1473 543 863 1641 1559 
             2149 2202 2206 2203 2204 2205 2207
             1140 3037 1055 
-            850 1099 1100 1889 1888 1891 1890
+            850 1099 1100 
             1807 1809 1808 1820 2505
+            570 3011 3014 927 
+            996 506 3002 981 3000 3003 3001 991 804 774 
+            1011 1028 519 642 2975 2010 2012 2013 989 257 182 2469 2662 3182 3183 2669 2651 2646 2645
+            1052 3233 1569  
 		}
     }
     
-    # Suspended represents land that is suspended in the air by some fashion.
     suspended = {
-        color = { 0 25 20 }
-        
-        # Map
-        sound_type = plains
-        
-        # Modifiers
-		movement_cost = 1.00
-		defence = 3
-		supply_limit = 2
-        
-		local_development_cost = 0.2
+		color = { 125 82 74 }
+
+		type = hills
+		sound_type = mountains
 		
-        nation_designer_cost_multiplier = 10
+		supply_limit = 8
+		movement_cost = 1.5
+		defence = 3
+		local_defensiveness = 0.5
+		local_development_cost = -0.1
 
 		terrain_override = {
-			1561 1560 1271 2344 1026 2689
+			1561 1560 1271 2344 2689 1233 3279 3281 3280 599 
 		}
     }
     
-    #
     underwater = {
-        color = { 0 25 160 }
-        
-        # Map
-        sound_type = sea
-        
-        # Modifiers
-		movement_cost = 2.00
-		defence = 3
-		supply_limit = 1
-        
-		regiment_recruit_speed = -0.1
-		
-        nation_designer_cost_multiplier = 1
+		color = { 46 73 194 }
 
+		type = plains
+		sound_type = sea
+		
+		supply_limit = 8
+		movement_cost = 2
+		defence = 2
+		local_defensiveness = 0.25
+        
 		terrain_override = {
 			3171 3172 3173 3174 3175 3176 3177
+            573 577 579 588 590 611 616 617 620 621 
 		}
     }
-    #
+
     underground = {
         color = { 150 25 160 }
         
-        # Map
-        sound_type = plains
-        
-        # Modifiers
-		movement_cost = 1.50
-		defence = 4
-		supply_limit = 1
-        
-		regiment_recruit_speed = 0.1
+        type = plains
+		sound_type = plains
 		
-        nation_designer_cost_multiplier = 1
+		supply_limit = 8
+		movement_cost = 2
+		defence = 2
+		local_defensiveness = 0.25
 
 		terrain_override = {
-			2700 3157 3158 3159 3160 3048 3049 3050 3051 3052 941 887 3036 3038
+			2700 3157 3158 3159 3160 1962
 		}
+    }
+    
+    passage = {
+        color = { 70 53 237 }
+        
+        type = mountains
+		sound_type = mountains
+
+		movement_cost = 1.5
+		defence = 2
+		local_defensiveness = 1.0
+		local_development_cost = 0.5
+		nation_designer_cost_multiplier = 0.75
+        
+		supply_limit = 4
+        
+        terrain_override = {
+            914 1923 966 539 1945 515 1746 2212 1752 2176 2162 3080 3222 3221 3220 1267 998 1818 1819 1895 1828 1829 2329 2427 2435 2439 2442 2434 1284 2417 2426 
+        }
+    }
+    
+    complex = {
+        color = { 229 156 72 }
+        
+        type = mountains
+		sound_type = mountains
+
+		movement_cost = 2.0
+		defence = 3
+		local_defensiveness = 0.5
+		local_development_cost = -0.1
+        
+		nation_designer_cost_multiplier = 0.75
+        
+		supply_limit = 8
+        
+        terrain_override = {
+            2495 2497 2496 2500 2499 2498 1268 1270 2360 3224 3225 3223 3227 3226 3241 3246 3247 3244 3242 3245 3243 982 1968
+            887 3036 3038 3048 3049 3050 3051 3052 941 1892 1902 1889 1888 1891 1890 1544 1520 363 3161 1558 2504 1252 1253 
+            3490 3489 3492 3491 1395 1322
+        }
+    }
+    
+    corrupted_earth = {
+        color = { 110 37 162 }
+        
+        type = plains
+		sound_type = plains
+
+		movement_cost = 1.0
+		supply_limit = 6
+        local_development_cost = 0.25
+        
+        local_hostile_attrition = 1
+        local_production_efficiency = -0.25
+        
+		nation_designer_cost_multiplier = 1
+        
+        terrain_override = { 
+            1286 810 2441 2440
+            794 3310 3311 3312 3313 3314
+            832 1287 898 3315 3316
+            917 2438 2436 3317 3318
+            1017 933 2437 3319 3320 3321
+            2428 544 2429 3323
+            2431 2430 2432
+            2433 1285 562 582 779 3322
+            633 2421
+            649 2420 2422 2425
+            2423 2424 598
+            1274 664 615 
+            563 
+        }
     }
 }
 	
-##################################################################
-### Graphical terrain
-###		type	=	refers to the terrain defined above, "terrain category"'s 
-### 	color 	= 	index in bitmap color table (see terrain.bmp)
-###
-
+# ----------------------------------
+# Terrain
+# ----------------------------------
 terrain = {
-	grasslands			= { type = grasslands		color = { 	0	 } }
-	hills				= { type = hills			color = { 	1	 } }
-	desert_mountain		= { type = mountain			color = { 	2	 } }
-	desert				= { type = desert			color = { 	3	 } }
-
-	plains				= { type = grasslands		color = { 	4	 } }
-	terrain_5			= { type = grasslands		color = { 	5	 } }
-	mountain			= { type = mountain			color = { 	6	 } }
-	desert_mountain_low	= { type = desert			color = { 	7	 } }
-
-	terrain_8			= { type = hills			color = { 	8	 } }
-	marsh				= { type = marsh			color = { 	9	 } }
-	terrain_10			= { type = farmlands		color = { 	10	 } }
-	terrain_11			= { type = farmlands		color = { 	11	 } }
-
-	forest_12			= { type = forest			color = { 	12	 } }
-	forest_13			= { type = forest			color = { 	13	 } }
-	forest_14			= { type = forest			color = { 	14	 } }
-	ocean				= { type = ocean			color = { 	15	 } }
-
-	snow				= { type = mountain 		color = { 	16	 } } # (SPECIAL CASE) Used to identify permanent snow
-	inland_ocean_17 	= { type = inland_ocean		color = {	17	 } }
-
-	coastal_desert_18	= { type = coastal_desert	color = { 	19	 } }
-	coastline			= { type = coastline		color = { 	35	 } }
-	
-	savannah			= { type = savannah 		color = {	20	 } }
-	drylands			= { type = drylands			color = {	22	 } }
-	highlands			= { type = highlands		color = {	23	 } }
-	dry_highlands		= { type = highlands		color = {	24	 } }
-	
-	woods				= { type = woods			color = { 	255	 } }
-	jungle				= { type = jungle			color = { 	254	 } }
-	
-	terrain_21			= { type = farmlands		color = { 	21	 } }	
-	
-	# Unique
-	desolate_waste 		= { type = desolate_waste		    color = { 	25	 } }	
-	urban		 	    = { type = urban		        color = { 	27	 } }
-    suspended		 	= { type = suspended		        color = { 	28	 } }
-    feltouched   = { type = feltouched    color = { 	30	 } }
-    nethertouched   = { type = nethertouched    color = { 	31	 } }
-    arcanetouched   = { type = arcanetouched    color = { 	32	 } }
-    underwater   = { type = underwater    color = { 	33	 } }
-    underground   = { type = underground    color = { 	34	 } }
-	
+    t_ocean                     = { type = ocean                    color = { 0 } } # 8, 31, 130
+    t_inland_ocean              = { type = inland_ocean             color = { 1 } } # 55, 90, 220
+    t_glacier                   = { type = glacier                  color = { 2 } } # 0, 200, 250
+    t_farmlands                 = { type = farmlands                color = { 3 } } # 100, 130, 30
+    t_forest                    = { type = forest                   color = { 4 } } # 0, 60, 10
+    
+    t_hills                     = { type = hills                    color = { 5 } } # 100, 40, 0
+    t_woods                     = { type = woods                    color = { 6 } } # 100, 200, 0
+    t_mountain                  = { type = mountain                 color = { 7 } } # 60, 40, 10
+    t_impassable_mountains      = { type = impassable_mountains     color = { 8 } } # 60, 20, 0
+    t_grasslands                = { type = grasslands               color = { 9 } } # 80, 120, 20
+    
+    t_jungle                    = { type = jungle                   color = { 10 } } # 90, 250, 30
+    t_marsh                     = { type = marsh                    color = { 11 } } # 80, 140, 170
+    t_desert                    = { type = desert                   color = { 12 } } # 200, 180, 100
+    t_coastal_desert            = { type = coastal_desert           color = { 13 } } # 200, 200, 120
+    t_coastline                 = { type = coastline                color = { 14 } } # 255, 255, 120
+    
+    t_drylands                  = { type = drylands                 color = { 15 } } # 150, 200, 100
+    snow				        = { type = mountain 		        color = { 16 } } # 250, 250, 250
+    t_highlands                 = { type = highlands                color = { 17 } } # 150, 150, 100
+    t_savannah                  = { type = savannah                 color = { 18 } } # 150, 200, 50
+    t_steppe                    = { type = steppe                   color = { 19 } } # 200, 200, 0
+    
+    t_forest_hills	            = { type = hills                 	color = { 20 } } # 85, 108, 18	 	# Forest texture for hills
+    t_plains_hills       		= { type = hills                 	color = { 21 } } # 185, 108, 30		# Grasslands texture for hills
+    t_mountain_hills            = { type = hills                 	color = { 22 } } # 96, 64, 22		# Mountain texture for hills
+    t_desert_hills              = { type = hills                 	color = { 23 } } # 155, 123, 18		# Desert texture for hills
+    t_dirt                 		= { type = desolate_waste           color = { 24 } } # 50, 37, 32       # Desolate Earth
 }
 
-##################################################################
-### Tree terrain
-###		terrain	=	refers to the terrain tag defined above
-### 	color 	= 	index in bitmap color table (see tree.bmp)
-###
-
+# ----------------------------------
+# Tree
+# ----------------------------------
 tree = {
 	forest				= { terrain = forest 			color = { 	3 4 6 7 19 20	} }
 	woods				= { terrain = woods 			color = { 	2 5 8 18	} }

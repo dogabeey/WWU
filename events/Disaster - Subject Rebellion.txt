@@ -1,0 +1,66 @@
+namespace = subject_rebellion
+
+# Aspirations of Liberty
+country_event = {
+	id = subject_rebellion.1
+	title = subject_rebellion.1.title
+	desc = subject_rebellion.1.desc
+	picture = BRAWL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = subject_rebellion.1.option.a
+		
+		every_subject_country = {
+			limit = { 
+                liberty_desire = 50
+                
+                OR = {
+                    is_subject_of_type = vassal
+                    is_subject_of_type = march
+                    is_subject_of_type = personal_union
+                    is_subject_of_type = daimyo_vassal
+                    is_subject_of_type = client_vassal
+                    is_subject_of_type = client_march
+                    is_subject_of_type = scourge_vassal
+                    is_subject_of_type = hegemonic_vassal
+                    is_subject_of_type = naga_vassal
+                }
+            }
+			
+			country_event = { 
+                id = subject_rebellion.2
+            }
+		}
+	}
+}
+
+# Break Away!
+country_event = {
+	id = subject_rebellion.2
+	title = subject_rebellion.2.title
+	desc = subject_rebellion.2.desc
+	picture = BRAWL_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = subject_rebellion.2.option.a
+		
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_independence_war
+		}
+        
+		ai_chance = { factor = 75 }
+	}
+	
+	option = {
+		name = subject_rebellion.2.option.b
+		
+		add_years_of_income = 1
+        
+		ai_chance = { factor = 25 }
+	}
+}

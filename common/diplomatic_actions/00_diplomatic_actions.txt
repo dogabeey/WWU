@@ -87,320 +87,98 @@
 # knowledge_sharing
 
 enforce_peace = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 callaction = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 milaccess= {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 offermilaccess= {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 giftaction = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 guaranteeaction = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 sellprov = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 
 tributary_state_action = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 ask_for_tributary_state_action = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 threaten_war = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 improve_relation = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 declarewar = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 fabricate_claim = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 embargoaction = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
+	
 }
 allianceaction = {
-	condition = {
-        tooltip = DIP_INCOMP_DRAGONKIN
-		
-		potential = {
-			OR = {
-				AND = {
-					NOT = { has_global_flag = dragons_allowed_alliance }
-					culture_group = culture_group_dragonkin
-					FROM = { 
-						NOT = {
-							culture_group = culture_group_dragonkin
-							is_ancient = yes
-						}
-					}
-				}
-				AND = {
-					NOT = { has_global_flag = dragons_allowed_alliance }
-					NOT = {
-						culture_group = culture_group_dragonkin
-						is_ancient = yes
-					}
-					FROM = { 
-						culture_group = culture_group_dragonkin
-					}
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
     condition = {
         tooltip = DIP_INCOMP_EVIL
         
         potential = {
 			OR = {
 				AND = {
-					religion = religion_old_gods
+					OR = {
+						religion = cthun
+						religion = nzoth
+						religion = yogg_saron
+						religion = yshaarj
+						religion = twilight_cult
+						religion = nightmare
+					}
 					FROM = {
-						NOT = { religion_group = religion_group_the_void }
-						NOT = { is_lesser = yes}
+						NOT = { religion_group = shadow_group }
+						NOT = { is_lesser = yes }
 					}
 				}
 				AND = {
-					religion_group = religion_group_disorder
+					religion_group = disorder_group
 					FROM = {
-						NOT = { religion_group = religion_group_disorder }
-						NOT = { is_lesser = yes}
+						NOT = { religion_group = disorder_group }
+						NOT = { is_lesser = yes }
 					}
 				}
 				AND = {
-					NOT = { religion_group = religion_group_the_void }
+					NOT = { religion_group = shadow_group }
 					FROM = {
-						religion = religion_old_gods
+						OR = {
+							religion = cthun
+							religion = nzoth
+							religion = yogg_saron
+							religion = yshaarj
+							religion = twilight_cult
+							religion = nightmare
+						}
 					}
 				}
 				AND = {
-					NOT = { religion_group = religion_group_disorder }
+					NOT = { religion_group = disorder_group }
 					FROM = {
-						religion_group = religion_group_disorder
+						religion_group = disorder_group
+					}
+				}
+				AND = {
+					NOT = { religion_group = death_group }
+					FROM = {
+						religion_group = death_group
 					}
 				}
 			}
@@ -415,15 +193,15 @@ allianceaction = {
         potential = {
 			OR = {
 				AND = {
-					religion = religion_the_damned
+					religion = cult_of_the_damned
 					FROM = {
-						NOT = { religion_group = religion_group_the_void }
+						NOT = { religion_group = shadow_group }
 					}
 				}
 				AND = {
-					NOT = { religion_group = religion_group_the_void }
+					NOT = { religion_group = shadow_group }
 					FROM = {
-						religion = religion_the_damned
+						religion = cult_of_the_damned
 					}
 				}
 			}
@@ -447,8 +225,9 @@ allianceaction = {
 					NOT = { is_lesser = yes }
 					NOT = { is_savage = yes }
 					NOT = { is_neighbor_of = FROM }
-					NOT = { religion_group = religion_group_the_void }
-					NOT = { religion_group = religion_group_disorder }
+					NOT = { religion_group = shadow_group }
+					NOT = { religion_group = death_group }
+					NOT = { religion_group = disorder_group }
 					FROM = {
 						is_lesser = yes
 					}
@@ -528,12 +307,12 @@ allianceaction = {
 					}
 					FROM = { 
 						OR = {
-							culture_group = culture_group_forest_troll 
-							culture_group = culture_group_jungle_troll 
-							culture_group = culture_group_dark_troll 
-							culture_group = culture_group_ice_troll
-							culture_group = culture_group_sand_troll
-							culture_group = culture_group_zandalar_troll
+							primary_culture = culture_forest_troll 
+							primary_culture = culture_jungle_troll 
+							primary_culture = culture_dark_troll 
+							primary_culture = culture_frost_troll
+							primary_culture = culture_sand_troll
+							primary_culture = culture_zandalari_troll
 						}
 					}
 					NOT = {
@@ -545,12 +324,12 @@ allianceaction = {
 				}
 				AND = {
 					OR = {
-						culture_group = culture_group_forest_troll 
-						culture_group = culture_group_jungle_troll 
-						culture_group = culture_group_dark_troll 
-						culture_group = culture_group_ice_troll
-						culture_group = culture_group_sand_troll
-						culture_group = culture_group_zandalar_troll
+						primary_culture = culture_forest_troll 
+						primary_culture = culture_jungle_troll 
+						primary_culture = culture_dark_troll 
+						primary_culture = culture_frost_troll
+						primary_culture = culture_sand_troll
+						primary_culture = culture_zandalari_troll
 					}
 					FROM = { 
 						OR = {
@@ -600,21 +379,6 @@ allianceaction = {
 
 royal_marriage = {
 	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
-	condition = {
 		tooltip = MARWAR
 		potential = {
 		}
@@ -643,22 +407,6 @@ annexationaction = {
 			}
 		}
 	}
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
-	
 }
 
 integrationaction = {
@@ -676,36 +424,9 @@ integrationaction = {
 			}
 		}
 	}
-	#condition = {
-	#	tooltip = INTEGRATEINVALID
-	#	potential = {
-	#		senior_union_with = FROM
-	#	}
-	#	allow = {
-	#		FROM = {
-	#			years_in_union_under = {
-	#				who = ROOT
-	#				years = 50
-	#			}
-	#		}
-	#	}
-	#}
 }
 
 vassalaction = {
-	condition = {
-		tooltip = DIP_INCOMP_TOOMANYFACTIONMEMBER
-		potential = {
-			OR = {
-				faction_alliance = 6
-				faction_horde = 6
-			}
-		}
-		allow = {
-			always = no
-		}
-	}
-	
 	condition = {
 		tooltip = DIP_INCOMP_ORG
 		potential = {
@@ -734,57 +455,13 @@ vassalaction = {
 			FROM = { is_at_war = no }
 		}
 	}
-	
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
 }
 
 abandon_union_action = {
-	condition = {
-		tooltip = DIP_INCOMP_NOTAVAILABLE
-		potential = {
-		}
-		allow = {
-			ROOT = {
-				senior_union_with = FROM
-				is_at_war = no
-			}
-		}
-	}
+	
 }
 
-
-
-
 form_coalition = {
-	condition = {
-        tooltip = DIP_INCOMP_NOTAVAILABLE
-		
-		potential = {
-			OR = {
-				has_country_flag = complete_stasis
-				FROM = {
-					has_country_flag = complete_stasis
-				}
-			}
-		}
-        allow = {
-            always = no
-        }
-	}
 	condition = {
 		tooltip = MINAGGRESSIVEEXPANSION
 		potential = {	

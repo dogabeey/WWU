@@ -34,3 +34,159 @@ has_any_loa = {
 		}
 	}
 }
+
+is_old_god_religion = {
+    OR = {
+        religion = cthun
+        religion = nzoth
+        religion = yogg_saron
+        religion = yshaarj
+        religion = twilight_cult
+        religion = nightmare
+    }
+}
+
+# Used for various decision costs
+scaled_adm_power_check = {
+    if = {
+        limit = {
+            NOT = { total_development = 250 }
+        }
+        adm_power = 100
+    }
+    else_if = {
+        limit = {
+            total_development = 250
+            NOT = { total_development = 500 }
+        }
+        adm_power = 150
+    }
+    else_if = {
+        limit = {
+            total_development = 500
+            NOT = { total_development = 750 }
+        }
+        adm_power = 200
+    }
+    else_if = {
+        limit = {
+            total_development = 750
+            NOT = { total_development = 1000 }
+        }
+        adm_power = 250
+    }
+    else_if = {
+        limit = {
+            total_development = 1000
+        }
+        adm_power = 300
+    }
+}
+
+scaled_dip_power_check = {
+    if = {
+        limit = {
+            NOT = { total_development = 250 }
+        }
+        dip_power = 100
+    }
+    else_if = {
+        limit = {
+            total_development = 250
+            NOT = { total_development = 500 }
+        }
+        dip_power = 150
+    }
+    else_if = {
+        limit = {
+            total_development = 500
+            NOT = { total_development = 750 }
+        }
+        dip_power = 200
+    }
+    else_if = {
+        limit = {
+            total_development = 750
+            NOT = { total_development = 1000 }
+        }
+        dip_power = 250
+    }
+    else_if = {
+        limit = {
+            total_development = 1000
+        }
+        dip_power = 300
+    }
+}
+
+scaled_mil_power_check = {
+    if = {
+        limit = {
+            NOT = { total_development = 250 }
+        }
+        mil_power = 100
+    }
+    else_if = {
+        limit = {
+            total_development = 250
+            NOT = { total_development = 500 }
+        }
+        mil_power = 150
+    }
+    else_if = {
+        limit = {
+            total_development = 500
+            NOT = { total_development = 750 }
+        }
+        mil_power = 200
+    }
+    else_if = {
+        limit = {
+            total_development = 750
+            NOT = { total_development = 1000 }
+        }
+        mil_power = 250
+    }
+    else_if = {
+        limit = {
+            total_development = 1000
+        }
+        mil_power = 300
+    }
+}
+
+scaled_treasury_check = {
+    if = {
+        limit = {
+            NOT = { total_development = 250 }
+        }
+        treasury = 200
+    }
+    else_if = {
+        limit = {
+            total_development = 250
+            NOT = { total_development = 500 }
+        }
+        treasury = 300
+    }
+    else_if = {
+        limit = {
+            total_development = 500
+            NOT = { total_development = 750 }
+        }
+        treasury = 400
+    }
+    else_if = {
+        limit = {
+            total_development = 750
+            NOT = { total_development = 1000 }
+        }
+        treasury = 500
+    }
+    else_if = {
+        limit = {
+            total_development = 1000
+        }
+        treasury = 600
+    }
+}

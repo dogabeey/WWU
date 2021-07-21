@@ -22,20 +22,24 @@ country_decisions = {
 		}
 		
 		effect = {
-			custom_tooltip = EVIL_ACTION_TOOLTIP
+			add_country_modifier = {
+                name = is_evil
+                duration = -1
+            }
+            
 			add_mil_power = -100
 			add_country_modifier = {
 				name = burned_world_tree
 				duration = -1
 			}
-			custom_tooltip = burn_nordrassil_opinion_tt
+			custom_tooltip = burn_nordrassil_tt
 			hidden_effect = { 
 				every_country = {
 					limit = { NOT = { tag = ROOT } }
 					country_event = { id = world_tree.1 }
 				}
 				every_country = {
-					limit = { religion = religion_druidic }
+					limit = { religion = druidism }
 					add_opinion = {
 						who = ROOT
 						modifier = burned_world_tree_opinion
@@ -87,7 +91,7 @@ country_decisions = {
 				add_base_tax = -6
 				add_base_production = -6
 				add_base_manpower = -6
-				cede_province = '---'
+				cede_province = ---
 				add_permanent_province_modifier = {
 					name = world_tree_destruction_max
 					duration = -1
@@ -103,7 +107,7 @@ country_decisions = {
 		potential = {
 			NOT = {
 				any_owned_province = {
-					area = area_teldrassil
+					region = region_teldrassil
 				}
 			}
 			any_country = {
@@ -123,20 +127,24 @@ country_decisions = {
 		}
 		
 		effect = {
-			custom_tooltip = EVIL_ACTION_TOOLTIP
+			add_country_modifier = {
+                name = is_evil
+                duration = -1
+            }
+            
 			add_mil_power = -100
 			add_country_modifier = {
 				name = burned_world_tree
 				duration = -1
 			}
-			custom_tooltip = burn_teldrassil_opinion_tt
+			custom_tooltip = burn_teldrassil_tt
 			hidden_effect = { 
 				every_country = {
 					limit = { NOT = { tag = ROOT } }
 					country_event = { id = world_tree.2 }
 				}
 				every_country = {
-					limit = { religion = religion_druidic }
+					limit = { religion = druidism }
 					add_opinion = {
 						who = ROOT
 						modifier = burned_world_tree_opinion

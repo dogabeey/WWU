@@ -1,0 +1,187 @@
+#--------------------------------------
+# Missions
+#--------------------------------------
+wwu_vandermar_column_4 = { 
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = G50
+	} 
+    
+	wwu_prepare_for_rebellion = { 
+		icon = mission_bloodlust
+        
+		required_missions = {  } 
+        
+		trigger = {
+            if = {
+                limit = {
+                    ai = yes
+                }
+                liberty_desire = 30
+            }
+            army_size_percentage = 1.0
+            manpower_percentage = 1.0
+		}
+		effect = { 
+			add_country_modifier = {
+                name = mission_fury_of_the_oppressed
+                duration = 3650
+            }
+		}
+	}
+    wwu_take_capital_city = { 
+		icon = mission_karazhan
+        
+		required_missions = { wwu_prepare_for_rebellion } 
+        
+		trigger = {
+            is_subject = no
+            543 = { owned_by = ROOT }
+		}
+        provinces_to_highlight = {
+            province_id = 543
+        }
+		effect = {
+            543 = { 
+                change_religion = ROOT
+                change_culture = ROOT
+                add_core = ROOT
+            }
+			add_country_modifier = {
+				name = "mission_lordaeron_overthrown"
+				duration = -1
+			}
+            region_tirisfal_glades = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_secure_the_glades = { 
+		icon = mission_sparring_equipment
+        
+		required_missions = { wwu_take_capital_city } 
+        
+		trigger = {
+            region_tirisfal_glades = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_tirisfal_glades
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_tirisfal_homeland"
+				duration = -1
+			}
+            region_western_plaguelands = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_control_andorhal = { 
+		icon = mission_lumbermill
+        
+		required_missions = { wwu_secure_the_glades } 
+        
+		trigger = {
+            region_western_plaguelands = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_western_plaguelands
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_andorhal_lumber"
+				duration = -1
+			}
+            region_eastern_plaguelands = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_conquer_stratholme = { 
+		icon = mission_orbital_strike
+        
+		required_missions = { wwu_secure_the_glades } 
+        
+		trigger = {
+            region_eastern_plaguelands = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_eastern_plaguelands
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_conqueror_of_lordaeron"
+				duration = -1
+			}
+		}
+	}
+}
+
+wwu_vandermar_column_5 = { 
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = G50
+	} 
+    
+	wwu_citadel_of_the_light = { 
+		icon = mission_light_forge
+        
+		required_missions = {  } 
+        
+		trigger = {
+            religion = holy_light
+            any_owned_province = {
+                has_building = wow_citadel
+                religion = holy_light
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+                name = mission_citadel_of_the_light
+                duration = -1
+            }
+		}
+	}
+    wwu_guardians_of_the_light = { 
+		icon = mission_salvage
+        
+		required_missions = { wwu_citadel_of_the_light } 
+        
+		trigger = {
+            religion = holy_light
+            
+            calc_true_if = {
+                amount = 3
+                
+                all_subject_country = {
+                    religion = holy_light
+                    is_subject_of_type = march
+                }
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+                name = mission_guardians_of_the_light
+                duration = -1
+            }
+		}
+	}
+}

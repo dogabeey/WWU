@@ -1,0 +1,57 @@
+namespace = wwu_exploration
+
+# "The First Circumnavigation"
+country_event = {
+	id = wwu_exploration.1
+	title = wwu_exploration.1.title
+	desc = wwu_exploration.1.desc
+	picture = COASTLINE_MAP_eventPicture
+
+    major = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "El Dorado"
+		NOT = { has_global_flag = circumnavigation_completed }
+		NOT = { has_country_flag = circumnavigation_first }
+	}
+	
+	immediate = {
+		set_global_flag = circumnavigation_completed
+		set_country_flag = circumnavigation_first
+	}
+	
+	option = {
+		name = wwu_exploration.1.option.a
+        
+		add_prestige = 100
+		add_navy_tradition = 50
+	}
+}
+
+# "Circumnavigation of Azeroth"
+country_event = {
+	id = wwu_exploration.2
+	title = wwu_exploration.2.title
+	desc = wwu_exploration.2.desc
+	picture = COASTLINE_MAP_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "El Dorado"
+		has_global_flag = circumnavigation_completed
+		NOT = { has_country_flag = circumnavigation_done }
+	}
+	
+	immediate = {
+		set_country_flag = circumnavigation_done
+	}
+	
+	option = {
+		name = wwu_exploration.2.option.a
+        
+		add_prestige = 10
+		add_navy_tradition = 10
+	}
+}

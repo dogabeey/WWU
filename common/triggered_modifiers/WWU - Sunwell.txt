@@ -1,0 +1,48 @@
+power_of_the_sunwell = {
+    potential = {
+        OR = {
+            religion = fel
+            religion = arcane
+            religion = shadow
+            religion = light_of_the_sunwell
+        }
+    }
+    
+	trigger = {
+       2991 = {
+            NOT = { has_province_modifier = mission_province_desecration_of_the_sunwell }
+            owned_by = ROOT
+       }
+	}
+    
+    global_unrest = -5
+    discipline = 0.1
+    army_tradition = 1
+    global_manpower_modifier = 0.25
+    recover_army_morale_speed = 0.05
+}
+
+loss_of_the_sunwell = {
+    potential = {
+		OR = {
+			tag = A90 # Quel'Thalas
+			tag = A91 # Silvermoon
+		}
+    }
+    
+	trigger = {
+       2991 = {
+            OR = {
+                has_province_modifier = mission_province_desecration_of_the_sunwell
+                NOT = { owned_by = ROOT }
+            }
+       }
+	}
+    
+    global_unrest = 5
+    
+    discipline = -0.1
+    army_tradition = -1
+    global_manpower_modifier = -0.25
+    recover_army_morale_speed = -0.05
+}

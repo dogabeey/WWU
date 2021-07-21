@@ -1,0 +1,188 @@
+country_decisions = {
+	unify_dwarves_ironforge = {
+		major = yes
+		
+		potential = {
+			tag = A29 # ironforge
+			NOT = { has_country_flag = unified_dwarf }
+            NOT = { A28 = { has_country_flag = unified_dwarf } }
+            NOT = { A30 = { has_country_flag = unified_dwarf } }
+		}
+		allow = {
+            prestige = 50
+            # Cities is higher than other two
+            num_of_cities = A30
+            num_of_cities = A28
+            
+			A30 = {
+				has_opinion = { who = ROOT value = 200 }
+				alliance_with = ROOT
+			}
+			A28 = {
+				has_opinion = { who = ROOT value = 200 }
+				alliance_with = ROOT
+			}
+		}
+		effect = {
+            create_union = A28
+            create_union = A30
+            
+            add_stability = 2
+            add_prestige = 20
+            hidden_effect = { set_country_flag = unified_dwarf } 
+            
+            hidden_effect = {
+                add_historical_friend = A28
+                add_historical_friend = A30
+            }
+                
+			A28 = {
+				add_stability = 1
+				add_prestige = 10
+                
+				hidden_effect = { set_country_flag = unified_dwarf } 
+				hidden_effect = {
+					add_historical_friend = A29
+					add_historical_friend = A30
+				}
+			}
+			A30 = {
+				add_stability = 1
+				add_prestige = 10
+                
+				hidden_effect = { set_country_flag = unified_dwarf } 
+				hidden_effect = {
+					add_historical_friend = A28
+					add_historical_friend = A29
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	unify_dwarves_wildhammer = {
+		major = yes
+		
+		potential = {
+			tag = A28
+			NOT = { has_country_flag = unified_dwarf }
+            NOT = { A29 = { has_country_flag = unified_dwarf } }
+            NOT = { A30 = { has_country_flag = unified_dwarf } }
+		}
+		allow = {
+            prestige = 50
+            # Cities is higher than other two
+            num_of_cities = A30
+            num_of_cities = A29
+            
+			A30 = {
+				has_opinion = { who = ROOT value = 200 }
+				alliance_with = ROOT
+			}
+			A29 = {
+				has_opinion = { who = ROOT value = 200 }
+				alliance_with = ROOT
+			}
+		}
+		effect = {
+            create_union = A29
+            create_union = A30
+            
+            add_stability = 2
+            add_prestige = 20
+            hidden_effect = { set_country_flag = unified_dwarf } 
+            
+            hidden_effect = {
+                add_historical_friend = A29
+                add_historical_friend = A30
+            }
+                
+			A29 = {
+				add_stability = 1
+				add_prestige = 10
+                
+				hidden_effect = { set_country_flag = unified_dwarf } 
+				hidden_effect = {
+					add_historical_friend = A28
+					add_historical_friend = A30
+				}
+			}
+			A30 = {
+				add_stability = 1
+				add_prestige = 10
+                
+				hidden_effect = { set_country_flag = unified_dwarf } 
+				hidden_effect = {
+					add_historical_friend = A28
+					add_historical_friend = A29
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    unify_dwarves_dark_iron = {
+		major = yes
+		
+		potential = {
+			tag = A30
+			NOT = { has_country_flag = unified_dwarf }
+            NOT = { A28 = { has_country_flag = unified_dwarf } }
+            NOT = { A29 = { has_country_flag = unified_dwarf } }
+		}
+		allow = {
+            prestige = 50
+            # Cities is higher than other two
+            num_of_cities = A29
+            num_of_cities = A28
+            
+			A29 = {
+				has_opinion = { who = ROOT value = 200 }
+				alliance_with = ROOT
+			}
+			A28 = {
+				has_opinion = { who = ROOT value = 200 }
+				alliance_with = ROOT
+			}
+		}
+		effect = {
+            create_union = A28
+            create_union = A29
+            
+            add_stability = 2
+            add_prestige = 20
+            hidden_effect = { set_country_flag = unified_dwarf } 
+            
+            hidden_effect = {
+                add_historical_friend = A28
+                add_historical_friend = A29
+            }
+                
+			A28 = {
+				add_stability = 1
+				add_prestige = 10
+                
+				hidden_effect = { set_country_flag = unified_dwarf } 
+				hidden_effect = {
+					add_historical_friend = A29
+					add_historical_friend = A30
+				}
+			}
+			A29 = {
+				add_stability = 1
+				add_prestige = 10
+                
+				hidden_effect = { set_country_flag = unified_dwarf } 
+				hidden_effect = {
+					add_historical_friend = A28
+					add_historical_friend = A30
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -2,15 +2,40 @@
 
 # country
 on_startup = {
+    emperor = {
+		save_global_event_target_as = Emperor
+	}
+    
+    A34 = {
+        save_global_event_target_as = buring_legion_conduit_nation
+    }
+    
+	if = {
+		limit = {
+			is_emperor_of_china = yes
+		}
+		save_global_event_target_as = celestial_emperor
+	}
+    
     events = {
         wwu_setup.1    # Global
         wwu_setup.2    # Country
 	}
+    
+    unlock_initial_cults = yes
 }
 
 # country
 on_religion_change = {
 	#log = "[Root.GetName]: Triggered religion_change"
+    on_religion_change_estate_privileges_effect = yes
+    
+    if = {
+        limit = {
+            has_ruler_modifier = bastion_of_the_faith
+        }
+        remove_country_modifier = bastion_of_the_faith
+    }
     
 	if = {
 		limit = {
@@ -95,6 +120,7 @@ on_war_won = {
 		}
 	}
 	events = {
+        wwu_dragon_aspects.1
 		on_action_special.2
         wwu_elemental_attunement.1 # Triumph of the Elements 
 	}
@@ -105,13 +131,22 @@ on_war_won = {
 on_war_lost = {
 	#log = "[Root.GetName]: Triggered war_lost"
 	ROOT = { country_event = { id = tributary_events.32 } }
+    
 	change_variable = {
 		which = war_lost
 		value = 1
 	}
+    add_country_modifier = {
+		name = just_lost_war_timer
+		duration = 10
+		hidden = yes
+	}
+    
 	events = {
+        wwu_dragon_aspects.2
 		on_action_special.2
         wwu_elemental_attunement.2 # Sorrow of the Elements
+        wwu_bastion_of_the_faith.1
 	}
 }
 
@@ -122,7 +157,6 @@ on_battle_won_country = {
 
 	if = {
 		limit = {
-			has_country_modifier = hegemonic_victory
 			FROM = { tag = REB }
 		}
 		change_variable = {
@@ -146,17 +180,8 @@ on_battle_won_country = {
 # root = loser country, from = winner country
 on_battle_lost_country = {
 	#log = "[Root.GetName]: Triggered battle_lost_country"
-	# if = {
-		# limit = {
-			# was_faction_leaders_war = yes
-		# }
-		# overlord = {
-			# reverse_add_opinion = {
-				# who = PREV
-				# modifier = battle_is_lost
-			# }
-		# }
-	# }
+	battle_cult_spreading_effect = yes
+    
 	events = {
         rise_of_the_horde.6
     }
@@ -224,6 +249,11 @@ on_battle_lost_province = {
 # root = winning country, from = location
 on_siege_won_country = {
 	#log = "[Root.GetName]: Triggered siege_won_country"
+    
+    random_events = {
+		10 = army_professionalism_events.1 # City Sacked
+		100 = 0
+	}
 }
 
 # country
@@ -261,11 +291,122 @@ on_abandon_colony = {
 	#log = "[Root.GetName]: Triggered abandon_colony"
 }
 
+# province
+# root = location, from = country that owns it
+# Fired right after the great project is constructed
+on_great_project_constructed = {
+
+}
+
 # OBS: Consider that the following on_actions can be called for Personal Union juniors as well.
 # country
 on_new_monarch = {
 	#log = "[Root.GetName]: Triggered new_monarch"
-
+    reset_spellcaster_skills = yes
+    
+    # Add the Spellcaster mechanic automatically for these monarchs
+    if = {
+        limit = {
+            OR = {
+                has_reform = magocracy_reform
+                has_reform = kingdom_of_magic_reform
+            }
+        }
+        add_ruler_personality = spellcaster_personality
+    
+        random_list = {
+            33 = {
+                set_variable = {
+                    which = ruler_magic_aptitude
+                    value = 5
+                }
+            }
+            33 = {
+                set_variable = {
+                    which = ruler_magic_aptitude
+                    value = 10
+                }
+            }
+            33 = {
+                set_variable = {
+                    which = ruler_magic_aptitude
+                    value = 15
+                }
+            }
+        }
+        random_list = {
+            33 = {
+                set_variable = {
+                    which = ruler_magic_finesse
+                    value = 5
+                }
+            }
+            33 = {
+                set_variable = {
+                    which = ruler_magic_finesse
+                    value = 10
+                }
+            }
+            33 = {
+                set_variable = {
+                    which = ruler_magic_finesse
+                    value = 15
+                }
+            }
+        }
+        random_list = {
+            33 = {
+                set_variable = {
+                    which = ruler_magic_concentration
+                    value = 5
+                }
+            }
+            33 = {
+                set_variable = {
+                    which = ruler_magic_concentration
+                    value = 10
+                }
+            }
+            33 = {
+                set_variable = {
+                    which = ruler_magic_concentration
+                    value = 15
+                }
+            }
+        }
+    }
+    
+    #---------------
+    # Consort
+    #---------------
+	if = {
+		limit = {
+			has_consort_regency = no
+			any_owned_province = {
+				has_province_modifier = domain_of_spouses_family
+			}
+		}
+		random_owned_province = {
+			limit = { has_province_modifier = domain_of_spouses_family }
+			remove_province_modifier = domain_of_spouses_family
+		}
+	}
+	if = {
+		limit = {
+			has_consort_regency = no
+			any_owned_province = {
+				has_province_modifier = home_of_consort
+			}
+		}
+		random_owned_province = {
+			limit = { has_province_modifier = home_of_consort }
+			remove_province_modifier = home_of_consort
+		}
+	}
+    
+    #---------------
+    # Hereditary
+    #---------------
 	if = {
 		limit = {
 			has_reform = wwu_hereditary_rule_reform
@@ -279,6 +420,8 @@ on_new_monarch = {
         wwu_ruler_education.2    # Ascension of [Root.Monarch.GetName]
 		wwu_dynastic.19
 		wwu_pretender.1
+        wwu_dragon_aspects.3
+        wwu_dragon_aspects.5
     }
 	random_events = {
 		1000 = 0
@@ -311,6 +454,7 @@ on_monarch_death = {
 	#log = "[Root.GetName]: Triggered monarch_death"
 	events = {
 		loa.2 # Remove old loa's influence
+        wwu_shamanism.1 # Passing of Great Leader
 	}
 	
 }
@@ -321,6 +465,11 @@ on_regent = {
 	events = {
 		tribal_succession.1	# harsh anti-tribals.
 	}
+}
+
+# country
+on_extend_regency = {
+	add_legitimacy = -10
 }
 
 # country
@@ -352,7 +501,7 @@ on_death_foreign_slave_ruler = {
 	#log = "[Root.GetName]: Triggered death_foreign_slave_ruler"
 	events = {
 		factions.3
-		council_government.1
+		wwu_government.7 # New Rulership
 	}
 }
 
@@ -542,11 +691,81 @@ on_heir_needed_theocracy = {
 # Emperor from same dynasty
 on_successive_emperor = {
 	#log = "[Root.GetName]: Triggered successive_emperor"
+    
+    emperor = {
+        add_imperial_influence = 5
+    }
+}
+
+on_emperor_elected = {
+	#log = "[Root.GetName]: Triggered emperor_elected"
+	every_elector = {
+		if = {
+			limit = {
+				preferred_emperor = root
+			}
+			change_variable = {
+				which = supported_successive_emperors
+				value = 1
+			}
+		}
+		else = {
+			set_variable = {
+				which = supported_successive_emperors
+				value = 0
+			}
+		}
+	}
+
+	emperor = {
+		save_global_event_target_as = Emperor
+	}
+	FROM = {
+		if = {
+			limit = { has_country_modifier = diet_occupied }
+			remove_country_modifier = diet_occupied
+			ROOT = {
+				add_country_modifier = { name = diet_occupied duration = -1 }
+			}
+		}
+		if = {
+			limit = {
+				any_country = {
+					reverse_has_opinion_modifier = {
+						modifier = opinion_imperial_diplomacy
+						who = prev
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					reverse_has_opinion_modifier = {
+						modifier = opinion_imperial_diplomacy
+						who = prev
+					}
+				}
+				reverse_remove_opinion = {
+					modifier = opinion_imperial_diplomacy
+					who = prev
+				}
+				ROOT = {
+					add_opinion = {
+						modifier = opinion_imperial_diplomacy
+						who = prev
+					}
+				}
+			}
+		}
+	}
 }
 
 # HRE Prince released by the emperor
 on_released_hre_member = {
 	#log = "[Root.GetName]: Triggered released_hre_member"
+    
+    emperor = {
+        add_imperial_influence = 10
+    }
 }
 
 # HRE Prince converts to non-Emperor religion
@@ -562,11 +781,19 @@ on_hre_member_true_religion = {
 # Emperor wins HRE defensive war
 on_hre_wins_defensive_war = {
 	#log = "[Root.GetName]: Triggered hre_wins_defensive_war"
+    
+    emperor = {
+        add_imperial_influence = 10
+    }
 }
 
 # HRE member annexed by non-HRE country
 on_hre_member_annexed = {
 	#log = "[Root.GetName]: Triggered hre_member_annexed"
+    
+    emperor = {
+        add_imperial_influence = -10
+    }
 }
 
 # HRE member released from non-HRE vassalage
@@ -582,11 +809,19 @@ on_hre_transfered_vassal = {
 # Emperor coming to the defense of a HRE member
 on_hre_defense = {
 	#log = "[Root.GetName]: Triggered hre_defense"
+    
+    emperor = {
+        add_imperial_influence = 5
+    }
 }
 
 # Emperor NOT coming to the defense of a HRE member
 on_hre_non_defense = {
 	#log = "[Root.GetName]: Triggered hre_non_defense"
+    
+    emperor = {
+        add_imperial_influence = -10
+    }
 }
 
 # HRE Member takes a HRE province from an outs100e country in a peace (province scope)
@@ -652,9 +887,13 @@ on_integrate = {
 # FROM is the nation being annexed
 on_annexed = {
 	#log = "[Root.GetName]: Triggered annexed"
+    on_annexed_estate_privileges_effect = yes
+    
 	events = {
 		factions.7
 		factions.8
+        wwu_dragon_aspects.30
+        wwu_dragon_aspects.31
 	}
 	change_variable = {
 		which = annexed_nation
@@ -666,6 +905,7 @@ on_annexed = {
 # FROM = Emperor, ROOT = Current Nation
 on_chinese_empire_dismantled = {
 	#log = "[Root.GetName]: Triggered chinese_empire_dismantled"
+	clear_global_event_target = celestial_emperor
 	events = {
 
 	}
@@ -675,21 +915,23 @@ on_chinese_empire_dismantled = {
 # FROM = Old Emperor, ROOT = New Emperor
 on_mandate_of_heaven_gained = {
 	#log = "[Root.GetName]: Triggered mandate_of_heaven_gained"
-	if = {
-		limit = {
-			OR = {
-				NOT = { government = monarchy }
-				government = tribal
-			}
-		}
-		change_government = monarchy
-	}
+	save_global_event_target_as = celestial_emperor
+    
 	set_mandate = 60
-	if = {
+	set_meritocracy = 60
+    add_country_modifier = {
+		name = new_leader_of_the_aspects
+		duration = 9125
+	}
+    if = {
 		limit = {
 			has_country_modifier = lost_mandate_of_heaven
 		}
 		remove_country_modifier = lost_mandate_of_heaven
+	}
+    country_event = {
+		id = wwu_dragon_aspects.31
+		days = 365
 	}
 }
 
@@ -700,30 +942,26 @@ on_mandate_of_heaven_lost = {
     
 	add_country_modifier = {
 		name = lost_mandate_of_heaven
-		duration = 7300	# 20 years
+		duration = 7300
 	}
-	add_stability = -2
+    
+    add_stability = -2
+    
+    if = {
+		limit = {
+			has_country_modifier = new_leader_of_the_aspects
+		}
+		remove_country_modifier = new_leader_of_the_aspects
+	}
+}
+
+on_embrace_revolution = {
+	
 }
 
 on_dismantle_revolution = {
 	#log = "[Root.GetName]: Triggered dismantle_revolution"
-	if = {
-		limit = {
-			has_dlc = "Dharma"
-		}
-		change_government = monarchy
-	}
-	else = {
-		set_legacy_government = despotic_monarchy
-	}
-	kill_ruler = yes
-    
-	#set_revolution_target = ---
-    
-	if = {
-		limit = { has_heir = yes }
-		kill_heir = yes
-	}
+	
 }
 
 # province
@@ -911,16 +1149,85 @@ on_bi_yearly_pulse_2 = {
 on_bi_yearly_pulse_3 = {
 	#log = "[Root.GetName]: Triggered bi_yearly_pulse_3"
 	
+    #-----------------------
+    # Magic Events
+    #-----------------------
+    events = {
+        wwu_magic.11 # Accomplished Spellcaster
+    }
     random_events = {
-        # Agenda from the Estates
-		1000 = estate_system.1
+        # Magic Training
+        100 = wwu_magic.1
+        50 = wwu_magic.2
+        50 = wwu_magic.3
+        50 = wwu_magic.4
+        100 = wwu_magic.5
+        100 = wwu_magic.6
+        100 = wwu_magic.7
+        100 = wwu_magic.8
+        100 = wwu_magic.9
+        100 = wwu_magic.10
         
-		3000 = 0
-	}
+        1000 = 0
+    }
 }
 
 on_bi_yearly_pulse_4 = {
 	#log = "[Root.GetName]: Triggered bi_yearly_pulse_4"
+    
+    random_events = {
+        # Espionage
+		100 = espionage_events.1
+		10 = espionage_events.6
+		100 = espionage_events.8
+		80 = espionage_events.9
+        
+        # Minority Expulsion Events
+		100 = expel_minority_events.1
+		100 = expel_minority_events.2
+		100 = expel_minority_events.3
+		100 = expel_minority_events.4
+		100 = expel_minority_events.5
+        
+        # Innovativeness
+		100 = innovativeness_events.4
+		100 = innovativeness_events.5
+		100 = innovativeness_events.6
+		100 = innovativeness_events.7
+		100 = innovativeness_events.8
+		100 = innovativeness_events.9
+		100 = innovativeness_events.10
+		100 = innovativeness_events.13
+		100 = innovativeness_events.15
+        
+        # Mercenaries
+		100 = mercs.2
+		100 = mercs.3
+		100 = mercs.4
+		100 = mercs.7
+		100 = mercs.11
+        
+        # Professionalism
+		100 = army_professionalism_events.4
+		100 = army_professionalism_events.5
+		75 = army_professionalism_events.6
+		100 = army_professionalism_events.8
+		100 = army_professionalism_events.9
+		100 = army_professionalism_events.10
+		100 = army_professionalism_events.11
+		75 = army_professionalism_events.12
+		100 = army_professionalism_events.13
+		75 = army_professionalism_events.16
+
+        # Estate Agenda
+		1000 = estate_system.1
+
+		2000 = 0
+    }
+}
+
+on_bi_yearly_pulse_5 = {
+    
 }
 
 # country random events
@@ -1196,11 +1503,48 @@ on_four_year_pulse = {
 		100 = pirates.17
 		100 = pirates.18
 		100 = pirates.19
+        
+        # Republican Dictatorship
+		100 = republican_dictatorship.1
+		100 = republican_dictatorship.2
+		100 = republican_dictatorship.3
+		100 = republican_dictatorship.4
+		100 = republican_dictatorship.5
+		100 = republican_dictatorship.6
+		100 = republican_dictatorship.7
+		100 = republican_dictatorship.8
+        
+        # Druidism
+        100 = wwu_druidism.1
+        100 = wwu_druidism.2
+        100 = wwu_druidism.3
+        
+        # Celestials
+        100 = wwu_celestials.1
+        100 = wwu_celestials.2
+        100 = wwu_celestials.3
+        100 = wwu_celestials.4
+        
+        1000 = 0
 	}
 }
 
 on_four_year_pulse_2 = {
-	#log = "[Root.GetName]: Triggered four_year_pulse_2"
+	# Magic
+    add_mana_1 = yes
+    
+    # Mana Regeneration sources
+    if = {
+        limit = {
+            OR = {
+                has_idea = dalaran_ideas_7
+                has_idea = karazhan_ideas_4
+                has_idea = blue_dragonflight_ideas_7
+                has_idea = tortollan_ideas_5
+            }
+        }
+        add_mana_1 = yes
+    }
 }
 
 on_four_year_pulse_3 = {
@@ -1214,15 +1558,306 @@ on_four_year_pulse_4 = {
 on_five_year_pulse = {
 	#log = "[Root.GetName]: Triggered five_year_pulse"
     random_events = {
-        10 = wow_ruler.1
-        10 = wow_ruler.2
-        100 = 0
-    }
+
+		# Aristocracy 		13  (8g 5b)
+		100 = ideagroups.100
+		100 = ideagroups.101
+		100 = ideagroups.102
+		100 = ideagroups.103
+		100 = ideagroups.104
+		100 = ideagroups.105
+		100 = ideagroups.106
+		100 = ideagroups.107
+		100 = ideagroups.108
+		100 = ideagroups.109
+		100 = ideagroups.110
+		100 = ideagroups.111
+		100 = ideagroups.112
+
+
+		# Plutocracy 		19 (12g 7b)
+		100 = ideagroups.200
+		100 = ideagroups.201
+		100 = ideagroups.202
+		100 = ideagroups.203
+		100 = ideagroups.204
+		100 = ideagroups.205
+		100 = ideagroups.206
+		100 = ideagroups.207
+		100 = ideagroups.208
+		100 = ideagroups.209
+		100 = ideagroups.210
+		100 = ideagroups.211
+		100 = ideagroups.212
+		100 = ideagroups.213
+		100 = ideagroups.214
+		100 = ideagroups.215
+		100 = ideagroups.216
+		100 = ideagroups.217
+		100 = ideagroups.218
+
+		# Innovativenes		11 (7g 4b)
+		100 = ideagroups.300
+		100 = ideagroups.301
+		100 = ideagroups.302
+		100 = ideagroups.303
+		100 = ideagroups.304
+		100 = ideagroups.305
+		100 = ideagroups.307
+		100 = ideagroups.308
+		100 = ideagroups.309
+		100 = ideagroups.310
+
+		# Religious		18 (11g 7b)
+		100 = ideagroups.400
+		100 = ideagroups.401
+		100 = ideagroups.402
+		100 = ideagroups.403
+		100 = ideagroups.404
+		100 = ideagroups.405
+		100 = ideagroups.407
+		100 = ideagroups.408
+		100 = ideagroups.409
+		100 = ideagroups.411
+		100 = ideagroups.412
+		100 = ideagroups.413
+		100 = ideagroups.414
+		100 = ideagroups.415
+		100 = ideagroups.416
+		100 = ideagroups.417
+
+
+		# Spy			9 (6g 3b)
+		100 = ideagroups.500
+		100 = ideagroups.501
+		100 = ideagroups.502
+		100 = ideagroups.503
+		100 = ideagroups.504
+		100 = ideagroups.505
+		100 = ideagroups.506
+		100 = ideagroups.507
+		100 = ideagroups.508
+
+
+		# Diplomatic		9 (6g 3b)
+		100 = ideagroups.600
+		100 = ideagroups.601
+		100 = ideagroups.602
+		100 = ideagroups.603
+		100 = ideagroups.604
+		100 = ideagroups.605
+		100 = ideagroups.606
+		100 = ideagroups.607
+		100 = ideagroups.608
+
+
+		# Offensive 		14 (9g 5b)
+		100 = ideagroups.700
+		100 = ideagroups.701
+		100 = ideagroups.702
+		100 = ideagroups.703
+		100 = ideagroups.704
+		100 = ideagroups.705
+		100 = ideagroups.706
+		100 = ideagroups.707
+		100 = ideagroups.708
+		100 = ideagroups.709
+		100 = ideagroups.710
+		100 = ideagroups.711
+		100 = ideagroups.712
+		100 = ideagroups.713
+
+
+		# Defensive		11 (5g 6b)
+		100 = ideagroups.800
+		100 = ideagroups.801
+		100 = ideagroups.802
+		100 = ideagroups.803
+		100 = ideagroups.804
+		100 = ideagroups.805
+		100 = ideagroups.806
+		100 = ideagroups.807
+		100 = ideagroups.808
+		100 = ideagroups.809
+		100 = ideagroups.810
+		100 = ideagroups.811
+		100 = ideagroups.812
+		100 = ideagroups.813
+		100 = ideagroups.814
+		100 = ideagroups.815
+
+
+		# Trade			6 (7g 4b)
+		100 = ideagroups.900
+		100 = ideagroups.901
+		100 = ideagroups.902
+		100 = ideagroups.903
+		100 = ideagroups.904
+		100 = ideagroups.905
+		100 = ideagroups.906
+		100 = ideagroups.907
+		100 = ideagroups.908
+		100 = ideagroups.909
+		100 = ideagroups.910
+
+		# Maritime			22 (14g 8b)
+		100 = ideagroups.1000
+		100 = ideagroups.1001
+		100 = ideagroups.1002
+		100 = ideagroups.1003
+		100 = ideagroups.1004
+		100 = ideagroups.1005
+		100 = ideagroups.1006
+		100 = ideagroups.1007
+		100 = ideagroups.1008
+		100 = ideagroups.1009
+		100 = ideagroups.1010
+		100 = ideagroups.1011
+		100 = ideagroups.1012
+		100 = ideagroups.1013
+		100 = ideagroups.1014
+		100 = ideagroups.1015
+		100 = ideagroups.1016
+		100 = ideagroups.1017
+		100 = ideagroups.1018
+		100 = ideagroups.1019
+		100 = ideagroups.1020
+		100 = ideagroups.1021
+
+		# Economic		11 (7g 4b)
+		100 = ideagroups.1100
+		100 = ideagroups.1101
+		100 = ideagroups.1102
+		100 = ideagroups.1103
+		100 = ideagroups.1104
+		100 = ideagroups.1105
+		100 = ideagroups.1106
+		100 = ideagroups.1107
+		100 = ideagroups.1108
+		100 = ideagroups.1109
+		100 = ideagroups.1110
+
+		# Exploration		11 (7g 4b)
+		100 = ideagroups.1200
+		100 = ideagroups.1201
+		100 = ideagroups.1202
+		100 = ideagroups.1203
+		100 = ideagroups.1204
+		100 = ideagroups.1205
+		100 = ideagroups.1206
+		100 = ideagroups.1209
+		100 = ideagroups.1210
+
+		# Quality		11 (7g 4b)
+		100 = ideagroups.1300
+		100 = ideagroups.1301
+		100 = ideagroups.1302
+		100 = ideagroups.1303
+		100 = ideagroups.1304
+		100 = ideagroups.1305
+		100 = ideagroups.1306
+		100 = ideagroups.1307
+		100 = ideagroups.1308
+		100 = ideagroups.1309
+		100 = ideagroups.1310
+
+		# Quantity		11 (7g 4b)
+		100 = ideagroups.1400
+		100 = ideagroups.1401
+		100 = ideagroups.1402
+		100 = ideagroups.1403
+		100 = ideagroups.1404
+		100 = ideagroups.1405
+		100 = ideagroups.1406
+		100 = ideagroups.1407
+		100 = ideagroups.1408
+		100 = ideagroups.1409
+		100 = ideagroups.1410
+
+
+		# Expansion		11 (7g 4b)
+		100 = ideagroups.1500
+		100 = ideagroups.1501
+		100 = ideagroups.1502
+		100 = ideagroups.1503
+		100 = ideagroups.1504
+		100 = ideagroups.1505
+		100 = ideagroups.1506
+		100 = ideagroups.1507
+		100 = ideagroups.1508
+		100 = ideagroups.1509
+		100 = ideagroups.1510
+
+		# Administrative	3 (1g 2b)
+		100 = ideagroups.1600
+		100 = ideagroups.1601
+		100 = ideagroups.1602
+		100 = ideagroups.1603
+		100 = ideagroups.1604
+		100 = ideagroups.1605
+		100 = ideagroups.1606
+		100 = ideagroups.1607
+		100 = ideagroups.1608
+		100 = ideagroups.1609
+		100 = ideagroups.1610
+
+		# Naval		11 (7g 4b)
+		100 = ideagroups.1700
+		100 = ideagroups.1701
+		100 = ideagroups.1702
+		100 = ideagroups.1703
+		100 = ideagroups.1704
+		100 = ideagroups.1705
+		100 = ideagroups.1706
+		100 = ideagroups.1707
+		100 = ideagroups.1708
+		100 = ideagroups.1709
+		100 = ideagroups.1710
+
+		# Influence		11 (7g 4b)
+		100 = ideagroups.1800
+		100 = ideagroups.1801
+		100 = ideagroups.1802
+		100 = ideagroups.1803
+		100 = ideagroups.1804
+		100 = ideagroups.1805
+		100 = ideagroups.1806
+		100 = ideagroups.1807
+		100 = ideagroups.1808
+		100 = ideagroups.1809
+		100 = ideagroups.1810
+
+		# Humanist		11 (7g 4b)
+		100 = ideagroups.1900
+		100 = ideagroups.1901
+		100 = ideagroups.1902
+		100 = ideagroups.1903
+		100 = ideagroups.1904
+		100 = ideagroups.1905
+		100 = ideagroups.1906
+		100 = ideagroups.1907
+		100 = ideagroups.1908
+		100 = ideagroups.1909
+		100 = ideagroups.1910
+        
+        500 = wwu_dragon_aspects.10
+        500 = wwu_dragon_aspects.11
+        500 = wwu_dragon_aspects.12
+
+		1000 = 0
+	}
 }
 
 
 # Estates pulse
 on_five_year_pulse_2 = {
+    #log = "[Root.GetName]: Triggered five_year_pulse_2"
+    random_events = {
+        10 = wwu_ruler.1
+        10 = wwu_ruler.2
+        
+        100 = 0
+    }
 }
 
 on_five_year_pulse_3 = {
@@ -1247,13 +1882,45 @@ on_five_year_pulse_3 = {
 		# 100 = propagate_religion_events.9
 		# 100 = propagate_religion_events.10
 		#100 = propagate_religion_events.11 #Province event
+        
+        100 = wwu_naga.1
+        100 = wwu_naga.2
+        100 = wwu_naga.3
+        
 		1000 = 0
 	}
 }
 
 on_five_year_pulse_4 = {
 	#log = "[Root.GetName]: Triggered five_year_pulse_4"
-
+    #fail-safe if for whatever reason these flags stay after being used in events
+	if = {
+		limit = {
+			had_country_flag = {
+				flag = advisor_events_adm
+				days = 720
+			}
+		}
+		clr_country_flag = advisor_events_adm
+	}
+	if = {
+		limit = {
+			had_country_flag = {
+				flag = advisor_events_dip
+				days = 720
+			}
+		}
+		clr_country_flag = advisor_events_dip
+	}
+	if = {
+		limit = {
+			had_country_flag = {
+				flag = advisor_events_mil
+				days = 720
+			}
+		}
+		clr_country_flag = advisor_events_mil
+	}
 }
 
 # El Dorado
@@ -1274,6 +1941,10 @@ on_buy_religious_reform = {
 
 on_circumnavigation = {
 	#log = "[Root.GetName]: Triggered circumnavigation"
+    events = {
+		wwu_exploration.1 # Initial Circumnavigation
+        wwu_exploration.2 # Repeat Circumnavigation
+    }
 }
 
 on_become_free_city = {
@@ -1386,6 +2057,8 @@ on_convert_by_trade_policy = {
 # FROM = old owner
 on_province_owner_change = {
 	#log = "[Root.GetName]: Triggered province_owner_change"
+    on_province_owner_change_estate_privileges_effect = yes
+    
 	owner = {
 		change_variable = {
 			which = provinces_gained
@@ -1393,6 +2066,57 @@ on_province_owner_change = {
 		}
 		
 	}
+    
+    # Monastic Breweries
+    if = {
+		limit = {
+			OR = {
+				has_province_modifier = wine_bonus_prod
+				has_province_modifier = grain_bonus_prod
+			}
+			FROM = { has_reform = wwu_monastic_breweries_reform }
+			NOT = { owner = { has_reform = wwu_monastic_breweries_reform } }
+		}
+		remove_province_modifier = wine_bonus_prod
+		remove_province_modifier = grain_bonus_prod
+	}
+    
+    if = {
+		limit = {
+			NOT = {
+				OR = {
+					has_province_modifier = wine_bonus_prod
+					has_province_modifier = grain_bonus_prod
+				}
+			}
+			owner = { has_reform = wwu_monastic_breweries_reform }
+			NOT = { FROM = { has_reform = wwu_monastic_breweries_reform } }
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					trade_goods = wine
+				}
+				add_province_modifier = { 
+					name = wine_bonus_prod
+					duration = -1
+					hidden = yes
+				}
+			}
+			if = {
+				limit = {
+					trade_goods = grain
+				}
+				add_province_modifier = { 
+					name = grain_bonus_prod
+					duration = -1
+					hidden = yes
+				}
+			}
+		}
+	}
+    
+    # Faction War
 	if = {
 		limit = {
 			FROM = { was_faction_leaders_war = yes }
@@ -1417,6 +2141,69 @@ on_parliament_debate_failed = {
 on_parliament_debate_succeeded = {
 	#log = "[Root.GetName]: Triggered parliament_debate_succeeded"
 }
+
+# Harmony
+on_harmonized_order = {
+    events = {
+        wwu_harmonization.1
+    }
+}
+on_harmonized_disorder = {
+    events = {
+        wwu_harmonization.2
+    }
+}
+on_harmonized_life = {
+    events = {
+        wwu_harmonization.4
+    }
+}
+on_harmonized_death = {
+    events = {
+        wwu_harmonization.7
+    }
+}
+on_harmonized_shadow = {
+    events = {
+        wwu_harmonization.5
+    }
+}
+on_harmonized_elemental = {
+    events = {
+        wwu_harmonization.3
+    }
+}
+on_harmonized_philosophy = {
+    events = {
+        wwu_harmonization.6
+    }
+}
+on_harmonized_holy_light = {
+    events = {
+        wwu_harmonization.20
+    }
+}
+on_harmonized_scarlet_light = {
+    events = {
+        wwu_harmonization.21
+    }
+}
+on_harmonized_argent_light = {
+    events = {
+        wwu_harmonization.22
+    }
+}
+on_harmonized_light_of_the_naaru = {
+    events = {
+        wwu_harmonization.23
+    }
+}
+on_harmonized_light_of_the_sunwell = {
+    events = {
+        wwu_harmonization.24
+    }
+}
+
 
 # country
 on_russian_sudebnik = {
@@ -1516,6 +2303,11 @@ on_janissaries_raised = {
 	#log = "[Root.GetName]: Triggered janissaries_raised"
 }
 
+# THIS = Province
+on_revolutionary_guard_raised = {
+    #log = "[Root.GetName]: Triggered on_revolutionary_guard_raised"
+}
+
 on_reform_enacted = {
 	#log = "[Root.GetName]: Triggered reform_enacted"
 }
@@ -1557,8 +2349,7 @@ on_company_chartered = {
 # ROOT = Overlord, FROM = Minor
 on_dependency_gained = {
 	#log = "[Root.GetName]: Triggered dependency_gained"
-	events = {
-	}
+	
 }
 
 # ROOT = Overlord, FROM = Minor
@@ -1638,6 +2429,19 @@ on_country_released = {
 on_trade_good_changed = {
 	#log = "[Root.GetName]: Triggered trade_good_changed"
 
+	on_trade_good_changed_estate_privileges_effect = yes
+	if = {
+		limit = {
+			OR = {
+				has_province_modifier = wine_bonus_prod
+				has_province_modifier = grain_bonus_prod
+			}
+			FROM = { has_reform = wwu_monastic_breweries_reform }
+			NOT = { owner = { has_reform = wwu_monastic_breweries_reform } }
+		}
+		remove_province_modifier = wine_bonus_prod
+		remove_province_modifier = grain_bonus_prod
+	}
 	hidden_effect = {
 		if = {
 			limit = {
@@ -1740,17 +2544,7 @@ on_post_mil_advisor_fired = {
 # this = new client state, from = parent country
 on_create_client_state = {
 	#log = "[Root.GetName]: Triggered create_client_state"
-	if = {
-		limit = {
-			has_dlc = "Emperor"
-			FROM = {
-				is_revolutionary = yes
-			}
-			government = republic
-		}
-		add_government_reform = junior_revolutionary_republic_reform
-		set_country_flag = had_revolution
-	}
+	
 }
 
 # this = new target, from = previous target (both can be non-existent tag)
@@ -1776,96 +2570,37 @@ on_country_creation = {
 	#log = "[Root.GetName]: Triggered country_creation"
 }
 
-on_emperor_elected = {
-	#log = "[Root.GetName]: Triggered emperor_elected"
-	every_elector = {
-		if = {
-			limit = {
-				preferred_emperor = root
-			}
-			change_variable = {
-				which = supported_successive_emperors
-				value = 1
-			}
-		}
-		else = {
-			set_variable = {
-				which = supported_successive_emperors
-				value = 0
-			}
-		}
+on_federation_leader_change = {
+	if = {
+		limit = { tag = FROM }
+		disband_federation = THIS
 	}
-
-	emperor = {
-		save_global_event_target_as = Emperor
-	}
-	FROM = {
-		if = {
-			limit = { has_country_modifier = diet_occupied }
-			remove_country_modifier = diet_occupied
-			ROOT = {
-				add_country_modifier = { name = diet_occupied duration = -1 }
-			}
-		}
-		if = {
-			limit = {
-				any_country = {
-					reverse_has_opinion_modifier = {
-						modifier = opinion_imperial_diplomacy
-						who = prev
-					}
-				}
-			}
-			every_country = {
-				limit = {
-					reverse_has_opinion_modifier = {
-						modifier = opinion_imperial_diplomacy
-						who = prev
-					}
-				}
-				reverse_remove_opinion = {
-					modifier = opinion_imperial_diplomacy
-					who = prev
-				}
-				ROOT = {
-					add_opinion = {
-						modifier = opinion_imperial_diplomacy
-						who = prev
-					}
-				}
-			}
-		}
+	else = {
+		# New strongest member becomes the new federation leader
+		set_federation_leader = THIS
 	}
 }
 
-# Harmony
-on_harmonized_order = {
-    events = {
-        wwu_harmonization.1
-    }
+#FROM = country pillaged, ROOT = country doing the pillaging
+on_pillaged_capital = {
 }
-on_harmonized_disorder = {
-    events = {
-        wwu_harmonization.2
-    }
+
+#FROM = country dev was transferred from, ROOT = country doing the transferring
+on_transfer_development = {
 }
-on_harmonized_elemental = {
-    events = {
-        wwu_harmonization.3
-    }
+
+on_colonial_type_change = {
+	clr_country_flag = encourage_cash_crops_flag
 }
-on_harmonized_nature = {
-    events = {
-        wwu_harmonization.4
-    }
+
+on_estate_led_regency = {
 }
-on_harmonized_void = {
-    events = {
-        wwu_harmonization.5
-    }
+
+on_estate_led_regency_surpassed = {
+    
 }
-on_harmonized_rational_philosophies = {
-    events = {
-        wwu_harmonization.6
-    }
+
+on_extended_regency = {
+	
 }
+

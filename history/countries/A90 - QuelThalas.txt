@@ -1,13 +1,13 @@
-discover_home_continent = yes
+
 # QuelThalas
 government 			= monarchy
 add_government_reform = convocation_of_silvermoon_reform
 add_government_reform = wwu_hereditary_rule_reform
 mercantilism 		= 10
 technology_group 	= tech_thalassian
-religion = religion_arcane
+religion = arcane
 add_patriarch_authority = 0.25
-secondary_religion = religion_church_of_the_light
+secondary_religion = holy_light
 primary_culture 	= culture_high_elf
 capital 			= 660
 
@@ -18,11 +18,15 @@ historical_rival = A58
 	monarch = {
 		name = "Anasterian"
 		dynasty = "Sunstrider"
+        birth_date = 20.1.1
 		adm = 7
 		dip = 6
 		mil = 4
 	}
 	
+    clear_scripted_personalities = yes
+	add_ruler_personality = spellcaster_personality
+    
 	heir = {
 		name = "Kael'Thas"
 		monarch_name = "Kael'Thas"
@@ -59,14 +63,14 @@ historical_rival = A58
 }
 
 598.1.1 = {
-add_country_modifier = {
-    name = alliance_member
-    duration = -1
-}
+    add_country_modifier = {
+        name = alliance_member
+        duration = -1
+    }
 }
 
 605.1.1 = {
-remove_country_modifier = alliance_member
+    remove_country_modifier = alliance_member
 }
 
 

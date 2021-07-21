@@ -1,0 +1,102 @@
+country_decisions = {
+	drink_from_the_sunwell = {
+		potential = {
+			culture_group = culture_group_thalassian
+            capital_scope = {
+                region = region_isle_of_quel_danas
+            }
+            NOT = { has_country_modifier = sunwell_energies }
+		}
+		
+		allow = {
+			stability = 3
+            NOT = { has_country_modifier = sunwell_energies }
+            custom_trigger_tooltip = {
+                tooltip = SUNWELL_NOT_DESTROYED
+                NOT = { has_global_flag = sunwell_destroyed }
+            }
+		}
+		
+		effect = {
+			add_stability = -3
+            
+            change_adm = 1
+            change_dip = 1
+            change_mil = 1
+            
+            add_country_modifier = {
+                name = sunwell_energies
+                duration = 7300
+            }
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    enforce_the_forest_protection_act = {
+		potential = {
+			culture_group = culture_group_thalassian
+            capital_scope = {
+                OR = {
+                    region = region_isle_of_quel_danas
+                    region = region_eversong_woods
+                    region = region_ghostlands
+                }
+            }
+            NOT = { has_country_modifier = forest_protection_act }
+		}
+		
+		allow = {
+			adm_power = 100
+            NOT = { has_country_modifier = forest_protection_act }
+            stability = 1
+		}
+		
+		effect = {
+			add_adm_power = -100
+            
+            add_country_modifier = {
+                name = forest_protection_act
+                duration = 3650
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    create_the_three_gates = {
+		potential = {
+			culture_group = culture_group_thalassian
+            capital_scope = {
+                OR = {
+                    region = region_isle_of_quel_danas
+                    region = region_eversong_woods
+                    region = region_ghostlands
+                }
+            }
+            NOT = { has_country_modifier = the_three_gates }
+		}
+		
+		allow = {
+			treasury = 2000
+            NOT = { has_country_modifier = the_three_gates }
+		}
+		
+		effect = {
+			add_treasury = -2000
+            
+            add_country_modifier = {
+                name = the_three_gates
+                duration = -1
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

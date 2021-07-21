@@ -1,0 +1,208 @@
+namespace = old_gods
+
+country_event = {
+	id = old_gods.1
+	title = old_gods.1.title
+	desc = old_gods.1.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    
+    fire_only_once = no
+	major = yes
+    
+	trigger = {
+		has_country_flag = awakening_cthun
+		#has_global_flag = this_event_will_never_fire
+	}
+	
+	mean_time_to_happen = {
+		months = 96
+	}
+	
+	option = {
+		name = old_gods.1.opt1
+		
+		set_global_flag = cthun_alive
+		add_country_modifier = { 
+			name = summoned_oldgod
+			duration = -1  
+			desc = summoned_oldgod.desc
+		}
+		clr_country_flag = awakening_cthun
+		
+        add_country_modifier = {
+            name = is_evil
+            duration = -1
+        }
+	}
+}
+
+country_event = {
+	id = old_gods.2
+	title = old_gods.2.title
+	desc = old_gods.2.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    
+    fire_only_once = no
+	major = yes
+    
+	trigger = {
+		owns_core_province = 2495
+		NOT = { has_country_flag = guided_by_whispers }
+		#has_global_flag = this_event_will_never_fire
+	}
+	
+	mean_time_to_happen = {
+		months = 86
+	}
+	
+	option = {
+		name = old_gods.2.opt1
+		
+		set_country_flag = guided_by_whispers
+		add_adm_power  = 30
+	}
+	option = {
+		name = old_gods.2.opt2
+		
+		add_adm_power = -30
+	}
+}
+
+country_event = {
+	id = old_gods.3
+	title = old_gods.3.title
+	desc = old_gods.3.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    
+    fire_only_once = no
+	major = yes
+    
+	trigger = {
+		has_country_flag = awakening_yoggsaron
+		#has_global_flag = this_event_will_never_fire
+	}
+	
+	mean_time_to_happen = {
+		months = 96
+	}
+	
+	option = {
+		name = old_gods.3.opt1
+		
+		set_global_flag = yoggsaron_alive
+		add_country_modifier = { 
+			name = summoned_oldgod
+			duration = -1  
+			desc = summoned_oldgod.desc
+		}
+		clr_country_flag = awakening_yoggsaron
+	}
+}
+
+country_event = {
+	id = old_gods.4
+	title = old_gods.4.title
+	desc = old_gods.4.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    
+	trigger = {
+		has_country_flag = influenced_by_nzoth
+		
+		#has_global_flag = this_event_will_never_fire
+	}
+	
+	mean_time_to_happen = {
+		months = 70
+	}
+	
+	option = {
+		name = old_gods.4.opt1
+		
+		every_owned_province =
+		{
+			limit = {
+				NOT = { religion = nzoth }
+			}
+			change_religion = nzoth
+		}
+		change_religion = nzoth
+		clr_country_flag = influenced_by_nzoth
+	}
+	option = {
+		name = old_gods.4.opt2
+		
+		random_list = {
+			45 = {
+				add_stability = -1
+			}
+			45 = {
+				random_province =
+				{
+					limit = {
+						owned_by = ROOT
+					}
+					change_religion = nzoth
+				}
+				random_province =
+				{
+					limit = {
+						owned_by = ROOT
+					}
+					change_religion = nzoth
+				}
+			}
+			10 = {
+				clr_country_flag = influenced_by_nzoth
+				custom_tooltip = influenced_by_nzoth_clear
+			}
+		}
+	}
+}
+country_event = {
+	id = old_gods.6
+	title = old_gods.6.title
+	desc = old_gods.6.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    hidden = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		has_country_flag = nzoth_probability_set
+	}
+	
+	immediate = {
+		clr_country_flag = nzoth_probability_set
+	}
+	
+	option = {
+		name = old_gods.5.opt1
+		
+		random_list = {
+			8 = {
+				add_country_modifier = { name = communed_tidemother duration = 3650 }
+			}
+			2 = {
+				set_country_flag = influenced_by_nzoth
+				country_event = { id = old_gods.5 }
+			}
+		}
+	}
+}
+
+## Uncomplete event
+country_event = {
+	id = old_gods.5
+	title = old_gods.5.title
+	desc = old_gods.5.desc
+	picture = SHA_eventPicture
+    	
+	is_triggered_only = yes
+	
+	option = {
+		name = old_gods.5.opt1
+		
+	}
+}

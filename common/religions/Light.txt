@@ -1,0 +1,600 @@
+#------------------------------------
+# The Light
+#------------------------------------
+light_group = {
+	
+	can_form_personal_unions = yes
+	
+	flags_with_emblem_percentage = 33 # default == 0
+	flag_emblem_index_range = { 1 57 }
+	
+	crusade_name = CRUSADE
+
+	holy_light = {
+		color = { 254 235 137 }
+		icon = 1
+		
+		country = {
+			tolerance_own = 1
+			global_tax_modifier = 0.2
+		}
+		country_as_secondary = {
+			global_tax_modifier = 0.1
+		}
+        province = {
+			local_missionary_strength = -0.01
+		}
+        
+        uses_harmony = yes
+		
+		on_convert = {
+			change_religion = holy_light
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+        heretic = { HERETIC }
+        
+        harmonized_modifier = harmonized_holy_light
+	}
+	
+    scarlet_light = {
+		color = { 127 0 0 }
+		icon = 2
+		
+		country = {
+			tolerance_own = 2
+			missionaries = 1
+			global_missionary_strength = 0.03
+			
+			tolerance_heathen = -3
+			tolerance_heretic = -2
+		}
+		
+		misguided_heretic = yes
+		
+		on_convert = {
+			change_religion = scarlet_light
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+        heretic = { HERETIC }
+        
+        harmonized_modifier = harmonized_scarlet_light
+	}
+    
+	argent_light = {
+		color = { 181 185 188 }
+		icon = 31
+		
+		country = {
+            land_morale = 0.1
+			tolerance_own = 1
+			tolerance_heathen = -2
+		}
+
+		on_convert = {
+			change_religion = argent_light
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+        heretic = { HERETIC }
+        
+        harmonized_modifier = harmonized_argent_light
+	}
+	
+	light_of_the_naaru = {
+		color = { 0 255 255 }
+		icon = 3
+		
+		country = {
+			num_accepted_cultures = 1
+			global_unrest = -1
+		}
+        country_as_secondary = {
+            num_accepted_cultures = 1
+        }
+        province = {
+			local_missionary_strength = -0.02
+		}
+
+		misguided_heretic = yes
+        
+        uses_harmony = yes
+		
+		on_convert = {
+			change_religion = light_of_the_naaru
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+        heretic = { HERETIC }
+        
+        harmonized_modifier = harmonized_light_of_the_naaru
+	}
+	
+    light_of_the_sunwell = {
+		color = { 255 255 61 }
+		icon = 32
+		
+		country = {
+			tolerance_own = 3
+            idea_cost = -0.05
+		}
+		
+		misguided_heretic = yes
+		
+		on_convert = {
+			change_religion = light_of_the_sunwell
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+        heretic = { HERETIC }
+        
+        harmonized_modifier = harmonized_light_of_the_sunwell
+	}
+    
+    religious_schools = {
+		brotherhood_of_northshire = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					}
+				}
+				OR = {
+					AND = {
+						primary_culture = culture_azerothian
+						religion = holy_light
+					}
+					any_country = {
+						religion = holy_light
+						has_opinion = {
+							who = ROOT
+							value = 180
+						}
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = brotherhood_of_northshire_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			#invite_scholar_modifier_display = brotherhood_of_northshire_modifier
+
+			picture = "GFX_icon_brotherhood_of_northshire"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.1
+		}
+		the_conclave = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				any_country = {
+					religion_group = shadow_group
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+				any_country = {
+					religion_group = light_group
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = the_conclave_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			#invite_scholar_modifier_display = the_conclave_modifier
+
+			picture = "GFX_icon_the_conclave"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.1
+		}
+		order_of_the_silver_hand = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				OR = {
+					AND = {
+						primary_culture = culture_lordaeron
+						religion = holy_light
+					}
+					any_neighbor_country = {
+						is_pure_evil = yes
+						NOT = {
+							has_opinion = {
+							who = ROOT
+							value = 100
+							}
+						}
+					}
+					any_rival_country = {
+						is_pure_evil = yes
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = order_of_the_silver_hand_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			#invite_scholar_modifier_display = order_of_the_silver_hand_modifier
+
+			picture = "GFX_icon_order_of_the_silver_hand"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.1
+		}
+		crimson_legion = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				OR = {
+					religion = scarlet_light
+					any_rival_country = {
+						culture_group = culture_group_undead
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = crimson_legion_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			#invite_scholar_modifier_display = crimson_legion_modifier
+
+			picture = "GFX_icon_crimson_legion"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.1
+		}
+		blood_knights = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				OR = {
+					primary_culture = culture_blood_elf
+					any_ally = {
+						primary_culture = culture_blood_elf
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = blood_knights_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			#invite_scholar_modifier_display = blood_knights_modifier
+
+			picture = "GFX_icon_blood_knights"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.1
+		}
+		argent_light = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				OR = {
+					religion = argent_light
+					any_rival_country = {
+						is_pure_evil = yes
+					}
+					any_country = {
+						is_pure_evil = yes
+						war_with = ROOT
+					}
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = argent_light_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			#invite_scholar_modifier_display = argent_light_modifier
+
+			picture = "GFX_icon_argent_light"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.05
+		}
+		the_lightforged = {
+			potential_invite_scholar = {
+				always = no # TODO: Implement it later... Much later.
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				always = yes
+				#has_global_flag = burning_legion_invasion
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = the_lightforged_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			#invite_scholar_modifier_display = the_lightforged_modifier
+
+			picture = "GFX_icon_the_lightforged"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.1
+		}
+		the_sunwalkers = {
+			potential_invite_scholar = {
+				always = yes
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				NOT = { 
+					OR = {
+						has_country_modifier = brotherhood_of_northshire_modifier
+						has_country_modifier = the_conclave_modifier
+						has_country_modifier = order_of_the_silver_hand_modifier
+						has_country_modifier = crimson_legion_modifier
+						has_country_modifier = blood_knights_modifier
+						has_country_modifier = argent_light_modifier
+						has_country_modifier = the_lightforged_modifier
+						has_country_modifier = the_sunwalkers_modifier
+					} 
+				}
+				always = yes
+				culture_group = culture_group_tauren
+				any_neighbor_country = {
+					culture_group = culture_group_tauren
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+                hidden_effect = {
+                    remove_country_modifier = brotherhood_of_northshire_modifier
+                    remove_country_modifier = the_conclave_modifier
+                    remove_country_modifier = order_of_the_silver_hand_modifier
+                    remove_country_modifier = crimson_legion_modifier
+                    remove_country_modifier = blood_knights_modifier
+                    remove_country_modifier = argent_light_modifier
+                    remove_country_modifier = the_lightforged_modifier
+                    remove_country_modifier = the_sunwalkers_modifier
+                }
+				add_country_modifier = { 
+                    name = the_sunwalkers_modifier 
+                    duration = 7300
+                }
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			#invite_scholar_modifier_display = the_sunwalkers_modifier
+
+			picture = "GFX_icon_the_sunwalkers"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			adm_tech_cost_modifier = -0.1
+		}
+	}
+}

@@ -1,0 +1,194 @@
+#--------------------------------------
+# Lordaeron
+#--------------------------------------
+wwu_lordaeron_column_4 = { 
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A08
+	} 
+    
+	wwu_ingratiate_vandermar = { 
+		icon = mission_ancient_tome
+        
+		required_missions = {  } 
+        
+		trigger = {
+            G50 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 200
+                }
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+                name = mission_vadermar_elites
+                duration = -1
+            }
+            region_tirisfal_glades = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_secure_tirisfal_glades = { 
+		icon = mission_faction_fight_2
+        
+		required_missions = { wwu_ingratiate_vandermar } 
+        
+		trigger = {
+            region_tirisfal_glades = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            region = region_tirisfal_glades
+            NOT = { owned_by = ROOT }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_western_security"
+				duration = -1
+			}
+            region_silverpine_forest = {
+                add_permanent_claim = ROOT
+            }
+            region_alterac_mountains = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_passage_to_southshore = { 
+		icon = mission_storehouse
+        
+		required_missions = { wwu_secure_tirisfal_glades } 
+        
+		trigger = {
+            991 = {
+                owned_by = ROOT
+                is_in_capital_area = yes
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+				name = "mission_southshore_connection"
+				duration = -1
+			}
+            add_stability = 1
+		}
+	}
+    wwu_protect_stormwind = { 
+		icon = mission_unity
+        
+		required_missions = { wwu_passage_to_southshore } 
+        
+		trigger = {
+            alliance_with = STW
+            army_size_percentage = 1.0
+		}
+		effect = { 
+			add_country_modifier = {
+				name = "mission_stormwind_alliance"
+				duration = -1
+			}
+		}
+	}
+}
+
+wwu_lordaeron_column_5 = { 
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A08
+	} 
+    
+	wwu_ingratiate_stratholme = { 
+		icon = mission_goblet
+        
+		required_missions = {  } 
+        
+		trigger = {
+            A10 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 200
+                }
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+                name = mission_stratholme_elites
+                duration = -1
+            }
+            region_eastern_plaguelands = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_secure_the_eastern_outposts = { 
+		icon = mission_troll_male
+        
+		required_missions = { wwu_ingratiate_stratholme } 
+        
+		trigger = {
+            region_eastern_plaguelands = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            region = region_eastern_plaguelands
+            NOT = { owned_by = ROOT }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_eastern_security"
+				duration = -1
+			}
+            region_zulaman = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_eliminate_the_trolls = { 
+		icon = mission_troll_hexxer
+        
+		required_missions = { wwu_secure_the_eastern_outposts } 
+        
+		trigger = {
+            NOT = { exists = A58 }
+            NOT = { exists = A59 }
+            NOT = { exists = A62 }
+            NOT = { exists = P55 }
+            NOT = { exists = A62 }
+            region_zulaman = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            OR = {
+                region = region_zulaman
+                owned_by = A58
+                owned_by = A59
+                owned_by = A62
+                owned_by = P55
+                owned_by = A62
+            }
+            NOT = { owned_by = ROOT }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_troll_conqueror"
+				duration = -1
+			}
+		}
+	}
+}

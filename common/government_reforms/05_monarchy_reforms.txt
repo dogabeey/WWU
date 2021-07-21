@@ -6,7 +6,7 @@ wwu_enforce_privileges_reform = {
 	allow_normal_conversion = yes
 	
 	modifiers = {
-		global_manpower_modifier = 0.25
+		global_manpower_modifier = 0.15
 	}
     
 	ai = {
@@ -23,7 +23,7 @@ wwu_quash_noble_power_reform = {
 	allow_normal_conversion = yes
 	
 	modifiers = {
-		global_tax_modifier = 0.2
+		global_tax_modifier = 0.15
 		nobility_influence_modifier = -0.1
 	}
     
@@ -41,7 +41,10 @@ wwu_enforce_trader_privileges_reform = {
 	allow_normal_conversion = yes
     
 	potential = {
-       has_reform = mercantile_republic_reform
+        estate_influence = {
+            estate = estate_traders
+            influence = 40
+        }
 	}
     
 	modifiers = {
@@ -88,13 +91,13 @@ wwu_druidic_syncretism_reform = {
     
 	potential = {
 		any_owned_province = {
-            religion = religion_druidic
+            religion = druidism
         }
 	}
     
 	modifiers = {
-		tolerance_heretic = 4
-		development_cost = -0.1
+		tolerance_heretic = 2
+		development_cost = -0.05
 	}
     
 	ai = {
@@ -115,7 +118,7 @@ wwu_elvish_nobles_reform = {
 	}
     
 	modifiers = {
-		all_power_cost = -0.035
+		all_power_cost = -0.03
 	}
     
 	ai = {
@@ -132,7 +135,7 @@ wwu_strength_of_the_vrykul_reform = {
 	}
     
 	modifiers = {
-		reinforce_speed = 0.33
+		reinforce_speed = 0.2
 	}
     
 	ai = {
@@ -149,7 +152,7 @@ wwu_draenei_society_reform = {
 	}
     
 	modifiers = {
-		monarch_diplomatic_power = 2
+		monarch_diplomatic_power = 1
 	}
     
 	ai = {
@@ -219,8 +222,8 @@ wwu_kalimdor_recruitment = {
 	}
     
 	modifiers = {
-		fort_maintenance_modifier = -0.15
-		global_manpower_modifier = 0.3
+		fort_maintenance_modifier = -0.1
+		global_manpower_modifier = 0.1
 	}
     
 	ai = {
@@ -253,7 +256,7 @@ wwu_clergy_in_administration_reform = {
 	allow_normal_conversion = yes
     
 	modifiers = {
-		yearly_corruption = -0.1
+		yearly_corruption = -0.05
 		
 		clergy_influence_modifier = 0.1
 		clergy_loyalty_modifier = 0.05
@@ -307,6 +310,13 @@ wwu_meritocratic_focus_reform = {
     
 	ai = {
 		factor = 1
+		modifier = {
+			factor = 0.1
+			estate_influence = {
+                estate = estate_traders
+                influence = 90
+            }
+		}
 	}
 }
 
@@ -319,7 +329,7 @@ wwu_dwarven_culture_reform = {
 	}
     
 	modifiers = {
-		siege_ability = 0.2
+		siege_ability = 0.05
 	}
     
 	ai = {
@@ -336,7 +346,7 @@ wwu_formalized_hoof_reform = {
 	}
     
 	modifiers = {
-		improve_relation_modifier = 0.3
+		improve_relation_modifier = 0.1
 	}
     
 	ai = {
@@ -366,7 +376,7 @@ wwu_aristocratic_court_reform = {
 	allow_normal_conversion = yes
     
 	modifiers = {
-		diplomatic_reputation = 2
+		diplomatic_reputation = 1
 	}
     
 	ai = {
@@ -399,7 +409,7 @@ wwu_law_and_order_reform = {
 	allow_normal_conversion = yes
     
 	modifiers = {
-		governing_capacity = 450
+		governing_capacity = 150
 	}
     
 	ai = {

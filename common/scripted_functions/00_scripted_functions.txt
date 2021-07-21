@@ -5,14 +5,6 @@
 # ROOT = country
 can_join_hre_league = {
 	condition = {
-		tooltip = "WOW_DRAGONKIN_ONLY"
-		potential = {
-		}
-		allow = {
-			culture_group = culture_group_dragonkin
-		}
-	}
-	condition = {
 		tooltip = "CANNOT_JOIN_LEAGUE_AT_WAR"
 		potential = {
 		}
@@ -20,145 +12,111 @@ can_join_hre_league = {
 			is_at_war = no
 		}
 	}
-	
-}
-can_have_colonial_nations = {
-	
 }
 
 can_leave_hre_league = {
-	
 }
 
 can_harsh_treatment = {
-	
 }
 
 can_reduce_war_exhaustion = {
-	
 }
 
 can_reduce_inflation = {
-	
 }
 
 can_declare_bankruptcy = {
-	
 }
 
 can_release_colonial_nation = {
-	
+	condition = {
+		tooltip = "CAN_RELEASE_CN_WE_ARE_AT_WAR"
+		potential = {
+		}
+		allow = {
+			is_at_war = no
+		}
+	}
 }
 
 can_claim_defender_of_faith = {
-	
 }
 
 can_change_national_focus = {
-	
 }
 
 can_increase_stability = {
-	
 }
 
 # ROOT = province, FROM = country
 can_add_province_to_hre = {
-	condition = {
-		tooltip = "WOW_DRAGONKIN_ONLY_PROVINCE"
-		potential = {
-		}
-		allow = {
-			owner = { culture_group = culture_group_dragonkin }
-		}
-	}
 	
 }
 
 can_remove_province_from_hre = {
-	
-
-}
-
-can_increase_autonomy = {
-	
-}
-
-can_decrease_autonomy = {
-	
-}
-
-can_make_core = {
-	
-}
-
-can_make_state = {
-	
-}
-
-can_abandon_state = {
-	
-}
-
-can_improve_tax = {
-	
-	
-}
-
-can_improve_production = {
-	
-}
-
-can_improve_manpower = {
-	
-}
-
-can_exploit_tax = {
-	
-}
-
-can_exploit_production = {
-	
-}
-
-can_exploit_manpower = {
-	
-}
-
-can_change_culture = {
-	
-}
-
-can_move_capital = {
 	condition = {
-		tooltip = "WOW_CANT_MOVE_CAPITAL_OUTLAND"
 		potential = {
-			owner = { 
-				capital_scope = {
-					NOT = { continent = continent_outland }
-				}
-			}
+			ai = yes
 		}
 		allow = {
-			NOT = { continent = continent_outland }
+			NOT = {
+				has_country_flag = permanently_left_hre_flag
+			}
 		}
 	}
 }
 
+can_increase_autonomy = {
+}
+
+can_decrease_autonomy = {
+}
+
+can_make_core = {
+}
+
+can_make_state = {
+}
+
+can_abandon_state = {
+}
+
+can_improve_tax = {
+}
+
+can_improve_production = {
+}
+
+can_improve_manpower = {
+}
+
+can_exploit_tax = {
+}
+
+can_exploit_production = {
+}
+
+can_exploit_manpower = {
+}
+
+can_change_culture = {
+}
+
+can_move_capital = {
+
+}
+
 can_move_trade_port = {
-	
 }
 
 can_order_assault = {
-	
 }
 
 can_order_force_march = {
-	
 }
 
 can_scorch_earth = {
-	
 }
 
 can_garrison_sorties = {
@@ -166,18 +124,28 @@ can_garrison_sorties = {
 }
 
 can_seize_colony = {
-	
 }
 
 can_burn_colony = {
-	
 }
 
 can_colonize_province = {
+}
+
+can_colonize_province_siberian_frontier = {
+}
+
+can_add_seat_in_parliament = {
+}
+
+can_add_estate = {
+}
+
+can_expel_minority_from = {
 	condition = {
 		tooltip = "WOW_UNCOLONIZABLE"
 		potential = {
-			area = area_uncolonizable
+			province_group = pg_uncolonizable
 		}
 		allow = {
 			always = no
@@ -217,45 +185,38 @@ can_colonize_province = {
 	}
 }
 
-can_colonize_province_siberian_frontier = {
-	
-}
-
-can_add_seat_in_parliament = {
-	
-}
-
-can_add_estate = {
-	
-}
-
-can_expel_minority_from = {
-	
+#hardcoded: has a colonial parent or is in the same colonial region as the capital
+can_have_colonial_nations = {
+	condition = {
+		potential = {
+			FROM = {
+				has_country_flag = no_colonial_nations
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
 }
 
 ### Special functions
 
 # Called by can_add_province_to_hre
 is_possible_hre_province = {
-	condition = {
-		tooltip = "WOW_DRAGONKIN_ONLY"
+    condition = {
+		tooltip = "APH_ONLY_TAUREN_LAND"
 		potential = {
 		}
 		allow = {
-			culture_group = culture_group_dragonkin
+			OR = {
+                region = region_north_barrens
+                region = region_south_barrens
+                region = region_mulgore
+            }
 		}
 	}
-	
 }
 
 will_demand_annexation = {
-	condition = {
-		potential = {
-			is_elector = yes
-		}
-		allow = {
-			always = no
-		}
-	}
 	
 }

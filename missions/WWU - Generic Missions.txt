@@ -1,186 +1,88 @@
-army_professionalism_missions = {
+#--------------------------------------
+# Generic
+#--------------------------------------
+wwu_military_missions = { 
 	slot = 1
-	generic = yes
-	ai = no
-	
-	potential = {
-		always = yes
-	}
-	
-	professional_army_1 = {
-		icon = mission_assemble_an_army
-		required_missions = { build_army_mission }
-		position = 2
-		trigger = { if = { limit = { has_dlc = "Cradle of Civilization" } army_professionalism = 0.25 } else = { army_size_percentage = 1.25 } }
-		effect = {
-			add_army_professionalism = 0.025
-		}
-	}
-	
-	building_barracks = {
-		icon = mission_early_modern_university
-		required_missions = { professional_army_1 }
-		position = 3
-		trigger = {
-			wow_barracks = 3
-		}
-		effect = {
-			add_country_modifier = {
-				name = "built_barracks"
-				duration = 3650 
-			}
-		}
-	}
-	
-	win_wars_1 = {
-		icon = mission_cannons_firing
-		required_missions = { building_barracks }
-		position = 4
-		trigger = {
-			check_variable = {
-				which = wars_won
-				value = 5
-			}
-		}
-		effect = {
-			add_army_tradition = 5
-			add_army_professionalism = 0.025
-		}
-	}
-	
-	professional_army_2 = {
-		icon = mission_assemble_an_army
-		required_missions = { win_wars_1 }
-		position = 6
-		trigger = {
-			army_professionalism = 0.25
-		}
-		effect = {
-			add_country_modifier = {
-				name = "shining_army"
-				duration = 3650 
-			}
-		}
-	}
-	
-	
-	win_wars_2 = {
-		icon = mission_cannons_firing
-		required_missions = { professional_army_2 }
-		position = 7
-		trigger = {
-			check_variable = {
-				which = wars_won
-				value = 10
-			}
-		}
-		effect = {
-			add_army_tradition = 5
-			add_army_professionalism = 0.05
-		}
-	}
-}
-military_missions = {
-	slot = 2
-	generic = yes
-	ai = no
+	generic = yes 
+	ai = no 
     
 	potential = {
 		always = yes
-	}
-	
-	build_army_mission = {
-		icon = mission_build_up_to_force_limit
-		required_missions = {  } #
-		position = 1
+	} 
+    
+	wwu_build_army_mission = { 
+		icon = mission_axe_and_sword
+        
+		required_missions = {  } 
+        
 		trigger = {
-			army_size_percentage = 1
+			army_size_percentage = 1 
 		}
-		effect = {
+		effect = { 
 			add_country_modifier = {
-				name = "thriving_arms_industry"
-				duration = 3650
+				name = "mission_prepared_army"
+				duration = -1 
 			}
 		}
 	}
-	
-	colonial_ambitions = {
-		icon = mission_build_up_to_force_limit
-		required_missions = { build_army_mission } #
-		position = 3
-		trigger = {
-			OR = {
-				num_of_owned_provinces_with = {
-					value = 3
-					is_overseas = yes
+	wwu_expand_country_mission = {
+		icon = mission_blueprint
+        
+		required_missions = { wwu_build_army_mission }
+        
+		trigger = { 
+            grown_by_development = 50 
+        }
+		effect = {
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				area = {
+					limit = { owned_by = ROOT }
+					add_province_modifier = {
+						name = "mission_prosperity_of_capital"
+						duration = -1 
+					}
 				}
-				colony = 1
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "colonial_ambition"
-				duration = 3650
 			}
 		}
 	}
-	
-	global_empire = {
-		icon = mission_build_up_to_force_limit
-		required_missions = { colonial_ambitions } #
-		position = 5
-		trigger = {
-			num_of_continents = 3
-			grown_by_development = 150
-		}
+	wwu_conquer_states = {
+		icon = mission_burning_city
+        
+		required_missions = { wwu_expand_country_mission }
+        
+		trigger = { 
+            grown_by_states = 5 
+        }
 		effect = {
 			add_country_modifier = {
-				name = "colonial_ambition"
-				duration = 3650
+				name = "mission_expansionist_nation"
+				duration = -1 
 			}
 		}
 	}
-	
-	united_nation = {
-		icon = mission_empire
-		required_missions = { 
-			suppress_rebels
-			win_wars_2
-			global_empire
-		}
-		position = 8
-		trigger = {
-			all_country = {
-				NOT = { has_opinion_modifier = {
-					who = ROOT
-					modifier = aggressive_expansion
-				} }
-			}
-			all_province = {
-				is_core = ROOT
-				religion = ROOT
-			}
-		}
+	wwu_assemble_an_army = {
+		icon = mission_barracks
+        
+		required_missions = { wwu_conquer_states }
+        
+		trigger = { 
+            army_size = 80 
+        }
 		effect = {
 			add_country_modifier = {
-				name = "hegemonic_victory"
+				name = "mission_military_enthusiasm"
 				duration = -1
 			}
 		}
 	}
-}
-expansion_missions = {
-	slot = 3
-	generic = yes
-	ai = no
-	potential = {
-		always = yes
-	}
-	
-	unite_home_region = {
-		icon = mission_unite_home_region
-		required_missions = { build_army_mission }
-		position = 2
+	wwu_unite_home_region = {
+		icon = mission_karazhan
+        
+		required_missions = { wwu_assemble_an_army }
+        
 		provinces_to_highlight = {
 			region_for_scope_province = {
 				is_capital_of = ROOT
@@ -191,121 +93,36 @@ expansion_missions = {
 			capital_scope = {
 				region_for_scope_province = {
 					type = all
-					owned_by = ROOT #Subjects won't count, empty provinces will need to be colonized.
+					owned_by = ROOT 
 				}
 			}
 		}
 		effect = {
+			add_dip_power = 50
+			add_adm_power = 50
+			add_mil_power = 50
 			add_country_modifier = {
-				name = "secured_the_region"
-				duration = 3650 
-			}
-		}
-	}
-	
-	expansion_1 = {
-		icon = mission_cannons_firing
-		required_missions = { unite_home_region }
-		position = 3
-		trigger = {
-			grown_by_states = 5
-		}
-		effect = {
-			add_country_modifier = {
-				name = "hegemonic_ambition"
-				duration = 3650 
-			}
-		}
-	}
-	
-	safety_of_region = {
-		icon = mission_colonial
-		required_missions = { expansion_1 }
-		position = 4
-		
-		trigger = {
-			calc_true_if = {
-			custom_trigger_tooltip = {
-				tooltip = safety_of_region_tt 
-					all_owned_province = {
-						any_neighbor_province = {
-							NOT = { owned_by = ROOT }
-						}
-						fort_level = 1
-					}
-				}
-				amount = 3
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "built_forts"
-				duration = 3650 
-			}
-		}
-	}
-	
-	wipe_out_threats = {
-		icon = mission_crusade_for_varna
-		required_missions = { safety_of_region }
-		position = 6
-		trigger = {
-			all_owned_province = {
-				all_core_country = {
-					tag = ROOT
-				}
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "hegemonic_victory"
+				name = "mission_hegemonic_unity"
 				duration = -1
 			}
 		}
 	}
-	
-	suppress_rebels = {
-		icon = mission_steppe_warriors
-		required_missions = { wipe_out_threats }
-		position = 7
-		trigger = {
-			check_variable = {
-				which = rebels_suppressed
-				value = 5
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "almighty_nation"
-				duration = 3650
-			}
-		}
-	}
 }
-diplomatic_missions = {
-	slot = 4
+
+wwu_diplomatic_missions = {
+	slot = 2
+	
 	generic = yes
-	ai = no
 	
 	potential = {
 	   always = yes
 	}
 	
-	good_diplomacy = {
-		icon = mission_asian_trader
-		position = 1
-		required_missions = {  } #
-		trigger = {
-			num_of_diplomatic_relations = 3
-		}
-		effect = {
-			add_dip_power = 50
-		}
-	}
-	building_alliances = {
-		icon = mission_alliances
-		position = 2
-		required_missions = { good_diplomacy } #
+	wwu_building_alliances = {
+		icon = mission_essence
+        
+		required_missions = {  }
+        
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = building_alliances.tooltip
@@ -323,146 +140,289 @@ diplomatic_missions = {
 		}
 		effect = {
 			add_country_modifier = {
-				name = "friend_to_all"
-				duration = 3650 #25 years
+				name = "mission_influential_diplomats"
+				duration = -1
 			}
 		}
 	}
-	have_two_subjects = {
-		icon = mission_have_two_subjects
-		position = 3
-		required_missions = { building_alliances }
+	wwu_have_two_subjects = {
+		icon = mission_brush_it_off
+        
+		required_missions = { wwu_building_alliances }
+        
+		trigger = { 
+            num_of_non_tributary_subjects = 2 
+        }
+		effect = {
+			add_country_modifier = {
+				name = "mission_submissive_subjects"
+				duration = 9125 
+			}
+		}
+	}
+	wwu_establish_high_seas_navy = {
+		icon = mission_ship_1
+        
+		required_missions = { wwu_have_two_subjects }
+        
 		trigger = { 
 			OR = {
-				vassal = 2
-				tributary_state = 2
+				num_of_heavy_ship = 10 
+				num_of_galley = 30
 			}
 		}
 		effect = {
 			add_country_modifier = {
-				name = "obedient_subjects"
-				duration = 3650 #25 years
+				name = "mission_naval_pride"
+				duration = -1
 			}
 		}
 	}
-	diplo_annex_countries = {
-		icon = mission_monarch_in_throne_room
-		position = 4
-		required_missions = { have_two_subjects }
-		trigger = { 
-			check_variable = {
-				which = diplo_annexed_nation
-				value = 3
+	wwu_dominate_home_trade_node = {
+		icon = mission_ship_2
+        
+		required_missions = { wwu_establish_high_seas_navy }
+        
+		trigger = {
+			home_trade_node = {
+				trade_share = {
+					country = ROOT
+					share = 75
+				}
+			}
+		}
+		effect = {
+			hidden_effect = {
+				home_trade_node_effect_scope = {
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							is_capital = yes
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+							development = 20
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+							development = 25
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+							development = 30
+						}
+						save_event_target_as = reward_province
+					}
+				}
+			}
+			if = {
+				limit = { has_saved_event_target = reward_province }
+				event_target:reward_province = {
+					add_province_modifier = {
+						name = "mission_dominant_trade_hub"
+						duration = -1
+					}
+				}
+			}
+			else = {
+				custom_tooltip = dominant_home_node_reward_tooltip
+			}
+		}
+	}
+	wwu_trade_company_region_abroad = {
+		icon = mission_trading_outpost
+        
+		required_missions = { wwu_dominate_home_trade_node }
+        
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = trade_company_region_abroad_tooltip
+				calc_true_if = {
+					all_trade_node = {
+						calc_true_if = {
+							all_trade_node_member_province = {
+								owned_by = ROOT
+								is_node_in_trade_company_region = yes
+								NOT = { continent = CAPITAL }
+							}
+							amount = 5
+						}
+					}
+					amount = 3
+				}
 			}
 		}
 		effect = {
 			add_country_modifier = {
-				name = "integrated_regions"
-				duration = 3650 #25 years
+				name = "mission_trade_company_rush"
+				duration = -1
 			}
 		}
 	}
-	trusted_alliances = {
-		icon = mission_noble_council
-		position = 5
-		required_missions = { diplo_annex_countries }
-		trigger = { 
-			num_of_trusted_allies = 3
+    
+    wwu_global_dominance = {
+		icon = mission_gold_pile
+		required_missions = { }
+		position = 6
+		
+		trigger = {
+			home_trade_node = {
+				highest_value_trade_node = yes
+				is_strongest_trade_power = ROOT
+			}
+			
 		}
+		
 		effect = {
-			add_dip_power = 100
+			add_prestige = 30
+			add_country_modifier = {
+				name = "mission_global_dominance"
+				duration = -1
+			}
 		}
 	}
 }
-espionage_missions = {
-	slot = 5
+
+wwu_administrative_missions = {
+	slot = 3
+	
 	generic = yes
-	ai = no
 	
 	potential = {
 	   always = yes
 	}
 	
-	basic_networking = {
-		icon = mission_asian_trader
-		position = 2
-		required_missions = { good_diplomacy } #
+    wwu_high_income_mission = {
+		icon = mission_gold_pile
+        
+		required_missions = {  } 
+        
+		trigger = { 
+            share_of_starting_income = 1.5 
+        }
+		effect = {
+			add_country_modifier = {
+				name = "mission_bolstering_economy"
+				duration = -1
+			}
+		}
+	}
+	
+    wwu_build_temples = {
+		icon = mission_blacksmithing
+        
+		required_missions = { wwu_high_income_mission }
+        
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = basic_networking_tt
-				calc_true_if = {
-					all_country = {
-						has_spy_network_from = {
-							who = ROOT
-							value = 20
-						}
+			wow_temple = 5
+		}
+		effect = {
+			add_adm_power = 50
+			add_country_modifier = {
+				name = "mission_construction_spree"
+				duration = -1
+			}
+		}
+	}
+	wwu_build_treasury = {
+		icon = mission_goblet
+        
+		required_missions = { wwu_build_temples }
+        
+		trigger = { treasury = 2000 }
+        
+		effect = {
+			add_country_modifier = {
+				name = "mission_healthy_treasury"
+				duration = -1
+			}
+		}
+	}
+	wwu_build_manufactories = {
+		icon = mission_goods
+        
+		required_missions = { wwu_build_treasury }
+        
+		trigger = {
+			calc_true_if = {
+				desc = build_manufactories_mission_tooltip
+				all_owned_province = {
+					OR = {
+						has_building = wow_manufactory
 					}
-					amount = 2
 				}
+				amount = 20
 			}
 		}
 		effect = {
 			add_country_modifier = {
-				name = "espionage_ambition"
-				duration = 3650
+				name = "mission_mass_production"
+				duration = -1
+			}
+			add_years_of_income = 1.5
+		}
+	}
+	wwu_imperial_ambition_mission = {
+		icon = mission_headquarters
+        
+		required_missions = { wwu_build_manufactories }
+        
+		trigger = {
+			total_development = 1000
+		}
+		effect = {
+			add_prestige = 30
+			add_country_modifier = {
+				name = "mission_hegemonic_ambition"
+				duration = -1
 			}
 		}
 	}
-	claim_lands = {
-		icon = mission_asian_trader
-		position = 3
-		required_missions = { basic_networking } 
+    
+    wwu_faiths_bastion = {
+		icon = mission_city_of_gold
+		required_missions = { }
+		position = 6
+		
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = claim_lands_tt
-				calc_true_if = {
-					all_province = {
-						is_claim = PREV
-						NOT = { is_core = PREV }
-					}
-					amount = 5
-				}
-			}
+			has_ruler_modifier = bastion_of_the_faith
+			religious_unity = 1
 		}
+		
 		effect = {
-            custom_tooltip = claim_lands_effect_tt
-            hidden_effect = {
-                random_province = {
-                    limit = {
-                        is_claim = PREV
-                        NOT = { is_core = PREV }
-                    }
-                    add_core = ROOT
-                }
-            }
-		}
-	}
-	sabotage_reputations = {
-		icon = mission_asian_trader
-		position = 4
-		required_missions = { claim_lands } 
-		trigger = {
-			calc_true_if = {
-				all_country = {
-					has_opinion_modifier = {
-						who = ROOT
-						modifier = sabotage_reputation
-					}
-				}
-				amount = 2
+			add_country_modifier = {
+				name = "mission_faiths_bastion"
+				duration = -1
 			}
-		}
-		effect = {
-			custom_tooltip = claim_lands_effect_tt
-            hidden_effect = {
-                random_province = {
-                    limit = {
-                        is_claim = PREV
-                        NOT = { is_core = PREV }
-                    }
-                    add_core = ROOT
-                }
-            }
 		}
 	}
 }

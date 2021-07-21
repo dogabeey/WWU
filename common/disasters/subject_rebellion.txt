@@ -1,0 +1,88 @@
+subject_rebellion = {
+	potential = {
+		OR = {
+            vassal = 2
+            march = 2
+            personal_union = 2
+            daimyo_vassal = 2
+            client_vassal = 2
+            client_march = 2
+            scourge_vassal = 2
+            hegemonic_vassal = 2
+            naga_vassal = 2
+        }
+	}
+
+	can_start = {
+        OR = {
+            vassal = 2
+            march = 2
+            personal_union = 2
+            daimyo_vassal = 2
+            client_vassal = 2
+            client_march = 2
+            scourge_vassal = 2
+            hegemonic_vassal = 2
+            naga_vassal = 2
+        }
+		all_subject_country = {
+            liberty_desire = 50
+        }
+	}
+	
+	can_stop = {
+		all_subject_country = {
+            NOT = { liberty_desire = 50 }
+        }
+	}
+		
+	progress = {
+	    modifier = {
+			factor = 1
+            
+			all_subject_country = {
+                liberty_desire = 50
+            }
+		}
+		modifier = {
+			factor = 1
+            
+			all_subject_country = {
+                liberty_desire = 60
+            }
+		}
+        modifier = {
+			factor = 1
+            
+			all_subject_country = {
+                liberty_desire = 70
+            }
+		}
+        modifier = {
+			factor = 1
+            
+			all_subject_country = {
+                liberty_desire = 80
+            }
+		}
+	}
+	
+	can_end = {
+		all_subject_country = {
+            NOT = { liberty_desire = 30 }
+        }
+	}
+
+	modifier = {
+	    stability_cost_modifier = 0.5
+		global_unrest = 5
+	}	
+	
+	on_start = subject_rebellion.1
+	#on_end = vassal_break.2
+	
+	on_monthly = {
+		events = {
+		}
+	}
+}

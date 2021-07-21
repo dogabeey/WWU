@@ -1,29 +1,88 @@
-allow_alliances_with_mortals = {
+#----------------------------------------
+# Main
+#----------------------------------------
+tribal_centralisation = {
 	empire = hre
 	potential = {
 		NOT = { has_dlc = "Emperor" }
 	}
-	member = {
-		diplomatic_reputation = 0.5
+	province = {
+		local_build_cost = -0.05
+		local_development_cost = -0.05
+	}
+	on_effect = {
+		imperial_ban_allowed = yes
+	}
+	off_effect = {
+		imperial_ban_allowed = no
+	}
+	gui_container = nodlc
+}
+tribal_levies = {
+	empire = hre
+	potential = {
+		NOT = { has_dlc = "Emperor" }
+	}
+	province = {
+		local_unrest = -2
 	}
 	emperor = {
 		diplomatic_reputation = 1
-		global_spy_defence = -0.1
+		diplomats = 1
+	}
+	required_reform = tribal_centralisation
+	gui_container = nodlc
+}
+safeguard_tribal_stability = {
+	empire = hre
+
+	potential = {
+		NOT = { has_dlc = "Emperor" }
+	}
+	province = {
+		local_state_maintenance_modifier = -0.25
 	}
 	on_effect = {
-		set_global_flag = dragons_allowed_alliance
+		custom_tooltip = "EXPAND_EMPIRE_CB"
 	}
-	off_effect = {
-		clr_global_flag = dragons_allowed_alliance
-	}
+	required_reform = tribal_levies
 	gui_container = nodlc
+}
+chieftain_dues = {
+	empire = hre
+	potential = {
+		NOT = { has_dlc = "Emperor" }
+	}
+	all = {
+		diplomatic_reputation = 1
+	}
+	emperor_per_prince = {
+		global_tax_modifier = 0.025
+	}
+	required_reform = safeguard_tribal_stability
+	gui_container = nodlc
+}
+perpetual_council = {
+	empire = hre
+	required_reform = chieftain_dues
+	gui_container = nodlc
+
+	potential = {
+		NOT = { has_dlc = "Emperor" }
+	}
+	all = {
+		administrative_efficiency = 0.05
+	}
+    emperor_per_prince = {
+		max_absolutism = 1
+	}
 }
 enforce_peace = {
 	empire = hre
 	potential = {
 		NOT = { has_dlc = "Emperor" }
 	}
-	member = {
+	all = {
 		technology_cost = -0.05
 	}
 	emperor = {
@@ -35,59 +94,43 @@ enforce_peace = {
 	off_effect = {
 		internal_hre_cb = yes
 	}
+	required_reform = perpetual_council
 	gui_container = nodlc
 }
-declare_the_end_of_age_of_mortals = {
+proclaim_total_authority = {
 	empire = hre
 	potential = {
 		NOT = { has_dlc = "Emperor" }
 	}
-	member = {
-		land_morale = 0.05
-	}
 	emperor = {
-		prestige = 0.5
-		diplomatic_upkeep = -1
+		imperial_authority = 0.25
 	}
 	on_effect = {
-		hidden_effect = {
-			every_country = {
-				limit = {
-					NOT = { is_ancient = yes }
-				} 	
-				every_elector = { 
-					limit = {
-						is_neighbor_of = PREV
-					}
-					add_casus_belli = {
-						target = PREV
-						type = cb_fury_of_dragons
-						months = 120
-					}
-				}
+		if = {
+			limit = {
+				hre_religion_locked = no
+				hre_religion_treaty = no
 			}
+			set_hre_religion_treaty = yes
 		}
-		custom_tooltip = declare_the_end_of_age_of_mortals_tt
-		clr_global_flag = dragons_allowed_alliance
+		hre_inheritable = yes
 	}
 	off_effect = {
-		hidden_effect = {
-			every_country = {
-				limit = {
-					NOT = { is_ancient = yes }
-				} 	
-				every_elector = { 
-					limit = {
-						is_neighbor_of = PREV
-					}
-					remove_casus_belli = {
-						target = PREV
-						type = cb_fury_of_dragons
-					}
-				}
-			}
-		}
-		custom_tooltip = declare_the_end_of_age_of_mortals_tt
+		hre_inheritable = no
 	}
+	required_reform = enforce_peace
+	gui_container = nodlc
+}
+establish_tauren_empire = {
+	empire = hre
+	potential = {
+		NOT = { has_dlc = "Emperor" }
+	}
+	on_effect = {
+		emperor = {
+			country_event = { id = wwu_tauren_federation.1 tooltip = tauren_empire_effect }
+		}
+	}
+	required_reform = proclaim_total_authority
 	gui_container = nodlc
 }

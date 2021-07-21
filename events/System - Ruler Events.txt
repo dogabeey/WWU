@@ -1,0 +1,210 @@
+namespace = wwu_ruler
+
+# Inspiration
+country_event = {
+	id = wwu_ruler.1
+	title = wwu_ruler.1.title
+	desc = wwu_ruler.1.desc
+	picture = GOOD_WITH_MONARCH_eventPicture
+    
+    is_triggered_only = yes
+    
+	trigger = {
+	    is_immortal_lifespan = yes
+        OR = {
+            NOT = { adm = 6 }
+            NOT = { dip = 6 }
+            NOT = { mil = 6 }
+        }
+	}
+
+	option = {
+		name = wwu_ruler.1.option.a
+		
+        trigger = {
+            NOT = { adm = 6 }
+        }
+        
+        change_adm = 1
+	}
+    option = {
+		name = wwu_ruler.1.option.b
+		
+        trigger = {
+            NOT = { dip = 6 }
+        }
+        
+        change_dip = 1
+	}
+    option = {
+		name = wwu_ruler.1.option.c
+		
+        trigger = {
+            NOT = { mil = 6 }
+        }
+        
+        change_mil = 1
+	}
+}
+
+# Degredation
+country_event = {
+	id = wwu_ruler.2
+	title = wwu_ruler.2.title
+	desc = wwu_ruler.2.desc
+	picture = BAD_WITH_MONARCH_eventPicture
+    
+    is_triggered_only = yes
+    
+	trigger = {
+	    is_immortal_lifespan = yes
+        OR = {
+            adm = 1
+            dip = 1
+            mil = 1
+        }
+	}
+
+	option = {
+		name = wwu_ruler.2.option.a
+        
+        trigger = {
+            adm = 1
+        }
+		
+        change_adm = -1
+	}
+    option = {
+		name = wwu_ruler.2.option.b
+		
+        trigger = {
+            dip = 1
+        }
+        
+        change_dip = -1
+	}
+    option = {
+		name = wwu_ruler.2.option.c
+		
+        trigger = {
+            mil = 1
+        }
+        
+        change_mil = -1
+	}
+    
+}
+
+#----------------------------------------------------
+# Ruler Death
+#----------------------------------------------------
+country_event = {
+	id = wwu_ruler.10
+	title = wwu_ruler.10.title
+	desc = wwu_ruler.10.desc
+	picture = DEATH_OF_HEIR_eventPicture
+    
+	trigger = {
+        has_regency = no
+	    NOT = { is_immortal_lifespan = yes }
+	}
+
+    mean_time_to_happen = { 
+        months = 1200 # 100
+        
+        modifier = {
+            factor = 1.5
+            
+            is_increased_lifespan = yes
+        }
+        
+        modifier = {
+            factor = 2
+            
+            NOT = { ruler_age = 40 }
+        }
+        modifier = {
+            factor = 0.5
+            
+            ruler_age = 100
+        }
+        modifier = {
+            factor = 0.5
+            
+            ruler_age = 125
+        }
+        modifier = {
+            factor = 0.5
+            
+            ruler_age = 150
+        }
+        modifier = {
+            factor = 0.8
+            
+            is_monarch_leader = yes
+        }
+    }
+    
+	option = {
+		name = wwu_ruler.10.option.a
+        
+        kill_ruler = yes
+	}
+}
+
+#----------------------------------------------------
+# Heir Death
+#----------------------------------------------------
+country_event = {
+	id = wwu_ruler.11
+	title = wwu_ruler.11.title
+	desc = wwu_ruler.11.desc
+	picture = DEATH_OF_HEIR_eventPicture
+    
+	trigger = {
+        has_heir = yes
+	    NOT = { is_immortal_lifespan = yes }
+	}
+
+    mean_time_to_happen = { 
+        months = 1200 # 100
+        
+        modifier = {
+            factor = 1.5
+            
+            is_increased_lifespan = yes
+        }
+        
+        modifier = {
+            factor = 2
+            
+            NOT = { heir_age = 40 }
+        }
+        modifier = {
+            factor = 0.5
+            
+            heir_age = 100
+        }
+        modifier = {
+            factor = 0.5
+            
+            heir_age = 125
+        }
+        modifier = {
+            factor = 0.5
+            
+            heir_age = 150
+        }
+        modifier = {
+            factor = 0.8
+            
+            is_heir_leader = yes
+        }
+    }
+    
+	option = {
+		name = wwu_ruler.11.option.a
+        
+        kill_heir = yes
+	}
+}

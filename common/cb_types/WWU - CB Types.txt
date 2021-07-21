@@ -1,37 +1,30 @@
-cb_faction_revolution = {
-	exclusive = yes
-	independence = yes
+#--------------------------------------------
+# Triggered
+#--------------------------------------------
+cb_pirates = {
+	is_triggered_only = yes
+	months = 120
 
-	prerequisites = {
-		OR = {
-			is_subject_of_type = faction_alliance
-			is_subject_of_type = faction_horde
-		}
-		is_subject_of = FROM
-		total_development = 100
-		
-	}
-
-	war_goal = change_overlord
+	war_goal = blockade_ports
 }
 
-cb_continental = {
+#--------------------------------------------
+# Preequisitie
+#--------------------------------------------
+cb_distant_conquest = {
 	valid_for_subject = no
 
-	prerequisites = {
-		num_of_colonists = 1
-		any_owned_province = {
-			has_port = yes
-		}
-		FROM = {
-			any_owned_province = {
-				NOT = { same_continent = ROOT }
-				has_port = yes
-			}
-		}
+    prerequisites = {
+        has_idea = wwu_expansion_ideas_2
+		is_free_or_tributary_trigger = yes
+        FROM = {
+            NOT = {
+                capital_scope = { continent = ROOT }
+            }
+        }
 	}
-	
-	war_goal = continental_landing
+
+	war_goal = take_capital_justified
 }
 
 cb_scourge = {
@@ -40,31 +33,15 @@ cb_scourge = {
 	prerequisites = {
 		is_neighbor_of = FROM
 		FROM = {
-			NOT = { religion = religion_the_damned }
+			NOT = { religion = cult_of_the_damned }
 		}
-		religion = religion_the_damned
+		religion = cult_of_the_damned
 	}
 	
 	war_goal = superiority_horde
 }
 
-#cb_warband_raid = {
-#	valid_for_subject = no
-#
-#	prerequisites = {
-#        is_neighbor_of = FROM
-#		government = tribal
-#        FROM = {
-#            government = tribal
-#        }
-#	}
-#	
-#	war_goal = superiority_horde
-#}
-
 cb_silvermoon_land = {
-    valid_for_subject = yes
-    
     prerequisites = {   
         tag = A91
 		OR = {
@@ -143,15 +120,19 @@ cb_the_dying_times = {
 }
 
 cb_azeroth_assault = {
-	valid_for_subject = yes
-
 	prerequisites = {
-        has_global_flag = the_first_war
+        OR = {
+            current_age = age_rise_of_the_horde
+            current_age = age_orcish_horde
+        }
         culture_group = culture_group_orc
-        religion = religion_fel
+        religion = fel
+        any_owned_province = {
+            continent = continent_eastern_kingdoms
+        }
+        
 		FROM = {
 			capital_scope = { continent = continent_eastern_kingdoms }
-            culture_group = culture_group_human
 		}
 	}
 	
@@ -205,12 +186,12 @@ cb_titan_rivalry = {
 	prerequisites = {
 		OR = {
 			AND = {
-				religion = religion_titan
-				FROM = { religion = religion_titan_corrupt }
+				religion = titan_worship
+				FROM = { religion = corrupt_titan_worship }
 			}
 			AND = {
-				religion = religion_titan_corrupt
-				FROM = { religion = religion_titan }
+				religion = corrupt_titan_worship
+				FROM = { religion = titan_worship }
 			}
 		}
 	}
@@ -229,54 +210,67 @@ cb_legion_invasion = {
 	war_goal = legion_invasion_goal
 }
 
-cb_enslavement = {
-	valid_for_subject = no
-	
-	prerequisites = {
-		has_government_attribute = can_enslave
-		NOT = { enslavement = 1 }
-		FROM = {
-			is_neighbor_of = ROOT
-			NOT = { total_development = 75 }
-			NOT = { num_of_cities = 3 }
-		}
-	}
-	
-	war_goal = forced_enslavement_goal
-}
-
-cb_magical_enslavement = {
-	valid_for_subject = no
-	
-	prerequisites = {
-		OR = {
-			AND = {
-				NOT = { magical_enslavement = 1 }
-				OR = {
-					religion = religion_old_gods
-					religion = religion_fel
-				}
-				FROM = {
-					is_neighbor_of = ROOT
-					NOT = { total_development = 100 }
-					NOT = { num_of_cities = 5 }
-				}
-			}
-			AND = {
-				has_country_modifier = lich_kings_crown
-				FROM = {
-					culture_group = ROOT
-				}
-			}
-		}
-	}
-	
-	war_goal = forced_magical_enslavement_goal
-}
-
 cb_fury_of_dragons = {
 	valid_for_subject = no
 	is_triggered_only = yes
 	
 	war_goal = annex_country
+}
+
+cb_justified_war = {
+	valid_for_subject = no
+
+    prerequisites = {
+		is_free_or_tributary_trigger = yes
+        FROM = {
+            capital_scope = { continent = ROOT }
+        }
+        always = no
+	}
+
+	war_goal = take_capital_justified
+}
+
+cb_merciless_war = {
+	valid_for_subject = no
+
+	prerequisites = {
+		always = no
+		is_free_or_tributary_trigger = yes
+	}
+
+	war_goal = take_capital_merciless
+}
+
+cb_reclaim_mulgore = {
+	valid_for_subject = no
+
+    prerequisites = {
+        culture_group = culture_group_tauren
+        FROM = {
+            culture_group = culture_group_centaur
+            any_owned_province = {
+                region = region_mulgore
+            }
+        }
+	}
+
+	war_goal = take_capital_justified
+}
+
+cb_subjugate_lesser_trolls = {
+    valid_for_subject = no
+
+	prerequisites = {
+        culture_group = culture_group_troll
+        has_country_modifier = mission_amani_subjugation
+        provinces_on_capital_continent_of = FROM
+        
+        FROM = {
+            culture_group = culture_group_troll
+            is_subject = no
+        }
+	}
+
+	war_goal = take_capital_vassalize
 }

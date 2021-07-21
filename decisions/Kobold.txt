@@ -1,0 +1,48 @@
+country_decisions = {
+	collect_shinies = {
+		potential = {
+			culture_group = culture_group_kobold
+            NOT = { has_country_modifier = shiny_trove }
+		}
+		
+		allow = {
+			dip_power = 100
+            NOT = { has_country_modifier = shiny_trove }
+		}
+		
+		effect = {
+			add_dip_power = -100
+            add_country_modifier = {
+                name = shiny_trove
+                duration = 3650
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    build_candle_shrine = {
+		potential = {
+			culture_group = culture_group_kobold
+            NOT = { has_country_modifier = candle_devotion }
+		}
+		
+		allow = {
+			stability = 3
+            NOT = { has_country_modifier = candle_devotion }
+		}
+		
+		effect = {
+            add_country_modifier = {
+                name = candle_devotion
+                duration = 3650
+            }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

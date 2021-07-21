@@ -1,0 +1,250 @@
+country_decisions = {   
+    #-----------------------------------------
+    # Shamanism
+    #-----------------------------------------
+    commune_with_the_elements = {
+        potential = {
+            NOT = { has_ruler_modifier = elemental_communion }
+            OR = {  
+                religion = tauren_shamanism
+                religion = shamanism
+            }
+		}
+		allow = {
+            ruler_religion = ROOT
+            adm = 3
+            scaled_adm_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = elemental_communion
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    attune_with_the_elements = {
+        potential = {
+            NOT = { has_ruler_modifier = elemental_attunement }
+            OR = {  
+                religion = tauren_shamanism
+                religion = shamanism
+            }
+		}
+		allow = {
+            ruler_religion = ROOT
+            NOT = { corruption = 10 }
+		}
+        effect = {
+            add_corruption = 1
+            
+            if = {
+                limit = {
+                    has_ruler_modifier = elemental_collision
+                }
+                remove_country_modifier = elemental_collision
+            }
+            
+            add_ruler_modifier = {
+                name = elemental_attunement
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    collide_with_the_elements = {
+        potential = {
+            NOT = { has_ruler_modifier = elemental_collision }
+            OR = {  
+                religion = tauren_shamanism
+                religion = shamanism
+            }
+		}
+		allow = {
+            ruler_religion = ROOT
+            NOT = { corruption = 10 }
+		}
+        effect = {
+            add_corruption = 1
+            
+            if = {
+                limit = {
+                    has_ruler_modifier = elemental_attunement
+                }
+                remove_country_modifier = elemental_attunement
+            }
+            
+            add_ruler_modifier = {
+                name = elemental_collision
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    #-----------------------------------------
+    # Deep Mother
+    #-----------------------------------------
+    wash_away_the_land = {
+        potential = {
+            NOT = { has_ruler_modifier = deep_mother_cleansing }
+            religion = deep_mother
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = deep_mother_cleansing
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Ordos
+    #-----------------------------------------
+    venerate_ordos = {
+        potential = {
+            NOT = { has_ruler_modifier = ordos_veneration }
+            religion = ordos
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = ordos_veneration
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Fire
+    #-----------------------------------------
+    call_upon_the_firelord = {
+        potential = {
+            NOT = { has_ruler_modifier = firelord_fervor }
+            religion = fire
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = firelord_fervor
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Earth
+    #-----------------------------------------
+    call_upon_the_earthmother = {
+        potential = {
+            NOT = { has_ruler_modifier = earthmother_resilience }
+            religion = earth
+		}
+		allow = {
+            ruler_religion = ROOT
+            dip = 3
+            scaled_dip_power_check = yes
+		}
+        effect = {
+            scaled_dip_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = earthmother_resilience
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Wind
+    #-----------------------------------------
+    call_upon_the_windlord = {
+        potential = {
+            NOT = { has_ruler_modifier = windlord_haste }
+            religion = wind
+		}
+		allow = {
+            ruler_religion = ROOT
+            adm = 3
+            scaled_adm_power_check = yes
+		}
+        effect = {
+            scaled_adm_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = windlord_haste
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Water
+    #-----------------------------------------
+    call_upon_the_tidehunter = {
+        potential = {
+            NOT = { has_ruler_modifier = tidehunter_fury }
+            religion = water
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = tidehunter_fury
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+}

@@ -1,477 +1,327 @@
-silvermoon_missions = 
-{
-    slot = 6                   # Which column the missions will appear in. 1 to 5.
-    generic = no             # Whether missions within this series are considered generic.
-    ai = yes               # Whether the AI will claim missions in this series.
-    has_country_shield = yes  # Whether to display the country shield on the icon.    
+#--------------------------------------
+# Silvermoon
+#--------------------------------------
+wwu_silvermoon_column_4 = { 
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
     
-    # Determines whether a series is loaded at all. Used to limit series to DLC.
-    potential_on_load = 
-	{
-        always = yes
-    }
+	potential = {
+		tag = A91
+	} 
     
-    # Determines when a series appears for a country. Country scope.
-    potential = 
-	{
-        tag = A91 #silvermoon
-		
-    }
-    
-    # The name of the mission, used for localization
-	
-	crush_The_dawnblade =
-	{
-		icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 1       # Which row the mission appears in. 1 is top.
+	wwu_crush_the_dawnblade = { 
+		icon = mission_ancient_sword
         
-        # Which missions must be completed before this mission is active.
-        required_missions = 
-		{
-        }
+		required_missions = {  } 
         
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = 
-		{
-			
-				province_id = 724
-				province_id = 760
-				province_id = 705
-			
+		trigger = {
+            NOT = { exists = G18 }
+			owns_core_province = 724
+            owns_core_province = 760
+            owns_core_province = 705
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = 
-		{
-		
-			owns = 724
-			owns = 760
-			owns = 705
-				
-				NOT = 
-				{
-					exists = G18
-				}
-			
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = 
-		{
-			add_country_modifier = 
-			{
-				name = "dawn_breaker"
-				duration = 7200
-			}
-
-		}
-	
-	}
-	
-    retake_the_sunwell = 
-	{
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 2       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			crush_The_dawnblade	
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
         provinces_to_highlight = {
-		
-			province_id = 2991
-		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-		
-					owns = 2991
+            OR = {
+                province_id = 724
+                province_id = 760
+                province_id = 705
+                owned_by = G18
+            }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "dawn_breaker"
+				duration = -1
 			}
+		}
+	}
+    wwu_claim_the_sunwell = { 
+		icon = mission_orbital_strike
         
+		required_missions = {  
+            wwu_crush_the_dawnblade
+        } 
         
-        # The effect executed when the mission is claimed. Country scope.
-        effect = 
-		{
+		trigger = {
+			owns_core_province = 2991
+		}
+        provinces_to_highlight = {
+            province_id = 2991
+        }
+		effect = { 
 			add_country_modifier = {
 				name = "stabilized_nation"
 				duration = -1
 			}
-        }
-    }
-    eliminate_the_wretched = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 3       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			retake_the_sunwell
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-		
-		
-				province_id = 593
-				province_id = 978
-				province_id = 2988
-				province_id = 704
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-				owns = 593
-				owns = 978
-				owns = 2988
-				owns = 704
-				NOT = {
-				
-					exists = B94
-				}	
-        }
+	}
+    wwu_eliminate_the_wretched = { 
+		icon = mission_flayer
         
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
+		required_missions = {  
+            wwu_claim_the_sunwell
+        } 
+        
+		trigger = {
+            NOT = { exists = B94 }
+			owns_core_province = 593
+			owns_core_province = 978
+			owns_core_province = 704
+			owns_core_province = 2988
+		}
+        provinces_to_highlight = {
+            OR = {
+                province_id = 593
+                province_id = 978
+                province_id = 704
+                province_id = 2988
+                owned_by = B94
+            }
+        }
+		effect = { 
 			add_country_modifier = {
 				name = "wreteched_exterminated"
-				duration = 7200
+				duration = -1
 			}
-        }
-    }
-    retake_the_eversong_woods = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 4       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			eliminate_the_wretched
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-			region = region_eversong_woods
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-            region_eversong_woods = {
+	}
+    wwu_claim_eversong_woods = { 
+		icon = mission_herbalism
+        
+		required_missions = {  
+            wwu_eliminate_the_wretched
+        } 
+        
+		trigger = {
+           region_eversong_woods = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-				NOT = { culture_group = culture_group_forest_troll }
+				culture = ROOT
 			}
-        }
-        
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-					every_owned_province = 
-					{
-						limit = 
-						{
-							region = region_eversong_woods
-						}
-						add_base_production = 1
-						add_base_tax = 1
-						add_base_manpower = 1
-					}
-					
-        }
-    }
-    the_traitor_destruction = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 5       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			retake_the_eversong_woods
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-			
-			NOT = {
-				exists = F21
-			}
-
+        provinces_to_highlight = {
+            region = region_eversong_woods
         }
+		effect = {
+			every_owned_province = {
+                limit = {
+                    region = region_eversong_woods
+                }
+                add_base_production = 1
+                add_base_tax = 1
+                add_base_manpower = 1
+            }
+		}
+	}
+    wwu_the_traitor_destruction = { 
+		icon = mission_cannibalize
         
-        # The effect executed when the mission is claimed. Country scope.
-        effect = 
-		{
-			add_country_modifier = 
-			{
+		required_missions = {  
+            wwu_claim_eversong_woods
+        } 
+        
+		trigger = {
+            NOT = { exists = F21 }
+		}
+        provinces_to_highlight = {
+            owned_by = F21
+        }
+		effect = {
+			add_country_modifier = {
 				name = "hero_of_the_sindorei"
-				duration = 18000
-			}		
-
-        }
-    }
-    reform_quelThalas = 
-	{
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 6       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			the_traitor_destruction
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = 
-			{
-					
-				region_eversong_woods = 
-				{
-						type = all
-						owned_by = ROOT
-						NOT = { culture_group = culture_group_forest_troll }
-						NOT = { culture_group = culture_group_scourge  }
-				}
-				region_isle_of_quel_danas =
-				{
-					type = all
-					country_or_non_sovereign_subject_holds = ROOT
-				}
-				area_andaroth =
-				{
-					type = all
-					owned_by = ROOT
-					NOT = { culture_group = culture_group_scourge  }
-				}
-				area_windrunner_spire = 
-				{
-					type = all
-					owned_by = ROOT
-					NOT = { culture_group = culture_group_scourge  }
-				}
-				area_deatholme = 
-				{
-					type = all
-					owned_by = ROOT
-					NOT = { culture_group = culture_group_scourge  }
-				}
-				area_tranquillien = 
-				{
-					type = all
-					owned_by = ROOT
-					NOT = { culture_group = culture_group_scourge }
-				}
-				area_thalassian_pass =
-				{
-					type = all
-					owned_by = ROOT
-					NOT = { culture_group = culture_group_scourge  }
-				}
+				duration = -1
 			}
-    
+		}
+	}
+    wwu_reform_quelthalas = { 
+		icon = mission_blood_elf_male
         
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
+		required_missions = {  
+            wwu_the_traitor_destruction
+        } 
+        
+		trigger = {
+            region_eversong_woods = {
+                    type = all
+                    owned_by = ROOT
+                    NOT = { culture = culture_forest_troll }
+                    NOT = { culture_group = culture_group_scourge  }
+            }
+            region_isle_of_quel_danas = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            area_andaroth = {
+                type = all
+                owned_by = ROOT
+                culture = ROOT
+            }
+            area_windrunner_spire = {
+                type = all
+                owned_by = ROOT
+                culture = ROOT
+            }
+            area_deatholme = {
+                type = all
+                owned_by = ROOT
+                culture = ROOT
+            }
+            area_tranquillien = {
+                type = all
+                owned_by = ROOT
+                culture = ROOT
+            }
+            area_thalassian_pass = {
+                type = all
+                owned_by = ROOT
+                culture = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            OR = {
+                region = region_eversong_woods
+                region = region_isle_of_quel_danas
+                area = area_andaroth
+                area = area_windrunner_spire
+                area = area_deatholme
+                area = area_tranquillien
+                area = area_thalassian_pass
+            }
+        }
+		effect = {
 			add_country_modifier = {
 				name = "quelthalas_reborn"
-				duration = 3600
+				duration = -1
 			}
-        }
-    }
-	subjugate_the_amani  = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 7       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			reform_quelThalas
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-		
-				region_eversong_woods = 
-				{
-					type = all
-					owned_by = ROOT
-					NOT = { culture_group = culture_group_forest_troll }
-				}
-				region_isle_of_quel_danas =
-				{
-					type = all
-					country_or_non_sovereign_subject_holds = ROOT
-				}
-				region_ghostlands =
-				{
-					type = all
-					owned_by = ROOT
-					NOT = { culture_group = culture_group_forest_troll }
-				
-				}
-				NOT = {
-					exists = A58
-					exists = A59
-				}
-
-        }
+	}
+    wwu_subjugate_the_amani = { 
+		icon = mission_troll_male
         
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
+		required_missions = {  
+            wwu_reform_quelthalas
+        } 
+        
+		trigger = {
+            NOT = { exists = A58 }
+            NOT = { exists = A59 }
+            
+            region_eversong_woods = {
+                type = all
+                owned_by = ROOT
+                culture = ROOT
+            }
+            region_isle_of_quel_danas = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_ghostlands = {
+                type = all
+                owned_by = ROOT
+                culture = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            OR = {
+                region = region_eversong_woods
+                region = region_isle_of_quel_danas
+                region = region_ghostlands
+                owned_by = A58
+                owned_by = A59
+            }
+        }
+		effect = {
 			add_country_modifier = {
 				name = "fall_of_the_amani"
-				duration = 7200
+				duration = -1
 			}
-        }
-    }
-    vegeance_on_the_scourge_of_lordaeron = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 8       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			subjugate_the_amani
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-		
-			NOT = {
-				exists = P52
-			}
-
-        }
+	}
+    wwu_crush_the_scourge_of_lordaeron = { 
+		icon = mission_undead_female
         
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
+		required_missions = {  
+            wwu_subjugate_the_amani
+        } 
+        
+		trigger = {
+            NOT = { exists = P52 }
+		}
+        provinces_to_highlight = {
+            owned_by = P52
+        }
+		effect = {
 			add_country_modifier = {
 				name = "invigorated_troops"
-				duration = 7200
+				duration = -1
 			}
-        }
-    }
-    vegeance_on_the_scourge = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 9       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			vegeance_on_the_scourge_of_lordaeron
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
-
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = {
-			
-			NOT = {
-				exists = P11
-			}
-
-        }
+	}
+    wwu_crush_the_scourge_of_northrend = { 
+		icon = mission_undead_male
         
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
-			add_country_modifier = 
-			{
+		required_missions = {  
+            wwu_crush_the_scourge_of_lordaeron
+        } 
+        
+		trigger = {
+            NOT = { exists = P11 }
+		}
+        provinces_to_highlight = {
+            owned_by = P11
+        }
+		effect = {
+			add_country_modifier = {
 				name = "quelthalas_avenged"
-				duration = 14400
+				duration = -1
 			}
-        }
-    }
-    thalassian_reunification = {
-        icon = mission_early_game_buildings            # The icon to use for the mission
-        position = 10       # Which row the mission appears in. 1 is top.
-        
-        # Which missions must be completed before this mission is active.
-        required_missions = {
-			vegeance_on_the_scourge
-        }
-        
-        # Determines which provinces to highlight. Acts like all_province scope. Optional.
-        provinces_to_highlight = {
 		}
-    
-        # Determines when the mission is completed. Country scope.
-        trigger = 
-		{
-			
-			OR =
-			{
-			
-				G16 =
-				{
-					is_subject_of = ROOT
-				}
-				
-				NOT = { exists = G16 }
-				
-			}	
-			OR =
-			{
-			
-				A92 =
-				{
-					is_subject_of = ROOT
-				}
-				
-				NOT = { exists = A92 }
-				
-			}
-			OR =
-			{
-			
-				P49 =
-				{
-					is_subject_of = ROOT
-				}
-				
-				NOT = { exists = P49 }
-				
-			}
-			OR =
-			{
-			
-				F56 =
-				{
-					is_subject_of = ROOT
-				}
-				
-				NOT = { exists = F56 }
-				
-			}
-			OR =
-			{
-			
-				A93 =
-				{
-					is_subject_of = ROOT
-				}
-				
-				NOT = { exists = A93 }
-				
-			}
-        }
+	}
+    wwu_thalassian_reunification = { 
+		icon = mission_ancient_tome
         
-        # The effect executed when the mission is claimed. Country scope.
-        effect = {
+		required_missions = {  
+            wwu_crush_the_scourge_of_northrend
+        } 
+        
+		trigger = {
+            OR = {
+                G16 = { is_subject_of = ROOT }
+                NOT = { exists = G16 }
+            }
+            OR = {
+                A92 = { is_subject_of = ROOT }
+                NOT = { exists = A92 }
+            }
+            OR = {
+                P49 = { is_subject_of = ROOT }
+                NOT = { exists = P49 }
+            }
+            OR = {
+                F56 = { is_subject_of = ROOT }
+                NOT = { exists = F56 }
+            }
+            OR = {
+                A93 = { is_subject_of = ROOT }
+                NOT = { exists = A93 }
+            }
+		}
+        provinces_to_highlight = {
+            OR = {
+                owned_by = G16
+                owned_by = A92
+                owned_by = P49
+                owned_by = F56
+                owned_by = A93
+            }
+        }
+		effect = {
 			add_country_modifier = {
 				name = "thalassian_reunification"
 				duration = -1
 			}
-        }
-    }
+		}
+	}
 }

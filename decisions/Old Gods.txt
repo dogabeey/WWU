@@ -28,7 +28,7 @@ country_decisions = {
 				limit = {
 					government_rank = 3
 					NOT = {
-						religion_group = religion_group_the_void
+						religion_group = shadow_group
 						has_country_modifier = is_evil
 					}
 				}
@@ -39,7 +39,11 @@ country_decisions = {
 				}
 			}
 			custom_tooltip = awaken_yoggsaron_tt
-			custom_tooltip = EVIL_ACTION_TOOLTIP
+			
+            add_country_modifier = {
+                name = is_evil
+                duration = -1
+            }
 		}
 		
 		ai_will_do = {
@@ -51,7 +55,7 @@ country_decisions = {
 		
 		potential = {
 			
-			NOT = { religion_group = religion_group_the_void }
+			NOT = { religion_group = shadow_group }
 			has_global_flag = cthun_alive
 		}
 		
@@ -110,7 +114,7 @@ country_decisions = {
 				limit = {
 					government_rank = 2
 					NOT = {
-						religion_group = religion_group_the_void
+						religion_group = shadow_group
 						has_country_modifier = is_evil
 					}
 				}
@@ -123,7 +127,11 @@ country_decisions = {
 			}
 			}
 			custom_tooltip = awaken_yoggsaron_tt
-			custom_tooltip = EVIL_ACTION_TOOLTIP
+			
+            add_country_modifier = {
+                name = is_evil
+                duration = -1
+            }
 		}
 		
 		ai_will_do = {
@@ -131,8 +139,8 @@ country_decisions = {
 			modifier = {
 				factor = 0
 				OR = {
-					religion_group = religion_group_the_light
-					religion_group = religion_group_order
+					religion_group = light_group
+					religion_group = order_group
 				}
 			}
 		}
@@ -143,7 +151,7 @@ country_decisions = {
 		
 		potential = {
 			
-			NOT = { religion_group = religion_group_the_void }
+			NOT = { religion_group = shadow_group }
 			has_global_flag = yoggsaron_alive
 		}
 		
@@ -177,7 +185,7 @@ country_decisions = {
 		
 		potential = {
 			
-			religion = religion_water
+			religion = water
 		}
 		
 		allow = {

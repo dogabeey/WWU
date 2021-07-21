@@ -1,177 +1,156 @@
-country_decisions = {
-    construct_dark_portal_1 = {
-        major = yes
-        potential = {
-			has_global_flag = dark_portal_can_be_built
-			always = yes
-			current_age = rise_of_the_horde
-			religion = religion_fel
-            1008 = {
-                range = ROOT
-                NOT = { has_great_project = dark_portal_1 }
-                NOT = { has_construction = canal }
-            }
-        }
-        allow = {
-            owns_or_subject_of = 1586
-			OR = {
-				AND = {
-					treasury = 500
-					ai = no
-				}
-				AND = {
-					treasury = 50
-					ai = yes
-				}
-			}
-        }
-        effect = {
-            add_treasury = -500
-            1586 = {
-                add_great_project = dark_portal_1
-            }
-			#show_ambient_object = outland_dark_portal_outland
-        }
-        ai_will_do = {
-            factor = 1
-        }
-    }
-    
-    cancel_dark_portal_1 = {
-        major = yes
-        potential = {
-			
-            owns_or_subject_of = 1586
-            1586 = {
-                has_construction = canal
-            }
-        }
-        allow = {
-            1586 = {
-                has_construction = canal
-            }
-        }
-        effect = {
-            1586 = {
-                cancel_construction = yes
-            }
-			#hide_ambient_object = outland_dark_portal_outland
-        }
-        ai_will_do = {
-            factor = 0
-        }
-    }
-    construct_dark_portal_2 = {
-        major = yes
-        potential = {
-			
-			current_age = rise_of_the_qiraji
-			1586 = { owned_by = Z99 }
-            1586 = {
-                NOT = { has_great_project = dark_portal_2 }
-                NOT = { has_construction = canal }
-            }
-        }
-        allow = {
-            owns_or_vassal_of = 1035
-            treasury = 30
-        }
-        effect = {
-            add_treasury = -30
-            1586 = {
-                add_great_project = dark_portal_2
-            }
-        }
-        ai_will_do = {
-            factor = 1
-        }
-    }
-    
-    cancel_dark_portal_2 = {
-        major = yes
-        potential = {
-			
-            owns_or_vassal_of = 1035
-            1586 = {
-                has_construction = canal
-            }
-        }
-        allow = {
-            1586 = {
-                has_construction = canal
-            }
-        }
-        effect = {
-            1586 = {
-                cancel_construction = yes
-            }
-        }
-        ai_will_do = {
-            factor = 0
-        }
-    }
-	close_dark_portal = {
-		major = yes
+country_decisions = {    
+	establish_foothold_at_azeroth = {
 		potential = {
-			
-			OR = {
-				current_age = the_first_war
-				current_age = the_second_war
+		    culture_group = culture_group_orc
+			capital_scope = {
+				continent = continent_outland
 			}
-			1586 = { NOT = { owned_by = Z99 } }
+            religion = fel
+			NOT = { has_country_flag = moved_capital }
+            
+            region_blasted_lands = {
+                type = any
+                is_empty = yes
+            }
 		}
 		allow =  {
-			1586 = {
-				controlled_by = ROOT
-			}
-			mil_power = 300
+            custom_trigger_tooltip = {
+                tooltip = dark_portal_built_tt
+                has_global_flag = dark_portal_built
+            }
+            mil_power = 200
 		}
-	  	effect = {
-			add_mil_power = -300
+		effect = {
+			hidden_effect = { set_country_flag = moved_capital }
+            
+            add_mil_power = -200
+
 			add_country_modifier = {
-				name = closed_the_dark_portal
+				name = motivated_for_assault
+				duration = 3650
+			}
+            
+            if = {
+                limit = {
+                    1035 = {
+                        is_empty = yes
+                    }
+                }
+                1035 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                    change_culture = ROOT
+                    change_religion = ROOT
+                    move_capital_effect = yes
+                    add_base_tax = 4
+                    add_base_production = 4
+                    add_base_manpower = 4
+                    add_building = wow_fort_1
+                }
+            }
+            else = {
+                if = {
+                    limit = {
+                        region_blasted_lands = {
+                            type = any
+                            is_empty = yes
+                        }
+                    }
+                    random_province = {
+                        limit = {
+                            region = region_blasted_lands 
+                            is_empty = yes
+                        }
+                        cede_province = ROOT
+                        add_core = ROOT
+                        change_culture = ROOT
+                        change_religion = ROOT
+                        move_capital_effect = yes
+                        add_base_tax = 4
+                        add_base_production = 4
+                        add_base_manpower = 4
+                        add_building = wow_fort_1
+                    }
+                }
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    expand_foothold_in_azeroth = {
+		potential = {
+		    any_owned_province = {
+                OR = {
+                    region = region_blasted_lands
+                    region = region_swamp_of_sorrows
+                }
+                any_empty_neighbor_province = {
+                    is_empty = yes
+                }
+            }
+            religion = fel
+		}
+		allow =  {
+            adm_power = 100
+		}
+		effect = {
+            add_adm_power = -100
+            
+            random_owned_province = {
+                limit = {
+                    OR = {
+                        region = region_blasted_lands
+                        region = region_swamp_of_sorrows
+                    }
+                    any_empty_neighbor_province = {
+                        is_empty = yes
+                    }
+                }
+                random_empty_neighbor_province = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                    change_culture = ROOT
+                    change_religion = ROOT
+                }
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    establish_foothold_in_outland = {
+		major = yes
+		potential = {   
+            current_age = age_orcish_horde
+            is_member_of_faction = { faction = alliance }
+		}
+		allow =  {
+			is_member_of_faction = { faction = alliance }
+            
+            1035 = {
+                owned_by = ROOT
+            }
+            mil_power = 200
+		}
+		effect = {
+			add_mil_power = -200
+            
+			add_country_modifier = {
+				name = motivated_for_assault
 				duration = 3650
 			}
 			1586 = {
-				cede_province = Z99
-			}
-			
-			hidden_effect = {   
-				
-				every_country = {
-					limit = {
-						has_country_flag = first_war_orc
-					}
-					
-					add_country_modifier = {
-						name = tfw_orc_defeat
-						duration = 3650
-					}
-				}
-				
-				every_country = {
-					limit = {
-						capital_scope = {
-							NOT = { continent = continent_outland }
-						}
-					}
-					country_event = { id = the_first_war.8 }
-				}
-			}
-			if = {
-				limit = { has_global_flag = the_first_war }
-				clr_global_flag = the_first_war
-				set_global_flag = the_second_war
-				set_global_flag = tfw_human_victory_path
-			}
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
 		}
-		
-		ai_importance = 999
-		
 		ai_will_do = {
-			
-			# TODO: Add more detail here. 
-			factor = 0
+			factor = 1
 		}
 	}
 }

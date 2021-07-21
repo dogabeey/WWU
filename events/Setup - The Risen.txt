@@ -1,0 +1,91 @@
+namespace = wwu_setup_the_risen
+
+# Balnazzar's Reveal
+country_event = {
+    id = wwu_setup_the_risen.1
+    title = wwu_setup_the_risen.1.title
+    desc = wwu_setup_the_risen.1.desc
+    picture = NATHREZIM_eventPicture
+    
+    major = yes
+    
+    trigger = {
+        tag = A22 # Scarlet Crusade
+        current_age = age_burning_legion
+        NOT = { stability = 0 }
+    }
+    
+    mean_time_to_happen = {
+        months = 12
+    }
+    
+    option = {
+        name = wwu_setup_the_risen.1.option.a
+        
+        change_tag = X01 # The Risen
+        change_primary_culture = culture_forsaken
+        change_religion = fel
+        
+        every_owned_province = {
+            change_culture = culture_forsaken
+            change_religion = fel
+        }
+        
+        add_stability = 6
+        
+        # Havenshire
+        if = {
+            limit = {    
+                1011 = {
+                    NOT = { owned_by = ROOT }
+                }
+            }
+            1011 = {
+                cede_province = ROOT
+            }
+        }
+        # New Avalon
+        if = {
+            limit = {    
+                1028 = {
+                    NOT = { owned_by = ROOT }
+                }
+            }
+            1028 = {
+                cede_province = ROOT
+            }
+        }
+        
+        # King's Harbor
+        if = {
+            limit = {    
+                519 = {
+                    NOT = { owned_by = ROOT }
+                }
+            }
+            519 = {
+                cede_province = ROOT
+            }
+        }
+        
+        # Fletcher's Hollow
+        if = {
+            limit = {    
+                539 = {
+                    NOT = { owned_by = ROOT }
+                }
+            }
+            539 = {
+                cede_province = ROOT
+            }
+        }
+        
+        define_ruler = {
+            name = "Balnazzar"
+            dynasty = "the Cunning"
+            ADM = 4
+            DIP = 2
+            MIL = 6
+        }
+    }
+}

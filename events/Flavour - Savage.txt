@@ -1,0 +1,73 @@
+namespace = random_savage
+
+# is_savage
+
+# Warlust
+# Our citizens ache for war, and we must deliver it to them, lest they turn on their leaders. Denying them this right will result in massive unrest.
+# Attack!
+# We must wait!
+country_event = {
+	id = random_savage.1
+	title = random_savage.1.title
+	desc = random_savage.1.desc
+	picture = BLOODLUST_eventPicture
+
+    is_triggered_only = yes
+
+	trigger = {
+        OR = {
+            is_savage = yes
+            is_bug = yes
+        }
+        is_at_war = no
+        is_subject = no
+        any_neighbor_country = {
+            NOT = { alliance_with = ROOT }
+            NOT = { guaranteed_by = ROOT }
+            NOT = { is_client_nation_of = ROOT }
+            NOT = { is_colonial_nation_of = ROOT }
+            NOT = { is_subject_of = ROOT }
+            NOT = { marriage_with = ROOT }
+            NOT = { truce_with = ROOT }
+            NOT = { tag = A56 }
+        }
+	}
+
+	option = {
+		name = random_savage.1.option.a
+		
+
+        ##if = { limit = { has_global_flag = enable_event_logging } 
+
+        random_neighbor_country = {
+            limit = {
+                NOT = { alliance_with = ROOT }
+                NOT = { guaranteed_by = ROOT }
+                NOT = { is_client_nation_of = ROOT }
+                NOT = { is_colonial_nation_of = ROOT }
+                NOT = { is_subject_of = ROOT }
+                NOT = { marriage_with = ROOT }
+                NOT = { truce_with = ROOT }
+				NOT = { tag = A56 }
+            }
+            ROOT = {
+                declare_war_with_cb = {
+                    who = PREV
+                    casus_belli = cb_insult
+                }
+            }
+        }
+	}
+    
+    option = {
+		name = random_savage.1.option.b
+		
+
+        ##if = { limit = { has_global_flag = enable_event_logging } 
+		random = {
+			chance = 40
+			
+			add_stability = -1
+		}
+	}
+}

@@ -1,0 +1,73 @@
+#-------------------------------------------
+# Edicts
+#-------------------------------------------
+establish_diplomatic_links_decision = {
+	empire = celestial_empire
+	emperor = {
+        diplomats = 1
+		diplomatic_upkeep = 1
+	}
+}
+cleanse_corruption_decision = {
+	empire = celestial_empire
+	emperor = {
+		yearly_corruption = -0.05
+	}
+    required_reform = establish_diplomatic_links_decision
+}
+recover_quel_serrar_decision = {
+	empire = celestial_empire
+	emperor = {
+		infantry_power = 0.1
+	}
+    required_reform = cleanse_corruption_decision
+}
+subdue_the_aspects_decision = {
+	empire = celestial_empire
+	emperor = {
+		administrative_efficiency = 0.05
+	}
+    on_effect = {
+        custom_tooltip = SUBDUE_ASPECTS_TT
+        hidden_effect = {
+            every_country = {
+                limit = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 0
+                    }
+                    culture_group = culture_group_dragonkin
+                }
+                ROOT = {
+                    create_subject = {
+                        subject_type = hegemonic_vassal
+                        subject = PREV
+                    }
+                }
+            }
+        }
+	}
+    required_reform = recover_quel_serrar_decision
+}
+unite_the_aspect_decision = {
+	empire = celestial_empire
+	emperor = {
+		discipline = 0.05
+	}
+    on_effect = {
+        custom_tooltip = UNITE_ASPECTS_TT
+        hidden_effect = {
+            every_subject_country = {
+                limit = {
+                    is_subject_of_type = hegemonic_vassal
+                }
+                ROOT = {
+                    inherit = PREV
+                }
+            }
+        }
+        change_tag = GOA
+	}
+    required_reform = subdue_the_aspects_decision
+}
+

@@ -9,18 +9,21 @@ monarchy = {
     reform_levels = {
         tier_monarchy_government_form = {
 			reforms = {
+                # Generic
                 autocracy_reform
                 feudalism_reform
-                ancient_kingdom_reform
-                horde_reform
-		convocation_of_silvermoon_reform
-                alliance_reform
+                
+                # Unique
                 scourge_reform
                 admiralty_reform
                 kingdom_of_magic_reform
                 naga_domain_reform
                 scourge_domain_reform
-                dragonflight_brood_reform
+                convocation_of_silvermoon_reform
+                ancient_kingdom_reform
+                horde_reform
+                alliance_reform
+                troll_kingdom_reform
 			}
 		}
         tier_monarchy_hereditary_vs_nobility = {
@@ -92,7 +95,8 @@ monarchy = {
         kingdom_of_magic_legacy
         naga_domain_legacy
         scourge_domain_legacy
-        dragonflight_brood_legacy
+        troll_kingdom_legacy
+        convocation_of_silvermoon_legacy
     }
 }
 
@@ -107,14 +111,18 @@ republic = {
     reform_levels = {
         tier_republic_government_form = {
 			reforms = {
+                # Generic
                 noble_republic_reform
                 mercantile_republic_reform
                 despotic_republic_reform
-                ancient_republic_reform
-                magocracy_reform
-                free_city_reform
                 trading_city_reform
                 colonial_government_reform
+                
+                # Unique
+                ancient_republic_reform
+                magocracy_reform
+                troll_republic_reform
+                tinker_republic_reform
 			}
 		}
         tier_republic_republican_virtues = {
@@ -190,9 +198,10 @@ republic = {
         despotic_republic_legacy
         ancient_republic_legacy
         magocracy_legacy
-        free_city_legacy
         trading_city_legacy
         colonial_government_legacy
+        troll_republic_legacy
+        tinker_republic_legacy
     }
 }
 
@@ -207,14 +216,25 @@ theocracy = {
     reform_levels = {
         tier_theocracy_government_form = {
 			reforms = {
+                # Generic
                 theocracy_reform
                 monastic_order_reform
-                ancient_theocracy_reform
-                scarlet_crusade_reform
-                argent_crusade_reform
+                
+                # Unique
                 demonic_order_reform
                 druidic_circle_reform
                 elemental_cult_reform
+                ancient_theocracy_reform
+                scarlet_crusade_reform
+                argent_crusade_reform
+                cult_of_hakkar_reform
+                dragonflight_brood_reform
+                titan_facility_reform
+                aqir_kingdom_reform
+                nerubian_kingdom_reform
+                mantid_kingdom_reform
+                tolvir_kingdom_reform
+                naga_empire_reform
 			}
 		}
         tier_theocracy_internal_vs_external_mission = {
@@ -288,6 +308,14 @@ theocracy = {
         demonic_order_legacy
         druidic_circle_legacy
         elemental_cult_legacy
+        cult_of_hakkar_legacy
+        dragonflight_brood_legacy
+        titan_facility_legacy
+        aqir_kingdom_legacy
+        nerubian_kingdom_legacy
+        mantid_kingdom_legacy
+        tolvir_kingdom_legacy
+        naga_empire_legacy
     }
 }
 
@@ -305,10 +333,16 @@ tribal = {
                 warband_reform
                 tribal_federation_reform
                 tribal_despotism_reform
+                
+                # Unique
                 ancient_clan_reform
-                primitive_clan_reform
                 expeditionary_force_reform
                 criminal_organization_reform
+                dwarven_clan_reform
+                satyr_sect_reform
+                tauren_tribe_reform
+                free_city_reform
+                centaur_khanate_reform
 			}
 		}
         tier_tribal_cultural_values = {
@@ -347,33 +381,14 @@ tribal = {
         tribal_federation_legacy
         tribal_despotism_legacy
         ancient_clan_legacy
-        primitive_clan_legacy
         expeditionary_force_legacy
         criminal_organization_legacy
+        dwarven_clan_legacy
+        satyr_sect_legacy
+        tauren_tribe_legacy
+        free_city_legacy
+        centaur_khanate_legacy
     }
-}
-
-#--------------------------------------------
-# Native
-#--------------------------------------------
-native = {
-    color = { 194 127 209 }
-    
-	basic_reform = native_mechanic
-
-    reform_levels = {
-        tier_native_government_form = {
-			reforms = {
-                native_tribe_reform
-                primitive_tribe_reform
-			}
-		}
-    }
-    
-	legacy_government = {
-		native_tribe_legacy
-        primitive_tribe_legacy
-	}
 }
 
 #--------------------------------------------
@@ -422,3 +437,23 @@ pirate = {
     }
 }
 
+#--------------------------------------------
+# Native
+#--------------------------------------------
+native = {
+    color = { 194 127 209 }
+    
+	basic_reform = native_mechanic
+
+    reform_levels = {
+        tier_native_government_form = {
+			reforms = {
+                native_tribe_reform
+			}
+		}
+    }
+    
+	legacy_government = {
+		native_tribe_legacy
+	}
+}

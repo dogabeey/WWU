@@ -419,8 +419,8 @@ sacrifice_own_loa = {
 		}
 	}
 	hidden_effect = {
-		change_religion = religion_hakkari
-		ROOT = { change_religion = religion_loa }
+		change_religion = hakkari
+		ROOT = { change_religion = voodoo }
 	}
 	add_ruler_modifier = {
 		name = sacrificed_a_loa
@@ -704,4 +704,662 @@ import_loa_from_variable = {
 		limit = { check_variable = { which = $variable_name$ value = 29 } NOT = { check_variable = { which = $variable_name$ value = 30 } } }
 		change_personal_deity = deity_torga
 	}
+}
+
+# root = loser country, from = winner country
+battle_cult_spreading_effect = {
+	if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = arcane_teaching }
+			}
+			ROOT = {
+				religion = arcane
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.1 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = draconic_teaching }
+			}
+			ROOT = {
+				religion = dragon_aspects
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.2 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = titanic_teaching }
+			}
+			ROOT = {
+				OR = {
+                    religion = titan_worship
+                    religion = mystery_of_the_makers
+                }
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.3 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = corrupt_titanic_teaching }
+			}
+			ROOT = {
+				religion = corrupt_titan_worship
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.4 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = corrupt_draconic_teaching }
+			}
+			ROOT = {
+				religion = corrupt_dragon_aspect
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.5 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = fel_teaching }
+			}
+			ROOT = {
+				religion = fel
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.6 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = druidic_teaching }
+			}
+			ROOT = {
+				religion = druidism
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.7 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = elune_teaching }
+			}
+			ROOT = {
+				religion = elune
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.8 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = celestial_teaching }
+			}
+			ROOT = {
+				religion = celestials
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.9 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = arrakoa_teaching }
+			}
+			ROOT = {
+				religion = arrakoa
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.10 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = zangar_teaching }
+			}
+			ROOT = {
+				religion = zangar
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.11 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = arkkorok_teaching }
+			}
+			ROOT = {
+				religion = arkkorok
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.12 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = death_teaching }
+			}
+			ROOT = {
+				religion = cult_of_the_damned
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.13 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = voodoo_teaching }
+			}
+			ROOT = {
+				religion = voodoo
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.14 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = hakkar_teaching }
+			}
+			ROOT = {
+				religion = hakkari
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.15 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = blood_teaching }
+			}
+			ROOT = {
+				religion = bloodmancy
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.16 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = holy_light_teaching }
+			}
+			ROOT = {
+				OR = {
+                    religion = holy_light
+                    religion = light_of_the_naaru
+                    religion = scarlet_light
+                    religion = argent_light
+                    religion = light_of_the_sunwell
+                }
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.17 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = shadow_teaching }
+			}
+			ROOT = {
+				religion = shadow
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.18 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = forgotten_shadow_teaching }
+			}
+			ROOT = {
+				religion = forgotten_shadow
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.19 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = primeval_teaching }
+			}
+			ROOT = {
+				OR = {
+                    religion = cthun
+                    religion = nzoth
+                    religion = yogg_saron
+                    religion = yshaarj
+                }
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.20 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = twilight_teaching }
+			}
+			ROOT = {
+				religion = twilight_cult
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.21 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = nightmare_teaching }
+			}
+			ROOT = {
+				religion = nightmare
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.22 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = anima_teaching }
+			}
+			ROOT = {
+				religion = anima
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.23 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = shamanistic_teaching }
+			}
+			ROOT = {
+				OR = {
+                    religion = shamanism
+                    religion = tauren_shamanism
+                }
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.24 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = deep_mother_teaching }
+			}
+			ROOT = {
+				religion = deep_mother
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.25 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = ordos_teaching }
+			}
+			ROOT = {
+				religion = ordos
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.26 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = ragnaros_teaching }
+			}
+			ROOT = {
+				religion = fire
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.27 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = alakir_teaching }
+			}
+			ROOT = {
+				religion = wind
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.28 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = neptulon_teaching }
+			}
+			ROOT = {
+				religion = water
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.29 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = therazane_teaching }
+			}
+			ROOT = {
+				religion = earth
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.30 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = rationalism_teaching }
+			}
+			ROOT = {
+				religion = rationalism
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.31 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = faithless_teaching }
+			}
+			ROOT = {
+				religion = faithless
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.32 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = technomancy_teaching }
+			}
+			ROOT = {
+				religion = technomancy
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.33 } }
+	}
+    if = {
+		limit = {
+			FROM = {
+				uses_cults = yes
+				NOT = { has_unlocked_cult = avarice_teaching }
+			}
+			ROOT = {
+				religion = avarice
+			}
+		}
+		FROM = { country_event = { id = battle_teaching.34 } }
+	}
+}
+
+unlock_initial_cults = {
+    if = {
+        limit = {
+            uses_cults = yes
+        }
+        if = {
+            limit = {
+                religion = arcane
+            }
+            unlock_cult = arcane_teaching
+        }
+        if = {
+            limit = {
+                religion = dragon_aspects
+            }
+            unlock_cult = draconic_teaching
+        }
+        if = {
+            limit = {
+                OR = {
+                    religion = titan_worship
+                    religion = mystery_of_the_makers
+                }
+            }
+            unlock_cult = titanic_teaching
+        }
+        if = {
+            limit = {
+                religion = corrupt_titan_worship
+            }
+            unlock_cult = corrupt_titanic_teaching
+        }
+        if = {
+            limit = {
+                religion = corrupt_dragon_aspect
+            }
+            unlock_cult = corrupt_draconic_teaching
+        }
+        if = {
+            limit = {
+                religion = fel
+            }
+            unlock_cult = fel_teaching
+        }
+        if = {
+            limit = {
+                religion = druidism
+            }
+            unlock_cult = druidic_teaching
+        }
+        if = {
+            limit = {
+                religion = elune
+            }
+            unlock_cult = elune_teaching
+        }
+        if = {
+            limit = {
+                religion = celestials
+            }
+            unlock_cult = celestial_teaching
+        }
+        if = {
+            limit = {
+                religion = arrakoa
+            }
+            unlock_cult = arrakoa_teaching
+        }
+        if = {
+            limit = {
+                religion = zangar
+            }
+            unlock_cult = zangar_teaching
+        }
+        if = {
+            limit = {
+                religion = arkkorok
+            }
+            unlock_cult = arkkorok_teaching
+        }
+        if = {
+            limit = {
+                religion = cult_of_the_damned
+            }
+            unlock_cult = death_teaching
+        }
+        if = {
+            limit = {
+                religion = voodoo
+            }
+            unlock_cult = voodoo_teaching
+        }
+        if = {
+            limit = {
+                religion = hakkari
+            }
+            unlock_cult = hakkar_teaching
+        }
+        if = {
+            limit = {
+                religion = bloodmancy
+            }
+            unlock_cult = blood_teaching
+        }
+        if = {
+            limit = {
+                OR = {
+                    religion = holy_light
+                    religion = light_of_the_naaru
+                    religion = scarlet_light
+                    religion = argent_light
+                    religion = light_of_the_sunwell
+                }
+            }
+            unlock_cult = holy_light_teaching
+        }
+        if = {
+            limit = {
+                religion = shadow
+            }
+            unlock_cult = shadow_teaching
+        }
+        if = {
+            limit = {
+                religion = forgotten_shadow
+            }
+            unlock_cult = forgotten_shadow_teaching
+        }
+        if = {
+            limit = {
+                OR = {
+                    religion = cthun
+                    religion = nzoth
+                    religion = yogg_saron
+                    religion = yshaarj
+                }
+            }
+            unlock_cult = primeval_teaching
+        }
+        if = {
+            limit = {
+                religion = twilight_cult
+            }
+            unlock_cult = twilight_teaching
+        }
+        if = {
+            limit = {
+                religion = nightmare
+            }
+            unlock_cult = nightmare_teaching
+        }
+        if = {
+            limit = {
+                religion = anima
+            }
+            unlock_cult = anima_teaching
+        }
+        if = {
+            limit = {
+                OR = {
+                    religion = shamanism
+                    religion = tauren_shamanism
+                }
+            }
+            unlock_cult = shamanistic_teaching
+        }
+        if = {
+            limit = {
+                religion = deep_mother
+            }
+            unlock_cult = deep_mother_teaching
+        }
+        if = {
+            limit = {
+                religion = ordos
+            }
+            unlock_cult = ordos_teaching
+        }
+        if = {
+            limit = {
+                religion = fire
+            }
+            unlock_cult = ragnaros_teaching
+        }
+        if = {
+            limit = {
+                religion = wind
+            }
+            unlock_cult = alakir_teaching
+        }
+        if = {
+            limit = {
+                religion = water
+            }
+            unlock_cult = neptulon_teaching
+        }
+        if = {
+            limit = {
+                religion = earth
+            }
+            unlock_cult = therazane_teaching
+        }
+        if = {
+            limit = {
+                religion = rationalism
+            }
+            unlock_cult = rationalism_teaching
+        }
+        if = {
+            limit = {
+                religion = faithless
+            }
+            unlock_cult = faithless_teaching
+        }
+        if = {
+            limit = {
+                religion = technomancy
+            }
+            unlock_cult = technomancy_teaching
+        }
+        if = {
+            limit = {
+                religion = avarice
+            }
+            unlock_cult = avarice_teaching
+        }
+    }
 }

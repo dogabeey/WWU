@@ -1,0 +1,105 @@
+country_decisions = {
+    #-----------------------------------------
+    # Cult of the Damned
+    #-----------------------------------------
+    turn_the_dead = {
+        potential = {
+            NOT = { has_ruler_modifier = necromantic_surge }
+            religion = cult_of_the_damned
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = necromantic_surge
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Voodoo
+    #-----------------------------------------
+    enforce_loa_worship = {
+	    potential = {
+            NOT = { has_ruler_modifier = enforced_loa_worship }
+            religion = voodoo
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = enforced_loa_worship
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Hakkari
+    #-----------------------------------------
+    grant_tribute_to_hakkar = {
+        potential = {
+            NOT = { has_ruler_modifier = hakkari_boon }
+            religion = hakkari
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = hakkari_boon
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #-----------------------------------------
+    # Bloodmancy
+    #-----------------------------------------
+    perform_blood_rites = {
+        potential = {
+            NOT = { has_ruler_modifier = blood_rites }
+            religion = bloodmancy
+		}
+		allow = {
+            ruler_religion = ROOT
+            mil = 3
+            scaled_mil_power_check = yes
+		}
+        effect = {
+            scaled_mil_power_effect = yes
+            
+            add_ruler_modifier = {
+                name = blood_rites
+                duration = -1
+            }
+        }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

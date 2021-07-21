@@ -1,0 +1,32 @@
+namespace = wwu_quelthalas
+
+# Lordaeron Border Agreement Broken!
+country_event = {
+	id = wwu_quelthalas.1
+	title = wwu_quelthalas.1.title
+	desc = wwu_quelthalas.1.desc
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = { 
+        has_country_modifier = mission_lordaeron_border_agreement
+        tag = A90
+		war_with = A08
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            remove_country_modifier = mission_lordaeron_border_agreement
+        }
+    }
+	
+	option = {
+		name = wwu_quelthalas.1.option.a
+		
+		remove_country_modifier = mission_lordaeron_border_agreement
+        add_prestige = -100
+	}
+}

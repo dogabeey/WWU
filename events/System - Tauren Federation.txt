@@ -1,0 +1,388 @@
+namespace = wwu_tauren_federation
+
+# "Empire of the Taurens" - Emperor
+country_event = {
+	id = wwu_tauren_federation.1
+	title = wwu_tauren_federation.1.title
+	desc = wwu_tauren_federation.1.desc
+	picture = TAUREN_SHAMAN_eventPicture
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_tauren_federation.1.option.a
+            
+		every_province = {
+			limit = {
+				is_part_of_hre = yes
+				OR = {
+					owned_by = ROOT
+					owner = { is_neighbor_of = ROOT }
+				}
+				NOT = { is_core = ROOT }
+			}
+			add_core = emperor
+		}
+		every_country = {
+			limit = {
+				is_part_of_hre = yes
+				is_emperor = no
+				num_of_cities = 1
+			}
+			country_event = { id = wwu_tauren_federation.2 }
+		}
+        
+		dismantle_hre = yes
+		set_government_rank = 3
+		add_adm_power = 250
+        
+		if = {
+			limit = {
+				has_custom_ideas = no
+			}
+			country_event = { id = wwu_ideagroups.100 } #Swap Ideas
+		}
+		swap_non_generic_missions = yes
+	}
+}
+
+# "Empire of the Taurens" - Members
+country_event = {
+	id = wwu_tauren_federation.2
+	title = wwu_tauren_federation.2.title
+	desc = wwu_tauren_federation.2.desc
+	picture = TAUREN_SHAMAN_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_tauren_federation.2.option.a
+        
+		emperor = {
+			inherit = ROOT
+		}
+	}
+}
+
+#-------------------------------------
+# Tribal Rumours
+#-------------------------------------
+# Incident
+country_event = {
+	id = wwu_tauren_federation.10
+	title = wwu_tauren_federation.10.title
+	desc = wwu_tauren_federation.10.desc
+	picture = TAUREN_SHAMAN_eventPicture
+
+	is_triggered_only = yes
+	
+    immediate = {
+        hidden_effect = {
+            random_country = {
+                limit = {
+                    is_elector = yes
+                    is_emperor = no
+                }
+                save_event_target_as = rumour_country
+            }
+            emperor = {
+                save_event_target_as = current_emperor
+            }
+        }
+	}
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+
+    # Address their immediate concerns
+	option = {
+		name = wwu_tauren_federation.10.option.a
+        
+        ai_chance = {
+            factor = 10
+        }
+		
+        event_target:rumour_country = {
+            add_stability = 1
+            add_opinion = {
+                who = emperor
+                modifier = tauren_federation_addressed_concerns
+            }
+        }
+        emperor = {
+            add_prestige = -25
+        }
+	}
+    
+    # Fix the systemic issues
+    option = {
+		name = wwu_tauren_federation.10.option.b
+        
+        ai_chance = {
+            factor = 10
+        }
+		
+        every_country = {
+            limit = { is_part_of_hre = yes }
+            add_country_modifier = {
+                name = tribal_issues_addressed
+                duration = 3650
+            }
+        }
+        emperor = {
+            add_stability = -1
+        }
+	}
+    
+    # Ignore the rumours
+    option = {
+		name = wwu_tauren_federation.10.option.c
+        
+        emperor = {
+            capital_scope = {
+                spawn_rebels = {
+                    type = pretender_rebels
+                    friend = event_target:rumour_country
+                    size = 1
+                } 
+            }
+        }
+        
+        ai_chance = {
+            factor = 10
+        }
+		
+	}
+}
+
+# Trigger
+country_event = {
+	id = wwu_tauren_federation.11
+	title = wwu_tauren_federation.11.title
+	desc = wwu_tauren_federation.11.desc
+	picture = TAUREN_SHAMAN_eventPicture
+
+    hidden = yes
+    
+    trigger = {
+        is_emperor = yes
+	}
+    
+    mean_time_to_happen = {
+		months = 1200
+	}
+
+	option = {
+		name = wwu_tauren_federation.11.option.a
+        
+        set_imperial_incident = incident_tribal_rumours
+	}
+}
+
+#-------------------------------------
+# Rites of the Great Hunt
+#-------------------------------------
+# Incident
+country_event = {
+	id = wwu_tauren_federation.12
+	title = wwu_tauren_federation.12.title
+	desc = wwu_tauren_federation.12.desc
+	picture = TAUREN_SHAMAN_eventPicture
+
+	is_triggered_only = yes
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+
+    # Venerate the Earth Mother
+	option = {
+		name = wwu_tauren_federation.12.option.a
+        
+        emperor = {
+            add_treasury = -250
+        }
+        
+        every_country = {
+            limit = { is_part_of_hre = yes }
+            add_country_modifier = {
+                name = veneration_of_the_earth_mother
+                duration = 7200
+            }
+        }
+        
+        ai_chance = {
+            factor = 10
+        }
+	}
+    
+    # Venerate the Earth Mother and the Hunter
+    option = {
+		name = wwu_tauren_federation.12.option.b
+        
+        emperor = {
+            add_treasury = -500
+        }
+        
+        every_country = {
+            limit = { is_part_of_hre = yes }
+            add_country_modifier = {
+                name = veneration_of_the_hunter
+                duration = 7200
+            }
+            add_country_modifier = {
+                name = veneration_of_the_earth_mother
+                duration = 7200
+            }
+        }
+        
+        ai_chance = {
+            factor = 10
+        }
+	}
+    
+    # Venerate the Hunter
+    option = {
+		name = wwu_tauren_federation.12.option.c
+        
+        emperor = {
+            add_treasury = -250
+        }
+        
+        every_country = {
+            limit = { is_part_of_hre = yes }
+            add_country_modifier = {
+                name = veneration_of_the_hunter
+                duration = 7200
+            }
+        }
+        
+        ai_chance = {
+            factor = 10
+        }
+	}
+}
+
+# Trigger
+country_event = {
+	id = wwu_tauren_federation.13
+	title = wwu_tauren_federation.13.title
+	desc = wwu_tauren_federation.13.desc
+	picture = TAUREN_SHAMAN_eventPicture
+
+    hidden = yes
+    
+    trigger = {
+        is_emperor = yes
+        treasury = 500
+	}
+    
+    mean_time_to_happen = {
+		months = 600
+	}
+
+	option = {
+		name = wwu_tauren_federation.13.option.a
+        
+        set_imperial_incident = incident_rites_of_the_great_hunt
+	}
+}
+
+#-------------------------------------
+# Centaur Incursion
+#-------------------------------------
+# Incident
+country_event = {
+	id = wwu_tauren_federation.14
+	title = wwu_tauren_federation.14.title
+	desc = wwu_tauren_federation.14.desc
+	picture = TAUREN_SHAMAN_eventPicture
+
+	is_triggered_only = yes
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+
+    # Bolster the Vanguard
+	option = {
+		name = wwu_tauren_federation.14.option.a
+        
+        every_country = {
+            limit = { is_part_of_hre = yes }
+            add_country_modifier = {
+                name = bolster_the_vanguard
+                duration = -1
+            }
+        }
+        
+        ai_chance = {
+            factor = 10
+        }
+	}
+    
+    # Settle the Barrens
+    option = {
+		name = wwu_tauren_federation.14.option.b
+        
+        every_country = {
+            limit = { is_part_of_hre = yes }
+            add_country_modifier = {
+                name = settle_the_barrens
+                duration = -1
+            }
+        }
+        
+        ai_chance = {
+            factor = 10
+        }
+	}
+    
+    # Push Back the Centaurs
+    option = {
+		name = wwu_tauren_federation.14.option.c
+        
+        every_country = {
+            limit = { is_part_of_hre = yes }
+            add_country_modifier = {
+                name = crush_the_centaurs
+                duration = -1
+            }
+        }
+        
+        ai_chance = {
+            factor = 15
+        }
+	}
+}
+
+# Trigger
+country_event = {
+	id = wwu_tauren_federation.15
+	title = wwu_tauren_federation.15.title
+	desc = wwu_tauren_federation.15.desc
+	picture = TAUREN_SHAMAN_eventPicture
+
+    fire_only_once = yes
+    hidden = yes
+    
+    trigger = {
+        culture_group = culture_group_centaur
+        any_country = {
+            culture_group = culture_group_tauren
+            war_with = PREV
+        }
+	}
+    
+    mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = wwu_tauren_federation.15.option.a
+        
+        emperor = { set_imperial_incident = incident_centaur_incursion }
+	}
+}

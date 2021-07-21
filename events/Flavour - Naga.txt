@@ -1,0 +1,91 @@
+namespace = wwu_naga
+
+# Harbingers of N'Zoth
+country_event = {
+	id = wwu_naga.1
+	title = wwu_naga.1.title
+	desc = wwu_naga.1.desc
+	picture = BURNING_CASTLE_eventPicture
+	
+    is_triggered_only = yes
+    
+    trigger = {
+        faction_in_power = faction_harbingers
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_naga.1.option.a
+        
+        add_stability = -1
+	}
+    option = {
+		name = wwu_naga.1.option.b
+        
+        add_corruption = 2
+	}
+}
+
+# N'Zoth's Guile
+country_event = {
+	id = wwu_naga.2
+	title = wwu_naga.2.title
+	desc = wwu_naga.2.desc
+	picture = CORRUPTION_eventPicture
+	
+    is_triggered_only = yes
+    
+    trigger = {
+        faction_in_power = faction_harbingers
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_naga.2.option.a
+        
+        add_years_of_income = 1
+	}
+    option = {
+		name = wwu_naga.2.option.b
+        
+        add_yearly_manpower = 1
+	}
+}
+
+# N'Zoth's Influence
+country_event = {
+	id = wwu_naga.3
+	title = wwu_naga.3.title
+	desc = wwu_naga.3.desc
+	picture = POPE_PREACHING_eventPicture
+	
+    is_triggered_only = yes
+    
+    trigger = {
+        faction_in_power = faction_harbingers
+        any_owned_province = {
+            NOT = { religion = nzoth }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_naga.3.option.a
+        
+        random_owned_province = {
+            limit = {
+                NOT = { religion = nzoth }
+            }
+            change_religion = nzoth
+        }
+	}
+}
