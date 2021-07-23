@@ -1,43 +1,50 @@
 country_decisions = {
 
-    restore_kingdom_of_alterac = {
+    form_argent_crusade = {
 		major = yes
 		potential = {
 			
-			NOT = { exists = A17 } # Alterac
-			primary_culture = culture_alterac
+			NOT = { exists = AGC } # Argent Crusade
+			primary_culture = culture_lordaeron
 			is_colonial_nation = no
 			
 		}
         provinces_to_highlight = {
-			region = region_alterac_mountains
+			region = region_eastern_plaguelands
 			OR = {
 				NOT = { owned_by = ROOT }
 				#is_city = no
 			}
 		}
 		allow = {
-		    owns_core_province = 773 #Ruins of Alterac
-			NOT = { exists = A17 }
+		    owns_core_province = 642 #Stratholme
+			NOT = { exists = AGC }
+			religion = argent_light
 			total_development = 200
 			stability = 2
-			prestige = 50
+			prestige = 60
 			dip = 3
+			mil = 3
+			adm = 3
 			dip_power = 300
+			mil_power = 300
+			adm_power = 300
 			is_at_war = no		
 		}
 		effect = {
-			add_prestige = 25
-			change_tag = A17
-			change_primary_culture = culture_alterac
+			add_prestige = 30
+			change_tag = AGC
+			change_primary_culture = culture_lordaeron
 			add_dip_power = -300
+			add_mil_power = -300
+			add_adm_power = -300
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
             
-			change_government = monarchy
-			set_capital = 773
+			change_government = theocracy
+			set_capital = 775
 			swap_free_idea_group = yes
 		}
 		

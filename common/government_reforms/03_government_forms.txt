@@ -531,6 +531,48 @@ troll_kingdom_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+scarlet_monarchy_reform = {
+	icon = "scarlet_monarchy"
+    legacy_equivalent = scarlet_monarchy_legacy
+    
+    potential = {
+        religion = scarlet_light
+    }
+    
+    monarchy = yes
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+	modifiers = {
+		legitimacy = 2
+		war_exhaustion = -0.10
+		mil_advisor_cost = -0.50
+		warscore_cost_vs_other_religion = -0.20
+		free_mil_policy = 1
+		free_adm_policy = 1
+		missionaries = 2
+		discipline = 0.15
+        	tolerance_own = 2
+		manpower_in_true_faith_provinces= 0.9
+	}
+	
+    ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+    nation_designer_trigger = {
+        religion = holy_light
+    }
+}
 
 #--------------------------------------------
 # Republic
