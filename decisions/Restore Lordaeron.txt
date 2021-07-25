@@ -3,22 +3,20 @@ country_decisions = {
     restore_kingdom_of_lordaeron = {
 		major = yes
 		potential = {
-			
+		
+            NOT = { tag = A24 }
+			NOT = { tag = AGC }
 			NOT = { exists = A08 } # Lordaeron
 			primary_culture = culture_lordaeron
 			is_colonial_nation = no
 			
 		}
-        provinces_to_highlight = {
-			region = region_tirisfal_glades
-			OR = {
-				NOT = { owned_by = ROOT }
-				#is_city = no
-			}
-		}
 		allow = {
-			capital_scope = { region = region_tirisfal_glades }
 		    owns_core_province = 543 #Undercity
+			owns_core_province = 775 #Hearthglen
+			owns_core_province = 642 #Stratholme
+			owns_core_province = 1028 #New Avalon
+			owns_core_province = 991 #Ruins of Southshore
 			NOT = { exists = A08 }
 			total_development = 300
 			stability = 2
