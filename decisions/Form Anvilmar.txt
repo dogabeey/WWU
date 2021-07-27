@@ -1,0 +1,68 @@
+country_decisions = {
+
+    form_anvilmar = {
+		major = yes
+		potential = {
+			NOT = { tag = F59}
+			NOT = { tag = P56}
+			NOT = { tag = H11}
+			NOT = { tag = P22}
+			NOT = { exists = ANM } # Anvilmar
+			culture_group = culture_group_dwarven
+			is_colonial_nation = no			
+		}
+		allow = {
+		    owns_core_province = 941 #Ironforge
+			owns_core_province = 787 #Thundermar
+			owns_core_province = 1952 #Blackrock Mou
+			owns_core_province = 1061 #Grim Batol
+			owns_core_province = 1968 #Uldaman
+			NOT = { exists = ANM }
+			total_development = 300
+			stability = 2
+			prestige = 60
+			dip = 3
+			mil = 3
+			adm = 3
+			dip_power = 300
+			mil_power = 300
+			adm_power = 300
+			is_at_war = no	
+		}
+		effect = {
+			add_prestige = 30
+			change_tag = ANM
+			add_dip_power = -300
+			add_mil_power = -300
+			add_adm_power = -300
+			hidden_effect = {
+			    if = {
+			        limit = { senior_union_with = A28 }
+			        inherit = A28
+				}	
+			    if = {
+			        limit = { senior_union_with = A30 }
+			        inherit = A30
+		        }
+			    if = {
+				    limit = { senior_union_with = A29 }
+				    inherit = A29
+			    }
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+            
+			change_government = monarchy
+			set_capital = 941
+			swap_free_idea_group = yes
+		}
+		
+		ai_importance = 200
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+}
