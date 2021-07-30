@@ -1,0 +1,267 @@
+#--------------------------------------
+# Ironforge
+#--------------------------------------
+wwu_ironforge_column_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A29
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_recover_dun_morogh = {
+		icon = mission_doomhammer
+		required_missions = {  }
+		ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = area_kharanos
+                area = area_anvilmar
+                area = area_gnomeregan_exterior
+				area = area_frostmane_hills
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		    area_kharanos = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+            area_anvilmar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_gnomeregan_exterior = {
+			    type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_frostmane_hills = {
+			    type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_prestige = 20
+			add_country_modifier = {
+                name = mission_consolidate_dun_morogh
+                duration = -1
+            }
+			region_loch_modan = {
+				add_permanent_claim = ROOT
+			}
+			area_brewstall = {
+				add_permanent_claim = ROOT
+			}
+			area_gnomeregan = {
+				add_permanent_claim = ROOT
+			}	
+			area_new_tinkertown = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	wwu_dwarvish_origins_a = {
+		icon = mission_titan_spirits
+		required_missions = { wwu_recover_dun_morogh }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				region = region_loch_modan
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			region_loch_modan = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 200
+			add_prestige = 10
+			add_country_modifier = {
+                name = mission_titanic_origins_a
+                duration = -1
+            }
+			region_badlands = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	wwu_dwarvish_origins_b = {
+		icon = mission_titan_spirits
+		required_missions = { wwu_dwarvish_origins_a }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = area_uldaman
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			area_uldaman = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 300
+			add_mil_power = 100
+			add_prestige = 20
+			add_country_modifier = {
+                name = mission_titanic_origins_b
+                duration = -1
+            }
+		}
+	}
+	
+	wwu_restore_relations = {
+	    icon = mission_dwarf
+		required_missions = { wwu_dwarvish_origins_b }
+		position = 4
+		
+        trigger = {
+            A30 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+		}
+		effect = {
+			add_dip_power = 200
+			add_prestige = 20
+			add_country_modifier = {
+                name = mission_relations_dark_iron
+                duration = -1
+            }
+	    }
+	}
+}
+
+wwu_ironforge_column_5 = {
+    slot = 5
+	generic = no
+	ai = yes
+	
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A29
+	}
+	
+	has_country_shield = yes
+	
+	wwu_unified_dwarves = {
+	    icon = mission_griffin_attack
+		required_missions = { }
+		position = 1
+		trigger = {
+            has_country_flag = unified_dwarf
+		}
+		effect = {
+			add_adm_power = 300
+			add_dip_power = 300
+			add_mil_power = 300
+			add_country_modifier = {
+                name = mission_dwarves_united_strong
+                duration = -1
+            }
+			region_searing_gorge = {
+				add_permanent_claim = ROOT
+			}
+			region_burning_steppes = {
+				add_permanent_claim = ROOT
+			}
+			region_twilight_highlands = {
+				add_permanent_claim = ROOT
+			}
+	    }
+	}
+	
+	wwu_gnomish_neighboors = {
+		icon = mission_gnome_male
+		required_missions = { wwu_recover_dun_morogh }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+                area = area_brewstall
+			    area = area_gnomeregan
+			    area = area_new_tinkertown
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			area_brewstall = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_gnomeregan = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_new_tinkertown = {
+			    type = all
+			    country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_country_modifier = {
+                name = mission_meeting_gnomes
+                duration = -1
+            }
+			capital_scope = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+			area_brewstall = {
+				add_permanent_claim = ROOT
+			}
+			area_gnomeregan = {
+				add_permanent_claim = ROOT
+			}
+			area_new_tinkertown = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	wwu_recover_wetlands = {
+		icon = mission_treasure_map
+		required_missions = { wwu_dwarvish_origins_a }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				region = region_wetlands
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			region_wetlands = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_country_modifier = {
+                name = mission_control_wetlands
+                duration = -1
+            }
+            capital_scope = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+		}
+	}
+}
