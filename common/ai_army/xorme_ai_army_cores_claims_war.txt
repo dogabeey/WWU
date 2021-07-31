@@ -4,21 +4,19 @@ province = {
             is_at_war = yes
         }
         eval_multiply = {
-            factor = 1.75
+            factor = 3.5
             modifier = {
+                owner = { war_with = ROOT }
 				NOT = { 
                     OR = {
-                    owned_by = ROOT 
-                    controlled_by = ROOT
+                        owned_by = ROOT 
+                        controlled_by = ROOT
                     }
                 }
 				OR = {
 					is_core = ROOT
 					is_claim = ROOT
 				}
-                owner = {
-                    war_with = ROOT
-                }
             }
         }
     }
