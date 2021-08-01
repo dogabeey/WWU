@@ -5649,3 +5649,118 @@ gp_uldaman_complex = {
 		}
 	}
 }
+
+#--------------------------------------
+# Deeprun Tram
+#--------------------------------------
+gp_deeprun_tram_eastern_kingdoms = {
+    type = canal
+    
+	start = 2505
+
+	date = 500.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 100
+	time = {
+		months = 120
+	}
+
+	starting_tier = 1
+
+    # Construction
+	build_trigger = {
+        FROM = {
+			owns_or_vassal_of = 2505
+		}
+	}
+	on_built = {
+		add_canal = gp_deeprun_tram_eastern_kingdoms
+	}
+	on_destroyed = {
+		remove_canal = gp_deeprun_tram_eastern_kingdoms
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		FROM = {
+			owns_or_vassal_of = 2505
+		}
+	}
+	can_upgrade_trigger = {
+		FROM = {
+			owns_or_vassal_of = 2505
+		}
+	}
+	keep_trigger = { always = yes }
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 12
+		}
+		cost_to_upgrade = {
+			factor = 100
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+        province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+        province_modifiers = {
+            
+		}
+        area_modifier = {
+            
+		}
+		country_modifiers = {
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+        province_modifiers = {
+            
+		}
+        area_modifier = {
+            
+		}
+		country_modifiers = {
+		}
+	}
+}

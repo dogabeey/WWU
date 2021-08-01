@@ -1266,49 +1266,44 @@ gp_stormspire = {
 # Dark Portal
 #--------------------------------------
 gp_dark_portal_outland = {
-    type = monument
+    type = canal
     
 	start = 1586
 
-	date = 590.01.01
+	date = 500.01.01
 	can_be_moved = no
 	move_days_per_unit_distance = 10
     
     build_cost = 100
 	time = {
-		months = 12
+		months = 120
 	}
 
-	starting_tier = 0
+	starting_tier = 1
 
     # Construction
 	build_trigger = {
-        custom_trigger_tooltip = {
-            tooltip = contact_with_medivh_tt
-            
-            has_global_flag = contact_with_medivh
-        }
-        is_available_to_orc = yes
+        FROM = {
+			owns_or_vassal_of = 1586
+		}
 	}
 	on_built = {
-		
+		add_canal = gp_dark_portal_outland
 	}
 	on_destroyed = {
-		
+		remove_canal = gp_dark_portal_outland
 	}
     
     # Conditions
 	can_use_modifiers_trigger = {
-		OR = {
-            has_unlocked_adaptable_usage = yes
-            is_available_to_orc = yes
-        }
+		FROM = {
+			owns_or_vassal_of = 1586
+		}
 	}
 	can_upgrade_trigger = {
-		OR = {
-            has_unlocked_adaptable_usage = yes
-            is_available_to_orc = yes
-        }
+		FROM = {
+			owns_or_vassal_of = 1586
+		}
 	}
 	keep_trigger = { always = yes }
 
@@ -1337,7 +1332,7 @@ gp_dark_portal_outland = {
 			months = 32
 		}
 		cost_to_upgrade = {
-			factor = 300
+			factor = 1000
 		}
         province_modifiers = {
             
@@ -1354,7 +1349,7 @@ gp_dark_portal_outland = {
 			months = 64
 		}
 		cost_to_upgrade = {
-			factor = 500
+			factor = 2500
 		}
         province_modifiers = {
             
@@ -1371,7 +1366,7 @@ gp_dark_portal_outland = {
 			months = 120
 		}
 		cost_to_upgrade = {
-			factor = 1000
+			factor = 5000
 		}
         province_modifiers = {
             

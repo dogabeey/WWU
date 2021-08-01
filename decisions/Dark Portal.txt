@@ -153,4 +153,88 @@ country_decisions = {
 			factor = 1
 		}
 	}
+	
+	open_the_dark_portal = {
+		major = yes
+		potential = {   
+            owns = 1586
+			NOT = { has_global_flag = dark_portal_opened_flag }
+		}
+		allow =  {
+			owns = 1586
+		}
+		effect = {
+			1586 = {
+				add_canal = gp_dark_portal_outland 
+			}
+			set_global_flag = dark_portal_opened_flag
+			show_ambient_object = "dark_portal_ek"
+			show_ambient_object = "dark_portal_outland"
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	close_the_dark_portal = {
+		major = yes
+		potential = {   
+            owns = 2505
+			has_global_flag = dark_portal_opened_flag
+		}
+		allow =  {
+			owns = 2505
+		}
+		effect = {
+			2505 = {
+				remove_canal = gp_dark_portal_outland 
+			}
+			clr_global_flag = dark_portal_opened_flag
+			hide_ambient_object = "dark_portal_ek"
+			hide_ambient_object = "dark_portal_outland"
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	build_deeprun_tram = {
+		major = yes
+		potential = {   
+            owns = 2505
+			NOT = { has_global_flag = deeprun_tram_build_flag }
+		}
+		allow =  {
+			owns = 2505
+		}
+		effect = {
+			2505 = {
+				add_canal = gp_deeprun_tram_eastern_kingdoms 
+			}
+			set_global_flag = deeprun_tram_build_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	destroy_deeprun_tram = {
+		major = yes
+		potential = {   
+            owns = 2505
+			has_global_flag = deeprun_tram_build_flag
+		}
+		allow =  {
+			owns = 2505
+		}
+		effect = {
+			2505 = {
+				remove_canal = gp_deeprun_tram_eastern_kingdoms 
+			}
+			clr_global_flag = deeprun_tram_build_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }
