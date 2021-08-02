@@ -1,0 +1,732 @@
+#namespace = loa
+#
+## Add Low Influence when a loa is picked.
+#country_event = {
+#	id = loa.1
+#	title = e_l
+#	desc = e_l
+#	picture = TROLL_MASK_eventPicture
+#    hidden = yes
+#	
+#	trigger = {
+#		has_any_loa = yes
+#		NOT = { has_country_modifier = loa_low_influence }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1
+#	}
+#	
+#	option = {
+#		name = e_l
+#		
+#		add_country_modifier = {
+#			name = loa_low_influence
+#			duration = -1
+#		}
+#	}
+#}
+## Remove influences when a loa is removed.
+#country_event = {
+#	id = loa.2
+#	title = e_l
+#	desc = e_l
+#	picture = TROLL_MASK_eventPicture
+#    hidden = yes
+#    
+#	trigger = {
+#		NOT = { has_any_loa = yes }
+#		NOT = { has_country_flag = keep_old_loa } # Adding this will prevent current loa's influence to get removed.
+#		OR = { 
+#			has_country_modifier = loa_low_influence 
+#			has_country_modifier = loa_mid_influence 
+#			has_country_modifier = loa_high_influence 
+#		}
+#	}
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = e_l
+#		
+#		remove_country_modifier = loa_low_influence 
+#		remove_country_modifier = loa_mid_influence 
+#		remove_country_modifier = loa_high_influence 
+#	}
+#}
+## Notify influence increase
+#country_event = {
+#	id = loa.3
+#	title = loa.3.title
+#	desc = loa.3.desc
+#	picture = LOA_eventPicture
+#    
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = loa.3.opt1
+#		
+#	}
+#}
+## Notify influence decrease
+#country_event = {
+#	id = loa.4
+#	title = loa.4.title
+#	desc = loa.4.desc
+#	picture = LOA_eventPicture
+#    
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = loa.4.opt1
+#		
+#	}
+#}
+#
+#######################################
+## --------- Generic Events --------- #
+#######################################
+#
+## ------ Low Influence Events ------ #
+#country_event = {
+#	id = loa.10
+#	title = loa.10.title
+#	desc = loa.10.desc
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_low_influence
+#		any_owned_province = {
+#			NOT = { has_province_modifier = shrine_to_loa } 
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 360
+#	}
+#		
+#	option = {
+#		name = loa.10.opt1
+#		
+#		add_years_of_income = -0.5
+#		random_owned_province = {
+#			limit = { NOT = { has_province_modifier = shrine_to_loa } }
+#			add_permanent_province_modifier = {
+#				name = shrine_to_loa
+#				duration = 7300
+#			}
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	}
+#	option = {
+#		name = loa.10.opt2
+#		
+#		random_owned_province = {
+#			add_base_tax = 1
+#		}
+#	}
+#}
+#country_event = {
+#	id = loa.11
+#	title = loa.11.title
+#	desc = loa.11.desc
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_low_influence
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 360
+#	}
+#		
+#	option = {
+#		name = loa.11.opt1
+#		
+#		add_adm_power = 50
+#		add_mil_power = 50
+#		add_stability = -1
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	}
+#	option = {
+#		name = loa.11.opt2
+#		
+#		add_dip_power = -50
+#	}
+#}
+#country_event = {
+#	id = loa.12
+#	title = loa.12.title
+#	desc = loa.12.desc
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_low_influence
+#		check_variable = {
+#			which = loa_1
+#			value = 1
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 360
+#	}
+#		
+#	option = {
+#		name = loa.12.opt1
+#		
+#		import_loa_from_variable = {
+#			variable_name = loa_1
+#		}
+#		change_adm = 1
+#		change_dip = 1
+#		change_mil = 1
+#	}
+#	option = {
+#		name = loa.12.opt2
+#		
+#		add_prestige = 5
+#	}
+#	option = {
+#		name = loa.12.opt3
+#		
+#		add_prestige = 10
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	}
+#}
+#country_event = {
+#	id = loa.13
+#	title = loa.13.title
+#	desc = loa.13.desc
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_low_influence
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 360
+#	}
+#		
+#	option = {
+#		name = loa.13.opt1
+#		
+#		add_country_modifier = {
+#			name = empowered_adm
+#			duration = 3650
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	}
+#	option = {
+#		name = loa.13.opt2
+#		
+#		add_country_modifier = {
+#			name = empowered_dip
+#			duration = 3650
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	}
+#	option = {
+#		name = loa.13.opt3
+#		
+#		add_country_modifier = {
+#			name = empowered_mil
+#			duration = 3650
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	}
+#	option = {
+#		name = loa.13.opt4
+#		
+#		add_prestige = 5
+#	}
+#}
+#
+#country_event = {
+#	id = loa.14
+#	title = loa.14.title # War Between The Loa
+#	desc = loa.14.desc
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_low_influence
+#		check_variable = {
+#			which = loa_1
+#			value = 1
+#		}
+#		check_variable = {
+#			which = loa_2
+#			value = 1
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 480
+#	}
+#		
+#	option = {
+#		name = loa.14.opt1
+#		
+#		set_sacrifice_loa_flag_by_id1 = {
+#			loa_id = loa_1
+#		}
+#		random_list = {
+#			1 = { sacrifice_own_loa = yes }
+#			1 = { increase_influence = yes }
+#		}
+#	} 
+#	option = {
+#		name = loa.14.opt2
+#		
+#		set_sacrifice_loa_flag_by_id2 = {
+#			loa_id = loa_2
+#		}
+#		random_list = {
+#			1 = { sacrifice_own_loa = yes }
+#			1 = { increase_influence = yes }
+#		}
+#	}
+#	option = {
+#		name = loa.14.opt3
+#		
+#		random = { 
+#			chance = 80 
+#
+#			sacrifice_own_loa = yes
+#		}
+#	}
+#}
+#
+## ------ Mid Influence Events ------ #
+#
+#country_event = {
+#	id = loa.15
+#	title = loa.15.title # [event_target:prov_1.GetName]'s Devastation
+#	desc = loa.15.desc # A giant, wild animal who is blessed by [Root.GetDeity] upon your choice of following him; went berserk and devastating the area. Clearly your deity is very angry to you, probably because of you are not offering sacrifices to him for a long time. Regardless, something must be done about it.
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_mid_influence
+#	}
+#	
+#	immediate = {
+#		random_owned_province = {
+#			save_event_target_as = prov_1
+#			random_neighbor_province = {
+#				save_event_target_as = prov_2
+#			}
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 480
+#	}
+#		
+#	option = {
+#		name = loa.15.opt1
+#		
+#		add_years_of_income = 1.5
+#		event_target:prov_1 = {
+#			add_devastation = 10
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	} 
+#	option = {
+#		name = loa.15.opt2
+#		
+#		add_mil_power = -50
+#		event_target:prov_1 = {
+#			add_devastation = 30
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			decrease_influence = yes
+#		}
+#	}
+#	option = {
+#		name = loa.15.opt3
+#		
+#		event_target:prov_2 = {
+#			add_devastation = 40
+#		}
+#	}
+#}
+#
+#country_event = {
+#	id = loa.16
+#	title = loa.16.title # [Root.GetDeity] Devoteé
+#	desc = loa.16.desc # 
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_mid_influence
+#		has_advisor = yes
+#	}
+#	
+#	immediate = {
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 360
+#	}
+#		
+#	option = {
+#		name = loa.16.opt1
+#		
+#		trigger = { has_adm_advisor = yes }
+#		remove_advisor_by_category = ADM
+#		define_advisor = {
+#			type = treasurer
+#			skill = 2
+#			discount = yes
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	} 
+#	option = {
+#		name = loa.16.opt2
+#		
+#		trigger = { has_mil_advisor = yes }
+#		remove_advisor_by_category = MIL
+#		define_advisor = {
+#			type = army_organiser
+#			skill = 2
+#			discount = yes
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	} 
+#	option = {
+#		name = loa.16.opt3
+#		
+#		trigger = { has_dip_advisor = yes }
+#		remove_advisor_by_category = DIP
+#		define_advisor = {
+#			type = statesman
+#			skill = 2
+#			discount = yes
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	} 
+#	option = {
+#		name = loa.16.opt4
+#		
+#		add_prestige = -5
+#		random = { 
+#			chance = 20 
+#
+#			decrease_influence = yes
+#		}
+#	}
+#}
+#
+#country_event = {
+#	id = loa.17
+#	title = loa.17.title # Influence of The Other Loa
+#	desc = loa.17.desc # 
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_mid_influence
+#	}
+#	
+#	immediate = {
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 360
+#	}
+#		
+#	option = {
+#		name = loa.17.opt1
+#		
+#		add_ruler_modifier = {
+#			name = forbidden_other_loa
+#			duration = -1
+#		}
+#		random = { 
+#			chance = 33 
+#
+#			increase_influence = yes
+#		}
+#	} 
+#	option = {
+#		name = loa.17.opt2
+#		
+#		random_list = {
+#			1 = { decrease_influence = yes }
+#			1 = { add_country_modifier = { name = loa_is_angry duration = 1825 } }
+#			1 = { country_event = { id = loa.15 } }
+#		}
+#	}
+#	option = {
+#		name = loa.17.opt3
+#		
+#		add_dip_power = -60
+#	}
+#}
+#
+#country_event = {
+#	id = loa.18
+#	title = loa.18.title # Heretic Diplomat Family
+#	desc = loa.18.desc # 
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_mid_influence
+#		has_ruler_modifier = forbidden_other_loa
+#	}
+#	
+#	immediate = {
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 360
+#	}
+#		
+#	option = {
+#		name = loa.18.opt1
+#		
+#		add_stability = -1
+#		add_prestige = 10
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	}
+#	option = {
+#		name = loa.18.opt2
+#		
+#		add_prestige = 5
+#	}
+#	option = {
+#		name = loa.18.opt3
+#		
+#		random = { 
+#			chance = 30 
+#
+#			decrease_influence = yes
+#		}
+#	}
+#}
+#
+#country_event = {
+#	id = loa.19
+#	title = loa.19.title # A Plea For Heir
+#	desc = loa.19.desc # 
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_mid_influence
+#		has_ruler_modifier = forbidden_other_loa
+#		has_consort = yes
+#		has_heir = no
+#	}
+#	
+#	immediate = {
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 240
+#	}
+#		
+#	option = {
+#		name = loa.19.opt1
+#		
+#		define_heir = {
+#			age = 1
+#			claim = 85		
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			increase_influence = yes
+#		}
+#	}
+#	option = {
+#		name = loa.19.opt2
+#		
+#	}
+#}
+#
+## ------ High Influence Events ------ #
+#country_event = {
+#	id = loa.20
+#	title = loa.20.title # A Disaster Incoming
+#	desc = loa.20.desc # 
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_high_influence
+#	}
+#	
+#	immediate = {
+#		random_owned_province = {
+#			save_event_target_as = prov_1
+#			random_neighbor_province = {
+#				save_event_target_as = prov_2
+#				random_neighbor_province = {
+#					limit = { NOT = { province_id = event_target:prov_1 } }
+#					save_event_target_as = prov_3
+#				}
+#			}
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 360
+#	}
+#		
+#	option = {
+#		name = loa.20.opt1
+#		
+#		random_list = {
+#			1 = {
+#				event_target:prov_1 = {
+#					add_devastation = 50
+#					add_base_tax = -1
+#					add_base_production = -1
+#					add_base_manpower = -1
+#				}
+#			}
+#			1 = {
+#				event_target:prov_1 = {
+#					add_devastation = 50
+#					add_base_tax = -1
+#					add_base_production = -1
+#					add_base_manpower = -1
+#				}
+#				event_target:prov_2 = {
+#					add_devastation = 50
+#					add_base_tax = -1
+#					add_base_production = -1
+#					add_base_manpower = -1
+#				}
+#			}
+#			1 = {
+#				event_target:prov_1 = {
+#					add_devastation = 50
+#					add_base_tax = -1
+#					add_base_production = -1
+#					add_base_manpower = -1
+#				}
+#				event_target:prov_2 = {
+#					add_devastation = 50
+#					add_base_tax = -1
+#					add_base_production = -1
+#					add_base_manpower = -1
+#				}
+#				event_target:prov_3 = {
+#					add_devastation = 50
+#					add_base_tax = -1
+#					add_base_production = -1
+#					add_base_manpower = -1
+#				}
+#			}
+#		}
+#		random = { 
+#			chance = 20 
+#
+#			decrease_influence = yes
+#		}
+#	}
+#	option = {
+#		name = loa.20.opt2
+#		
+#		add_yearly_manpower = 0.25
+#	}
+#}
+#
+#country_event = {
+#	id = loa.21
+#	title = loa.21.title # Coup!
+#	desc = loa.21.desc # 
+#	picture = LOA_eventPicture
+#    
+#	trigger = {
+#		has_any_loa = yes
+#		has_country_modifier = loa_mid_influence
+#		has_ruler_modifier = forbidden_other_loa
+#		has_consort = yes
+#		has_heir = no
+#	}
+#	
+#	immediate = {
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 720
+#	}
+#		
+#	option = {
+#		name = loa.21.opt1
+#		
+#		kill_heir = yes
+#		define_loa_to_ruler = yes
+#	}
+#	option = {
+#		name = loa.21.opt2
+#		
+#		add_mil_power = -150
+#		random_list = {
+#			1 = {
+#				kill_heir = yes
+#				define_loa_to_ruler = yes
+#			}
+#			1 = {
+#				sacrifice_own_loa = yes
+#			}
+#		}
+#	}
+#}
