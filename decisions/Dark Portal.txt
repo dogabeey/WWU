@@ -156,42 +156,199 @@ country_decisions = {
 	
 	open_the_dark_portal = {
 		major = yes
-		potential = {   
-            owns = 1586
+		potential = {
+			OR = {
+				had_global_flag = {
+					flag = dark_portal_closed_firsttime
+				}
+				had_global_flag = {
+					flag = dark_portal_closed_flag
+					days = 18250
+				}
+			}
+			is_year = 600
+            religion = fel
 			NOT = { has_global_flag = dark_portal_opened_flag }
 		}
 		allow =  {
-			owns = 1586
+			is_year = 600
+			OR = {
+						owns = 1586
+                        owns = 1035
+				}
+            religion = fel
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
 		}
 		effect = {
 			1586 = {
 				add_canal = gp_dark_portal_outland 
 			}
 			set_global_flag = dark_portal_opened_flag
+			set_country_flag = dark_portal_builder
 			show_ambient_object = "dark_portal_ek"
 			show_ambient_object = "dark_portal_outland"
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			continent_outland = {
+				add_devastation = 25
+				}
+			region_blasted_lands = {
+				add_devastation = 25
+				}
+			clr_global_flag = dark_portal_closed_flag
+			clr_global_flag = dark_portal_closed_firsttime
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
 	
-	close_the_dark_portal = {
+	open_the_dark_portal_magic = {
 		major = yes
-		potential = {   
-            owns = 2505
-			has_global_flag = dark_portal_opened_flag
+		potential = {  
+			OR = {
+				had_global_flag = {
+					flag = dark_portal_closed_firsttime
+				}
+				had_global_flag = {
+					flag = dark_portal_closed_flag
+					days = 18250
+				}
+			}		
+			is_year = 600
+			OR = {
+                        religion = arcane
+						religion = light_of_the_naaru
+						religion_group = shadow_group
+				}
+			NOT = { has_global_flag = dark_portal_opened_flag }
 		}
 		allow =  {
-			owns = 2505
+			is_year = 600
+			OR = {
+						owns = 1586
+                        owns = 1035
+				}
+			OR = {
+                    AND = {
+						religion = arcane
+						patriarch_authority = 0.75
+					}	
+					AND = {
+						religion = light_of_the_naaru
+						harmony = 75
+					}
+					AND = {
+						religion_group = shadow_group
+						church_power = 75
+					}
+				}
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
 		}
 		effect = {
-			2505 = {
+			1586 = {
+				add_canal = gp_dark_portal_outland 
+			}
+			set_global_flag = dark_portal_opened_flag
+			set_country_flag = dark_portal_builder
+			show_ambient_object = "dark_portal_ek"
+			show_ambient_object = "dark_portal_outland"
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			add_harmony = -25
+			add_patriarch_authority = -0.25
+			add_church_power = -25
+			clr_global_flag = dark_portal_closed_flag
+			clr_global_flag = dark_portal_closed_firsttime
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	open_the_dark_portal_normal = {
+		major = yes
+		potential = {
+			OR = {
+				had_global_flag = {
+					flag = dark_portal_closed_firsttime
+				}
+				had_global_flag = {
+					flag = dark_portal_closed_flag
+					days = 18250
+				}
+			}
+			is_year = 600
+			NOT = {
+				religion = fel
+				religion = arcane
+				religion = light_of_the_naaru
+				religion_group = shadow_group
+			}
+			NOT = { has_global_flag = dark_portal_opened_flag }
+		}
+		allow =  {
+			is_year = 600
+			OR = {
+						owns = 1586
+                        owns = 1035
+				}
+			treasury = 2500
+			adm_power = 500
+			dip_power = 500
+			mil_power = 500
+		}
+		effect = {
+			1586 = {
+				add_canal = gp_dark_portal_outland 
+			}
+			set_global_flag = dark_portal_opened_flag
+			set_country_flag = dark_portal_builder
+			show_ambient_object = "dark_portal_ek"
+			show_ambient_object = "dark_portal_outland"
+			add_treasury = -2500
+			add_adm_power = -500
+			add_dip_power = -500
+			add_mil_power = -500
+			clr_global_flag = dark_portal_closed_flag
+			clr_global_flag = dark_portal_closed_firsttime
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	close_the_dark_portal = {
+		major = yes
+		potential = {
+			NOT = {
+				religion = fel
+				}
+			has_global_flag = dark_portal_opened_flag
+			NOT = { has_country_flag = dark_portal_builder }
+		}
+		allow =  {
+			controller = 1586
+			controller = 1035
+			NOT = {
+				religion = fel
+				}
+		}
+		effect = {
+			1586 = {
 				remove_canal = gp_dark_portal_outland 
 			}
 			clr_global_flag = dark_portal_opened_flag
 			hide_ambient_object = "dark_portal_ek"
 			hide_ambient_object = "dark_portal_outland"
+			set_global_flag = dark_portal_closed_flag
+			every_country = { limit = { has_country_flag = dark_portal_builder } clr_country_flag = dark_portal_builder }
 		}
 		ai_will_do = {
 			factor = 1

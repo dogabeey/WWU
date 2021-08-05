@@ -544,7 +544,7 @@ country_event = {
 	}
 	
     mean_time_to_happen = {
-		months = 12
+		months = 1
     }
     
 	option = {
@@ -565,8 +565,8 @@ country_event = {
     fire_only_once = yes
     
 	trigger = {
-        had_global_flag = { flag = the_dying_times days = 180 }
-        current_age = age_rise_of_the_horde
+        had_global_flag = { flag = the_dying_times days = 30 }
+		is_year = 591
         
 		OR = {
             tag = event_target:buring_legion_conduit_nation
@@ -577,7 +577,7 @@ country_event = {
 	}
 	
     mean_time_to_happen = {
-		months = 12
+		months = 1
     }
     
 	option = {
@@ -591,9 +591,25 @@ country_event = {
 			change_culture = culture_orc
 			change_religion = fel
         }
-        
+		
         custom_tooltip = may_now_build_dark_portal
     }
+	
+	effect = {
+			1586 = {
+				add_canal = gp_dark_portal_outland 
+			}
+			set_global_flag = dark_portal_opened_flag
+			show_ambient_object = "dark_portal_ek"
+			show_ambient_object = "dark_portal_outland"
+			continent_outland = {
+				add_devastation = 25
+				}
+			region_blasted_lands = {
+				add_devastation = 25
+				}
+	}
+	
 }
 
 # The Dark Portal
@@ -607,7 +623,6 @@ country_event = {
 	fire_only_once = yes
 	
     trigger = {
-		current_age = age_rise_of_the_horde
 		1586 = {
 			has_great_project = {
                 type = gp_dark_portal_outland
@@ -768,7 +783,6 @@ country_event = {
     fire_only_once = yes
     
 	trigger = {
-        current_age = age_rise_of_the_horde
         has_global_flag = blood_of_mannoroth
         NOT = { has_global_flag = the_dying_times }
         is_year = 605
