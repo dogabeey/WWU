@@ -25,10 +25,15 @@ on_startup = {
     unlock_initial_cults = yes
 	
 	if = {
+		
 		limit = { NOT = { has_global_flag = wwu_set_up_flag } }
-		1586 = { remove_canal = gp_dark_portal_outland }
 		2505 = { remove_canal = gp_deeprun_tram_eastern_kingdoms }
 		set_global_flag = wwu_set_up_flag
+		if = {
+			limit = {is_year = 600}
+			1586 = { remove_canal = gp_dark_portal_outland }
+			set_global_flag = dark_portal_closed_firsttime
+		}
 	}
 }
 

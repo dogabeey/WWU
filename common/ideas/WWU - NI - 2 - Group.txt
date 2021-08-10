@@ -241,7 +241,11 @@ scourge_ideas = {
 	free = yes		
 	
 	trigger = {
-		primary_culture = culture_scourge
+		OR = {
+			primary_culture = culture_scourge
+			primary_culture = culture_death_knight
+			tag = DDL
+		}
 	}
 	
 	start = {
@@ -836,7 +840,10 @@ ogre_ideas = {
 	}
 	
 	trigger = {
-		culture_group = culture_group_ogre
+		OR = {
+			culture_group = culture_group_ogre
+			culture_group = culture_group_twilight
+		}
 	}
 	free = yes		
 	
@@ -1985,6 +1992,10 @@ demonic_ideas = {
         global_manpower_modifier = 0.5
 		tolerance_heathen = -10
 		tolerance_heretic = -10
+	}
+	
+	trigger = {
+			culture_group = culture_group_demonic
 	}
 
 	bonus = {
