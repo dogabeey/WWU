@@ -281,7 +281,7 @@ country_event = {
         current_age = age_orcish_horde
         
         area_stormwind = {
-			owner = {
+			controller = {
 				culture_group = culture_group_orc
 			}
         }
@@ -298,10 +298,16 @@ country_event = {
 		every_country = {
 			limit = {
 				has_country_modifier = first_war_orc
+				NOT = {
+					has_country_modifier = tfw_orc_victory
+				}
+				NOT = {has_global_flag = first_war_over
+				}
 			}
 			add_country_modifier = {
 				name = tfw_orc_victory
 				duration = 3650
+			set_global_flag = first_war_over
 			}
 		}
     }
@@ -325,8 +331,10 @@ country_event = {
         current_age = age_orcish_horde
         
         1035 = {
-			owner = {
-				culture_group = culture_group_human
+			controller = {
+				OR = {
+					culture_group = culture_group_human
+					religion = holy_light
 			}
         }
 		

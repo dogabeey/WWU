@@ -78,7 +78,9 @@ country_decisions = {
 			factor = 1
 		}
 	}
-    
+}
+
+country_decisions = {     
     expand_foothold_in_azeroth = {
 		potential = {
 		    any_owned_province = {
@@ -120,7 +122,9 @@ country_decisions = {
 			factor = 1
 		}
 	}
-    
+}
+
+country_decisions = { 
     establish_foothold_in_outland = {
 		major = yes
 		potential = {   
@@ -153,7 +157,9 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	
+}
+
+country_decisions = { 
 	open_the_dark_portal = {
 		major = yes
 		potential = {
@@ -200,12 +206,26 @@ country_decisions = {
 				}
 			clr_global_flag = dark_portal_closed_flag
 			clr_global_flag = dark_portal_closed_firsttime
+			1586 = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
+			1035 = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
+}
+
+country_decisions = { 	
 	open_the_dark_portal_magic = {
 		major = yes
 		potential = {  
@@ -266,12 +286,26 @@ country_decisions = {
 			add_church_power = -25
 			clr_global_flag = dark_portal_closed_flag
 			clr_global_flag = dark_portal_closed_firsttime
+			1586 = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
+			1035 = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
+}
 
+country_decisions = { 
 	open_the_dark_portal_normal = {
 		major = yes
 		potential = {
@@ -318,12 +352,48 @@ country_decisions = {
 			add_mil_power = -500
 			clr_global_flag = dark_portal_closed_flag
 			clr_global_flag = dark_portal_closed_firsttime
+			1586 = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
+			1035 = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
+}
 
+country_decisions = { 
+	secure_the_dark_portal = {
+		major = yes
+		potential = {
+			NOT = { owns = 1035 }
+			NOT = { controls = 1586 }
+			controls = 1035
+		}
+		allow = {
+			NOT = { owns = 1035 }
+			NOT = { controls = 1586 }
+			controls = 1035
+		}
+		effect = {
+			1586 = { change_controller = ROOT }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}			
+
+country_decisions = { 
 	close_the_dark_portal = {
 		major = yes
 		potential = {
@@ -348,21 +418,109 @@ country_decisions = {
 			hide_ambient_object = "dark_portal_ek"
 			hide_ambient_object = "dark_portal_outland"
 			set_global_flag = dark_portal_closed_flag
+			if = {
+				limit = {
+					NOT = { has_global_flag = dark_portal_closed_firsttime }
+				}
+				custom_tooltip = dark_portal_closed_sons_tt 
+			}
+			hidden_effect = {			
+				if = {
+					limit = {
+						NOT = { exists = SOL }
+						NOT = { has_global_flag = sonsoflothar }
+						religion = holy_light
+					}
+					1590 = {
+						cede_province = SOL
+						set_base_tax = 7
+						set_base_production = 7
+						set_base_manpower = 11
+						set_building = wow_fort_3
+						change_religion = holy_light
+						change_culture = culture_azerothian
+					}
+					1708 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						change_religion = holy_light
+						change_culture = culture_dalaran
+					}
+					1664 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						set_building = wow_fort_1
+						change_religion = holy_light
+						change_culture = culture_wildhammer
+					}
+					1646 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						change_religion = holy_light
+						change_culture = culture_high_elf
+					}
+					1589 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						set_building = wow_fort_1
+						change_religion = holy_light
+						change_culture = culture_arathi
+					}
+					set_global_flag = sonsoflothar
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = khadgar }
+				}
+				SOL = {
+					define_ruler = {
+						name = "Khadgar" 
+						dynasty = "of Kul Tiras" 
+						adm = 6
+						dip = 6
+						mil = 6 
+						age = 30
+						claim = 100
+					}
+					set_ruler_personality = mage
+                }
+				STW = {
+					create_subject = {
+						subject_type = faction_alliance
+						subject = SOL
+					}
+				}
+				set_global_flag = khadgar
+			}
 			every_country = { limit = { has_country_flag = dark_portal_builder } clr_country_flag = dark_portal_builder }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
+}
+
+country_decisions = { 
 	build_deeprun_tram = {
 		major = yes
 		potential = {   
             owns = 2505
 			NOT = { has_global_flag = deeprun_tram_build_flag }
+			NOT = { tag = B92 }
 		}
 		allow =  {
 			owns = 2505
+			NOT = { has_global_flag = deeprun_tram_build_flag }
+			NOT = { tag = B92 }
 		}
 		effect = {
 			2505 = {
@@ -374,15 +532,20 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	
+}
+
+country_decisions = { 
 	destroy_deeprun_tram = {
 		major = yes
 		potential = {   
             owns = 2505
+			tag = B92
 			has_global_flag = deeprun_tram_build_flag
 		}
 		allow =  {
 			owns = 2505
+			tag = B92
+			has_global_flag = deeprun_tram_build_flag
 		}
 		effect = {
 			2505 = {

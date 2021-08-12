@@ -1,0 +1,49 @@
+living_vassals_of_the_scourge = {
+    potential = {
+        vassal_of = P11
+		NOT = { has_reform = scourge_domain_reform }
+		NOT = { culture_group = culture_group_scourge }
+		NOT = { culture_group = culture_group_undead }
+		NOT = { culture = culture_cultist }
+		NOT = { culture_group = culture_group_nerubian }
+		NOT = { culture_group = culture_group_crypt_fiend }
+		NOT = { culture_group = culture_group_vrykul }
+    }
+    
+	trigger = {
+		vassal_of = P11
+		NOT = { culture_group = culture_group_scourge }
+		NOT = { culture_group = culture_group_undead }
+		NOT = { culture = culture_cultist }
+		NOT = { culture_group = culture_group_nerubian }
+		NOT = { culture_group = culture_group_crypt_fiend }
+		NOT = { culture_group = culture_group_vrykul }
+    }
+    
+    global_missionary_strength = -5
+	culture_conversion_cost = 500
+	liberty_desire = 3000
+	global_unrest = 10
+}
+
+rebellious_living_vassals = {
+    potential = {
+        tag = P11
+		any_subject_country = {
+				has_country_modifier = living_vassals_of_the_scourge
+			}
+    }
+    
+	trigger = {
+		tag = P11
+		any_subject_country = {
+				has_country_modifier = living_vassals_of_the_scourge
+			}
+	}
+    
+    global_missionary_strength = -5
+	culture_conversion_cost = 500
+	global_unrest = 10
+	yearly_absolutism = -2
+	legitimacy = -2
+}

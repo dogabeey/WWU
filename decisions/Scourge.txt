@@ -26,3 +26,453 @@ country_decisions = {
         }
     }
 }
+
+country_decisions = {
+	indoctrinate_vassal = {
+		major = yes
+		
+		potential = {
+			tag = P11
+			any_subject_country = {
+				NOT = { all_owned_province = { religion = cult_of_the_damned } }
+				NOT = { culture_group = culture_group_scourge }
+				NOT = { culture_group = culture_group_undead }
+				NOT = { culture = culture_cultist }
+				NOT = { culture_group = culture_group_nerubian }
+				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_vrykul }
+				NOT = { has_country_flag = indoctrinated }
+			}
+		}
+		allow = {
+			tag = P11
+			any_subject_country = {
+				NOT = { all_owned_province = { religion = cult_of_the_damned } }
+				NOT = { culture_group = culture_group_scourge }
+				NOT = { culture_group = culture_group_undead }
+				NOT = { culture = culture_cultist }
+				NOT = { culture_group = culture_group_nerubian }
+				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_vrykul }
+				NOT = { has_country_flag = indoctrinated }
+			}
+		}
+		effect = {
+			every_subject_country = {
+				limit = {
+					NOT = { culture_group = culture_group_scourge }
+					NOT = { culture_group = culture_group_undead }
+					NOT = { culture = culture_cultist }
+					NOT = { culture_group = culture_group_nerubian }
+					NOT = { culture_group = culture_group_crypt_fiend }
+					NOT = { culture_group = culture_group_vrykul }
+					NOT = { has_country_flag = indoctrinated }
+				}
+				change_religion = cult_of_the_damned
+				set_ruler_religion = cult_of_the_damned
+				set_heir_religion = cult_of_the_damned
+				set_country_flag = indoctrinated
+				capital_scope = {
+					change_religion = cult_of_the_damned
+				}
+				add_stability = -2
+				add_country_modifier = {
+					name = is_evil
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+country_decisions = {
+	prepare_the_granaries_vassal = {
+		major = yes
+		
+		potential = {
+			any_subject_country = {
+				NOT = { all_owned_province = { religion = cult_of_the_damned } }
+				NOT = { culture_group = culture_group_scourge }
+				NOT = { culture_group = culture_group_undead }
+				NOT = { culture = culture_cultist }
+				NOT = { culture_group = culture_group_nerubian }
+				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_vrykul }
+				NOT = { has_country_flag = granariesbuilt }
+				has_country_flag = indoctrinated
+			}
+		}
+		allow = {
+			any_subject_country = {
+				NOT = { all_owned_province = { religion = cult_of_the_damned } }
+				NOT = { culture_group = culture_group_scourge }
+				NOT = { culture_group = culture_group_undead }
+				NOT = { culture = culture_cultist }
+				NOT = { culture_group = culture_group_nerubian }
+				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_vrykul }
+				NOT = { has_country_flag = granariesbuilt }
+				has_country_flag = indoctrinated
+			}
+		}
+		effect = {
+			every_subject_country = {
+				limit = {
+					NOT = { culture_group = culture_group_scourge }
+					NOT = { culture_group = culture_group_undead }
+					NOT = { culture = culture_cultist }
+					NOT = { culture_group = culture_group_nerubian }
+					NOT = { culture_group = culture_group_crypt_fiend }
+					NOT = { culture_group = culture_group_vrykul }
+					NOT = { has_country_flag = granariesbuilt }
+					has_country_flag = indoctrinated
+				}
+				
+				set_country_flag = granariesbuilt
+				
+				if = {
+					limit = {
+							grain_silo = 1
+						}
+					add_accepted_culture = culture_cultist
+					every_owned_province = {
+						limit = {
+							trade_goods = grain_silo
+						}
+						change_religion = cult_of_the_damned
+						change_culture = culture_cultist
+						add_base_tax = -2
+						add_base_manpower = -2
+						add_base_production = 10
+						add_local_autonomy = 25
+					}
+				}
+				else_if = {
+					limit = {
+							NOT = { grain_silo = 1 }
+							grain = 1
+						}
+					add_accepted_culture = culture_cultist
+					random_owned_province = {
+						limit = {
+							trade_goods = grain
+						}
+						change_trade_goods = grain_silo
+						change_religion = cult_of_the_damned
+						change_culture = culture_cultist
+						add_base_tax = -2
+						add_base_manpower = -2
+						add_base_production = 10
+						add_local_autonomy = 25
+					}
+				}
+				else = {
+					add_accepted_culture = culture_cultist
+					random_owned_province = {
+						limit = {
+							NOT { is_capital = yes }
+						}
+						change_trade_goods = grain_silo
+						change_religion = cult_of_the_damned
+						change_culture = culture_cultist
+						add_base_tax = -2
+						add_base_manpower = -2
+						add_base_production = 10
+						add_local_autonomy = 25
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+country_decisions = {
+	spread_scourge_infection_vassal = {
+		major = yes
+		
+		potential = {
+			any_subject_country = {
+				NOT = { culture_group = culture_group_scourge }
+				NOT = { culture_group = culture_group_undead }
+				NOT = { culture = culture_cultist }
+				NOT = { culture_group = culture_group_nerubian }
+				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_vrykul }
+				NOT = { has_country_flag = scourgeinfection }
+				has_country_flag = granariesbuilt
+			}
+		}
+		allow = {
+			any_subject_country = { 
+				NOT = { culture_group = culture_group_scourge }
+				NOT = { culture_group = culture_group_undead }
+				NOT = { culture = culture_cultist }
+				NOT = { culture_group = culture_group_nerubian }
+				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_vrykul }
+				NOT = { has_country_flag = scourgeinfection }
+				has_country_flag = granariesbuilt
+			}
+		}
+		effect = {
+			every_subject_country = {
+				limit = {
+					NOT = { culture_group = culture_group_scourge }
+					NOT = { culture_group = culture_group_undead }
+					NOT = { culture = culture_cultist }
+					NOT = { culture_group = culture_group_nerubian }
+					NOT = { culture_group = culture_group_crypt_fiend }
+					NOT = { culture_group = culture_group_vrykul }
+					NOT = { has_country_flag = scourgeinfection }
+					has_country_flag = granariesbuilt
+				}
+				add_accepted_culture = culture_scourge
+				set_country_flag = scourgeinfection
+				capital_scope = {
+					change_religion = cult_of_the_damned
+					change_culture = culture_scourge
+					add_devastation = 50
+					add_base_tax = -2
+					add_base_production = -2
+					add_base_manpower = -6
+				}
+				custom_tooltip = scourge_infection_tt
+				hidden_effect = {
+					every_owned_province = {
+						limit = {
+							trade_goods = grain
+						}
+						change_religion = cult_of_the_damned
+						change_culture = culture_scourge
+						add_devastation = 50
+						add_base_tax = -1
+						add_base_production = -1
+						add_base_manpower = -2
+					}
+					random_owned_province= {
+						limit {
+							NOT = { culture = culture_cultist }
+						}
+						change_religion = cult_of_the_damned
+						change_culture = culture_scourge
+						add_devastation = 50
+						add_base_tax = -1
+						add_base_production = -1
+						add_base_manpower = -2
+					}
+					random_owned_province = {
+						limit {
+							NOT = { culture = culture_cultist }
+						}
+						change_religion = cult_of_the_damned
+						change_culture = culture_scourge
+						add_devastation = 50
+						add_base_tax = -1
+						add_base_production = -1
+						add_base_manpower = -2
+					}
+					random_owned_province= {
+						limit {
+							NOT = { culture = culture_cultist }
+						}
+						change_religion = cult_of_the_damned
+						change_culture = culture_scourge
+						add_devastation = 50
+						add_base_tax = -1
+						add_base_production = -1
+						add_base_manpower = -2
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+country_decisions = {
+	rise_of_death_knights_vassal = {
+		major = yes
+		
+		potential = {
+			stability = 1
+			OR = {
+				any_subject_country = {
+					NOT = { has_country_flag = deathknightsarise }
+					has_country_flag = scourgeinfection
+				}
+			}
+		}
+		allow = {
+			stability = 1
+		}
+		effect = {
+			every_subject_country = {
+				limit = {
+					NOT = { has_country_flag = deathknightsarise }
+					has_country_flag = scourgeinfection
+				}
+				change_primary_culture = culture_death_knight
+				change_government = monarchy
+				add_government_reform = scourge_domain_reform
+				hidden_effect = {
+					remove_ruler_personality = warrior_personality
+					remove_ruler_personality = rogue_personality
+					remove_ruler_personality = paladin_personality
+					remove_ruler_personality = priest_personality
+					remove_ruler_personality = hunter_personality
+					remove_ruler_personality = mage_personality
+					remove_ruler_personality = warlock_personality
+					remove_ruler_personality = druid_personality
+					remove_ruler_personality = shaman_personality
+					remove_ruler_personality = warrior_personality
+					remove_ruler_personality = monk_personality
+					remove_ruler_personality = demon_hunter_personality
+				}
+				hidden_effect = {
+					remove_heir_personality = warrior_personality
+					remove_heir_personality = rogue_personality
+					remove_heir_personality = paladin_personality
+					remove_heir_personality = priest_personality
+					remove_heir_personality = hunter_personality
+					remove_heir_personality = mage_personality
+					remove_heir_personality = warlock_personality
+					remove_heir_personality = druid_personality
+					remove_heir_personality = shaman_personality
+					remove_heir_personality = warrior_personality
+					remove_heir_personality = monk_personality
+					remove_heir_personality = demon_hunter_personality
+				}
+				set_ruler_culture = culture_death_knight
+				add_ruler_personality = death_knight_personality
+				set_heir_culture = culture_death_knight
+				add_heir_personality = death_knight_personality
+				set_country_flag = deathknightsarise
+				add_stability = 3
+				capital_scope = {
+					change_culture = culture_death_knight
+					add_devastation = -25
+					add_base_tax = 3
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+country_decisions = {
+	animate_the_dead_vassal = {
+		major = yes
+		
+		potential = {
+			OR = {
+				any_subject_country = {
+					NOT = { has_country_flag = animatedthedead }
+					has_country_flag = deathknightsarise
+				}
+			}
+		}
+		allow = {
+			OR = {
+				any_subject_country = {
+					NOT = { has_country_flag = animatedthedead }
+					has_country_flag = deathknightsarise
+				}
+			}
+		}
+		effect = {
+			every_subject_country = {
+				limit = {
+					NOT = { has_country_flag = animatedthedead }
+					has_country_flag = deathknightsarise
+				}
+				set_country_flag = animatedthedead
+				capital_scope = {
+					add_devastation = -25
+					add_base_production = 4
+					add_base_manpower = 6
+				}
+				custom_tooltip = reanimated_scourge_tt
+				hidden_effect = {
+					every_owned_province = {
+						limit = {
+							culture_group = culture_group_scourge
+						}
+						add_devastation = -25
+						add_base_tax = 2
+						add_base_production = 2
+						add_base_manpower = 3
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+country_decisions = {
+	hunt_down_remainder_vassal = {
+		major = yes
+		
+		potential = {
+			OR = {
+				any_subject_country = {
+					NOT = { has_country_flag = huntedremainder }
+					has_country_flag = animatedthedead
+				}
+			}
+		}
+		allow = {
+			OR = {
+				any_subject_country = {
+					NOT = { has_country_flag = huntedremainder }
+					has_country_flag = animatedthedead
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = hunted_remainder_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						NOT = { has_country_flag = huntedremainder }
+						has_country_flag = animatedthedead
+					}
+					set_country_flag = huntedremainder
+					every_owned_province = {
+						limit = {
+							NOT = { culture_group = culture_group_scourge }
+							NOT = { culture_group = culture_group_undead }
+							NOT = { culture = culture_cultist }
+							NOT = { culture_group = culture_group_nerubian }
+							NOT = { culture_group = culture_group_crypt_fiend }
+							NOT = { culture_group = culture_group_vrykul }
+						}
+						change_culture = culture_scourge
+						change_religion = cult_of_the_damned
+						add_devastation = 25
+						add_base_tax = -1
+						add_base_production = -1
+						add_base_manpower = 3
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+

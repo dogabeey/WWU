@@ -11,12 +11,13 @@ country_event = {
     
 	trigger = {
         ai = no
-		current_age = age_scourge
+		is_year = 605
+		NOT = { is_year = 618 }
 		NOT = { has_global_flag = nerzhul_arrived }
 	}
 	
 	mean_time_to_happen = { 
-        months = 12 
+        months = 1 
     }
     
 	immediate = {
@@ -34,39 +35,37 @@ country_event = {
                 }
                 
                 # Icecrown Citadel
+                1268 = {
+					cede_province = P11
+					set_base_tax = 10
+                    set_base_production = 10
+                    set_base_manpower = 10
+                    set_building = wow_fort_3
+					change_religion = cult_of_the_damned
+                    change_culture = culture_scourge
+					change_trade_good = saronite
+                }
                 1267 = {
-                    add_base_tax = 4
-                    add_base_manpower = 4
-                    add_base_production = 4
-                    add_building = wow_fort_3
-                }
-                region_icecrown = {
-                    add_core = P11
-                }
-                area_icecrown_interior = {
                     cede_province = P11
+					set_base_tax = 3
+                    set_base_production = 3
+                    set_base_manpower = 4
                     change_religion = cult_of_the_damned
                     change_culture = culture_scourge
+					change_trade_good = saronite
                 }
-                area_aldurthar = {
-                    cede_province = P11
-                    change_religion = cult_of_the_damned
-                    change_culture = culture_scourge
-                }
-                area_the_conflagration = {
-                    cede_province = P11
-                    change_religion = cult_of_the_damned
-                    change_culture = culture_scourge
-                }
-                
-                
-                if = {
-                    limit = {
-                        has_country_flag = exiled_nerzhul_flag
-                    }
-                    P11 = {
-                        set_ruler = exiled_nerzhul
-                    }
+                P11 = {
+					define_ruler = {
+						name = "Ner'zhul"
+						dynasty = "Shadowmoon" 	
+						adm = 6
+						dip = 6	
+						mil = 6	
+						age = 80
+						claim = 100
+					}
+					set_ruler_personality = immortal_personality
+					set_ruler_personality = warlock
                 }
             }
         }

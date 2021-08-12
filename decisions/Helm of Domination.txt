@@ -1,0 +1,153 @@
+country_decisions = {
+	
+	helm_of_domination = {
+		major = yes
+		
+		potential = {
+			NOT = { has_country_modifier = kings_grasp }
+			NOT = { has_global_flag = destroyedhelmflag }
+			owns = 1268
+		}
+		
+		allow = {
+			owns = 1268
+		}
+		
+		effect = {
+			hidden_effect = {
+				every_country = {
+					remove_country_modifier = kings_grasp
+				}
+			}
+			add_country_modifier = { 
+				name = kings_grasp 
+				duration = -1
+			}
+			hidden_effect = { 
+				capital_scope = { 
+					change_religion = cult_of_the_damned
+					change_culture = culture_scourge
+				}
+			}
+			set_capital = 1268
+			change_primary_culture = culture_scourge
+			change_religion = cult_of_the_damned
+			change_technology_group = tech_scourge
+			change_unit_type = tech_scourge
+			inherit = P11
+			change_tag = P11
+			change_government = monarchy
+			add_government_reform = scourge_reform
+			swap_free_idea_group = yes
+			add_accepted_culture = culture_death_knight
+			add_accepted_culture = culture_crypt_fiend
+			add_accepted_culture = culture_cultist
+			add_accepted_culture = culture_forsaken
+			add_accepted_culture = culture_undead_human
+			add_accepted_culture = culture_undead_gnoll
+			add_accepted_culture = culture_undead_troll
+			IF = {
+				limit = {
+					exists = P12
+				}
+				vassalize = P12
+			}
+			IF = {
+				limit = {
+					exists = P52
+				}
+				vassalize = P52
+			}
+			IF = {
+				limit = {
+					exists = F21
+				}
+				vassalize = F21
+			}
+		}
+			
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+country_decisions = {
+	
+	destroy_the_helm = {
+		major = yes
+		
+		potential = {
+			NOT = { has_country_modifier = kings_grasp }
+			NOT = { has_global_flag = destroyed_helm_flag }
+			owns = 1268
+		}
+		
+		allow = {
+			owns = 1268
+		}
+		
+		effect = {
+			hidden_effect = {
+				every_country = {
+					remove_country_modifier = kings_grasp
+				}
+			}
+			add_country_modifier = { 
+				name = destroyed_helm
+				duration = -1
+			}
+			hidden_effect = {
+				every_country = {
+					limit = {
+						religion = cult_of_the_damned
+					}
+					change_religion = forgotten_shadow
+					change_culture = culture_forsaken
+				}
+				every_country = {
+					limit = {
+						culture = culture_scourge
+					}
+					change_religion = forgotten_shadow
+					change_culture = culture_forsaken
+				}
+				every_country = {
+					every_owned_province = {
+						limit = {
+							religion = cult_of_the_damned
+						}
+						change_religion = forgotten_shadow
+					}
+				}
+				every_country = {
+					every_owned_province = {
+						limit = {
+							OR = {
+								culture = culture_scourge
+								culture = culture_cultist
+							}
+						}
+						change_culture = culture_forsaken
+					}
+				}
+				every_country = {
+					limit = {
+						OR = {
+							tag = P11
+							vassal_of = P11
+						}
+					}
+					release_all_subjects = yes
+				}
+				set_global_flag = destroyed_helm_flag
+			}
+		}
+			
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+			
+			
