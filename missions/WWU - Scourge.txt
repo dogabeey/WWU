@@ -1,0 +1,551 @@
+wwu_scourge_column_4 = { 
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = P11
+	} 
+    
+	wwu_stabilize_the_frozen_throne = { 
+		icon = mission_frozen_throne
+        
+		required_missions = {  } 
+        
+		trigger = {
+            stability = 2
+			legitimacy = 100
+			adm_power = 50
+			dip_power = 50
+			mil_power = 100
+			is_at_war = no
+		}
+		provinces_to_highlight = {
+            owned_by = P11
+        }
+		effect = { 
+			add_adm_power = -50
+			add_dip_power = -50
+			add_mil_power = -100
+			1268 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 3
+				add_building = wow_farm
+			}
+			area_icecrown_citadel = {
+				add_permanent_claim = P11
+			}
+		}
+	}
+	wwu_establish_the_liche_priests = { 
+		icon = mission_necropolis
+        
+		required_missions = { wwu_stabilize_the_frozen_throne } 
+        
+		trigger = {
+			1268 = {
+				has_building = wow_temple
+			}
+		}
+		provinces_to_highlight = {
+            owned_by = P11
+        }
+		effect = { 
+			1268 = {
+				add_base_tax = 2
+			}
+			add_church_power = 50
+			add_prestige = 20
+		}
+	}
+	wwu_construct_the_corprethar = { 
+		icon = mission_barracks
+        
+		required_missions = { wwu_establish_the_liche_priests } 
+        
+		trigger = {
+            1267 = {
+				has_building = wow_fort_1
+			}
+			mil_power = 100
+		}
+		provinces_to_highlight = {
+            province_id = 1267 
+        }
+		effect = {  
+			1267 = {
+				add_mil_power = -100
+				add_base_manpower = 4
+				add_building = wow_arsenal
+				add_building = wow_barracks
+			}
+		}
+	}
+	wwu_secure_the_citadel = { 
+		icon = mission_frozen_throne
+        		
+		required_missions = { wwu_construct_the_corprethar } 
+        
+		trigger = {
+			owns_all_provinces = {
+				area = area_icecrown_interior
+			}
+		}
+		provinces_to_highlight = {
+            area = area_icecrown_interior
+        }
+		effect = {
+			area_the_conflagration = {
+				add_permanent_claim = P11
+			}
+			area_aldurthar = {
+				add_permanent_claim = P11
+			}
+		}
+	}
+	wwu_construct_the_fleshwerks = { 
+		icon = mission_bones
+        		
+		required_missions = { wwu_secure_the_citadel } 
+        
+		trigger = {
+			726 = {
+				owned_by = P11
+			}
+			adm_power = 50
+			dip_power = 50
+			mil_power = 100
+			church_power = 25
+		}
+		provinces_to_highlight = {
+            province_id = 726
+        }
+		effect = {
+			add_adm_power = -50
+			add_dip_power = -50
+			add_mil_power = -100
+			add_church_power = -25
+			726 = {
+				add_base_production = 8
+				add_building = wow_manufactory
+				change_trade_goods = warbeasts
+			}
+		}
+	}
+	wwu_advance_the_front = { 
+		icon = mission_sparring_equipment
+        
+		required_missions = { wwu_construct_the_fleshwerks } 
+        
+		trigger = {
+            2375 = {
+				owned_by = P11
+			}
+		}
+		provinces_to_highlight = {
+            province_id = 2375 
+        }
+		effect = {  
+			area_north_valley_of_lost_hope = {
+				add_permanent_claim = P11
+			}
+			area_south_valley_of_lost_hope = {
+				add_permanent_claim = P11
+			}
+			area_the_broken_front = {
+				add_permanent_claim = P11
+			}
+		}
+	}
+	wwu_construct_the_shadow_vault = { 
+		icon = mission_necropolis
+        		
+		required_missions = { wwu_advance_to_aldurthar } 
+        
+		trigger = {
+			1269 = {
+				owned_by = P11
+			}
+			adm_power = 100
+			dip_power = 100
+			mil_power = 150
+			church_power = 25
+		}
+		provinces_to_highlight = {
+            province_id = 1269
+        }
+		effect = {
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -150
+			add_church_power = -25
+			1269 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 6
+				add_building = wow_arsenal
+				add_building = wow_barracks
+				add_building = wow_temple
+				change_trade_goods = mounts
+				change_culture = culture_death_knight
+				change_religion = cult_of_the_damned
+			}
+		}
+	}
+	wwu_construct_the_aldurthar = { 
+		icon = mission_barracks
+        
+		required_missions = { wwu_construct_the_shadow_vault } 
+        
+		trigger = {
+            2375 = {
+				has_building = wow_fort_1
+			}
+			mil_power = 100
+		}
+		provinces_to_highlight = {
+            province_id = 2375 
+        }
+		effect = { 
+			add_mil_power = -100
+			2375 = {
+				add_base_manpower = 4
+				add_building = wow_arsenal
+				add_building = wow_barracks
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+		}
+	}
+	wwu_subjugate_sindragosa = { 
+		icon = mission_barracks
+        
+		required_missions = { wwu_construct_the_aldurthar } 
+        
+		trigger = {
+            2375 = {
+				has_building = wow_fort_1
+			}
+			mil_power = 100
+		}
+		provinces_to_highlight = {
+            province_id = 2375 
+        }
+		effect = { 
+			add_mil_power = -100
+			2375 = {
+				add_base_manpower = 4
+				add_building = wow_arsenal
+				add_building = wow_barracks
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+		}
+	}
+}
+
+wwu_scourge_column_5 = { 
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = P11
+	}
+	
+	wwu_infiltrate_dragonflayer = { 
+		icon = mission_masquerade
+        
+		required_missions = {  } 
+        
+		trigger = {
+            has_spy_network_in = {
+				who = B08
+				value = 25
+			}
+			church_power = 5
+		}
+		provinces_to_highlight = {
+            owned_by = B08
+        }
+		effect = {  
+			every_known_country = {
+				limit = {
+					tag = B08
+				}
+				set_ruler_religion = cult_of_the_damned
+				set_heir_religion = cult_of_the_damned
+				capital_scope = {
+					change_religion = cult_of_the_damned
+				}
+			}
+		}
+	}
+	wwu_corrupt_dragonflayer = { 
+		icon = mission_white_essence
+        
+		required_missions = { wwu_infiltrate_dragonflayer } 
+        
+		trigger = {
+			P17 = {
+				has_opinion = {
+					who = P11
+					value = 100
+				}
+			}
+			church_power = 10
+		}
+		provinces_to_highlight = {
+            owned_by = B08
+        }
+		effect = {  
+			every_known_country = {
+				limit = {
+					tag = B08
+				}
+				change_religion = cult_of_the_damned
+				hidden_effect = {
+					random_owned_province = {
+						change_religion = cult_of_the_damned
+					}
+					random_owned_province = {
+						change_religion = cult_of_the_damned
+					}
+				}
+				add_church_power = -5
+			}
+		}
+	}
+	wwu_infiltrate_jotunheim = { 
+		icon = mission_masquerade
+        
+		required_missions = {  } 
+        
+		trigger = {
+            has_spy_network_in = {
+				who = P17
+				value = 25
+			}
+			church_power = 5
+		}
+		provinces_to_highlight = {
+            owned_by = P17
+        }
+		effect = {  
+			every_known_country = {
+				limit = {
+					tag = P17
+				}
+				set_ruler_religion = cult_of_the_damned
+				set_heir_religion = cult_of_the_damned
+				capital_scope = {
+					change_religion = cult_of_the_damned
+				}
+			}
+		}
+	}
+	wwu_corrupt_jotunheim = { 
+		icon = mission_white_essence
+        
+		required_missions = { wwu_infiltrate_jotunheim } 
+        
+		trigger = {
+			P17 = {
+				has_opinion = {
+					who = P11
+					value = 100
+				}
+			}
+			church_power = 10
+		}
+		provinces_to_highlight = {
+            owned_by = P17
+        }
+		effect = {  
+			every_known_country = {
+				limit = {
+					tag = P17
+				}
+				change_religion = cult_of_the_damned
+				hidden_effect = {
+					random_owned_province = {
+						change_religion = cult_of_the_damned
+					}
+					random_owned_province = {
+						change_religion = cult_of_the_damned
+					}
+				}
+				add_church_power = -5
+			}
+		}
+	}
+	wwu_usurp_the_ascension = { 
+		icon = mission_axe_and_sword
+        
+		required_missions = {
+			wwu_corrupt_jotunheim
+			wwu_corrupt_dragonflayer
+		} 
+        
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 1
+				culture = culture_vrykul
+			}
+			alliance_with = P17
+			P17 = {
+				has_opinion = {
+					who = P11
+					value = 150
+				}
+			}
+		}
+		provinces_to_highlight = {
+            owned_by = P17
+        }
+		effect = {  
+			create_march = P17
+			add_accepted_culture = culture_vrykul
+			add_accepted_culture = culture_vargul
+			area_ymirheim = {
+				add_permanent_claim = P11
+			}
+			hidden_effect = {
+				P17 = {
+					every_owned_province = {
+						change_religion = cult_of_the_damned
+					}
+				}
+			}
+			hidden_effect = {
+				B08 = {
+					every_owned_province = {
+						change_religion = cult_of_the_damned
+					}
+				}
+			}
+			area_the_conflagration = {
+				limit = {
+					culture = culture_vrykul
+				}
+				change_culture = culture_vargul
+			}
+			area_aldurthar = {
+				limit = {
+					culture = culture_vrykul
+				}
+				change_culture = culture_vargul
+			}
+			area_north_valley_of_lost_hope = {
+				limit = {
+					culture = culture_vrykul
+				}
+				change_culture = culture_vargul
+			}
+			area_the_shadow_vault = {
+				limit = {
+					culture = culture_vrykul
+				}
+				change_culture = culture_vargul
+			}
+			area_argent_tournament = {
+				limit = {
+					culture = culture_vrykul
+				}
+				change_culture = culture_vargul
+			}
+		}
+	}
+	wwu_war_with_nerubians = { 
+		icon = mission_sparring_equipment
+        
+		required_missions = {  } 
+        
+		trigger = {
+			is_in_war = {
+				attacker_leader = P11
+				defender_leader = P74
+			}
+		}
+		provinces_to_highlight = {
+            owned_by = P74
+        }
+		effect = {
+			995 = {
+				add_permanent_claim = P11
+			}
+			area_naxxanar = {
+				add_permanent_claim = P11
+			}
+		}
+	}
+	wwu_create_the_crypt_fiends = { 
+		icon = mission_scourge
+        
+		required_missions = { wwu_war_with_nerubians } 
+        
+		trigger = {
+			995 = {
+				owned_by = P11
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				culture = culture_nerubian
+			}
+		}
+		provinces_to_highlight = {
+            province_id = 995
+        }
+		effect = {
+			add_accepted_culture = culture_crypt_fiend
+			every_owned_province = {
+				limit = {
+					culture = culture_nerubian
+				}
+				change_culture = culture_crypt_fiend
+				change_religion = cult_of_the_damned
+			}
+			995 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 4
+			}
+		}
+	}
+	wwu_construct_naxxanar = { 
+		icon = mission_necropolis
+        
+		required_missions = { wwu_war_with_nerubians } 
+        
+		trigger = {
+			995 = {
+				owned_by = P11
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				culture = culture_nerubian
+			}
+		}
+		provinces_to_highlight = {
+            province_id = 995
+        }
+		effect = {
+			add_accepted_culture = culture_crypt_fiend
+			every_owned_province = {
+				limit = {
+					culture = culture_nerubian
+				}
+				change_culture = culture_crypt_fiend
+				change_religion = cult_of_the_damned
+			}
+			995 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 4
+			}
+		}
+	}
+}
