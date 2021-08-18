@@ -225,11 +225,14 @@ wwu_scourge_column_4 = {
 		}
 	}
 	wwu_resurrect_sindragosa_brood = { 
-		icon = mission_akunda
+		icon = mission_sindragosa
         
 		required_missions = { wwu_construct_aldurthar_wall } 
         
 		trigger = {
+			SNB = {
+				exists = no
+			}
             777 = {
 				owned_by = P11
 			}
@@ -246,10 +249,7 @@ wwu_scourge_column_4 = {
 			mil_power = 150
 		}
 		provinces_to_highlight = {
-            province_id = 777
-			province_id = 895
-			province_id = 3261
-			province_id = 3257
+			owned_by = SNB
         }
 		effect = { 
 			add_church_power = -50
@@ -278,6 +278,31 @@ wwu_scourge_column_4 = {
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
 				change_trade_goods = flying_mounts
+			}
+		}
+	}
+	wwu_construct_mordrethar_wall = { 
+		icon = mission_barracks
+        
+		required_missions = { wwu_construct_aldurthar_wall } 
+        
+		trigger = {
+            998 = {
+				has_building = wow_fort_1
+			}
+			mil_power = 100
+		}
+		provinces_to_highlight = {
+            province_id = 998 
+        }
+		effect = { 
+			add_mil_power = -100
+			998 = {
+				add_base_manpower = 4
+				add_building = wow_arsenal
+				add_building = wow_barracks
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
 			}
 		}
 	}
@@ -322,7 +347,7 @@ wwu_scourge_column_5 = {
 		}
 	}
 	wwu_bless_dragonflayer = { 
-		icon = mission_white_essence
+		icon = mission_life_drain
         
 		required_missions = { wwu_infiltrate_dragonflayer } 
         
@@ -383,7 +408,7 @@ wwu_scourge_column_5 = {
 		}
 	}
 	wwu_bless_jotunheim = { 
-		icon = mission_white_essence
+		icon = mission_life_drain
         
 		required_missions = { wwu_infiltrate_jotunheim } 
         
