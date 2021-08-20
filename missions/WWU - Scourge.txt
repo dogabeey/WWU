@@ -38,6 +38,10 @@ wwu_scourge_column_4 = {
 			area_icecrown_interior = {
 				add_permanent_claim = P11
 			}
+			add_country_modifier = {
+                name = nathrezim_jailors
+                duration = -1
+            }
 		}
 	}
 	wwu_build_temple_of_the_damned = { 
@@ -678,6 +682,599 @@ wwu_scourge_column_5 = {
 				change_religion = cult_of_the_damned
 				add_devastation = 25
 			}
+		}
+	}
+}
+
+wwu_scourge_column_1 = { 
+	slot = 1
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = P11
+	}
+	
+	wwu_kiljaedens_invasion_plan = { 
+		icon = mission_nathrezim
+		position = 6
+        
+		required_missions = { wwu_construct_mordrethar_wall } 
+        
+		trigger = {
+			church_power = 100
+		}
+		provinces_to_highlight = {
+            province_id = 2413
+        }
+		effect = {
+			add_prestige = 50
+			2413 = {
+				cede_province = P11
+				change_trade_goods = artifacts
+				add_base_manpower = 5
+			}
+			1284 = {
+				cede_province = P11
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+			if = {
+				limit = {
+					A08 = {
+						NOT = { has_ruler = "Terenas II" }
+					}
+				}
+				A08 = {
+					define_ruler = {
+					    name = "Terenas II"
+						dynasty = "Menethil"
+						adm = 3
+						dip = 2
+						mil = 4
+						age = 60
+						claim = 100
+					}
+					add_ruler_personality = immortal_personality
+					add_ruler_personality = warrior_personality
+					define_heir = {
+						male = yes
+						age = 12
+						dynasty = "Menethil"
+						name = "Arthas"
+						claim = 100
+						adm = 4
+						dip = 3
+						mil = 5
+					}
+					add_ruler_personality = immortal_personality
+					add_ruler_personality = paladin_personality
+				}
+			}
+		}
+	}
+	wwu_recruit_kelthuzad = { 
+		icon = mission_human_male
+		position = 7
+        
+		required_missions = { wwu_kiljaedens_invasion_plan } 
+        
+		trigger = {
+            has_spy_network_in = {
+				who = A18
+				value = 25
+			}
+		}
+		provinces_to_highlight = {
+            owned_by = A18
+        }
+		effect = {
+			add_adm_power = 150
+			add_church_power = 25
+			add_prestige = 25
+		}
+	}
+	wwu_create_cult_of_the_damned = { 
+		icon = mission_necropolis
+		position = 8
+        
+		required_missions = { wwu_recruit_kelthuzad } 
+        
+		trigger = {
+			adm_power = 150
+			dip_power = 150
+			mil_power = 250
+			church_power = 50
+			treasury = 200
+            has_spy_network_in = {
+				who = A08
+				value = 25
+			}
+		}
+		provinces_to_highlight = {
+            province_id = 790
+        }
+		effect = {
+			add_adm_power = -150
+			add_dip_power = -150
+			add_mil_power = -250
+			add_church_power = -50
+			add_treasury = -200
+			790 = {
+				cede_province = P12
+				add_building = wow_temple
+				add_building = wow_arsenal
+				add_building = wow_barracks
+				add_building = wow_farm
+				add_building = wow_fort_2
+			}
+			area_scholomance = {
+				cede_province = P12
+				change_religion = cult_of_the_damned
+				change_culture = culture_cultist
+				add_core = P12
+			}
+			P12 = {
+				set_capital = 790
+				define_ruler = {
+					    name = "Kel'Thuzad"
+						adm = 6
+						dip = 5
+						mil = 5
+						age = 75
+						claim = 100
+				}
+				add_ruler_personality = immortal_personality
+				add_ruler_personality = mage_personality
+				add_prestige = 25
+				add_stability = 3
+			}
+			790 = {
+				add_base_tax = 4
+				add_base_production = 4
+				add_base_manpower = 6
+				center_of_trade = 1
+			}
+			vassalize = P12
+			P12 = {
+				add_government_reform = scourge_domain_reform
+			}
+			hidden_effect = {
+				continent_eastern_kingdoms = {
+					discover_country = P12
+				}
+				continent_northrend = {
+					discover_country = P12
+				}
+				continent_broken_isles = {
+					discover_country = P12
+				}
+				continent_outland = {
+					discover_country = P12
+				}
+			}
+		}
+	}
+	wwu_poison_andorhal_granary = { 
+		icon = mission_poisons
+		position = 9
+        
+		required_missions = { wwu_create_cult_of_the_damned } 
+        
+		trigger = {
+            has_spy_network_in = {
+				who = A08
+				value = 25
+			}
+			adm_power = 100
+			church_power = 25
+		}
+		provinces_to_highlight = {
+            province_id = 688
+        }
+		effect = {
+			add_adm_power = -100
+			add_church_power = -25
+			688 = {
+				add_province_modifier = { 
+					name = strange_plague
+					duration = -1  
+					desc = strange_plague_tooltip
+				}
+			}
+		}
+	}
+	wwu_protect_the_grain_shipments = { 
+		icon = mission_axe_and_sword
+		position = 10
+        
+		required_missions = { wwu_poison_andorhal_granary } 
+        
+		trigger = {
+			mil_power = 150
+		}
+		provinces_to_highlight = {
+            region = region_western_plaguelands
+			region = region_eastern_plaguelands
+        }
+		effect = {
+			P12 = {
+				kill_ruler = yes
+			}
+			add_mil_power = -150
+			region_western_plaguelands = {
+				limit = {
+					NOT = {
+						owned_by = P12
+					}
+				}
+				add_province_modifier = { 
+					name = strange_plague
+					duration = -1  
+					desc = strange_plague_tooltip
+				}
+			}
+			region_eastern_plaguelands = {
+				limit = {
+					NOT = {
+						owned_by = P12
+					}
+				}
+				add_province_modifier = { 
+					name = strange_plague
+					duration = -1  
+					desc = strange_plague_tooltip
+				}
+			}
+			region_western_plaguelands = {
+				limit = {
+					trade_goods = grain
+				}
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+			region_eastern_plaguelands = {
+				limit = {
+					trade_goods = grain
+				}
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+		}
+	}
+}
+
+wwu_scourge_column_2 = { 
+	slot = 2
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = P11
+	}
+	
+	wwu_the_scourge_emerge = { 
+		icon = mission_undead_male
+		position = 7
+        
+		required_missions = { wwu_protect_the_grain_shipments } 
+        
+		trigger = {
+			church_power = 50
+		}
+		provinces_to_highlight = {
+			area = area_stratholme
+            area = area_heartglen
+			area = area_andorhal_fields
+			area = area_eastwatch
+        }
+		effect = {
+			642 = {
+				cede_province = P52
+				remove_province_modifier = strange_plague
+				add_devastation = -50
+				add_building = wow_temple
+				add_building = wow_fort_1
+			}
+			P52 = {
+				set_capital = 642
+				define_ruler = {
+					    name = "Mal'Ganis"
+						adm = 6
+						dip = 5
+						mil = 4
+						age = 500
+						claim = 100
+				}
+				add_government_reform = scourge_domain_reform
+			}
+			P52 = {
+				add_ruler_personality = immortal_personality
+				add_ruler_personality = mage_personality
+				set_ruler_religion = cult_of_the_damned
+				set_ruler_culture = culture_dreadlord
+			}
+			area_stratholme = {
+				cede_province = P52
+				remove_province_modifier = strange_plague
+				add_devastation = -50
+			}
+			area_heartglen = {
+				cede_province = P52
+				remove_province_modifier = strange_plague
+				add_devastation = -50
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+			area_andorhal_fields = {
+				cede_province = P52
+				remove_province_modifier = strange_plague
+				add_devastation = -50
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+			area_eastwatch = {
+				cede_province = P52
+				remove_province_modifier = strange_plague
+				add_devastation = -50
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+			P11 = {
+				vassalize = P52
+			}
+		}
+	}
+	wwu_the_culling = { 
+		icon = mission_cannibalize
+		position = 8
+        
+		required_missions = { wwu_the_scourge_emerge } 
+        
+		trigger = {
+			war_with = A08
+			A08 = {
+				controls = 775
+				controls = 642
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 775
+			province_id = 642
+        }
+		effect = {
+			white_peace = A08
+			1284 = {
+				cede_province = P52
+				add_building = wow_temple
+				add_building = wow_fort_1
+				add_base_manpower = 4
+			}
+			P52 = {
+				set_capital = 1284
+			}
+			642 = {
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+				add_base_tax = -4
+				add_base_production = -4
+				add_base_manpower = 8
+			}
+			area_stratholme = {
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+				add_base_manpower = 2
+			}
+			A08 = {
+				remove_heir = yes
+			}
+			882 = {
+				cede_province = F38
+				change_culture = culture_lordaeron
+				change_religion = holy_light
+				add_base_tax = 2
+				add_base_tax = 2
+				add_base_manpower = 4
+				center_of_trade = 1
+				add_building = wow_fort_1
+				add_building = wow_barracks
+				add_building = wow_arsenal
+			}
+			area_halvarde = {
+				cede_province = F38
+				change_culture = culture_lordaeron
+				change_religion = holy_light
+			}
+			F38 = {
+				add_accepted_culture = culture_ironforge
+				set_capital = 882
+				define_ruler = {
+					name = "Arthas"
+					dynasty = "Menethil"
+					age = 24
+					claim = 100
+					adm = 4
+					dip = 3
+					mil = 5
+				}
+				add_ruler_personality = immortal_personality
+				add_ruler_personality = paladin_personality
+			}
+			749 = {
+				change_culture = culture_ironforge
+			}
+			635 = {
+				cede_province = F38
+				change_culture = culture_lordaeron
+				change_religion = holy_light
+			}
+			583 = {
+				cede_province = F38
+				change_culture = culture_lordaeron
+				change_religion = holy_light
+			}
+			region_tirisfal_glades = {
+				add_province_modifier = { 
+					name = strange_plague
+					desc = strange_plague_tooltip
+					duration = -1  
+				}
+			}			
+			region_tirisfal_glades = {
+				limit = {
+					trade_goods = grain
+				}
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+		}
+	}
+	wwu_summon_our_champion = { 
+		icon = mission_arthas
+		position = 9
+        
+		required_missions = { wwu_the_culling } 
+        
+		trigger = {
+			war_with = F38
+		}
+		provinces_to_highlight = {
+            owned_by = F38
+        }
+		effect = {
+			2413 = {
+				change_controller = F38
+			}
+			F38 = {
+				set_ruler_religion = cult_of_the_damned
+			}
+		}
+	}
+	wwu_frostmourne_hungers = { 
+		icon = mission_frostmourne
+		position = 10
+        
+		required_missions = { wwu_the_runeblade_calls } 
+        
+		trigger = {
+			war_with = F38
+			F38 = {
+				ruler_religion = cult_of_the_damned
+			}
+		}
+		provinces_to_highlight = {
+            province_id = 1284
+        }
+		effect = {
+			F38 = {
+				kill_ruler = yes
+				define_ruler = {
+					name = "Luc"
+					dynasty = "Valonforth"
+					age = 35
+					claim = 100
+					adm = 3
+					dip = 4
+					mil = 5
+				}
+				add_ruler_personality = warrior_personality
+			}
+			P52 = {
+				kill_ruler = yes
+				define_ruler = {
+					name = "Arthas"
+					dynasty = "Menethil"
+					age = 25
+					claim = 100
+					adm = 5
+					dip = 4
+					mil = 6
+				}
+				add_ruler_personality = immortal_personality
+				add_ruler_personality = death_knight_personality
+				add_ruler_personality = ruthless_personality
+			}
+			2413 = {
+				change_controller = P11
+			}
+		}
+	}
+}
+
+wwu_scourge_column_3 = { 
+	slot = 3
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = P11
+	}
+	
+	wwu_lordaeron_succession = { 
+		icon = mission_frostmourne
+		position = 7
+        
+		required_missions = { wwu_frostmourne_hungers } 
+        
+		trigger = {
+            has_spy_network_in = {
+				who = A08
+				value = 25
+			}
+		}
+		provinces_to_highlight = {
+            owned_by = A08
+        }
+		effect = {
+			A08 = {
+				kill_ruler = yes
+				release_all_subjects = yes
+			}
+			region_eastern_plaguelands = {
+				limit = {
+					culture = culture_scourge
+				}
+				cede_province = P52
+				remove_province_modifier = strange_plague
+				add_devastation -50
+			}
+			region_western_plaguelands = {
+				limit = {
+					culture = culture_scourge
+				}
+				cede_province = P52
+				remove_province_modifier = strange_plague
+				add_devastation -50
+			}
+			region_tirisfal_glades = {
+				limit = {
+					culture = culture_scourge
+				}
+				cede_province = P52
+				remove_province_modifier = strange_plague
+				add_devastation -50
+			}
+			region_eastern_plaguelands = {
+				add_permanent_claim = P52
+			}
+			region_western_plaguelands = {
+				add_permanent_claim = P52
+			}
+			region_tirisfal_glades = {
+				add_permanent_claim = P52
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						owned_by = A08
+					}
+					add_permanent_claim = P52
+				}
+			}
+			declare_war = A08
 		}
 	}
 }
