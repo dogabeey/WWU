@@ -241,7 +241,7 @@ shadow_group = {
     }
     
     twilight_cult = {
-        color = { 55 54 33 }
+        color = { 106 54 112 }
 		icon = 15
 		
 		country = {
@@ -266,6 +266,42 @@ shadow_group = {
 		}
         
         uses_church_power = yes
+		aspects = {
+            maddenning_howl
+            call_from_beyond
+            shadowy_barrier
+            beacon_of_madness
+            lunatic_gaze
+            widsom_of_the_mad
+		}
+        aspects_name = CORRUPTING_ASPECTS
+        
+        heretic = { HERETIC }
+    }
+	
+	void = {
+        color = { 106 54 112 }
+		icon = 15
+		
+		country = {
+			global_missionary_strength = 0.03
+			ae_impact = 0.5
+		}
+        province = {
+			local_missionary_strength = -0.03
+		}
+		
+		on_convert = {
+			change_religion = void
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+		
+		uses_church_power = yes
 		aspects = {
             maddenning_howl
             call_from_beyond

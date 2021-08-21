@@ -1,55 +1,55 @@
 namespace = wwu_dynastic
 
-# A beloved heir dies
-country_event = {
-	id = wwu_dynastic.1
-	title = wwu_dynastic.1.title
-	desc = wwu_dynastic.1.desc
-	picture = DEATH_OF_HEIR_eventPicture
-	
-	trigger = {
-        is_civilized = yes
-		has_heir = yes
-		heir_claim = 90
-		is_female = no
-		is_lesser_in_union = no
-		has_regency = no
-		government = monarchy
-        
-		any_owned_province = {
-			num_free_building_slots = 1
-			NOT = { has_building = wow_temple }
-		}
-		has_government_attribute = heir
-	}
-	
-	mean_time_to_happen = {
-		months = 3600
-	}
-	
-	option = {
-		name = wwu_dynastic.1.option.a
-		kill_heir = yes
-		random_owned_province = {
-			limit = {
-				NOT = {
-					has_building = wow_temple
-				}
-				num_free_building_slots = 1
-			}
-			add_building = wow_temple
-		}
-	}
-	
-	option = {
-		name = wwu_dynastic.1.option.b
-		kill_heir = yes
-		define_heir = {
-			dynasty = ROOT
-			claim = 30
-		}
-	}
-}
+## A beloved heir dies
+#country_event = {
+#	id = wwu_dynastic.1
+#	title = wwu_dynastic.1.title
+#	desc = wwu_dynastic.1.desc
+#	picture = DEATH_OF_HEIR_eventPicture
+#	
+#	trigger = {
+#        is_civilized = yes
+#		has_heir = yes
+#		heir_claim = 90
+#		is_female = no
+#		is_lesser_in_union = no
+#		has_regency = no
+#		government = monarchy
+#        
+#		any_owned_province = {
+#			num_free_building_slots = 1
+#			NOT = { has_building = wow_temple }
+#		}
+#		has_government_attribute = heir
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 3600
+#	}
+#	
+#	option = {
+#		name = wwu_dynastic.1.option.a
+#		kill_heir = yes
+#		random_owned_province = {
+#			limit = {
+#				NOT = {
+#					has_building = wow_temple
+#				}
+#				num_free_building_slots = 1
+#			}
+#			add_building = wow_temple
+#		}
+#	}
+#	
+#	option = {
+#		name = wwu_dynastic.1.option.b
+#		kill_heir = yes
+#		define_heir = {
+#			dynasty = ROOT
+#			claim = 30
+#		}
+#	}
+#}
 
 # Palace Coup
 country_event = {
