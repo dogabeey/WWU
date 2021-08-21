@@ -68,6 +68,22 @@ country_decisions = {
 			
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 100
+				has_country_modifier = is_evil
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					stability = 1
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					legitimacy_or_horde_unity = 80
+				}
+			}
 		}
 	}
 }
@@ -142,10 +158,17 @@ country_decisions = {
 				}
 				set_global_flag = destroyed_helm_flag
 			}
-		}
-			
+		}		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 2
+				stability = 3
+			}
+			modifier = {
+				factor = 2
+				legitimacy_or_horde_unity = 100
+			}
 		}
 	}
 }
