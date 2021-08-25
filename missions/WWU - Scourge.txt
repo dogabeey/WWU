@@ -1538,24 +1538,66 @@ wwu_scourge_column_2 = {
 		required_missions = { wwu_lordaeron_succession } 
         
 		trigger = {
-            has_spy_network_in = {
-				OR = {
-					who = G50
-					who = A25
-					who = A10
-					who = A09
-					who = A17
-					who = H08
-					who = A18
-					who = A26
-					who = A27
-				}
-				value = 25
-			}
+            OR = {
+                has_spy_network_in = {
+                        who = G50
+                    }
+                    value = 25
+                }
+                has_spy_network_in = {
+                        who = A25
+                    }
+                    value = 25
+                }
+                has_spy_network_in = {
+                        who = A10
+                    }
+                    value = 25
+                }
+                has_spy_network_in = {
+                        who = A09
+                    }
+                    value = 25
+                }
+                has_spy_network_in = {
+                        who = A17
+                    }
+                    value = 25
+                }
+                has_spy_network_in = {
+                        who = H08
+                    }
+                    value = 25
+                }
+                has_spy_network_in = {
+                        who = A18
+                    }
+                    value = 25
+                }
+                has_spy_network_in = {
+                        who = A26
+                    }
+                    value = 25
+                }
+                has_spy_network_in = {
+                        who = A27
+                    }
+                    value = 25
+                }
+            }
 		}
 		provinces_to_highlight = {
-            owned_by = G50
-			owned_by = A08
+            OR = {
+                owned_by = G50
+                owned_by = A25
+                owned_by = A10
+                owned_by = A09
+                owned_by = A17
+                owned_by = H08
+                owned_by = A18
+                owned_by = A26
+                owned_by = A27
+            }
         }
 		effect = {
 			P52 = {
@@ -1885,7 +1927,7 @@ wwu_scourge_column_3 = {
             province_id = 863
         }
 		effect = {
-			church_power = -100
+			add_church_power = -100
 			if = {
 				limit = {
 					953 = {
