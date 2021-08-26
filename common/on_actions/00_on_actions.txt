@@ -426,13 +426,14 @@ on_new_monarch = {
     #---------------
     # Hereditary
     #---------------
-	if = {
-		limit = {
-			has_reform = wwu_hereditary_rule_reform
-		}
-		set_country_flag = country_has_no_heir
-		##log = "[Root.Monarch.GetName] is no longer a heir and became monarch."
-	}
+    # REFORM UPDATE
+	# if = {
+		# limit = {
+			# has_reform = wwu_hereditary_rule_reform 
+		# }
+		# set_country_flag = country_has_no_heir
+		# ##log = "[Root.Monarch.GetName] is no longer a heir and became monarch."
+	# }
 	
     events = {
         wwu_ruler_education.1    # The Education of [Root.Monarch.GetName]
@@ -593,13 +594,14 @@ on_heir_death = {
 		limit = { has_ruler_flag = returned_from_sancaga_sikma_province }
 		clr_ruler_flag = returned_from_sancaga_sikma_province
 	}
-	if = {
-		limit = {
-			has_reform = wwu_hereditary_rule_reform
-		}
-		set_country_flag = country_has_no_heir
-		##log = "[Root.GetName]'s heir died"
-	}
+    # REFORM UPDATE
+	# if = {
+		# limit = {
+			# has_reform = wwu_hereditary_rule_reform
+		# }
+		# set_country_flag = country_has_no_heir
+		# ##log = "[Root.GetName]'s heir died"
+	# }
 }
 
 # country
@@ -682,13 +684,14 @@ on_queen_death = {
 # country
 on_new_heir = {
 	#log = "[Root.GetName]: Triggered new_heir"
-	if = {
-		limit = {
-			has_reform = wwu_hereditary_rule_reform
-		}
-		clr_country_flag = country_has_no_heir
-		##log = "[Root.GetName] has a new heir."
-	}
+    # REFORM UPDATE
+	# if = {
+		# limit = {
+			# has_reform = wwu_hereditary_rule_reform
+		# }
+		# clr_country_flag = country_has_no_heir
+		# ##log = "[Root.GetName] has a new heir."
+	# }
 }
 
 # country
@@ -2087,53 +2090,53 @@ on_province_owner_change = {
 	}
     
     # Monastic Breweries
-    if = {
-		limit = {
-			OR = {
-				has_province_modifier = wine_bonus_prod
-				has_province_modifier = grain_bonus_prod
-			}
-			FROM = { has_reform = wwu_monastic_breweries_reform }
-			NOT = { owner = { has_reform = wwu_monastic_breweries_reform } }
-		}
-		remove_province_modifier = wine_bonus_prod
-		remove_province_modifier = grain_bonus_prod
-	}
-    
-    if = {
-		limit = {
-			NOT = {
-				OR = {
-					has_province_modifier = wine_bonus_prod
-					has_province_modifier = grain_bonus_prod
-				}
-			}
-			owner = { has_reform = wwu_monastic_breweries_reform }
-			NOT = { FROM = { has_reform = wwu_monastic_breweries_reform } }
-		}
-		hidden_effect = {
-			if = {
-				limit = {
-					trade_goods = wine
-				}
-				add_province_modifier = { 
-					name = wine_bonus_prod
-					duration = -1
-					hidden = yes
-				}
-			}
-			if = {
-				limit = {
-					trade_goods = grain
-				}
-				add_province_modifier = { 
-					name = grain_bonus_prod
-					duration = -1
-					hidden = yes
-				}
-			}
-		}
-	}
+    # REFORM UPDATE
+    # if = {
+		# limit = {
+			# OR = {
+				# has_province_modifier = wine_bonus_prod
+				# has_province_modifier = grain_bonus_prod
+			# }
+			# FROM = { has_reform = wwu_monastic_breweries_reform }
+			# NOT = { owner = { has_reform = wwu_monastic_breweries_reform } }
+		# }
+		# remove_province_modifier = wine_bonus_prod
+		# remove_province_modifier = grain_bonus_prod
+	# }
+    # if = {
+		# limit = {
+			# NOT = {
+				# OR = {
+					# has_province_modifier = wine_bonus_prod
+					# has_province_modifier = grain_bonus_prod
+				# }
+			# }
+			# owner = { has_reform = wwu_monastic_breweries_reform }
+			# NOT = { FROM = { has_reform = wwu_monastic_breweries_reform } }
+		# }
+		# hidden_effect = {
+			# if = {
+				# limit = {
+					# trade_goods = wine
+				# }
+				# add_province_modifier = { 
+					# name = wine_bonus_prod
+					# duration = -1
+					# hidden = yes
+				# }
+			# }
+			# if = {
+				# limit = {
+					# trade_goods = grain
+				# }
+				# add_province_modifier = { 
+					# name = grain_bonus_prod
+					# duration = -1
+					# hidden = yes
+				# }
+			# }
+		# }
+	# }
     
     # Faction War
 	if = {
@@ -2449,42 +2452,43 @@ on_trade_good_changed = {
 	#log = "[Root.GetName]: Triggered trade_good_changed"
 
 	on_trade_good_changed_estate_privileges_effect = yes
-	if = {
-		limit = {
-			OR = {
-				has_province_modifier = wine_bonus_prod
-				has_province_modifier = grain_bonus_prod
-			}
-			FROM = { has_reform = wwu_monastic_breweries_reform }
-			NOT = { owner = { has_reform = wwu_monastic_breweries_reform } }
-		}
-		remove_province_modifier = wine_bonus_prod
-		remove_province_modifier = grain_bonus_prod
-	}
-	hidden_effect = {
-		if = {
-			limit = {
-				trade_goods = wine
-			}
-			remove_province_modifier = grain_bonus_prod
-			add_province_modifier = { 
-				name = wine_bonus_prod
-				duration = -1
-				hidden = yes
-			}
-		}
-		if = {
-			limit = {
-				trade_goods = grain
-			}
-			remove_province_modifier = wine_bonus_prod
-			add_province_modifier = { 
-				name = grain_bonus_prod
-				duration = -1
-				hidden = yes
-			}
-		}
-	}
+    # REFORM UPDATE
+	# if = {
+		# limit = {
+			# OR = {
+				# has_province_modifier = wine_bonus_prod
+				# has_province_modifier = grain_bonus_prod
+			# }
+			# FROM = { has_reform = wwu_monastic_breweries_reform }
+			# NOT = { owner = { has_reform = wwu_monastic_breweries_reform } }
+		# }
+		# remove_province_modifier = wine_bonus_prod
+		# remove_province_modifier = grain_bonus_prod
+	# }
+	# hidden_effect = {
+		# if = {
+			# limit = {
+				# trade_goods = wine
+			# }
+			# remove_province_modifier = grain_bonus_prod
+			# add_province_modifier = { 
+				# name = wine_bonus_prod
+				# duration = -1
+				# hidden = yes
+			# }
+		# }
+		# if = {
+			# limit = {
+				# trade_goods = grain
+			# }
+			# remove_province_modifier = wine_bonus_prod
+			# add_province_modifier = { 
+				# name = grain_bonus_prod
+				# duration = -1
+				# hidden = yes
+			# }
+		# }
+	# }
 }
 
 # this = country

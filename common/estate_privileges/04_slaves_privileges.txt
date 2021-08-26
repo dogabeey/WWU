@@ -1,0 +1,887 @@
+#-------------------------------------------
+# General
+#-------------------------------------------
+estate_slaves_distribute_slaves = {
+	icon = privilege_barracks
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 10
+	loyalty = 0.00
+	influence = 0.00
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        NOT = { has_country_modifier = estate_slaves_slave_distribution }
+	}
+	on_granted = {
+        add_country_modifier = {
+            name = estate_slaves_slave_distribution
+            duration = 3650
+        }
+	}
+    on_revoked = {
+    
+    }
+    on_invalid = {
+    
+    }
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_slaves_sell_slaves = {
+	icon = privilege_cash_flow
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 0
+	loyalty = -0.05
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		global_unrest = 3
+        caravan_power = 0.33
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_sell_slaves_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    NOT = { has_owner_accepted_culture = yes }
+                    NOT = { has_owner_culture = yes }
+                }
+				add_province_modifier = {
+					name = estate_slaves_slave_markets
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_sell_slaves_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_slave_markets
+				}
+				remove_province_modifier = estate_slaves_slave_markets
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_sell_slaves_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_slave_markets
+				}
+				remove_province_modifier = estate_slaves_slave_markets
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_enslave_race = {
+	icon = privilege_clemency
+	
+    # Costs
+    max_absolutism = 5
+	land_share = 5
+	loyalty = -0.05
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_enslave_race_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    NOT = { has_owner_accepted_culture = yes }
+                    NOT = { has_owner_culture = yes }
+                }
+				add_province_modifier = {
+					name = estate_slaves_enslaved
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_enslave_race_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_enslaved
+				}
+				remove_province_modifier = estate_slaves_enslaved
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_enslave_race_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_enslaved
+				}
+				remove_province_modifier = estate_slaves_enslaved
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_enslaved_farmhands = {
+	icon = privilege_barn
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 0
+	loyalty = -0.05
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		global_unrest = 3
+        development_cost = -0.3
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_enslaved_farmhands_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    has_terrain = farmlands
+                }
+				add_province_modifier = {
+					name = estate_slaves_slave_plantations
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_enslaved_farmhands_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_slave_plantations
+				}
+				remove_province_modifier = estate_slaves_slave_plantations
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_enslaved_farmhands_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_slave_plantations
+				}
+				remove_province_modifier = estate_slaves_slave_plantations
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_enslaved_miners = {
+	icon = privilege_jack_of_trades
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 0
+	loyalty = -0.05
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		global_unrest = 3
+        production_efficiency = 0.3
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_enslaved_miners_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    has_terrain = mountain
+                }
+				add_province_modifier = {
+					name = estate_slaves_slave_mines
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_enslaved_miners_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_slave_mines
+				}
+				remove_province_modifier = estate_slaves_slave_mines
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_enslaved_miners_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_slave_mines
+				}
+				remove_province_modifier = estate_slaves_slave_mines
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_conscripted_slaves = {
+	icon = privilege_defend
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 0
+	loyalty = -0.05
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		global_unrest = 3
+        manpower_recovery_speed = 0.4
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_conscripted_slaves_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    has_terrain = passage
+                }
+				add_province_modifier = {
+					name = estate_slaves_slave_garrison
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_conscripted_slaves_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_slave_garrison
+				}
+				remove_province_modifier = estate_slaves_slave_garrison
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_conscripted_slaves_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_slave_garrison
+				}
+				remove_province_modifier = estate_slaves_slave_garrison
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_gladiatorial_games = {
+	icon = privilege_challenge
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 0
+	loyalty = -0.05
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		global_unrest = 3
+        land_morale = 0.2
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_gladiatorial_games_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    has_terrain = urban
+                }
+				add_province_modifier = {
+					name = estate_slaves_gladiatorial_games_mod
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_gladiatorial_games_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_gladiatorial_games_mod
+				}
+				remove_province_modifier = estate_slaves_gladiatorial_games_mod
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_gladiatorial_games_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_gladiatorial_games_mod
+				}
+				remove_province_modifier = estate_slaves_gladiatorial_games_mod
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_enslaved_sailors = {
+	icon = privilege_sailor
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 0
+	loyalty = -0.05
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		global_unrest = 3
+        galley_power = 0.4
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_enslaved_sailors_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    has_port = yes
+                }
+				add_province_modifier = {
+					name = estate_slaves_coastal_serfs
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_enslaved_sailors_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_coastal_serfs
+				}
+				remove_province_modifier = estate_slaves_coastal_serfs
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_enslaved_sailors_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_coastal_serfs
+				}
+				remove_province_modifier = estate_slaves_coastal_serfs
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_indentured_servants = {
+	icon = privilege_backpack
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 0
+	loyalty = -0.05
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		global_unrest = 3
+        same_culture_advisor_cost = -0.4
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_indentured_servants_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    has_terrain = urban
+                }
+				add_province_modifier = {
+					name = estate_slaves_personal_servants
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_indentured_servants_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_personal_servants
+				}
+				remove_province_modifier = estate_slaves_personal_servants
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_indentured_servants_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_personal_servants
+				}
+				remove_province_modifier = estate_slaves_personal_servants
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_cruel_experimentation = {
+	icon = privilege_clarity_of_power
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 0
+	loyalty = -0.1
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		global_unrest = 6
+        technology_cost = -0.15
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_cruel_experimentation_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    has_terrain = urban
+                }
+				add_province_modifier = {
+					name = estate_slaves_experiments
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_cruel_experimentation_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_experiments
+				}
+				remove_province_modifier = estate_slaves_experiments
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_cruel_experimentation_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_experiments
+				}
+				remove_province_modifier = estate_slaves_experiments
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_indentured_clerks = {
+	icon = privilege_book_4
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 0
+	loyalty = -0.05
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		global_unrest = 3
+        governing_capacity_modifier = 0.4
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_indentured_clerks_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    has_terrain = urban
+                }
+				add_province_modifier = {
+					name = estate_slaves_bureaucratic_servants
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_indentured_clerks_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_bureaucratic_servants
+				}
+				remove_province_modifier = estate_slaves_bureaucratic_servants
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_indentured_clerks_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_bureaucratic_servants
+				}
+				remove_province_modifier = estate_slaves_bureaucratic_servants
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_slave_raids = {
+	icon = privilege_cheap_shot
+	
+    # Costs
+    max_absolutism = 0
+	land_share = 0
+	loyalty = -0.05
+	influence = 0.05
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		
+	}
+	on_granted = {
+		
+	}
+	on_revoked = {
+		
+	}
+	on_invalid = {
+		
+	}
+	penalties = {
+    
+	}
+	benefits = {
+        may_perform_slave_raid = yes
+        loot_amount = 1.0
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_harsh_punishment = {
+	icon = privilege_backstab
+	
+    # Costs
+    max_absolutism = 10
+	land_share = 0
+	loyalty = 0.2
+	influence = -0.1
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		global_unrest = 10
+	}
+	on_granted = {
+		
+	}
+	on_revoked = {
+		
+	}
+	on_invalid = {
+		
+	}
+	penalties = {
+    
+	}
+	benefits = {
+        global_unrest = -5
+        harsh_treatment_cost = -0.25
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_slaves_restraining_bolts = {
+	icon = privilege_engine_ram
+	
+    # Costs
+    max_absolutism = 10
+	land_share = 0
+	loyalty = -0.2
+	influence = -0.1
+    
+    is_valid = {
+        
+    }
+    can_revoke = {
+        
+    }
+	can_select = {
+        
+	}
+    modifier_by_land_ownership = {
+		
+	}
+	on_granted = {
+		custom_tooltip = estate_slaves_restraining_bolts_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+                limit = {
+                    NOT = { has_owner_accepted_culture = yes }
+                    NOT = { has_owner_culture = yes }
+                }
+				add_province_modifier = {
+					name = estate_slaves_restraining_bolt
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_slaves_restraining_bolts_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_restraining_bolt
+				}
+				remove_province_modifier = estate_slaves_restraining_bolt
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_slaves_restraining_bolts_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_slaves_restraining_bolt
+				}
+				remove_province_modifier = estate_slaves_restraining_bolt
+			}
+		}
+	}
+	penalties = {
+    
+	}
+	benefits = {
+    
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}

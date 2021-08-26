@@ -1,0 +1,454 @@
+# #-----------------------------------------
+# # "Internal & External Mission"
+# #-----------------------------------------
+# wwu_internal_mission_reform = {
+	# icon = "internal_mission_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# tolerance_own = 2
+	# }
+# }
+
+# wwu_external_mission_reform = {
+	# icon = "external_mission_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# manpower_recovery_speed = 0.1
+	# }
+# }
+
+# wwu_mission_to_civilize_reform = {
+	# icon = "mission_to_civilize_wwu"
+	# allow_normal_conversion = yes
+    
+	# trigger = {
+		# OR = {
+			# num_of_colonists = 1
+			# OR = {
+                # has_idea_group = wwu_expansion_ideas
+                # has_idea_group = wwu_exploration_ideas
+            # }
+		# }
+	# }
+    
+	# modifiers = {
+		# native_assimilation = 0.35
+		# native_uprising_chance = -0.5
+	# }
+# }
+
+# wwu_mission_to_kill_pirates_reform = {
+	# icon = "mission_to_kill_pirates_wwu"
+	# allow_normal_conversion = yes
+    
+	# potential = {
+		# capital_scope = {
+			# has_port = yes
+		# }
+	# }
+    
+	# trigger = {
+		# capital_scope = {
+			# has_port = yes
+		# }
+	# }
+    
+	# modifiers = {
+		# global_sailors_modifier = 0.2
+		# naval_forcelimit_modifier = 0.25
+		# capture_ship_chance = 0.33
+	# }
+# }
+
+# #-----------------------------------------
+# # "Divine Cause"
+# #-----------------------------------------
+# wwu_safeguard_holy_sites_reform = {
+	# icon = "safeguard_holy_sites_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# prestige = 1
+	# }
+# }
+
+# wwu_combat_heresy_reform = {
+	# icon = "combat_heresy_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# land_morale = 0.1
+	# }
+# }
+
+# wwu_expel_heathens_reform = {
+	# icon = "expel_heathens_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# development_cost = -0.05
+	# }
+# }
+
+# #-----------------------------------------
+# # "Clergy in Administration"
+# #-----------------------------------------
+# wwu_subservient_administrators_reform = {
+	# icon = "subservient_administrators_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# yearly_corruption = -0.1
+	# }
+# }
+
+# wwu_religious_administrators_reform = {
+	# icon = "religious_administrators_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# stability_cost_modifier = -0.1
+	# }
+# }
+
+# wwu_pious_merchants_reform = {
+	# icon = "pious_merchants_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# global_trade_power = 0.05
+		
+		# traders_influence_modifier = 0.1
+		# traders_loyalty_modifier = 0.05
+	# }
+# }
+
+# wwu_loyal_nobility_reform = {
+	# icon = "loyal_nobility_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# army_tradition = 0.25
+        
+		# nobility_influence_modifier = 0.1
+		# nobility_loyalty_modifier = 0.05
+	# }
+# }
+
+# wwu_monastic_breweries_reform = {
+	# icon = "monastic_breweries_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# global_trade_goods_size_modifier = 0.1
+	# }
+    
+	# effect = {
+		# custom_tooltip = wwu_producing_wine_and_grain_tt
+		# hidden_effect = {
+			# every_owned_province = {
+				# if = {
+					# limit = {
+						# trade_goods = wine
+					# }
+					# add_province_modifier = { 
+						# name = wine_bonus_prod
+						# duration = -1
+						# hidden = yes
+					# }
+				# }
+				# if = {
+					# limit = {
+						# trade_goods = grain
+					# }
+					# add_province_modifier = { 
+						# name = grain_bonus_prod
+						# duration = -1
+						# hidden = yes
+					# }
+				# }
+			# }
+		# }
+	# }
+    
+	# removed_effect = {
+		# hidden_effect = {
+			# every_owned_province = {
+				# limit = {
+					# OR = {
+						# has_province_modifier = wine_bonus_prod
+						# has_province_modifier = grain_bonus_prod
+					# }
+				# }
+				# remove_province_modifier = wine_bonus_prod
+				# remove_province_modifier = grain_bonus_prod
+			# }
+		# }
+	# }
+# }
+
+# wwu_troll_warriors_reform = {
+    # icon = "troll_warriors_wwu"
+	# allow_normal_conversion = yes
+    
+	# potential = {
+		# OR = {
+			# primary_culture = culture_forest_troll 
+			# primary_culture = culture_jungle_troll 
+			# primary_culture = culture_dark_troll 
+			# primary_culture = culture_frost_troll
+			# primary_culture = culture_sand_troll
+			# primary_culture = culture_zandalari_troll
+		# }
+	# }
+	
+	# modifiers = {
+		# discipline = 0.05
+		# infantry_power = 0.05
+		# mercenary_manpower = 0.1
+	# }
+# }
+
+
+
+
+# wwu_demonic_advisors_reform = {
+    # icon = "demonic_advisors_wwu"
+	# allow_normal_conversion = yes
+    
+	# potential = {
+		# culture_group = culture_group_demonic
+	# }
+	
+	# modifiers = {
+		# global_missionary_strength = 0.03
+	# }
+# }
+
+# #-----------------------------------------
+# # "Secularization?"
+# #-----------------------------------------
+# wwu_maintain_religious_head_reform = {
+	# icon = "maintain_religious_head_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# yearly_absolutism = 1
+	# }
+# }
+
+# wwu_partial_secularisation_reform = {
+	# icon = "partial_secularisation_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# idea_cost = -0.1
+	# }
+# }
+
+# #-----------------------------------------
+# # "Separation of Power"
+# #-----------------------------------------
+# wwu_clerical_commission_reform = {
+	# icon = "clerical_commission_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# global_unrest = -1
+		# diplomatic_upkeep = 1	
+	# }
+	
+	# ai = {
+		# factor = 1
+	# }
+# }
+
+# wwu_divine_guidance_reform = {
+	# icon = "divine_guidance_ww"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# max_absolutism = 10
+	# }
+	
+	# ai = {
+		# factor = 1
+	# }
+# }
+
+# wwu_theocratic_democracy_reform = {
+	# icon = "theocratic_democracy_wwu"
+	# modifiers = {
+		# global_unrest = -1
+	# }
+    
+	# trigger = {
+		# OR = {
+			# NOT = { has_estate = estate_nobility }
+			# crown_stronger_than_estate = { estate = estate_nobility }
+		# }
+	# }
+
+	# conditional = {
+		# allow = { has_dlc = "Common Sense" }
+		# has_parliament = yes
+	# }
+    
+	# custom_attributes = {
+		# blocked_call_diet = yes
+	# }
+    
+	# ai = {
+		# factor = 1
+	# }
+# }
+
+# #-----------------------------------------
+# # "The Nature of Our Faith"
+# #-----------------------------------------
+# wwu_church_and_state_reform = {
+	# icon = "church_and_state_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# free_policy = 1
+	# }
+    
+	# ai = {
+		# factor = 0
+	# }
+# }
+
+# wwu_religious_harmony_reform = {
+	# icon = "religious_harmony_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# missionaries = 1
+		# global_missionary_strength = 0.01
+	# }
+    
+	# ai = {
+		# factor = 0
+	# }
+# }
+
+# wwu_god_and_man_reform = {
+	# icon = "god_and_man_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# num_accepted_cultures = 2
+	# }
+    
+	# ai = {
+		# factor = 0
+	# }
+# }
+
+# wwu_organising_our_religion_reform = {
+	# icon = "organising_our_religion_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# yearly_absolutism = 1
+		# devotion = 1
+	# }
+    
+	# ai = {
+		# factor = 3
+	# }
+# }
+
+# #-----------------------------------------
+# # "Our Faith and the World"
+# #-----------------------------------------
+# wwu_religion_in_one_country_reform = {
+	# icon = "religion_in_one_country_wwu"
+	# allow_normal_conversion = yes
+    
+	# modifiers = {
+		# warscore_cost_vs_other_religion = -0.3
+	# }
+    
+	# ai = {
+		# factor = 3
+	# }
+# }
+
+# wwu_religious_permanent_revolution_reform = {
+	# icon = "religious_permanent_revolution_wwu"
+	# allow_normal_conversion = yes
+
+	# effect = {
+		# custom_tooltip = wwu_world_crusade_tt
+	# }
+    
+	# modifiers = {
+		# enforce_religion_cost = -0.4
+	# }
+    
+	# ai = {
+		# factor = 3
+	# }
+# }
+
+# wwu_many_fingers_of_god_reform = {
+	# icon = "many_fingers_of_god_wwu"
+	# allow_normal_conversion = yes
+	# trigger = {
+		# has_idea_group = wwu_harmony_ideas
+	# }
+    
+	# modifiers = {
+		# tolerance_heretic = 2	
+		# tolerance_heathen = 2
+	# }
+    
+	# ai = {
+		# factor = 3
+	# }
+# }
+
+# wwu_priestly_autonomy_reform = {
+	# icon = "priestly_autonomy_wwu"
+	# allow_normal_conversion = yes
+
+	# modifiers = {
+		# governing_capacity = 250
+	# }
+    
+	# ai = {
+		# factor = 3
+	# }
+# }
+
+# wwu_proclaim_religious_head_reform = {
+	# icon = "proclaim_religious_head_wwu"
+	# allow_normal_conversion = yes
+    
+	# trigger = {
+		# custom_trigger_tooltip = {
+			# tooltip = no_other_head_tt
+			# NOT = {
+				# any_country = {
+					# has_reform = wwu_proclaim_religious_head_reform
+					# religion = ROOT
+					# tag = ROOT
+				# }
+			# }
+		# }
+	# }
+    
+	# modifiers = {
+		# warscore_cost_vs_other_religion = -0.25
+		# diplomatic_reputation = 1
+	# }
+    
+	# ai = {
+		# factor = 3
+	# }
+# }
+
