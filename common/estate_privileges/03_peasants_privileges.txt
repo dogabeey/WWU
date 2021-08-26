@@ -321,3 +321,64 @@ estate_peasants_titanic_engineering = {
 	}
 }
 
+estate_peasants_serfdom_enforced = {
+	icon = privilege_clemency
+
+    # Costs
+    max_absolutism = 10
+	land_share = 0
+	loyalty = -0.1
+	influence = -0.05
+    
+	is_valid = {
+		has_estate_privilege = estate_peasants_serfdom_enforced
+	}
+	can_revoke = {
+		custom_trigger_tooltip = {
+			tooltip = estate_privilege_cannot_be_revoked
+			always = no
+		}
+	}
+	penalties = {
+		global_unrest = 2
+        land_morale = -0.1
+	}
+    
+    on_granted = {
+		custom_tooltip = estate_peasants_serfdom_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				add_province_modifier = {
+					name = estate_peasants_serfdom_enforced_mod
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_peasants_serfdom_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_peasants_serfdom_enforced_mod
+				}
+				remove_province_modifier = estate_peasants_serfdom_enforced_mod
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_peasants_serfdom_revoke_effect_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_peasants_serfdom_enforced_mod
+				}
+				remove_province_modifier = estate_peasants_serfdom_enforced_mod
+			}
+		}
+	}
+    
+	ai_will_do = {
+		factor = 0
+	}
+}

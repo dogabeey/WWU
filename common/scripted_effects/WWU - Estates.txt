@@ -48,6 +48,17 @@ each_estate_effect = {
 			$peasants_effect$
 		]
 	}
+    if = {
+		limit = {
+			has_estate = estate_slaves
+		}
+		[[effect]
+			$effect$
+		]
+		[[slaves_effect]
+			$slaves_effect$
+		]
+	}
 	if = {
 		limit = {
 			has_estate = estate_tribals
@@ -207,6 +218,194 @@ on_province_religion_converted_estate_privileges_effect = {
 			}
 		}
 	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_peasants_serfdom_enforced
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_peasants_serfdom_enforced_mod }
+			}
+			add_province_modifier = {
+				name = estate_peasants_serfdom_enforced_mod
+				duration = -1
+			}
+		}
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_sell_slaves
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_slaves_slave_markets }
+                NOT = { has_owner_accepted_culture = yes }
+                NOT = { has_owner_culture = yes }
+			}
+			add_province_modifier = {
+				name = estate_slaves_slave_markets
+				duration = -1
+			}
+		}
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_enslaved_farmhands
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_slaves_slave_plantations }
+                has_terrain = farmlands
+			}
+			add_province_modifier = {
+				name = estate_slaves_slave_plantations
+				duration = -1
+			}
+		}
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_enslaved_miners
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_slaves_slave_mines }
+                has_terrain = mountain
+			}
+			add_province_modifier = {
+				name = estate_slaves_slave_mines
+				duration = -1
+			}
+		}
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_conscripted_slaves
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_slaves_slave_garrison }
+                has_terrain = passage
+			}
+			add_province_modifier = {
+				name = estate_slaves_slave_garrison
+				duration = -1
+			}
+		}
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_gladiatorial_games
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_slaves_gladiatorial_games_mod }
+                has_terrain = urban
+			}
+			add_province_modifier = {
+				name = estate_slaves_gladiatorial_games_mod
+				duration = -1
+			}
+		}
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_enslaved_sailors
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_slaves_coastal_serfs }
+                has_port = yes
+			}
+			add_province_modifier = {
+				name = estate_slaves_coastal_serfs
+				duration = -1
+			}
+		}
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_indentured_servants
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_slaves_personal_servants }
+                has_terrain = urban
+			}
+			add_province_modifier = {
+				name = estate_slaves_personal_servants
+				duration = -1
+			}
+		}
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_cruel_experimentation
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_slaves_experiments }
+                has_terrain = urban
+			}
+			add_province_modifier = {
+				name = estate_slaves_experiments
+				duration = -1
+			}
+		}
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_indentured_clerks
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_slaves_bureaucratic_servants }
+                has_terrain = urban
+			}
+			add_province_modifier = {
+				name = estate_slaves_bureaucratic_servants
+				duration = -1
+			}
+		}
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_restraining_bolts
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = estate_slaves_restraining_bolt }
+                NOT = { has_owner_accepted_culture = yes }
+                NOT = { has_owner_culture = yes }
+			}
+			add_province_modifier = {
+				name = estate_slaves_restraining_bolt
+				duration = -1
+			}
+		}
+	}
 }
 
 on_province_owner_change_estate_privileges_effect = {
@@ -246,7 +445,139 @@ on_province_owner_change_estate_privileges_effect = {
 			duration = -1
 		}
 	}
-    
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_peasants_serfdom_enforced
+			}
+		}
+        add_province_modifier = {
+            name = estate_peasants_serfdom_enforced_mod
+            duration = -1
+        }
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_sell_slaves
+			}
+            NOT = { has_owner_accepted_culture = yes }
+            NOT = { has_owner_culture = yes }
+		}
+        add_province_modifier = {
+            name = estate_slaves_slave_markets
+            duration = -1
+        }
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_enslaved_farmhands
+			}
+            has_terrain = farmlands
+		}
+		add_province_modifier = {
+            name = estate_slaves_slave_plantations
+            duration = -1
+        }
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_enslaved_miners
+			}
+            has_terrain = mountain
+		}
+		add_province_modifier = {
+            name = estate_slaves_slave_mines
+            duration = -1
+        }
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_conscripted_slaves
+			}
+            has_terrain = passage
+		}
+		add_province_modifier = {
+            name = estate_slaves_slave_garrison
+            duration = -1
+        }
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_gladiatorial_games_mod
+			}
+            has_terrain = urban
+		}
+		add_province_modifier = {
+            name = estate_slaves_gladiatorial_games_mod
+            duration = -1
+        }
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_enslaved_sailors
+			}
+            has_port = yes
+		}
+		add_province_modifier = {
+            name = estate_slaves_coastal_serfs
+            duration = -1
+        }
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_indentured_servants
+			}
+            has_terrain = urban
+		}
+		add_province_modifier = {
+            name = estate_slaves_personal_servants
+            duration = -1
+        }
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_cruel_experimentation
+			}
+            has_terrain = urban
+		}
+		add_province_modifier = {
+            name = estate_slaves_experiments
+            duration = -1
+        }
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_indentured_clerks
+			}
+            has_terrain = urban
+		}
+		add_province_modifier = {
+            name = estate_slaves_bureaucratic_servants
+            duration = -1
+        }
+	}
+    if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_slaves_restraining_bolts
+			}
+            NOT = { has_owner_accepted_culture = yes }
+            NOT = { has_owner_culture = yes }
+		}
+        add_province_modifier = {
+            name = estate_slaves_restraining_bolt
+            duration = -1
+        }
+	}
 }
 
 on_loan_repaid_estate_privileges_effect = {
@@ -290,6 +621,10 @@ scaled_estate_nobility_land_share_effect = {
 
 scaled_estate_peasants_land_share_effect = {
 	scaled_estate_land_share_add_effect = { estate = estate_peasants }
+}
+
+scaled_estate_slaves_land_share_effect = {
+	scaled_estate_land_share_add_effect = { estate = estate_slaves }
 }
 
 scaled_estate_tribals_land_share_effect = {
@@ -545,6 +880,25 @@ spawn_rebels_from_unhappy_estate = {
                 as_if_faction = yes
             }
 		}
+        1 = {
+			trigger = {
+				owner = {
+					has_estate = estate_slaves
+					NOT = {
+						estate_loyalty = {
+							estate = estate_slaves
+							loyalty = 30
+						}
+					}
+				}
+			}
+			spawn_rebels = {
+                type = anti_tax_rebels
+                size = $size$
+                estate = estate_slaves
+                as_if_faction = yes
+            }
+		}
 		1 = {
 			trigger = {
 				owner = {
@@ -702,6 +1056,16 @@ pick_random_estate_if_present = {
 			set_country_flag = estate_peasants_$flag$
 			[[estate_action]
 			$estate_action$ = estate_peasants
+			]
+		}
+        1 = { 
+			trigger = {
+				has_estate = estate_slaves
+				NOT = { has_country_flag = estate_slaves_$flag$ }
+			}
+			set_country_flag = estate_slaves_$flag$
+			[[estate_action]
+			$estate_action$ = estate_slaves
 			]
 		}
 		1 = { 
@@ -1019,6 +1383,18 @@ reduce_estate_peasants_loyalty_effect = {
         loyalty = -10
     }
 }
+add_estate_slaves_loyalty_effect = {
+	add_estate_loyalty = {
+        estate = estate_slaves
+        loyalty = 10
+    }
+}
+reduce_estate_slaves_loyalty_effect = {
+	add_estate_loyalty = {
+        estate = estate_slaves
+        loyalty = -10
+    }
+}
 add_estate_tribals_loyalty_effect = {
 	add_estate_loyalty = {
         estate = estate_tribals
@@ -1114,6 +1490,25 @@ give_land_shares_to_estate_impulse = {
 		}
 		change_estate_land_share = {
 			estate = estate_peasants
+			share = -1
+		}
+		change_estate_land_share = {
+			estate = $estate$
+			share = 1
+		}
+	}
+    if = {
+		limit = {
+			has_estate = estate_slaves
+			NOT = { 
+				estate_territory = {
+					estate = $estate$
+					territory = $share$
+				} 
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_slaves
 			share = -1
 		}
 		change_estate_land_share = {
