@@ -3,13 +3,13 @@ is_immortal_lifespan = {
         culture_group = culture_group_titan
         culture_group = culture_group_draenei
         culture_group = culture_group_darnassian
-        # AND = {
-            # culture_group = culture_group_darnassian
-            # custom_trigger_tooltip = {
-                # tooltip = NORDRASSIL_NOT_DESTROTED
-                # NOT = { has_global_flag = nordrassil_destroyed }
-            # }
-        # }
+        AND = {
+            culture_group = culture_group_darnassian
+            custom_trigger_tooltip = {
+                tooltip = NORDRASSIL_NOT_DESTROYED
+                NOT = { has_global_flag = nordrassil_destroyed }
+            }
+        }
         culture_group = culture_group_thalassian
         culture_group = culture_group_aqir
         culture_group = culture_group_nerubian
@@ -32,5 +32,12 @@ is_increased_lifespan = {
         culture_group = culture_group_fallen_arrakoa
         has_ruler_flag = is_long_lived
         has_heir_flag = is_long_lived
+        AND = {
+            culture_group = culture_group_darnassian
+            custom_trigger_tooltip = {
+                tooltip = NORDRASSIL_DESTROYED
+                has_global_flag = nordrassil_destroyed
+            }
+        }
     }
 }
