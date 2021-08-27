@@ -1,0 +1,88 @@
+country_decisions = {
+    raise_militia = {
+        potential = {
+            has_government_attribute = enables_raise_militia_decision
+        }
+        allow = {
+            has_government_attribute = enables_raise_militia_decision
+            is_at_war = yes
+            mil_power = 50
+            any_owned_province = {
+                units_in_province = 1
+            }
+            NOT = { has_country_modifier = raise_militia_cooldown }
+        }
+        effect = {
+            add_mil_power = -50
+            random_owned_province = {
+                limit = {
+                    units_in_province = 1
+                }
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+            }
+            hidden_effect = {
+                add_country_modifier = {
+                    name = raise_militia_cooldown
+                    duration = 3650
+                }
+            }
+        }		
+        ai_will_do = {
+            factor = 0
+        }
+    }
+    
+    desperate_push = {
+        potential = {
+            has_government_attribute = enables_desperate_push_decision
+        }
+        allow = {
+            has_government_attribute = enables_desperate_push_decision
+            is_at_war = yes
+            NOT = { war_score = -50 }
+        }
+        effect = {
+            add_prestige = -100
+            add_country_modifier = {
+                name = desperate_push_buff
+                duration = 9125
+            }
+            add_country_modifier = {
+                name = military_exhaustion
+                duration = 9125
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    scrapping_the_barrel = {
+        potential = {
+            has_government_attribute = enables_scrapping_the_barrel_decision
+        }
+        allow = {
+            has_government_attribute = enables_scrapping_the_barrel_decision
+            is_at_war = yes
+            NOT = { war_score = -50 }
+        }
+        effect = {
+            add_prestige = -100
+            
+            add_yearly_manpower = 10.0
+            
+            add_country_modifier = {
+                name = depleted_population
+                duration = 9125
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+}

@@ -21,4 +21,34 @@ country_decisions = {
             }
         }
     }
+    
+    enforce_religious_hegemony = {
+        potential = {
+            has_government_attribute = enables_forced_conversion
+        }
+        allow = {
+            has_government_attribute = enables_forced_conversion
+            adm_power = 50
+            any_owned_province = {
+                NOT = { religion = ROOT }
+            }
+        }
+        effect = {
+            add_adm_power = -50
+            random_owned_province = {
+                limit = {
+                    NOT = { religion = ROOT }
+                    NOT = { has_province_modifier = religious_zeal_at_conv }
+                }
+                change_religion = ROOT
+                add_province_modifier = {
+                    name = religious_zeal_at_conv
+                    duration = 3650
+                }
+            }
+        }		
+        ai_will_do = {
+            factor = 0
+        }
+    }
 }

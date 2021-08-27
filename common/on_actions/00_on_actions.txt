@@ -174,6 +174,16 @@ on_war_lost = {
 on_battle_won_country = {
 	#log = "[Root.GetName]: Triggered battle_won_country"
 
+    if = {
+        limit = {
+            has_reform = wwu_idealism_glory
+        }
+        add_power_projection = {
+            type = mission_rewards_power_projection
+            amount = 5
+        }
+    }
+
 	if = {
 		limit = {
 			FROM = { tag = REB }
@@ -2445,6 +2455,16 @@ on_flagship_destroyed = {
 # this = Released country, FROM = Releasing country
 on_country_released = {
 	#log = "[Root.GetName]: Triggered country_released"
+    FROM = {
+        if = {
+            limit = {
+                has_reform = wwu_idealism_honor
+            }
+            add_adm_power = 100
+            add_dip_power = 100
+            add_mil_power = 100
+        }
+    }
 }
 
 # ROOT = province, FROM = country

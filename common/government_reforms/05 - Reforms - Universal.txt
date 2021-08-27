@@ -137,97 +137,567 @@ wwu_military_elitism = {
 #-----------------------------------------
 # Economic Organisation (Level 4)
 #-----------------------------------------
+wwu_economic_extensive_taxation = {
+	icon = "wwu_economic_extensive_taxation"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        global_tax_modifier = 0.15
+	}
+}
+
+wwu_economic_trade_monopoly = {
+	icon = "wwu_economic_trade_monopoly"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        merchants = 1
+	}
+}
+
+wwu_economic_industrial_society = {
+	icon = "wwu_economic_industrial_society"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        production_efficiency = 0.1
+	}
+}
+
+wwu_economic_war_economy = {
+	icon = "wwu_economic_war_economy"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        loot_amount = 0.5
+        war_taxes_cost_modifier = -0.5
+        infantry_cost = -0.33
+	}
+}
 
 #-----------------------------------------
 # Trade Organisation (Level 5)
 #-----------------------------------------
+wwu_trade_free_trade = {
+	icon = "wwu_trade_free_trade"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        diplomatic_upkeep = 1
+        trade_steering = 0.33
+	}
+}
+wwu_trade_mercantilism = {
+	icon = "wwu_trade_mercantilism"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        mercantilism_cost = -0.33
+        ship_power_propagation = 0.2
+	}
+}
+wwu_trade_protectionism = {
+	icon = "wwu_trade_protectionism"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        global_trade_goods_size_modifier = 0.1
+	}
+}
+wwu_trade_criminal_exploitation = {
+	icon = "wwu_trade_criminal_exploitation"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        privateer_efficiency = 0.33
+        spy_offence = 0.33
+	}
+}
 
 #-----------------------------------------
 # Naval Organisation (Level 6)
 #-----------------------------------------
+wwu_naval_grand_armada = {
+	icon = "wwu_naval_grand_armada"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        heavy_ship_power = 0.1
+        naval_forcelimit_modifier = 0.15
+        naval_morale = 0.1
+	}
+}
+wwu_naval_merchant_fleet = {
+	icon = "wwu_naval_merchant_fleet"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        light_ship_power = 0.33
+        ship_power_propagation = 0.2
+        privateer_efficiency = 0.2
+	}
+}
+wwu_naval_naval_infrastructure = {
+	icon = "wwu_naval_naval_infrastructure"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        transport_cost = -0.5
+        global_sailors_modifier = 0.25
+        allowed_marine_fraction = 0.1
+	}
+}
+wwu_naval_coastal_dominance = {
+	icon = "wwu_naval_coastal_dominance"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        galley_power = 0.2
+        capture_ship_chance = 0.33
+        naval_attrition = -0.25
+	}
+}
 
 #-----------------------------------------
 # Stance on Magic (Level 8)
 #-----------------------------------------
+wwu_magic_free_magic = {
+	icon = "wwu_magic_free_magic"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        innovativeness_gain = 0.5
+        development_cost = -0.05
+        yearly_corruption = 0.02
+	}
+}
+wwu_magic_controlled_magic = {
+	icon = "wwu_magic_controlled_magic"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        max_absolutism = 5
+        stability_cost_modifier = -0.33
+	}
+}
+wwu_magic_regulated_magic = {
+	icon = "wwu_magic_regulated_magic"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        reform_progress_growth = 0.15
+        stability_cost_modifier = -0.1
+        
+	}
+}
+wwu_magic_magical_society = {
+	icon = "wwu_magic_magical_society"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        all_power_cost = -0.05
+        yearly_corruption = 0.05
+	}
+}
 
 #-----------------------------------------
-# (Level )
+# Stance on Religion (Level 9)
+#-----------------------------------------
+wwu_religion_lip_service = {
+	icon = "wwu_religion_lip_service"
+	allow_normal_conversion = yes
+
+    trigger = {
+        NOT = { government = theocracy }
+    }
+
+	modifiers = {
+        global_unrest = -1
+        religious_unity = 0.1
+	}
+}
+
+wwu_religion_state_religion = {
+	icon = "wwu_religion_state_religion"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        tolerance_own = 2
+        missionaries = 1
+	}
+}
+
+wwu_religion_tolerance_towards_all = {
+	icon = "wwu_religion_tolerance_towards_all"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        tolerance_heathen = 2
+        tolerance_heretic = 2
+	}
+}
+
+wwu_religion_fanaticism = {
+	icon = "wwu_religion_fanaticism"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        global_missionary_strength = 0.01
+        warscore_cost_vs_other_religion = -0.2
+	}
+    custom_attributes = {
+        enables_forced_conversion = yes
+    }
+}
+
+#-----------------------------------------
+# Administrative Organisation (Level 11)
+#-----------------------------------------
+wwu_administration_bureaucracy = {
+	icon = "wwu_administration_bureaucracy"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        expand_administration_cost = -0.2
+        reform_progress_growth = 0.2
+	}
+}
+
+wwu_administration_townships_and_cities = {
+	icon = "wwu_administration_townships_and_cities"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        state_governing_cost = -0.2
+        development_cost = -0.05
+	}
+}
+
+wwu_administration_feudalism = {
+	icon = "wwu_administration_feudalism"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        min_autonomy_in_territories = -0.15
+        fort_maintenance_modifier = -0.15
+	}
+}
+
+wwu_administration_state_autonomy = {
+	icon = "wwu_administration_state_autonomy"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        governing_capacity = 300
+        global_autonomy = 0.05
+	}
+}
+
+#-----------------------------------------
+# Laws and Enforcement (Level 12)
+#-----------------------------------------
+wwu_law_codified_law = {
+	icon = "wwu_law_codified_law"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        stability_cost_modifier = -0.15
+	}
+}
+
+wwu_law_county_law = {
+	icon = "wwu_law_county_law"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        global_unrest = -2
+	}
+}
+
+wwu_law_militias = {
+	icon = "wwu_law_militias"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        reinforce_cost_modifier = -0.1
+	}
+    custom_attributes = {
+        enables_raise_militia_decision = yes
+    }
+}
+
+wwu_law_national_guard = {
+	icon = "wwu_law_national_guard"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        global_manpower_modifier = 0.05
+        defensiveness = 0.1
+	}
+}
+
+#-----------------------------------------
+# Cultural Attitude (Level 13)
+#-----------------------------------------
+wwu_culture_peaceful_existence = {
+	icon = "wwu_culture_peaceful_existence"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        stability_cost_to_declare_war = 1
+        global_unrest = -4
+        development_cost = -0.2
+	}
+}
+
+wwu_culture_warrior_culture = {
+	icon = "wwu_culture_warrior_culture"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        land_morale = 0.1
+        war_exhaustion = -0.03
+	}
+}
+
+wwu_culture_tavern_life = {
+	icon = "wwu_culture_tavern_life"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        diplomatic_upkeep = 1
+        caravan_power = 0.15
+	}
+}
+
+wwu_culture_arts_and_sciences = {
+	icon = "wwu_culture_arts_and_sciences"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        prestige = 0.5
+        technology_cost = -0.05
+	}
+}
+
+#-----------------------------------------
+# Morality and Idealism (Level 15)
+#-----------------------------------------
+wwu_idealism_glory = {
+	icon = "wwu_idealism_glory"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        army_tradition_from_battle = 1.0
+        naval_tradition_from_battle = 1.0
+	}
+    custom_attributes = {
+        enables_power_projection_on_battle_win = yes
+    }
+}
+wwu_idealism_honor = {
+	icon = "wwu_idealism_honor"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        diplomatic_reputation = 1
+        land_morale = 0.1
+	}
+    custom_attributes = {
+        enables_monarch_power_on_nation_release = yes
+    }
+}
+wwu_idealism_victory = {
+	icon = "wwu_idealism_victory"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        rival_change_cost = -1.0
+        rival_border_fort_maintenance = -1.0
+	}
+    custom_attributes = {
+        enables_desperate_push_decision = yes
+        enables_scrapping_the_barrel_decision = yes
+    }
+}
+wwu_idealism_unity = {
+	icon = "wwu_idealism_unity"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        max_absolutism = 15
+        ae_impact = -0.05
+	}
+    conditional = {
+		allow = { has_dlc = "Third Rome" }
+		claim_states = yes
+	}
+}
+
+#-----------------------------------------
+# Diplomatic Attitude (Level 16)
+#-----------------------------------------
+wwu_diplomacy_domination = {
+	icon = "wwu_diplomacy_domination"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        province_warscore_cost = -0.1
+        reduced_liberty_desire = 10
+	}
+}
+
+wwu_diplomacy_ambassadorships = {
+	icon = "wwu_diplomacy_ambassadorships"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        diplomats = 1
+        diplomatic_upkeep = 1
+	}
+}
+
+wwu_diplomacy_disinterest = {
+	icon = "wwu_diplomacy_disinterest"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        diplomatic_reputation = 1
+        diplomatic_annexation_cost = -0.15
+	}
+}
+
+wwu_diplomacy_intervention = {
+	icon = "wwu_diplomacy_intervention"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        unjustified_demands = -0.1
+	}
+    custom_attributes = {
+        enables_hegemony_boost = yes
+    }
+}
+
+#-----------------------------------------
+# Guilds and Heroes (Level 18)
+#-----------------------------------------
+wwu_gah_heroic_guilds = {
+	icon = "wwu_gah_heroic_guilds"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        mercenary_manpower = 0.25
+        mercenary_discipline = 0.05
+	}
+}
+
+wwu_gah_trade_factionalism = {
+	icon = "wwu_gah_trade_factionalism"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        global_trade_power = 0.05
+	}
+    
+    conditional = {
+		allow = { has_factions = no }
+
+        factions = {
+            faction_bankers
+            faction_merchants
+            faction_couriers
+        }
+    }
+}
+
+wwu_gah_political_factionalism = {
+	icon = "wwu_gah_political_factionalism"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        possible_policy = 1
+	}
+    
+    conditional = {
+		allow = { has_factions = no }
+
+        factions = {
+            faction_regressives
+            faction_moderates
+            faction_progressives
+        }
+    }
+}
+
+wwu_gah_criminal_organisations = {
+	icon = "wwu_gah_criminal_organisations"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        spy_offence = 0.25
+	}
+    
+    conditional = {
+		allow = { has_factions = no }
+
+        factions = {
+            faction_bandits
+            faction_thieves
+            faction_cartels
+        }
+    }
+}
+
+#-----------------------------------------
+# Territorial Ambitions (Level 19)
+#-----------------------------------------
+wwu_territory_exploitation = {
+	icon = "wwu_territory_exploitation"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        trade_company_investment_cost = -0.5
+        global_tariffs = 0.25
+	}
+}
+
+wwu_territory_equal_in_name = {
+	icon = "wwu_territory_equal_in_name"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        min_autonomy_in_territories = -0.2
+	}
+}
+
+wwu_territory_efficient_administration = {
+	icon = "wwu_territory_efficient_administration"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        administrative_efficiency = 0.05
+	}
+}
+
+wwu_territory_future_statehood = {
+	icon = "wwu_territory_future_statehood"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        governing_capacity_modifier = 0.1
+        num_accepted_cultures = 1
+	}
+}
+
+#-----------------------------------------
+# Strategic Ambitions (Level 20)
 #-----------------------------------------
 
 #-----------------------------------------
-# (Level )
+# Realm Innovations (Level 22)
 #-----------------------------------------
 
 #-----------------------------------------
-# (Level )
+# Time for Change? (Level 23)
 #-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-#-----------------------------------------
-# (Level )
-#-----------------------------------------
-
-
