@@ -1,0 +1,846 @@
+#--------------------------------------
+# Theramore
+#--------------------------------------
+wwu_theramore_column_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+	    OR = {
+		    tag = A23
+		}
+	} 
+	
+	wwu_kezan_dominance = {
+		icon = mission_goblin_motorbike
+		position = 2
+		required_missions = { wwu_building_a_fleet_a }
+		required_missions = { wwu_kezan_naval_front }
+		
+		trigger = {
+            # Kezan
+			1099 = {
+				is_strongest_trade_power = ROOT
+			}
+			
+		}
+		effect = {
+			add_dip_power = 50
+			add_adm_power = 50
+			add_mil_power = 50
+			add_country_modifier = {
+				name = mission_kezan_node_dominance
+				duration = -1
+			}
+			region_voldun = {
+                add_permanent_claim = ROOT
+			}
+			region_zuldazar = {
+                add_permanent_claim = ROOT
+			}
+			region_nazmir = {
+			    add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_zandalar_dominance = {
+		icon = mission_gold_pile
+		position = 3
+		required_missions = { wwu_building_a_fleet_b }
+		required_missions = { wwu_zandalar_invasion }
+		
+		trigger = {
+            # Zandalar
+			2469 = {
+				is_strongest_trade_power = ROOT
+			}
+			
+		}
+		effect = {
+			add_dip_power = 100
+			add_adm_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+				name = mission_zandalar_node_dominance
+			}
+			area_boralus = {
+                add_permanent_claim = ROOT
+			}
+			area_vigil_hill = {
+                add_permanent_claim = ROOT
+			}
+			area_norwington_estate = {
+			    add_permanent_claim = ROOT
+			}
+			area_fallhaven = {
+			    add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_kul_tiran_dominance = {
+		icon = mission_lakeshire
+		position = 4
+		required_missions = { wwu_building_a_fleet_c }
+		required_missions = { wwu_pursue_of_global_naval_dominance }
+		
+		trigger = {
+            # Kul Tiras
+			570 = {
+				is_strongest_trade_power = ROOT
+			}
+			
+		}
+		effect = {
+			add_dip_power = 100
+			add_adm_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+				name = mission_kul_tiran_node_dominance
+				duration = -1
+			}
+			region_tol_barad = {
+				add_permanent_claim = ROOT
+			}
+			region_hillsbrad_foothills = {
+				add_permanent_claim = ROOT
+			}
+			region_gilneas = {
+				add_permanent_claim = ROOT
+			}
+			region_arathi_highlands = {
+				add_permanent_claim = ROOT
+			}
+			region_wetlands = {
+				add_permanent_claim = ROOT
+			}
+		}	
+	}	
+}
+
+wwu_theramore_column_2 = { 
+	slot = 2
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+	    OR = {
+		    tag = A23
+		}
+	} 
+	
+	wwu_building_a_fleet_a = {
+		icon = mission_ship_2
+		position = 2
+		required_missions = { wwu_dustmarsh_dominance }
+		
+		trigger = {
+			num_of_galley = 15
+			num_of_heavy_ship = 10
+			num_of_light_ship = 10
+		}
+		effect = {
+		    create_admiral = { tradition = 100 }
+			add_country_modifier = {
+				name = mission_strong_fleet_a
+				duration = -1
+			}
+		}
+	}
+	wwu_building_a_fleet_b = {
+		icon = mission_ship_1
+		position = 3
+		required_missions = { wwu_building_a_fleet_a }
+		required_missions = { wwu_kezan_naval_front }
+		
+		trigger = {
+			num_of_galley = 20
+			num_of_heavy_ship = 15
+			num_of_light_ship = 15
+		}
+		effect = {
+			add_country_modifier = {
+				name = mission_strong_fleet_b
+				duration = -1
+			}
+		}
+	}
+	wwu_building_a_fleet_c = {
+		icon = mission_ship_3
+		position = 4
+		required_missions = { wwu_building_a_fleet_b }
+		required_missions = { wwu_zandalar_invasion }
+		
+		trigger = {
+			num_of_galley = 30
+			num_of_heavy_ship = 20
+			num_of_light_ship = 25
+		}
+		effect = {
+			add_country_modifier = {
+				name = mission_strong_fleet_c
+				duration = -1
+			}
+		}
+	}
+	wwu_building_a_fleet_d = {
+		icon = mission_ship_sailing
+		position = 5
+		required_missions = { wwu_building_a_fleet_c }
+		required_missions = { wwu_pursue_of_global_naval_dominance }
+		
+		trigger = {
+			num_of_galley = 40
+			num_of_heavy_ship = 25
+			num_of_light_ship = 30
+		}
+		effect = {
+			add_country_modifier = {
+				name = mission_strong_fleet_d
+				duration = -1
+			}
+		}
+	}
+	wwu_riches_of_broken_shore = { 
+		icon = mission_treasure_map
+		position = 6
+		required_missions = { wwu_building_a_fleet_d }
+        
+		trigger = {
+            region_azsuna = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			region_suramar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+		}
+        provinces_to_highlight = {
+		    OR = {
+			    region = region_azsuna
+                region = region_suramar
+			}
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			add_country_modifier = {
+				name = mission_mythical_continent
+				duration = -1
+			}
+		}
+	}
+}
+
+wwu_theramore_column_3 = { 
+	slot = 3
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+	    OR = {
+		    tag = A23
+		}
+	}
+	
+	wwu_dustmarsh_dominance = {
+		icon = mission_gold_pile
+		required_missions = { }
+		
+		trigger = {
+            # Dustwallow Marsh
+			1456 = {
+				is_strongest_trade_power = ROOT
+			}
+		}
+		
+		effect = {
+			add_dip_power = 50
+			add_adm_power = 50
+			add_mil_power = 50
+			add_country_modifier = {
+				name = mission_dustmarsh_node_dominance
+				duration = -1
+			}
+			region_kezan = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_kezan_naval_front = { 
+		icon = mission_barracks
+		position = 2
+		required_missions = { wwu_dustmarsh_dominance }
+		required_missions = { wwu_building_a_fleet_a }
+        
+		trigger = {
+            region_kezan = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+		}
+        provinces_to_highlight = {
+            region = region_kezan
+            NOT = { owned_by = ROOT }
+        }
+		effect = { 
+		    add_mil_power = 100
+			add_dip_power = 100
+			add_country_modifier = {
+				name = mission_control_kezan
+				duration = -1
+			}
+		}
+	}
+	wwu_zandalar_invasion = {
+		icon = mission_burning_city
+		position = 3
+		required_missions = { wwu_kezan_naval_front } 
+		required_missions = { wwu_building_a_fleet_b }
+        
+		trigger = {
+            region_voldun = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			region_zuldazar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			region_nazmir = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+		}
+        provinces_to_highlight = {
+		    OR = {
+                region = region_nazmir
+				region = region_voldun
+				region = region_zuldazar
+			}
+            NOT = { owned_by = ROOT }
+        }
+		effect = { 
+		    add_mil_power = 200
+			add_dip_power = 200
+			add_country_modifier = {
+				name = mission_invade_zandalar
+				duration = -1
+			}
+		}
+	}
+	wwu_pursue_of_global_naval_dominance = { 
+		icon = mission_burning_castle
+		position = 4
+		required_missions = { wwu_zandalar_invasion } 
+		required_missions = { wwu_building_a_fleet_c }
+        
+		trigger = {
+            area_boralus = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			area_vigil_hill = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			area_norwington_estate = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			area_fallhaven = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+		}
+        provinces_to_highlight = {
+		    OR = {
+                area = area_boralus
+				area = area_vigil_hill
+                area = area_norwington_estate
+				area = area_fallhaven
+			}
+            NOT = { owned_by = ROOT }
+        }
+		effect = { 
+		    add_mil_power = 300
+			add_dip_power = 300
+			add_country_modifier = {
+				name = mission_invade_kultiras
+				duration = -1
+			}
+		}
+	}
+	wwu_returning_home = { 
+		icon = mission_blueprint
+		position = 5
+		required_missions = { wwu_pursue_of_global_naval_dominance }
+		required_missions = { wwu_building_a_fleet_d }
+        
+		trigger = {
+            region_tol_barad = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			region_hillsbrad_foothills = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			region_gilneas = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			region_arathi_highlands = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			region_wetlands = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+		}
+        provinces_to_highlight = {
+		    OR = {
+                region = region_tol_barad
+				region = region_hillsbrad_foothills
+                region = region_gilneas
+				region = region_arathi_highlands
+				region = region_wetlands
+			}
+            NOT = { owned_by = ROOT }
+        }
+		effect = { 
+		    add_mil_power = 400
+			add_dip_power = 400
+			add_prestige = 40
+			add_country_modifier = {
+				name = mission_invade_north_eastern_kingdoms
+				duration = -1
+			}
+		}
+	}	
+}
+
+wwu_theramore_column_4 = { 
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+	    OR = {
+		    tag = A23
+		}
+	} 
+    
+	wwu_uniting_the_populace = { 
+		icon = mission_jaina
+        
+		required_missions = {  } 
+        
+		trigger = {
+            num_accepted_cultures = 4
+		}
+		
+		effect = { 
+			add_country_modifier = {
+                name = mission_power_of_people
+                duration = -1
+            }
+		    capital_scope = {
+				add_base_manpower = 1
+				add_base_tax = 1
+				add_base_production = 1
+			}
+            region_dustwallow_marsh = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_secure_the_marsh = { 
+		icon = mission_blueprint
+		position = 2
+		required_missions = { wwu_uniting_the_populace } 
+        
+		trigger = {
+            region_dustwallow_marsh = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+		}
+        provinces_to_highlight = {
+            region = region_dustwallow_marsh
+            NOT = { owned_by = ROOT }
+        }
+		effect = { 
+		    change_primary_culture = culture_theramorean
+			add_country_modifier = {
+				name = mission_consolidate_marsh
+				duration = -1
+			}
+            region_dustwallow_marsh = {
+                add_permanent_claim = ROOT
+            }
+            area_northwatch_hold = {
+                add_permanent_claim = ROOT
+            }
+			area_blackthorn_ridge = {
+                add_permanent_claim = ROOT
+            }
+			every_owned_province = { change_culture = culture_theramorean }
+		}
+	}
+	wwu_colonize_south_barrens = {
+	    icon = mission_camp_flag
+		position = 3
+		required_missions = { wwu_secure_the_marsh }
+		
+		provinces_to_highlight = {
+			OR = {
+                area = area_northwatch_hold
+                area = area_blackthorn_ridge
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		    area_northwatch_hold = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_blackthorn_ridge = {
+			    type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 100
+			add_adm_power = 100
+			add_country_modifier = {
+                name = mission_colonizing_barrens
+                duration = -1
+            }
+			region_south_barrens = {
+				add_permanent_claim = ROOT
+			}
+			area_the_crossroads = {
+				add_permanent_claim = ROOT
+			}
+			area_ratchet = {
+				add_permanent_claim = ROOT
+			}
+			area_the_wailing_caverns = {
+				add_permanent_claim = ROOT
+			}
+            area_forgotten_pools = {
+				add_permanent_claim = ROOT
+			}       
+		}
+	}
+    wwu_pushing_into_north_barrens = {
+		icon = mission_barracks
+		position = 4
+		required_missions = { wwu_colonize_south_barrens }
+		
+		provinces_to_highlight = {
+		    OR = {
+		        area = area_the_crossroads
+			    area = area_ratchet
+			    area = area_the_wailing_caverns
+			    area = area_forgotten_pools
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+            area_the_crossroads = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_ratchet = {
+			    type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_the_wailing_caverns= {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+            area_forgotten_pools = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			add_country_modifier = {
+                name = mission_control_crossroads
+                duration = -1
+            }
+			region_north_barrens = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_isolating_the_horde = {
+		icon = mission_blueprint
+		position = 5
+		required_missions = { wwu_pushing_into_north_barrens }
+		
+		provinces_to_highlight = {
+		    OR = {
+		        region = region_north_barrens
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+            region_north_barrens = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_adm_power = 200
+			add_mil_power = 200
+			add_dip_power = 200
+			add_prestige = 20
+			add_country_modifier = {
+                name = mission_isolate_horde
+                duration = -1
+            }
+			region_mulgore = {
+			    add_permanent_claim = ROOT
+			}
+			area_orgrimmar_exterior = {
+				add_permanent_claim = ROOT
+			}
+			area_razor_hill = {
+				add_permanent_claim = ROOT
+			}
+			area_echo_isles = {
+				add_permanent_claim = ROOT
+			}
+			area_valley_of_trials = {
+				add_permanent_claim = ROOT
+			}
+			area_southfury_river = {
+				add_permanent_claim = ROOT
+			}
+			area_thunder_ridge = {
+				add_permanent_claim = ROOT
+			}
+			area_tiragarde_shore = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_dismantle_tauren_federation = {
+		icon = burning_castle
+		position = 6
+		required_missions = { wwu_isolating_the_horde }
+		
+		provinces_to_highlight = {
+		    OR = {
+		        region = region_mulgore
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+            region_mulgore = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_adm_power = 300
+			add_mil_power = 300
+			add_dip_power = 300
+			add_prestige = 20
+			add_country_modifier = {
+                name = mission_dismantle_federation
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_theramore_column_5 = { 
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+	    OR = {
+		    tag = A23
+		}
+	} 
+	
+    wwu_northwatch = {
+	    icon = mission_jaina
+		required_missions = { }
+		position = 1
+		
+        trigger = {
+			G06 = {
+				has_opinion = { who = ROOT value = 200 }
+			}
+		}
+		effect = {
+			add_dip_power = 200
+			add_country_modifier = {
+                name = mission_northwatch
+                duration = -1
+            }
+			inherit = G06
+	    }
+	}
+	wwu_fortify_the_marsh = {
+		icon = mission_workshop
+		position = 3
+		required_missions = { wwu_secure_the_marsh }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1463
+				province_id = 1450
+				province_id = 3486
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				OR = {
+					has_building = wow_fort_1
+				}
+				OR = {
+					province_id = 1463
+					province_id = 1450
+					province_id = 3486
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mission_expand_fortifications
+				duration = -1
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							province_id = 1463
+							province_id = 1450
+							province_id = 3486
+						}
+						has_building = wow_fort_2
+					}
+				}
+				every_owned_province = {
+					limit = {
+						OR = {
+							province_id = 1463
+							province_id = 1450
+							province_id = 3486
+						}
+					}
+					if = {
+						limit = { has_building = wow_fort_2 }
+						remove_building = wow_fort_2
+						add_building = wow_fort_3
+					}
+				}
+			}
+		}
+	}
+	wwu_hitting_the_snake_on_the_head = {
+		icon = mission_burning_city
+		position = 5
+		required_missions = { wwu_isolating_the_horde }
+		required_missions = { wwu_pushing_into_north_barrens }
+		
+		provinces_to_highlight = {
+		    OR = {
+		        area = area_orgrimmar_exterior
+                area = area_razor_hill
+                area = area_echo_isles
+                area = area_valley_of_trials
+                area = area_southfury_river
+                area = area_thunder_ridge
+                area = area_tiragarde_shore
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+            area_orgrimmar_exterior = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_razor_hill = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_echo_isles = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_valley_of_trials = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_southfury_river = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_thunder_ridge = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_tiragarde_shore = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_adm_power = 200
+			add_mil_power = 200
+			add_dip_power = 200
+			add_prestige = 30
+			add_country_modifier = {
+                name = mission_destroy_orgrimmar
+                duration = -1
+            }
+			area_orgrimmar = {
+				add_devastation = 100
+			}
+		}
+	}
+	wwu_replace_faith_of_federation = {
+		icon = mission_secretive_plot
+		position = 6
+		required_missions = { wwu_isolating_the_horde }
+		
+		provinces_to_highlight = {
+		    OR = {
+				region = region_mulgore
+			}
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+            region_mulgore = {
+				type = all
+				religion = ROOT
+			}
+		}
+		effect = {
+		    add_adm_power = 200
+			add_mil_power = 200
+			add_dip_power = 200
+			add_country_modifier = {
+                name = mission_replace_faith_of_federation
+                duration = -1
+            }
+		}
+	}
+}
