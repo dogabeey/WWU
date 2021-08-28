@@ -481,3 +481,37 @@ estate_nobility_fel_imbibement = {
 		factor = 1
 	}
 }
+
+estate_nobility_gilded_rule = {
+	icon = privilege_cascade
+
+    # Costs
+    max_absolutism = -20
+	land_share = -10
+	loyalty = 0.2
+	influence = 0.1
+    
+	is_valid = {
+		has_reform = wwu_noble_rights_strong_nobility
+	}
+	can_select = {
+		has_reform = wwu_noble_rights_strong_nobility
+	}
+    can_revoke = {
+        NOT = { has_reform = wwu_noble_rights_strong_nobility }
+    }
+    on_revoked = {
+        add_legitimacy = -50
+        add_stability = -3
+    }
+	benefits = {
+        legitimacy = 1
+        global_unrest = -2
+        global_manpower_modifier = 0.33
+        global_tax_modifier = 0.33
+	}
+    
+	ai_will_do = {
+		factor = 1
+	}
+}
