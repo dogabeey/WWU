@@ -231,8 +231,10 @@ country_event = {
 	
 	trigger = {
         has_idea = wwu_influence_ideas_3
+        NOT = { culture_group = culture_group_scourge }
 		any_subject_country = {
             junior_union_with = ROOT
+            NOT = { culture_group = culture_group_scourge }
         }
 	}
 	
@@ -253,6 +255,21 @@ country_event = {
         
         inherit = event_target:chosen_subject
 	}
+    option = {
+		name = wwu_ideagroups.9.option.b
+		
+        hidden_effect = {
+            random_subject_country = {
+                limit = { junior_union_with = ROOT }
+                
+                save_event_target_as = chosen_subject
+            }
+        }
+        
+        event_target:chosen_subject = {
+            add_liberty_desire = -50
+        }
+	}
 }
 
 # Integration of Vassal
@@ -264,7 +281,9 @@ country_event = {
 	
 	trigger = {
         has_idea = wwu_influence_ideas_3
+        NOT = { culture_group = culture_group_scourge }
 		any_subject_country = {
+            NOT = { culture_group = culture_group_scourge }
             vassal_of = ROOT
         }
 	}
@@ -285,6 +304,21 @@ country_event = {
         }
         
         inherit = event_target:chosen_subject
+	}
+    option = {
+		name = wwu_ideagroups.10.option.b
+		
+        hidden_effect = {
+            random_subject_country = {
+                limit = { vassal_of = ROOT }
+                
+                save_event_target_as = chosen_subject
+            }
+        }
+        
+        event_target:chosen_subject = {
+            add_liberty_desire = -50
+        }
 	}
 }
 

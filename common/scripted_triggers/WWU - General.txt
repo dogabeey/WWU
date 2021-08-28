@@ -187,3 +187,39 @@ is_invader = {
 		technology_group = tech_elemental
 	}
 }
+
+is_considered_evil = {
+    OR = {
+        religion = corrupt_titan_worship
+        religion = corrupt_dragon_aspect
+        religion = fel
+        religion = cult_of_the_damned
+        religion = shadow
+        religion = forgotten_shadow
+        religion = cthun
+        religion = nzoth
+        religion = yogg_saron
+        religion = yshaarj
+        religion = twilight_cult
+        religion = nightmare
+        religion = void
+        has_country_modifier = is_evil
+    }
+}
+
+is_considered_good = {
+    NOT = { religion = corrupt_titan_worship }
+    NOT = { religion = corrupt_dragon_aspect }
+    NOT = { religion = fel }
+    NOT = { religion = cult_of_the_damned }
+    NOT = { religion = shadow }
+    NOT = { religion = forgotten_shadow }
+    NOT = { religion = cthun }
+    NOT = { religion = nzoth }
+    NOT = { religion = yogg_saron }
+    NOT = { religion = yshaarj }
+    NOT = { religion = twilight_cult }
+    NOT = { religion = nightmare }
+    NOT = { religion = void }
+    NOT = { has_country_modifier = is_evil }
+}

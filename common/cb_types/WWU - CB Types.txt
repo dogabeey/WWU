@@ -274,3 +274,46 @@ cb_subjugate_lesser_trolls = {
 
 	war_goal = take_capital_vassalize
 }
+
+cb_cleanse_evil = {
+    valid_for_subject = no
+
+	prerequisites = {
+        has_reform = wwu_ambition_a_just_world
+        is_considered_good = yes
+        
+        FROM = {
+            is_considered_evil = yes
+        }
+	}
+
+	war_goal = take_capital_ruthless
+}
+
+cb_cultural_unification = {
+    valid_for_subject = no
+
+	prerequisites = {
+        has_reform = wwu_ambition_unification
+        
+        FROM = {
+            culture_group = ROOT
+        }
+	}
+
+	war_goal = take_capital_unification
+}
+
+cb_religious_unification = {
+    valid_for_subject = no
+
+	prerequisites = {
+        has_reform = wwu_ambition_one_faith
+        
+        FROM = {
+            NOT = { religion_group = ROOT }
+        }
+	}
+
+	war_goal = take_capital_force_religion
+}

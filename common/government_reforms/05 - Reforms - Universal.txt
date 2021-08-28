@@ -1,5 +1,5 @@
 #-----------------------------------------
-# Labor Organisation (Level 1)
+# Labor Organisation 
 #-----------------------------------------
 wwu_labor_tier_commission = {
 	icon = "wwu_labor_tier_commission"
@@ -88,7 +88,7 @@ wwu_labor_tier_slavery = {
 }
 
 #-----------------------------------------
-# Miliary Organisation (Level 2)
+# Miliary Organisation 
 #-----------------------------------------
 wwu_military_conscription = {
 	icon = "wwu_military_conscription"
@@ -135,7 +135,7 @@ wwu_military_elitism = {
 }
 
 #-----------------------------------------
-# Economic Organisation (Level 4)
+# Economic Organisation 
 #-----------------------------------------
 wwu_economic_extensive_taxation = {
 	icon = "wwu_economic_extensive_taxation"
@@ -176,7 +176,7 @@ wwu_economic_war_economy = {
 }
 
 #-----------------------------------------
-# Trade Organisation (Level 5)
+# Trade Organisation 
 #-----------------------------------------
 wwu_trade_free_trade = {
 	icon = "wwu_trade_free_trade"
@@ -215,7 +215,7 @@ wwu_trade_criminal_exploitation = {
 }
 
 #-----------------------------------------
-# Naval Organisation (Level 6)
+# Naval Organisation 
 #-----------------------------------------
 wwu_naval_grand_armada = {
 	icon = "wwu_naval_grand_armada"
@@ -259,7 +259,7 @@ wwu_naval_coastal_dominance = {
 }
 
 #-----------------------------------------
-# Stance on Magic (Level 8)
+# Stance on Magic 
 #-----------------------------------------
 wwu_magic_free_magic = {
 	icon = "wwu_magic_free_magic"
@@ -301,7 +301,7 @@ wwu_magic_magical_society = {
 }
 
 #-----------------------------------------
-# Stance on Religion (Level 9)
+# Stance on Religion 
 #-----------------------------------------
 wwu_religion_lip_service = {
 	icon = "wwu_religion_lip_service"
@@ -351,7 +351,7 @@ wwu_religion_fanaticism = {
 }
 
 #-----------------------------------------
-# Administrative Organisation (Level 11)
+# Administrative Organisation 
 #-----------------------------------------
 wwu_administration_bureaucracy = {
 	icon = "wwu_administration_bureaucracy"
@@ -394,7 +394,7 @@ wwu_administration_state_autonomy = {
 }
 
 #-----------------------------------------
-# Laws and Enforcement (Level 12)
+# Laws and Enforcement 
 #-----------------------------------------
 wwu_law_codified_law = {
 	icon = "wwu_law_codified_law"
@@ -437,7 +437,7 @@ wwu_law_national_guard = {
 }
 
 #-----------------------------------------
-# Cultural Attitude (Level 13)
+# Cultural Attitude 
 #-----------------------------------------
 wwu_culture_peaceful_existence = {
 	icon = "wwu_culture_peaceful_existence"
@@ -481,7 +481,7 @@ wwu_culture_arts_and_sciences = {
 }
 
 #-----------------------------------------
-# Morality and Idealism (Level 15)
+# Morality and Idealism 
 #-----------------------------------------
 wwu_idealism_glory = {
 	icon = "wwu_idealism_glory"
@@ -535,7 +535,7 @@ wwu_idealism_unity = {
 }
 
 #-----------------------------------------
-# Diplomatic Attitude (Level 16)
+# Diplomatic Attitude 
 #-----------------------------------------
 wwu_diplomacy_domination = {
 	icon = "wwu_diplomacy_domination"
@@ -580,7 +580,7 @@ wwu_diplomacy_intervention = {
 }
 
 #-----------------------------------------
-# Guilds and Heroes (Level 18)
+# Guilds and Heroes 
 #-----------------------------------------
 wwu_gah_heroic_guilds = {
 	icon = "wwu_gah_heroic_guilds"
@@ -596,18 +596,24 @@ wwu_gah_trade_factionalism = {
 	icon = "wwu_gah_trade_factionalism"
 	allow_normal_conversion = yes
 
+    trigger = {
+        NOT = { has_reform = pirate_republic_reform }
+        NOT = { has_reform = pirate_kingdom_reform }
+        NOT = { has_reform = scourge_reform }
+        NOT = { has_reform = kingdom_of_magic_reform }
+        NOT = { has_reform = convocation_of_silvermoon_reform }
+        NOT = { has_reform = naga_domain_reform }
+        NOT = { has_reform = naga_empire_reform }
+    }
+
 	modifiers = {
         global_trade_power = 0.05
 	}
     
-    conditional = {
-		allow = { has_factions = no }
-
-        factions = {
-            faction_bankers
-            faction_merchants
-            faction_couriers
-        }
+    factions = {
+        faction_bankers
+        faction_merchants
+        faction_couriers
     }
 }
 
@@ -615,18 +621,24 @@ wwu_gah_political_factionalism = {
 	icon = "wwu_gah_political_factionalism"
 	allow_normal_conversion = yes
 
+    trigger = {
+        NOT = { has_reform = pirate_republic_reform }
+        NOT = { has_reform = pirate_kingdom_reform }
+        NOT = { has_reform = scourge_reform }
+        NOT = { has_reform = kingdom_of_magic_reform }
+        NOT = { has_reform = convocation_of_silvermoon_reform }
+        NOT = { has_reform = naga_domain_reform }
+        NOT = { has_reform = naga_empire_reform }
+    }
+    
 	modifiers = {
         possible_policy = 1
 	}
     
-    conditional = {
-		allow = { has_factions = no }
-
-        factions = {
-            faction_regressives
-            faction_moderates
-            faction_progressives
-        }
+    factions = {
+        faction_regressives
+        faction_moderates
+        faction_progressives
     }
 }
 
@@ -634,23 +646,29 @@ wwu_gah_criminal_organisations = {
 	icon = "wwu_gah_criminal_organisations"
 	allow_normal_conversion = yes
 
+    trigger = {
+        NOT = { has_reform = pirate_republic_reform }
+        NOT = { has_reform = pirate_kingdom_reform }
+        NOT = { has_reform = scourge_reform }
+        NOT = { has_reform = kingdom_of_magic_reform }
+        NOT = { has_reform = convocation_of_silvermoon_reform }
+        NOT = { has_reform = naga_domain_reform }
+        NOT = { has_reform = naga_empire_reform }
+    }
+    
 	modifiers = {
         spy_offence = 0.25
 	}
     
-    conditional = {
-		allow = { has_factions = no }
-
-        factions = {
-            faction_bandits
-            faction_thieves
-            faction_cartels
-        }
+    factions = {
+        faction_bandits
+        faction_thieves
+        faction_cartels
     }
 }
 
 #-----------------------------------------
-# Territorial Ambitions (Level 19)
+# Territorial Ambitions 
 #-----------------------------------------
 wwu_territory_exploitation = {
 	icon = "wwu_territory_exploitation"
@@ -691,13 +709,219 @@ wwu_territory_future_statehood = {
 }
 
 #-----------------------------------------
-# Strategic Ambitions (Level 20)
+# Strategic Ambitions 
 #-----------------------------------------
+wwu_ambition_a_just_world = {
+	icon = "wwu_ambition_a_just_world"
+	allow_normal_conversion = yes
+
+    trigger = {
+        is_considered_good = yes
+    }
+
+	modifiers = {
+        diplomatic_reputation = 1
+	}
+    
+    custom_attributes = {
+        enables_cleanse_evil_cb = yes
+    }
+}
+
+wwu_ambition_unification = {
+	icon = "wwu_ambition_unification"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        unjustified_demands = 0.1
+	}
+    
+    custom_attributes = {
+        enables_cultural_unification_cb = yes
+    }
+}
+
+wwu_ambition_one_faith = {
+	icon = "wwu_ambition_one_faith"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        missionaries = 1
+	}
+    
+    custom_attributes = {
+        enables_religious_unification_cb = yes
+    }
+}
+
+wwu_ambition_prestige = {
+	icon = "wwu_ambition_prestige"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        prestige = 1.0
+        fabricate_claims_cost = -0.5
+	}
+}
 
 #-----------------------------------------
-# Realm Innovations (Level 22)
+# Realm Innovations 
 #-----------------------------------------
+wwu_innovation_grand_road_network = {
+	icon = "wwu_innovation_grand_road_network"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        movement_speed = 0.1
+        trade_efficiency = 0.1
+	}
+}
+
+wwu_innovation_technological_hubs = {
+	icon = "wwu_innovation_technological_hubs"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        technology_cost = -0.05
+        idea_cost = -0.05
+        innovativeness_gain = 0.1
+	}
+}
+
+wwu_innovation_militarised_towns = {
+	icon = "wwu_innovation_militarised_towns"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        land_forcelimit_modifier = 0.2
+        land_morale = 0.1
+	}
+}
+
+wwu_innovation_leaders_of_legend = {
+	icon = "wwu_innovation_leaders_of_legend"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        monarch_admin_power = 1
+        monarch_diplomatic_power = 1
+        monarch_military_power = 1
+	}
+}
 
 #-----------------------------------------
-# Time for Change? (Level 23)
+# Time for Change? 
 #-----------------------------------------
+wwu_switch_become_a_monarchy = {
+	icon = "wwu_switch_become_a_monarchy"
+	allow_normal_conversion = yes
+
+	trigger = {
+
+		OR = {
+            AND = {
+                NOT = { has_reform = dwarven_clan_reform }
+                NOT = { has_government_attribute = locked_government_type }
+            }
+            # Allow for this locked government
+            has_reform = dwarven_clan_reform
+        }
+		is_emperor = no
+		NOT = { is_lesser_in_union = yes }
+	}
+    
+	effect = {
+		if = {
+			limit = { has_government_attribute = states_general_mechanic }
+			set_country_flag = had_states_general_mechanic
+		}
+		set_country_flag = populists_in_government
+		lose_reforms = 3
+		change_government = monarchy
+		if = {
+			limit = { has_country_flag = had_states_general_mechanic }
+			country_event = { id = wwu_states_general.1 }
+			clr_country_flag = had_states_general_mechanic
+		}
+	}
+	ai = {
+		factor = 0
+	}
+}
+
+wwu_switch_become_a_republic = {
+	icon = "wwu_switch_become_a_republic"
+	allow_normal_conversion = yes
+
+	trigger = {
+		NOT = { has_government_attribute = locked_government_type }
+		is_emperor = no
+		NOT = { is_lesser_in_union = yes }
+	}
+    
+	effect = {
+		set_country_flag = populists_in_government
+		lose_reforms = 3
+		change_government = republic
+	}
+	ai = {
+		factor = 0
+	}
+}
+
+wwu_switch_become_a_theocracy = {
+	icon = "wwu_switch_become_a_theocracy"
+	allow_normal_conversion = yes
+
+	trigger = {
+		NOT = { has_government_attribute = locked_government_type }
+		is_emperor = no
+		NOT = { is_lesser_in_union = yes }
+	}
+    
+	effect = {
+		set_country_flag = populists_in_government
+		lose_reforms = 3
+		change_government = theocracy
+	}
+    
+	ai = {
+		factor = 0
+	}
+}
+
+wwu_switch_become_a_warband = {
+    icon = "wwu_switch_become_a_warband"
+	allow_normal_conversion = yes
+    
+    potential = {
+        NOT = { has_reform = warband_reform }
+    }
+    
+    trigger = {
+		NOT = { has_government_attribute = locked_government_type }
+		is_emperor = no
+		NOT = { is_lesser_in_union = yes }
+	}
+    
+	effect = {
+		set_country_flag = populists_in_government
+        lose_reforms = 3
+        change_government = tribal
+        add_government_reform = warband_reform
+	}
+    
+	ai = {
+		factor = 0
+	}
+}
+
+wwu_switch_consolidate_power = {
+	icon = "wwu_switch_consolidate_power"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        reform_progress_growth = 0.25
+        max_absolutism = 10
+	}
+}
