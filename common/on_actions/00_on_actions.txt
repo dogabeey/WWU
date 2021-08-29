@@ -444,7 +444,7 @@ on_new_monarch = {
 		# set_country_flag = country_has_no_heir
 		# ##log = "[Root.Monarch.GetName] is no longer a heir and became monarch."
 	# }
-	
+    
     events = {
         wwu_ruler_education.1    # The Education of [Root.Monarch.GetName]
         wwu_ruler_education.2    # Ascension of [Root.Monarch.GetName]
@@ -452,6 +452,7 @@ on_new_monarch = {
 		wwu_pretender.1
         wwu_dragon_aspects.3
         wwu_dragon_aspects.5
+        wwu_government.8         # Court Disposition
     }
 	random_events = {
 		1000 = 0
@@ -485,6 +486,7 @@ on_monarch_death = {
 	events = {
 		loa.2 # Remove old loa's influence
         wwu_shamanism.1 # Passing of Great Leader
+        wwu_government.11 # Gavelkind Succession
 	}
 	
 }
@@ -604,14 +606,10 @@ on_heir_death = {
 		limit = { has_ruler_flag = returned_from_sancaga_sikma_province }
 		clr_ruler_flag = returned_from_sancaga_sikma_province
 	}
-    # REFORM UPDATE
-	# if = {
-		# limit = {
-			# has_reform = wwu_hereditary_rule_reform
-		# }
-		# set_country_flag = country_has_no_heir
-		# ##log = "[Root.GetName]'s heir died"
-	# }
+    
+    events = {
+        wwu_government.10 # Heir Apparent
+    }
 }
 
 # country
@@ -1918,6 +1916,9 @@ on_five_year_pulse_3 = {
         100 = wwu_naga.1
         100 = wwu_naga.2
         100 = wwu_naga.3
+        
+        100 = wwu_government.9 # Decadence
+        100 = wwu_government.10 # Heir Apparent
         
 		1000 = 0
 	}

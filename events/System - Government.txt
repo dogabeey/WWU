@@ -727,3 +727,198 @@ country_event = {
 		}
 	}
 }
+
+# "Court Disposition"
+country_event = {
+	id = wwu_government.8
+	title = wwu_government.8.title
+	desc = wwu_government.8.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_government_attribute = enables_court_disposition_event
+	}
+
+	option = {
+		name = wwu_government.8.option.a
+        
+		add_ruler_modifier = {
+            name = administrative_council
+            duration = -1
+        }
+	}
+	
+	option = {
+		name = wwu_government.8.option.b
+        
+        add_ruler_modifier = {
+            name = diplomatic_council
+            duration = -1
+        }
+	}
+	
+	option = {
+		name = wwu_government.8.option.c
+        
+		add_ruler_modifier = {
+            name = war_council
+            duration = -1
+        }
+	}
+	
+	option = {
+		name = wwu_government.8.option.d
+        
+		add_ruler_modifier = {
+            name = religious_council
+            duration = -1
+        }
+	}
+    
+    option = {
+		name = wwu_government.8.option.e
+        
+		add_ruler_modifier = {
+            name = occult_council
+            duration = -1
+        }
+	}
+}
+
+# "Decadence"
+country_event = {
+	id = wwu_government.9
+	title = wwu_government.9.title
+	desc = wwu_government.9.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_government_attribute = enables_decadence_event
+	}
+
+    # Drunk and Disorderly
+	option = {
+		name = wwu_government.9.option.a
+        
+		add_ruler_modifier = {
+            name = decadence_drunk
+            duration = 3650
+        }
+	}
+	
+    # Degenerate Behavior
+	option = {
+		name = wwu_government.9.option.b
+        
+        add_ruler_modifier = {
+            name = decadence_degenerate
+            duration = 3650
+        }
+	}
+	
+    # Gluttonous Appetite
+	option = {
+		name = wwu_government.9.option.c
+        
+		add_ruler_modifier = {
+            name = decadence_glutton
+            duration = 3650
+        }
+	}
+	
+    # Vain Attitude
+	option = {
+		name = wwu_government.9.option.d
+        
+		add_ruler_modifier = {
+            name = decadence_vain
+            duration = -1
+        }
+	}
+}
+
+# "Heir Apparent"
+country_event = {
+	id = wwu_government.10
+	title = wwu_government.10.title
+	desc = wwu_government.10.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_government_attribute = enables_heir_apparent_event
+	}
+
+    # Support the elder heir
+	option = {
+		name = wwu_government.10.option.a
+        
+		define_heir = {
+            age = 40
+            claim = 100
+            hide_skills = yes
+        }
+	}
+	
+    # Continue with the current heir
+	option = {
+		name = wwu_government.10.option.b
+        
+        add_heir_claim = -50
+        add_stability = -1
+	}
+}
+
+# "Gavelkind Succession"
+country_event = {
+	id = wwu_government.11
+	title = wwu_government.11.title
+	desc = wwu_government.11.desc
+	picture = IMPORTANT_STATUE_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_government_attribute = enables_gavelkind_succession_event
+	}
+
+    # Grant shares of the estate fully
+	option = {
+		name = wwu_government.11.option.a
+        
+		every_owned_province = {
+            limit = {
+                NOT = { is_capital = yes }
+            }
+            add_local_autonomy = 50
+        }
+	}
+	
+    # Grant shares of the estate in part
+	option = {
+		name = wwu_government.11.option.b
+        
+        every_owned_province = {
+            limit = {
+                NOT = { is_capital = yes }
+            }
+            add_local_autonomy = 25
+        }
+        
+        add_stability = -1
+	}
+    
+    # Refuse to grant shares of the estate
+	option = {
+		name = wwu_government.11.option.c
+        
+        add_stability = -6
+	}
+}
+
+

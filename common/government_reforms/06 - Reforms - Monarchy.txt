@@ -10,7 +10,7 @@ wwu_noble_rights_strong_nobility = {
     }
 
 	modifiers = {
-		governing_capacity_modifier = 0.15
+		governing_capacity_modifier = 0.1
         nobility_loyalty_modifier = 0.1
         nobility_influence_modifier = 0.15
 	}
@@ -29,23 +29,202 @@ wwu_noble_rights_curtailed_nobility = {
 	allow_normal_conversion = yes
 
 	modifiers = {
-		governing_capacity_modifier = 0.15
-        nobility_loyalty_modifier = 0.1
-        nobility_influence_modifier = 0.15
+		legitimacy = 0.5
+        nobility_influence_modifier = 0.1
 	}
+}
+
+wwu_noble_rights_warlordism = {
+	icon = "wwu_noble_rights_warlordism"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		global_manpower_modifier = 0.1
+        war_exhaustion = -0.03
+        garrison_size = 0.25
+        min_autonomy = 5
+	}
+}
+
+wwu_noble_rights_strong_royal_court = {
+	icon = "wwu_noble_rights_strong_royal_court"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		advisor_cost = -0.1
+	}
+    
+    custom_attributes = {
+        enables_court_disposition_event = yes
+    }
 }
 
 #-----------------------------------------
 # Expectations of the Monarch (Level 7)
 #-----------------------------------------
+wwu_ruler_expectation_head_of_the_kingdom = {
+	icon = "wwu_noble_rights_strong_royal_court"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		global_autonomy = -0.05
+        governing_capacity = 100
+	}
+}
+
+wwu_ruler_expectation_champion_of_the_people = {
+	icon = "wwu_ruler_expectation_champion_of_the_people"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        army_tradition_from_battle = 0.25
+		free_leader_pool = 1
+	}
+    
+    custom_attributes = {
+        enables_champion_of_the_people_triggered_modifier = yes
+    }
+}
+
+wwu_ruler_expectation_servant_of_the_realm = {
+	icon = "wwu_ruler_expectation_servant_of_the_realm"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		core_creation = -0.1
+        global_unrest = -1
+	}
+}
+
+wwu_ruler_expectation_purveyor_of_decadence = {
+	icon = "wwu_ruler_expectation_purveyor_of_decadence"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		prestige_decay = -0.01
+	}
+    custom_attributes = {
+        enables_decadence_event = yes
+        enables_monarch_lifespan_boost = yes
+    }
+}
 
 #-----------------------------------------
 # Succession Law (Level 10)
 #-----------------------------------------
+wwu_succession_law_primogeniture = {
+	icon = "wwu_succession_law_primogeniture"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		monthly_heir_claim_increase = 0.033
+        governing_capacity = 100
+	}
+}
+
+wwu_succession_law_seniority = {
+	icon = "wwu_succession_law_seniority"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		local_heir_adm = 1
+        local_heir_dip = 1
+        local_heir_mil = 1
+	}
+    
+    custom_attributes = {
+        enables_heir_apparent_event = yes
+    }
+}
+
+wwu_succession_law_gavelkind = {
+	icon = "wwu_succession_law_gavelkind"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		legitimacy = 1
+        stability_cost_modifier = -0.25
+        core_creation = -0.1
+	}
+    
+    custom_attributes = {
+        enables_gavelkind_succession_event = yes
+    }
+}
+
+wwu_succession_law_heroism = {
+	icon = "wwu_succession_law_heroism"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		monarch_admin_power = 1
+        monarch_diplomatic_power = 1
+        monarch_military_power = 1
+        prestige = 0.5
+	}
+    
+    custom_attributes = {
+        enables_monarch_lifespan_reduction = yes
+    }
+}
 
 #-----------------------------------------
 # Royal Power (Level 14)
 #-----------------------------------------
+wwu_royal_power_strong_authority = {
+	icon = "wwu_royal_power_strong_authority"
+	allow_normal_conversion = yes
+
+	modifiers = {
+		legitimacy = 0.5
+        max_absolutism = 10
+	}
+}
+
+wwu_royal_power_curtailed_authority = {
+	icon = "wwu_royal_power_curtailed_authority"
+	allow_normal_conversion = yes
+
+    trigger = {
+        OR = {
+            has_estate = estate_nobility
+            has_estate = estate_traders
+            has_estate = estate_clergy
+        }
+    }
+
+	modifiers = {
+		nobility_loyalty_modifier = 0.1
+        clergy_loyalty_modifier = 0.1
+        traders_loyalty_modifier= 0.1
+        max_absolutism = -10
+	}
+}
+
+wwu_royal_power_figurehead = {
+	icon = "wwu_royal_power_figurehead"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+		advisor_cost = -0.2
+        advisor_pool = 2
+        max_absolutism = -50
+	}
+}
+
+wwu_royal_power_war_footing = {
+	icon = "wwu_royal_power_war_footing"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+		war_taxes_cost_modifier = -0.5
+        war_exhaustion = -0.03
+	}
+    
+    custom_attributes = {
+        enables_war_footing_triggered_modifier = yes
+    }
+}
 
 #-----------------------------------------
 # Assembly and Absolutism (Level 17)
