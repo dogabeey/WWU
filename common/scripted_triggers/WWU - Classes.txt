@@ -1,4 +1,5 @@
-warrior = {
+# Classes
+can_be_warrior = {
 	OR = {
 		religion_group = death_group
 		religion_group = disorder_group
@@ -10,10 +11,12 @@ warrior = {
 		religion_group = shadow_group
 	}
 }
-paladin = {
+
+can_be_paladin = {
 	religion_group = light_group
 }
-priest = {
+
+can_be_priest = {
 	OR = {
 		religion_group = death_group
 		religion_group = disorder_group
@@ -25,7 +28,8 @@ priest = {
 		religion_group = shadow_group
 	}
 }
-rogue = {
+
+can_be_rogue = {
 	OR = {
 		religion_group = death_group
 		religion_group = disorder_group
@@ -37,7 +41,8 @@ rogue = {
 		religion_group = shadow_group
 	}
 }
-mage = {
+
+can_be_mage = {
 	OR = {
 		religion_group = death_group
 		religion_group = disorder_group
@@ -50,10 +55,12 @@ mage = {
 	}
 	NOT = { religion = fel }
 }
-warlock = {
+
+can_be_warlock = {
 	religion = fel
 }
-druid = {
+
+can_be_druid = {
 	OR = {
 		religion_group = elemental_group
 		religion_group = life_group
@@ -65,7 +72,8 @@ druid = {
 	NOT = { religion = elune }
 	NOT = { religion = celestials }
 }
-hunter = {
+
+can_be_hunter = {
 	OR = {
 		religion_group = death_group
 		religion_group = disorder_group
@@ -77,7 +85,8 @@ hunter = {
 		religion_group = shadow_group
 	}
 }
-shaman = {
+
+can_be_shaman = {
 	OR = {
 		religion_group = elemental_group
 		religion_group = life_group
@@ -88,14 +97,16 @@ shaman = {
 	NOT = { religion = elune }
 	NOT = { religion = celestials }
 }
-death_knight = {
+
+can_be_death_knight = {
 	OR = {
 		religion = cult_of_the_damned
 		culture_group = culture_group_scourge
 		culture = culture_death_knight
 	}
 }
-monk = {
+
+can_be_monk = {
 	OR = {
 		religion_group = death_group
 		religion_group = disorder_group
@@ -107,15 +118,16 @@ monk = {
 		religion_group = shadow_group
 	}
 }
-demon_hunter = {
+
+can_be_demon_hunter = {
 	OR = {
 		culture_group = culture_group_thalassian
 		culture_group = culture_group_darnassian
 	}
 	NOT = { religion = druidism }
 }
-########################################################################
-ruler_has_class = {
+
+has_assigned_ruler_class = {
 	OR = {
 		ruler_has_personality = warrior_personality
 		ruler_has_personality = paladin_personality
@@ -131,7 +143,7 @@ ruler_has_class = {
 		ruler_has_personality = demon_hunter_personality
 	}
 }
-heir_has_class = {
+has_assigned_heir_class = {
 	OR = {
 		heir_has_personality = warrior_personality
 		heir_has_personality = paladin_personality
@@ -147,7 +159,7 @@ heir_has_class = {
 		heir_has_personality = demon_hunter_personality
 	}
 }
-consort_has_class = {
+has_assigned_consort_class = {
 	OR = {
 		consort_has_personality = warrior_personality
 		consort_has_personality = paladin_personality

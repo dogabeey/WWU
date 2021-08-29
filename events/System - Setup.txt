@@ -20,6 +20,9 @@ country_event = {
     immediate = {
         set_global_flag = completed_wwu_setup
         
+        # Set first player country as executor tag
+        save_global_event_target_as = executor
+        
         # World State
         set_historical_faction_conflict = yes
         #hre_inheritable = yes
@@ -169,23 +172,6 @@ country_event = {
     }
     
     immediate = {
-        if = {
-             limit = { ai = no }
-             
-             set_country_flag = trade_control_flag
-        }
-        
-        # Government
-        # REFORM UPDATE
-        # if = {
-            # limit = {
-                # has_reform = wwu_hereditary_rule_reform
-                # has_heir = no
-            # }
-            # set_country_flag = country_has_no_heir
-            # #
-        # }
-        
         discover_home_continent = yes
         
         set_country_flag = completed_country_wwu_setup

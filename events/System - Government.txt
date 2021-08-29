@@ -921,4 +921,138 @@ country_event = {
 	}
 }
 
+# Update Event - Liege and Nobles
+country_event = {
+	id = wwu_government.100
+	title = wwu_government.100.title
+	desc = wwu_government.100.desc
+	picture = IMPORTANT_STATUE_eventPicture
+
+    hidden = yes
+    
+	trigger = {
+		has_reform = wwu_assembly_checks_and_balances
+	}
+
+    mean_time_to_happen = {
+		months = 24
+	}
+    
+	option = {
+		name = wwu_government.100.option.a
+        
+        # Liege
+		if = {
+            limit = {
+                legitimacy = 50
+            }
+            change_statists_vs_monarchists = 0.02
+        }
+        if = {
+            limit = {
+                prestige = 50
+            }
+            change_statists_vs_monarchists = 0.02
+        }
+        if = {
+            limit = {
+                crown_land_share = 60
+            }
+            change_statists_vs_monarchists = 0.02
+        }
+        # Nobles
+        if = {
+            limit = {
+                NOT = { legitimacy = 50 }
+            }
+            change_statists_vs_monarchists = -0.02
+        }
+        if = {
+            limit = {
+                corruption = 5
+            }
+            change_statists_vs_monarchists = -0.02
+        }
+        if = {
+            limit = {
+                NOT = { crown_land_share = 20 }
+            }
+            change_statists_vs_monarchists = -0.02
+        }
+        
+        # General
+        random_list = {
+            25 = {
+                change_statists_vs_monarchists = 0.01
+            }
+            25 = {
+                change_statists_vs_monarchists = -0.01
+            }
+            50 = { }
+        }
+	}
+}
+
+# Update Event - Mundane and Mythical
+country_event = {
+	id = wwu_government.101
+	title = wwu_government.101.title
+	desc = wwu_government.101.desc
+	picture = IMPORTANT_STATUE_eventPicture
+
+    hidden = yes
+    
+	trigger = {
+		has_reform = wwu_magic_magical_society
+	}
+
+    mean_time_to_happen = {
+		months = 24
+	}
+    
+	option = {
+		name = wwu_government.101.option.a
+        
+        # Mythical
+		if = {
+            limit = {
+                OR = {
+                    ruler_has_personality = priest_personality
+                    ruler_has_personality = mage_personality
+                    ruler_has_personality = warlock_personality
+                    ruler_has_personality = shaman_personality
+                    ruler_has_personality = spellcaster_personality
+                }
+            }
+            change_statists_vs_monarchists = 0.02
+        }
+        # Mundane
+        if = {
+            limit = {
+                OR = {
+                    ruler_has_personality = warrior_personality
+                    ruler_has_personality = paladin_personality
+                    ruler_has_personality = rogue_personality
+                    ruler_has_personality = druid_personality
+                    ruler_has_personality = hunter_personality
+                    ruler_has_personality = death_knight_personality
+                    ruler_has_personality = monk_personality
+                    ruler_has_personality = demon_hunter_personality
+                }
+            }
+            change_statists_vs_monarchists = -0.02
+        }
+        
+        # General
+        random_list = {
+            25 = {
+                change_statists_vs_monarchists = 0.01
+            }
+            25 = {
+                change_statists_vs_monarchists = -0.01
+            }
+            50 = { }
+        }
+	}
+}
 

@@ -483,6 +483,15 @@ on_new_consort = {
 # country
 on_monarch_death = {
 	#log = "[Root.GetName]: Triggered monarch_death"
+    
+    if = {
+        limit = {
+            has_reform = wwu_assembly_absolute_rule
+        }
+        
+        add_stability = -1
+    }
+    
 	events = {
 		loa.2 # Remove old loa's influence
         wwu_shamanism.1 # Passing of Great Leader
