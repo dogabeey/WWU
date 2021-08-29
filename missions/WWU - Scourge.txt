@@ -2069,16 +2069,27 @@ wwu_scourge_column_2 = {
 		required_missions = { wwu_foundations_of_deatholme } 
         
 		trigger = {
-			owns_all_provinces = {
-				region = region_ghostlands
+			any_province = {
+				area = area_sanctum_of_the_moon
+				owned_by = P11
+			}
+			any_province = {
+				area = area_andaroth
+				owned_by = P11
+			}
+			any_province = {
+				area = area_tranquillien
+				owned_by = P11
 			}
 		}
 		provinces_to_highlight = {
-            region = region_ghostlands
+            area = area_sanctum_of_the_moon
+			area = area_andaroth
+			area = area_tranquillien
         }
 		effect = {
 			A90 = {
-				add_stability = -1
+				add_stability = -3
 			}
 			region_eversong_woods = {
 				add_permanent_claim = F21
@@ -2101,11 +2112,21 @@ wwu_scourge_column_2 = {
             area = area_silvermoon
         }
 		effect = {
+			area_silvermoon = {
+				add_base_tax = -6
+				add_base_production = -6
+				add_base_manpower = -6
+				add_devastation = 100
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+			add_treasury = 500
 			A90 = {
-				add_stability = -1
+				add_stability = -6
 				change_tag = F54
 			}
 			P52 = {
+				add_treasury = 500
 				define_general = {
 					name = "Sylvanas Windrunner"
 					shock = 5
@@ -2695,6 +2716,14 @@ wwu_scourge_column_3 = {
 				add_ruler_personality = ruthless_personality
 				add_manpower = -900
 			}
+			region_mount_hyjal = {
+				add_devastation = 100
+			}
+			area_nordrassil = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -2
+			}
 			custom_tooltip = darkwhisper_emerges_tt
 			hidden_effect = {
 				1345 = {
@@ -2725,6 +2754,8 @@ wwu_scourge_column_3 = {
 						dip = 3	
 						mil = 3	
 					}
+					set_ruler_flag = is_immortal
+					add_ruler_personality = warrior_personality
 					set_capital = 1345
 					add_stability = 3
 					add_manpower = 50
@@ -2749,16 +2780,19 @@ wwu_scourge_column_3 = {
 					add_base_tax = 1
 					add_base_production = 1
 					add_base_manpower = 2
+					add_devastation = -75
 				}
 				1347 = {
 					add_base_tax = 1
 					add_base_production = 1
 					add_base_manpower = 2
+					add_devastation = -75
 				}
 				1348 = {
 					add_base_tax = 1
 					add_base_production = 1
 					add_base_manpower = 2
+					add_devastation = -75
 				}
 			}
 			P11 = {
