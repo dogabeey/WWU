@@ -10,7 +10,6 @@ wwu_scourge_column_4 = {
     
 	wwu_stabilize_the_frozen_throne = { 
 		icon = mission_frozen_throne
-		completed_by = 617.1.1
         
 		required_missions = {  } 
         
@@ -39,15 +38,14 @@ wwu_scourge_column_4 = {
 			area_icecrown_interior = {
 				add_core = P11
 			}
-			add_country_modifier = {
-                name = nathrezim_jailors
-                duration = -1
-            }
+			add_historical_rival = P74
+			P74 = {
+				add_historical_rival = P11
+			}
 		}
 	}
 	wwu_build_temple_of_the_damned = { 
 		icon = mission_necropolis
-		completed_by = 617.1.1
         
 		required_missions = { wwu_stabilize_the_frozen_throne } 
         
@@ -70,7 +68,6 @@ wwu_scourge_column_4 = {
 	}
 	wwu_construct_corprethar_wall = { 
 		icon = mission_barracks
-		completed_by = 616.12.31
         
 		required_missions = { wwu_build_temple_of_the_damned } 
         
@@ -94,7 +91,6 @@ wwu_scourge_column_4 = {
 	}
 	wwu_secure_the_citadel = { 
 		icon = mission_frozen_throne
-		completed_by = 616.12.31
         		
 		required_missions = { wwu_construct_corprethar_wall } 
         
@@ -117,7 +113,6 @@ wwu_scourge_column_4 = {
 	}
 	wwu_construct_the_fleshwerks = { 
 		icon = mission_bones
-		completed_by = 616.12.31
         		
 		required_missions = { wwu_secure_the_citadel } 
         
@@ -148,7 +143,6 @@ wwu_scourge_column_4 = {
 	}
 	wwu_advance_the_front = { 
 		icon = mission_cannibalize
-		completed_by = 616.12.31
         
 		required_missions = { wwu_construct_the_fleshwerks } 
         
@@ -174,7 +168,6 @@ wwu_scourge_column_4 = {
 	}
 	wwu_construct_the_shadow_vault = { 
 		icon = mission_necropolis
-		completed_by = 616.12.31
         		
 		required_missions = { wwu_advance_to_aldurthar } 
         
@@ -212,7 +205,6 @@ wwu_scourge_column_4 = {
 	}
 	wwu_construct_aldurthar_wall = { 
 		icon = mission_barracks
-		completed_by = 616.12.31
         
 		required_missions = { wwu_construct_the_shadow_vault } 
         
@@ -233,12 +225,12 @@ wwu_scourge_column_4 = {
 				add_building = wow_barracks
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
+				change_trade_goods = saronite
 			}
 		}
 	}
 	wwu_resurrect_sindragosa_brood = { 
 		icon = mission_sindragosa
-		completed_by = 616.12.31
         
 		required_missions = { wwu_construct_aldurthar_wall } 
         
@@ -296,7 +288,6 @@ wwu_scourge_column_4 = {
 	}
 	wwu_construct_mordrethar_wall = { 
 		icon = mission_barracks
-		completed_by = 616.12.31
         
 		required_missions = { wwu_construct_aldurthar_wall } 
         
@@ -317,6 +308,77 @@ wwu_scourge_column_4 = {
 				add_building = wow_barracks
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
+			}
+		}
+	}
+	wwu_construct_angrathar_wall = { 
+		icon = mission_barracks
+        
+		required_missions = { wwu_construct_mordrethar_wall } 
+        
+		trigger = {
+			treasury = 500
+			adm_power = 250
+			dip_power = 250
+			mil_power = 500
+			church_power = 100
+		}
+		provinces_to_highlight = {
+            area = area_the_wrath_gate
+        }
+		effect = { 
+			add_treasury = -500
+			add_adm_power = -250
+			add_dip_power = -250
+			add_mil_power = -500
+			add_church_power = -100
+			3222 = {
+				cede_province = P11
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 4
+				add_building = wow_fort_1
+				add_building = wow_arsenal
+				add_building = wow_barracks
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+				change_trade_goods = saronite
+			}
+			3221 = {
+				cede_province = P11
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 4
+				add_building = wow_fort_1
+				add_building = wow_arsenal
+				add_building = wow_barracks
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+				change_trade_goods = saronite
+			}
+			3220 = {
+				cede_province = P11
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 4
+				add_building = wow_fort_1
+				add_building = wow_arsenal
+				add_building = wow_barracks
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+				change_trade_goods = saronite
+			}
+			2407 = {
+				cede_province = P11
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 4
+				add_building = wow_fort_1
+				add_building = wow_arsenal
+				add_building = wow_barracks
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+				change_trade_goods = saronite
 			}
 		}
 	}
@@ -604,14 +666,14 @@ wwu_scourge_column_5 = {
 				add_building = wow_barracks
 				add_building = wow_arsenal
 				center_of_trade = 1
-				change_trade_goods = artifacts
+				change_trade_goods = saronite
 				change_religion = cult_of_the_damned
-				change_culture = culture_scourge
+				change_culture = culture_death_knight
 				add_devastation = 25
 			}
 		}
 	}
-	wwu_war_with_nerubians = { 
+	wwu_war_of_the_spider = { 
 		icon = mission_sparring_equipment
 		completed_by = 616.12.31
         
@@ -639,7 +701,7 @@ wwu_scourge_column_5 = {
 		icon = mission_scourge
 		completed_by = 616.12.31
         
-		required_missions = { wwu_war_with_nerubians } 
+		required_missions = { wwu_war_of_the_spider } 
         
 		trigger = {
 			995 = {
@@ -666,6 +728,13 @@ wwu_scourge_column_5 = {
 				add_base_tax = 2
 				add_base_production = 2
 				add_base_manpower = 4
+			}
+			define_general = {
+				name = "Anub'Arak"
+				shock = 7
+				fire = 5
+				manuever = 7
+				siege = 5
 			}
 		}
 	}
@@ -701,7 +770,207 @@ wwu_scourge_column_5 = {
 				add_building = wow_barracks
 				add_building = wow_arsenal
 				center_of_trade = 1
+				change_trade_goods = artifacts
 				change_religion = cult_of_the_damned
+				change_culture = culture_crypt_fiend
+				add_devastation = 25
+			}
+		}
+	}
+	wwu_construct_talramas_necropolis = { 
+		icon = mission_necropolis
+        
+		required_missions = { wwu_create_the_crypt_fiends } 
+        
+		trigger = {
+			2118 = {
+				owned_by = P11
+			}
+			adm_power = 100
+			dip_power = 100
+			mil_power = 150
+			church_power = 25
+			treasury = 150
+		}
+		provinces_to_highlight = {
+            province_id = 2118
+        }
+		effect = {
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -150
+			add_church_power = -25
+			add_treasury = -150
+			2118 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 6
+				add_building = wow_temple
+				add_building = wow_barracks
+				add_building = wow_arsenal
+				center_of_trade = 1
+				change_trade_goods = artifacts
+				change_religion = cult_of_the_damned
+				add_devastation = 25
+			}
+		}
+	}
+	wwu_construct_naxxramas_necropolis = { 
+		icon = mission_necropolis
+        
+		required_missions = { wwu_create_the_crypt_fiends } 
+        
+		trigger = {
+			599 = {
+				owned_by = P11
+			}
+			adm_power = 200
+			dip_power = 200
+			mil_power = 300
+			church_power = 25
+			treasury = 150
+		}
+		provinces_to_highlight = {
+            province_id = 599
+        }
+		effect = {
+			add_adm_power = -200
+			add_dip_power = -200
+			add_mil_power = -300
+			add_church_power = -25
+			add_treasury = -150
+			599 = {
+				add_base_tax = 4
+				add_base_production = 4
+				add_base_manpower = 8
+				add_building = wow_temple
+				add_building = wow_barracks
+				add_building = wow_arsenal
+				center_of_trade = 1
+				change_trade_goods = artifacts
+				change_religion = cult_of_the_damned
+				add_devastation = 25
+			}
+		}
+	}
+	wwu_construct_zeramas_necropolis = { 
+		icon = mission_necropolis
+        
+		required_missions = { wwu_create_the_crypt_fiends } 
+        
+		trigger = {
+			649 = {
+				owned_by = P11
+			}
+			adm_power = 100
+			dip_power = 100
+			mil_power = 150
+			church_power = 25
+			treasury = 150
+		}
+		provinces_to_highlight = {
+            province_id = 649
+        }
+		effect = {
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -150
+			add_church_power = -25
+			add_treasury = -150
+			649 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 6
+				add_building = wow_temple
+				add_building = wow_barracks
+				add_building = wow_arsenal
+				center_of_trade = 1
+				change_trade_goods = artifacts
+				change_religion = cult_of_the_damned
+				add_devastation = 25
+			}
+		}
+	}
+	wwu_construct_voltarus_necropolis = { 
+		icon = mission_necropolis
+        
+		required_missions = { wwu_create_the_crypt_fiends } 
+        
+		trigger = {
+			598 = {
+				owned_by = P11
+			}
+			adm_power = 100
+			dip_power = 100
+			mil_power = 150
+			church_power = 25
+			treasury = 150
+		}
+		provinces_to_highlight = {
+            province_id = 598
+        }
+		effect = {
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -150
+			add_church_power = -25
+			add_treasury = -150
+			add_accepted_culture = culture_undead_troll
+			598 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 6
+				add_building = wow_temple
+				add_building = wow_barracks
+				add_building = wow_arsenal
+				center_of_trade = 1
+				change_trade_goods = artifacts
+				change_religion = cult_of_the_damned
+				change_culture = culture_undead_troll
+				add_devastation = 25
+			}
+			area_voltarus = {
+				change_culture = culture_undead_troll
+				change_religion = cult_of_the_damned
+				add_base_manpower = 2
+			}
+		}
+	}
+	wwu_construct_kolramas_necropolis = { 
+		icon = mission_necropolis
+        
+		required_missions = { wwu_create_the_crypt_fiends } 
+        
+		trigger = {
+			2428 = {
+				owned_by = P11
+			}
+			adm_power = 100
+			dip_power = 100
+			mil_power = 150
+			church_power = 25
+			treasury = 150
+		}
+		provinces_to_highlight = {
+            province_id = 2428
+        }
+		effect = {
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -150
+			add_church_power = -25
+			add_treasury = -150
+			2428 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 6
+				add_building = wow_temple
+				add_building = wow_barracks
+				add_building = wow_arsenal
+				center_of_trade = 1
+				change_trade_goods = artifacts
+				change_religion = cult_of_the_damned
+				change_culture = culture_crypt_fiend
 				add_devastation = 25
 			}
 		}
@@ -723,7 +992,7 @@ wwu_scourge_column_1 = {
 		position = 6
 		completed_by = 616.12.31
         
-		required_missions = { wwu_construct_mordrethar_wall } 
+		required_missions = { wwu_stabilize_the_frozen_throne } 
         
 		trigger = {
 			church_power = 100
@@ -863,7 +1132,7 @@ wwu_scourge_column_1 = {
 				add_base_tax = 4
 				add_base_production = 4
 				add_base_manpower = 6
-				center_of_trade = 1
+				center_of_trade = 2
 			}
 			vassalize = P12
 			P12 = {
@@ -986,9 +1255,10 @@ wwu_scourge_column_1 = {
 		}
 		provinces_to_highlight = {
 			area = area_stratholme
-            area = area_heartglen
+            area = area_the_marris_stead
 			area = area_andorhal_fields
 			area = area_eastwatch
+			area = area_eastwall_tower
         }
 		effect = {
 			642 = {
@@ -1023,7 +1293,7 @@ wwu_scourge_column_1 = {
 				remove_province_modifier = strange_plague
 				add_devastation = -50
 			}
-			area_heartglen = {
+			area_the_marris_stead = {
 				cede_province = P52
 				add_core = P52
 				remove_province_modifier = strange_plague
@@ -1040,6 +1310,14 @@ wwu_scourge_column_1 = {
 				change_religion = cult_of_the_damned
 			}
 			area_eastwatch = {
+				cede_province = P52
+				add_core = P52
+				remove_province_modifier = strange_plague
+				add_devastation = -50
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
+			}
+			area_eastwall_tower = {
 				cede_province = P52
 				add_core = P52
 				remove_province_modifier = strange_plague
@@ -1125,11 +1403,20 @@ wwu_scourge_column_1 = {
 						age = 24
 						claim = 100
 						adm = 4
-						dip = 3
-						mil = 5
+						dip = 2
+						mil = 6
 					}
 					set_ruler_flag = is_immortal
 					add_ruler_personality = paladin_personality
+					add_ruler_personality = ruthless_personality
+					define_general = {
+						name = "Muradin Bronzebeard"
+						type = general
+						fire = 5
+						shock = 7
+						manuever = 5
+						siege = 3
+					}
 				}
 				749 = {
 					change_culture = culture_ironforge
@@ -1175,7 +1462,7 @@ wwu_scourge_column_1 = {
 	wwu_frostmourne_hungers = { 
 		icon = mission_frostmourne
 		position = 14
-		completed_by = 618.1.1
+		completed_by = 617.12.31
         
 		required_missions = { wwu_summon_our_champion } 
         
@@ -1193,6 +1480,9 @@ wwu_scourge_column_1 = {
 				change_controller = F38
 			}
 			F38 = {
+				kill_leader = {
+					type = "Muradin Bronzebeard"
+				}
 				kill_ruler = yes
 				define_ruler = {
 					name = "Luc"
@@ -1244,7 +1534,7 @@ wwu_scourge_column_2 = {
 	wwu_lordaeron_succession = { 
 		icon = mission_frostmourne
 		position = 7
-		completed_by = 618.1.1
+		completed_by = 617.12.31
         
 		required_missions = { wwu_frostmourne_hungers } 
         
@@ -1531,7 +1821,7 @@ wwu_scourge_column_2 = {
 	wwu_rally_the_cult = { 
 		icon = mission_acolyte
 		position = 8
-		completed_by = 618.1.1
+		completed_by = 617.12.31
         
 		required_missions = { wwu_lordaeron_succession } 
         
@@ -1608,7 +1898,7 @@ wwu_scourge_column_2 = {
 	wwu_remains_of_kelthuzad = { 
 		icon = mission_kelthuzad
 		position = 9
-		completed_by = 618.1.1
+		completed_by = 617.12.31
         
 		required_missions = { wwu_rally_the_cult } 
         
@@ -1675,7 +1965,7 @@ wwu_scourge_column_2 = {
 		}
 	}
 	wwu_into_the_realm_eternal = { 
-		icon = mission_paladin
+		icon = mission_arcane_book
 		position = 11
 		completed_by = 617.12.31
         
@@ -1699,7 +1989,7 @@ wwu_scourge_column_2 = {
 		}
 	}
 	wwu_foundations_of_deatholme = {
-		icon = mission_paladin
+		icon = mission_necropolis
 		position = 12
 		completed_by = 617.12.31
         
@@ -1796,7 +2086,7 @@ wwu_scourge_column_2 = {
 		}
 	}
 	wwu_fall_of_silvermoon = { 
-		icon = mission_paladin
+		icon = mission_burning_city
 		position = 14
 		completed_by = 617.12.31
         
@@ -1815,7 +2105,7 @@ wwu_scourge_column_2 = {
 				add_stability = -1
 				change_tag = F54
 			}
-			P11 = {
+			P52 = {
 				define_general = {
 					name = "Sylvanas Windrunner"
 					shock = 5
@@ -1856,16 +2146,16 @@ wwu_scourge_column_3 = {
             province_id = 2991
         }
 		effect = {
-			P52 = {
-				define_heir = {
+			P12 = {
+				define_ruler = {
 					name = "Kel'Thuzad"
 					adm = 6
 					dip = 6
 					mil = 6
 				}
-				set_heir_flag = is_immortal
-				add_heir_personality = mage_personality
-				add_heir_personality = ruthless_personality
+				set_ruler_flag = is_immortal
+				add_ruler_personality = mage_personality
+				add_ruler_personality = ruthless_personality
 			}
 			region_alterac_mountains = {
 				add_permanent_claim = P52
@@ -1873,7 +2163,7 @@ wwu_scourge_column_3 = {
 		}
 	}
 	wwu_blackrock_and_roll = { 
-		icon = mission_paladin
+		icon = mission_orc_male
 		position = 8
 		completed_by = 617.12.31
         
@@ -1902,7 +2192,7 @@ wwu_scourge_column_3 = {
 		}
 	}
 	wwu_summon_archimonde = { 
-		icon = mission_paladin
+		icon = mission_archimonde
 		position = 9
 		completed_by = 617.12.31
         
@@ -1983,7 +2273,7 @@ wwu_scourge_column_3 = {
 		}
 	}
 	wwu_attack_on_hyjal = { 
-		icon = mission_paladin
+		icon = mission_burning_tree
 		position = 10
 		completed_by = 617.12.31
         
@@ -2365,7 +2655,7 @@ wwu_scourge_column_3 = {
 		}
 	}
 	wwu_disaster_at_hyjal = { 
-		icon = mission_paladin
+		icon = mission_night_elf_male
 		position = 11
 		completed_by = 617.12.31
         
