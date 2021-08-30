@@ -93,6 +93,34 @@ country_event = {
 			factor = 100
 		}
 	}
+    option = {
+		name = wwu_government.2.option.d
+		trigger = {
+			has_government_attribute = enables_family_candidate_for_elections
+		}
+		ai_chance = { factor = 10 }
+        
+		add_scaled_republican_tradition = -4
+        
+        define_ruler = {
+            mil = -2
+            adm = -2
+            dip = -2
+            min_age = 30
+            max_age = 50
+            name = "lastname"
+            random_gender = yes # Allows random gender for republics
+        }
+	}
+    
+    after = {
+        if = {
+            limit = {
+                has_reform = wwu_election_cycle_puppetmasters
+            }
+            country_event = { id = wwu_government.13 days = 7 }
+        }
+    }
 }
 
 # On Term Election
@@ -123,7 +151,6 @@ country_event = {
 		}
         
         add_republican_tradition = 5
-        
 	}
 	option = {
 		name = wwu_government.2.option.b
@@ -211,7 +238,7 @@ country_event = {
     option = {
 		name = wwu_government.2.option.e
 		trigger = {
-			has_government_attribute = enables_nepotism
+			has_government_attribute = enables_family_candidate_for_elections
 		}
 		ai_chance = { factor = 10 }
         
@@ -227,6 +254,15 @@ country_event = {
             random_gender = yes # Allows random gender for republics
         }
 	}
+    
+    after = {
+        if = {
+            limit = {
+                has_reform = wwu_election_cycle_puppetmasters
+            }
+            country_event = { id = wwu_government.13 days = 7 }
+        }
+    }
 }
 
 # On Replace Governor
@@ -440,7 +476,7 @@ country_event = {
 	option = {
 		name = wwu_government.5.option.e
 		trigger = {
-			has_government_attribute = enables_nepotism
+			has_government_attribute = enables_family_candidate_for_elections
 		}
 		ai_chance = { factor = 10 }
         
@@ -921,6 +957,169 @@ country_event = {
 	}
 }
 
+# "Puppet Ruler"
+country_event = {
+	id = wwu_government.12
+	title = wwu_government.12.title
+	desc = wwu_government.12.desc
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_government_attribute = enables_puppet_event
+	}
+
+	option = {
+		name = wwu_government.12.option.a
+        
+		add_ruler_modifier = {
+            name = puppet_ruler
+            duration = -1
+        }
+	}
+}
+
+# "Power Brokers"
+country_event = {
+	id = wwu_government.13
+	title = wwu_government.13.title
+	desc = wwu_government.13.desc
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_government_attribute = enables_bonus_on_relection_event
+	}
+    
+    immediate = {
+        # Remove old focus upon re-election
+        hidden_effect = {
+            remove_country_modifier = power_broker_espionage
+            remove_country_modifier = power_broker_foreign_influence
+            remove_country_modifier = power_broker_conquest
+            remove_country_modifier = power_broker_domination
+        }
+    }
+
+	option = {
+		name = wwu_government.13.option.a
+        
+		add_ruler_modifier = {
+            name = power_broker_espionage
+            duration = -1
+        }
+	}
+    
+    option = {
+		name = wwu_government.13.option.b
+        
+		add_ruler_modifier = {
+            name = power_broker_foreign_influence
+            duration = -1
+        }
+	}
+    
+    option = {
+		name = wwu_government.13.option.c
+        
+		add_ruler_modifier = {
+            name = power_broker_conquest
+            duration = -1
+        }
+	}
+    
+    option = {
+		name = wwu_government.13.option.d
+        
+		add_ruler_modifier = {
+            name = power_broker_domination
+            duration = -1
+        }
+	}
+}
+
+# "Organisational Focus"
+country_event = {
+	id = wwu_government.14
+	title = wwu_government.14.title
+	desc = wwu_government.14.desc
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_government_attribute = enables_organisational_focus_event
+	}
+    
+    immediate = {
+        # Remove old focus upon re-firing
+        hidden_effect = {
+            remove_country_modifier = organisational_focus_espionage
+            remove_country_modifier = organisational_focus_welfare
+            remove_country_modifier = organisational_focus_economy
+            remove_country_modifier = organisational_focus_politics
+            remove_country_modifier = organisational_focus_military
+            remove_country_modifier = organisational_focus_diplomacy
+        }
+    }
+
+	option = {
+		name = wwu_government.14.option.a
+        
+		add_ruler_modifier = {
+            name = organisational_focus_espionage
+            duration = 1825
+        }
+	}
+    
+    option = {
+		name = wwu_government.14.option.b
+        
+		add_ruler_modifier = {
+            name = organisational_focus_welfare
+            duration = 1825
+        }
+	}
+    
+    option = {
+		name = wwu_government.14.option.c
+        
+		add_ruler_modifier = {
+            name = organisational_focus_economy
+            duration = 1825
+        }
+	}
+    
+    option = {
+		name = wwu_government.14.option.d
+        
+		add_ruler_modifier = {
+            name = organisational_focus_politics
+            duration = 1825
+        }
+	}
+    
+    option = {
+		name = wwu_government.14.option.e
+        
+		add_ruler_modifier = {
+            name = organisational_focus_military
+            duration = 1825
+        }
+	}
+    
+    option = {
+		name = wwu_government.14.option.f
+        
+		add_ruler_modifier = {
+            name = organisational_focus_diplomacy
+            duration = 1825
+        }
+	}
+}
+
 # Update Event - Liege and Nobles
 country_event = {
 	id = wwu_government.100
@@ -946,38 +1145,38 @@ country_event = {
             limit = {
                 legitimacy = 50
             }
-            change_statists_vs_monarchists = 0.02
+            change_statists_vs_monarchists = 0.03
         }
         if = {
             limit = {
                 prestige = 50
             }
-            change_statists_vs_monarchists = 0.02
+            change_statists_vs_monarchists = 0.03
         }
         if = {
             limit = {
                 crown_land_share = 60
             }
-            change_statists_vs_monarchists = 0.02
+            change_statists_vs_monarchists = 0.03
         }
         # Nobles
         if = {
             limit = {
                 NOT = { legitimacy = 50 }
             }
-            change_statists_vs_monarchists = -0.02
+            change_statists_vs_monarchists = -0.03
         }
         if = {
             limit = {
                 corruption = 5
             }
-            change_statists_vs_monarchists = -0.02
+            change_statists_vs_monarchists = -0.03
         }
         if = {
             limit = {
                 NOT = { crown_land_share = 20 }
             }
-            change_statists_vs_monarchists = -0.02
+            change_statists_vs_monarchists = -0.03
         }
         
         # General
@@ -1024,7 +1223,7 @@ country_event = {
                     ruler_has_personality = spellcaster_personality
                 }
             }
-            change_statists_vs_monarchists = 0.02
+            change_statists_vs_monarchists = 0.03
         }
         # Mundane
         if = {
@@ -1040,7 +1239,7 @@ country_event = {
                     ruler_has_personality = demon_hunter_personality
                 }
             }
-            change_statists_vs_monarchists = -0.02
+            change_statists_vs_monarchists = -0.03
         }
         
         # General
@@ -1050,6 +1249,185 @@ country_event = {
             }
             25 = {
                 change_statists_vs_monarchists = -0.01
+            }
+            50 = { }
+        }
+	}
+}
+
+# Update Event - Reformists and Conservatives
+country_event = {
+	id = wwu_government.102
+	title = wwu_government.102.title
+	desc = wwu_government.102.desc
+	picture = IMPORTANT_STATUE_eventPicture
+
+    hidden = yes
+    
+	trigger = {
+		has_reform = wwu_separation_of_powers_autonomous_institutions
+	}
+
+    mean_time_to_happen = {
+		months = 24
+	}
+    
+	option = {
+		name = wwu_government.102.option.a
+        
+        # Conservatives
+		if = {
+            limit = {
+                NOT = { republican_tradition = 50 }
+            }
+            change_statists_vs_monarchists = 0.03
+        }
+        if = {
+            limit = {
+                corruption = 2
+            }
+            change_statists_vs_monarchists = 0.03
+        }
+        if = {
+            limit = {
+                average_autonomy = 20
+            }
+            change_statists_vs_monarchists = 0.03
+        }
+        
+        # Reformists
+        if = {
+            limit = {
+                republican_tradition = 50
+            }
+            change_statists_vs_monarchists = -0.03
+        }
+        if = {
+            limit = {
+                NOT = { corruption = 2 }
+            }
+            change_statists_vs_monarchists = -0.03
+        }
+        if = {
+            limit = {
+                NOT = { average_autonomy = 20 }
+            }
+            change_statists_vs_monarchists = -0.03
+        }
+        
+        # General
+        random_list = {
+            25 = {
+                change_statists_vs_monarchists = 0.01
+            }
+            25 = {
+                change_statists_vs_monarchists = -0.01
+            }
+            50 = { }
+        }
+	}
+}
+
+# Update Event - Military and Navy
+country_event = {
+	id = wwu_government.103
+	title = wwu_government.103.title
+	desc = wwu_government.103.desc
+	picture = IMPORTANT_STATUE_eventPicture
+
+    hidden = yes
+    
+	trigger = {
+		has_reform = wwu_republican_institution_politicized_warfare
+	}
+
+    mean_time_to_happen = {
+		months = 24
+	}
+    
+	option = {
+		name = wwu_government.103.option.a
+        
+        # Navy
+		if = {
+            limit = {
+                army_size_percentage = 0.5
+            }
+            change_statists_vs_monarchists = 0.03
+        }
+        if = {
+            limit = {
+                manpower_percentage = 0.75
+            }
+            change_statists_vs_monarchists = 0.03
+        }
+        if = {
+            limit = {
+                num_of_generals = 2
+            }
+            change_statists_vs_monarchists = 0.03
+        }
+        
+        # Military
+        if = {
+            limit = {
+                navy_size_percentage = 0.5
+            }
+            change_statists_vs_monarchists = -0.03
+        }
+        if = {
+            limit = {
+                sailors_percentage = 0.75
+            }
+            change_statists_vs_monarchists = -0.03
+        }
+        if = {
+            limit = {
+                num_of_admirals = 2
+            }
+            change_statists_vs_monarchists = -0.03
+        }
+        
+        # General
+        random_list = {
+            25 = {
+                change_statists_vs_monarchists = 0.01
+            }
+            25 = {
+                change_statists_vs_monarchists = -0.01
+            }
+            50 = { }
+        }
+	}
+}
+
+# Update Event - Zealots and Fanatics
+country_event = {
+	id = wwu_government.104
+	title = wwu_government.104.title
+	desc = wwu_government.104.desc
+	picture = IMPORTANT_STATUE_eventPicture
+
+    hidden = yes
+    
+	trigger = {
+		has_reform = wwu_fanaticism_embraced
+	}
+
+    mean_time_to_happen = {
+		months = 24
+	}
+    
+	option = {
+		name = wwu_government.104.option.a
+
+        # General
+        random_list = {
+            25 = {
+                change_statists_vs_monarchists = 0.03
+            }
+            25 = {
+                change_statists_vs_monarchists = -0.03
             }
             50 = { }
         }
