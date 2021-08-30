@@ -1,4 +1,7 @@
 country_decisions = {
+    #-----------------------------
+    # Universal
+    #-----------------------------
     raise_militia = {
         potential = {
             has_government_attribute = enables_raise_militia_decision
@@ -79,6 +82,136 @@ country_decisions = {
             add_country_modifier = {
                 name = depleted_population
                 duration = 9125
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    #-----------------------------
+    # Tribal
+    #-----------------------------
+    perform_ritual = {
+        potential = {
+            has_government_attribute = enables_perform_ritual_decision
+            NOT = { has_country_modifier = blessing_of_peace }
+        }
+        allow = {
+            has_government_attribute = enables_perform_ritual_decision
+            dip_power = 100
+        }
+        effect = {
+            add_dip_power = -100
+            
+            add_country_modifier = {
+                name = blessing_of_peace
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    perform_sacrifice = {
+        potential = {
+            has_government_attribute = enables_perform_sacrifice_decision
+            NOT = { has_country_modifier = ritual_sacrifice }
+        }
+        allow = {
+            has_government_attribute = enables_perform_sacrifice_decision
+            mil_power = 50
+        }
+        effect = {
+            add_mil_power = -50
+            
+            random_owned_province = {
+                add_devastation = 50
+            }
+            
+            add_country_modifier = {
+                name = ritual_sacrifice
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    consult_the_elders = {
+        potential = {
+            has_government_attribute = enables_consult_the_elders_decision
+            NOT = { has_country_modifier = elder_consultation }
+        }
+        allow = {
+            has_government_attribute = enables_consult_the_elders_decision
+            adm_power = 100
+        }
+        effect = {
+            add_adm_power = -100
+            
+            add_country_modifier = {
+                name = elder_consultation
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    adopt_tribal_religion = {
+        potential = {
+            has_government_attribute = enables_adopt_tribal_religion_decision
+            NOT = { has_country_modifier = tribal_religion_cooldown }
+        }
+        allow = {
+            has_government_attribute = enables_adopt_tribal_religion_decision
+            adm_power = 100
+            dip_power = 100
+            mil_power = 100
+        }
+        effect = {
+            add_adm_power = -100
+            add_dip_power = -100
+            add_mil_power = -100
+            
+            country_event = { id = wwu_religion.1 days = 7 }
+            
+            add_country_modifier = {
+                name = tribal_religion_cooldown
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    unite_heathens = {
+        potential = {
+            has_government_attribute = enables_unite_heathens_decision
+            NOT = { has_country_modifier = unite_heathens_cooldown }
+        }
+        allow = {
+            has_government_attribute = enables_unite_heathens_decision
+            adm_power = 50
+        }
+        effect = {
+            add_adm_power = -50
+            
+            every_owned_province = {
+                limit = {
+                    NOT = { religion_group = ROOT }
+                }
+                add_horde_unity = 1
+            }
+            
+            add_country_modifier = {
+                name = unite_heathens_cooldown
+                duration = 3650
             }
         }		
         ai_will_do = {
