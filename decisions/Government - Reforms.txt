@@ -218,4 +218,135 @@ country_decisions = {
             factor = 1
         }
     }
+    
+    craft_fetish = {
+        potential = {
+            has_government_attribute = enables_craft_fetish_decision
+            NOT = { has_country_modifier = national_fetish }
+        }
+        allow = {
+            has_government_attribute = enables_craft_fetish_decision
+            years_of_income = 1.0
+        }
+        effect = {
+            add_years_of_income = -1
+            
+            custom_tooltip = national_fetish_tt
+            
+            add_country_modifier = {
+                name = national_fetish
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    bless_tomb = {
+        potential = {
+            has_government_attribute = enables_bless_tomb_decision
+            NOT = { has_country_modifier = ancestral_blessing }
+        }
+        allow = {
+            has_government_attribute = enables_bless_tomb_decision
+            years_of_income = 1.0
+            any_owned_province = {
+                NOT = { has_province_modifier = sacred_tomb }
+                religion = ROOT
+            }
+        }
+        effect = {
+            add_years_of_income = -1
+            
+            add_country_modifier = {
+                name = ancestral_blessing
+                duration = 3650
+            }
+            
+            random_owned_province = {
+                limit = {
+                    NOT = { has_province_modifier = sacred_tomb }
+                    religion = ROOT
+                }
+                add_province_modifier = {
+                    name = sacred_tomb
+                    duration = -1
+                }
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    construct_totem = {
+        potential = {
+            has_government_attribute = enables_construct_totem_decision
+            NOT = { has_country_modifier = totemic_power }
+        }
+        allow = {
+            has_government_attribute = enables_construct_totem_decision
+            years_of_income = 1.0
+        }
+        effect = {
+            add_years_of_income = -1
+            
+            add_country_modifier = {
+                name = totemic_power
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    produce_constructs = {
+        potential = {
+            has_government_attribute = enables_produce_constructs_decision
+            NOT = { has_country_modifier = unwavering_guardians }
+        }
+        allow = {
+            has_government_attribute = enables_produce_constructs_decision
+            years_of_income = 1.0
+        }
+        effect = {
+            add_years_of_income = -1
+            
+            add_country_modifier = {
+                name = unwavering_guardians
+                duration = 3650
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+    expel_wild_magic = {
+        potential = {
+            has_government_attribute = enables_expel_wild_magic_decision
+            NOT = { has_country_modifier = wild_magic }
+        }
+        allow = {
+            has_government_attribute = enables_expel_wild_magic_decision
+            adm_power = 50
+            dip_power = 50
+            mil_power = 50
+        }
+        effect = {
+            add_adm_power = -50
+            add_dip_power = -50
+            add_mil_power = -50
+            
+            add_country_modifier = {
+                name = wild_magic
+                duration = 365
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
 }

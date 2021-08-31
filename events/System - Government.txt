@@ -1120,6 +1120,66 @@ country_event = {
 	}
 }
 
+# Tribal Vote
+country_event = {
+	id = wwu_government.15
+	title = wwu_government.15.title
+	desc = wwu_government.15.desc
+	picture = GOBLIN_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_government_attribute = enables_tribal_vote
+	}
+	
+	option = {
+		name = wwu_government.15.option.a
+
+		define_ruler = {
+			adm = 4
+			dip = 2
+			mil = 2
+			hide_skills = yes
+            age = 40
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+    
+    option = {
+		name = wwu_government.15.option.b
+
+		define_ruler = {
+			adm = 3
+			dip = 3
+			mil = 3
+			hide_skills = yes
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+    
+    option = {
+		name = wwu_government.15.option.c
+
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 5
+			hide_skills = yes
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
 # Update Event - Liege and Nobles
 country_event = {
 	id = wwu_government.100
