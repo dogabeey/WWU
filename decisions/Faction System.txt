@@ -2,18 +2,78 @@
 # Factions
 #---------------------------------------
 country_decisions = {
+    # Alliance Roster
+	view_alliance_roster = {
+		major = yes
+		
+		potential = {
+            has_country_modifier = member_of_alliance
+		}
+		
+		allow = {
+            has_country_modifier = member_of_alliance
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.100 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    # Horde Roster
+	view_horde_roster = {
+		major = yes
+		
+		potential = {
+            has_country_modifier = member_of_horde
+		}
+		
+		allow = {
+            has_country_modifier = member_of_horde
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.101 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    # Old Horde Roster
+	view_old_horde_roster = {
+		major = yes
+		
+		potential = {
+            has_country_modifier = member_of_old_horde
+		}
+		
+		allow = {
+            has_country_modifier = member_of_old_horde
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.102 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
     # Alliance of Lordaeron
 	establish_the_alliance = {
 		major = yes
 		
 		potential = {
+            current_age = age_orcish_horde
 			tag = STW
             NOT = { has_global_flag = setup_the_alliance }
 		}
 		
 		allow = {
             current_age = age_orcish_horde
-            
 			any_country = {
                 has_country_modifier = member_of_old_horde
                 any_owned_province = {
@@ -124,12 +184,16 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-            NOT = { has_global_flag = setup_the_horde }
-		}
-		
-		allow = {
+            NOT = { 
+                any_country = {
+                    OR = {
+                        has_country_modifier = head_of_old_horde
+                        has_country_modifier = member_of_old_horde
+                    }
+                }
+            }
             current_age = age_burning_legion
-            
+            NOT = { has_global_flag = setup_the_horde }
             OR = {
                 culture_group = culture_group_orc
                 culture_group = culture_group_tauren
@@ -138,7 +202,18 @@ country_decisions = {
                 culture_group = culture_group_goblin
                 culture_group = culture_group_undead
             }
-            
+		}
+		
+		allow = {
+            current_age = age_burning_legion
+            OR = {
+                culture_group = culture_group_orc
+                culture_group = culture_group_tauren
+                culture_group = culture_group_thalassian
+                culture_group = culture_group_troll
+                culture_group = culture_group_goblin
+                culture_group = culture_group_undead
+            }
             capital_scope = {
                 continent = continent_kalimdor
             }
@@ -170,6 +245,102 @@ country_decisions = {
                 
                 NOT = { is_historical_horde_member = yes }
             }
+		}
+	}
+    
+    # Crush the Alliance
+	crush_the_alliance = {
+		major = yes
+		
+		potential = {
+            NOT = { has_global_flag = collapse_of_the_alliance }
+            OR = {
+                has_country_modifier = member_of_horde
+                has_country_modifier = member_of_old_horde
+            }
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_alliance
+            }
+		}
+		
+		allow = {
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_alliance
+                capital_scope = {
+                    controlled_by = ROOT
+                }
+            }
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.2 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    # Crush the Horde
+	crush_the_old_horde = {
+		major = yes
+		
+		potential = {
+            NOT = { has_global_flag = collapse_the_old_horde }
+            has_country_modifier = member_of_alliance
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_old_horde
+            }
+		}
+		
+		allow = {
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_old_horde
+                capital_scope = {
+                    controlled_by = ROOT
+                }
+            }
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.11 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    # Crush the Horde
+	crush_the_horde = {
+		major = yes
+		
+		potential = {
+            NOT = { has_global_flag = collapse_the_horde }
+            has_country_modifier = member_of_alliance
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_horde
+            }
+		}
+		
+		allow = {
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_horde
+                capital_scope = {
+                    controlled_by = ROOT
+                }
+            }
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.12 }
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 }

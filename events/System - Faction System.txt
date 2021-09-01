@@ -13,7 +13,7 @@ country_event = {
 		name = wwu_faction_system.1.option.a
 		
         add_country_modifier = {
-            name = member_of_the_alliance
+            name = member_of_alliance
             duration = -1
         }
         
@@ -59,27 +59,9 @@ country_event = {
 	desc = wwu_faction_system.2.desc
 	picture = ORCISH_INVASION_eventPicture
     
+    is_triggered_only = yes
     major = yes
     
-    mean_time_to_happen = {
-		days = 1
-	}
-    
-    trigger = {
-        NOT = { has_global_flag = collapse_of_the_alliance }
-        has_global_flag = setup_the_alliance
-        has_country_modifier = head_of_alliance
-        
-        any_country = {
-            war_with = ROOT
-            ROOT = {
-                capital_scope = {
-                    controlled_by = PREV
-                }
-            }
-        }
-    }
-	
     immediate = {
         set_global_flag = collapse_of_the_alliance
     }
@@ -100,8 +82,6 @@ country_event = {
             }
             remove_country_modifier = member_of_alliance
         }
-        
-        add_prestige = -200
 	}
 }
 
@@ -169,25 +149,8 @@ country_event = {
 	desc = wwu_faction_system.11.desc
 	picture = ORCISH_INVASION_eventPicture
     
+    is_triggered_only = yes
     major = yes
-    
-    mean_time_to_happen = {
-		days = 1
-	}
-    
-    trigger = {
-        NOT = { has_global_flag = collapse_the_old_horde }
-        has_global_flag = setup_the_old_horde
-        has_country_modifier = head_of_old_horde
-        any_country = {
-            war_with = ROOT
-            ROOT = {
-                capital_scope = {
-                    controlled_by = PREV
-                }
-            }
-        }
-    }
 	
     immediate = {
         set_global_flag = collapse_the_old_horde
@@ -209,8 +172,40 @@ country_event = {
             }
             remove_country_modifier = member_of_old_horde
         }
+	}
+}
+
+# Collapse - Horde
+# Disband the Horde if the current Head's capital is sieged down
+country_event = {
+	id = wwu_faction_system.12
+	title = wwu_faction_system.12.title
+	desc = wwu_faction_system.12.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    is_triggered_only = yes
+    major = yes
+	
+    immediate = {
+        set_global_flag = collapse_the_horde
+    }
+    
+	option = {
+		name = wwu_faction_system.12.option.a
+		
+        every_country = {
+            limit = {
+                has_country_modifier = head_of_horde
+            }
+            remove_country_modifier = head_of_horde
+        }
         
-        add_prestige = -200
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+            }
+            remove_country_modifier = member_of_horde
+        }
 	}
 }
 
@@ -329,5 +324,347 @@ country_event = {
                 }
             }
         }
+	}
+}
+
+# Alliance Roster
+country_event = {
+	id = wwu_faction_system.100
+	title = wwu_faction_system.100.title
+	desc = wwu_faction_system.100.desc
+	picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+
+    immediate = {
+        custom_tooltip = ALLIANCE_HEAD_TT
+        
+        every_country = {
+            limit = {
+                has_country_modifier = head_of_alliance
+            }
+            custom_tooltip = EMPTY_TT
+        }
+        
+        custom_tooltip = LINE_BREAK_TT
+        custom_tooltip = ALLIANCE_MEMBER_TT
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_alliance
+            }
+            custom_tooltip = EMPTY_TT
+        }
+    }
+    
+    # Distribute Gold
+    option = {
+		name = wwu_faction_system.100.option.a
+        
+        trigger = {
+            has_country_modifier = head_of_alliance
+            years_of_income = 1
+        }
+        
+        add_years_of_income = -1
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_alliance
+            }
+            add_years_of_income = 0.25
+        }
+	}
+    
+    # Distribute Manpower
+    option = {
+		name = wwu_faction_system.100.option.b
+        
+        trigger = {
+            has_country_modifier = head_of_alliance
+            manpower_percentage = 0.5
+        }
+        
+        add_yearly_manpower = -5
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_alliance
+            }
+            
+            add_yearly_manpower = 1
+        }
+	}
+    
+    # Distribute Sailors
+    option = {
+		name = wwu_faction_system.100.option.c
+        
+        trigger = {
+            has_country_modifier = head_of_alliance
+            sailors_percentage = 0.5
+        }
+        
+        add_yearly_sailors = -5
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_alliance
+            }
+            
+            add_yearly_sailors = 1
+        }
+	}
+    
+    # Distribute Ideas
+    option = {
+		name = wwu_faction_system.100.option.d
+        
+        trigger = {
+            has_country_modifier = head_of_alliance
+            government_reform_progress = 100 
+        }
+        
+        adopt_reform_progress = -100
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_alliance
+            }
+            
+            adopt_reform_progress = 25
+        }
+	}
+
+	option = {
+		name = wwu_faction_system.100.option.x
+	}
+}
+
+# Horde Roster
+country_event = {
+	id = wwu_faction_system.101
+	title = wwu_faction_system.101.title
+	desc = wwu_faction_system.101.desc
+	picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+
+    immediate = {
+        custom_tooltip = HORDE_HEAD_TT
+        
+        every_country = {
+            limit = {
+                has_country_modifier = head_of_horde
+            }
+            custom_tooltip = EMPTY_TT
+        }
+        
+        custom_tooltip = LINE_BREAK_TT
+        custom_tooltip = HORDE_MEMBER_TT
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+            }
+            custom_tooltip = EMPTY_TT
+        }
+    }
+    
+    # Distribute Gold
+    option = {
+		name = wwu_faction_system.101.option.a
+        
+        trigger = {
+            has_country_modifier = head_of_horde
+            years_of_income = 1
+        }
+        
+        add_years_of_income = -1
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+            }
+            add_years_of_income = 0.25
+        }
+	}
+    
+    # Distribute Manpower
+    option = {
+		name = wwu_faction_system.101.option.b
+        
+        trigger = {
+            has_country_modifier = head_of_horde
+            manpower_percentage = 0.5
+        }
+        
+        add_yearly_manpower = -5
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+            }
+            
+            add_yearly_manpower = 1
+        }
+	}
+    
+    # Distribute Sailors
+    option = {
+		name = wwu_faction_system.101.option.c
+        
+        trigger = {
+            has_country_modifier = head_of_horde
+            sailors_percentage = 0.5
+        }
+        
+        add_yearly_sailors = -5
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+            }
+            
+            add_yearly_sailors = 1
+        }
+	}
+    
+    # Distribute Ideas
+    option = {
+		name = wwu_faction_system.101.option.d
+        
+        trigger = {
+            has_country_modifier = head_of_horde
+            government_reform_progress = 100 
+        }
+        
+        adopt_reform_progress = -100
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+            }
+            
+            adopt_reform_progress = 25
+        }
+	}
+    
+	option = {
+		name = wwu_faction_system.101.option.x
+	}
+}
+
+# Old Horde Roster
+country_event = {
+	id = wwu_faction_system.102
+	title = wwu_faction_system.102.title
+	desc = wwu_faction_system.102.desc
+	picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+
+    immediate = {
+        custom_tooltip = HORDE_HEAD_TT
+        
+        every_country = {
+            limit = {
+                has_country_modifier = head_of_old_horde
+            }
+            custom_tooltip = EMPTY_TT
+        }
+        
+        custom_tooltip = LINE_BREAK_TT
+        custom_tooltip = HORDE_MEMBER_TT
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+            }
+            custom_tooltip = EMPTY_TT
+        }
+    }
+    
+    # Distribute Gold
+    option = {
+		name = wwu_faction_system.102.option.a
+        
+        trigger = {
+            has_country_modifier = head_of_old_horde
+            years_of_income = 1
+        }
+        
+        add_years_of_income = -1
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+            }
+            add_years_of_income = 0.25
+        }
+	}
+    
+    # Distribute Manpower
+    option = {
+		name = wwu_faction_system.102.option.b
+        
+        trigger = {
+            has_country_modifier = head_of_old_horde
+            manpower_percentage = 0.5
+        }
+        
+        add_yearly_manpower = -5
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+            }
+            
+            add_yearly_manpower = 1
+        }
+	}
+    
+    # Distribute Sailors
+    option = {
+		name = wwu_faction_system.102.option.c
+        
+        trigger = {
+            has_country_modifier = head_of_old_horde
+            sailors_percentage = 0.5
+        }
+        
+        add_yearly_sailors = -5
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+            }
+            
+            add_yearly_sailors = 1
+        }
+	}
+    
+    # Distribute Ideas
+    option = {
+		name = wwu_faction_system.102.option.d
+        
+        trigger = {
+            has_country_modifier = head_of_old_horde
+            government_reform_progress = 100 
+        }
+        
+        adopt_reform_progress = -100
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+            }
+            
+            adopt_reform_progress = 25
+        }
+	}
+    
+	option = {
+		name = wwu_faction_system.102.option.x
 	}
 }
