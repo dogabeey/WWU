@@ -588,7 +588,90 @@ setup_faction_system = {
                 duration = -1
             }
         }
+    }    
+}
+
+#--------------------------
+# Utility
+#--------------------------
+set_head_of_alliance = {
+    every_country = {
+        limit = {
+            has_country_modifier = head_of_alliance
+        }
+        remove_country_modifier = head_of_alliance
     }
-    
+    add_country_modifier = {
+        name = head_of_alliance
+        duration = -1
+    }
+}
+
+set_head_of_horde = {
+    every_country = {
+        limit = {
+            has_country_modifier = head_of_horde
+        }
+        remove_country_modifier = head_of_horde
+    }
+    add_country_modifier = {
+        name = head_of_horde
+        duration = -1
+    }
+}
+
+set_head_of_old_horde = {
+    every_country = {
+        limit = {
+            has_country_modifier = head_of_old_horde
+        }
+        remove_country_modifier = head_of_old_horde
+    }
+    add_country_modifier = {
+        name = head_of_old_horde
+        duration = -1
+    }
+}
+
+add_member_of_alliance = {
+    add_country_modifier = {
+        name = member_of_alliance
+        duration = -1
+    }
+}
+
+add_member_of_horde = {
+    add_country_modifier = {
+        name = member_of_horde
+        duration = -1
+    }
+}
+
+add_member_of_old_horde = {
+    add_country_modifier = {
+        name = member_of_old_horde
+        duration = -1
+    }
+}
+
+destroy_alliance_faction = {
+    every_country = {
+        remove_country_modifier = head_of_alliance
+        remove_country_modifier = member_of_alliance
+    }
+}
+
+destroy_horde_faction = {
+    every_country = {
+        remove_country_modifier = head_of_horde
+        remove_country_modifier = member_of_horde
+    }
+}
+
+destroy_old_horde_faction = {
+    every_country = {
+        remove_country_modifier = head_of_old_horde
+        remove_country_modifier = member_of_old_horde
+    }
 }
 
