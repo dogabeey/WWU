@@ -85,6 +85,150 @@ country_event = {
 	}
 }
 
+# High King of the Alliance
+country_event = {
+	id = wwu_faction_system.3
+	title = wwu_faction_system.3.title
+	desc = wwu_faction_system.3.desc
+	picture = KING_LLANE_eventPicture
+    
+    trigger = {
+        has_country_modifier = head_of_alliance
+        NOT = { has_reform = alliance_reform }
+    }
+    
+    mean_time_to_happen = {
+		days = 1		
+	}
+    
+	option = {
+		name = wwu_faction_system.3.option.a
+		
+        change_government = monarchy
+        add_reform = alliance_reform
+	}
+}
+
+# Demotion
+country_event = {
+	id = wwu_faction_system.4
+	title = wwu_faction_system.4.title
+	desc = wwu_faction_system.4.desc
+	picture = KING_LLANE_eventPicture
+    
+    trigger = {
+        NOT = { has_country_modifier = head_of_alliance }
+        has_reform = alliance_reform
+    }
+    
+    mean_time_to_happen = {
+		days = 1		
+	}
+    
+	option = {
+		name = wwu_faction_system.4.option.a
+		
+        change_government = monarchy
+        add_reform = autocracy_reform
+	}
+}
+
+# Warchief of the Horde
+country_event = {
+	id = wwu_faction_system.5
+	title = wwu_faction_system.5.title
+	desc = wwu_faction_system.5.desc
+	picture = KING_LLANE_eventPicture
+    
+    trigger = {
+        has_country_modifier = head_of_horde
+        NOT = { has_reform = horde_reform }
+    }
+    
+    mean_time_to_happen = {
+		days = 1		
+	}
+    
+	option = {
+		name = wwu_faction_system.5.option.a
+		
+        change_government = monarchy
+        add_reform = horde_reform
+	}
+}
+
+# Demotion
+country_event = {
+	id = wwu_faction_system.6
+	title = wwu_faction_system.6.title
+	desc = wwu_faction_system.6.desc
+	picture = KING_LLANE_eventPicture
+    
+    trigger = {
+        NOT = { has_country_modifier = head_of_horde }
+        has_reform = horde_reform
+    }
+    
+    mean_time_to_happen = {
+		days = 1		
+	}
+    
+	option = {
+		name = wwu_faction_system.6.option.a
+		
+        change_government = monarchy
+        add_reform = autocracy_reform
+	}
+}
+
+# Warchief of the Old Horde
+country_event = {
+	id = wwu_faction_system.7
+	title = wwu_faction_system.7.title
+	desc = wwu_faction_system.7.desc
+	picture = KING_LLANE_eventPicture
+    
+    trigger = {
+        has_country_modifier = head_of_old_horde
+        NOT = { has_reform = horde_reform }
+    }
+    
+    mean_time_to_happen = {
+		days = 1		
+	}
+    
+	option = {
+		name = wwu_faction_system.7.option.a
+		
+        change_government = monarchy
+        add_reform = horde_reform
+	}
+}
+
+# Demotion
+country_event = {
+	id = wwu_faction_system.8
+	title = wwu_faction_system.8.title
+	desc = wwu_faction_system.8.desc
+	picture = KING_LLANE_eventPicture
+    
+    trigger = {
+        NOT = { has_country_modifier = head_of_old_horde }
+        has_reform = horde_reform
+    }
+    
+    mean_time_to_happen = {
+		days = 1		
+	}
+    
+	option = {
+		name = wwu_faction_system.8.option.a
+		
+        change_government = monarchy
+        add_reform = autocracy_reform
+	}
+}
+
 # Setup - Old Horde
 # Occurs after 1 year after Blood of Mannoroth starts
 country_event = {
@@ -346,7 +490,6 @@ country_event = {
             custom_tooltip = EMPTY_TT
         }
         
-        custom_tooltip = LINE_BREAK_TT
         custom_tooltip = ALLIANCE_MEMBER_TT
         
         every_country = {
@@ -460,7 +603,6 @@ country_event = {
             custom_tooltip = EMPTY_TT
         }
         
-        custom_tooltip = LINE_BREAK_TT
         custom_tooltip = HORDE_MEMBER_TT
         
         every_country = {
@@ -574,7 +716,6 @@ country_event = {
             custom_tooltip = EMPTY_TT
         }
         
-        custom_tooltip = LINE_BREAK_TT
         custom_tooltip = HORDE_MEMBER_TT
         
         every_country = {

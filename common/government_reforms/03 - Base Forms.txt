@@ -1,47 +1,8 @@
 # Note: modifier or attribute changes here need to be replicated in legacy versions.
+
 #--------------------------------------------
 # Monarchy
 #--------------------------------------------
-gorian_empire_reform = {
-	icon = "goria"
-	 potential = {
-		tag = OGR
-	}
-modifiers = {
-        technology_cost = -0.1
-	innovativeness_gain = 0.15
-        max_absolutism = 25
-	global_unrest = 2
-	}
-    conditional = {
-		heir = no
-		queen = yes
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			mamluk_mechanic
-		}
-	}
-	custom_attributes = {
-		generals_become_rulers = yes
-		locked_government_type = yes
-	}
-	
-    	factions = {
-        faction_council_of_sorcerers
-        faction_magi_of_stone_magic
-        faction_magic_breakers
-    }
-	ai = { factor = 0 }
-    
-    valid_for_new_country = yes     # Can be converted to via nation release
-    allow_normal_conversion = yes   # Can be picked as a new reform
-    allow_convert = yes             # Can be converted to via peace term
-    lock_level_when_selected = yes
-    valid_for_nation_designer = yes
-    nation_designer_cost = 0
-	
-}
-
 autocracy_reform = {
 	icon = "control_is_king"
 	legacy_equivalent = autocracy_legacy
@@ -614,6 +575,49 @@ scarlet_monarchy_reform = {
         religion = scarlet_light
     }
 }
+gorian_empire_reform = {
+	icon = "goria"
+	
+    potential = {
+		tag = OGR
+	}
+    
+    modifiers = {
+        technology_cost = -0.1
+        innovativeness_gain = 0.15
+        max_absolutism = 25
+        global_unrest = 2
+	}
+    conditional = {
+		heir = no
+		queen = yes
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+	}
+	custom_attributes = {
+		generals_become_rulers = yes
+		locked_government_type = yes
+	}
+	
+    factions = {
+        faction_council_of_sorcerers
+        faction_magi_of_stone_magic
+        faction_magic_breakers
+    }
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+    lock_level_when_selected = yes
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+	
+}
+
 
 #--------------------------------------------
 # Republic
