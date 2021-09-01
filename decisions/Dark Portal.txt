@@ -129,10 +129,10 @@ country_decisions = {
 		major = yes
 		potential = {   
             current_age = age_orcish_horde
-            is_member_of_faction = { faction = alliance }
+            has_country_modifier = member_of_alliance
 		}
 		allow =  {
-			is_member_of_faction = { faction = alliance }
+			has_country_modifier = member_of_alliance
             
             1035 = {
                 owned_by = ROOT
@@ -493,12 +493,12 @@ country_decisions = {
 					}
 					add_ruler_personality = mage
                 }
-				STW = {
-					create_subject = {
-						subject_type = faction_alliance
-						subject = SOL
-					}
-				}
+                SOL = {
+                    add_country_modifier = {
+                        name = member_of_alliance
+                        duration = -1
+                    }
+                }
 				set_global_flag = khadgar
 			}
 			every_country = { limit = { has_country_flag = dark_portal_builder } clr_country_flag = dark_portal_builder }

@@ -103,6 +103,36 @@ wwu_labor_tier_slavery = {
 	}
 }
 
+wwu_labor_tier_peasantry = {
+	icon = "barn"
+	allow_normal_conversion = yes
+
+    potential = {
+        culture_group = culture_group_human
+    }
+    trigger = {
+        culture_group = culture_group_human
+    }
+
+	modifiers = {
+        global_unrest = -1
+	}
+    
+    effect = {
+		add_effect_good_production = { VALUE = 100 GOOD = "grain" }
+		add_effect_good_production = { VALUE = 100 GOOD = "fur" }
+	}
+    
+	removed_effect = {
+		remove_effect_good_production = { VALUE = 100 GOOD = "grain" }
+		remove_effect_good_production = { VALUE = 100 GOOD = "fur" }
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
 #-----------------------------------------
 # Miliary Organisation 
 #-----------------------------------------
@@ -159,6 +189,27 @@ wwu_military_elitism = {
         discipline = 0.05
 		manpower_recovery_speed = 0.2
         reinforce_cost_modifier = -0.25
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_military_knighthood = {
+	icon = "atonement"
+	allow_normal_conversion = yes
+
+    potential = {
+        culture_group = culture_group_human
+    }
+    trigger = {
+        culture_group = culture_group_human
+    }
+
+	modifiers = {
+        cavalry_power = 0.1
+        cavalry_shock = 1.0
 	}
     
     ai = {
@@ -382,6 +433,7 @@ wwu_magic_regulated_magic = {
 		factor = 1
 	}
 }
+
 wwu_magic_magical_society = {
 	icon = "mass_invisibility"
 	allow_normal_conversion = yes
@@ -413,6 +465,35 @@ wwu_magic_magical_society = {
                 idea_cost = -0.05
 			}
 		}
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_magic_dalaran_education = {
+	icon = "kirin_tor"
+	allow_normal_conversion = yes
+
+    potential = {
+        exists = A18
+    }
+    trigger = {
+        OR = {
+            tag = A18
+            A18 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 150
+                }
+            }
+        }
+    }
+
+	modifiers = {
+        innovativeness_gain = 0.5
+        idea_cost = -0.1
 	}
     
     ai = {
@@ -738,6 +819,26 @@ wwu_idealism_unity = {
 		factor = 1
 	}
 }
+
+# Enable after faction overhaul
+# wwu_idealism_bulwark_of_the_alliance = {
+	# icon = "alliance"
+	# allow_normal_conversion = yes
+
+    # trigger = {
+        # has_country_modifier = head_of_alliance
+    # }
+
+	# modifiers = {
+        # diplomats = 1
+        # diplomatic_reputation = 2
+	# }
+
+    # ai = {
+		# factor = 1
+	# }
+# }
+
 
 #-----------------------------------------
 # Diplomatic Attitude 

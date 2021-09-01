@@ -23,7 +23,8 @@ on_startup = {
 	}
     
     unlock_initial_cults = yes
-	
+	setup_faction_system = yes
+    
 	if = {
 		
 		limit = { NOT = { has_global_flag = wwu_set_up_flag } }
@@ -559,6 +560,22 @@ on_monarch_death = {
         }
         
         country_event = { id = wwu_government.15 } # Tribal Vote
+    }
+    
+    if = {
+        limit = {
+            has_country_modifier = head_of_old_horde
+        }
+        
+        country_event = { id = wwu_faction_system.20 }
+    }
+    
+    if = {
+        limit = {
+            has_country_modifier = head_of_horde
+        }
+        
+        country_event = { id = wwu_faction_system.21 }
     }
     
 	events = {

@@ -1,0 +1,333 @@
+namespace = wwu_faction_system
+
+# Alliance of Lordaeron
+country_event = {
+	id = wwu_faction_system.1
+	title = wwu_faction_system.1.title
+	desc = wwu_faction_system.1.desc
+	picture = KING_LLANE_eventPicture
+    
+    is_triggered_only = yes
+	
+	option = {
+		name = wwu_faction_system.1.option.a
+		
+        add_country_modifier = {
+            name = member_of_the_alliance
+            duration = -1
+        }
+        
+        ai_chance = {
+            factor = 80
+        }
+	}
+    
+    option = {
+		name = wwu_faction_system.1.option.b
+		
+        add_prestige = -20
+        
+        ai_chance = {
+            factor = 20
+            
+            modifier = {
+                factor = 0
+                
+                is_subject = yes
+            }
+            
+            # Increase chance if they dislike Stormwind
+            modifier = {
+                factor = 4
+                
+                NOT = {
+                    has_opinion = {
+                        who = STW
+                        value = -100
+                    }
+                }
+            }
+        }
+	}
+}
+
+# Collapse - Alliance
+# Disband the Alliance if the current Head's capital is sieged down
+country_event = {
+	id = wwu_faction_system.2
+	title = wwu_faction_system.2.title
+	desc = wwu_faction_system.2.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    major = yes
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    trigger = {
+        NOT = { has_global_flag = collapse_of_the_alliance }
+        has_global_flag = setup_the_alliance
+        has_country_modifier = head_of_alliance
+        
+        any_country = {
+            war_with = ROOT
+            ROOT = {
+                capital_scope = {
+                    controlled_by = PREV
+                }
+            }
+        }
+    }
+	
+    immediate = {
+        set_global_flag = collapse_of_the_alliance
+    }
+    
+	option = {
+		name = wwu_faction_system.2.option.a
+		
+        every_country = {
+            limit = {
+                has_country_modifier = head_of_alliance
+            }
+            remove_country_modifier = head_of_alliance
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_alliance
+            }
+            remove_country_modifier = member_of_alliance
+        }
+        
+        add_prestige = -200
+	}
+}
+
+# Setup - Old Horde
+# Occurs after 1 year after Blood of Mannoroth starts
+country_event = {
+	id = wwu_faction_system.10
+	title = wwu_faction_system.10.title
+	desc = wwu_faction_system.10.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    major = yes
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    trigger = {
+        tag = B88
+        NOT = { has_global_flag = setup_the_old_horde }
+        current_age = age_rise_of_the_horde
+        has_global_flag = blood_of_mannoroth
+    }
+	
+    immediate = {
+        set_global_flag = setup_the_old_horde 
+    }
+    
+	option = {
+		name = wwu_faction_system.10.option.a
+		
+        B88 = {
+            add_country_modifier = {
+                name = head_of_old_horde
+                duration = -1
+            }
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+            add_country_modifier = {
+                name = the_shadow_council
+                duration = -1
+            }
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = accepted_the_demonsblood
+            }
+            
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+	}
+}
+
+# Collapse - Old Horde
+# Disband the Old Horde if the current Head's capital is sieged down
+country_event = {
+	id = wwu_faction_system.11
+	title = wwu_faction_system.11.title
+	desc = wwu_faction_system.11.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    major = yes
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    trigger = {
+        NOT = { has_global_flag = collapse_the_old_horde }
+        has_global_flag = setup_the_old_horde
+        has_country_modifier = head_of_old_horde
+        any_country = {
+            war_with = ROOT
+            ROOT = {
+                capital_scope = {
+                    controlled_by = PREV
+                }
+            }
+        }
+    }
+	
+    immediate = {
+        set_global_flag = collapse_the_old_horde
+    }
+    
+	option = {
+		name = wwu_faction_system.11.option.a
+		
+        every_country = {
+            limit = {
+                has_country_modifier = head_of_old_horde
+            }
+            remove_country_modifier = head_of_old_horde
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+            }
+            remove_country_modifier = member_of_old_horde
+        }
+        
+        add_prestige = -200
+	}
+}
+
+# Old Horde - Warchief Vote
+country_event = {
+	id = wwu_faction_system.20
+	title = wwu_faction_system.20.title
+	desc = wwu_faction_system.20.desc
+	picture = ORC_THRONE_eventPicture
+    
+    is_triggered_only = yes
+    
+    major = yes
+    
+    trigger = {
+        has_country_modifier = head_of_old_horde
+    }
+    
+    immediate = {
+        remove_country_modifier = head_of_old_horde
+    }
+	
+    # Maintain current member as Warchief
+	option = {
+		name = wwu_faction_system.20.option.a
+        
+        add_prestige = -10
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+                NOT = { has_country_modifier = head_of_old_horde }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = omod_power_hungry
+            }
+        }
+	}
+    
+    # Permit tribal vote
+    option = {
+		name = wwu_faction_system.20.option.b
+        
+        custom_tooltip = tribal_vote_tt
+        
+        hidden_effect = {
+            random_country = {
+                limit = {
+                    has_country_modifier = member_of_old_horde
+                }
+                
+                add_country_modifier = {
+                    name = head_of_old_horde
+                    duration = -1
+                }
+            }
+        }
+	}
+}
+
+# Horde - Warchief Vote
+country_event = {
+	id = wwu_faction_system.21
+	title = wwu_faction_system.21.title
+	desc = wwu_faction_system.21.desc
+	picture = ORC_THRONE_eventPicture
+    
+    is_triggered_only = yes
+    
+    major = yes
+    
+    trigger = {
+        has_country_modifier = head_of_horde
+    }
+    
+    immediate = {
+        remove_country_modifier = head_of_horde
+    }
+	
+    # Maintain current member as Warchief
+	option = {
+		name = wwu_faction_system.21.option.a
+        
+        add_prestige = -10
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+                NOT = { has_country_modifier = head_of_horde }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = omod_power_hungry
+            }
+        }
+	}
+    
+    # Permit tribal vote
+    option = {
+		name = wwu_faction_system.21.option.b
+        
+        add_prestige = 25
+        
+        custom_tooltip = tribal_vote_tt
+        
+        hidden_effect = {
+            random_country = {
+                limit = {
+                    has_country_modifier = member_of_horde
+                }
+                
+                add_country_modifier = {
+                    name = head_of_horde
+                    duration = -1
+                }
+            }
+        }
+	}
+}

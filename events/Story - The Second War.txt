@@ -37,6 +37,7 @@ country_event = {
 		name = end_of_second_war_horde_lost.opt1
     }
 }
+
 # If orcs won the first war, the second war may end with Capital city falling.
 country_event = {
 	id = the_second_war.2
@@ -126,6 +127,7 @@ country_event = {
 		
     }
 }
+
 # If humans won the first war, the second war may end with orcs retake Stormwind.
 country_event = {
 	id = the_second_war.4
@@ -254,7 +256,9 @@ country_event = {
     immediate = {
 		set_country_flag = shadowmoon_revealed
 		random_country = {
-			limit = { faction_horde = 1 }
+			limit = {
+                has_country_modifier = head_of_old_horde
+            }
 			remove_country_modifier = the_shadow_council # Shadow Council liberty desire is gone.
 			save_event_target_as = horde_leader
 			country_event = { id = the_second_war.20 }
@@ -289,7 +293,7 @@ country_event = {
 		has_country_flag = shadowmoon_revealed
 		NOT = {	has_global_flag = guldan_swear_fealty_happened }
 		NOT = {	exists = A42 }
-		faction_horde = 1
+		has_country_modifier = head_of_old_horde
 	}
 	
     mean_time_to_happen = {

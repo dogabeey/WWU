@@ -600,10 +600,10 @@ country_event = {
 			show_ambient_object = "dark_portal_outland"
 			continent_outland = {
 				add_devastation = 25
-				}
+            }
 			region_blasted_lands = {
 				add_devastation = 25
-				}
+            }
 		}
 		
         custom_tooltip = may_now_build_dark_portal
@@ -629,7 +629,7 @@ country_event = {
 		}
 		OR = {
             tag = event_target:buring_legion_conduit_nation
-			has_country_modifier = horde_head
+			has_country_modifier = head_of_old_horde
 			tag = B88
 			tag = U03
 		}
@@ -647,103 +647,6 @@ country_event = {
         set_global_flag = the_first_war
         set_global_flag = dark_portal_built
     }
-}
-
-# Setup Old Horde
-country_event = {
-	id = rise_of_the_horde.20
-	title = rise_of_the_horde.20.title
-	desc = rise_of_the_horde.20.desc
-	picture = ORCISH_INVASION_eventPicture
-    
-    fire_only_once = yes
-    
-	trigger = {
-		exists = B88
-		OR = {
-			AND = {
-				has_country_flag = joined_guldan
-				ai = no
-			}
-			AND = {
-				NOT = {
-					any_country = {
-						has_country_flag = joined_guldan
-						ai = no
-					}
-				}
-				tag = B88
-			}
-		}
-	}	
-	
-	option = {
-		name = rise_of_the_horde.20.option.a
-		
-		custom_tooltip = rise_of_the_horde.20.tt
-		swap_non_generic_missions = yes
-		hidden_effect = {
-			set_global_flag = horde_was_formed
-			ROOT = {
-				add_country_modifier = {
-					name = the_shadow_council
-					duration = -1
-				}
-				change_government = monarchy
-				set_global_flag = set_blood_of_mannoroth
-				set_country_flag = drank_the_demonsblood
-			}
-			every_country = {
-				limit = { 
-					has_country_flag = joined_guldan
-				}
-				ROOT = {
-					add_country_modifier = {
-						name = horde_head
-						duration = -1
-					}
-					create_subject = {
-						subject_type = faction_horde
-						subject = PREV
-					}
-				}
-			}
-		}
-	}
-    
-	option = {
-		name = rise_of_the_horde.20.option.b
-		
-		custom_tooltip = rise_of_the_horde.20.tt2
-		swap_non_generic_missions = yes
-		hidden_effect = {
-			B88 = {
-				add_country_modifier = {
-					name = the_shadow_council
-					duration = -1
-				}
-				change_government = monarchy
-				set_global_flag = set_blood_of_mannoroth
-				set_country_flag = drank_the_demonsblood
-			}
-			every_country = {
-				limit = { 
-					has_country_flag = joined_guldan
-				}
-				B88 = {
-					add_country_modifier = {
-						name = horde_head
-						duration = -1
-					}
-					create_subject = {
-						subject_type = faction_horde
-						subject = PREV
-					}
-				}
-			}
-		}
-    }
-	
 }
 
 # Fallback: Collapse of the Draenei

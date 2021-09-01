@@ -1,206 +1,601 @@
-## ALLIANCE - HORDE FACTIONS
-# These effects are used on_startup at on_actions file. Triggers used are set in scripted_triggers which lets game know which nations are Alliance, Horde and their respective leaders by age.
-set_historical_faction_conflict = {
-    every_country = {
-        limit = {
-            is_historical_member_of_alliance = yes
-        }
-        random_country = {
-            limit = { 
-                is_historical_head_of_alliance = yes 
-            }
-            add_country_modifier = { 
-                name = alliance_head
-                duration = -1
-            }
-            create_subject = {
-                subject_type = faction_alliance
-                subject = PREV
-            }
-        }
-    }
-    every_country = {
-        limit = {
-            is_historical_member_of_horde = yes
-        }
-        random_country = {
-            limit = { 
-                is_historical_head_of_horde = yes 
-            }
-            add_country_modifier = { 
-                name = horde_head
-                duration = -1
-            }
-            create_subject = {
-                subject_type = faction_horde
-                subject = PREV
-            }
-        }
-    }
-}
+#--------------------------
+# Factions
+#--------------------------
+# alliance
+# horde
+# old_horde
 
-set_first_war_faction_conflict = {
-    every_country = {
+setup_faction_system = {
+    # Alliance
+    if = {
         limit = {
-            is_historical_member_of_alliance = yes
-        }
-        random_country = {
-            limit = { 
-                is_historical_head_of_alliance = yes 
-            }
-            add_country_modifier = { 
-                name = alliance_head
-                duration = -1
-            }
-            create_subject = {
-                subject_type = faction_alliance
-                subject = PREV
-            }
-        }
-    }
-    every_country = {
-        limit = {
-            is_historical_member_of_horde = yes
-        }
-        random_country = {
-            limit = { 
-                is_historical_head_of_horde = yes 
-            }
-            add_country_modifier = { 
-                name = horde_head
-                duration = -1
-            }
-            create_subject = {
-                subject_type = faction_horde
-                subject = PREV
-            }
-        }
-    }
-}
-
-# Used in diplomatic_action
-swap_alliance_leadership = {
-    ROOT = {
-        add_country_modifier = {
-            name = alliance_head
-            duration = -1
+            current_age = age_rise_of_the_horde
         }
         
-        every_country = {
-            limit = {
-                has_country_modifier = alliance_head
-            }
-            remove_country_modifier = alliance_head
+        # None
+    }
+    if = {
+        limit = {
+            current_age = age_orcish_horde
         }
         
-        every_country = {
-            limit = {
-                has_country_modifier = alliance_member
+        # Setup for the First War
+        # Stormwind
+        STW = {
+            add_country_modifier = {
+                name = head_of_alliance
+                duration = -1
             }
-            grant_independence = yes
-            
-            ROOT = {
-                create_subject = {
-                    subject_type = faction_alliance
-                    subject = FROM
-                }
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Lordaeron
+        A08 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Stratholme
+        A10 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Gilneas
+        A12 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Kul Tiras
+        A14 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Stromgarde
+        A16 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Dalaran
+        A18 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Wildhammer
+        A28 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Ironforge
+        A29 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Gnomeregan
+        A32 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Quel'Thalas
+        A90 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Darnassus
+        A94 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
             }
         }
     }
-}
-
-opinions_joined_alliance = {
-    every_country = {
+    if = {
         limit = {
-            has_country_modifier = alliance_member
-            NOT = { has_opinion_modifier = { who = ROOT modifier = alliance_alliance } }
+            current_age = age_scourge
         }
-        add_opinion = { who = ROOT modifier = alliance_alliance }
+        
+        # Setup for the Third War
+        # Stormwind
+        STW = {
+            add_country_modifier = {
+                name = head_of_alliance
+                duration = -1
+            }
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Lordaeron
+        A08 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Stratholme
+        A10 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Gilneas
+        A12 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Kul Tiras
+        A14 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Stromgarde
+        A16 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Dalaran
+        A18 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Wildhammer
+        A28 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Ironforge
+        A29 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Gnomeregan
+        A32 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Darnassus
+        A94 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
     }
-    every_country = {
+    if = {
         limit = {
-            has_country_modifier = horde_member
-            NOT = { has_opinion_modifier = { who = ROOT modifier = alliance_horde } }
+            current_age = age_burning_legion
         }
-        add_opinion = { who = ROOT modifier = alliance_horde }
+        
+        # Setup for the post Third War
+        # Stormwind
+        STW = {
+            add_country_modifier = {
+                name = head_of_alliance
+                duration = -1
+            }
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Lordaeron
+        A08 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Stratholme
+        A10 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Gilneas
+        A12 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Kul Tiras
+        A14 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Stromgarde
+        A16 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Dalaran
+        A18 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Wildhammer
+        A28 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Ironforge
+        A29 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Gnomeregan
+        A32 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Quel'Thalas
+        A90 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Darnassus
+        A94 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Kingdom of Thaurissan
+        A30 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Exodar
+        A56 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Sons of Lothar
+        SOL = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
+        
+        # Huojin Order
+        P35 = {
+            add_country_modifier = {
+                name = member_of_alliance
+                duration = -1
+            }
+        }
     }
-}
-
-opinions_joined_horde = {
-    every_country = {
+    
+    # Old Horde
+    if = {
         limit = {
-            has_country_modifier = alliance_member
-            NOT = { has_opinion_modifier = { who = ROOT modifier = horde_alliance } }
+            current_age = age_rise_of_the_horde
         }
-        add_opinion = { who = ROOT modifier = horde_alliance }
+        
+        # None
     }
-    every_country = {
+    if = {
         limit = {
-            has_country_modifier = horde_member
-            NOT = { has_opinion_modifier = { who = ROOT modifier = horde_horde } }
+            current_age = age_orcish_horde
         }
-        add_opinion = { who = ROOT modifier = horde_horde }
+        
+        # Setup for the First War
+        # Shadow Council
+        B88 = {
+            add_country_modifier = {
+                name = head_of_old_horde
+                duration = -1
+            }
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        # Shadowmoon
+        A34 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Warsong
+        A35 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Shattered Hand
+        A36 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Thunderlord
+        A37 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Laughing Skull
+        A38 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Bonechewer
+        A39 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Bleeding Hollow
+        A40 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Blackrock
+        A41 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Stormreaver
+        A42 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Twilight's Hammer
+        A43 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Burning Blade
+        A44 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Dragonmaw
+        A45 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Frostwolf
+        A46 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
+        
+        # Amani
+        A58 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
+            }
+        }
     }
-}
-
-opinions_left_alliance = {
-    every_country = {
+    if = {
         limit = {
-            has_country_modifier = alliance_member
-            has_opinion_modifier = { who = ROOT modifier = alliance_alliance }
+            current_age = age_scourge
         }
-        remove_opinion = { who = ROOT modifier = alliance_alliance }
+        
+        # Setup for the Third War
     }
-    every_country = {
+    if = {
         limit = {
-            has_country_modifier = alliance_member
-            reverse_has_opinion_modifier = { who = ROOT modifier = alliance_alliance }
+            current_age = age_burning_legion
         }
-        reverse_remove_opinion = { who = ROOT modifier = alliance_alliance }
+        
+        # Setup for the post Third War
     }
-    every_country = {
+    
+    # Horde (Thrall's Horde)
+    if = {
         limit = {
-            has_country_modifier = horde_member
-            has_opinion_modifier = { who = ROOT modifier = alliance_horde }
+            current_age = age_rise_of_the_horde
         }
-        remove_opinion = { who = ROOT modifier = alliance_horde }
+        
+        # None
     }
-    every_country = {
+    if = {
         limit = {
-            has_country_modifier = horde_member
-            reverse_has_opinion_modifier = { who = ROOT modifier = alliance_horde }
+            current_age = age_orcish_horde
         }
-        reverse_remove_opinion = { who = ROOT modifier = alliance_horde }
+        
+        # Setup for the First War
     }
-}
-
-opinions_left_horde = {
-    every_country = {
+    if = {
         limit = {
-            has_country_modifier = alliance_member
-            has_opinion_modifier = { who = ROOT modifier = horde_alliance }
+            current_age = age_scourge
         }
-        remove_opinion = { who = ROOT modifier = horde_alliance }
+        
+        # Setup for the Third War
     }
-    every_country = {
+    if = {
         limit = {
-            has_country_modifier = alliance_member
-            reverse_has_opinion_modifier = { who = ROOT modifier = horde_alliance }
+            current_age = age_burning_legion
         }
-        reverse_remove_opinion = { who = ROOT modifier = horde_alliance }
-    }
-    every_country = {
-        limit = {
-            has_country_modifier = horde_member
-            has_opinion_modifier = { who = ROOT modifier = horde_horde }
+        
+        # Setup for the post Third War
+        # Orgraimmar
+        A48 = {
+            add_country_modifier = {
+                name = head_of_horde
+                duration = -1
+            }
+            add_country_modifier = {
+                name = member_of_horde
+                duration = -1
+            }
         }
-        remove_opinion = { who = ROOT modifier = horde_horde }
-    }
-    every_country = {
-        limit = {
-            has_country_modifier = horde_member
-            reverse_has_opinion_modifier = { who = ROOT modifier = horde_horde }
+        
+        # Thrallmar
+        A50 = {
+            add_country_modifier = {
+                name = member_of_horde
+                duration = -1
+            }
         }
-        reverse_remove_opinion = { who = ROOT modifier = horde_horde }
+        
+        # Darkspear
+        A70 = {
+            add_country_modifier = {
+                name = member_of_horde
+                duration = -1
+            }
+        }
+        
+        # Silvermoon
+        A91 = {
+            add_country_modifier = {
+                name = member_of_horde
+                duration = -1
+            }
+        }
+        
+        # Thunder Bluff
+        THB = {
+            add_country_modifier = {
+                name = member_of_horde
+                duration = -1
+            }
+        }
+        
+        # The Forsaken
+        P14 = {
+            add_country_modifier = {
+                name = member_of_horde
+                duration = -1
+            }
+        }
+        
+        # Tushui Order
+        P36 = {
+            add_country_modifier = {
+                name = member_of_horde
+                duration = -1
+            }
+        }
     }
+    
 }
