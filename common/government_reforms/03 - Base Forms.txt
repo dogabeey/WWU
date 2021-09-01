@@ -91,12 +91,11 @@ alliance_reform = {
 	legacy_equivalent = alliance_legacy
     
     potential = {
-		faction_alliance = 1
+		has_country_modifier = head_of_alliance
 	}
     
 	maintain_dynasty = yes
-	allow_vassal_alliance = yes
-	
+
 	custom_attributes = {
 		locked_government_type = yes
 	}
@@ -190,11 +189,12 @@ horde_reform = {
 	legacy_equivalent = horde_legacy
     
     potential = {
-		faction_horde = 1
+		OR = {
+            has_country_modifier = head_of_old_horde
+            has_country_modifier = head_of_horde
+        }
 	}
     
-	allow_vassal_alliance = yes
-	
     custom_attributes = {
 		locked_government_type = yes
 	}

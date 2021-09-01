@@ -363,17 +363,6 @@ on_siege_won_country = {
 # root = losing country, from = location
 on_siege_lost_country = {
 	#log = "[Root.GetName]: Triggered siege_lost_country"
-	if = {
-		limit = {
-			was_faction_leaders_war = yes
-		}
-		overlord = {
-			reverse_add_opinion = {
-				who = PREV
-				modifier = city_is_fallen
-			}
-		}
-	}
 }
 
 # province
@@ -633,7 +622,6 @@ on_death_election = {
 on_death_foreign_slave_ruler = {
 	#log = "[Root.GetName]: Triggered death_foreign_slave_ruler"
 	events = {
-		factions.3
 		wwu_government.7 # New Rulership
 	}
 }
@@ -657,8 +645,6 @@ on_diplomatic_annex = {
 	#log = "[Root.GetName]: Triggered diplomatic_annex"
 	events = {
 		wwu_integration.1
-		factions.7
-		factions.8
 	}
 	change_variable = {
 		which = diplo_annexed_nation
@@ -1013,8 +999,6 @@ on_annexed = {
     on_annexed_estate_privileges_effect = yes
     
 	events = {
-		factions.7
-		factions.8
         wwu_dragon_aspects.30
         wwu_dragon_aspects.31
 	}
@@ -2206,21 +2190,6 @@ on_province_owner_change = {
 	}
     
     on_province_owner_change_update_goods_production = yes
-    
-    # Faction War
-	if = {
-		limit = {
-			FROM = { was_faction_leaders_war = yes }
-		}
-		FROM = { 
-			overlord = {
-				reverse_add_opinion = {
-					who = PREV
-					modifier = province_is_lost
-				}
-			}
-		}
-	}
 }
 
 # country
