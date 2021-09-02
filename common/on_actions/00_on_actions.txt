@@ -23,20 +23,27 @@ on_startup = {
 	}
     
     unlock_initial_cults = yes
-	
+	setup_faction_system = yes
+    
 	if = {
-		
 		limit = { NOT = { has_global_flag = wwu_set_up_flag } }
 		2505 = { remove_canal = gp_deeprun_tram_eastern_kingdoms }
 		set_global_flag = wwu_set_up_flag
 		if = {
+			limit = {is_year = 592}
+			set_global_flag = dark_portal_opened_flag
+		}
+		if = {
 			limit = {is_year = 600}
 			1586 = { remove_canal = gp_dark_portal_outland }
+			clr_global_flag = dark_portal_opened_flag
 			set_global_flag = dark_portal_closed_firsttime
+			set_global_flag = sonsoflothar
+			set_global_flag = khadgar
 		}
 	}
-	
-	set_variable = {
+    
+    set_variable = {
         which = cultures_converted
         value = 0
     }
@@ -172,6 +179,16 @@ on_war_lost = {
 on_battle_won_country = {
 	#log = "[Root.GetName]: Triggered battle_won_country"
 
+    if = {
+        limit = {
+            has_reform = wwu_idealism_glory
+        }
+        add_power_projection = {
+            type = mission_rewards_power_projection
+            amount = 5
+        }
+    }
+
 	if = {
 		limit = {
 			FROM = { tag = REB }
@@ -213,6 +230,8 @@ on_battle_lost_country = {
 # root = location, from = loser country
 on_battle_won_province = {
 	#log = "[Root.GetName]: Triggered battle_won_province"
+
+    
 }
 
 #Unit Scope OnAction for Battle Won
@@ -252,7 +271,7 @@ on_company_formed ={
 
 # province
 # root = location, from = country doing it
-on_company_disolved ={
+on_company_disolved = {
 
 }
 
@@ -267,6 +286,77 @@ on_battle_lost_province = {
 on_siege_won_country = {
 	#log = "[Root.GetName]: Triggered siege_won_country"
     
+    if = {
+        limit = {
+            has_government_attribute = enables_automatic_conversion
+        }
+        random = {
+            chance = 33
+            
+            FROM = { change_religion = ROOT }
+        }
+    }
+    
+    # Ransom Captives 
+    if = {
+        limit = {
+            has_government_attribute = enables_ransom_captives_event
+        }
+        random = {
+            chance = 10
+            
+            country_event = { id = wwu_tribal.1 }
+        }
+    }
+    
+    # Enslave Captives 
+    if = {
+        limit = {
+            has_government_attribute = enables_enslave_captives_event
+        }
+        random = {
+            chance = 10
+            
+            country_event = { id = wwu_tribal.2 }
+        }
+    }
+    
+    # Integrate Captives 
+    if = {
+        limit = {
+            has_government_attribute = enables_integrate_captives_event
+        }
+        random = {
+            chance = 10
+            
+            country_event = { id = wwu_tribal.3 }
+        }
+    }
+    
+    # Execute Captives 
+    if = {
+        limit = {
+            has_government_attribute = enables_execute_captives_event
+        }
+        random = {
+            chance = 10
+            
+            country_event = { id = wwu_tribal.4 }
+        }
+    }
+    
+    # Conscript Captives 
+    if = {
+        limit = {
+            has_government_attribute = enables_conscript_captives_event
+        }
+        random = {
+            chance = 10
+            
+            country_event = { id = wwu_tribal.5 }
+        }
+    }
+    
     random_events = {
 		10 = army_professionalism_events.1 # City Sacked
 		100 = 0
@@ -277,17 +367,6 @@ on_siege_won_country = {
 # root = losing country, from = location
 on_siege_lost_country = {
 	#log = "[Root.GetName]: Triggered siege_lost_country"
-	if = {
-		limit = {
-			was_faction_leaders_war = yes
-		}
-		overlord = {
-			reverse_add_opinion = {
-				who = PREV
-				modifier = city_is_fallen
-			}
-		}
-	}
 }
 
 # province
@@ -421,17 +500,6 @@ on_new_monarch = {
 		}
 	}
     
-    #---------------
-    # Hereditary
-    #---------------
-	if = {
-		limit = {
-			has_reform = wwu_hereditary_rule_reform
-		}
-		set_country_flag = country_has_no_heir
-		##log = "[Root.Monarch.GetName] is no longer a heir and became monarch."
-	}
-	
     events = {
         wwu_ruler_education.1    # The Education of [Root.Monarch.GetName]
         wwu_ruler_education.2    # Ascension of [Root.Monarch.GetName]
@@ -439,6 +507,7 @@ on_new_monarch = {
 		wwu_pretender.1
         wwu_dragon_aspects.3
         wwu_dragon_aspects.5
+        wwu_government.8         # Court Disposition
     }
 	random_events = {
 		1000 = 0
@@ -469,10 +538,50 @@ on_new_consort = {
 # country
 on_monarch_death = {
 	#log = "[Root.GetName]: Triggered monarch_death"
+    
+    if = {
+        limit = {
+            has_reform = wwu_assembly_absolute_rule
+        }
+        
+        add_stability = -1
+    }
+    
+    if = {
+        limit = {
+            has_government_attribute = enables_tribal_vote
+        }
+        
+        country_event = { id = wwu_government.15 } # Tribal Vote
+    }
+    
+    if = {
+        limit = {
+            has_country_modifier = head_of_old_horde
+        }
+        
+        country_event = { id = wwu_faction_system.20 }
+    }
+    
+    if = {
+        limit = {
+            has_country_modifier = head_of_horde
+        }
+        
+        country_event = { id = wwu_faction_system.21 }
+    }
+    
 	events = {
 		loa.2 # Remove old loa's influence
         wwu_shamanism.1 # Passing of Great Leader
+        wwu_government.11 # Gavelkind Succession
 	}
+    
+    random_events = {
+        100 = wwu_government.12 # Puppet Ruler
+        
+        200 = 0
+    }
 	
 }
 
@@ -517,7 +626,6 @@ on_death_election = {
 on_death_foreign_slave_ruler = {
 	#log = "[Root.GetName]: Triggered death_foreign_slave_ruler"
 	events = {
-		factions.3
 		wwu_government.7 # New Rulership
 	}
 }
@@ -541,8 +649,6 @@ on_diplomatic_annex = {
 	#log = "[Root.GetName]: Triggered diplomatic_annex"
 	events = {
 		wwu_integration.1
-		factions.7
-		factions.8
 	}
 	change_variable = {
 		which = diplo_annexed_nation
@@ -591,13 +697,10 @@ on_heir_death = {
 		limit = { has_ruler_flag = returned_from_sancaga_sikma_province }
 		clr_ruler_flag = returned_from_sancaga_sikma_province
 	}
-	if = {
-		limit = {
-			has_reform = wwu_hereditary_rule_reform
-		}
-		set_country_flag = country_has_no_heir
-		##log = "[Root.GetName]'s heir died"
-	}
+    
+    events = {
+        wwu_government.10 # Heir Apparent
+    }
 }
 
 # country
@@ -680,13 +783,6 @@ on_queen_death = {
 # country
 on_new_heir = {
 	#log = "[Root.GetName]: Triggered new_heir"
-	if = {
-		limit = {
-			has_reform = wwu_hereditary_rule_reform
-		}
-		clr_country_flag = country_has_no_heir
-		##log = "[Root.GetName] has a new heir."
-	}
 }
 
 # country
@@ -907,8 +1003,6 @@ on_annexed = {
     on_annexed_estate_privileges_effect = yes
     
 	events = {
-		factions.7
-		factions.8
         wwu_dragon_aspects.30
         wwu_dragon_aspects.31
 	}
@@ -1574,6 +1668,11 @@ on_four_year_pulse_4 = {
 
 on_five_year_pulse = {
 	#log = "[Root.GetName]: Triggered five_year_pulse"
+    
+    events = {
+        wwu_government.14 # Organisational Focus
+    }
+    
     random_events = {
 
 		# Aristocracy 		13  (8g 5b)
@@ -1904,6 +2003,9 @@ on_five_year_pulse_3 = {
         100 = wwu_naga.2
         100 = wwu_naga.3
         
+        100 = wwu_government.9 # Decadence
+        100 = wwu_government.10 # Heir Apparent
+        
 		1000 = 0
 	}
 }
@@ -2051,6 +2153,13 @@ on_province_religion_converted = {
 		}
 	}
     
+    if = {
+        limit = {
+            has_province_modifier = religious_persecution
+        }
+        remove_province_modifier = religious_persecution
+    }
+    
     on_province_religion_converted_estate_privileges_effect = yes
 }
 
@@ -2084,69 +2193,7 @@ on_province_owner_change = {
 		
 	}
     
-    # Monastic Breweries
-    if = {
-		limit = {
-			OR = {
-				has_province_modifier = wine_bonus_prod
-				has_province_modifier = grain_bonus_prod
-			}
-			FROM = { has_reform = wwu_monastic_breweries_reform }
-			NOT = { owner = { has_reform = wwu_monastic_breweries_reform } }
-		}
-		remove_province_modifier = wine_bonus_prod
-		remove_province_modifier = grain_bonus_prod
-	}
-    
-    if = {
-		limit = {
-			NOT = {
-				OR = {
-					has_province_modifier = wine_bonus_prod
-					has_province_modifier = grain_bonus_prod
-				}
-			}
-			owner = { has_reform = wwu_monastic_breweries_reform }
-			NOT = { FROM = { has_reform = wwu_monastic_breweries_reform } }
-		}
-		hidden_effect = {
-			if = {
-				limit = {
-					trade_goods = wine
-				}
-				add_province_modifier = { 
-					name = wine_bonus_prod
-					duration = -1
-					hidden = yes
-				}
-			}
-			if = {
-				limit = {
-					trade_goods = grain
-				}
-				add_province_modifier = { 
-					name = grain_bonus_prod
-					duration = -1
-					hidden = yes
-				}
-			}
-		}
-	}
-    
-    # Faction War
-	if = {
-		limit = {
-			FROM = { was_faction_leaders_war = yes }
-		}
-		FROM = { 
-			overlord = {
-				reverse_add_opinion = {
-					who = PREV
-					modifier = province_is_lost
-				}
-			}
-		}
-	}
+    on_province_owner_change_update_goods_production = yes
 }
 
 # country
@@ -2440,6 +2487,16 @@ on_flagship_destroyed = {
 # this = Released country, FROM = Releasing country
 on_country_released = {
 	#log = "[Root.GetName]: Triggered country_released"
+    FROM = {
+        if = {
+            limit = {
+                has_reform = wwu_idealism_honor
+            }
+            add_adm_power = 100
+            add_dip_power = 100
+            add_mil_power = 100
+        }
+    }
 }
 
 # ROOT = province, FROM = country
@@ -2447,42 +2504,43 @@ on_trade_good_changed = {
 	#log = "[Root.GetName]: Triggered trade_good_changed"
 
 	on_trade_good_changed_estate_privileges_effect = yes
-	if = {
-		limit = {
-			OR = {
-				has_province_modifier = wine_bonus_prod
-				has_province_modifier = grain_bonus_prod
-			}
-			FROM = { has_reform = wwu_monastic_breweries_reform }
-			NOT = { owner = { has_reform = wwu_monastic_breweries_reform } }
-		}
-		remove_province_modifier = wine_bonus_prod
-		remove_province_modifier = grain_bonus_prod
-	}
-	hidden_effect = {
-		if = {
-			limit = {
-				trade_goods = wine
-			}
-			remove_province_modifier = grain_bonus_prod
-			add_province_modifier = { 
-				name = wine_bonus_prod
-				duration = -1
-				hidden = yes
-			}
-		}
-		if = {
-			limit = {
-				trade_goods = grain
-			}
-			remove_province_modifier = wine_bonus_prod
-			add_province_modifier = { 
-				name = grain_bonus_prod
-				duration = -1
-				hidden = yes
-			}
-		}
-	}
+    # REFORM UPDATE
+	# if = {
+		# limit = {
+			# OR = {
+				# has_province_modifier = wine_bonus_prod
+				# has_province_modifier = grain_bonus_prod
+			# }
+			# FROM = { has_reform = wwu_monastic_breweries_reform }
+			# NOT = { owner = { has_reform = wwu_monastic_breweries_reform } }
+		# }
+		# remove_province_modifier = wine_bonus_prod
+		# remove_province_modifier = grain_bonus_prod
+	# }
+	# hidden_effect = {
+		# if = {
+			# limit = {
+				# trade_goods = wine
+			# }
+			# remove_province_modifier = grain_bonus_prod
+			# add_province_modifier = { 
+				# name = wine_bonus_prod
+				# duration = -1
+				# hidden = yes
+			# }
+		# }
+		# if = {
+			# limit = {
+				# trade_goods = grain
+			# }
+			# remove_province_modifier = wine_bonus_prod
+			# add_province_modifier = { 
+				# name = grain_bonus_prod
+				# duration = -1
+				# hidden = yes
+			# }
+		# }
+	# }
 }
 
 # this = country

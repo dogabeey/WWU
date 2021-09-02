@@ -995,6 +995,36 @@ tinker_republic_reform = {
     }
 }
 
+pirate_republic_reform = {
+	icon = "freehold"
+    legacy_equivalent = pirate_republic_legacy
+    
+    has_term_election = yes
+	duration = 5
+    
+	modifiers = {
+		republican_tradition = -1
+		naval_forcelimit_modifier = 0.5
+		capture_ship_chance = 0.33
+		may_perform_slave_raid_on_same_religion = yes
+	}
+	
+    factions_frame = 9
+	factions = {
+		pr_buccaneers
+		pr_smugglers
+		pr_captains
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
 #--------------------------------------------
 # Theocracy
 #--------------------------------------------
@@ -2042,80 +2072,6 @@ centaur_khanate_reform = {
     valid_for_new_country = yes     # Can be converted to via nation release
     allow_normal_conversion = yes   # Can be picked as a new reform
     allow_convert = yes             # Can be converted to via peace term
-
-    valid_for_nation_designer = yes
-    nation_designer_cost = 0
-}
-
-#------------------------------------------------------------
-# Pirate
-#------------------------------------------------------------
-pirate_republic_reform = {
-	icon = "freehold"
-    legacy_equivalent = pirate_republic_legacy
-    
-    has_term_election = yes
-	duration = 4
-    
-    custom_attributes = {
-		force_admiral_leader = yes
-	}
-    
-	modifiers = {
-		republican_tradition = -1
-		naval_forcelimit_modifier = 0.5
-		capture_ship_chance = 0.33
-		may_perform_slave_raid_on_same_religion = yes
-	}
-	
-    factions_frame = 9
-	factions = {
-		pr_buccaneers
-		pr_smugglers
-		pr_captains
-	}
-    
-	ai = { factor = 0 }
-    
-    valid_for_new_country = no      # Can be converted to via nation release
-    allow_normal_conversion = yes   # Can be picked as a new reform
-    allow_convert = no              # Can be converted to via peace term
-
-    valid_for_nation_designer = yes
-    nation_designer_cost = 0
-}
-pirate_kingdom_reform = {
-	icon = "pirate_hook"
-    legacy_equivalent = pirate_kingdom_legacy
-    
-	has_term_election = no
-    
-    custom_attributes = {
-		admirals_become_rulers = yes
-	}
-    
-	modifiers = {
-		republican_tradition = -1
-		naval_forcelimit_modifier = 0.5
-		capture_ship_chance = 0.33
-		pr_captains_influence = 0.1
-		harsh_treatment_cost = -0.2
-		leader_naval_fire = 1
-		may_perform_slave_raid_on_same_religion = yes
-	}
-
-    factions_frame = 9
-	factions = {
-		pr_buccaneers
-		pr_smugglers
-		pr_captains
-	}
-    
-	ai = { factor = 0 }
-    
-    valid_for_new_country = no      # Can be converted to via nation release
-    allow_normal_conversion = yes   # Can be picked as a new reform
-    allow_convert = no              # Can be converted to via peace term
 
     valid_for_nation_designer = yes
     nation_designer_cost = 0
