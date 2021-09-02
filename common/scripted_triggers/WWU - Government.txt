@@ -60,3 +60,29 @@ has_wrong_dynasty = {
 		}
 	}
 }
+
+# Used to block the generic reforms for those with a unique set
+is_normal_monarchy = {
+    always = yes
+}
+
+is_normal_republic = {
+    NOT = { has_reform = pirate_republic_reform }
+}
+
+is_normal_theocracy = {
+    always = yes
+}
+
+is_normal_tribe = {
+    always = yes
+}
+
+# Used to define the pirate government
+is_pirate_government = {
+    has_reform = pirate_republic_reform
+}
+
+is_nomad_government = {
+    is_nomad = yes
+}
