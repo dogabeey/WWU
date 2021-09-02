@@ -697,7 +697,7 @@ NCountry = {
 	TECH_AHEAD_OF_TIME = 0.1,		-- per year ahead.
 
 
-	PS_BUY_IDEA = 400,
+	PS_BUY_IDEA = 500,
 	PS_BUY_NATIVE_ADVANCEMENT = 500,
 	PS_BUY_RELIGIOUS_REFORM = 0,
 	PS_ADVANCE_TECH = 600,
@@ -728,7 +728,7 @@ NCountry = {
 	PS_ATTACK_NATIVES = 5,
 	PS_SCORCH_EARTH = 5,
 	PS_CHANGE_GOVERNMENT = 100,
-	PS_CHANGE_CULTURE = 4,
+	PS_CHANGE_CULTURE = 10,
 	PS_CHANGE_CULTURE_OVERSEAS_RELIGION_MOD = 0,	-- Modifier how much cheaper it is to change culture in overseas province if same religion
 	PS_HARSH_TREATMENT_COST = 100,					-- Max cost for harsh treatment (scales to revolt size)
 	PS_HARSH_TREATMENT_REDUCE = 30,
@@ -740,7 +740,7 @@ NCountry = {
 	PS_RAISE_WAR_TAXES = 2,	-- Monthly Cost
 	PS_WAR_TAXES_LIMIT_MIN = 0,	-- Minimum value for the cost of war taxes
 	PS_CREATE_TRADE_POST = 50,
-	PS_IMPROVE_PROVINCE_BASE = 50,
+	PS_IMPROVE_PROVINCE_BASE = 100,
 	PS_IMPROVE_PROVINCE_MUL = 0,
 	PS_IMPROVE_PROVINCE_CAPITAL_DISCOUNT = 0.05,
 	PS_SET_PRIMARY_CULTURE = 100,
