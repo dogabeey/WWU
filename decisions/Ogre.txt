@@ -1,0 +1,84 @@
+country_decisions = {	
+    hire_retinue = {
+        potential = {
+            culture_group = culture_group_ogre
+            NOT = { has_ruler_modifier = personal_retinue }
+        }
+        allow = {
+            num_of_cities = 25
+            legitimacy = 95
+            prestige = 50
+            mil_power = 100
+            treasury = 200
+           	manpower_percentage = 0.1
+            NOT = { has_ruler_modifier = personal_retinue }
+		}
+
+        effect = {
+            add_mil_power = -100	
+            add_treasury = -200
+            add_yearly_manpower = -1
+            
+            add_ruler_modifier = { 
+                name = personal_retinue
+                duration = -1
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+	} 
+
+	tame_clefthoof_packs = {
+        potential = {
+            culture_group = culture_group_ogre
+            NOT = { has_ruler_modifier = tamed_clefthooves }
+        }
+        allow = {
+            num_of_cities = 20
+            stability = 1
+            mil = 4
+           	manpower_percentage = 0.1
+            NOT = { has_ruler_modifier = tamed_clefthooves }
+		}
+            	
+        effect = {	
+            add_yearly_manpower = -1
+            
+            add_ruler_modifier = { 
+                name = tamed_clefthooves
+                duration = -1
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+	}   	 
+
+	host_brawls = {
+        potential = {
+            culture_group = culture_group_ogre
+            NOT = { has_ruler_modifier = hosted_brawls }
+        }
+        allow = {
+            num_of_cities = 20	
+           	stability = 1
+            adm_power = 100
+            dip_power = 100
+            NOT = { has_ruler_modifier = hosted_brawls }
+		}
+            	
+        effect = {
+            add_adm_power = -100
+            add_dip_power = -100
+            
+            add_ruler_modifier = { 
+                name = hosted_brawls
+                duration = -1
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+        }
+    }
+} 	 

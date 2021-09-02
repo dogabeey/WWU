@@ -61,7 +61,6 @@ country_decisions = {
 		allow = {
 			capital_scope = { region = region_durotar }
 			owns_core_province = 3398
-			NOT = { is_non_faction_subject = yes }
 			is_at_war = no
 			NOT = { exists = A48 }
 		}
@@ -125,7 +124,6 @@ country_decisions = {
 		}
 		allow = {
 			owns_core_province = 1473
-			NOT = { is_non_faction_subject = yes }
 			is_at_war = no
 			NOT = { exists = THB }
 		}
@@ -476,7 +474,6 @@ country_decisions = {
             region_stranglethorn_vale = {
 				owned_by = ROOT
 			}
-			NOT = { is_non_faction_subject = yes }
 			is_at_war = no
 			prestige = 25
 		}
@@ -670,18 +667,53 @@ country_decisions = {
 				owned_by = ROOT
 			}
 			legitimacy_equivalent = 75
-			mil_power = 200
-			adm_power = 200
+			mil_power = 300
+			adm_power = 300
 		}
 		effect = {
+			change_tag = OGR
+			set_capital = 1624
+		1624 = {
+		change_province_name = "Highmaul"
+		}
+		1641 = {
+		change_province_name = "Goria"
+		}
+			change_primary_culture = culture_high_ogre
+			set_ruler_culture = culture_high_ogre
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = culture_high_ogre
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					consort_culture = culture_ogre
+				}
+				set_consort_culture = culture_high_ogre
+			}
+				hidden_effect = {
+				every_province = {
+					limit = {
+						culture = culture_ogre
+						owned_by = ROOT
+					}
+					change_culture = culture_high_ogre
+				}		
+				}
+			change_government = monarchy
+			set_government_rank = 3
 			add_prestige = 50
 			change_tag = OGR
-			add_mil_power = -200
-			add_adm_power = -200
+			add_mil_power = -300
+			add_adm_power = -300
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
+			swap_free_idea_group = yes
 		}
 		
 		ai_importance = 300

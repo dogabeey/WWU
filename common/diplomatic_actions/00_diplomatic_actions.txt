@@ -245,26 +245,30 @@ allianceaction = {
 			OR = {
 				AND = {
 					OR = {
-						has_country_modifier = alliance_head
-						is_subject_of_type = faction_alliance
+						has_country_modifier = head_of_alliance
+                        has_country_modifier = member_of_alliance
 					}
 					FROM = {
 						OR = {
-							has_country_modifier = horde_head
-							is_subject_of_type = faction_horde
+							has_country_modifier = head_of_horde
+                            has_country_modifier = member_of_horde
+                            has_country_modifier = head_of_old_horde
+                            has_country_modifier = member_of_old_horde
 						}
 					}
 				}
 				AND = {
 					OR = {
-						has_country_modifier = horde_head
-						is_subject_of_type = faction_horde
-					}
+                        has_country_modifier = head_of_horde
+                        has_country_modifier = member_of_horde
+                        has_country_modifier = head_of_old_horde
+                        has_country_modifier = member_of_old_horde
+                    }
 					FROM = {
 						OR = {
-							has_country_modifier = alliance_head
-							is_subject_of_type = faction_alliance
-						}
+                    has_country_modifier = head_of_alliance
+                    has_country_modifier = member_of_alliance
+                }
 					}
 				}
 			}

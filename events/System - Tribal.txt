@@ -1,0 +1,113 @@
+namespace = wwu_tribal
+
+# Ransom Captives
+country_event = {
+	id = wwu_tribal.1
+	title = wwu_tribal.1.title
+	desc = wwu_tribal.1.desc
+	picture = ORC_THRONE_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+        has_government_attribute = enables_ransom_captives_event
+	}
+	
+	option = {
+		name = wwu_tribal.1.option.a
+        
+        add_years_of_income = 0.5
+	}
+}
+
+# Enslave Captives
+country_event = {
+	id = wwu_tribal.2
+	title = wwu_tribal.2.title
+	desc = wwu_tribal.2.desc
+	picture = ORC_HUMAN_BATTLE_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+        has_government_attribute = enables_ransom_captives_event
+	}
+	
+	option = {
+		name = wwu_tribal.2.option.a
+        
+        add_war_exhaustion = -2
+	}
+}
+
+# Integrate Captives
+country_event = {
+	id = wwu_tribal.3
+	title = wwu_tribal.3.title
+	desc = wwu_tribal.3.desc
+	picture = DWARVENARMY_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+        has_government_attribute = enables_ransom_captives_event
+	}
+	
+	option = {
+		name = wwu_tribal.3.option.a
+        
+        add_adm_power = 25
+        add_dip_power = 25
+        add_mil_power = 25
+	}
+}
+
+# Execute Captives
+country_event = {
+	id = wwu_tribal.4
+	title = wwu_tribal.4.title
+	desc = wwu_tribal.4.desc
+	picture = ORGRIM_KILLS_BLACKHAND_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+        has_government_attribute = enables_ransom_captives_event
+	}
+	
+	option = {
+		name = wwu_tribal.4.option.a
+        
+        FROM = {
+            add_devastation = 50
+            
+            random_list = {
+                33 = { add_base_tax = -1 }
+                33 = { add_base_production = -1 }
+                33 = { add_base_manpower = -1 }
+            }
+        }
+	}
+}
+
+# Conscript Captives
+country_event = {
+	id = wwu_tribal.5
+	title = wwu_tribal.5.title
+	desc = wwu_tribal.5.desc
+	picture = ORC_SHAMAN_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+        has_government_attribute = enables_ransom_captives_event
+	}
+	
+	option = {
+		name = wwu_tribal.5.option.a
+        
+        add_yearly_manpower = 0.1
+	}
+}
+
+

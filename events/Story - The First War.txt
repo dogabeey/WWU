@@ -1,30 +1,5 @@
 namespace = first_war
 
-# The First War - Setup factions
-country_event = {
-	id = first_war.100
-	title = first_war.100.title
-	desc = first_war.100.desc
-	picture = ORCISH_INVASION_eventPicture
-    
-    hidden = yes
-    fire_only_once = yes
-    
-	trigger = {
-		current_age = age_orcish_horde
-	}
-	
-    mean_time_to_happen = {
-		days = 1
-    }
-    
-	option = {
-		name = first_war.100.option.a
-        
-        set_first_war_faction_conflict = yes
-    }
-}
-
 # The First War
 country_event = {
 	id = first_war.1
@@ -35,77 +10,20 @@ country_event = {
 	trigger = {
 		current_age = age_orcish_horde
         
+        # ROOT's capital is in Outland
         capital_scope = { continent = continent_outland }
         
-		OR = {
-			faction_horde = 1  
-			AND = {
-				any_country = {
-					faction_horde = 1
-					any_owned_province = {
-						OR = {
-							region = region_swamp_of_sorrows
-							region = region_blasted_lands
-						}
-					}
-				}
-				is_subject_of_type = faction_horde
-			}
-			AND = {
-				any_country = {
-					faction_horde = 1
-					any_owned_province = {
-						OR = {
-							region = region_swamp_of_sorrows
-							region = region_blasted_lands
-						}
-					}
-				}
-				any_country = {
-					is_subject_of_type = faction_horde
-					any_owned_province = {
-						OR = {
-							region = region_swamp_of_sorrows
-							region = region_blasted_lands
-						}
-					}
-				}
-				has_country_flag = joined_guldan
-			}
-			AND = {
-				any_country = {
-					faction_horde = 1
-					any_owned_province = {
-						OR = {
-							region = region_swamp_of_sorrows
-							region = region_blasted_lands
-						}
-					}
-				}
-				any_country = {
-					has_country_flag = joined_guldan
-					any_owned_province = {
-						OR = {
-							region = region_swamp_of_sorrows
-							region = region_blasted_lands
-						}
-					}
-				}
-				any_country = {
-					is_subject_of_type = faction_horde
-					any_owned_province = {
-						OR = {
-							region = region_swamp_of_sorrows
-							region = region_blasted_lands
-						}
-					}
-				}
-				culture_group = culture_group_ogre
-				capital_scope = {
-					continent = continent_outland
-				}
-			}
-		}
+		# Any Horde own land is Swamp of Sorrows/Blasted Lands
+        any_country = {
+            has_country_modifier = member_of_old_horde
+            any_owned_province = {
+                OR = {
+                    region = region_swamp_of_sorrows
+                    region = region_blasted_lands
+                }
+            }
+        }
+        # Any land is empty in Swamp of Sorrows/Blasted Lands
 		any_province = {
 			OR = {
 				region = region_blasted_lands
@@ -113,6 +31,7 @@ country_event = {
 			}
 			is_empty = yes
 		}
+        # ROOT doesn't own land in Swamp of Sorrows/Blasted Lands
 		NOT = {
 			any_owned_province = {
 				OR = {
@@ -124,12 +43,13 @@ country_event = {
 	}
 	
     mean_time_to_happen = {
-		months = 6
+		months = 12
     }
     
 	option = {
 		name = first_war.1.option.a
 		
+        # Give ROOT land in Swamp of Sorrows/Blasted Lands
         random_province = {
             limit = {
 				OR = {
@@ -160,15 +80,29 @@ country_event = {
 	desc = first_war.2.desc
 	picture = ORCISH_INVASION_eventPicture
     
-	fire_only_once = yes
-    
 	trigger = {
+        NOT = { has_global_flag = setup_twilight_hammer }
+        NOT = { exists = A43 }
+        
+        has_country_modifier = head_of_old_horde
         current_age = age_orcish_horde
         
-        tag = B88
-        NOT = { exists = A43 }
+        # Any land is empty in Swamp of Sorrows/Blasted Lands
+		any_province = {
+			OR = {
+				region = region_blasted_lands
+				region = region_swamp_of_sorrows
+			}
+			is_empty = yes
+		}
 	}
 	
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_twilight_hammer
+        }
+    }
+    
     mean_time_to_happen = {
 		months = 1
     }
@@ -176,7 +110,6 @@ country_event = {
 	option = {
 		name = first_war.2.option.a
 		
-
         random_province = {
             limit = {
 				OR = {
@@ -192,15 +125,10 @@ country_event = {
             change_religion = fel
         }
         
-        hidden_effect = {
-			B88 = {
-				create_subject = {
-					subject_type = faction_horde
-					subject = A43
-				}
-			}
-            A43 = {
-                set_country_flag = first_war_orc
+        A43 = {
+            add_country_modifier = {
+                name = member_of_old_horde
+                duration = -1
             }
         }
     }
@@ -216,9 +144,8 @@ country_event = {
     hidden = yes
     
 	trigger = {
-        current_age = age_orcish_horde
-        
         NOT = { has_global_flag = stormwind_attack }
+        current_age = age_orcish_horde
         
         # When a human that has a province in the Stormwind area sieged down by an orc clan
         any_country = {
@@ -239,6 +166,9 @@ country_event = {
     }
     
     immediate = {
+        hidden_effect = {
+            set_global_flag = stormwind_attack
+        }
     }
     
 	option = {
@@ -278,6 +208,7 @@ country_event = {
     major = yes
     
 	trigger = {
+        NOT = { has_global_flag = tfw_victory_of_the_orc_clans }
         current_age = age_orcish_horde
         
         area_stormwind = {
@@ -285,8 +216,6 @@ country_event = {
 				culture_group = culture_group_orc
 			}
         }
-        
-        NOT = { has_global_flag = tfw_victory_of_the_orc_clans }
 	}
 	
     mean_time_to_happen = {
@@ -294,29 +223,30 @@ country_event = {
     }
     
     immediate = {
-        set_global_flag = the_second_war
-		set_global_flag = tfw_orc_victory_path
-        set_global_flag = tfw_victory_of_the_orc_clans 
-        
-		every_country = {
-			limit = {
-				has_country_modifier = first_war_orc
-				NOT = {
-					has_country_modifier = tfw_orc_victory
-				}
-				NOT = { has_global_flag = first_war_over }
-			}
-			add_country_modifier = {
-				name = tfw_orc_victory
-				duration = 3650
-			}
-			set_global_flag = first_war_over
-		}
+        hidden_effect = {
+            set_global_flag = tfw_victory_of_the_orc_clans 
+            set_global_flag = tfw_orc_victory_path
+            set_global_flag = the_second_war
+        }
     }
     
     option = {
 		name = first_war.5.option.a
 		
+        every_country = {
+            limit = {
+                has_country_modifier = first_war_orc
+                NOT = {
+                    has_country_modifier = tfw_orc_victory
+                }
+                NOT = { has_global_flag = first_war_over }
+            }
+            add_country_modifier = {
+                name = tfw_orc_victory
+                duration = 3650
+            }
+            set_global_flag = first_war_over
+        }
     }
 }
 
@@ -330,6 +260,7 @@ country_event = {
     major = yes
     
     trigger = {
+		NOT = { has_global_flag = tfw_human_victory_path }
         current_age = age_orcish_horde
         
         1035 = {
@@ -340,15 +271,17 @@ country_event = {
                 }
 			}
         }
-		
-		NOT = { has_global_flag = tfw_human_victory_path }
 	}
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = tfw_human_victory_path
+        }
+    }
     
 	option = {
 		name = first_war.6.option.a
 		
-		set_global_flag = tfw_human_victory_path
-        
         add_country_modifier = {
             name = tfw_human_victory
             duration = 3650

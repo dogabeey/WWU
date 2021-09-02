@@ -2,7 +2,7 @@
 # Warriors (Level 1)
 #-----------------------------------------
 wwu_warriors_battlefield_tactics = {
-	icon = "TODO"
+	icon = "backstab"
 	allow_normal_conversion = yes
     
 	modifiers = {
@@ -16,7 +16,7 @@ wwu_warriors_battlefield_tactics = {
 }
 
 wwu_warriors_raid_and_pillage = {
-	icon = "TODO"
+	icon = "blackrock_ore"
 	allow_normal_conversion = yes
     
 	modifiers = {
@@ -30,7 +30,7 @@ wwu_warriors_raid_and_pillage = {
 }
 
 wwu_warriors_ambush_tactics = {
-	icon = "TODO"
+	icon = "master_of_subtlety"
 	allow_normal_conversion = yes
     
 	modifiers = {
@@ -44,7 +44,7 @@ wwu_warriors_ambush_tactics = {
 }
 
 wwu_warriors_magical_affinity = {
-	icon = "TODO"
+	icon = "greater_invisibility"
 	allow_normal_conversion = yes
     
 	modifiers = {
@@ -58,9 +58,12 @@ wwu_warriors_magical_affinity = {
 }
 
 wwu_warriors_nomadic_warriors = {
-	icon = "TODO"
+	icon = "challenge"
 	allow_normal_conversion = yes
     
+    potential = {
+        is_nomad = yes
+    }
     trigger = {
         is_nomad = yes
     }
@@ -78,27 +81,576 @@ wwu_warriors_nomadic_warriors = {
 #-----------------------------------------
 # Paganism (Level 2)
 #-----------------------------------------
+wwu_paganism_ritualistic_practices = {
+	icon = "berserk"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        global_unrest = -2
+	}
+    
+    custom_attributes = {
+        enables_perform_ritual_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_paganism_sacrificial_rites = {
+	icon = "assassinate"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        years_of_nationalism = -5
+	}
+    
+    custom_attributes = {
+        enables_perform_sacrifice_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_paganism_respect_the_faith = {
+	icon = "book_2"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        tolerance_own = 1
+        ae_impact = -0.05
+	}
+    
+    custom_attributes = {
+        enables_consult_the_elders_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_paganism_mercenaries_of_faith = {
+	icon = "dice"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        global_missionary_strength = 0.02
+	}
+    
+    custom_attributes = {
+        enables_adopt_tribal_religion_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_paganism_many_gods_one_horde = {
+	icon = "disguise"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_nomad = yes
+    }
+    trigger = {
+        is_nomad = yes
+    }
+    
+	modifiers = {
+        tolerance_heathen = 2
+        global_heretic_missionary_strength = 0.02
+	}
+    
+    custom_attributes = {
+        enables_unite_heathens_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
 
 #-----------------------------------------
 # Tribal Magic (Level 3)
 #-----------------------------------------
+wwu_tribal_magic_fetishes = {
+	icon = "mana_tree"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        production_efficiency = 0.1
+	}
+    
+    custom_attributes = {
+        enables_craft_fetish_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_magic_funeral_rites = {
+	icon = "lunar_guidance"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        prestige = 0.5
+	}
+    
+    custom_attributes = {
+        enables_bless_tomb_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_magic_totemism = {
+	icon = "red_rage"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        manpower_recovery_speed = 0.1
+	}
+    
+    custom_attributes = {
+        enables_construct_totem_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_magic_constructs = {
+	icon = "natural_perfection"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        global_trade_goods_size_modifier = 0.05
+	}
+    
+    custom_attributes = {
+        enables_produce_constructs_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_magic_wild_magic = {
+	icon = "immolation"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_nomad = yes
+    }
+    trigger = {
+        is_nomad = yes
+    }
+    
+	modifiers = {
+        shock_damage = 0.05
+	}
+    
+    custom_attributes = {
+        enables_expel_wild_magic_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
 
 #-----------------------------------------
 # Prisoners (Level 4)
 #-----------------------------------------
+wwu_prisoners_captive_ransom = {
+	icon = "trading_post"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        global_tax_modifier = 0.1
+	}
+    
+    custom_attributes = {
+        enables_ransom_captives_event = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_prisoners_captive_enslavement = {
+	icon = "clemency"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        build_cost = -0.1
+        build_time = -0.1
+	}
+    
+    custom_attributes = {
+        enables_enslave_captives_event = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_prisoners_captive_integration = {
+	icon = "brush_it_off"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        governing_capacity_modifier = 0.05
+        num_accepted_cultures = 1
+	}
+    
+    custom_attributes = {
+        enables_integrate_captives_event = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_prisoners_captive_execution = {
+	icon = "revenge"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        discipline = 0.1
+        ae_impact = 0.1
+	}
+    
+    custom_attributes = {
+        enables_execute_captives_event = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_prisoners_captive_conscription = {
+	icon = "preparation"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_nomad = yes
+    }
+    trigger = {
+        is_nomad = yes
+    }
+    
+	modifiers = {
+        manpower_recovery_speed = 0.1
+	}
+    
+    custom_attributes = {
+        enables_conscript_captives_event = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
 
 #-----------------------------------------
 # Tribal Structure (Level 5)
 #-----------------------------------------
+wwu_tribal_structure_hierarchical = {
+	icon = "dirty_deeds"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        governing_capacity = 200
+        free_leader_pool = 1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_structure_clans = {
+	icon = "make_camp"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        governing_capacity_modifier = 0.1
+        min_autonomy_in_territories = -0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_structure_religious_order = {
+	icon = "clarity_of_purpose"
+	allow_normal_conversion = yes
+    
+    trigger = {
+        NOT = { has_reform = wwu_paganism_mercenaries_of_faith }
+    }
+    
+	modifiers = {
+        missionaries = 1
+        state_maintenance_modifier = -0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_structure_tributaries = {
+	icon = "hunger_for_blood"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        accept_vassalization_reasons = 20
+        reduced_liberty_desire = 10  
+        vassal_income = 0.5
+        min_autonomy = 25
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_structure_nomadic_kinship = {
+	icon = "murder_of_crows"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_nomad = yes
+    }
+    trigger = {
+        is_nomad = yes
+    }
+    
+	modifiers = {
+        governing_capacity_modifier = 0.1
+        vassal_forcelimit_bonus = 0.33
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
 
 #-----------------------------------------
 # Chieftains (Level 6)
 #-----------------------------------------
+wwu_chieftains_strongman = {
+	icon = "brittle_bones"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+       yearly_corruption = -0.05
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_chieftains_tyrant = {
+	icon = "blood_frenzy"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+       years_of_nationalism = -5
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_chieftains_tribal_vote = {
+	icon = "bronze_box"
+	allow_normal_conversion = yes
+    
+    heir = no
+    
+	modifiers = {
+       stability_cost_modifier = 0.1
+	}
+    
+    custom_attributes = {
+        enables_tribal_vote = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_chieftains_tribal_succession = {
+	icon = "champion"
+	allow_normal_conversion = yes
+    
+    trigger = {
+        has_government_attribute = heir
+    }
+    
+	modifiers = {
+        local_heir_mil = 1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_chieftains_warrior_lords = {
+	icon = "bladestorm"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_nomad = yes
+    }
+    trigger = {
+        is_nomad = yes
+    }
+    
+	modifiers = {
+        global_unrest = -1
+	}
+    
+    custom_attributes = {
+        enables_horde_unity_bonus_during_war = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
 
 #-----------------------------------------
 # Outsiders (Level 7)
 #-----------------------------------------
+wwu_outsiders_distrusted = {
+	icon = "archaedas"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        defensiveness = 0.25
+        fort_maintenance_modifier = -0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_outsiders_tolerated = {
+	icon = "ancestral_guardian"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        mercenary_cost = -0.1
+        merc_maintenance_modifier = -0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_outsiders_executed = {
+	icon = "accretion"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        loot_amount = 0.5
+        available_province_loot = 0.5
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_outsiders_embraced = {
+	icon = "hand_of_light"
+	allow_normal_conversion = yes
+    
+	modifiers = {
+        diplomatic_reputation = 1
+        improve_relation_modifier = 0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_outsiders_traded_with = {
+	icon = "storehouse"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_nomad = yes
+    }
+    trigger = {
+        is_nomad = yes
+    }
+    
+	modifiers = {
+        merchants = 1
+        global_trade_power = 0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
 
 #-----------------------------------------
 # Civilization (Level 8)
 #-----------------------------------------
+wwu_civilization_the_old_way = {
+	icon = "ancestral_call"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        global_unrest = -2
+        core_creation = -0.2
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_civilization_synthesis_of_experience = {
+	icon = "crown_of_heaven"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        governing_capacity_modifier = 0.1
+        reform_progress_growth = 0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+

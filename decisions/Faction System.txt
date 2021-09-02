@@ -1,0 +1,346 @@
+#---------------------------------------
+# Factions
+#---------------------------------------
+country_decisions = {
+    # Alliance Roster
+	view_alliance_roster = {
+		major = yes
+		
+		potential = {
+            has_country_modifier = member_of_alliance
+		}
+		
+		allow = {
+            has_country_modifier = member_of_alliance
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.100 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    # Horde Roster
+	view_horde_roster = {
+		major = yes
+		
+		potential = {
+            has_country_modifier = member_of_horde
+		}
+		
+		allow = {
+            has_country_modifier = member_of_horde
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.101 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    # Old Horde Roster
+	view_old_horde_roster = {
+		major = yes
+		
+		potential = {
+            has_country_modifier = member_of_old_horde
+		}
+		
+		allow = {
+            has_country_modifier = member_of_old_horde
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.102 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    # Alliance of Lordaeron
+	establish_the_alliance = {
+		major = yes
+		
+		potential = {
+            current_age = age_orcish_horde
+			tag = STW
+            NOT = { has_global_flag = setup_the_alliance }
+		}
+		
+		allow = {
+            current_age = age_orcish_horde
+			any_country = {
+                has_country_modifier = member_of_old_horde
+                any_owned_province = {
+                    OR = {
+                        region = region_swamp_of_sorrows
+                        region = region_blasted_lands
+                    }
+                }
+            }
+            
+            # Lordaeron
+            A08 = {
+                alliance_with = ROOT
+            }
+		}
+		
+		effect = {
+            hidden_effect = {
+                set_global_flag = setup_the_alliance
+            }
+            
+            # Stormwind
+			STW = {
+                add_country_modifier = {
+                    name = member_of_alliance
+                    duration = -1
+                }
+            }
+            
+            # Lordaeron
+            A08 = {
+                add_country_modifier = {
+                    name = head_of_alliance
+                    duration = -1
+                }
+                add_country_modifier = {
+                    name = member_of_alliance
+                    duration = -1
+                }
+            }
+            
+            # Requests to join
+            
+            # Stratholme
+            A10 = {
+                country_event = {
+                    id = wwu_faction_system.1
+                    days = 7
+                }
+            }
+            # Gilneas
+            A12 = {
+                country_event = {
+                    id = wwu_faction_system.1
+                    days = 7
+                }
+            }
+            # Kul Tiras
+            A14 = {
+                country_event = {
+                    id = wwu_faction_system.1
+                    days = 7
+                }
+            }
+            # Stromgarde
+            A16 = {
+                country_event = {
+                    id = wwu_faction_system.1
+                    days = 7
+                }
+            }
+            # Dalaran
+            A18 = {
+                country_event = {
+                    id = wwu_faction_system.1
+                    days = 7
+                }
+            }
+            # Ironforge
+            A29 = {
+                country_event = {
+                    id = wwu_faction_system.1
+                    days = 7
+                }
+            }
+            # Gnomeregan
+            A32 = {
+                country_event = {
+                    id = wwu_faction_system.1
+                    days = 7
+                }
+            }
+            # Quel'Thelas
+            A90 = {
+                country_event = {
+                    id = wwu_faction_system.1
+                    days = 7
+                }
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    # Thrall's Horde
+	establish_the_horde = {
+		major = yes
+		
+		potential = {
+            NOT = { 
+                any_country = {
+                    OR = {
+                        has_country_modifier = head_of_old_horde
+                        has_country_modifier = member_of_old_horde
+                    }
+                }
+            }
+            current_age = age_burning_legion
+            NOT = { has_global_flag = setup_the_horde }
+            OR = {
+                culture_group = culture_group_orc
+                culture_group = culture_group_tauren
+                culture_group = culture_group_thalassian
+                culture_group = culture_group_troll
+                culture_group = culture_group_goblin
+                culture_group = culture_group_undead
+            }
+		}
+		
+		allow = {
+            current_age = age_burning_legion
+            OR = {
+                culture_group = culture_group_orc
+                culture_group = culture_group_tauren
+                culture_group = culture_group_thalassian
+                culture_group = culture_group_troll
+                culture_group = culture_group_goblin
+                culture_group = culture_group_undead
+            }
+            capital_scope = {
+                continent = continent_kalimdor
+            }
+		}
+		
+		effect = {
+            hidden_effect = {
+                set_global_flag = setup_the_horde
+            }
+            
+            ROOT = {
+                add_country_modifier = {
+                    name = head_of_horde
+                    duration = -1
+                }
+                add_country_modifier = {
+                    name = member_of_horde
+                    duration = -1
+                }
+            }
+            
+            # Joins are done via diplomatic actions
+		}
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { is_historical_horde_member = yes }
+            }
+		}
+	}
+    
+    # Crush the Alliance
+	crush_the_alliance = {
+		major = yes
+		
+		potential = {
+            NOT = { has_global_flag = collapse_of_the_alliance }
+            OR = {
+                has_country_modifier = member_of_horde
+                has_country_modifier = member_of_old_horde
+            }
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_alliance
+            }
+		}
+		
+		allow = {
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_alliance
+                capital_scope = {
+                    controlled_by = ROOT
+                }
+            }
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.2 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    # Crush the Horde
+	crush_the_old_horde = {
+		major = yes
+		
+		potential = {
+            NOT = { has_global_flag = collapse_the_old_horde }
+            has_country_modifier = member_of_alliance
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_old_horde
+            }
+		}
+		
+		allow = {
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_old_horde
+                capital_scope = {
+                    controlled_by = ROOT
+                }
+            }
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.11 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    # Crush the Horde
+	crush_the_horde = {
+		major = yes
+		
+		potential = {
+            NOT = { has_global_flag = collapse_the_horde }
+            has_country_modifier = member_of_alliance
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_horde
+            }
+		}
+		
+		allow = {
+            any_country = {
+                war_with = ROOT
+                has_country_modifier = head_of_horde
+                capital_scope = {
+                    controlled_by = ROOT
+                }
+            }
+		}
+		
+		effect = {
+            country_event = { id = wwu_faction_system.12 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

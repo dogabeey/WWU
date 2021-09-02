@@ -158,9 +158,12 @@ cb_for_the_alliance = {
 	valid_for_subject = no
 
 	prerequisites = {
-		faction_alliance = 1
+		has_country_modifier = head_of_alliance
 		FROM = {
-			faction_horde = 1
+			OR = {
+                has_country_modifier = head_of_horde
+                has_country_modifier = head_of_old_horde
+            }
 		}
 	}
 	
@@ -171,9 +174,12 @@ cb_for_the_horde = {
 	valid_for_subject = no
 
 	prerequisites = {
-		faction_horde = 1
+		OR = {
+            has_country_modifier = head_of_horde
+            has_country_modifier = head_of_old_horde
+        }
 		FROM = {
-			faction_alliance = 1
+			has_country_modifier = head_of_alliance
 		}
 	}
 	

@@ -1,0 +1,40 @@
+alliance_fervor = {
+	potential = {
+		has_country_modifier = member_of_alliance
+	}
+	
+	trigger = {
+        any_country = {
+            OR = {
+                has_country_modifier = member_of_horde
+                has_country_modifier = member_of_old_horde
+            }
+            war_with = ROOT
+        }
+	}
+	
+	manpower_recovery_speed = 1
+	mercenary_cost = -0.2
+	war_exhaustion = -0.2
+}
+
+horde_fervor = {
+	potential = {
+		OR = {
+            has_country_modifier = member_of_horde
+            has_country_modifier = member_of_old_horde
+        }
+	}
+	
+	trigger = {
+        any_country = {
+            has_country_modifier = member_of_alliance
+            war_with = ROOT
+        }
+	}
+	
+	manpower_recovery_speed = 1
+	mercenary_cost = -0.2
+	war_exhaustion = -0.2
+}
+
