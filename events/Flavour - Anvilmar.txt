@@ -1,0 +1,48 @@
+namespace = wwu_anvilmar
+
+# Leadership of Anvilmar
+country_event = {
+	id = wwu_anvilmar.1
+	title = wwu_anvilmar.1.title
+	desc = wwu_anvilmar.1.desc
+	picture = DWARF_eventPicture
+	
+	major = yes
+    
+	trigger = {
+        tag = ANM
+        NOT = { has_global_flag = government_of_anvilmar }
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = government_of_anvilmar
+        }
+    }
+    
+	option = {
+		name = wwu_anvilmar.1.option.a
+	}
+	option = {
+		name = wwu_anvilmar.1.option.b
+		
+        change_government = monarchy
+        add_government_reform = feudalism_reform
+        
+		change_religion = holy_light
+
+        define_ruler = {
+            name = "Thargas"
+            dynasty = "Anvilmar"
+            age = 130
+            adm = 4
+            dip = 3
+            mil = 6
+            religion = holy_light
+        }
+}
+
