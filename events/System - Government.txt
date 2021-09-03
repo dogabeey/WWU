@@ -118,7 +118,16 @@ country_event = {
             limit = {
                 has_reform = wwu_election_cycle_puppetmasters
             }
+            
             country_event = { id = wwu_government.13 days = 7 }
+        }
+        
+        if = {
+            limit = {
+                has_government_attribute = enables_spoiled_victor_event
+            }
+            
+            country_event = { id = wwu_pirate_government.1 days = 7 }
         }
     }
 }
@@ -151,6 +160,14 @@ country_event = {
 		}
         
         add_republican_tradition = 5
+        
+        if = {
+            limit = {
+                has_government_attribute = enables_pirate_retirement
+            }
+            
+            award_pirate_retirement_bonuses = yes
+        }
 	}
 	option = {
 		name = wwu_government.2.option.b
@@ -165,6 +182,13 @@ country_event = {
 
         add_republican_tradition = 5
         
+        if = {
+            limit = {
+                has_government_attribute = enables_pirate_retirement
+            }
+            
+            award_pirate_retirement_bonuses = yes
+        }
 	}
 	option = {
 		name = wwu_government.2.option.c
@@ -179,6 +203,13 @@ country_event = {
         
         add_republican_tradition = 5
         
+        if = {
+            limit = {
+                has_government_attribute = enables_pirate_retirement
+            }
+            
+            award_pirate_retirement_bonuses = yes
+        }
 	}
     option = {
 		name = wwu_government.2.option.d
@@ -253,6 +284,14 @@ country_event = {
             name = "lastname"
             random_gender = yes # Allows random gender for republics
         }
+        
+        if = {
+            limit = {
+                has_government_attribute = enables_pirate_retirement
+            }
+            
+            award_pirate_retirement_bonuses = yes
+        }
 	}
     
     after = {
@@ -260,7 +299,16 @@ country_event = {
             limit = {
                 has_reform = wwu_election_cycle_puppetmasters
             }
+            
             country_event = { id = wwu_government.13 days = 7 }
+        }
+        
+        if = {
+            limit = {
+                has_government_attribute = enables_spoiled_victor_event
+            }
+            
+            country_event = { id = wwu_pirate_government.1 days = 7 }
         }
     }
 }
@@ -319,6 +367,24 @@ country_event = {
             add_republican_tradition = 5
 		}
 	}
+    
+    after = {
+        if = {
+            limit = {
+                has_reform = wwu_election_cycle_puppetmasters
+            }
+            
+            country_event = { id = wwu_government.13 days = 7 }
+        }
+        
+        if = {
+            limit = {
+                has_government_attribute = enables_spoiled_victor_event
+            }
+            
+            country_event = { id = wwu_pirate_government.1 days = 7 }
+        }
+    }
 }
 
 # Ruled by Despot
@@ -492,6 +558,24 @@ country_event = {
             random_gender = yes
         }
 	}
+    
+    after = {
+        if = {
+            limit = {
+                has_reform = wwu_election_cycle_puppetmasters
+            }
+            
+            country_event = { id = wwu_government.13 days = 7 }
+        }
+        
+        if = {
+            limit = {
+                has_government_attribute = enables_spoiled_victor_event
+            }
+            
+            country_event = { id = wwu_pirate_government.1 days = 7 }
+        }
+    }
 }
 
 # "Call for Abdication"

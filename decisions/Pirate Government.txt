@@ -1,0 +1,129 @@
+country_decisions = {
+    adopt_piratical_government = {
+		major = yes
+        
+		potential = {
+			is_subject = no
+            government = republic
+			NOT = { has_reform = pirate_republic_reform }
+            is_maritime_ideagroup = yes
+            num_of_ports = 5
+            NOT = { total_development = 250 }
+		}
+		allow = {
+			stability = 2
+			navy_size_percentage = 0.9
+			NOT = { num_of_subjects = 1 }
+			home_trade_node = {
+				privateer_power = {
+					country = ROOT
+					share = 10
+				}
+			}
+			is_bankrupt = no
+			is_at_war = no
+		}
+		effect = {
+			add_stability = -2
+
+            change_government = republic
+            add_government_reform = pirate_republic_reform
+            add_republican_tradition = 20
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    reward_public_offices = {
+        potential = {
+			has_government_attribute = enables_reward_public_offices_decision
+		}
+		allow = {
+			NOT = { has_country_modifier = piratical_administration }
+            NOT = { corruption = 40 }
+            stability = 1
+		}
+		effect = {
+			add_country_modifier = {
+                name = piratical_administration
+                duration = 3650
+            }
+            
+            add_corruption = 3
+		}
+		ai_will_do = {
+			factor = 1
+		}
+    }
+    
+    promote_loyalists = {
+        potential = {
+			has_government_attribute = enables_reward_promote_loyalists_decision
+		}
+		allow = {
+			NOT = { has_country_modifier = pirate_loyalists }
+            NOT = { republican_tradition = 80 }
+            stability = 1
+		}
+		effect = {
+			add_country_modifier = {
+                name = pirate_loyalists
+                duration = 3650
+            }
+            
+            add_republican_tradition = -10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+    }
+    
+    loot_treasury = {
+        potential = {
+			has_government_attribute = enables_reward_loot_treasury_decision
+		}
+		allow = {
+			NOT = { has_country_modifier = treasury_looted }
+            stability = 1
+		}
+		effect = {
+			add_years_of_income = 1
+            
+            add_country_modifier = {
+                name = treasury_looted
+                duration = 3650
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+    }
+    
+    execute_traitor = {
+        potential = {
+			has_government_attribute = enables_execute_traitor_decision
+            has_ruler = yes
+		}
+		allow = {
+			NOT = { has_country_modifier = legendary_execution }
+            NOT = { prestige = -50 }
+            NOT = { republican_tradition = 30 }
+		}
+		effect = {
+			kill_ruler = yes
+            add_prestige = -100
+            
+            add_stability = 1
+            add_republican_tradition = 40
+            
+            add_country_modifier = {
+                name = legendary_execution
+                duration = 3650
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+    }
+}

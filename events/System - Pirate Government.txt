@@ -1,0 +1,75 @@
+namespace = wwu_pirate_government
+
+# Spoiled Victor
+country_event = {
+	id = wwu_pirate_government.1
+	title = wwu_pirate_government.1.title
+	desc = wwu_pirate_government.1.desc
+	picture = ORC_THRONE_eventPicture
+	
+	is_triggered_only = yes
+	
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = spoiled_victor_1
+            clr_country_flag = spoiled_victor_2
+            clr_country_flag = spoiled_victor_3
+            clr_country_flag = spoiled_victor_4
+            clr_country_flag = spoiled_victor_5
+            
+            random_list = {
+                20 = { set_country_flag = spoiled_victor_1 }
+                20 = { set_country_flag = spoiled_victor_2 }
+                20 = { set_country_flag = spoiled_victor_3 }
+                20 = { set_country_flag = spoiled_victor_4 }
+                20 = { set_country_flag = spoiled_victor_5 }
+            }
+        }
+    }
+    
+	option = {
+		name = wwu_pirate_government.1.option.a
+		
+        trigger = {
+            has_country_flag = spoiled_victor_1
+        }
+        
+        add_years_of_income = 1
+    }
+    option = {
+		name = wwu_pirate_government.1.option.b
+		
+        trigger = {
+            has_country_flag = spoiled_victor_2
+        }
+        
+        add_prestige = 10
+    }
+    option = {
+		name = wwu_pirate_government.1.option.c
+		
+        trigger = {
+            has_country_flag = spoiled_victor_3
+        }
+        
+        add_adm_power = 50
+    }
+    option = {
+		name = wwu_pirate_government.1.option.d
+		
+        trigger = {
+            has_country_flag = spoiled_victor_4
+        }
+        
+        add_corruption = 3
+    }
+    option = {
+		name = wwu_pirate_government.1.option.e
+		
+        trigger = {
+            has_country_flag = spoiled_victor_5
+        }
+        
+        add_republican_tradition = -10
+    }
+}

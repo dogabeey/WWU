@@ -80,7 +80,7 @@ wwu_citizenship_absolute_freedom = {
 
 # Pirate
 wwu_citizenship_crew_registry = {
-	icon = "TODO"
+	icon = "book_4"
 	allow_normal_conversion = yes
     
     potential = {
@@ -89,7 +89,7 @@ wwu_citizenship_crew_registry = {
     
 	modifiers = {
         reelection_cost = -0.2
-        pr_buccaneers_inflience = 0.1
+        pr_buccaneers_influence = 0.1
 	}
     
     ai = {
@@ -98,7 +98,7 @@ wwu_citizenship_crew_registry = {
 }
 
 wwu_citizenship_citizenship_by_force = {
-	icon = "TODO"
+	icon = "blood_frenzy"
 	allow_normal_conversion = yes
     
     potential = {
@@ -117,7 +117,7 @@ wwu_citizenship_citizenship_by_force = {
 }
 
 wwu_citizenship_citizenship_for_loot = {
-	icon = "TODO"
+	icon = "trading_post"
 	allow_normal_conversion = yes
     
     potential = {
@@ -219,7 +219,7 @@ wwu_election_cycle_puppetmasters = {
 
 # Pirate
 wwu_election_pirate_king = {
-	icon = "TODO"
+	icon = "dirty_deeds"
 	allow_normal_conversion = yes
     
     potential = {
@@ -246,7 +246,7 @@ wwu_election_pirate_king = {
 }
 
 wwu_election_council_of_captains = {
-	icon = "TODO"
+	icon = "note_1"
 	allow_normal_conversion = yes
     
     potential = {
@@ -265,7 +265,7 @@ wwu_election_council_of_captains = {
 }
 
 wwu_election_violent_elections = {
-	icon = "TODO"
+	icon = "eviscerate"
 	allow_normal_conversion = yes
     
     potential = {
@@ -405,7 +405,7 @@ wwu_separation_of_powers_limited_councils = {
 
 # Pirate
 wwu_separation_of_powers_to_the_victor_the_spoils = {
-	icon = "TODO"
+	icon = "preparation"
 	allow_normal_conversion = yes
     
     potential = {
@@ -413,7 +413,14 @@ wwu_separation_of_powers_to_the_victor_the_spoils = {
     }
     
 	modifiers = {
-        
+        pr_captains_influence = 0.1
+	}
+    
+    custom_attributes = {
+		enables_spoiled_victor_event = yes
+		enables_reward_public_offices_decision = yes
+		enables_reward_promote_loyalists_decision = yes
+		enables_reward_loot_treasury_decision = yes
 	}
     
     ai = {
@@ -422,15 +429,35 @@ wwu_separation_of_powers_to_the_victor_the_spoils = {
 }
 
 wwu_separation_of_powers_council_of_pirates = {
-	icon = "TODO"
+	icon = "scroll_1"
 	allow_normal_conversion = yes
     
     potential = {
         is_pirate_government = yes
     }
+    trigger = {
+		OR = {
+			NOT = { has_estate = estate_nobility }
+			crown_stronger_than_estate = { estate = estate_nobility }
+		}
+	}
     
 	modifiers = {
-        
+		sailor_maintenance_modifer = -0.25
+        pr_buccaneers_influence = 0.1
+	}
+
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+    
+	custom_attributes = {
+		blocked_call_diet = yes
+	}
+    
+	post_removed_effect = {
+		give_estate_land_share_init = { estate = estate_nobility }
 	}
     
     ai = {
@@ -439,7 +466,7 @@ wwu_separation_of_powers_council_of_pirates = {
 }
 
 wwu_separation_of_powers_port_republics = {
-	icon = "TODO"
+	icon = "human_sailor"
 	allow_normal_conversion = yes
     
     potential = {
@@ -447,7 +474,10 @@ wwu_separation_of_powers_port_republics = {
     }
     
 	modifiers = {
-        
+        republican_tradition = 0.1
+        global_ship_repair = 0.2
+        trade_efficiency = 0.05
+        pr_smugglers_influence = 0.1
 	}
     
     ai = {
@@ -560,7 +590,7 @@ wwu_republican_institution_sacred_constitution = {
 
 # Pirate
 wwu_republican_institution_black_markets = {
-	icon = "TODO"
+	icon = "treasure_chest"
 	allow_normal_conversion = yes
     
     potential = {
@@ -568,7 +598,39 @@ wwu_republican_institution_black_markets = {
     }
     
 	modifiers = {
-        
+        merchants = 1
+		trade_efficiency = 0.1
+	}
+    
+    boost_income = yes
+    
+    custom_attributes = {
+		is_merchant_republic = yes
+	}
+    
+    conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city_reform
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city_reform
 	}
     
     ai = {
@@ -577,7 +639,7 @@ wwu_republican_institution_black_markets = {
 }
 
 wwu_republican_institution_captain_retirement = {
-	icon = "TODO"
+	icon = "tour_of_duty"
 	allow_normal_conversion = yes
     
     potential = {
@@ -585,7 +647,12 @@ wwu_republican_institution_captain_retirement = {
     }
     
 	modifiers = {
-        
+        development_cost = 0.05
+        build_cost = -0.1
+	}
+    
+    custom_attributes = {
+		enables_pirate_retirement = yes
 	}
     
     ai = {
@@ -594,7 +661,7 @@ wwu_republican_institution_captain_retirement = {
 }
 
 wwu_republican_institution_a_traitors_fate = {
-	icon = "TODO"
+	icon = "cheap_shot"
 	allow_normal_conversion = yes
     
     potential = {
@@ -602,7 +669,12 @@ wwu_republican_institution_a_traitors_fate = {
     }
     
 	modifiers = {
-        
+        stability_cost_modifier = -0.1
+        pr_buccaneers_influence = 0.1
+	}
+    
+    custom_attributes = {
+        enables_execute_traitor_decision = yes
 	}
     
     ai = {
@@ -688,7 +760,7 @@ wwu_state_structure_confederation = {
 
 # Pirate
 wwu_state_structure_united_ports = {
-	icon = "TODO"
+	icon = "ensnare"
 	allow_normal_conversion = yes
     
     potential = {
@@ -696,7 +768,19 @@ wwu_state_structure_united_ports = {
     }
     
 	modifiers = {
-        
+        global_ship_recruit_speed = -0.25
+        governing_capacity = 100
+        pr_buccaneers_influence = 0.1
+	}
+    
+    effect = {
+		add_effect_good_production = { VALUE = 50 GOOD = "naval_supplies" }
+		add_effect_good_production = { VALUE = 50 GOOD = "lumber" }
+	}
+    
+	removed_effect = {
+		remove_effect_good_production = { VALUE = 50 GOOD = "naval_supplies" }
+		remove_effect_good_production = { VALUE = 50 GOOD = "lumber" }
 	}
     
     ai = {
@@ -705,7 +789,7 @@ wwu_state_structure_united_ports = {
 }
 
 wwu_state_structure_pirate_confederation = {
-	icon = "TODO"
+	icon = "combat_readiness"
 	allow_normal_conversion = yes
     
     potential = {
@@ -713,7 +797,19 @@ wwu_state_structure_pirate_confederation = {
     }
     
 	modifiers = {
-        
+        navy_tradition = 1.0
+        state_maintenance_modifier = -0.15
+        pr_smugglers_influence = 0.1
+	}
+    
+    effect = {
+		add_effect_good_production = { VALUE = 50 GOOD = "pirates" }
+		add_effect_good_production = { VALUE = 50 GOOD = "smugglers" }
+	}
+    
+	removed_effect = {
+		remove_effect_good_production = { VALUE = 50 GOOD = "pirates" }
+		remove_effect_good_production = { VALUE = 50 GOOD = "smugglers" }
 	}
     
     ai = {
@@ -722,7 +818,7 @@ wwu_state_structure_pirate_confederation = {
 }
 
 wwu_state_structure_leashed_realms = {
-	icon = "TODO"
+	icon = "clemency"
 	allow_normal_conversion = yes
     
     potential = {
@@ -730,7 +826,17 @@ wwu_state_structure_leashed_realms = {
     }
     
 	modifiers = {
-        
+        global_tax_modifier = 0.15
+        governing_capacity_modifier = 0.1
+        pr_captains_influence = 0.1
+	}
+    
+    effect = {
+		add_effect_good_production = { VALUE = 50 GOOD = "slaves" }
+	}
+    
+	removed_effect = {
+		remove_effect_good_production = { VALUE = 50 GOOD = "slaves" }
 	}
     
     ai = {
@@ -819,7 +925,7 @@ wwu_republic_authority_speaker_of_the_senate = {
 
 # Pirate
 wwu_republic_authority_lord_of_the_sea = {
-	icon = "TODO"
+	icon = "submarine"
 	allow_normal_conversion = yes
     
     potential = {
@@ -827,8 +933,14 @@ wwu_republic_authority_lord_of_the_sea = {
     }
     
 	modifiers = {
-        
+        leader_naval_fire = 2
+        diplomatic_reputation = 2
+        improve_relation_modifier = 0.2
 	}
+    
+    custom_attributes = {
+        enables_war_against_the_world_cb
+    }
     
     ai = {
 		factor = 1
@@ -836,7 +948,7 @@ wwu_republic_authority_lord_of_the_sea = {
 }
 
 wwu_republic_authority_corsair_master = {
-	icon = "TODO"
+	icon = "taming"
 	allow_normal_conversion = yes
     
     potential = {
@@ -844,8 +956,14 @@ wwu_republic_authority_corsair_master = {
     }
     
 	modifiers = {
-        
+        leader_naval_shock = 2
+        privateer_efficiency = 0.33
+        blockade_efficiency = 0.5
 	}
+    
+    custom_attributes = {
+        enables_war_against_the_world_cb
+    }
     
     ai = {
 		factor = 1
@@ -853,7 +971,7 @@ wwu_republic_authority_corsair_master = {
 }
 
 wwu_republic_authority_swashbuckling_figurehead = {
-	icon = "TODO"
+	icon = "spyglass"
 	allow_normal_conversion = yes
     
     potential = {
@@ -861,8 +979,14 @@ wwu_republic_authority_swashbuckling_figurehead = {
     }
     
 	modifiers = {
-        
+        leader_naval_manuever = 2
+        naval_morale = 0.2
+        flagship_cost = -0.5
 	}
+    
+    custom_attributes = {
+        enables_war_against_the_world_cb
+    }
     
     ai = {
 		factor = 1
