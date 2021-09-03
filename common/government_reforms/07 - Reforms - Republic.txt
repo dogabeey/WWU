@@ -225,14 +225,20 @@ wwu_election_pirate_king = {
     potential = {
         is_pirate_government = yes
     }
+    trigger = {
+        NOT = { has_reform = wwu_citizenship_crew_registry }
+    }
     
 	modifiers = {
-        
+        leader_naval_fire = 1
+        free_leader_pool = 1
+        pr_captains_influence = 0.1
 	}
     
-    custom_attributes = {
-		force_admiral_leader = yes
-	}
+    has_term_election = no
+    
+    force_admiral_leader = yes
+    admirals_become_rulers = yes
     
     ai = {
 		factor = 1
@@ -248,7 +254,9 @@ wwu_election_council_of_captains = {
     }
     
 	modifiers = {
-        
+        election_cycle = 3
+        leader_naval_manuever = 1
+        pr_smugglers_influence = 0.1
 	}
     
     ai = {
@@ -265,8 +273,14 @@ wwu_election_violent_elections = {
     }
     
 	modifiers = {
-        
+        candidate_random_bonus = 2
+        land_morale = 0.05
+        pr_buccaneers_influence = 0.1
 	}
+    
+    custom_attributes = {
+        enables_pirate_death_events = yes
+    }
     
     ai = {
 		factor = 1
