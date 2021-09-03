@@ -1,43 +1,38 @@
 country_decisions = {
 
-    restore_kingdom_of_quelthalas = {
+    form_silvermoon = {
 		major = yes
 		potential = {
 			
 			NOT = { tag = B94 }
-			NOT = { exists = A90 } # QuelThalas
+			NOT = { exists = A91 } #Silvermoon
 			culture_group = culture_group_thalassian
 			is_colonial_nation = no
 			
 		}
 		allow = {
 		    owns_core_province = 660 #Silvermoon
-			owns_core_province = 2991 #Sunwell
-			owns_core_province = 1039 #Deatholme
-			NOT = { exists = A90 }
 			total_development = 200
-			stability = 2
-			prestige = 60
-			dip = 4
-			dip_power = 400
+			stability = 1
+			prestige = 40
+			dip_power = 200
 			is_at_war = no		
 		}
 		effect = {
 			add_prestige = 10
-			change_tag = A90
-			change_primary_culture = culture_high_elf
+			change_tag = A91
+			change_primary_culture = culture_blood_elf
 			add_dip_power = -400
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
-            
 			change_government = monarchy
 			set_capital = 660
 			swap_free_idea_group = yes
 		}
 		
-		ai_importance = 300
+		ai_importance = 400
 		
 		ai_will_do = {
 			factor = 1
