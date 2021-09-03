@@ -1,0 +1,63 @@
+namespace = wwu_silvermoon
+
+# Leadership of Silvermoon
+country_event = {
+	id = wwu_silvermoon.1
+	title = wwu_silvermoon.1.title
+	desc = wwu_silvermoon.1.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+	
+	major = yes
+    
+	trigger = {
+        tag = A91
+        current_age = age_burning_legion
+        NOT = { has_global_flag = government_of_silvermoon }
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = government_of_silvermoon 
+        }
+    }
+    
+	option = {
+		name = wwu_silvermoon.1.option.a
+		
+        change_government = monarchy
+        add_government_reform = kingdom_of_magic_reform
+		change_religion = fel
+        
+        define_ruler = {
+            name = "Kael'thas"
+            dynasty = "Sunstrider"
+            age = 300
+            adm = 6
+            dip = 6
+            mil = 6
+            religion = fel
+        }
+	}
+	option = {
+		name = wwu_silvermoon.1.option.b
+		
+        change_government = republic
+        add_government_reform = convocation_of_silvermoon_reform
+        
+		change_religion = arcane
+
+        define_ruler = {
+            name = "Lor'themar"
+            dynasty = "Theron"
+            age = 360
+            adm = 3
+            dip = 3
+            mil = 6
+            religion = arcane
+        }
+}
+
