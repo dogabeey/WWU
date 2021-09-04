@@ -46,6 +46,7 @@ country_decisions = {
 		}
 		allow = {
 			tag = P11
+			church_power = 25
 			any_subject_country = {
 				NOT = { all_owned_province = { religion = cult_of_the_damned } }
 				NOT = { culture_group = culture_group_scourge }
@@ -58,6 +59,7 @@ country_decisions = {
 			}
 		}
 		effect = {
+			add_church_power = -25
 			every_subject_country = {
 				limit = {
 					NOT = { culture_group = culture_group_scourge }
@@ -106,6 +108,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			adm_power = 100
 			any_subject_country = {
 				NOT = { all_owned_province = { religion = cult_of_the_damned } }
 				NOT = { culture_group = culture_group_scourge }
@@ -119,6 +122,7 @@ country_decisions = {
 			}
 		}
 		effect = {
+			add_adm_power = -100
 			every_subject_country = {
 				limit = {
 					NOT = { culture_group = culture_group_scourge }
@@ -209,6 +213,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			dip_power = 100
 			any_subject_country = { 
 				NOT = { culture_group = culture_group_scourge }
 				NOT = { culture_group = culture_group_undead }
@@ -221,6 +226,7 @@ country_decisions = {
 			}
 		}
 		effect = {
+			add_dip_power = -100
 			every_subject_country = {
 				limit = {
 					NOT = { culture_group = culture_group_scourge }
@@ -312,8 +318,10 @@ country_decisions = {
 		}
 		allow = {
 			stability = 1
+			church_power = 25
 		}
 		effect = {
+			add_church_power = -25
 			every_subject_country = {
 				limit = {
 					NOT = { has_country_flag = deathknightsarise }
@@ -382,6 +390,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			church_power = 25
 			OR = {
 				any_subject_country = {
 					NOT = { has_country_flag = animatedthedead }
@@ -390,6 +399,7 @@ country_decisions = {
 			}
 		}
 		effect = {
+			add_church_power = -25
 			every_subject_country = {
 				limit = {
 					NOT = { has_country_flag = animatedthedead }
@@ -434,6 +444,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			mil_power = 100
 			OR = {
 				any_subject_country = {
 					NOT = { has_country_flag = huntedremainder }
@@ -442,6 +453,7 @@ country_decisions = {
 			}
 		}
 		effect = {
+			add_mil_power = -100
 			custom_tooltip = hunted_remainder_tt
 			hidden_effect = {
 				every_subject_country = {
@@ -464,7 +476,7 @@ country_decisions = {
 						add_devastation = 25
 						add_base_tax = -1
 						add_base_production = -1
-						add_base_manpower = 3
+						add_base_manpower = 4
 					}
 				}
 			}
