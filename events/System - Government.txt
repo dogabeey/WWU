@@ -1578,3 +1578,40 @@ country_event = {
 	}
 }
 
+# Update Event - Lichborne vs Stitched
+country_event = {
+	id = wwu_government.105
+	title = wwu_government.105.title
+	desc = wwu_government.105.desc
+	picture = IMPORTANT_STATUE_eventPicture
+
+    hidden = yes
+    
+	trigger = {
+		OR = {
+            has_reform = scourge_reform
+            has_reform = scourge_domain_reform
+        }
+	}
+
+    mean_time_to_happen = {
+		months = 24
+	}
+    
+	option = {
+		name = wwu_government.105.option.a
+
+        # General
+        random_list = { 
+            # Stitched
+            25 = {
+                change_statists_vs_monarchists = 0.01
+            }
+            # Lichborne
+            25 = {
+                change_statists_vs_monarchists = -0.01
+            }
+            50 = { }
+        }
+	}
+}

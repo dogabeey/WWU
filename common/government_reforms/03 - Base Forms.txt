@@ -273,19 +273,32 @@ scourge_reform = {
         champion_system = yes
         locked_government_type = yes
 	}
-    conditional = {
-		allow = { has_dlc = "Third Rome" }
-		government_abilities = {
-			russian_mechanic
-		}
-	}
     
 	modifiers = {
-		land_forcelimit_modifier = 0.5
-        land_maintenance_modifier = -0.1
-        #max_revolutionary_zeal = 50
+		land_morale = 0.05
+        recover_army_morale_speed = 1.0
 	}
-	
+    
+    conditional = {
+		allow = { has_dlc = "Res Publica" }
+        
+		states_general_mechanic = {
+			sg_lichborne = {
+				infantry_power = 0.2
+                siege_ability = 0.2
+                fire_damage_received = -0.2
+                shock_damage_received = -0.2
+			}
+
+			sg_stitched = {
+				global_manpower_modifier = 0.33
+                manpower_recovery_speed = 0.33
+                reinforce_speed = 0.33
+                reinforce_cost_modifier = -0.5
+			}
+		}
+	}
+
 	factions = {
 		faction_lichs
 		faction_darkfallen
@@ -306,6 +319,65 @@ scourge_reform = {
 			technology_group = tech_undead
 			technology_group = tech_scourge
 		}
+    }
+}
+scourge_domain_reform = {
+    icon = "lich_king"
+    legacy_equivalent = scourge_domain_legacy
+    
+    potential = {
+		technology_group = tech_scourge
+		#NOT = { has_global_flag = destroyed_lich_king }
+        #custom_trigger_tooltip = {
+        #    tooltip = SCOURGE_SUCCUMBED_TO_TT
+        #    has_country_flag = allow_scourge_government
+        #}
+	}
+    
+    heir = yes
+	queen = no
+        
+    custom_attributes = {
+        champion_system = yes
+		locked_government_type = yes
+	}
+    
+	modifiers = {
+		land_morale = 0.05
+        recover_army_morale_speed = 1.0
+	}
+    
+    conditional = {
+		allow = { has_dlc = "Res Publica" }
+        
+		states_general_mechanic = {
+			sg_lichborne = {
+				infantry_power = 0.2
+                siege_ability = 0.2
+                fire_damage_received = -0.2
+                shock_damage_received = -0.2
+			}
+
+			sg_stitched = {
+				global_manpower_modifier = 0.33
+                manpower_recovery_speed = 0.33
+                reinforce_speed = 0.33
+                reinforce_cost_modifier = -0.5
+			}
+		}
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no    # Can be converted to via nation release
+    allow_normal_conversion = no # Can be picked as a new reform
+	allow_convert = yes            # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+    nation_designer_trigger = {
+        technology_group = tech_scourge
     }
 }
 kingdom_of_magic_reform = {
@@ -446,55 +518,6 @@ naga_domain_reform = {
 	nation_designer_cost = 0
     nation_designer_trigger = {
         technology_group = tech_naga
-    }
-}
-scourge_domain_reform = {
-    icon = "lich_king"
-    legacy_equivalent = scourge_domain_legacy
-    
-    potential = {
-		technology_group = tech_scourge
-		#NOT = { has_global_flag = destroyed_lich_king }
-        #custom_trigger_tooltip = {
-        #    tooltip = SCOURGE_SUCCUMBED_TO_TT
-        #    has_country_flag = allow_scourge_government
-        #}
-	}
-    
-    heir = yes
-	queen = no
-    
-    #uses_revolutionary_zeal = yes
-	#revolutionary = yes
-    
-    custom_attributes = {
-        champion_system = yes
-		locked_government_type = yes
-	}
-    conditional = {
-		allow = { has_dlc = "Third Rome" }
-		government_abilities = {
-			russian_mechanic
-		}
-	}
-    
-	modifiers = {
-		land_forcelimit_modifier = 0.2
-        land_maintenance_modifier = -0.1
-        #max_revolutionary_zeal = 25
-	}
-    
-	ai = { factor = 0 }
-    
-    valid_for_new_country = no    # Can be converted to via nation release
-    allow_normal_conversion = no # Can be picked as a new reform
-	allow_convert = yes            # Can be converted to via peace term
-    lock_level_when_selected = yes
-    
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-    nation_designer_trigger = {
-        technology_group = tech_scourge
     }
 }
 troll_kingdom_reform = {

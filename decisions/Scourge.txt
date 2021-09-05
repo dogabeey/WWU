@@ -25,9 +25,7 @@ country_decisions = {
             factor = 1
         }
     }
-}
 
-country_decisions = {
 	indoctrinate_vassal = {
 		major = yes
 		
@@ -88,9 +86,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
 
-country_decisions = {
 	prepare_the_granaries_vassal = {
 		major = yes
 		
@@ -194,9 +190,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
 
-country_decisions = {
 	spread_scourge_infection_vassal = {
 		major = yes
 		
@@ -301,9 +295,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
 
-country_decisions = {
 	rise_of_death_knights_vassal = {
 		major = yes
 		
@@ -375,9 +367,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
 
-country_decisions = {
 	animate_the_dead_vassal = {
 		major = yes
 		
@@ -429,9 +419,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
 
-country_decisions = {
 	hunt_down_remainder_vassal = {
 		major = yes
 		
@@ -483,6 +471,44 @@ country_decisions = {
 		}
 		ai_will_do = {
 			factor = 1
+		}
+	}
+    
+    focus_on_lich_empowerment = {
+		potential = {
+			OR = {
+				has_reform = scourge_reform
+                has_reform = scourge_domain_reform
+			}
+		}
+		allow = {
+			adm_power = 100
+		}
+		effect = {
+            add_adm_power = -100
+			change_statists_vs_monarchists = -0.05
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    focus_on_stitchcraft = {
+		potential = {
+			OR = {
+				has_reform = scourge_reform
+                has_reform = scourge_domain_reform
+			}
+		}
+		allow = {
+			mil_power = 100
+		}
+		effect = {
+            add_mil_power = -100
+			change_statists_vs_monarchists = 0.05
+		}
+		ai_will_do = {
+			factor = 0
 		}
 	}
 }

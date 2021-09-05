@@ -443,6 +443,8 @@ wwu_magic_magical_society = {
         NOT = { has_reform = wwu_separation_of_powers_autonomous_institutions }
         NOT = { has_reform = wwu_republican_institution_politicized_warfare }
         NOT = { has_reform = wwu_fanaticism_embraced }
+        NOT = { has_reform = scourge_reform }
+        NOT = { has_reform = scourge_domain_reform }
     }
 
 	modifiers = {
@@ -1230,18 +1232,9 @@ wwu_switch_become_a_monarchy = {
 	}
     
 	effect = {
-		if = {
-			limit = { has_government_attribute = states_general_mechanic }
-			set_country_flag = had_states_general_mechanic
-		}
 		set_country_flag = populists_in_government
 		lose_reforms = 3
 		change_government = monarchy
-		if = {
-			limit = { has_country_flag = had_states_general_mechanic }
-			country_event = { id = wwu_states_general.1 }
-			clr_country_flag = had_states_general_mechanic
-		}
 	}
 	ai = {
 		factor = 0
