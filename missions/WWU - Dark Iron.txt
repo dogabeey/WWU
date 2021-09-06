@@ -1,6 +1,193 @@
 #--------------------------------------
 # Dark Iron
 #--------------------------------------
+wwu_dark_iron_column_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A30
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_embrace_fire_faith = {
+		icon = mission_elemental_fury
+		required_missions = { }
+		
+		provinces_to_highlight = {
+		    OR = {
+				region = region_burning_steppes
+			}
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+            region_burning_steppes = {
+				type = all
+				religion = ROOT
+			}
+		}
+		effect = {
+		    add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			add_country_modifier = {
+                name = mission_influence_of_ragnaros
+                duration = -1
+            }
+		}
+	}
+	wwu_the_fire_nation = {
+		icon = mission_fireblood
+		required_missions = { wwu_embrace_fire_faith }
+		position = 2
+		
+		trigger = {
+			P26 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+		}
+		effect = {
+			3155 = {
+                change_controller = A30
+            }
+			add_country_modifier = {
+                name = mission_fire_bending
+                duration = -1
+            }
+		}
+	}
+	wwu_occupy_earth_kingdom = {
+	    icon = mission_green_essence
+		required_missions = { wwu_the_fire_nation }
+		position = 3
+		
+		provinces_to_highlight = {
+		    OR = {
+				area = area_uldaman
+			}
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+            area_uldaman = {
+				type = all
+				religion = ROOT
+			}
+			A29 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 180
+                }
+            }
+		}
+		effect = {
+			A29 = {
+                change_religion = fire
+            }
+			add_country_modifier = {
+                name = mission_fall_of_earth_benders
+                duration = -1
+            }
+		}
+	}
+	wwu_destroy_wind_nomads = {
+	    icon = mission_white_essence
+		required_missions = { wwu_occupy_earth_kingdom }
+		position = 4
+		
+		provinces_to_highlight = {
+		    OR = {
+				area = area_ironforge
+			}
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+            area_ironforge = {
+				type = all
+				religion = ROOT
+			}
+			A28 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 180
+                }
+            }
+		}
+		effect = {
+			A28 = {
+                change_religion = fire
+            }
+			add_country_modifier = {
+                name = mission_fall_of_air_benders
+                duration = -1
+            }
+		}
+	}
+	wwu_pacify_the_water_tribes = {
+	    icon = mission_blue_essence
+		required_missions = { wwu_destroy_wind_nomads }
+		position = 5
+		
+		provinces_to_highlight = {
+		    OR = {
+				area = area_boralus
+				area = area_dazar_alor
+			}
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+            area_dazar_alor = {
+				type = all
+				religion = ROOT
+			}
+			area_boralus = {
+				type = all
+				religion = ROOT
+			}
+		}
+		effect = {
+		    add_prestige = 40
+			add_country_modifier = {
+                name = mission_fire_nation_global_dominance
+                duration = -1
+            }
+			area_karazhan = {
+                add_permanent_claim = ROOT
+            }
+		}		
+	}
+	wwu_the_last_airbender = {
+	    icon = mission_essence
+		required_missions = { wwu_pacify_the_water_tribes }
+		position = 6
+		
+		provinces_to_highlight = {
+			OR = {
+				area = area_karazhan
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		    area_karazhan = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = { exists = P59 } #Karazhan
+		}
+        effect = {
+		    add_prestige = 50
+			add_dip_power = 300
+			add_country_modifier = {
+                name = mission_the_last_obstacle
+                duration = -1
+            }
+		}
+	}
+}
+
 wwu_dark_iron_column_4 = {
 	slot = 4
 	generic = no
@@ -11,35 +198,97 @@ wwu_dark_iron_column_4 = {
 	}
 	has_country_shield = yes
 	
-	wwu_consolidate_burning_steppes = {
-		icon = mission_blackrock_mountain
-		required_missions = {  }
+	wwu_preparing_for_war_dk = { 
+		icon = mission_axe_and_sword      
+		required_missions = {  } 
+        
 		ai_weight = {
 			factor = 3
 		}
 		ai_priority = {
 			factor = 3
 		}
+		
+		trigger = {
+			is_subject = no
+		    is_at_war = no
+			if = {
+				limit = {
+					has_estate = estate_nobility
+				}
+				estate_influence = {
+					estate = estate_nobility
+					influence = 50
+				}
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 60
+				}
+			}
+		}
+		effect = { 
+		    add_adm_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+                name = mission_organize_the_army_dk
+                duration = -1
+            }
+			area_blackrock_mountain = {
+                add_permanent_claim = ROOT
+            }
+			area_blackrock_valley = {
+                add_permanent_claim = ROOT
+            }
+            area_dreadmaul_rock = {
+                add_permanent_claim = ROOT
+            }
+            area_chiselgrip = {
+                add_permanent_claim = ROOT
+            }
+			area_valley_of_ashes = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_consolidate_burning_steppes = {
+		icon = mission_blackrock_mountain
+		required_missions = { wwu_preparing_for_war }
+		position = 2
+
 		provinces_to_highlight = {
 			OR = {
-				region = region_burning_steppes
+				area = area_chiselgrip
+				area = area_dreadmaul_rock
+				area = area_valley_of_ashes
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-		    region_burning_steppes = {
+		    area_chiselgrip = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_dreadmaul_rock = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_valley_of_ashes = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
 			add_adm_power = 150
+			add_mil_power = 150
 			add_prestige = 20
 			add_country_modifier = {
                 name = mission_consolidate_burning_steppes
                 duration = -1
             }
-			region_searing_gorge = {
+			area_iron_summit = {
+				add_permanent_claim = ROOT
+			}
+			area_the_cauldron = {
 				add_permanent_claim = ROOT
 			}
 		}
@@ -48,27 +297,35 @@ wwu_dark_iron_column_4 = {
 	wwu_secure_searing_gorge = {
 		icon = mission_barracks
 		required_missions = { wwu_consolidate_burning_steppes }
-		position = 2
+		position = 3
 		provinces_to_highlight = {
 			OR = {
-				region = region_searing_gorge
+				area = area_iron_summit
+				area = area_the_cauldron
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			region_searing_gorge = {
+			area_iron_summit = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_the_cauldron = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-			add_adm_power = 200
+			add_adm_power = 100
 			add_prestige = 10
 			add_country_modifier = {
                 name = mission_dark_iron_ambitions
                 duration = -1
             }
-			region_badlands = {
+			area_new_kargath = {
+				add_permanent_claim = ROOT
+			}
+			area_thorium_point = {
 				add_permanent_claim = ROOT
 			}
 		}
@@ -77,15 +334,21 @@ wwu_dark_iron_column_4 = {
 	wwu_unexpected_discovery_dk = {
 		icon = mission_titan_spirits
 		required_missions = { wwu_secure_searing_gorge }
-		position = 3
+		required_missions = { wwu_trails_from_ancient_times }
+		position = 4
 		provinces_to_highlight = {
 			OR = {
 				area = area_uldaman
+				area = area_the_dustbowl
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			area_uldaman = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_the_dustbowl = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -105,7 +368,7 @@ wwu_dark_iron_column_4 = {
 	wwu_old_enemies = {
 	    icon = mission_dwarf
 		required_missions = { wwu_unexpected_discovery_dk }
-		position = 4		
+		position = 5		
 		provinces_to_highlight = {
 			OR = {
 				area = area_ironforge
@@ -117,19 +380,23 @@ wwu_dark_iron_column_4 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+			NOT = { has_country_modifier = mission_relations_ironforge_b }
 		}
 		effect = {
 			add_dip_power = 200
 			add_mil_power = 200
 			add_adm_power = 200
 			add_country_modifier = {
-                name = mission_relations_ironforge
+                name = mission_relations_ironforge_a
                 duration = -1
             }
-			region_loch_modan = {
+			area_thrallmar = {
 				add_permanent_claim = ROOT
 			}
-			area_dun_modr = {
+			area_valley_of_kings = {
+				add_permanent_claim = ROOT
+			}
+			area_ironforge = {
 				add_permanent_claim = ROOT
 			}
 	    }
@@ -138,20 +405,61 @@ wwu_dark_iron_column_4 = {
 	wwu_tighten_the_noose = {
 	    icon = mission_axe_and_sword
 		required_missions = { wwu_old_enemies }
-		position = 5
+		position = 6
+		
 		provinces_to_highlight = {
 			OR = {
-				region = region_loch_modan
+				area = area_thrallmar
+				area = area_valley_of_kings
+				area = area_ironforge
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        trigger = {
+			area_thrallmar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		    area_valley_of_kings = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_ironforge = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 250
+			add_adm_power = 250
+			add_country_modifier = {
+                name = mission_concolidate_our_holds_dk
+                duration = -1
+            }
+			region_dun_morogh = {
+				add_permanent_claim = ROOT
+			}
+			region_loch_modan = {
+				add_permanent_claim = ROOT
+			}
+			area_dun_modr = {
+			    add_permanent_claim = ROOT
+			}
+	    }
+	}
+	wwu_marsh_advance = {
+	    icon = mission_man_running
+		required_missions = { wwu_tighten_the_noose }
+		position = 7
+		
+		provinces_to_highlight = {
+			OR = {
 				area = area_dun_modr
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
         trigger = {
-			region_loch_modan = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		    area_dun_modr = {
+			area_dun_modr = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -163,16 +471,25 @@ wwu_dark_iron_column_4 = {
                 name = mission_control_wetlands
                 duration = -1
             }
+			area_thundermar = {
+				add_permanent_claim = ROOT
+			}
+			area_grim_batol = {
+				add_permanent_claim = ROOT
+			}
 	    }
-	}
-	
-	wwu_the_gryphon_masters = {
+	}	
+	wwu_the_gryphon_masters_a = {
 	    icon = mission_griffin_attack
-		required_missions = { wwu_tighten_the_noose }
-		position = 6
+		required_missions = { wwu_marsh_advance }
+		position = 8
 		
         trigger = {
 			area_thundermar = {
+				 type = all
+		        country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_grim_batol = {
 				 type = all
 		        country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -181,7 +498,7 @@ wwu_dark_iron_column_4 = {
 			add_dip_power = 200
 			add_prestige = 20
 			add_country_modifier = {
-                name = mission_relations_wildhammer
+                name = mission_relations_wildhammer_a
                 duration = -1
             }
 			region_twilight_highlands = {
@@ -227,6 +544,153 @@ wwu_dark_iron_column_5 = {
 				add_permanent_claim = ROOT
 			}
 			region_twilight_highlands = {
+				add_permanent_claim = ROOT
+			}
+	    }
+	}
+	wwu_fortify_burning_steppes = {
+		icon = mission_force_shield
+		position = 2
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 3155
+				province_id = 1957
+				province_id = 1653
+				province_id = 1990
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				OR = {
+					has_building = wow_fort_1
+				}
+				OR = {
+					province_id = 3155
+					province_id = 1957
+					province_id = 1653
+					province_id = 1990
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mission_expand_fortifications_dk
+				duration = -1
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							province_id = 3155
+							province_id = 1957
+							province_id = 1653
+							province_id = 1990
+						}
+						has_building = wow_fort_2
+					}
+				}
+				every_owned_province = {
+					limit = {
+						OR = {
+							province_id = 3155
+							province_id = 1957
+							province_id = 1653
+							province_id = 1990
+						}
+					}
+					if = {
+						limit = { has_building = wow_fort_2 }
+						remove_building = wow_fort_2
+						add_building = wow_fort_3
+					}
+				}
+			}
+		}
+	}
+	wwu_trails_from_ancient_times = {
+		icon = mission_treasure_map
+		required_missions = { wwu_secure_searing_gorge }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = area_new_kargath
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			area_new_kargath = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			stability = 1
+		}
+		effect = {
+			add_dip_power = 100
+			add_country_modifier = {
+                name = mission_trails_of_old
+                duration = -1
+            }
+			area_uldaman = {
+				add_permanent_claim = ROOT
+			}
+			area_the_dustbowl = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_old_allies = {
+	    icon = mission_dwarf
+		required_missions = { wwu_unexpected_discovery_dk }
+		position = 5
+		
+        trigger = {
+			A29 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+			NOT = { has_country_modifier = mission_relations_ironforge_a }
+		}
+		effect = {
+			add_dip_power = 200
+			add_mil_power = 200
+			add_adm_power = 200
+			add_country_modifier = {
+                name = mission_relations_ironforge_b
+                duration = -1
+            }
+			area_loch_modan_wildlands = {
+				add_permanent_claim = ROOT
+			}
+			area_loch_modan = {
+				add_permanent_claim = ROOT
+			}
+	    }
+	}
+	wwu_the_gryphon_masters_b = {
+	    icon = mission_griffin_attack
+		required_missions = { wwu_old_allies }
+		position = 6
+		
+        trigger = {
+			A28 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+		}
+		effect = {
+			add_dip_power = 200
+			add_prestige = 20
+			add_country_modifier = {
+                name = mission_relations_wildhammer_b
+                duration = -1
+            }
+			area_dun_modr = {
 				add_permanent_claim = ROOT
 			}
 	    }
