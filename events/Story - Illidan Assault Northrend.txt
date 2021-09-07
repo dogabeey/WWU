@@ -62,22 +62,32 @@ country_event = {
 				manuever = 6
 				siege = 6
 			}
+			define_general = {
+				name = "Anub'Arak"
+				shock = 7
+				fire = 5
+				manuever = 7
+				siege = 5
+			}
+		}
+		P12 = {
 			if = {
 				limit = {
-					NOT = {
-						has_leader_with = {
-							name = "Anub'Arak"
-						}
-					}
+					has_ruler = "Kel'Thuzad"
 				}
-				define_general = {
-					name = "Anub'Arak"
-					shock = 7
-					fire = 5
-					manuever = 7
-					siege = 5
-				}
+				kill_ruler = yes
 			}
+		}
+		P52 = {
+			define_ruler = {
+				name = "Kel'Thuzad"
+				adm = 6
+				dip = 6
+				mil = 6
+			}
+			set_ruler_flag = is_immortal
+			add_ruler_personality = mage_personality
+			add_ruler_personality = cruel_personality
 		}
         hidden_effect = {
 			B87 = {
