@@ -1,0 +1,192 @@
+namespace = illidan_assault_northrend
+
+# "Illidan Assaults the Frozen Throne"
+country_event = {
+	id = illidan_assault_northrend.1
+	title = illidan_assault_northrend.1.title
+	desc = illidan_assault_northrend.1.desc
+	picture = UNDEAD_eventPicture
+
+    major = yes
+	
+	fire_only_once = yes
+    
+	trigger = {
+		ai = no
+		B87 = {
+			is_at_war = no
+		}
+		has_global_flag = sunfury_arrived
+		NOT = { has_global_flag = illidan_frozen_throne }
+	}
+	
+	mean_time_to_happen = { 
+        months = 1 
+    }
+    
+	immediate = {
+		hidden_effect = { set_global_flag = illidan_frozen_throne }
+    }
+	
+	option = {
+		name = illidan_assault_northrend.1.option.a
+		
+        custom_tooltip = illidan_assault_northrend_tt
+		P52 = {
+			kill_ruler = yes
+			remove_country_modifier = frostmourne
+			remove_country_modifier = sargeras_eye_damage_arthas
+		}
+		P11 = {
+			add_stability = -1
+			define_heir = {
+				male = yes
+				age = 30
+				dynasty = "Menethil"
+				name = "Arthas"
+				claim = 100
+				adm = 6
+				dip = 6
+				mil = 6
+			}
+			set_heir_flag = is_immortal
+			add_heir_personality = death_knight_personality
+			add_heir_personality = ruthless_personality
+			add_country_modifier = {
+				name = frostmourne
+				duration = -1
+			}
+			define_heir_to_general = {
+				shock = 6
+				fire = 6
+				manuever = 6
+				siege = 6
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_leader_with = {
+							name = "Anub'Arak"
+						}
+					}
+				}
+				define_general = {
+					name = "Anub'Arak"
+					shock = 7
+					fire = 5
+					manuever = 7
+					siege = 5
+				}
+			}
+		}
+        hidden_effect = {
+			B87 = {
+				add_treasury = 500
+				declare_war = P11
+				define_ruler_to_general = {
+					fire = 6
+					shock = 6
+					manuever = 7
+					siege = 4
+				}
+			}
+			P02 = {
+				add_treasury = 500
+				join_all_offensive_wars_of = B87
+			}
+			A93 = {
+				add_treasury = 500
+				join_all_offensive_wars_of = B87
+			}
+			P11 = {
+				every_owned_province = {
+					limit = {
+						NOT = { area = area_icecrown_interior }
+					}
+					change_controller = B87
+				}
+			}
+			area_the_wrath_gate = {
+				change_controller = P11
+			}
+			3256 = {
+				B87 = {
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV					
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					cavalry = PREV
+					cavalry = PREV
+					cavalry = PREV
+					artillery = PREV
+					artillery = PREV
+				}
+			}
+			726 = {
+				A93 = {
+					define_ruler_to_general = {
+						fire = 6
+						shock = 6
+						manuever = 5
+						siege = 5
+					}
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV					
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					cavalry = PREV
+					cavalry = PREV
+					artillery = PREV
+				}
+			}
+			523 = {
+				P02 = {
+					define_ruler_to_general = {
+						fire = 7
+						shock = 4
+						manuever = 5
+						siege = 3
+					}
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV					
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					cavalry = PREV
+					cavalry = PREV
+					artillery = PREV
+				}
+			}
+			1268 = {
+				P11 = {
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					cavalry = PREV
+					cavalry = PREV
+					artillery = PREV					
+				}
+			}
+		}
+	}
+}

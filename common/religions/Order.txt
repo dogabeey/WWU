@@ -29,77 +29,84 @@ order_group = {
 		orthodox_icons = {
             # Order
             spec_arcane = {
-				improve_relation_modifier = 0.1
-                
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 1
-				}
-			}
-
-			spec_frost = {
-				hostile_attrition = 2
+			
+				stability_cost_modifier = -0.5
+  				yearly_patriarch_authority = -0.01
 				
 				allow = {
 					always = yes
 				}
 				ai_will_do = {
 					factor = 1
+					modifier = {
+						factor = 100
+						NOT = { patriarch_authority = 20 }
+					}
+					modifier = {
+						factor = 1000
+						NOT = { stability = 0 }
+					}
+				}
+			}
+
+			spec_frost = {
+			
+				global_unrest = -5
+  				yearly_patriarch_authority = -0.01
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 100
+						NOT = { patriarch_authority = 20 }
+					}
 				}
 			}
 
 			spec_fire = {
-				fire_damage = 0.05
+			
+				global_autonomy = -0.1
+				yearly_patriarch_authority = -0.01
                 
 				allow = {
 					always = yes
 				}
 				ai_will_do = {
 					factor = 1
+					modifier = {
+						factor = 100
+						NOT = { patriarch_authority = 20 }
+					}
 				}
 			}
             
             # Disorder
 			spec_affliction = {
 				siege_ability = 0.2
-				yearly_patriarch_authority = -0.02
+				yearly_patriarch_authority = -0.03
                 
 				allow = {
 					always = yes
 				}
 				ai_will_do = {
 					factor = 1
+					modifier = {
+						factor = 0
+						NOT = { patriarch_authority = 20 }
+					}
+					modifier = {
+						factor = 100
+						is_at_war = yes
+					}
 				}
 			}
 
 			spec_destruction = {
-				shock_damage = 0.2
-				yearly_patriarch_authority = -0.02
-				
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 1
-				}
-			}
 
-			spec_demonology = {
-				yearly_corruption = -0.05
-				yearly_patriarch_authority = -0.01
-				
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 1
-				}
-			}
-
-			spec_havoc = {
-				core_creation = -0.1
+				artillery_power = 0.2
 				yearly_patriarch_authority = -0.03
 				
 				allow = {
@@ -107,18 +114,74 @@ order_group = {
 				}
 				ai_will_do = {
 					factor = 1
+					modifier = {
+						factor = 0
+						NOT = { patriarch_authority = 20 }
+					}
+					modifier = {
+						factor = 100
+						is_at_war = yes
+					}
 				}
 			}
 
-			spec_vengeance = {
-				years_of_nationalism = -10
-				yearly_patriarch_authority = -0.02
+			spec_demonology = {
+				shock_damage = 0.2
+				yearly_patriarch_authority = -0.03
 				
 				allow = {
 					always = yes
 				}
 				ai_will_do = {
 					factor = 1
+					modifier = {
+						factor = 0
+						NOT = { patriarch_authority = 20 }
+					}
+					modifier = {
+						factor = 100
+						is_at_war = yes
+					}
+				}
+			}
+
+			spec_havoc = {
+				fire_damage = 0.2
+				yearly_patriarch_authority = -0.03
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						NOT = { patriarch_authority = 20 }
+					}
+					modifier = {
+						factor = 100
+						is_at_war = yes
+					}
+				}
+			}
+
+			spec_vengeance = {
+				hostile_attrition = 4
+				yearly_patriarch_authority = -0.03
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						NOT = { patriarch_authority = 20 }
+					}
+					modifier = {
+						factor = 100
+						is_at_war = yes
+					}
 				}
 			}
 		}

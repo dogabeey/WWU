@@ -1,0 +1,228 @@
+namespace = sunfury_outland
+
+# "Sunfury Escape to Outland"
+country_event = {
+	id = sunfury_outland.1
+	title = sunfury_outland.1.title
+	desc = sunfury_outland.1.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+
+    major = yes
+	
+	fire_only_once = yes
+    
+	trigger = {
+		ai = no
+		has_global_flag = eye_of_sargeras
+		NOT = { has_global_flag = sunfury_arrived }
+	}
+	
+	mean_time_to_happen = { 
+        months = 1 
+    }
+    
+	immediate = {
+		hidden_effect = { set_global_flag = sunfury_arrived }
+    }
+	
+	option = {
+		name = sunfury_outland.1.option.a
+		
+        custom_tooltip = sunfury_appear_tt
+        hidden_effect = {
+            if = {
+                limit = {
+                    NOT = { exists = A93 }
+                }
+                1644 = {
+					cede_province = A93
+					add_base_tax = 2
+                    add_base_production = 2
+                    add_base_manpower = 4
+                    add_building = wow_fort_2
+					change_religion = arcane
+                    change_culture = culture_blood_elf
+					add_core = A93
+                }
+				1676 = {
+					cede_province = A93
+					add_base_tax = 1
+                    add_base_production = 1
+                    add_base_manpower = 2
+					change_religion = arcane
+                    change_culture = culture_blood_elf
+					add_core = A93
+                }
+				1666 = {
+					cede_province = A93
+					add_base_tax = 1
+                    add_base_production = 1
+                    add_base_manpower = 2
+					change_religion = arcane
+                    change_culture = culture_blood_elf
+					add_core = A93
+                }
+				1597 = {
+					add_core = A93
+				}
+				1668 = {
+					cede_province = P02
+					add_base_tax = 2
+                    add_base_production = 2
+                    add_base_manpower = 4
+					change_religion = nzoth
+                    change_culture = culture_naga
+					add_core = P02
+				}
+				1678 = {
+					cede_province = B87
+					add_base_tax = 1
+                    add_base_production = 1
+                    add_base_manpower = 1
+					change_religion = fel
+                    change_culture = culture_illidari
+					add_core = B87
+				}
+				1677 = {
+					cede_province = B87
+					add_base_tax = 1
+                    add_base_production = 1
+                    add_base_manpower = 1
+					change_religion = fel
+                    change_culture = culture_illidari
+					add_core = B87
+				}
+				1665 = {
+					cede_province = B87
+					add_base_tax = 1
+                    add_base_production = 1
+                    add_base_manpower = 1
+					change_religion = fel
+                    change_culture = culture_illidari
+					add_core = B87
+				}
+				1671 = {
+					add_claim = B87
+				}
+				1670 = {
+					cede_province = A57
+					change_religion = shamanism
+                    change_culture = culture_broken
+					add_core = A57
+					set_capital = A57
+				}
+				2037 = {
+					cede_province = A57
+					change_religion = shamanism
+                    change_culture = culture_broken
+					add_core = A57
+				}
+				A93 = {
+					define_ruler = {
+						name = "Kael'thas"
+						dynasty = "Sunstrider"
+						adm = 6
+						dip = 6
+						mil = 6
+						age = 26
+						claim = 100
+					}
+					set_ruler_flag = is_immortal
+					add_ruler_personality = mage_personality
+					add_ruler_personality = spellcaster_personality
+					set_capital = 1644
+					add_stabiltity = 2
+					create_alliance = P02
+					create_alliance = B87
+					create_alliance = A57
+					add_historical_friend = B87
+					add_historical_friend = A57
+					add_historical_friend = P02
+				}
+				B87 = {
+					define_ruler = {
+						name = "Illidan" 
+						dynasty = "Stormrage" 
+						adm = 7
+						dip = 7
+						mil = 7
+						age = 100
+						claim = 100
+					}
+					set_ruler_flag = is_immortal
+					add_ruler_personality = demon_hunter_personality
+					add_ruler_personality = spellcaster_personality
+					set_capital = 1678
+					add_stabiltity = 2
+					create_alliance = P02
+					create_alliance = A57
+					add_historical_friend = A93
+					add_historical_friend = A57
+					add_historical_friend = P02
+				}
+				P02 = {
+					define_ruler = {
+						name = "Vashj"
+						adm = 5
+						dip = 6
+						mil = 4
+						age = 100
+						claim = 100
+						female = yes
+					}
+					add_stabiltity = 2
+					set_ruler_flag = is_immortal
+					add_ruler_personality = mage_personality
+					add_ruler_personality = spellcaster_personality
+					create_alliance = A57
+					add_historical_friend = A93
+					add_historical_friend = A57
+					add_historical_friend = B87
+				}
+				A57 = {
+					define_ruler = {
+						name = "Akama"
+						dynasty = "of Karabor" 
+						adm = 5
+						dip = 6
+						mil = 5
+						age = 100
+						claim = 100
+					}
+					add_stabiltity = 2
+					set_ruler_flag = is_immortal
+					add_ruler_personality = rogue_personality
+					add_ruler_personality = spellcaster_personality
+					add_historical_friend = A93
+					add_historical_friend = A57
+					add_historical_friend = B87
+				}
+				}
+				continent_eastern_kingdoms = {
+					discover_country = A93
+					discover_country = P02
+					discover_country = B87
+					discover_country = A57
+				}
+				continent_northrend = {
+					discover_country = A93
+					discover_country = P02
+					discover_country = B87
+					discover_country = A57
+				}
+				continent_broken_isles = {
+					discover_country = A93
+					discover_country = P02
+					discover_country = B87
+					discover_country = A57
+				}
+				continent_outland = {
+					discover_country = A93
+					discover_country = P02
+					discover_country = B87
+					discover_country = A57
+				}
+            }
+		}
+	}
+}

@@ -1,0 +1,58 @@
+namespace = sargeras_eye
+
+# "Sunfury Escape to Outland"
+country_event = {
+	id = sargeras_eye.1
+	title = sargeras_eye.1.title
+	desc = sargeras_eye.1.desc
+	picture = MAGI_eventPicture
+
+    major = yes
+	
+	fire_only_once = yes
+    
+	trigger = {		
+		ai = no
+		has_global_flag = archimonde_dead
+		NOT = { has_global_flag = eye_of_sargeras }
+	}
+	
+	mean_time_to_happen = { 
+        months = 1 
+    }
+    
+	immediate = {
+		hidden_effect = { set_global_flag = eye_of_sargeras }
+    }
+	
+	option = {
+		name = sargeras_eye.1.option.a
+		
+        custom_tooltip = sargeras_eye_tt
+		continent_northrend = {
+			add_devastation = 25
+		}
+		P11 = {
+			add_country_modifier = {
+				name = sargeras_eye_damage
+				duration = -1
+			}
+		}
+		P52 = {
+			add_country_modifier = {
+				name = sargeras_eye_damage_arthas
+				duration = -1
+			}
+		}
+        hidden_effect = {
+			every_country = { 
+				limit = {
+					capital_scope = {
+						continent = continent_northrend
+					}
+				}
+				add_stability = -2
+			}
+		}
+	}
+}

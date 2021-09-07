@@ -21,18 +21,29 @@ capital = 642
 		culture = culture_dreadlord
 	}
     set_ruler_flag = is_immortal
+	add_ruler_personality = warlock_personality
 } 
 
 618.1.1 = { 
 	monarch = {
 		name = "Arthas" 
 		dynasty = "Menethil" 	
-		adm = 5
-		dip = 4
+		adm = 6
+		dip = 6
 		mil = 6
-		culture = culture_death_knight
+		birth_date = 588.1.1
 	}
-    set_ruler_flag = is_immortal
+	set_ruler_flag = is_immortal
+	add_ruler_personality = death_knight_personality
+	add_ruler_personality = ruthless_personality
+	add_country_modifier = {
+		name = frostmourne
+		duration = -1
+	}
+	add_country_modifier = {
+		name = sargeras_eye_damage_arthas
+		duration = -1
+	}
 } 
 
 622.1.1 = { 
@@ -45,6 +56,9 @@ capital = 642
 		culture = culture_death_knight
 	}
     set_ruler_flag = is_immortal
+	add_ruler_personality = death_knight_personality
+	remove_country_modifier = frostmourne
+	remove_country_modifier = sargeras_eye_damage_arthas
 } 
 
 631.1.1 = { 
@@ -57,5 +71,6 @@ capital = 642
 		culture = culture_death_knight
 	}
     set_ruler_flag = is_immortal
+	add_ruler_personality = death_knight_personality
 }
 
