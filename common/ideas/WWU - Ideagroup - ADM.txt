@@ -1,0 +1,786 @@
+# Do not change tags in here without changing every other reference to them.
+# Do not change tags in here without changing every other reference to them.
+# If adding new groups or ideas, make sure they are unique.
+
+# ai_will do is only used to determine which idea group is picked if AI_USES_HISTORICAL_IDEA_GROUPS define is 0, OR start is custom/random
+# ai never picks an idea that resolves to ai_will_do = 0, even if AI_USES_HISTORICAL_IDEA_GROUPS = 1
+# ROOT = country picking the idea
+# groups set to colonial=yes will be higher prioritized by the AI when spending power
+
+# Innovation
+wwu_innovation_ideas = {
+    category = ADM
+
+    bonus = {
+        advisor_cost = -0.25
+    }
+    
+    # Scientific Progress
+    wwu_innovation_ideas_1 = {
+        technology_cost = -0.1
+    }
+    # Astute Accounting
+    wwu_innovation_ideas_2 = {
+        innovativeness_gain = 0.33
+    }
+    # Patron of the Arts
+    wwu_innovation_ideas_3 = {
+        prestige_decay = -0.01
+    }
+    # Popular Court
+    wwu_innovation_ideas_4 = {
+        advisor_pool = 1
+        yearly_corruption = -0.03
+    }
+    # Pragmatism
+    wwu_innovation_ideas_5 = {
+        global_institution_spread = 0.33
+        embracement_cost = -0.25
+    }
+    # Hope for the Future
+    wwu_innovation_ideas_6 = {
+        war_exhaustion = -0.05
+    }
+    # Military Education
+    wwu_innovation_ideas_7 = {
+        free_leader_pool = 1
+        free_mil_policy = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_capitalist 
+		}
+        
+		modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}
+
+# Religious
+wwu_religious_ideas = {
+    category = ADM
+
+    bonus = {
+        culture_conversion_cost = -0.25
+        clergy_loyalty_modifier = 0.1
+    }
+    
+    # Inqusitorial Practices
+    wwu_religious_ideas_1 = {
+		missionaries = 1
+		missionary_maintenance_cost = -0.25
+    }
+	# Attendance Duty
+    wwu_religious_ideas_2 = {
+        stability_cost_modifier = -0.25
+		stability_cost_to_declare_war = -1
+    }
+	# Divine Supremacy
+    wwu_religious_ideas_3 = {
+        global_missionary_strength = 0.03
+    }
+    # Religious Administration
+    wwu_religious_ideas_4 = {
+        missionaries = 1
+		administrative_efficiency = 0.03
+    }
+    # Devotion
+    wwu_religious_ideas_5 = {
+        tolerance_own = 3
+		papal_influence = 2
+		devotion = 0.5
+		monthly_fervor_increase = 0.25
+		church_power_modifier = 0.25
+    }
+    # Religious Traditions
+    wwu_religious_ideas_6 = {
+        prestige = 1
+		prestige_per_development_from_conversion = 1
+    }
+	# Deus Vult
+    wwu_religious_ideas_7 = {
+        cb_on_religious_enemies = yes
+		warscore_cost_vs_other_religion = -0.25
+    }
+
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			NOT = { religious_unity = 0.9 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { religious_unity = 0.8 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { religious_unity = 0.7 }
+		}
+        modifier = {
+			factor = 2
+			personality = ai_capitalist 
+		}
+    }
+}
+
+# Economic
+wwu_economic_ideas = {
+    category = ADM
+
+    bonus = {
+        development_cost = -0.2
+    }
+    
+    # Bureaucracy
+    wwu_economic_ideas_1 = {
+        global_tax_modifier = 0.2
+        expand_administration_cost = -0.25
+    }
+    # Organised Construction
+    wwu_economic_ideas_2 = {
+        build_cost = -0.2
+	build_time = -0.1
+    }
+    # Royal Bank
+    wwu_economic_ideas_3 = {
+        inflation_reduction = 0.1
+    }
+    # Debt and Loans
+    wwu_economic_ideas_4 = {
+        interest = -2
+    }
+    # Centralization
+    wwu_economic_ideas_5 = {
+        global_autonomy = -0.05
+    }
+    # War Enthusiasm
+    wwu_economic_ideas_6 = {
+        land_maintenance_modifier = -0.1
+    }
+    # Crop Rotation
+    wwu_economic_ideas_7 = {
+        production_efficiency = 0.15
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_capitalist 
+		}
+    }
+}
+
+# Expansion
+wwu_expansion_ideas = {
+    category = ADM
+
+    bonus = {
+        merchants = 1
+		global_trade_power = 0.3
+    }
+    # Additional Colonists
+    wwu_expansion_ideas_1 = {
+        colonists = 1
+    }
+    # Overseas Conquests
+    wwu_expansion_ideas_2 = {
+        cb_on_overseas = yes
+        governing_capacity_modifier = 0.1
+    }
+    # Surge of Growth
+    wwu_expansion_ideas_3 = {
+	colonists = 1
+        global_colonial_growth = 25
+    }
+    # Colonial Recruitment
+    wwu_expansion_ideas_4 = {
+        global_manpower_modifier = 0.5
+    }
+    # Regional Governors
+    wwu_expansion_ideas_5 = {
+        core_creation = -0.1
+    }
+    # Global Territories
+    wwu_expansion_ideas_6 = {
+        min_autonomy_in_territories = -0.2
+    }
+    # Local Policing
+    wwu_expansion_ideas_7 = {
+        harsh_treatment_cost = -0.25
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 0
+			NOT = { has_idea_group = wwu_exploration_ideas }
+			NOT = {
+                any_owned_province = {
+                    has_empty_adjacent_province = yes
+                }
+            }
+		}
+        
+        modifier = {
+			factor = 2
+			has_idea_group = wwu_exploration_ideas
+		}
+    }
+}
+
+# Administrative
+wwu_administrative_ideas = {
+    category = ADM
+
+    bonus = {
+        governing_capacity_modifier = 0.25
+    }
+    # Organised Mercenary Payments
+    wwu_administrative_ideas_1 = {
+        adm_advisor_cost = -0.3
+    }
+    # Adaptability
+    wwu_administrative_ideas_2 = {
+        core_creation = -0.1
+    }
+    # Consistent Recordkeeping
+    wwu_administrative_ideas_3 = {
+        global_institution_spread = 0.4
+    }
+    # Bookkeeping
+    wwu_administrative_ideas_4 = {
+        interest = -1
+    }
+    # Loyal Servants
+    wwu_administrative_ideas_5 = {
+        free_policy = 1
+    }
+    # Administrative Efficiency
+    wwu_administrative_ideas_6 = {
+        administrative_efficiency = 0.05
+    }
+    # Links to the Citadel
+    wwu_administrative_ideas_7 = {
+        adm_tech_cost_modifier = -0.1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_capitalist 
+		}
+    }
+}
+
+# Harmony
+wwu_harmony_ideas = {
+    category = ADM
+
+    bonus = {
+        stability_cost_modifier = -0.25
+        peasants_loyalty_modifier = 0.1
+    }
+    
+    # Religious Unity
+    wwu_harmony_ideas_1 = {
+        religious_unity = 0.25
+    }
+    # Local Traditions
+    wwu_harmony_ideas_2 = {
+        global_unrest = -2
+    }
+    # Love Thy Neighbour
+    wwu_harmony_ideas_3 = {
+        tolerance_heretic = 2
+    }
+    # Indirect Rule
+    wwu_harmony_ideas_4 = {
+        years_of_nationalism = -10
+    }
+    # Cultural Ties
+    wwu_harmony_ideas_5 = {
+        num_accepted_cultures = 2
+    }
+    # Benevolence
+    wwu_harmony_ideas_6 = {
+        improve_relation_modifier = 0.30
+    }
+    # Entertain the Exotic
+    wwu_harmony_ideas_7 = {
+        tolerance_heathen = 2
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_diplomat
+		}
+        modifier = {
+			factor = 1.33
+			NOT = { religious_unity = 0.9 }
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { religious_unity = 0.8 }
+		}
+		modifier = {
+			factor = 1.5
+			num_of_cities = 15
+			NOT = { religious_unity = 1.0 }
+		}
+		modifier = {
+			factor = 1.5
+			num_of_cities = 20
+			NOT = { religious_unity = 1.0 }
+		}
+		modifier = {
+			factor = 1.5
+			num_of_cities = 25
+			NOT = { religious_unity = 1.0 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { num_of_cities = 4 }
+		}
+		modifier = {
+			factor = 2.25
+			NOT = { religious_unity = 0.7 }
+		}
+		modifier = {
+			factor = 2.25
+			NOT = { religious_unity = 0.6 }
+		}
+		modifier = {
+			factor = 0.5
+			religious_unity = 1.0
+		}
+    }
+}
+
+# Law
+wwu_law_ideas = {
+    category = ADM
+
+    bonus = {
+        reform_progress_growth = 0.5
+    }
+    # Collection of Laws
+    wwu_law_ideas_1 = {
+        legitimacy = 1
+		republican_tradition = 0.3
+		horde_unity = 1
+		devotion = 1
+		meritocracy = 1
+    }
+    # Trial by Combat
+    wwu_law_ideas_2 = {
+        yearly_corruption = -0.1
+    }
+    # Ministerial Traditions
+    wwu_law_ideas_3 = {
+        administrative_efficiency = 0.03
+    }
+    # Sealed Contracts
+    wwu_law_ideas_4 = {
+        trade_efficiency = 0.15
+        transfer_trade_power_reasons = 5
+    }
+    # Persuit of Usury
+    wwu_law_ideas_5 = {
+        interest = -1
+    }
+    # Noble Consensus
+    wwu_law_ideas_6 = {
+		diplomatic_annexation_cost = -0.25
+    }
+    # Minority Rights
+    wwu_law_ideas_7 = {
+        tolerance_heathen = 1
+		tolerance_heretic = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_capitalist 
+		}
+    }
+}
+
+# Development
+wwu_development_ideas = {
+    category = ADM
+
+    bonus = {
+        state_maintenance_modifier = -0.25
+    }
+    # Local Development
+    wwu_development_ideas_1 = {
+        development_cost = -0.20
+    }
+    # Regional Standards
+    wwu_development_ideas_2 = {
+        production_efficiency = 0.15
+    }
+    # Tax Collectors
+    wwu_development_ideas_3 = {
+        global_tax_modifier = 0.15
+    }
+    # Mercantile Consensus
+    wwu_development_ideas_4 = {
+        trade_efficiency = 0.2
+    }
+    # Cooperative Lords
+    wwu_development_ideas_5 = {
+        global_autonomy = -0.05
+    }
+    # Local Building Materials
+    wwu_development_ideas_6 = {
+        build_cost = -0.25
+    }
+    # Cultural Assimilation
+    wwu_development_ideas_7 = {
+        num_accepted_cultures = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_capitalist 
+		}
+        modifier = {
+			factor = 2
+			inflation = 5
+		}
+    }
+}
+
+# Absolutism
+wwu_absolutism_ideas = {
+    category = ADM
+
+    bonus = {
+        max_absolutism = 50
+    }
+    # Ruling with an Iron Fist
+    wwu_absolutism_ideas_1 = {
+       global_autonomy = -0.05
+    }
+    # Autocratic Favours
+    wwu_absolutism_ideas_2 = {
+        diplomatic_reputation = 2
+    }
+    # Surpressed People
+    wwu_absolutism_ideas_3 = {
+        global_unrest = -2
+    }
+    # Might is Right
+    wwu_absolutism_ideas_4 = {
+        war_exhaustion_cost = -0.25
+	yearly_absolutism = 1
+    }
+    # Religious Conviction
+    wwu_absolutism_ideas_5 = {
+	missionaries = 1
+        global_heretic_missionary_strength = 0.03
+    }
+    # Uncompromising Vision
+    wwu_absolutism_ideas_6 = {
+        legitimacy = 1
+        republican_tradition = 0.3
+        devotion = 1
+        horde_unity = 1
+        meritocracy = 1
+    }
+    # Autarchs
+    wwu_absolutism_ideas_7 = {
+        administrative_efficiency = 0.03
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Autonomy
+wwu_autonomy_ideas = {
+    category = ADM
+
+    bonus = {
+        reduced_liberty_desire = 25
+    }
+    # Local Rule
+    wwu_autonomy_ideas_1 = {
+        state_maintenance_modifier = -0.25
+    }
+    # Farming Techniques
+    wwu_autonomy_ideas_2 = {
+        production_efficiency = 0.15
+    }
+    # Provincial Traditions
+    wwu_autonomy_ideas_3 = {
+        promote_culture_cost = -0.5
+    }
+    # Collobrative Communities
+    wwu_autonomy_ideas_4 = {
+        development_cost = -0.15
+    }
+    # Streetside Stories
+    wwu_autonomy_ideas_5 = {
+        prestige_decay = -0.01
+    }
+    # Folklore
+    wwu_autonomy_ideas_6 = {
+        stability_cost_modifier = -0.25
+    }
+    # Power to the People
+    wwu_autonomy_ideas_7 = {
+        years_of_nationalism = -10
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Monarchy
+wwu_monarchy_ideas = {
+    category = ADM
+
+    trigger = {
+        has_government_attribute = enables_monarchy_ideagroup
+    }
+    
+    bonus = {
+        cav_to_inf_ratio = 0.5
+        nobility_loyalty_modifier = 0.1
+    }
+    # Familial Ties
+    wwu_monarchy_ideas_1 = {
+        legitimacy = 1
+    }
+    # Dynastic Stock
+    wwu_monarchy_ideas_2 = {
+        heir_chance = 1
+    }
+    # Local Nobility
+    wwu_monarchy_ideas_3 = {
+        global_unrest = -2
+    }
+    # Jousting Tournaments
+    wwu_monarchy_ideas_4 = {
+        cavalry_power = 0.15
+    }
+    # Crown Authority
+    wwu_monarchy_ideas_5 = {
+        yearly_absolutism = 1
+	max_absolutism = 10
+    }
+    # Respected Families
+    wwu_monarchy_ideas_6 = {
+        ae_impact = -0.2
+    }
+    # United in Arms
+    wwu_monarchy_ideas_7 = {
+        global_manpower_modifier = 0.33
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_capitalist 
+		}
+		modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}
+
+# Republic (republic)
+wwu_republic_ideas = {
+    category = ADM
+
+    trigger = {
+        has_government_attribute = enables_republic_ideagroup
+    }
+    
+    bonus = {
+        manpower_recovery_speed = 0.25
+    }
+    
+    # Diplomatic Links
+    wwu_republic_ideas_1 = {
+        diplomatic_upkeep = 2
+    }
+    # Freemen
+    wwu_republic_ideas_2 = {
+        land_morale = 0.15
+    }
+    # Trusted Politicians
+    wwu_republic_ideas_3 = {
+        reelection_cost = -0.25
+    }
+    # Melting Pot
+    wwu_republic_ideas_4 = {
+        promote_culture_cost = -1
+    }
+    # Republican Traditions
+    wwu_republic_ideas_5 = {
+		republican_tradition = 1
+    }
+    # Azerothian Goods
+    wwu_republic_ideas_6 = {
+        global_trade_goods_size_modifier = 0.1
+    }
+    # Respected Pedigree
+    wwu_republic_ideas_7 = {
+        candidate_random_bonus = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_capitalist 
+		}
+		modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}
+
+# Theocracy (theocracy)
+wwu_theocracy_ideas = {
+    category = ADM
+
+    trigger = {
+        has_government_attribute = enables_theocracy_ideagroup
+    }
+    
+    bonus = {
+        war_exhaustion = -0.05
+    }
+    
+    # Absolute Devotion
+    wwu_theocracy_ideas_1 = {
+        devotion = 1.5
+    }
+    # Divine Assault
+    wwu_theocracy_ideas_2 = {
+        discipline = 0.05
+    }
+    # Religious Supremacy
+    wwu_theocracy_ideas_3 = {
+        missionaries = 1
+	enforce_religion_cost = -0.5
+    }
+    # Religious Law
+    wwu_theocracy_ideas_4 = {
+	missionaries = 1
+        missionary_maintenance_cost = -0.33
+    }
+    # Enduring Faith
+    wwu_theocracy_ideas_5 = {
+        manpower_recovery_speed = 0.2
+    }
+    # Holy Wars
+    wwu_theocracy_ideas_6 = {
+        warscore_cost_vs_other_religion = -0.25
+    }
+    # Divine Vindication
+    wwu_theocracy_ideas_7 = {
+        unjustified_demands = -0.5
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_capitalist 
+		}
+		modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}
+
+# Tribal (tribal)
+wwu_tribal_ideas = {
+    category = ADM
+
+    trigger = {
+        has_government_attribute = enables_tribal_ideagroup
+    }
+    
+    bonus = {
+        max_absolutism = 50
+    }
+    # Patriarchal Traditions
+    wwu_tribal_ideas_1 = {
+        legitimacy = 1
+    }
+    # Nightly Raids
+    wwu_tribal_ideas_2 = {
+        shock_damage = 0.15
+    }
+    # Tribal Moot
+    wwu_tribal_ideas_3 = {
+        stability_cost_modifier = -0.25
+    }
+    # Makeshift Weaponry
+    wwu_tribal_ideas_4 = {
+        land_maintenance_modifier = -0.2
+    }
+    # Tribal Law
+    wwu_tribal_ideas_5 = {
+        global_unrest = -2
+    }
+    # Primitive Diplomacy
+    wwu_tribal_ideas_6 = {
+        province_warscore_cost = -0.2
+    }
+    # Fury of the Fearless
+    wwu_tribal_ideas_7 = {
+        land_morale = 0.15
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_capitalist 
+		}
+		modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}

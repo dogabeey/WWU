@@ -1,0 +1,846 @@
+# Do not change tags in here without changing every other reference to them.
+# Do not change tags in here without changing every other reference to them.
+# If adding new groups or ideas, make sure they are unique.
+
+# ai_will do is only used to determine which idea group is picked if AI_USES_HISTORICAL_IDEA_GROUPS define is 0, OR start is custom/random
+# ai never picks an idea that resolves to ai_will_do = 0, even if AI_USES_HISTORICAL_IDEA_GROUPS = 1
+# ROOT = country picking the idea
+# groups set to colonial=yes will be higher prioritized by the AI when spending power
+
+# Espionage
+wwu_espionage_ideas = {
+    category = DIP
+
+    bonus = {
+        rebel_support_efficiency = 1
+		advisor_cost = -0.1
+    }
+    
+    # Effective Spies
+    wwu_espionage_ideas_1 = {
+        spy_offence = 0.5
+        ae_impact = -0.2
+    }
+    # Covert Missionaries
+    wwu_espionage_ideas_2 = {
+        rebel_support_efficiency = 1
+    }
+    # Vetting
+    wwu_espionage_ideas_3 = {
+        global_spy_defence = 0.6
+    }
+    # Loyalist Recruitment
+    wwu_espionage_ideas_4 = {
+        reduced_liberty_desire = 20
+    }
+    # Local Intergration
+    wwu_espionage_ideas_5 = {
+        diplomats = 1	
+		diplomatic_annexation_cost = -0.25
+    }
+    # Privateers
+    wwu_espionage_ideas_6 = {
+        embargo_efficiency = 0.33
+		privateer_efficiency = 0.33
+    }
+    # Anti-Corruption Purges
+    wwu_espionage_ideas_7 = {
+        yearly_corruption = -0.1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 4
+			personality = ai_diplomat
+		}
+		
+		modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}
+
+# Dynastic
+wwu_dynastic_ideas = {
+    category = DIP
+
+    bonus = {
+        reduced_stab_impacts = yes
+		heir_chance = 0.5
+    }
+    
+    # Foreign Courts
+    wwu_dynastic_ideas_1 = {
+        diplomats = 1
+    }
+    # Establish Cadet Branches
+    wwu_dynastic_ideas_2 = {
+        legitimacy = 1
+		prestige = 1
+    }
+    # Royal Council
+    wwu_dynastic_ideas_3 = {
+        diplomatic_upkeep = 2
+    }
+    # Diplomatic Corps
+    wwu_dynastic_ideas_4 = {
+        dip_tech_cost_modifier = -0.1
+    }
+    # Beloved Diplomats
+    wwu_dynastic_ideas_5 = {
+        improve_relation_modifier = 0.3
+    }
+    # Fame and Fortune
+    wwu_dynastic_ideas_6 = {
+        diplomatic_reputation = 2
+    }
+    # Familial Ties
+    wwu_dynastic_ideas_7 = {
+        yearly_corruption = -0.1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_diplomat 
+		}
+    }
+}
+
+# Influence
+wwu_influence_ideas = {
+    category = DIP
+
+    bonus = {
+        unjustified_demands = -0.5
+    }
+    
+    # Loyal Subjects
+    wwu_influence_ideas_1 = {
+        vassal_income = 0.25
+    }
+    # Flexible Negotiation
+    wwu_influence_ideas_2 = {
+        province_warscore_cost = -0.2
+    }
+    # Integrated Nobility
+    wwu_influence_ideas_3 = {
+		diplomatic_annexation_cost = -0.25
+    }
+    # Propaganda for the Masses
+    wwu_influence_ideas_4 = {
+        ae_impact = -0.1
+        accept_vassalization_reasons = 15
+    }
+    # Diplomatic Influence
+    wwu_influence_ideas_5 = {
+        diplomatic_reputation = 2
+    }
+    # Delivery Service
+    wwu_influence_ideas_6 = {
+        diplomatic_upkeep = 1
+    }
+    # Marcher Lords
+    wwu_influence_ideas_7 = {
+        vassal_forcelimit_bonus = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 1.25
+			personality = ai_diplomat 
+		}
+    }
+}
+
+# Trade
+wwu_trade_ideas = {
+    category = DIP
+
+    bonus = {
+        merchants = 1
+        traders_loyalty_modifier = 0.1
+    }
+    
+    # Shrewd Practises
+    wwu_trade_ideas_1 = {
+        global_trade_power = 0.3
+    }
+    # Free Trade
+    wwu_trade_ideas_2 = {
+        merchants = 1
+    }
+    # Merchant Adventures
+    wwu_trade_ideas_3 = {
+        trade_range_modifier = 0.33
+        placed_merchant_power = 5
+    }
+    # Common Trade Policy
+    wwu_trade_ideas_4 = {
+        trade_efficiency = 0.2
+    }
+    # Exotic Merchants
+    wwu_trade_ideas_5 = {
+        merchants = 1
+        global_foreign_trade_power = 0.35
+    }
+    # Trade Manipulation
+    wwu_trade_ideas_6 = {
+        trade_steering = 0.35
+    }
+    # Fast Negotations
+    wwu_trade_ideas_7 = {
+        caravan_power = 0.3
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 0
+			NOT = { trade_income_percentage = 0.25 }
+		}
+		modifier = {
+			factor = 0.33
+			NOT = { trade_income_percentage = 0.33 }
+		}
+        modifier = {
+			factor = 2
+			trade_income_percentage = 0.25
+			personality = ai_capitalist
+		}
+		modifier = {
+			factor = 2
+			trade_income_percentage = 0.33
+		}
+    }
+}
+
+# Exploration
+wwu_exploration_ideas = {
+    category = DIP
+
+    bonus = {
+        colonist_placement_chance = 0.15
+        auto_explore_adjacent_to_colony = yes
+    }
+    
+    # Colonial Ventures
+    wwu_exploration_ideas_1 = {
+        colonists = 1
+    }
+    # Discovering the World
+    wwu_exploration_ideas_2 = {
+        #may_explore = yes # Disable for now
+        colonist_placement_chance = 0.15
+    }
+    # Overseas Adventures
+    wwu_exploration_ideas_3 = {
+        range = 0.5
+    }
+    # Land of Opportunity
+    wwu_exploration_ideas_4 = {
+        global_colonial_growth = 20
+    }
+    # Governors
+    wwu_exploration_ideas_5 = {
+        global_tariffs = 0.25
+    }
+    # Colonial Surge
+    wwu_exploration_ideas_6 = {
+        colonists = 1
+		expel_minorities_cost = -1
+    }
+    # Domination of the Seas
+    wwu_exploration_ideas_7 = {
+        naval_forcelimit_modifier = 0.5
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 0
+			OR = {
+				is_subject = yes
+				is_vassal = yes
+				is_colonial_nation = yes
+				is_tribal = yes
+				primitives = yes
+			}
+		}
+        modifier = {
+            factor = 0
+            NOT = { num_of_ports = 1 }
+        }
+        modifier = {
+			factor = 0.5
+			NOT = { num_of_ports = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { num_of_ports = 3 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { num_of_ports = 4 }
+			num_of_cities = 4
+		}
+        modifier = {
+			factor = 2
+			num_of_ports = 5
+		}
+		modifier = {
+			factor = 2
+			num_of_ports = 10
+		}
+		modifier = {
+			factor = 2
+			num_of_ports = 15
+		}
+		modifier = {
+			factor = 2
+			num_of_ports = 20
+		}
+    }
+}
+
+# Maritime
+wwu_maritime_ideas = {
+    category = DIP
+
+    trigger = {
+		primitives = no
+	}
+    
+    bonus = {
+        leader_naval_shock = 1
+		blockade_efficiency = 0.33
+    }
+    
+    # Sea Hawks
+    wwu_maritime_ideas_1 = {
+        navy_tradition = 2
+    }
+    # Merchant Marines
+    wwu_maritime_ideas_2 = {
+        global_sailors_modifier = 0.5
+        allowed_marine_fraction = 0.1
+    }
+    # Sheltered Ports
+    wwu_maritime_ideas_3 = {
+        global_ship_repair = 0.1
+	sailor_maintenance_modifer = -0.25
+    }
+    # Grand Navy
+    wwu_maritime_ideas_4 = {
+        naval_forcelimit_modifier = 0.5
+    }
+    # Local Timber
+    wwu_maritime_ideas_5 = {
+        global_ship_cost = -0.33
+    }
+    # Excellent Shipwrights
+    wwu_maritime_ideas_6 = {
+        leader_naval_manuever = 2
+    }
+    # Naval Fighting Instruction
+    wwu_maritime_ideas_7 = {
+        leader_naval_fire = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 0
+			NOT = { num_of_ports = 3 }
+		}
+		modifier = {
+			factor = 0
+			NOT = { num_of_ports = 5 }
+			num_of_cities = 5
+		}
+        modifier = {
+			factor = 0
+			NOT = { num_of_ports = 8 }
+			num_of_cities = 10
+		}
+        modifier = {
+			factor = 3
+			OR = {
+				num_of_heavy_ship = 20
+				num_of_light_ship = 50
+				num_of_galley = 70
+			}
+		}
+    }
+}
+
+# Assimilation
+wwu_assimilation_ideas = {
+    category = DIP
+
+    bonus = {
+        diplomatic_reputation = 2
+        peasants_loyalty_modifier = 0.1
+    }
+    
+    # Cultural Doctrine
+    wwu_assimilation_ideas_1 = {
+        culture_conversion_cost = -0.33
+    }
+    # Mixed Courts
+    wwu_assimilation_ideas_2 = {
+        diplomatic_annexation_cost = -0.25
+    }
+    # Brothers in Arms
+    wwu_assimilation_ideas_3 = {
+        global_manpower_modifier = 0.5
+    }
+    # Religious Unity
+    wwu_assimilation_ideas_4 = {
+        religious_unity = 0.25
+    }
+    # Local Concessions
+    wwu_assimilation_ideas_5 = {
+        years_of_nationalism = -10
+    }
+    # Cultural Heritage
+    wwu_assimilation_ideas_6 = {
+		stability_cost_modifier = -0.33
+    }
+    # Solidarity
+    wwu_assimilation_ideas_7 = {
+        diplomatic_upkeep = 1
+        accept_vassalization_reasons = 5
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_diplomat
+		}
+    }
+}
+
+# Society
+wwu_society_ideas = {
+    category = DIP
+
+    bonus = {
+        advisor_pool = 3
+    }
+    
+    # War Attitudes
+    wwu_society_ideas_1 = {
+        land_maintenance_modifier = -0.1
+    }
+    # Local Communities
+    wwu_society_ideas_2 = {
+        improve_relation_modifier = 0.3
+    }
+    # Education for Commoners
+    wwu_society_ideas_3 = {
+        global_institution_spread = 0.4
+    }
+    # Meritocracy
+    wwu_society_ideas_4 = {
+        advisor_cost = -0.2
+        imperial_mandate = 1
+    }
+    # Close Ties
+    wwu_society_ideas_5 = {
+        spy_offence = 0.4
+	global_spy_defence = 0.4
+    }
+    # Fed and Plump
+    wwu_society_ideas_6 = {
+        global_unrest = -2
+    }
+    # Loyalty to their Lord
+    wwu_society_ideas_7 = {
+        min_autonomy_in_territories = -0.2
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}
+
+# Propaganda
+wwu_propaganda_ideas = {
+    category = DIP
+
+    bonus = {
+        global_manpower_modifier = 0.33
+        can_fabricate_for_vassals = yes
+    }
+    
+    # War Propaganda
+    wwu_propaganda_ideas_1 = {
+        war_exhaustion = -0.05
+        ae_impact = -0.1
+    }
+    # Intergrated Spymaster
+    wwu_propaganda_ideas_2 = {
+        diplomats = 1
+    }
+    # Foreign Influences
+    wwu_propaganda_ideas_3 = {
+        improve_relation_modifier = 0.3
+    }
+    # Proclaimations of Credibility
+    wwu_propaganda_ideas_4 = {
+        diplomatic_reputation = 2
+    }
+    # Dissuade Dissidents
+    wwu_propaganda_ideas_5 = {
+	yearly_absolutism = 1
+	harsh_treatment_cost = -0.25
+    }
+    # Unending Rhetoric
+    wwu_propaganda_ideas_6 = {
+        unjustified_demands = -0.5
+    }
+    # Seeds of Chaos
+    wwu_propaganda_ideas_7 = {
+        siege_ability = 0.2
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_diplomat
+		}
+    }
+}
+
+# Naval Bombardment (Heavy Ship)
+wwu_naval_bombardment_ideas = {
+    category = DIP
+
+    trigger = {
+		primitives = no
+	}
+    
+    bonus = {
+        naval_maintenance_modifier = -0.2
+    }
+    # Born of the Sea
+    wwu_naval_bombardment_ideas_1 = {
+        navy_tradition = 2
+    }
+    # Expert Bombardment
+    wwu_naval_bombardment_ideas_2 = {
+        heavy_ship_power = 0.25
+    }
+    # Efficient Shipyards
+    wwu_naval_bombardment_ideas_3 = {
+        heavy_ship_cost = -0.33
+    }
+    # Grand Armarda
+    wwu_naval_bombardment_ideas_4 = {
+        naval_forcelimit_modifier = 0.5
+    }
+    # Man the Decks
+    wwu_naval_bombardment_ideas_5 = {
+        global_sailors_modifier = 0.5
+    }
+    # Impenetrable Hulls
+    wwu_naval_bombardment_ideas_6 = {
+        ship_durability = 0.15
+    }
+    # Oceanic Campaigns
+    wwu_naval_bombardment_ideas_7 = {
+        leader_naval_fire = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { num_of_ports = 1 }
+        }
+    }
+}
+
+# Naval Skirmish (Galley Ship)
+wwu_naval_skirmish_ideas = {
+    category = DIP
+
+    trigger = {
+		primitives = no
+	}
+    
+    bonus = {
+        naval_forcelimit_modifier = 0.2
+        may_perform_slave_raid = yes
+        may_perform_slave_raid_on_same_religion = yes
+    }
+    # Sea Skirmishers
+    wwu_naval_skirmish_ideas_1 = {
+        galley_power = 0.2
+        allowed_marine_fraction = 0.05
+    }
+    # Hardy Sailors
+    wwu_naval_skirmish_ideas_2 = {
+        recover_navy_morale_speed = 0.2
+    }
+    # Local Shipyards
+    wwu_naval_skirmish_ideas_3 = {
+        galley_cost = -0.33
+    }
+    # Expert Targeting
+    wwu_naval_skirmish_ideas_4 = {
+        capture_ship_chance = 0.33
+    }
+    # Indomitable Sailors
+    wwu_naval_skirmish_ideas_5 = {
+        sunk_ship_morale_hit_recieved = -0.33
+    }
+    # Beach Assaults
+    wwu_naval_skirmish_ideas_6 = {
+        movement_speed_onto_off_boat_modifier = -0.33
+    }
+    # Lifelong Seamen
+    wwu_naval_skirmish_ideas_7 = {
+        navy_tradition_decay = -0.02
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { num_of_ports = 1 }
+        }
+    }
+}
+
+# Naval Trade (Light Ship)
+wwu_naval_trade_ideas = {
+    category = DIP
+
+    trigger = {
+		primitives = no
+	}
+    
+    bonus = {
+        naval_tradition_from_trade = 1.0
+    }
+    # Mercantile Shipyards
+    wwu_naval_trade_ideas_1 = {
+        light_ship_cost = -0.33
+    }
+    # Protected Vessels
+    wwu_naval_trade_ideas_2 = {
+        light_ship_power = 0.25
+    }
+    # Mercantile Sailors
+    wwu_naval_trade_ideas_3 = {
+        global_sailors_modifier = 0.5
+    }
+    # Consistent Blockades
+    wwu_naval_trade_ideas_4 = {
+        blockade_efficiency = 0.33
+    }
+    # Infamous Crews
+    wwu_naval_trade_ideas_5 = {
+        ship_power_propagation = 0.4
+    }
+    # Mapped Sea Routes
+    wwu_naval_trade_ideas_6 = {
+        global_ship_trade_power = 0.5
+    }
+    # Embargos
+    wwu_naval_trade_ideas_7 = {
+        embargo_efficiency = 0.75
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { num_of_ports = 1 }
+        }
+    }
+}
+
+# Naval Organisation
+wwu_naval_organisation_ideas = {
+    category = DIP
+
+    trigger = {
+		primitives = no
+	}
+    
+    bonus = {
+        sea_repair = yes
+    }
+    # Press Gangs
+    wwu_naval_organisation_ideas_1 = {
+        global_sailors_modifier = 0.5
+    }
+    # Massed Shipyards
+    wwu_naval_organisation_ideas_2 = {
+        naval_forcelimit_modifier = 0.5
+    }
+    # Loyal Sailors
+    wwu_naval_organisation_ideas_3 = {
+        sailor_maintenance_modifer = -0.2
+    }
+    # Sea Dogs
+    wwu_naval_organisation_ideas_4 = {
+        sailors_recovery_speed = 0.4
+    }
+    # Experienced Sailors
+    wwu_naval_organisation_ideas_5 = {
+        naval_morale = 0.2
+    }
+    # Built to Last
+    wwu_naval_organisation_ideas_6 = {
+        naval_maintenance_modifier = -0.2
+    }
+    # Landing Crews
+    wwu_naval_organisation_ideas_7 = {
+        movement_speed_onto_off_boat_modifier = -0.33
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { num_of_ports = 1 }
+        }
+    }
+}
+
+# Naval Leadership
+wwu_naval_leadership_ideas = {
+    category = DIP
+
+    trigger = {
+		primitives = no
+	}
+    
+    bonus = {
+        navy_tradition_decay = -0.02
+    }
+    # Admirality
+    wwu_naval_leadership_ideas_1 = {
+        navy_tradition = 2
+    }
+    # Naval Firing Line
+    wwu_naval_leadership_ideas_2 = {
+        leader_naval_fire = 2
+    }
+    # Naval Skirmisher
+    wwu_naval_leadership_ideas_3 = {
+        leader_naval_shock = 2
+    }
+    # Naval Explorer
+    wwu_naval_leadership_ideas_4 = {
+        leader_naval_manuever = 2
+    }
+    # Naval Tradition
+    wwu_naval_leadership_ideas_5 = {
+        admiral_cost = -1
+    }
+    # Onboard Supplies
+    wwu_naval_leadership_ideas_6 = {
+        naval_attrition = -0.2
+    }
+    # Glory of Battle
+    wwu_naval_leadership_ideas_7 = {
+        naval_tradition_from_battle = 1.0
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { num_of_ports = 1 }
+        }
+    }
+}
+
+# Naval Tactics
+wwu_naval_tactics_ideas = {
+    category = DIP
+
+    trigger = {
+		primitives = no
+	}
+    
+    bonus = {
+        naval_maintenance_modifier = -0.2
+    }
+    # Fearless Admirals
+    wwu_naval_tactics_ideas_1 = {
+        naval_morale = 0.2
+    }
+    # Wide Sweeps
+    wwu_naval_tactics_ideas_2 = {
+        global_naval_engagement_modifier = 0.4
+    }
+    # Local Coastline
+    wwu_naval_tactics_ideas_3 = {
+        own_coast_naval_combat_bonus = 1.0
+    }
+    # Willingness to Fight
+    wwu_naval_tactics_ideas_4 = {
+        recover_navy_morale_speed = 0.2
+    }
+    # Adaptable Sailors
+    wwu_naval_tactics_ideas_5 = {
+        sunk_ship_morale_hit_recieved = -0.33
+    }
+    # Reinforced Hulls
+    wwu_naval_tactics_ideas_6 = {
+        ship_durability = 0.15
+    }
+    # Homeland Defence
+    wwu_naval_tactics_ideas_7 = {
+        sailors_recovery_speed = 0.4
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { num_of_ports = 1 }
+        }
+    }
+}

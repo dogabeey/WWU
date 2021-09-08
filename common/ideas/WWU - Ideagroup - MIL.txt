@@ -1,0 +1,682 @@
+# Do not change tags in here without changing every other reference to them.
+# Do not change tags in here without changing every other reference to them.
+# If adding new groups or ideas, make sure they are unique.
+
+# ai_will do is only used to determine which idea group is picked if AI_USES_HISTORICAL_IDEA_GROUPS define is 0, OR start is custom/random
+# ai never picks an idea that resolves to ai_will_do = 0, even if AI_USES_HISTORICAL_IDEA_GROUPS = 1
+# ROOT = country picking the idea
+# groups set to colonial=yes will be higher prioritized by the AI when spending power
+
+# Offensive 
+wwu_offensive_ideas = {
+    category = MIL
+
+    bonus = {
+        land_attrition = -0.2
+    }
+    
+    # Suprise Offensive
+    wwu_offensive_ideas_1 = {
+        leader_land_shock = 1
+    }
+    # Local Conscripts
+    wwu_offensive_ideas_2 = {
+        global_regiment_recruit_speed = -0.2
+    }
+    # Lay of the Land
+    wwu_offensive_ideas_3 = {
+        leader_land_manuever = 1
+    }
+    # Glory of War
+    wwu_offensive_ideas_4 = {
+        prestige_from_land = 1.0
+    }
+    # Engineer Corps
+    wwu_offensive_ideas_5 = {
+        siege_ability = 0.2
+    }
+    # Grand Army
+    wwu_offensive_ideas_6 = {
+        land_forcelimit_modifier = 0.5
+    }
+    # Valyrian Warfare
+    wwu_offensive_ideas_7 = {
+        discipline = 0.05
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}
+
+# Defensive
+wwu_defensive_ideas = {
+    category = MIL
+
+    bonus = {
+        hostile_attrition = 2
+    }
+    
+    # Battlefield Traditions
+    wwu_defensive_ideas_1 = {
+        army_tradition = 1
+    }
+    # Military Drill
+    wwu_defensive_ideas_2 = {
+        land_morale = 0.2
+		recover_army_morale_speed = 0.05
+    }
+    # Superior Aim
+    wwu_defensive_ideas_3 = {
+        leader_land_fire = 1
+        fire_damage_received = -0.1
+    }
+    # Regimental System
+    wwu_defensive_ideas_4 = {
+        reinforce_speed = 0.33
+    }
+    # Defensive Mentality
+    wwu_defensive_ideas_5 = {
+        shock_damage_received = -0.1
+		defensiveness = 0.2
+    }
+    # Supply Lines
+    wwu_defensive_ideas_6 = {
+        global_supply_limit_modifier = 0.35
+    }
+    # Improved Foraging
+    wwu_defensive_ideas_7 = {
+        land_maintenance_modifier = -0.10
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}
+
+# Quality
+wwu_quality_ideas = {
+    category = MIL
+
+    bonus = {
+        discipline = 0.05
+    }
+    # Squire to Knight
+    wwu_quality_ideas_1 = {
+        infantry_power = 0.1
+    }
+    # Noble Education
+    wwu_quality_ideas_2 = {
+        army_tradition_decay = -0.01
+    }
+    # Finest of Horses
+    wwu_quality_ideas_3 = {
+        cavalry_power = 0.15
+    }
+    # Hardwood Hulls
+    wwu_quality_ideas_4 = {
+        ship_durability = 0.15
+    }
+    # Naval Drill
+    wwu_quality_ideas_5 = {
+        naval_morale = 0.2
+    }
+    # Fruit Barrels
+    wwu_quality_ideas_6 = {
+        naval_attrition = -0.2
+    }
+    # Massed Batteries
+    wwu_quality_ideas_7 = {
+        artillery_power = 0.1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}
+
+# Quantity
+wwu_quantity_ideas = {
+    category = MIL
+
+    bonus = {
+        land_forcelimit_modifier = 0.5
+    }
+    # Grand Army
+    wwu_quantity_ideas_1 = {
+        global_manpower_modifier = 0.5
+    }
+    # All Can Serve
+    wwu_quantity_ideas_2 = {
+        manpower_recovery_speed = 0.2
+    }
+    # Enforced Service
+    wwu_quantity_ideas_3 = {
+        global_regiment_cost = -0.1
+    }
+    # Regular Meals
+    wwu_quantity_ideas_4 = {
+        land_maintenance_modifier = -0.10
+    }
+    # Mercenary Contracts
+    wwu_quantity_ideas_5 = {
+        mercenary_manpower = 0.25
+    }
+    # Homely Garrisons
+    wwu_quantity_ideas_6 = {
+        garrison_size = 0.50
+    }
+    # Improved Supply Lines
+    wwu_quantity_ideas_7 = {
+        global_supply_limit_modifier = 0.35
+    }
+    
+    ai_will_do = {
+        factor = 1
+        
+        modifier = {
+			factor = 2
+			personality = ai_militarist 
+		}
+    }
+}
+
+wwu_professional_army_ideas = {
+    category = MIL
+
+    bonus = {   
+        global_supply_limit_modifier = 0.2
+        special_unit_forcelimit = 0.2
+    }
+    # Professional Soldiers
+    wwu_professional_army_ideas_1 = {
+        army_tradition_decay = -0.02
+    }
+    # Scheduled Drills
+    wwu_professional_army_ideas_2 = {
+        drill_gain_modifier = 1.0
+    }
+    # Forced Marches
+    wwu_professional_army_ideas_3 = {
+        movement_speed = 0.2
+    }
+    # Rations
+    wwu_professional_army_ideas_4 = {
+        land_attrition = -0.2
+    }
+    # Organised Reserves
+    wwu_professional_army_ideas_5 = {
+        reserves_organisation = 0.5
+    }
+    # Battleready
+    wwu_professional_army_ideas_6 = {
+        recover_army_morale_speed = 0.1
+    }
+    # Daily Drills
+    wwu_professional_army_ideas_7 = {
+        drill_decay_modifier = -0.5
+        army_tradition = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Mercenary Army
+wwu_mercenary_army_ideas = {
+    category = MIL
+
+    bonus = {
+        mercenary_discipline = 0.1
+    }
+    # Mercenary Contacts
+    wwu_mercenary_army_ideas_1 = {
+        mercenary_cost = -0.33
+    }
+    # Established Contracts
+    wwu_mercenary_army_ideas_2 = {
+        mercenary_manpower = 1.0
+    }
+    # Terror in the Fields
+    wwu_mercenary_army_ideas_3 = {
+        hostile_attrition = 1
+    }
+    # Gold before Promises
+    wwu_mercenary_army_ideas_4 = {
+        merc_maintenance_modifier = -0.3
+    }
+    # Mercenary Generals
+    wwu_mercenary_army_ideas_5 = {
+        free_leader_pool = 2
+    }
+    # A Little Coin
+    wwu_mercenary_army_ideas_6 = {
+        global_regiment_recruit_speed = -0.2
+    }
+    # Looters
+    wwu_mercenary_army_ideas_7 = {
+        loot_amount = 2.0
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Army Organisation
+wwu_army_organisation_ideas = {
+    category = MIL
+
+    bonus = {
+        land_morale = 0.15
+    }
+    # Established Recruitment
+    wwu_army_organisation_ideas_1 = {
+        global_regiment_cost = -0.33
+    }
+    # Local Recruiters
+    wwu_army_organisation_ideas_2 = {
+        global_regiment_recruit_speed = -0.1
+    }
+    # Orderly Barracks
+    wwu_army_organisation_ideas_3 = {
+        land_maintenance_modifier = -0.15
+    }
+    # Regular Drills
+    wwu_army_organisation_ideas_4 = {
+        army_tradition = 1
+    }
+    # Start Them Young
+    wwu_army_organisation_ideas_5 = {
+        land_forcelimit_modifier = 0.5
+    }
+    # Local Recruitment
+    wwu_army_organisation_ideas_6 = {
+        global_manpower_modifier = 0.5
+    }
+    # Supply Depots
+    wwu_army_organisation_ideas_7 = {
+        global_supply_limit_modifier = 0.35
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Army Leadership
+wwu_army_leadership_ideas = {
+    category = MIL
+
+    bonus = {
+        army_tradition = 2
+    }
+    # Swift Movements
+    wwu_army_leadership_ideas_1 = {
+        leader_land_manuever = 1
+    }
+    # First Strikes
+    wwu_army_leadership_ideas_2 = {
+        leader_land_shock = 1
+    }
+    # Sustained Fire
+    wwu_army_leadership_ideas_3 = {
+        leader_land_fire = 1
+    }
+    # Military Training
+    wwu_army_leadership_ideas_4 = {
+        general_cost = -1
+    }
+    # Effective Leadership
+    wwu_army_leadership_ideas_5 = {
+        free_leader_pool = 2
+    }
+    # Veteran Engineers
+    wwu_army_leadership_ideas_6 = {
+        leader_siege = 2
+    }
+    # Staggered Formations
+    wwu_army_leadership_ideas_7 = {
+        backrow_artillery_damage = 0.2
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Army Tactics
+wwu_army_tactics_ideas = {
+    category = MIL
+
+    bonus = {
+        war_exhaustion = -0.05
+    }
+    # Battlefield Techniques
+    wwu_army_tactics_ideas_1 = {
+        infantry_power = 0.1
+    }
+    # Fearless Cavalry
+    wwu_army_tactics_ideas_2 = {
+        cavalry_power = 0.15
+    }
+    # Tactical Maneuvers
+    wwu_army_tactics_ideas_3 = {
+        fire_damage_received = -0.1
+    }
+    # Skirmishing Techniques
+    wwu_army_tactics_ideas_4 = {
+        infantry_shock = 0.5
+    }
+    # Anticapated Strikes
+    wwu_army_tactics_ideas_5 = {
+        shock_damage_received = -0.1
+    }
+    # Continuous Bombardment
+    wwu_army_tactics_ideas_6 = {
+        artillery_fire = 0.5
+    }
+    # Glory on the Battlefield
+    wwu_army_tactics_ideas_7 = {
+        army_tradition_from_battle = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Armaments
+wwu_armaments_ideas = {
+    category = MIL
+
+    bonus = {
+        siege_ability = 0.25
+    }
+    # Sharpened Blades
+    wwu_armaments_ideas_1 = {
+        shock_damage = 0.1
+    }
+    # Barbed Arrows
+    wwu_armaments_ideas_2 = {
+        fire_damage = 0.1
+    }
+    # Burning Ammunition 
+    wwu_armaments_ideas_3 = {
+        artillery_fire = 0.5
+    }
+    # Unbreakable Lances
+    wwu_armaments_ideas_4 = {
+        cavalry_shock = 0.5
+    }
+    # Vambraces
+    wwu_armaments_ideas_5 = {
+        infantry_fire = 0.5
+    }
+    # Greatswords
+    wwu_armaments_ideas_6 = {
+        infantry_shock = 0.5
+    }
+    # Diseased Ammunition
+    wwu_armaments_ideas_7 = {
+        artillery_bonus_vs_fort = 3
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Fortification
+wwu_fortification_ideas = {
+    category = MIL
+
+    bonus = {
+        hostile_attrition = 2
+    }
+    # Reinforced Barricades
+    wwu_fortification_ideas_1 = {
+        defensiveness = 0.5
+    }
+    # Battlefield Shelters
+    wwu_fortification_ideas_2 = {
+        fire_damage_received = -0.15
+    }
+    # Stocked Garrisons
+    wwu_fortification_ideas_3 = {
+        garrison_size = 0.75
+    }
+    # All Are Welcome
+    wwu_fortification_ideas_4 = {
+        global_garrison_growth = 1.0
+    }
+    # Maintained Forts
+    wwu_fortification_ideas_5 = {
+       fort_maintenance_modifier = -0.35
+    }
+    # Strategic Citadels
+    wwu_fortification_ideas_6 = {
+        manpower_recovery_speed = 0.25
+    }
+    # Farmsteads
+    wwu_fortification_ideas_7 = {
+        global_supply_limit_modifier = 0.5
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Militarization
+wwu_militarization_ideas = {
+    category = MIL
+
+    bonus = {
+        mil_tech_cost_modifier = -0.1
+    }
+    # Regular Enlistment
+    wwu_militarization_ideas_1 = {
+        reinforce_cost_modifier = -0.33
+    }
+    # Wartime Efficiencies
+    wwu_militarization_ideas_2 = {
+        governing_capacity_modifier = 0.1
+    }
+    # Home Support
+    wwu_militarization_ideas_3 = {
+        state_maintenance_modifier = -0.25
+    }
+    # Combat Readiness
+    wwu_militarization_ideas_4 = {
+        land_forcelimit_modifier = 0.5
+    }
+    # Wartime Construction
+    wwu_militarization_ideas_5 = {
+        build_time = -0.15
+    }
+    # Marshal Law
+    wwu_militarization_ideas_6 = {
+        max_absolutism = 50
+    }
+    # Common Fortitude
+    wwu_militarization_ideas_7 = {
+        war_exhaustion_cost = -0.25
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Subjugation
+wwu_subjugation_ideas = {
+    category = MIL
+
+    bonus = {
+        land_maintenance_modifier = -0.1
+    }
+    # Conquest
+    wwu_subjugation_ideas_1 = {
+        province_warscore_cost = -0.33
+    }
+    # Intimidation
+    wwu_subjugation_ideas_2 = {
+        unjustified_demands = -0.5
+    }
+    # Incorrigible Disputes
+    wwu_subjugation_ideas_3 = {
+        fabricate_claims_cost = -0.5
+    }
+    # Military Envoys
+    wwu_subjugation_ideas_4 = {
+        free_leader_pool = 2
+    }
+    # Military Vassals
+    wwu_subjugation_ideas_5 = {
+        vassal_forcelimit_bonus = 1
+    }
+    # Make Haste
+    wwu_subjugation_ideas_6 = {
+        envoy_travel_time = -0.75
+    }
+    # Squeeze Them Dry
+    wwu_subjugation_ideas_7 = {
+        vassal_income = 0.25
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Tyranny
+wwu_tyranny_ideas = {
+    category = MIL
+
+    bonus = {
+        #cb_on_government_enemies = yes
+        global_autonomy = -0.05
+    }
+    # Tyranny of the Weak
+    wwu_tyranny_ideas_1 = {
+        max_absolutism = 50
+    }
+    # Enforced Legitimacy
+    wwu_tyranny_ideas_2 = {
+        legitimacy = 1
+        republican_tradition = 0.3
+        devotion = 1
+        horde_unity = 1
+        meritocracy = 1
+    }
+    # Military Parades
+    wwu_tyranny_ideas_3 = {
+        prestige = 1
+    }
+    # Labour Camps
+    wwu_tyranny_ideas_4 = {
+        build_time = -0.15
+    }
+    # Military Executions
+    wwu_tyranny_ideas_5 = {
+        yearly_corruption = -0.1
+    }
+    # Hammer the Nail
+    wwu_tyranny_ideas_6 = {
+        years_of_nationalism = -10
+    }
+    # Absolute Rule
+    wwu_tyranny_ideas_7 = {
+        yearly_absolutism = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# Imperialism
+wwu_imperialism_ideas = {
+    category = MIL
+
+    bonus = {
+        treasure_fleet_income = 1.0
+        colonist_placement_chance = 0.05
+    }
+    # Imperial Frontiers
+    wwu_imperialism_ideas_1 = {
+        may_establish_frontier = yes
+        # may_explore = yes
+    }
+    # Loyal Colonists
+    wwu_imperialism_ideas_2 = {
+        colonists = 1
+    }
+    # Enforced Migration
+    wwu_imperialism_ideas_3 = {
+        global_colonial_growth = 20
+    }
+    # Cut and Burn
+    wwu_imperialism_ideas_4 = {
+        native_uprising_chance = -1
+    }
+    # Exploit the Natives
+    wwu_imperialism_ideas_5 = {
+        native_assimilation = 1.0
+    }
+    # Protected Shipping Routes
+    wwu_imperialism_ideas_6 = {
+        global_tariffs = 0.33
+    }
+    # Distant Colonies
+    wwu_imperialism_ideas_7 = {
+        range = 0.5
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+wwu_dummy_ideas = {
+    category = ADM
+    
+    trigger = {
+        always = no
+    }
+	bonus = {
+
+	}
+
+    excellent_shipwrights = {
+	}
+	establish_cadet_branches = {
+	}	
+	pragmatism = {
+	}
+	resilient_state = {
+	}
+	war_cabinet = {
+	}
+	religious_outposts = {
+	}
+	religious_outposts_2 = {
+	}
+}
