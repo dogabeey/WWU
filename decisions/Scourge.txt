@@ -37,7 +37,7 @@ country_decisions = {
 				NOT = { culture_group = culture_group_undead }
 				NOT = { culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
-				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
 				NOT = { has_country_flag = indoctrinated }
 			}
@@ -51,7 +51,7 @@ country_decisions = {
 				NOT = { culture_group = culture_group_undead }
 				NOT = { culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
-				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
 				NOT = { has_country_flag = indoctrinated }
 			}
@@ -64,7 +64,7 @@ country_decisions = {
 					NOT = { culture_group = culture_group_undead }
 					NOT = { culture = culture_cultist }
 					NOT = { culture_group = culture_group_nerubian }
-					NOT = { culture_group = culture_group_crypt_fiend }
+					NOT = { culture_group = culture_group_crypt_fiends }
 					NOT = { culture_group = culture_group_vrykul }
 					NOT = { has_country_flag = indoctrinated }
 				}
@@ -97,7 +97,7 @@ country_decisions = {
 				NOT = { culture_group = culture_group_undead }
 				NOT = { culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
-				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
 				NOT = { has_country_flag = granariesbuilt }
 				has_country_flag = indoctrinated
@@ -111,7 +111,7 @@ country_decisions = {
 				NOT = { culture_group = culture_group_undead }
 				NOT = { culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
-				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
 				NOT = { has_country_flag = granariesbuilt }
 				has_country_flag = indoctrinated
@@ -125,7 +125,7 @@ country_decisions = {
 					NOT = { culture_group = culture_group_undead }
 					NOT = { culture = culture_cultist }
 					NOT = { culture_group = culture_group_nerubian }
-					NOT = { culture_group = culture_group_crypt_fiend }
+					NOT = { culture_group = culture_group_crypt_fiends }
 					NOT = { culture_group = culture_group_vrykul }
 					NOT = { has_country_flag = granariesbuilt }
 					has_country_flag = indoctrinated
@@ -200,7 +200,7 @@ country_decisions = {
 				NOT = { culture_group = culture_group_undead }
 				NOT = { culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
-				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
 				NOT = { has_country_flag = scourgeinfection }
 				has_country_flag = granariesbuilt
@@ -213,7 +213,7 @@ country_decisions = {
 				NOT = { culture_group = culture_group_undead }
 				NOT = { culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
-				NOT = { culture_group = culture_group_crypt_fiend }
+				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
 				NOT = { has_country_flag = scourgeinfection }
 				has_country_flag = granariesbuilt
@@ -227,7 +227,7 @@ country_decisions = {
 					NOT = { culture_group = culture_group_undead }
 					NOT = { culture = culture_cultist }
 					NOT = { culture_group = culture_group_nerubian }
-					NOT = { culture_group = culture_group_crypt_fiend }
+					NOT = { culture_group = culture_group_crypt_fiends }
 					NOT = { culture_group = culture_group_vrykul }
 					NOT = { has_country_flag = scourgeinfection }
 					has_country_flag = granariesbuilt
@@ -323,37 +323,15 @@ country_decisions = {
 				change_government = monarchy
 				add_government_reform = scourge_domain_reform
 				hidden_effect = {
-					remove_ruler_personality = warrior_personality
-					remove_ruler_personality = rogue_personality
-					remove_ruler_personality = paladin_personality
-					remove_ruler_personality = priest_personality
-					remove_ruler_personality = hunter_personality
-					remove_ruler_personality = mage_personality
-					remove_ruler_personality = warlock_personality
-					remove_ruler_personality = druid_personality
-					remove_ruler_personality = shaman_personality
-					remove_ruler_personality = warrior_personality
-					remove_ruler_personality = monk_personality
-					remove_ruler_personality = demon_hunter_personality
-				}
-				hidden_effect = {
-					remove_heir_personality = warrior_personality
-					remove_heir_personality = rogue_personality
-					remove_heir_personality = paladin_personality
-					remove_heir_personality = priest_personality
-					remove_heir_personality = hunter_personality
-					remove_heir_personality = mage_personality
-					remove_heir_personality = warlock_personality
-					remove_heir_personality = druid_personality
-					remove_heir_personality = shaman_personality
-					remove_heir_personality = warrior_personality
-					remove_heir_personality = monk_personality
-					remove_heir_personality = demon_hunter_personality
+					country_event = { id = wwu_ruler_personalities.200 }
+					country_event = { id = wwu_heir_personalities.200 }
 				}
 				set_ruler_culture = culture_death_knight
-				add_ruler_personality = death_knight_personality
+				event_add_death_knight_personality = yes
+                
 				set_heir_culture = culture_death_knight
-				add_heir_personality = death_knight_personality
+				event_add_heir_death_knight_personality = yes
+                
 				set_country_flag = deathknightsarise
 				add_stability = 3
 				capital_scope = {
@@ -456,7 +434,7 @@ country_decisions = {
 							NOT = { culture_group = culture_group_undead }
 							NOT = { culture = culture_cultist }
 							NOT = { culture_group = culture_group_nerubian }
-							NOT = { culture_group = culture_group_crypt_fiend }
+							NOT = { culture_group = culture_group_crypt_fiends }
 							NOT = { culture_group = culture_group_vrykul }
 						}
 						change_culture = culture_scourge
