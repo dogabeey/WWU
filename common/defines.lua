@@ -1183,8 +1183,8 @@ NEconomy = {
 },
 
 NMilitary = {
-	SLACKEN_AP_DROP = 0.05,
-	SLACKEN_MANPOWER_INCREASE = 2.0,
+	SLACKEN_AP_DROP = 0.1,
+	SLACKEN_MANPOWER_INCREASE = 1.0,
 
 	DEVELOPMENT_FOR_BLOCKADE_COST = 0.5,
 	
@@ -1226,7 +1226,7 @@ NMilitary = {
 	MOVE_LOCK_PERCENTAGE = 0.5,						-- Unit movement is locked after this percentage of progress
 	REGULAR_LEADER_POWER = 1,						-- Used for generals & admirals (affects total pips)
 	EXPLORER_LEADER_POWER = 0.8,					-- Used for conquistadors & explorers (affects total pips)
-	BASE_MP_TO_MANPOWER = 0.25,		-- 250 men per manpower
+	BASE_MP_TO_MANPOWER = 0.1,		-- 250 men per manpower
 	SIEGE_ATTRITION = 1,
 	SIEGE_DISEASE_IMPACT = 0.05,						-- Fraction of besieging soldiers lost in a disease outbraek
 	ARMY_ATTRITION_AT_COAST = 1,					-- How many percent attrition units take while loaded onto ships along the coast
