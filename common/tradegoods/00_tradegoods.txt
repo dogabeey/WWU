@@ -6,10 +6,11 @@
 grain = {
 	color = { 0.96 0.93 0.58 }
 	modifier = {
-		land_forcelimit_modifier = 0.10
+		land_forcelimit_modifier = 0.1
+		manpower_recovery_speed = 0.1
 	}
     province = {
-		land_forcelimit = 0.5
+		local_manpower_modifier  = 0.5
 	}
 	chance = {
 		factor = 20
@@ -1594,10 +1595,11 @@ artifacts = {
 crypts = {
 	color = { 0.07 0.33 0.09 }
 	modifier = {
-		culture_conversion_cost = -0.1
+		land_forcelimit_modifier = 0.1
+		recover_army_morale_speed = 0.10
 	}
     province = {
-		province_trade_power_value = 0.1
+		local_manpower_modifier  = 0.5
 	}
 	chance = {
 		factor = 2
@@ -1704,7 +1706,10 @@ arcane = {
 		all_power_cost = -0.05
 	}
     province = {
-		local_institution_spread = 0.2
+		local_institution_spread = 0.25
+		local_unrest = -5
+		local_defensiveness = 0.15
+		local_autonomy = 0.05
 	}
 	chance = {
 		factor = 20
@@ -1723,7 +1728,10 @@ fel = {
 		all_power_cost = -0.05
 	}
     province = {
-		local_institution_spread = 0.2
+		local_institution_spread = 0.25
+		local_unrest = 5
+		local_hostile_attrition = 5
+		local_hostile_movement_speed = 0.5
 	}
     
     chance = {

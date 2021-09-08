@@ -41,13 +41,13 @@ on_startup = {
 			set_global_flag = sonsoflothar
 			set_global_flag = khadgar
 		}
-		if ={
+		if = {
 			limit = {is_year = 618}
 			set_global_flag = archimonde_dead
 			set_global_flag = eye_of_sargeras
 			set_global_flag = sunfury_arrived
 		}
-		if ={
+		if = {
 			limit = {is_year = 622}
 			set_global_flag = illidan_frozen_throne
 		}
@@ -57,6 +57,64 @@ on_startup = {
         which = cultures_converted
         value = 0
     }
+	
+	every_province = {
+		limit = {
+			culture_group = culture_group_scourge
+			trade_goods = grain
+		}
+		change_trade_goods = crypts
+	}
+	
+	every_province = {
+		limit = {
+			culture_group = culture_group_undead
+			trade_goods = grain
+		}
+		change_trade_goods = crypts
+	}
+	
+#	every_province = {
+#		limit = {
+#			NOT = { culture_group = culture_group_scourge }
+#			trade_goods = crypts
+#		}
+#		change_trade_goods = grain
+#	}
+
+	every_province = {
+		limit = {
+			religion = fel
+			trade_goods = arcane
+		}
+		change_trade_goods = fel
+	}
+	
+	every_province = {
+		limit = {
+			religion = cult_of_the_damned
+			trade_goods = arcane
+		}
+		change_trade_goods = fel
+	}
+	
+	every_province = {
+		limit = {
+			NOT = { religion = fel }
+			NOT = { religion = cult_of_the_damned }
+			trade_goods = fel
+		}
+		change_trade_goods = arcane
+	}
+	
+	1671 = {
+		owner = {
+			add_country_modifier = {
+				name = lord_of_outland
+				duration = -1
+			}
+		}
+	}
 }
 
 # country
@@ -2171,6 +2229,31 @@ on_province_religion_converted = {
         }
         remove_province_modifier = religious_persecution
     }
+	
+	if = {
+		limit = {
+			religion = fel
+			trade_goods = arcane
+		}
+		change_trade_goods = fel
+	}
+	
+	if = {
+		limit = {
+			religion = cult_of_the_damned
+			trade_goods = arcane
+		}
+		change_trade_goods = fel
+	}
+	
+	if = {
+		limit = {
+			NOT = { religion = fel }
+			NOT = { religion = cult_of_the_damned }
+			trade_goods = fel
+		}
+		change_trade_goods = arcane
+	}
     
     on_province_religion_converted_estate_privileges_effect = yes
 }
@@ -2184,6 +2267,31 @@ on_province_culture_converted = {
 			value = 1
 		}
 	}
+	
+	if = {
+		limit = {
+			culture_group = culture_group_scourge
+			trade_goods = grain
+		}
+		change_trade_goods = crypts
+	}
+	
+	if = {
+		limit = {
+			culture_group = culture_group_undead
+			trade_goods = grain
+		}
+		change_trade_goods = crypts
+	}
+	
+#	if = {
+#		limit = {
+#			NOT = { culture_group = culture_group_scourge }
+#			trade_goods = crypts
+#		}
+#		change_trade_goods = grain
+#	}
+	
 }
 
 # THIS = Province, FROM = Country who Propogated
@@ -2205,6 +2313,68 @@ on_province_owner_change = {
 		
 	}
     
+	if = {
+		limit = {
+			culture_group = culture_group_scourge
+			trade_goods = grain
+		}
+		change_trade_goods = crypts
+	}
+	
+	if = {
+		limit = {
+			culture_group = culture_group_undead
+			trade_goods = grain
+		}
+		change_trade_goods = crypts
+	}
+	
+#	if = {
+#		limit = {
+#			NOT = { culture_group = culture_group_scourge }
+#			trade_goods = crypts
+#		}
+#		change_trade_goods = grain
+#	}
+	
+	if = {
+		limit = {
+			religion = fel
+			trade_goods = arcane
+		}
+		change_trade_goods = fel
+	}
+	
+	if = {
+		limit = {
+			religion = cult_of_the_damned
+			trade_goods = arcane
+		}
+		change_trade_goods = fel
+	}
+	
+	if = {
+		limit = {
+			NOT = { religion = fel }
+			NOT = { religion = cult_of_the_damned }
+			trade_goods = fel
+		}
+		change_trade_goods = arcane
+	}
+	
+	if = {
+		limit = {
+			province_id = 1671
+		}
+		owner = {
+			add_country_modifier = {
+				name = lord_of_outland
+				duration = -1
+			}
+		}
+		FROM = { remove_country_modifier = lord_of_outland }
+	}
+	
     on_province_owner_change_update_goods_production = yes
 }
 

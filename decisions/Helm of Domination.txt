@@ -6,11 +6,11 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = helm_of_domination }
 			NOT = { has_global_flag = destroyed_helm_flag }
-			owns = 1268
+			controls = 1268
 		}
 		
 		allow = {
-			owns = 1268
+			controls = 1268
 		}
 		
 		effect = {
@@ -69,19 +69,27 @@ country_decisions = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-				factor = 100
+				factor = 1000
 				has_country_modifier = is_evil
 			}
 			modifier = {
-				factor = 2
+				factor = 1000
+				culture_group = culture_group_scourge
+			}
+			modifier = {
+				factor = 10
+				ruler_mil = 6
+			}
+			modifier = {
+				factor = 10
 				NOT = {
-					stability = 1
+					stability = 0
 				}
 			}
 			modifier = {
-				factor = 2
+				factor = 10
 				NOT = {
-					legitimacy_or_horde_unity = 80
+					legitimacy_or_horde_unity = 70
 				}
 			}
 		}
@@ -96,11 +104,11 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = helm_of_domination }
 			NOT = { has_global_flag = destroyed_helm_flag }
-			owns = 1268
+			controls = 1268
 		}
 		
 		allow = {
-			owns = 1268
+			controls = 1268
 		}
 		
 		effect = {
@@ -114,26 +122,34 @@ country_decisions = {
 				duration = -1
 			}
 			hidden_effect = {
+				P11 = {
+					kill_heir = yes
+					kill_ruler = yes
+				}
 				every_country = {
 					limit = {
 						religion = cult_of_the_damned
 					}
-					change_religion = forgotten_shadow
-					change_culture = culture_forsaken
+					change_religion = shadow
+					set_ruler_religion = shadow
+					set_heir_religion = shadow
 				}
 				every_country = {
 					limit = {
 						culture = culture_scourge
 					}
-					change_religion = forgotten_shadow
-					change_culture = culture_forsaken
+					change_primary_culture = culture_death_knight					
+					set_ruler_culture = culture_death_knight
+					set_heir_culture = culture_death_knight
+					remove_accepted_culture = culture_scourge
+					add_accepted_culture = culture_forsaken
 				}
 				every_country = {
 					every_owned_province = {
 						limit = {
 							religion = cult_of_the_damned
 						}
-						change_religion = forgotten_shadow
+						change_religion = shadow
 					}
 				}
 				every_country = {
@@ -154,6 +170,26 @@ country_decisions = {
 							vassal_of = P11
 						}
 					}
+					set_ruler_religion = shadow
+					set_heir_religion = shadow
+					remove_accepted_culture = culture_scourge
+					add_accepted_culture = culture_forsaken
+					change_government = gov_despotic_kingdom_undead
+					add_government_reform = autocracy_reform
+					add_stability = -6
+					add_inflation = 20
+					add_corruption = 20
+					add_prestige = -200
+					add_absolutism = -100
+					add_legitimacy = -100
+					add_church_power = -100
+					change_technology_group = tech_undead
+					change_unit_type = tech_undead
+					capital_scope = {
+						change_culture = culture_death_knight
+					}
+				}
+				P11 = {
 					release_all_subjects = yes
 				}
 				set_global_flag = destroyed_helm_flag
@@ -162,11 +198,19 @@ country_decisions = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-				factor = 2
+				factor = 10
+				ruler_adm = 6
+			}
+			modifier = {
+				factor = 10
+				ruler_dip = 6
+			}
+			modifier = {
+				factor = 10
 				stability = 3
 			}
 			modifier = {
-				factor = 2
+				factor = 10
 				legitimacy_or_horde_unity = 100
 			}
 		}
