@@ -66,6 +66,10 @@ wwu_innovation_ideas = {
 wwu_religious_ideas = {
     category = ADM
 
+    trigger = {
+        NOT = { has_idea_group = wwu_harmony_ideas }
+    }
+    
     bonus = {
         culture_conversion_cost = -0.25
         clergy_loyalty_modifier = 0.1
@@ -290,6 +294,10 @@ wwu_administrative_ideas = {
 wwu_harmony_ideas = {
     category = ADM
 
+    trigger = {
+        NOT = { has_idea_group = wwu_religious_ideas }
+    }
+    
     bonus = {
         stability_cost_modifier = -0.25
         peasants_loyalty_modifier = 0.1
@@ -481,6 +489,10 @@ wwu_development_ideas = {
 wwu_absolutism_ideas = {
     category = ADM
 
+    trigger = {
+        NOT = { has_idea_group = wwu_autonomy_ideas }
+    }
+    
     bonus = {
         max_absolutism = 20
     }
@@ -527,6 +539,10 @@ wwu_absolutism_ideas = {
 wwu_autonomy_ideas = {
     category = ADM
 
+    trigger = {
+        NOT = { has_idea_group = wwu_absolutism_ideas }
+    }
+    
     bonus = {
         reduced_liberty_desire = 25
     }
@@ -785,5 +801,53 @@ wwu_tribal_ideas = {
 			factor = 2
 			personality = ai_militarist 
 		}
+    }
+}
+
+# Imperialism
+wwu_imperialism_ideas = {
+    category = ADM
+
+    trigger = {
+        NOT = { has_idea_group = wwu_subjugation_ideas }
+        NOT = { has_idea_group = wwu_tyranny_ideas }
+    }
+    
+    bonus = {
+        treasure_fleet_income = 1.0
+        colonist_placement_chance = 0.05
+    }
+    # Imperial Frontiers
+    wwu_imperialism_ideas_1 = {
+        may_establish_frontier = yes
+        # may_explore = yes
+    }
+    # Loyal Colonists
+    wwu_imperialism_ideas_2 = {
+        colonists = 1
+    }
+    # Enforced Migration
+    wwu_imperialism_ideas_3 = {
+        global_colonial_growth = 10
+    }
+    # Cut and Burn
+    wwu_imperialism_ideas_4 = {
+        native_uprising_chance = -0.5
+    }
+    # Exploit the Natives
+    wwu_imperialism_ideas_5 = {
+        native_assimilation = 1.0
+    }
+    # Protected Shipping Routes
+    wwu_imperialism_ideas_6 = {
+        global_tariffs = 0.33
+    }
+    # Distant Colonies
+    wwu_imperialism_ideas_7 = {
+        range = 0.5
+    }
+    
+    ai_will_do = {
+        factor = 1
     }
 }

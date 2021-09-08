@@ -437,6 +437,10 @@ wwu_assimilation_ideas = {
 wwu_society_ideas = {
     category = DIP
 
+    trigger = {
+        NOT = { has_idea_group = wwu_propaganda_ideas }
+    }
+    
     bonus = {
         global_autonomy = -0.05
     }
@@ -490,6 +494,10 @@ wwu_society_ideas = {
 wwu_propaganda_ideas = {
     category = DIP
 
+    trigger = {
+        NOT = { has_idea_group = wwu_society_ideas }
+    }
+    
     bonus = {
         global_manpower_modifier = 0.33
         can_fabricate_for_vassals = yes
@@ -541,6 +549,7 @@ wwu_naval_ideas = {
     category = DIP
 
     trigger = {
+        NOT = { has_idea_group = wwu_piracy_ideas }
 		primitives = no
 	}
     
@@ -594,6 +603,7 @@ wwu_piracy_ideas = {
     category = DIP
 
     trigger = {
+        NOT = { has_idea_group = wwu_naval_ideas }
 		primitives = no
 	}
     
@@ -602,32 +612,32 @@ wwu_piracy_ideas = {
     }
     
     # Looted Shipyards
-    wwu_naval_trade_ideas_1 = {
+    wwu_piracy_ideas_ideas_1 = {
         light_ship_cost = -0.33
     }
     # Commandeered Vessels
-    wwu_naval_trade_ideas_2 = {
+    wwu_piracy_ideas_ideas_2 = {
         light_ship_power = 0.1
         sunk_ship_morale_hit_recieved = -0.1
     }
     # Pirate Sailors
-    wwu_naval_trade_ideas_3 = {
+    wwu_piracy_ideas_ideas_3 = {
         global_sailors_modifier = 0.33
     }
     # Horrifying Blockades
-    wwu_naval_trade_ideas_4 = {
+    wwu_piracy_ideas_ideas_4 = {
         blockade_efficiency = 1.0
     }
     # Infamous Crews
-    wwu_naval_trade_ideas_5 = {
+    wwu_piracy_ideas_ideas_5 = {
         privateer_efficiency = 1.0
     }
     # Mapped Sea Routes
-    wwu_naval_trade_ideas_6 = {
+    wwu_piracy_ideas_ideas_6 = {
         global_ship_trade_power = 0.5
     }
     # Embargos
-    wwu_naval_trade_ideas_7 = {
+    wwu_piracy_ideas_ideas_7 = {
         embargo_efficiency = 1.0
     }
     
@@ -639,5 +649,51 @@ wwu_piracy_ideas = {
             
             NOT = { num_of_ports = 1 }
         }
+    }
+}
+
+# Subjugation
+wwu_subjugation_ideas = {
+    category = DIP
+
+    trigger = {
+        NOT = { has_idea_group = wwu_imperialism_ideas }
+        NOT = { has_idea_group = wwu_tyranny_ideas }
+    }
+    
+    bonus = {
+        land_maintenance_modifier = -0.25
+    }
+    # Conquest
+    wwu_subjugation_ideas_1 = {
+        province_warscore_cost = -0.33
+    }
+    # Intimidation
+    wwu_subjugation_ideas_2 = {
+        unjustified_demands = -0.33
+    }
+    # Incorrigible Disputes
+    wwu_subjugation_ideas_3 = {
+        fabricate_claims_cost = -0.5
+    }
+    # Military Envoys
+    wwu_subjugation_ideas_4 = {
+        free_leader_pool = 2
+    }
+    # Military Vassals
+    wwu_subjugation_ideas_5 = {
+        vassal_forcelimit_bonus = 1.0
+    }
+    # Make Haste
+    wwu_subjugation_ideas_6 = {
+        envoy_travel_time = -0.5
+    }
+    # Squeeze Them Dry
+    wwu_subjugation_ideas_7 = {
+        vassal_income = 0.25
+    }
+    
+    ai_will_do = {
+        factor = 1
     }
 }

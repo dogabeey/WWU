@@ -1,7 +1,7 @@
 #---------------------------------------------------------
-# Army Leadership
+# Piracy
 #---------------------------------------------------------
-military_academies = {
+flanking_maneuvers = {
 	monarch_power = ADM
 
 	potential = {
@@ -9,7 +9,7 @@ military_academies = {
 	}
 	allow = {
         AND = {
-            full_idea_group = wwu_army_leadership_ideas 
+            full_idea_group = wwu_piracy_ideas 
             OR  = {
                 full_idea_group = wwu_innovation_ideas 
                 full_idea_group = wwu_religious_ideas
@@ -30,13 +30,13 @@ military_academies = {
 	}
 	
 	# Modifier
-    general_cost = -0.25
+    recover_navy_morale_speed = 0.1
     
 	ai_will_do = {
 		factor = 1
 	}
 }
-war_manuals = {
+commandeered_ships = {
 	monarch_power = DIP
 
 	potential = {
@@ -44,7 +44,7 @@ war_manuals = {
 	}
 	allow = {
         AND = {
-            full_idea_group = wwu_army_leadership_ideas
+            full_idea_group = wwu_piracy_ideas
             OR  = {
                 full_idea_group = wwu_espionage_ideas 
                 full_idea_group = wwu_dynastic_ideas
@@ -56,18 +56,19 @@ war_manuals = {
                 full_idea_group = wwu_society_ideas
                 full_idea_group = wwu_propaganda_ideas
                 full_idea_group = wwu_naval_ideas
+				full_idea_group = wwu_piracy_ideas
             }
         }
 	}
 	
 	# Modifier
-    army_tradition = 0.5
+    global_ship_cost = -0.15
     
 	ai_will_do = {
 		factor = 1
 	}
 }
-ordered_formations = {
+pirate_swarms = {
 	monarch_power = MIL
 
 	potential = {
@@ -75,16 +76,14 @@ ordered_formations = {
 	}
 	allow = {
         AND = {
-            full_idea_group = wwu_army_leadership_ideas
+            full_idea_group = wwu_piracy_ideas 
             OR  = {
-                full_idea_group = wwu_offensive_ideas 
+                full_idea_group = wwu_offensive_ideas
                 full_idea_group = wwu_defensive_ideas
                 full_idea_group = wwu_quality_ideas
-                full_idea_group = wwu_quantity_ideas 
-                full_idea_group = wwu_professional_army_ideas 
+                full_idea_group = wwu_quantity_ideas
+                full_idea_group = wwu_professional_army_ideas  
                 full_idea_group = wwu_mercenary_army_ideas
-                full_idea_group = wwu_army_organisation_ideas
-                full_idea_group = wwu_army_tactics_ideas
                 full_idea_group = wwu_armaments_ideas
                 full_idea_group = wwu_fortification_ideas
                 full_idea_group = wwu_militarization_ideas
@@ -96,7 +95,7 @@ ordered_formations = {
 	}
 	
 	# Modifier
-    backrow_artillery_damage = 0.1
+    privateer_efficiency = 0.25
     
 	ai_will_do = {
 		factor = 1
