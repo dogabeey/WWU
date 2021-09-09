@@ -30,8 +30,7 @@ country_event = {
 		
         change_government = monarchy
         add_government_reform = kingdom_of_magic_reform
-		change_religion = fel
-        
+
         define_ruler = {
             name = "Kael'thas"
             dynasty = "Sunstrider"
@@ -41,15 +40,21 @@ country_event = {
             mil = 6
             religion = fel
         }
+        
+        # PU Sunfury if it exists and this option is picked
+        if = {
+            limit = {
+                exists = A93
+            }
+            create_union = A93
+        }
 	}
 	option = {
 		name = wwu_silvermoon.1.option.b
 		
-        change_government = republic
+        change_government = monarchy
         add_government_reform = convocation_of_silvermoon_reform
         
-		change_religion = arcane
-
         define_ruler = {
             name = "Lor'themar"
             dynasty = "Theron"
