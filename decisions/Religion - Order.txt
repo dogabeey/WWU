@@ -10,12 +10,29 @@ country_decisions = {
 			religion = arcane
 		}
 		allow = {
-			stability = 2
+			if = {
+                limit = {
+                    dynasty = "Sunstrider"
+                }
+                stability = 0
+            }
+            else = {
+                stability = 2
+            }
+            
             ruler_religion = fel
 			religion = arcane
 		}
 		effect = {
-			add_stability = -5
+            if = {
+                limit = {
+                    dynasty = "Sunstrider"
+                }
+                add_stability = -1
+            }
+            else = {
+                add_stability = -5
+            }
             
 			change_religion = fel
             capital_scope = {
