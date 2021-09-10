@@ -1,0 +1,69 @@
+namespace = wwu_setup_silver_hand_schism
+
+# Alexandros Mograine's Death
+country_event = {
+    id = wwu_setup_silver_hand_schism.1
+    title = wwu_setup_silver_hand_schism.1.title
+    desc = wwu_setup_silver_hand_schism.1.desc
+    picture = BLIND_PALADIN_eventPicture
+    
+    major = yes
+    
+    trigger = {
+        tag = SVH # Silver Hand
+        NOT = { has_ruler = "Alexandros Morgraine" }
+    }
+    
+    mean_time_to_happen = {
+        days = 1
+    }
+    
+    option = {
+        name = wwu_setup_silver_hand_schism.1.option.a
+        
+        change_tag = A22 # The Scarlet Crusade
+        change_religion = scarlet_light
+        
+        every_owned_province = {
+            change_religion = scarlet_light
+        }
+		define_ruler = {
+            name = "Saiden" 
+		    dynasty = "Dathrohan" 
+		    adm = 3
+		    dip = 3
+		    mil = 6
+		}
+	}
+	
+	option = {
+        name = wwu_setup_silver_hand_schism.1.option.b
+		
+		change_tag = A24 # The Argent Dawn
+        change_religion = argent_light
+        
+        every_owned_province = {
+            change_religion = argent_light
+        }
+		define_ruler = {
+            name = "Maxwell" 
+            dynasty = "Tyrosus" 
+		    adm = 3
+		    dip = 6
+		    mil = 3
+		}
+ 	}
+	option = {
+        name = wwu_setup_silver_hand_schism.1.option.c
+		
+		define_ruler = {
+            name = "Grayson" 
+            dynasty = "Shadowbreaker" 
+		    adm = 6
+		    dip = 3
+		    mil = 3
+		}
+	}
+}
+
+     
