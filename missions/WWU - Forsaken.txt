@@ -12,7 +12,7 @@ wwu_forsaken_column_1 = {
 	}
 	
 	wwu_successors_of_lordaeron = { 
-		icon = mission_dalaran_rises
+		icon = mission_faction_fight_2
 		required_missions = { } 
        
 		trigger = {
@@ -39,7 +39,7 @@ wwu_forsaken_column_1 = {
 		}
 	}
 	wwu_destroy_helm_of_domination = { 
-		icon = mission_defiance
+		icon = mission_faction_fight_2
         position = 5
 		required_missions = { wwu_strike_into_wrath_gate } 
        
@@ -70,14 +70,14 @@ wwu_forsaken_column_2 = {
 	}
 	
 	wwu_bring_the_war_to_northrend = { 
-		icon = mission_doomhammer
+		icon = mission_faction_fight_2
         position = 2
 		required_missions = { wwu_breaking_the_chains } 
        
 		trigger = {
             area_scarlet_coast = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
         provinces_to_highlight = {
@@ -98,14 +98,14 @@ wwu_forsaken_column_2 = {
 		}
 	}
 	wwu_pushing_into_enemy_lines_fs = { 
-		icon = mission_dire_troll
+		icon = mission_faction_fight_2
         position = 3
 		required_missions = { wwu_bring_the_war_to_northrend } 
        
 		trigger = {
             area_vengeance_landing = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
         provinces_to_highlight = {
@@ -135,18 +135,18 @@ wwu_forsaken_column_2 = {
 		}
 	}
 	wwu_strike_into_wrath_gate = { 
-		icon = mission_frozen_throne
+		icon = mission_faction_fight_2
         position = 4
 		required_missions = { wwu_pushing_into_enemy_lines_fs } 
        
 		trigger = {
             region_dragonblight = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
         provinces_to_highlight = {
-            region = region_dragonblight
+            area = region_dragonblight
             NOT = { owned_by = ROOT }
         }
 		effect = {
@@ -161,14 +161,14 @@ wwu_forsaken_column_2 = {
 		}
 	}
 	wwu_hold_helm_of_domination = { 
-		icon = mission_frostmourne
+		icon = mission_faction_fight_2
         position = 5
 		required_missions = { wwu_strike_into_wrath_gate } 
        
 		trigger = {
             owns_core_province = 1268
 			NOT = { has_global_flag = destroyed_helm_flag }
-            has_country_modifier = helm_of_domination
+            has_country_modifier = kings_grasp
 		}
 		effect = {
             add_mil_power = 300
@@ -180,19 +180,19 @@ wwu_forsaken_column_2 = {
 			}
 		}
 	}
-	wwu_dusk_of_humanity = { 
-		icon = mission_kelthuzad_lich
+	wwu_dawn_of_humanity = { 
+		icon = mission_faction_fight_2
         position = 6
 		required_missions = { wwu_invade_eastern_plaugelands } 
        
 		trigger = {
             area_tarren_mill = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_durnholde_keep = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
         provinces_to_highlight = {
@@ -225,7 +225,7 @@ wwu_forsaken_column_3 = {
 	}
 	
 	wwu_invade_eastern_plaugelands = { 
-		icon = mission_raid
+		icon = mission_faction_fight_2
         position = 5
 		required_missions = { wwu_breaking_the_chains } 
 		required_missions = { wwu_finish_off_the_crusaders } 
@@ -233,11 +233,11 @@ wwu_forsaken_column_3 = {
 		trigger = {
             area_scholomance = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_the_marris_stead = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
         provinces_to_highlight = {
@@ -262,7 +262,7 @@ wwu_forsaken_column_3 = {
 		}
 	}
 	wwu_eradicate_the_scourge_in_plaugelands = { 
-		icon = mission_scourge
+		icon = mission_faction_fight_2
         position = 6
 		required_missions = { wwu_invade_eastern_plaugelands }  
        
@@ -282,7 +282,7 @@ wwu_forsaken_column_3 = {
 		}
 	}
 	wwu_a_possible_ally = { 
-		icon = mission_kaelthas
+		icon = mission_faction_fight_2
         position = 7
 		required_missions = { wwu_eradicate_the_scourge_in_plaugelands } 
        
@@ -339,7 +339,7 @@ wwu_forsaken_column_4 = {
 	} 
     
 	wwu_breaking_the_chains = { 
-		icon = mission_cannibalize
+		icon = mission_ancient_tome
         
 		required_missions = {  } 
         
@@ -375,18 +375,18 @@ wwu_forsaken_column_4 = {
 		}
 	}
     wwu_consolidate_agamand_vandimar = { 
-		icon = mission_undead_male
+		icon = mission_faction_fight_2
         position = 2
 		required_missions = { wwu_breaking_the_chains } 
         
 		trigger = {
             area_agamand = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_vandermar = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
         provinces_to_highlight = {
@@ -412,8 +412,8 @@ wwu_forsaken_column_4 = {
             }
 		}
 	}
-	wwu_seeking_a_new_home = {
-	    icon = mission_karazhan
+	wwu_seeking_a_new_home
+	    icon =
 		position = 3
 		required_missions = { wwu_consolidate_agamand_vandimar }
 		
@@ -426,15 +426,15 @@ wwu_forsaken_column_4 = {
 		trigger = {
             area_lordaeron_capital = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_tirisfal_bulwark = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_webbed_coast = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = { 
@@ -450,8 +450,8 @@ wwu_forsaken_column_4 = {
 			set_capital = 543
 		}
     }
-	wwu_upgrading_capital_city = {
-	    icon = mission_lordaeron_crown
+	wwu_upgrading_capital_city
+	    icon =
 		position = 4
 		required_missions = { wwu_seeking_a_new_home }
 		
@@ -478,22 +478,22 @@ wwu_forsaken_column_4 = {
 		}	
 	}	
 	wwu_finish_off_the_crusaders = { 
-		icon = mission_shot_helmet
+		icon = mission_faction_fight_2
         position = 5
 		required_missions = { wwu_upgrading_capital_city } 
         
 		trigger = {
             area_scarlet_coast = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_brill = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_scarlet_heartlands = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
         provinces_to_highlight = {
@@ -535,7 +535,7 @@ wwu_forsaken_column_4 = {
 		trigger = {
             area_silverpine_fields = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
         provinces_to_highlight = {
@@ -563,7 +563,7 @@ wwu_forsaken_column_4 = {
 		}
 	}
 	wwu_invasion_of_gilneas = { 
-		icon = mission_human_male
+		icon = mission_storehouse
         position = 7
 
 		required_missions = { wwu_silverpine_trail } 
@@ -572,15 +572,15 @@ wwu_forsaken_column_4 = {
 		trigger = {
             area_silverpine_crossing = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_ambermill = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_shadowfang_keep = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
         provinces_to_highlight = {
@@ -618,7 +618,7 @@ wwu_forsaken_column_5 = {
 	}
 	
 	wwu_icreasing_the_population = { 
-		icon = mission_secretive_plot
+		icon = mission_storehouse
         position = 6
 
 		required_missions = { wwu_silverpine_trail } 
@@ -640,7 +640,7 @@ wwu_forsaken_column_5 = {
 		}
 	}
 	wwu_invasion_of_kultiras = { 
-		icon = mission_ship_2
+		icon = mission_storehouse
         position = 7
 
 		required_missions = { wwu_invasion_of_gilneas } 
@@ -649,11 +649,11 @@ wwu_forsaken_column_5 = {
 		trigger = {
             area_freehold = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_boralus = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			check_variable = {
                 which = cultures_converted
