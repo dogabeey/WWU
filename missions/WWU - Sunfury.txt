@@ -10,6 +10,7 @@ wwu_sunfury_column_1 = {
     
 	wwu_embrace_illidans_teachings = { 
 		icon = mission_kaelthas
+		completed_by = 621.12.31
         
 		required_missions = {  } 
 		
@@ -280,6 +281,7 @@ wwu_sunfury_column_2 = {
 
 	wwu_sunfury_hold = {
 		icon = mission_blood_elf_female
+		completed_by = 621.12.31
         
 		required_missions = { wwu_kiljaedens_favored }
 		
@@ -1119,7 +1121,21 @@ wwu_sunfury_column_4 = {
             continent = continent_eastern_kingdoms
         }
 		effect = {
-			add_stability = 1
+			add_stability = 3
+			add_prestige = 200
+			add_absolutism = 50
+			add_legitimacy = 100
+			add_papal_influence = 200
+			region_swamp_of_sorrows = {
+				add_permanent_claim = A93
+			}
+			region_deadwind_pass = {
+				add_permanent_claim = A93
+			}
+			1035 = {
+				change_culture = culture_felblood_elf
+				change_religion = fel
+			}
 		}
 	}
 }
@@ -1136,6 +1152,7 @@ wwu_sunfury_column_5 = {
 	
 	wwu_send_rommath_home = {
 		icon = mission_blood_elf_male
+		completed_by = 621.12.31
         
 		required_missions = { wwu_build_the_manaforges }
 		
@@ -1217,6 +1234,7 @@ wwu_sunfury_column_5 = {
 	}
 	wwu_retake_silvermoon = {
 		icon = mission_blue_essence
+		completed_by = 624.12.31
         
 		required_missions = { wwu_send_rommath_home }
 		
@@ -1262,6 +1280,7 @@ wwu_sunfury_column_5 = {
 			province_id = 676
         }
 		effect = {
+			create_alliance = F54
 			if = {
 				limit = {
 					660 = {
@@ -1301,6 +1320,7 @@ wwu_sunfury_column_5 = {
 	}
 	wwu_silvermoon_liberated = {
 		icon = mission_blue_essence
+		completed_by = 624.12.31
         
 		required_missions = { wwu_retake_silvermoon }
 		
@@ -1364,8 +1384,8 @@ wwu_sunfury_column_5 = {
 				define_ruler = {
 					name = "Lor'themar"
 					dynasty = "Theron"
-					adm = 5
-					dip = 4
+					adm = 6
+					dip = 5
 					mil = 6
 					age = 75
 					claim = 100
@@ -1395,6 +1415,7 @@ wwu_sunfury_column_5 = {
 	}
 	wwu_land_on_quel_danas = {
 		icon = mission_ship_1
+		completed_by = 624.12.31
         
 		required_missions = { wwu_silvermoon_liberated }
 		
@@ -1419,6 +1440,9 @@ wwu_sunfury_column_5 = {
 				2990 = {
 					controlled_by = F54
 				}
+				2990 = {
+					controlled_by = G18
+				}
 			}
 			OR = {
 				760 = {
@@ -1433,6 +1457,9 @@ wwu_sunfury_column_5 = {
 				760 = {
 					controlled_by = F54
 				}
+				2990 = {
+					controlled_by = G18
+				}
 			}
 			OR = {
 				724 = {
@@ -1446,6 +1473,9 @@ wwu_sunfury_column_5 = {
 				}
 				724 = {
 					controlled_by = F54
+				}
+				2990 = {
+					controlled_by = G18
 				}
 			}
 		}
@@ -1498,6 +1528,7 @@ wwu_sunfury_column_5 = {
 	}
 	wwu_corrupt_the_sunwell = {
 		icon = mission_green_essence
+		completed_by = 624.12.31
         
 		required_missions = { wwu_land_on_quel_danas }
 		
@@ -1539,11 +1570,13 @@ wwu_sunfury_column_5 = {
 				change_religion = fel
 				add_devastation = 25
 				add_unrest = 25
+				remove_province_modifier = mission_province_desecration_of_the_sunwell
 			}
 		}
 	}
 	wwu_summon_kiljaeden = {
 		icon = mission_eradar
+		completed_by = 624.12.31
         
 		required_missions = { wwu_corrupt_the_sunwell }
 		
@@ -1668,7 +1701,7 @@ wwu_sunfury_column_5 = {
 				}
 				2990 = {
 					cede_province = G19
-					change_culture = culture_draenei
+					add_accepted_culture = culture_blood_elf
 					change_religion = light_of_the_naaru
 					add_devastation = -100
 					add_unrest = -25

@@ -1,11 +1,11 @@
 namespace = aldorscryer_events
 
-# "Nerzhul's Arrival to Icecrown Citadel"
+# Aldor Scryer Emergence in Shattrath
 country_event = {
 	id = aldorscryer_events.1
 	title = aldorscryer_events.1.title
 	desc = aldorscryer_events.1.desc
-	picture = FROZENTHRONE_eventPicture
+	picture = BRAWL_eventPicture
 
     major = yes
     
@@ -46,6 +46,7 @@ country_event = {
 				cede_province = ALD
 				add_core = ALD
 				add_unrest = -25
+				add_devastation = -25
 				change_culture = culture_draenei
 				change_religion = light_of_the_naaru
 			}
@@ -53,17 +54,30 @@ country_event = {
 				cede_province = SCR
 				add_core = SCR
 				add_unrest = -25
+				add_devastation = -25
 				change_culture = culture_blood_elf
 				change_religion = light_of_the_naaru
 			}
 			ALD = {
 				add_stability = 1
 				declare_war = SCR
-				declare_war = A93
+				define_ruler = {
+					name = "Ishanah"
+					dynasty = "the High Priestess" 	
+					adm = 5
+					dip = 3	
+					mil = 4
+				}
 			}
 			SCR = {
 				add_stability = 1
-				declare_war = A93
+				define_ruler = {
+					name = "Vorenthal"
+					dynasty = "the Seer" 	
+					adm = 3
+					dip = 5	
+					mil = 4
+				}
 			}
 		}
 	}

@@ -1,0 +1,37 @@
+country_decisions = {
+	restore_the_sunwell = {
+	
+		major = yes
+	
+        potential = {
+			owns = 2991
+			2991 = {
+				has_province_modifier = mission_province_desecration_of_the_sunwell
+			}
+			OR = {
+				religion_group = order_group
+				religion_group = light_group
+				religion_group = life_group
+				religion_group = elemental_group
+				religion = fel
+			}
+        }
+        allow = {
+			owns = 2991
+			stability = 3
+			treasury = 2500
+			adm_power = 500
+        }
+        effect = {
+			add_treasury = -2500
+			add_adm_power = -500
+			add_prestige = 200
+			2991 = {
+				remove_province_modifier = mission_province_desecration_of_the_sunwell
+			}
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+}
