@@ -1,0 +1,70 @@
+namespace = aldorscryer_events
+
+# "Nerzhul's Arrival to Icecrown Citadel"
+country_event = {
+	id = aldorscryer_events.1
+	title = aldorscryer_events.1.title
+	desc = aldorscryer_events.1.desc
+	picture = FROZENTHRONE_eventPicture
+
+    major = yes
+    
+	trigger = {
+        ai = no
+		is_year = 618
+		OR = {
+			1641 = {
+				controlled_by = A93
+			}
+			1641 = {
+				controller = {
+					culture = culture_blood_elf
+				}
+			}
+			1641 = {
+				controller = {
+					culture = culture_felblood_elf
+				}
+			}						
+		}
+	}
+	
+	mean_time_to_happen = { 
+        months = 1 
+    }
+    
+	immediate = {
+		hidden_effect = { set_global_flag = aldor_scryer_flag }
+    }
+	
+	option = {
+		name = aldorscryer_events.1.option.a
+		
+        custom_tooltip = aldorscryer_events_tt
+        hidden_effect = {
+			1641 = {
+				cede_province = ALD
+				add_core = ALD
+				add_unrest = -25
+				change_culture = culture_draenei
+				change_religion = light_of_the_naaru
+			}
+			1642 = {
+				cede_province = SCR
+				add_core = SCR
+				add_unrest = -25
+				change_culture = culture_blood_elf
+				change_religion = light_of_the_naaru
+			}
+			ALD = {
+				add_stability = 1
+				declare_war = SCR
+				declare_war = A93
+			}
+			SCR = {
+				add_stability = 1
+				declare_war = A93
+			}
+		}
+	}
+}

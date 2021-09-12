@@ -194,6 +194,7 @@ wwu_sunfury_column_1 = {
 		}
         
 		trigger = {
+			stability = 3
 			num_of_owned_provinces_with = {
 				value = 15
 				religion = fel
@@ -251,7 +252,7 @@ wwu_sunfury_column_1 = {
 				add_devastation = -25
 				add_local_autonomy = -100
 				add_permanent_province_modifier = {
-					name = "sunfury_regional_capital"
+					name = sunfury_regional_capital
 					duration = -1
 				}
 				add_accepted_culture = culture_orc
@@ -542,6 +543,12 @@ wwu_sunfury_column_2 = {
 				name = "active_manaforges"
 				duration = -1
 			}
+			region_netherstorm = {
+				add_permanent_province_modifier = {
+					name = manaforge_damage_netherstorm
+					duration = -1
+				}
+			}
 		}
 	}
 	wwu_fortify_tempest_keep = {
@@ -581,7 +588,7 @@ wwu_sunfury_column_2 = {
 				add_base_manpower = 4
 				center_of_trade = 2
 				add_permanent_province_modifier = {
-					name = "sunfury_regional_capital"
+					name = sunfury_regional_capital
 					duration = -1
 				}
 			}
@@ -672,7 +679,7 @@ wwu_sunfury_column_3 = {
 				add_base_manpower = 4
 				center_of_trade = 2
 				add_permanent_province_modifier = {
-					name = "sunfury_regional_capital"
+					name = sunfury_regional_capital
 					duration = -1
 				}
 			}
@@ -752,7 +759,7 @@ wwu_sunfury_column_3 = {
 				center_of_trade = 2
 				change_trade_goods = fel_iron
 				add_permanent_province_modifier = {
-					name = "sunfury_regional_capital"
+					name = sunfury_regional_capital
 					duration = -1
 				}
 			}
@@ -830,7 +837,7 @@ wwu_sunfury_column_3 = {
 				center_of_trade = 2
 				change_trade_goods = adamantite
 				add_permanent_province_modifier = {
-					name = "sunfury_regional_capital"
+					name = sunfury_regional_capital
 					duration = -1
 				}
 			}
@@ -922,7 +929,7 @@ wwu_sunfury_column_4 = {
 				center_of_trade = 2
 				change_trade_goods = fel_iron
 				add_permanent_province_modifier = {
-					name = "sunfury_regional_capital"
+					name = sunfury_regional_capital
 					duration = -1
 				}
 			}
@@ -1002,7 +1009,7 @@ wwu_sunfury_column_4 = {
 				center_of_trade = 2
 				change_trade_goods = adamantite
 				add_permanent_province_modifier = {
-					name = "sunfury_regional_capital"
+					name = sunfury_regional_capital
 					duration = -1
 				}
 			}
@@ -1053,6 +1060,9 @@ wwu_sunfury_column_4 = {
 			}
 			create_alliance = B92
 			create_guarantee = B92
+			B92 = {
+				create_guarantee = A93
+			}
 			1586 = {
 				cede_province = A93
 				change_religion = fel
@@ -1075,6 +1085,7 @@ wwu_sunfury_column_4 = {
 					vassalize = PREV
 				}
 			}
+			set_global_flag = leader_of_legion_flag
 #			every_province = {
 #				limit = {
 #					owned_by = B92
@@ -1123,10 +1134,10 @@ wwu_sunfury_column_5 = {
 		tag = A93
 	}
 	
-	wwu_send_rommath = {
-		icon = mission_blue_essence
+	wwu_send_rommath_home = {
+		icon = mission_blood_elf_male
         
-		required_missions = { wwu_kiljaedens_favored }
+		required_missions = { wwu_build_the_manaforges }
 		
 		ai_weight = {
 			factor = 3
@@ -1182,6 +1193,13 @@ wwu_sunfury_column_5 = {
 				value = 50
 				mutual = yes
 			}
+			A91 = {
+				add_trust = {
+					who = F54
+					value = 50
+					mutual = yes
+				}
+			}
 			660 = {
 				limit = {
 					NOT = { owned_by = F54 }
@@ -1193,13 +1211,14 @@ wwu_sunfury_column_5 = {
 			create_alliance = A91
 			A91 = {
 				create_alliance = F54
+				add_government_reform = convocation_of_silvermoon_reform
 			}
 		}
 	}
 	wwu_retake_silvermoon = {
 		icon = mission_blue_essence
         
-		required_missions = { wwu_send_rommath }
+		required_missions = { wwu_send_rommath_home }
 		
 		ai_weight = {
 			factor = 3
@@ -1315,12 +1334,14 @@ wwu_sunfury_column_5 = {
 		effect = {
 			660 = {
 				cede_province = A91
+				add_core = A91
 				change_culture = culture_blood_elf
 				change_religion = arcane
 				set_capital = A91
 			}
 			676 = {
 				cede_province = A91
+				add_core = A91
 				change_culture = culture_blood_elf
 				change_religion = arcane
 			}
@@ -1352,7 +1373,344 @@ wwu_sunfury_column_5 = {
 				event_add_warrior_personality = yes
 				set_ruler_flag = is_immortal
 			}
-			vassalize = A91
+			every_province = {
+				limit = {
+					owned_by = A91
+					culture = culture_high_elf					
+				}
+				change_culture = culture_blood_elf
+				change_religion = arcane
+			}
+			create_march = A91
+			2990 = {
+				add_permanent_claim = A93
+			}
+			760 = {
+				add_permanent_claim = A93
+			}
+			724 = {
+				add_permanent_claim = A93
+			}
+		}
+	}
+	wwu_land_on_quel_danas = {
+		icon = mission_ship_1
+        
+		required_missions = { wwu_silvermoon_liberated }
+		
+		ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+        
+		trigger = {
+			OR = {
+				2990 = {
+					controlled_by = A93
+				}
+				2990 = {
+					controlled_by = B92
+				}
+				2990 = {
+					controlled_by = A91
+				}
+				2990 = {
+					controlled_by = F54
+				}
+			}
+			OR = {
+				760 = {
+					controlled_by = A93
+				}
+				760 = {
+					controlled_by = B92
+				}
+				760 = {
+					controlled_by = A91
+				}
+				760 = {
+					controlled_by = F54
+				}
+			}
+			OR = {
+				724 = {
+					controlled_by = A93
+				}
+				724 = {
+					controlled_by = B92
+				}
+				724 = {
+					controlled_by = A91
+				}
+				724 = {
+					controlled_by = F54
+				}
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 2990
+			province_id = 760
+			province_id = 724
+        }
+		effect = {
+			2990 = {
+				cede_province = G18
+				add_core = G18
+				change_culture = culture_blood_elf
+				change_religion = fel
+				set_capital = G18
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 3
+				add_devastation = 15
+				remove_claim = A93
+				remove_claim = B92
+			}
+			760 = {
+				cede_province = G18
+				add_core = G18
+				change_culture = culture_blood_elf
+				change_religion = fel
+				add_devastation = 15
+				remove_claim = A93
+				remove_claim = B92
+			}
+			724 = {
+				cede_province = G18
+				add_core = G18
+				change_culture = culture_blood_elf
+				change_religion = fel
+				add_devastation = 15
+				remove_claim = A93
+				remove_claim = B92
+			}
+			G18 = {
+				add_stability = 3
+				add_treasury = 250				
+			}
+			create_march = G18
+			2991 = {
+				add_permanent_claim = A93
+			}
+		}
+	}
+	wwu_corrupt_the_sunwell = {
+		icon = mission_green_essence
+        
+		required_missions = { wwu_land_on_quel_danas }
+		
+		ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+        
+		trigger = {
+			OR = {
+				2991 = {
+					owned_by = A93
+				}
+				2991 = {
+					owned_by = B92
+				}
+				2991 = {
+					owned_by = A91
+				}
+				2991 = {
+					owned_by = F54
+				}
+			}
+			adm_power = 200
+			papal_influence = 50
+		}
+		provinces_to_highlight = {
+			province_id = 2991
+        }
+		effect = {
+			add_adm_power = -200
+			add_papal_influence = -50
+			2991 = {
+				cede_province = A93
+				add_core = A93
+				change_culture = culture_blood_elf
+				change_religion = fel
+				add_devastation = 25
+				add_unrest = 25
+			}
+		}
+	}
+	wwu_summon_kiljaeden = {
+		icon = mission_eradar
+        
+		required_missions = { wwu_corrupt_the_sunwell }
+		
+		ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+        
+		trigger = {
+			stability = 3
+			papal_influence = 100
+			2991 = {
+				owned_by = A93
+				religion = fel
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 2991
+        }
+		effect = {
+			add_stability = -1
+			add_papal_influence = -100
+			B92 = {
+				define_ruler_to_general = {
+					fire = 6
+					shock = 6
+					manuever = 6
+					siege = 6
+				}
+			}
+			2991 = {
+				infantry = B92
+				infantry = B92
+				infantry = B92
+				infantry = B92
+				infantry = B92
+				artillery = B92
+				artillery = B92
+				artillery = B92
+				artillery = B92
+				artillery = B92
+			}
+			custom_tooltip = summon_kiljaeden_tt
+			hidden_effect = {	
+				B92 = {
+					add_treasury = 5000
+					add_stability = 6
+				}
+				every_country = {
+					limit = {
+						NOT = { religion = fel }
+					}
+					add_stability = -3
+					add_prestige = -50
+				}
+				every_province = {
+					limit = {
+						NOT = { religion = fel }
+					}
+					add_devastation = 15
+					add_unrest = 15
+				}
+				add_stability = -2
+				if = {
+					limit = {
+						NOT = { exists = A91 }
+					}
+					660 = {
+						cede_province = A91
+						change_culture = culture_blood_elf
+						change_religion = arcane
+					}
+					676 = {
+						cede_province = A91
+						change_culture = culture_blood_elf
+						change_religion = arcane
+					}
+					A91 = {
+						define_ruler = {
+							name = "Lor'themar"
+							dynasty = "Theron"
+							adm = 5
+							dip = 4
+							mil = 6
+							age = 75
+							claim = 100
+						}
+						event_add_warrior_personality = yes
+						set_ruler_flag = is_immortal
+						set_capital = 660
+					}
+				}
+				A91 = {
+					add_stability = 3
+					grant_independence = yes
+					create_march = F54
+					set_capital = 660
+				}
+				2991 = {
+					add_core = A91
+				}
+				remove_historical_friend = A91
+				remove_historical_friend = F54
+				add_trust = {
+					who = A91
+					value = -200
+					mutual = yes
+				}
+				add_trust = {
+					who = F54
+					value = -200
+					mutual = yes
+				}
+				A91 = {
+					add_trust = {
+						who = F54
+						value = 200
+						mutual = yes
+					}
+				}
+				2990 = {
+					cede_province = G19
+					change_culture = culture_draenei
+					change_religion = light_of_the_naaru
+					add_devastation = -100
+					add_unrest = -25
+					set_capital = G19
+					infantry = G19
+					infantry = G19
+					infantry = G19
+					infantry = G19
+					infantry = G19
+					infantry = G19
+					infantry = G19
+					infantry = G19
+					infantry = G19
+					infantry = G19
+					cavalry = G19
+					cavalry = G19
+					cavalry = G19
+					artillery = G19
+					artillery = G19
+				}
+				G19 = {
+					add_stability = 3
+					add_treasury = 1000
+				}
+				A91 = {
+					create_alliance = G19
+					declare_war_with_cb = {
+						who = A93
+						casus_belli = cb_core
+						war_goal_province = 2991
+					}
+				}				
+				F54 = {
+					join_all_offensive_wars_of = A91
+				}				
+				G19 = {
+					join_all_offensive_wars_of = A91
+				}
+				B92 = {
+					join_all_defensive_wars_of = A93
+				}
+			}
 		}
 	}
 }

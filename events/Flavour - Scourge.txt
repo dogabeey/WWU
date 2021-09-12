@@ -31,7 +31,7 @@ country_event = {
         hidden_effect = {
 			P11 = {
 				add_stability = 1
-				add_treasury = 250
+				add_treasury = 1500
 			}
             if = {
                 limit = {
@@ -41,6 +41,7 @@ country_event = {
                 # Icecrown Citadel
                 1268 = {
 					cede_province = P11
+					add_core = P11
 					add_base_tax = 8
                     add_base_production = 8
                     add_base_manpower = 8
@@ -49,9 +50,18 @@ country_event = {
                     change_culture = culture_scourge
 					change_trade_goods = saronite
 					add_core = P11
+					infantry = P11
+					infantry = P11
+					infantry = P11
+					infantry = P11
+					infantry = P11
+					cavalry = P11
+					cavalry = P11
+					artillery = P11
                 }
                 1267 = {
                     cede_province = P11
+					add_core = P11
 					add_base_tax = 1
                     add_base_production = 1
                     add_base_manpower = 2
@@ -59,6 +69,7 @@ country_event = {
                     change_culture = culture_scourge
 					change_trade_goods = saronite
 					add_core = P11
+					add_building = wow_fort_1
                 }
                 P11 = {
 					define_ruler = {
@@ -73,6 +84,10 @@ country_event = {
 					add_ruler_personality = immortal_personality
 					add_ruler_personality = warlock_personality
 					set_capital = 1268
+					add_stability = 3
+					add_adm_power = 300
+					add_dip_power = 300
+					add_mil_power = 300
 					add_country_modifier = {
 						name = helm_of_domination
 						duration = -1
@@ -98,10 +113,86 @@ country_event = {
 						change_religion = cult_of_the_damned
 					}
                 }
+				area_icecrown_interior = {
+					cede_province = P11
+					add_core = P11
+					change_religion = cult_of_the_damned
+					if = {
+						limit = {
+							culture = culture_vrykul
+						}
+						change_culture = culture_scourge
+						remove_core = P17
+						remove_core = P15
+						remove_core = B09
+					}
+				}
+				area_the_conflagration = {
+					cede_province = P11
+					add_core = P11
+					change_religion = cult_of_the_damned
+					if = {
+						limit = {
+							culture = culture_vrykul
+						}
+						change_culture = culture_scourge
+						remove_core = P17
+						remove_core = P15
+						remove_core = B09
+					}
+				}				
+				area_aldurthar = {
+					cede_province = P11
+					add_core = P11
+					change_religion = cult_of_the_damned
+					if = {
+						limit = {
+							culture = culture_vrykul
+						}
+						change_culture = culture_scourge
+						remove_core = P17
+						remove_core = P15
+						remove_core = B09
+					}
+				}				
+				area_north_valley_of_lost_hope = {
+					limit = {
+						NOT = { owned_by = SNB }
+					}
+					cede_province = P11
+					add_core = P11
+					change_religion = cult_of_the_damned
+					remove_core = P17
+					remove_core = P15
+					remove_core = B09
+				}				
+				area_south_valley_of_lost_hope = {
+					limit = {
+						NOT = { owned_by = SNB }
+					}
+					cede_province = P11
+					add_core = P11
+					change_religion = cult_of_the_damned
+					remove_core = P17
+					remove_core = P15
+					remove_core = B09
+				}				
+				998 = {
+					cede_province = P11
+					add_core = P11
+					change_religion = cult_of_the_damned
+					remove_core = P17
+					remove_core = P15
+					remove_core = B09
+				}
 				P11 = {
 					create_march = P17
 					create_alliance = B08
 				}
+				complete_mission = wwu_infiltrate_jotunheim
+				complete_mission = wwu_bless_jotunheim
+				complete_mission = wwu_infiltrate_dragonflayer
+				complete_mission = wwu_bless_jotunheim
 				continent_eastern_kingdoms = {
 					discover_country = P11
 				}
