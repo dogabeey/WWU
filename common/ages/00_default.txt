@@ -631,11 +631,10 @@ age_burning_legion = {
 	can_start = {
 		custom_trigger_tooltip = {
 			tooltip = age_burning_legion_condition
-			OR = {
             current_age = age_scourge
-				any_country = {
-					NOT = { technology_group = tech_scourge }
-					owns = 1268
+			OR = {
+				P52 = {
+					NOT = { development = 75 }
 				}
 				has_global_flag = leader_of_legion_flag
 			}
