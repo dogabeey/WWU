@@ -117,7 +117,7 @@ wwu_scourge_column_1 = {
 		effect = {  
 			1267 = {
 				add_mil_power = -200
-				add_treasury = -100
+				add_treasury = -200
 				add_base_manpower = 4
 				add_building = wow_arsenal
 				add_building = wow_barracks
@@ -155,10 +155,10 @@ wwu_scourge_column_1 = {
         }
 		effect = {
 			area_the_conflagration = {
-				add_core = P11
+				add_permanent_claim = P11
 			}
 			area_aldurthar = {
-				add_core = P11
+				add_permanent_claim = P11
 			}
 			add_country_modifier = {
 				name = icecrown_citadel
@@ -200,6 +200,7 @@ wwu_scourge_column_1 = {
 				add_building = wow_manufactory
 				add_building = wow_mine
 				change_trade_goods = warbeasts
+				change_culture = culture_scourge
 			}
 			add_country_modifier = {
 				name = fleshwerks
@@ -229,20 +230,20 @@ wwu_scourge_column_1 = {
         }
 		effect = {  
 			area_north_valley_of_lost_hope = {
-				add_core = P11
+				add_permanent_claim = P11
 			}
 			area_south_valley_of_lost_hope = {
-				add_core = P11
+				add_permanent_claim = P11
 			}
 			area_the_broken_front = {
-				add_core = P11
+				add_permanent_claim = P11
 			}
 		}
 	}
 	wwu_construct_the_shadow_vault = { 
 		icon = mission_necropolis
         		
-		required_missions = { wwu_advance_to_aldurthar } 
+		required_missions = { wwu_advance_the_front } 
                 		
 		ai_weight = {
 			factor = 3
@@ -556,80 +557,6 @@ wwu_scourge_column_2 = {
 		tag = P11
 	}
 	
-	wwu_infiltrate_dragonflayer = { 
-		icon = mission_masquerade
-		completed_by = 616.12.31
-        
-		required_missions = {  } 
-		
-        ai_weight = {
-			factor = 3
-		}
-		ai_priority = {
-			factor = 3
-		}
-		
-		trigger = {
-            has_spy_network_in = {
-				who = B08
-				value = 15
-			}
-			church_power = 5
-		}
-		provinces_to_highlight = {
-            owned_by = B08
-        }
-		effect = {  
-			every_known_country = {
-				limit = {
-					tag = B08
-				}
-				set_ruler_religion = cult_of_the_damned
-				set_heir_religion = cult_of_the_damned
-				capital_scope = {
-					change_religion = cult_of_the_damned
-				}
-			}
-		}
-	}
-	wwu_bless_dragonflayer = { 
-		icon = mission_life_drain
-		completed_by = 616.12.31
-        
-		required_missions = { wwu_infiltrate_dragonflayer } 
-                		
-		ai_weight = {
-			factor = 3
-		}
-		ai_priority = {
-			factor = 3
-		}
-		
-		trigger = {
-			P17 = {
-				has_opinion = {
-					who = P11
-					value = 100
-				}
-			}
-			church_power = 10
-		}
-		provinces_to_highlight = {
-            owned_by = B08
-        }
-		effect = {  
-			B08 = {
-				change_religion = cult_of_the_damned
-				random_owned_province = {
-					change_religion = cult_of_the_damned
-					}
-				random_owned_province = {
-					change_religion = cult_of_the_damned
-				}
-				add_church_power = -5
-			}
-		}
-	}
 	wwu_infiltrate_jotunheim = { 
 		icon = mission_masquerade
 		completed_by = 616.12.31
@@ -646,7 +573,7 @@ wwu_scourge_column_2 = {
 		trigger = {
             has_spy_network_in = {
 				who = P17
-				value = 15
+				value = 10
 			}
 			church_power = 5
 		}
@@ -654,6 +581,7 @@ wwu_scourge_column_2 = {
             owned_by = P17
         }
 		effect = {  
+			add_church_power = -5
 			every_known_country = {
 				limit = {
 					tag = P17
@@ -683,7 +611,7 @@ wwu_scourge_column_2 = {
 			P17 = {
 				has_opinion = {
 					who = P11
-					value = 100
+					value = 75
 				}
 			}
 			church_power = 10
@@ -700,8 +628,93 @@ wwu_scourge_column_2 = {
 				random_owned_province = {
 					change_religion = cult_of_the_damned
 				}
-				add_church_power = -5
+				add_church_power = -10
+				every_owned_province = {
+					change_religion = cult_of_the_damned
+				}
+				add_stability = 1
 			}
+			create_alliance = P17
+		}
+	}
+	wwu_infiltrate_dragonflayer = { 
+		icon = mission_masquerade
+		completed_by = 616.12.31
+        
+		required_missions = {  } 
+		
+        ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+		
+		trigger = {
+            has_spy_network_in = {
+				who = B08
+				value = 10
+			}
+			church_power = 5
+		}
+		provinces_to_highlight = {
+            owned_by = B08
+        }
+		effect = {  
+			add_church_power = -5
+			every_known_country = {
+				limit = {
+					tag = B08
+				}
+				set_ruler_religion = cult_of_the_damned
+				set_heir_religion = cult_of_the_damned
+				capital_scope = {
+					change_religion = cult_of_the_damned
+				}
+			}
+		}
+	}
+	wwu_bless_dragonflayer = { 
+		icon = mission_life_drain
+		completed_by = 616.12.31
+        
+		required_missions = { wwu_infiltrate_dragonflayer } 
+                		
+		ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+		
+		trigger = {
+			B08 = {
+				has_opinion = {
+					who = P11
+					value = 75
+				}
+			}
+			church_power = 10
+		}
+		provinces_to_highlight = {
+            owned_by = B08
+        }
+		effect = {  
+			B08 = {
+				change_religion = cult_of_the_damned
+				random_owned_province = {
+					change_religion = cult_of_the_damned
+					}
+				random_owned_province = {
+					change_religion = cult_of_the_damned
+				}
+				add_church_power = -10
+				every_owned_province = {
+					change_religion = cult_of_the_damned
+				}
+				add_stability = 1
+			}
+			create_alliance = B08
 		}
 	}
 	wwu_corrupt_the_ascension = { 
@@ -908,10 +921,10 @@ wwu_scourge_column_2 = {
         }
 		effect = {
 			995 = {
-				add_core = P11
+				add_permanent_claim = P11
 			}
 			area_naxxanar = {
-				add_core = P11
+				add_permanent_claim = P11
 			}
 		}
 	}
@@ -1515,6 +1528,7 @@ wwu_scourge_column_3 = {
 				change_religion = cult_of_the_damned
 			}
 			vassalize = P52
+			set_global_flag = scourge_of_lordaeron_flag
 		}
 	}
 	wwu_the_culling = { 
