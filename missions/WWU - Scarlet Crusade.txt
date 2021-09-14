@@ -112,38 +112,17 @@ wwu_scarlet_crusade_column_2 = {
 	}
 	has_country_shield = yes
 	
-	wwu_scarlet_enclave = {
-	    icon = mission_shot_helmet
+	wwu_scarlet_economy = {
+	    icon = mission_trading_outpost
 		required_missions = { }
 		
 		trigger = {
-		    num_of_loans = 5
+		    monthly_income = 10
 			manpower_percentage = 0.5
 		}
 		effect = {
-		    3073 = {
-			    add_core = SCE
-			}
-			992 = {
-			    add_core = SCE
-			}
-			1011 = {
-			    add_core = SCE
-			}
-			1028 = {
-			    add_core = SCE
-			}
-			519 = {
-			    add_core = SCE
-			}
-			539 = {
-			    add_core = SCE
-			}
-			915 = {
-			    add_core = SCE
-			}
 			add_country_modifier = {
-				name = mission_scarlet_enclave
+				name = mission_rise_of_scarlet_economy
 				duration = -1
 			}
 		}
@@ -151,54 +130,16 @@ wwu_scarlet_crusade_column_2 = {
 	wwu_the_one_true_order = {
 		icon = mission_orbital_strike
 	    position = 2
-		required_missions = { wwu_scarlet_enclave }
+		required_missions = { wwu_scarlet_economy }
 			
 		trigger = {
 			NOT = { exists = A24 }
 			NOT = { exists = P13 }
 		}
 		effect = {
-			if = {
-                limit = {    
-                    935 = {
-                        owned_by = ROOT
-					}
-                }
-		        935 = {
-				    add_core = SOT
-			    }
-			}
-			if = {
-                limit = {    
-                    3235 = {
-                        owned_by = ROOT
-					}
-                }
-		        3235 = {
-				    add_core = SOT			    
-			    }
-			}
-			if = {
-                limit = {    
-                    3236 = {
-                        owned_by = ROOT
-					}
-                }
-		        3236 = {
-				    add_core = SOT				    
-			    }
-			}
-			if = {
-                limit = {    
-                    3237 = {
-                        owned_by = ROOT
-					}
-                }
-		        3237 = {
-				    add_core = SOT			    
-			    }
-			}
-			create_union = SOT
+			area_south_hearthglen = {
+                add_permanent_claim = ROOT
+            }
 			add_country_modifier = {
 				name = mission_destroying_the_heretics
 				duration = -1
@@ -279,7 +220,7 @@ wwu_scarlet_crusade_column_2 = {
 	wwu_control_dragonblight_northern_paths = {
 		icon = mission_necropolis
 	    position = 5
-		required_missions = { wwu_northrend_expedition }
+		required_missions = { wwu_northrend_expedition_sc }
 
 		trigger = {
 			area_jintha_kalar = {
@@ -475,14 +416,14 @@ wwu_scarlet_crusade_column_3 = {
 	wwu_humans_of_alterac = {
 	    icon = mission_man_running
 		position = 6
-		required_missions = { wwu_the_gilnean_walls }
+		required_missions = { wwu_the_gilnean_walls_sc }
 	
 	    trigger = {
-			OR = {
-				exists = A17
-				exists = A26
+            area_alterac_headlands = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
 			}
-			area_alterac_heartland = {
+			area_dalaran = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -523,17 +464,19 @@ wwu_scarlet_crusade_column_3 = {
             }
 		}	
     }
-	wwu_dismantle_kultiras = {
+	wwu_dismantle_kultiras_sc = {
 	    icon = mission_ship_2
 		position = 8
-		required_missions = { wwu_the_wooden_walls_of_kultiras }
+		required_missions = { wwu_the_wooden_walls_of_kultiras_sc }
 	    
 		trigger = {
 		    area_freehold = {
-				owned_by = ROOT
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			area_vigil_hill = {
-				owned_by = ROOT
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
@@ -628,7 +571,7 @@ wwu_scarlet_crusade_column_4 = {
 			create_union = F55
 		}
 	}
-	wwu_purge_the_undead = { 
+	wwu_pourge_the_undead = { 
 		icon = mission_undead_male
         position = 4
 
@@ -653,11 +596,11 @@ wwu_scarlet_crusade_column_4 = {
             }
 		}
 	}
-	wwu_purge_the_non_humans = { 
+	wwu_pourge_the_non_humans = { 
 		icon = mission_smug_elf
         position = 5
 
-		required_missions = { wwu_purge_the_undead } 
+		required_missions = { wwu_pourge_the_undead } 
         
 		trigger = {
 		    check_variable = {
@@ -853,7 +796,7 @@ wwu_scarlet_crusade_column_5 = {
 	wwu_western_plaugelands_cleansing_b = { 
 		icon = mission_stratholme_emblem
         position = 5
-		required_missions = { wwu_eastern_plaugelands_cleansing } 
+		required_missions = { wwu_western_plaugelands_cleansing_a } 
        
 		trigger = {
             NOT = { exists = P52 }
