@@ -1,0 +1,877 @@
+#--------------------------------------
+# Scarlet Crusade
+#--------------------------------------
+wwu_scarlet_crusade_column_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = A22
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_scarlet_commonwealth = {
+		icon = mission_town_houses
+		required_missions = { } 
+
+        trigger = {
+			A12 = {
+                religion = scarlet_light
+            }
+			A16 = {
+                religion = scarlet_light
+            }
+			A26 = {
+                religion = scarlet_light
+            }
+			A14 = {
+                religion = scarlet_light
+            }	
+			A18 = {
+                religion = scarlet_light
+            }
+			A24 = {
+                religion = scarlet_light
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+				name = mission_scarlet_humanity
+				duration = -1
+			}
+		}
+	}
+	wwu_scarlet_arathor = {
+	    icon = mission_stormwind_entrance
+		position = 2
+		required_missions = { }
+		
+		trigger = {
+		    region_silverpine_forest = {
+				type = all
+				owned_by = ROOT
+			}
+			region_kul_tiras = {
+				type = all
+				owned_by = ROOT
+			}
+			region_tol_barad = {
+				type = all
+				owned_by = ROOT
+			}
+			region_hillsbrad_foothills = {
+				type = all
+				owned_by = ROOT
+			}
+			region_alterac_mountains = {
+				type = all
+				owned_by = ROOT
+			}
+			region_gilneas = {
+				type = all
+				owned_by = ROOT
+			}
+			region_tirisfal_glades = {
+				type = all
+				owned_by = ROOT
+			}
+			region_western_plaguelands = {
+				type = all
+				owned_by = ROOT
+			}
+			region_eastern_plaguelands = {
+				type = all
+				owned_by = ROOT
+			}
+			region_arathi_highlands = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+		    add_country_modifier = {
+				name = mission_scarlet_empire
+				duration = -1
+			}
+			change_tag = FNA
+			change_primary_culture = culture_arathorian
+		}
+	}
+}
+
+wwu_scarlet_crusade_column_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = A22
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_scarlet_enclave = {
+	    icon = mission_shot_helmet
+		required_missions = { }
+		
+		trigger = {
+		    num_of_loans = 5
+			manpower_percentage = 0.5
+		}
+		effect = {
+		    3073 = {
+			    add_core = SCE
+			}
+			992 = {
+			    add_core = SCE
+			}
+			1011 = {
+			    add_core = SCE
+			}
+			1028 = {
+			    add_core = SCE
+			}
+			519 = {
+			    add_core = SCE
+			}
+			539 = {
+			    add_core = SCE
+			}
+			915 = {
+			    add_core = SCE
+			}
+			add_country_modifier = {
+				name = mission_scarlet_enclave
+				duration = -1
+			}
+		}
+	}
+	wwu_the_one_true_order = {
+		icon = mission_orbital_strike
+	    position = 2
+		required_missions = { wwu_scarlet_enclave }
+			
+		trigger = {
+			NOT = { exists = A24 }
+			NOT = { exists = P13 }
+		}
+		effect = {
+			if = {
+                limit = {    
+                    935 = {
+                        owned_by = ROOT
+					}
+                }
+		        935 = {
+				    add_core = SOT
+			    }
+			}
+			if = {
+                limit = {    
+                    3235 = {
+                        owned_by = ROOT
+					}
+                }
+		        3235 = {
+				    add_core = SOT			    
+			    }
+			}
+			if = {
+                limit = {    
+                    3236 = {
+                        owned_by = ROOT
+					}
+                }
+		        3236 = {
+				    add_core = SOT				    
+			    }
+			}
+			if = {
+                limit = {    
+                    3237 = {
+                        owned_by = ROOT
+					}
+                }
+		        3237 = {
+				    add_core = SOT			    
+			    }
+			}
+			create_union = SOT
+			add_country_modifier = {
+				name = mission_destroying_the_heretics
+				duration = -1
+			}
+		}
+	}
+	wwu_men_for_recruitment_sc = {
+		icon = mission_salvage
+	    position = 3
+		required_missions = { wwu_the_one_true_order }
+
+		trigger = {
+			NOT = { exists = F38 }
+		}
+		effect = {
+		    add_mil_power = 150
+			add_country_modifier = {
+				name = mission_valgarde_recruits
+				duration = -1
+			}
+			area_dawns_reach = {
+                add_permanent_claim = ROOT
+            }
+			area_naxxramas = {
+                add_permanent_claim = ROOT
+            }
+			area_wintergarde_keep = {
+                add_permanent_claim = ROOT
+            }
+			area_north_hearthglen = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_northrend_expedition_sc = {
+		icon = mission_nathrezim
+	    position = 4
+		required_missions = { wwu_men_for_recruitment_sc }
+
+		trigger = {
+			area_dawns_reach = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_naxxramas = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_wintergarde_keep = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_north_hearthglen = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_mil_power = 200
+			add_country_modifier = {
+				name = mission_expand_scarlet_onslaught
+				duration = -1
+			}
+			area_jintha_kalar = {
+                add_permanent_claim = ROOT
+            }
+			area_scarlet_point = {
+                add_permanent_claim = ROOT
+            }
+			area_the_wrath_gate = {
+                add_permanent_claim = ROOT
+            }
+			area_galakronds_rest = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_control_dragonblight_northern_paths = {
+		icon = mission_necropolis
+	    position = 5
+		required_missions = { wwu_northrend_expedition }
+
+		trigger = {
+			area_jintha_kalar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_scarlet_point = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_the_wrath_gate = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_galakronds_rest = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_mil_power = 200
+			add_country_modifier = {
+				name = mission_preparing_for_icecrown_assault
+				duration = -1
+			}
+			area_icecrown_interior = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_fall_of_icecrown = {
+		icon = mission_frozen_throne
+	    position = 6
+		required_missions = { wwu_control_dragonblight_northern_paths }
+
+		trigger = {
+			area_icecrown_interior = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = { exists = P11 }
+		}
+		effect = {
+		    add_dip_power = 250
+			add_mil_power = 250
+		    add_country_modifier = {
+				name = mission_victory_over_death
+				duration = -1
+			}
+		}
+	}
+}
+
+wwu_scarlet_crusade_column_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = A22
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+    wwu_encyrcle_capital_city = { 
+		icon = mission_raid
+        position = 2
+		required_missions = { wwu_increase_the_faith_on_crusaders } 
+       
+		trigger = {
+            area_brill = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_agamand = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_vandermar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            area = area_brill
+			area = area_agamand
+			area = area_vandermar
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+            add_adm_power = 150		
+			add_country_modifier = {
+				name = mission_the_city_humans_desire
+				duration = -1
+			}
+			area_webbed_coast = {
+                add_permanent_claim = ROOT
+            }
+			area_tirisfal_bulwark = {
+                add_permanent_claim = ROOT
+            }
+			area_silverpine_fields = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_secure_capital_city_sc = { 
+		icon = mission_stormwind_entrance
+        position = 3
+		required_missions = { wwu_encyrcle_capital_city } 
+		required_missions = { wwu_push_the_scourge_beyond_the_river } 
+       
+		trigger = {
+            area_lordaeron_capital = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            area = area_lordaeron_capital
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+            add_mil_power = 150
+            add_dip_power = 150			
+			add_country_modifier = {
+				name = mission_conquest_of_holy_city
+				duration = -1
+			}
+			region_silverpine_forest = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_legacy_of_lordaeron = {
+	    icon = mission_unity
+		position = 4
+		required_missions = { wwu_secure_capital_city_sc }
+	
+	    trigger = {
+            region_silverpine_forest = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_stability = 1
+		    add_country_modifier = {
+				name = mission_restored_kingdom_of_lordaeron
+				duration = -1
+			}
+			area_dalaran = {
+                add_permanent_claim = ROOT
+            }
+			area_alterac_heartland = {
+                add_permanent_claim = ROOT
+            }
+			area_southshore = {
+                add_permanent_claim = ROOT
+            }
+			area_northgate = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_the_gilnean_walls_sc = {
+	    icon = mission_human_male
+		position = 5
+		required_missions = { wwu_legacy_of_lordaeron }
+	
+	    trigger = {
+            area_northgate = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_gilneas_capital = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_stability = 1
+		    add_country_modifier = {
+				name = mission_gilnean_walls
+				duration = -1
+			}
+			area_boralus = {
+                add_permanent_claim = ROOT
+            }
+			create_union = A12
+		}
+	}
+	wwu_humans_of_alterac = {
+	    icon = mission_man_running
+		position = 6
+		required_missions = { wwu_the_gilnean_walls }
+	
+	    trigger = {
+            if = {
+			    limit = {
+				    exists = A17
+				}
+			}
+			if = {
+			    limit = {
+				    exists = A26
+				}
+			}
+			area_alterac_heartland = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_stability = 1
+		    add_country_modifier = {
+				name = mission_conquest_of_alterac_mountains
+				duration = -1
+			}
+			create_union = A26
+		}
+	}
+	wwu_the_wooden_walls_of_kultiras_sc = {
+	    icon = mission_ship_1
+		position = 7
+		required_missions = { wwu_humans_of_alterac }
+	    
+		trigger = {
+		    area_boralus = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			stability = 3
+			prestige = 90
+		}
+		effect = {
+		    add_country_modifier = {
+				name = mission_kultiran_naval_fall
+				duration = -1
+			}
+			create_union = TOB
+			area_freehold = {
+                add_permanent_claim = ROOT
+            }
+			area_vigil_hill = {
+                add_permanent_claim = ROOT
+            }
+		}	
+    }
+	wwu_dismantle_kultiras = {
+	    icon = mission_ship_2
+		position = 8
+		required_missions = { wwu_the_wooden_walls_of_kultiras }
+	    
+		trigger = {
+		    area_freehold = {
+				owned_by = ROOT
+			}
+			area_vigil_hill = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+	        add_country_modifier = {
+				name = mission_split_kultiran_islands
+				duration = -1
+			}
+			A14 = {
+			    release = SNG
+			}
+			A14 = {
+			    release = WYC
+			}
+		}
+	}
+}
+
+wwu_scarlet_crusade_column_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = A22
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+    wwu_increase_the_faith_on_crusaders = { 
+		icon = mission_tools     
+		required_missions = {  } 
+		
+		trigger = {
+			is_subject = no
+		    is_at_war = no
+			if = {
+				limit = {
+					has_estate = estate_clergy
+				}
+				estate_influence = {
+					estate = estate_clergy
+					influence = 50
+				}
+				estate_loyalty = {
+					estate = estate_clergy
+					loyalty = 60
+				}
+			}
+		}
+		effect = { 
+		    add_adm_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+                name = mission_scarlet_clergy
+                duration = -1
+            }
+			area_brill = {
+                add_permanent_claim = ROOT
+            }
+			area_agamand = {
+                add_permanent_claim = ROOT
+            }
+            area_vandermar = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_securing_lordaeron_citizens = { 
+		icon = mission_town_houses
+        position = 2
+
+		required_missions = { wwu_encyrcle_capital_city } 
+		required_missions = { wwu_increase_the_faith_on_crusaders }
+        
+		trigger = {
+            area_silverpine_fields = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			F55 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+				name = mission_lordaeronish_to_lordaeron
+				duration = -1
+			}
+			create_union = F55
+		}
+	}
+	wwu_pourge_the_undead = { 
+		icon = mission_undead_male
+        position = 4
+
+		required_missions = { wwu_secure_capital_city_sc } 
+        
+		trigger = {
+            check_variable = {
+                which = cultures_converted
+                value = 20
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+				name = mission_lordaeron_to_lordaeronish
+				duration = -1
+			}
+			area_ambermill = {
+                add_permanent_claim = ROOT
+            }
+			area_shadowfang_keep = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_pourge_the_non_humans = { 
+		icon = mission_smug_elf
+        position = 5
+
+		required_missions = { wwu_pourge_the_undead } 
+        
+		trigger = {
+		    check_variable = {
+                which = cultures_converted
+                value = 40
+            }
+		}
+		effect = { 
+			add_country_modifier = {
+				name = mission_purging_spree
+				duration = -1
+			}
+		}
+	}
+	wwu_scarlet_eastern_kingdoms = { 
+		icon = mission_scroll
+        position = 6
+
+		required_missions = { wwu_western_plaugelands_cleansing_b } 
+        
+		trigger = {
+		    num_of_owned_provinces_with  = { 
+				religion = scarlet_light
+				value = 250
+			}
+		}
+		effect = { 
+			add_country_modifier = {
+				name = mission_scarlet_supremacy
+				duration = -1
+			}
+		}
+	}
+}
+
+wwu_scarlet_crusade_column_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = A22
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_scourge_interference = { 
+		icon = mission_scourge
+        position = 2
+		required_missions = { wwu_increase_the_faith_on_crusaders} 
+       
+		trigger = {
+            area_tirisfal_bulwark = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_silverpine_fields = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            area = area_tirisfal_bulwark
+			area = area_silverpine_fields
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+            add_mil_power = 150		
+			add_country_modifier = {
+				name = mission_secure_our_flanks_sc
+				duration = -1
+			}
+			area_silverpine_crossing = {
+                add_permanent_claim = ROOT
+            }
+			area_andorhal = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_push_the_scourge_beyond_the_river = { 
+		icon = mission_paladin
+        position = 3
+		required_missions = { wwu_scourge_interference } 
+       
+		trigger = {
+            area_andorhal = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_lower_andorhal = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_heartglen = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_andorhal_fields = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            area = area_andorhal
+			area = area_lower_andorhal
+			area = area_heartglen
+			area = area_andorhal_fields
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+            add_dip_power = 150		
+			add_country_modifier = {
+				name = mission_nature_borders_sc
+				duration = -1
+			}
+			area_lordaeron_capital = {
+                add_permanent_claim = ROOT
+            }
+			area_scholomance = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_eastern_plaugelands_cleansing = { 
+		icon = mission_paladin
+        position = 4
+		required_missions = { wwu_push_the_scourge_beyond_the_river } 
+       
+		trigger = {
+            area_scholomance = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_eastwatch = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_plagueshore = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            area = area_scholomance
+			area = area_eastwatch
+			area = area_plagueshore
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+            add_mil_power = 100	
+			add_country_modifier = {
+				name = mission_river_borders_sc
+				duration = -1
+			}
+			area_stratholme = {
+                add_permanent_claim = ROOT
+            }
+			area_the_marris_stead = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_western_plaugelands_cleansing_a = { 
+		icon = mission_stratholme_emblem
+        position = 5
+		required_missions = { wwu_eastern_plaugelands_cleansing } 
+       
+		trigger = {
+            area_stratholme= {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_the_marris_stead = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            area = area_stratholme
+			area = area_the_marris_stead
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+            add_prestige = 20
+            add_stability = 1			
+			add_country_modifier = {
+				name = mission_end_of_sourge_of_lordaeron_a
+				duration = -1
+			}
+		}
+	}
+	wwu_western_plaugelands_cleansing_b = { 
+		icon = mission_stratholme_emblem
+        position = 5
+		required_missions = { wwu_eastern_plaugelands_cleansing } 
+       
+		trigger = {
+            NOT = { exists = P52 }
+		}
+		effect = {
+            add_mil_power = 200
+            add_adm_power = 200
+            add_dip_power = 200			
+			add_country_modifier = {
+				name = mission_end_of_sourge_of_lordaeron_b
+				duration = -1
+			}
+		}
+	}
+}
