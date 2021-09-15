@@ -124,7 +124,10 @@ wwu_scarlet_crusade_column_2 = {
 			add_country_modifier = {
 				name = mission_rise_of_scarlet_economy
 				duration = -1
-			}
+			}			
+			area_south_hearthglen = {
+                add_permanent_claim = ROOT
+            }
 		}
 	}
 	wwu_the_one_true_order = {
@@ -135,15 +138,36 @@ wwu_scarlet_crusade_column_2 = {
 		trigger = {
 			NOT = { exists = A24 }
 			NOT = { exists = P13 }
+			OR = {
+				exists = SOT
+				owns_all_provinces = {
+					area = area_south_hearthglen
+				}
+			}
 		}
 		effect = {
-			area_south_hearthglen = {
-                add_permanent_claim = ROOT
-            }
 			add_country_modifier = {
 				name = mission_destroying_the_heretics
 				duration = -1
 			}
+			if = {
+				limit = {
+					NOT = { exists = SOT }
+				}
+				area_south_hearthglen = {
+					cede_province = SOT
+				}
+				SOT = {
+					set_capital = 935
+					add_stability = 1
+				}
+				935 = {
+					add_base_tax = 2
+					add_base_production = 2
+					add_base_manpower = 2
+				}
+			}
+			create_march = SOT
 		}
 	}
 	wwu_men_for_recruitment_sc = {
@@ -203,18 +227,6 @@ wwu_scarlet_crusade_column_2 = {
 				name = mission_expand_scarlet_onslaught
 				duration = -1
 			}
-			area_jintha_kalar = {
-                add_permanent_claim = ROOT
-            }
-			area_scarlet_point = {
-                add_permanent_claim = ROOT
-            }
-			area_the_wrath_gate = {
-                add_permanent_claim = ROOT
-            }
-			area_galakronds_rest = {
-                add_permanent_claim = ROOT
-            }
 		}
 	}
 	wwu_control_dragonblight_northern_paths = {
@@ -285,7 +297,7 @@ wwu_scarlet_crusade_column_3 = {
 	}
 	has_country_shield = yes
 
-    wwu_encyrcle_capital_city = { 
+    wwu_encircle_capital_city = { 
 		icon = mission_raid
         position = 2
 		required_missions = { wwu_increase_the_faith_on_crusaders } 
@@ -330,7 +342,7 @@ wwu_scarlet_crusade_column_3 = {
 	wwu_secure_capital_city_sc = { 
 		icon = mission_stormwind_entrance
         position = 3
-		required_missions = { wwu_encyrcle_capital_city } 
+		required_missions = { wwu_encircle_capital_city } 
 		required_missions = { wwu_push_the_scourge_beyond_the_river } 
        
 		trigger = {
@@ -548,7 +560,7 @@ wwu_scarlet_crusade_column_4 = {
 		icon = mission_town_houses
         position = 2
 
-		required_missions = { wwu_encyrcle_capital_city } 
+		required_missions = { wwu_encircle_capital_city } 
 		required_missions = { wwu_increase_the_faith_on_crusaders }
         
 		trigger = {
@@ -571,7 +583,7 @@ wwu_scarlet_crusade_column_4 = {
 			create_union = F55
 		}
 	}
-	wwu_pourge_the_undead = { 
+	wwu_purge_the_undead = { 
 		icon = mission_undead_male
         position = 4
 
@@ -596,11 +608,11 @@ wwu_scarlet_crusade_column_4 = {
             }
 		}
 	}
-	wwu_pourge_the_non_humans = { 
+	wwu_purge_the_non_humans = { 
 		icon = mission_smug_elf
         position = 5
 
-		required_missions = { wwu_pourge_the_undead } 
+		required_missions = { wwu_purge_the_undead } 
         
 		trigger = {
 		    check_variable = {
