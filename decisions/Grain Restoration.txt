@@ -1,0 +1,40 @@
+country_decisions = {
+	plow_fields = {
+		potential = {
+			is_year = 617
+            NOT = { culture_group = culture_group_undead }
+			NOT = { culture_group = culture_group_scourge }
+			any_owned_province = {
+				NOT = { has_province_flag = keep_crypts_flag }
+				trade_goods = crypts
+			}			
+		}
+		
+		allow = {
+			is_year = 617
+			stability = 1
+			adm_power = 50
+			any_owned_province = {
+				NOT = { has_province_flag = keep_crypts_flag }
+				trade_goods = crypts
+			}
+		}
+		
+		effect = {
+			add_adm_power = -50
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = keep_crypts_flag }
+					trade_goods = crypts
+				}
+				change_trade_goods = grain
+				add_prestige = 10
+				add_legitimacy = 5
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
