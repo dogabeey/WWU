@@ -477,6 +477,8 @@ wwu_scourge_column_1 = {
 			}
 			3222 = {
 				cede_province = P11
+				add_colonysize = 1000
+				add_core = P11
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 4
@@ -494,6 +496,8 @@ wwu_scourge_column_1 = {
 			}
 			3221 = {
 				cede_province = P11
+				add_colonysize = 1000
+				add_core = P11
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 4
@@ -511,6 +515,8 @@ wwu_scourge_column_1 = {
 			}
 			3220 = {
 				cede_province = P11
+				add_colonysize = 1000
+				add_core = P11
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 4
@@ -528,6 +534,8 @@ wwu_scourge_column_1 = {
 			}
 			2407 = {
 				cede_province = P11
+				add_colonysize = 1000
+				add_core = P11
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 4
@@ -2030,6 +2038,11 @@ wwu_scourge_column_4 = {
 				set_base_manpower = 4
 				add_devastation = 50
 			}
+			1284 = {
+				cede_province = P11
+				add_core = P11
+				remove_core = P52			
+			}
 			custom_tooltip = plague_spreads_lordaeron_tt
 			hidden_effect = {
 				region_tirisfal_glades = {
@@ -2416,10 +2429,20 @@ wwu_scourge_column_4 = {
 		}
 		
 		trigger = {
-			SVH = {
-				all_owned_province = {
-					controlled_by = P52
+			OR = {
+				OR = {
+					SVH = {
+						all_owned_province = {
+							controlled_by = P11
+						}
+					}
+					SVH = {
+						all_owned_province = {
+							controlled_by = P52
+						}
+					}
 				}
+				NOT = { exists = SVH }
 			}
 		}
 		provinces_to_highlight = {
