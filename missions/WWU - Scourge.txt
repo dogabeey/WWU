@@ -1172,6 +1172,8 @@ wwu_scourge_column_3 = {
 			add_prestige = 50
 			2413 = {
 				cede_province = P11
+				change_culture = culture_scourge
+				change_religion = cult_of_the_damned
 				change_trade_goods = artifacts
 				add_base_manpower = 5
 				add_core = P11
@@ -1183,9 +1185,41 @@ wwu_scourge_column_3 = {
 				add_core = P11
 			}
 			if = {
+				limit = {
+					exists = FNA
+					FNA = {
+						owns = 543
+					}
+				}
+				define_ruler = {
+					name = "Terenas II"
+					dynasty = "Menethil"
+					adm = 3
+					dip = 2
+					mil = 4
+					age = 60
+					claim = 100
+				}
+				event_add_warrior_personality = yes
+				set_ruler_flag = is_immortal
+				
+				define_heir = {
+					male = yes
+					age = 12
+					dynasty = "Menethil"
+					name = "Arthas"
+					claim = 100
+					adm = 4
+					dip = 3
+					mil = 5
+				}
+				event_add_heir_paladin_personality = yes
+				set_ruler_flag = is_immortal
+			}
+			else = {
 				A08 = {
 					define_ruler = {
-					    name = "Terenas II"
+						name = "Terenas II"
 						dynasty = "Menethil"
 						adm = 3
 						dip = 2
@@ -1195,7 +1229,7 @@ wwu_scourge_column_3 = {
 					}
 					event_add_warrior_personality = yes
 					set_ruler_flag = is_immortal
-                    
+					
 					define_heir = {
 						male = yes
 						age = 12
@@ -1261,9 +1295,13 @@ wwu_scourge_column_3 = {
 			mil_power = 250
 			church_power = 50
 			treasury = 200
-            has_spy_network_in = {
-				who = A08
-				value = 15
+			543 = {
+				owner = {
+					has_spy_network_from = {
+						who = P11
+						value = 15
+					}
+				}
 			}
 		}
 		provinces_to_highlight = {
@@ -1348,9 +1386,13 @@ wwu_scourge_column_3 = {
 		}
 		
 		trigger = {
-            has_spy_network_in = {
-				who = A08
-				value = 15
+			688 = {
+				owner = {
+					has_spy_network_from = {
+						who = P11
+						value = 15
+					}
+				}
 			}
 			adm_power = 100
 			church_power = 25
@@ -1549,10 +1591,25 @@ wwu_scourge_column_3 = {
 		}
 		
 		trigger = {
-			war_with = A08
-			A08 = {
-				controls = 775
-				controls = 642
+			if = {				
+				limit = {
+					exists = FNA
+					FNA = {
+						owns = 543
+					}
+				}
+				war_with = FNA
+				FNA = {
+					controls = 775
+					controls = 642
+				}
+			}
+			else = {
+				war_with = A08
+				A08 = {
+					controls = 775
+					controls = 642
+				}  
 			}
 		}
 		provinces_to_highlight = {
@@ -1584,8 +1641,21 @@ wwu_scourge_column_3 = {
 			}
 			custom_tooltip = arthas_valgarde_tt
 			hidden_effect = {
-				A08 = {
-					remove_heir = yes
+				if = {
+					limit = {
+						exists = FNA
+						FNA = {
+							owns = 543
+						}
+					}
+					FNA = {
+						remove_heir = yes
+					}
+				}
+				else = {
+					A08 = {
+						remove_heir = yes
+					}
 				}
 				882 = {
 					cede_province = F38
@@ -1643,6 +1713,10 @@ wwu_scourge_column_3 = {
 					add_core = F38
 					change_culture = culture_lordaeron
 					change_religion = holy_light
+				}
+				F38 = {
+					join_all_defensive_wars_of = A08
+					join_all_defensive_wars_of = FNA
 				}
 			}
 		}
@@ -1892,23 +1966,47 @@ wwu_scourge_column_4 = {
 			}
 		}
 		provinces_to_highlight = {
-            owned_by = A08
+            province_id = 543
         }
 		effect = {
 			white_peace = F38
-			A08 = {
-				kill_ruler = yes
-				remove_heir = yes
-				release_all_subjects = yes
-				release = A17
-				release = A09
-				release = A27
-				release = F52
-				release = A11
-				add_stability = -6
-				add_inflation = 50
-				add_war_exhaustion = 5
-				change_tag = A25
+			if = {
+				limit = {
+					exists = FNA
+					FNA = {
+						owns = 543
+					}
+				}
+				FNA = {
+					kill_ruler = yes
+					remove_heir = yes
+					release_all_subjects = yes
+					release = A17
+					release = A09
+					release = A27
+					release = F52
+					release = A11
+					add_stability = -6
+					add_inflation = 50
+					add_war_exhaustion = 5
+					change_tag = A25
+				}
+			}
+			else = {
+				A08 = {
+					kill_ruler = yes
+					remove_heir = yes
+					release_all_subjects = yes
+					release = A17
+					release = A09
+					release = A27
+					release = F52
+					release = A11
+					add_stability = -6
+					add_inflation = 50
+					add_war_exhaustion = 5
+					change_tag = A25
+				}
 			}
 			A25 = {
 				define_ruler = {
@@ -3591,21 +3689,19 @@ wwu_scourge_column_5 = {
 					add_stability = 1
 				}
 				A25 = {
-					if = {
-						define_ruler = {
-							name = "Othmar" 
-							dynasty = "Garithos" 
-							adm = 3
-							dip = 0
-							mil = 5
-							age = 40
-							claim = 75
-						}
-						event_add_warrior_personality = yes
-						event_add_babbling_buffoon_personality = yes
-						event_add_strict_personality = yes
-						event_add_midas_touched_personality = yes
+					define_ruler = {
+						name = "Othmar" 
+						dynasty = "Garithos" 
+						adm = 3
+						dip = 0
+						mil = 5
+						age = 40
+						claim = 75
 					}
+					event_add_warrior_personality = yes
+					event_add_babbling_buffoon_personality = yes
+					event_add_strict_personality = yes
+					event_add_midas_touched_personality = yes
 				}
 				P11 = {
 					declare_war_with_cb = {
