@@ -1761,6 +1761,10 @@ warband_reform = {
         global_regiment_recruit_speed = -0.15
 	}
 	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
     conditional = {
 		allow = { has_dlc = "Cradle of Civilization" }
 		government_abilities = {
@@ -1769,10 +1773,11 @@ warband_reform = {
 	}
     
 	ai = { factor = 0 }
-    
+	    
     valid_for_new_country = yes     # Can be converted to via nation release
     allow_normal_conversion = yes   # Can be picked as a new reform
     allow_convert = yes             # Can be converted to via peace term
+	lock_level_when_selected = yes
 
     valid_for_nation_designer = yes
     nation_designer_cost = 0
@@ -2067,23 +2072,24 @@ centaur_khanate_reform = {
         movement_speed = 0.1
 	}
 	
-    conditional = {
+    custom_attributes = {
+		locked_government_type = yes
+	}       
+	
+	conditional = {
 		allow = { has_dlc = "Cradle of Civilization" }
 		government_abilities = {
 			tribal_federation_mechanic
 		}
 	}
-    
-    custom_attributes = {
-		locked_government_type = yes
-	}
-    
+	 
 	ai = { factor = 0 }
     
     valid_for_new_country = yes     # Can be converted to via nation release
     allow_normal_conversion = yes   # Can be picked as a new reform
     allow_convert = yes             # Can be converted to via peace term
-
+	lock_level_when_selected = yes
+	
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
