@@ -1217,13 +1217,18 @@ wwu_sunfury_column_5 = {
 					mutual = yes
 				}
 			}
-			660 = {
-				limit = {
-					NOT = { owned_by = F54 }
-					NOT = { owned_by = A91 }
-				}
-				add_permanent_claim = A93
-			}
+            if = {
+                limit = {
+                    660 = {
+                            NOT = { owned_by = F54 }
+                            NOT = { owned_by = A91 }
+                        }
+                    }
+                }
+                660 = {
+                    add_permanent_claim = A93
+                }
+            }
 			create_alliance = F54
 			create_alliance = A91
 			A91 = {
@@ -1370,13 +1375,15 @@ wwu_sunfury_column_5 = {
 			F54 = {		
 				add_stability = 2
 				add_prestige = 50
-			}			
-			F54 = {
-				limit = {
-					has_ruler = "Lor'themar Theron"
-				}
-				kill_ruler = yes
-			}
+			}		
+            if = {
+                limit = {
+                    F54 = {
+                        has_ruler = "Lor'themar Theron"
+                    }
+                }
+                kill_ruler = yes
+            }
 			A91 = {			
 				add_stability = 3
 				add_prestige = 100

@@ -1262,6 +1262,13 @@ country_event = {
 			factor = 100
 		}
 	}
+    
+    after = {
+        # Fire these after this event since they should only apply to the actual new ruler
+        country_event = { id = wwu_ruler_education.1 days = 7 } # The Education of [Root.Monarch.GetName]
+        country_event = { id = wwu_ruler_education.2 days = 7 } # Ascension of [Root.Monarch.GetName]
+        country_event = { id = wwu_government.8 days = 7 }      # Court Disposition
+    }
 }
 
 # Update Event - Liege and Nobles

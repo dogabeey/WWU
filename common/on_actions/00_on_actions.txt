@@ -573,15 +573,23 @@ on_new_monarch = {
 		}
 	}
     
+    # Fire these unless Tribal Vote is enacted (it fires them itself after its passing)
+    if = {
+        limit = {
+            NOT = { has_government_attribute = enables_tribal_vote }
+        }
+        country_event = { id = wwu_ruler_education.1 days = 7 } # The Education of [Root.Monarch.GetName]
+        country_event = { id = wwu_ruler_education.2 days = 7 } # Ascension of [Root.Monarch.GetName]
+        country_event = { id = wwu_government.8 days = 7 }      # Court Disposition
+    }
+    
     events = {
-        wwu_ruler_education.1    # The Education of [Root.Monarch.GetName]
-        wwu_ruler_education.2    # Ascension of [Root.Monarch.GetName]
 		wwu_dynastic.19
 		wwu_pretender.1
         wwu_dragon_aspects.3
         wwu_dragon_aspects.5
-        wwu_government.8         # Court Disposition
     }
+    
 	random_events = {
 		1000 = 0
 		50 = wwu_dynastic.30
@@ -628,6 +636,15 @@ on_monarch_death = {
         country_event = { id = wwu_government.15 } # Tribal Vote
     }
     
+    # Block if Tribal Vote is used
+    if = {
+        limit = {
+            NOT = { has_government_attribute = enables_tribal_vote }
+        }
+        
+        country_event = { id = wwu_shamanism.1 } # Passing of Great Leader
+    }
+    
     if = {
         limit = {
             has_country_modifier = head_of_old_horde
@@ -646,7 +663,6 @@ on_monarch_death = {
     
 	events = {
 		loa.2 # Remove old loa's influence
-        wwu_shamanism.1 # Passing of Great Leader
         wwu_government.11 # Gavelkind Succession
 	}
     
