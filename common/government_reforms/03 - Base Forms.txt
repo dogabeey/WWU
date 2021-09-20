@@ -1773,6 +1773,44 @@ naga_empire_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+blood_matriarchy_reform = {
+	icon = "blood_frenzy"
+    legacy_equivalent = blood_matriarchy_legacy
+    
+    potential = {
+        have_had_reform = blood_matriarchy_reform
+        religion = bloodmancy
+    }
+    
+	modifiers = {
+        global_manpower_modifier = 0.25
+		manpower_recovery_speed = 0.2
+        global_regiment_recruit_speed = -0.33
+	}
+	
+    heir = no
+    election_on_death = yes
+    
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+    
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
 
 #--------------------------------------------
 # Tribal

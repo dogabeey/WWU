@@ -1504,6 +1504,141 @@ country_event = {
     }
 }
 
+# G'huun's Chosen
+country_event = {
+	id = wwu_government.18
+	title = wwu_government.18.title
+	desc = wwu_government.18.desc
+	picture = TROLL_MASK_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_reform = blood_matriarchy_reform
+	}
+	
+    # An Elder shall lead us!
+	option = {
+		name = wwu_government.18.option.a
+
+		define_ruler = {
+            adm = 5
+            dip = -2
+            mil = -2
+            hide_skills = yes
+            female = yes
+        }
+		
+		ai_chance = {
+			factor = 25
+		}
+	}
+    
+    # A High Priestess shall lead us!
+	option = {
+		name = wwu_government.18.option.b
+
+		define_ruler = {
+            dip = 5
+            adm = -2
+            mil = -2
+            hide_skills = yes
+            female = yes
+        }
+		
+		ai_chance = {
+			factor = 25
+		}
+	}
+    
+    # A Warmother shall lead us!
+	option = {
+		name = wwu_government.18.option.c
+
+		define_ruler = {
+            mil = 5
+            adm = -2
+            dip = -2
+            hide_skills = yes
+            female = yes
+        }
+		
+		ai_chance = {
+			factor = 25
+		}
+	}
+    
+    # Spawn pretenders if legitimacy is low
+    after = {
+        hidden_effect = {
+            if = {
+                limit = {
+                    NOT = { devotion = 15 }
+                }
+                random_owned_province = {
+                    limit = { 
+                        is_in_capital_area = yes
+                    }
+                    pretender_rebels = 3
+                }
+                random_owned_province = {
+                    limit = { 
+                        is_in_capital_area = yes
+                    }
+                    pretender_rebels = 2
+                }
+            }
+            else_if = {
+                limit = {
+                    NOT = { devotion = 30 }
+                }
+                random_owned_province = {
+                    limit = { 
+                        is_in_capital_area = yes
+                    }
+                    pretender_rebels = 3
+                }
+                random_owned_province = {
+                    limit = { 
+                        is_in_capital_area = yes
+                    }
+                    pretender_rebels = 1
+                }
+            }
+            else_if = {
+                limit = {
+                    NOT = { devotion = 45 }
+                }
+                random_owned_province = {
+                    limit = { 
+                        NOT = { is_in_capital_area = yes }
+                    }
+                    pretender_rebels = 3
+                }
+            }
+            else_if = {
+                limit = {
+                    NOT = { devotion = 60 }
+                }
+                random_owned_province = {
+                    limit = { 
+                        NOT = { is_in_capital_area = yes }
+                    }
+                    pretender_rebels = 2
+                }
+            }
+            else = {
+                random_owned_province = {
+                    limit = { 
+                        NOT = { is_in_capital_area = yes }
+                    }
+                    pretender_rebels = 1
+                }
+            }
+        }
+    }
+}
+
 # Update Event - Liege and Nobles
 country_event = {
 	id = wwu_government.100
