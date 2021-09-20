@@ -194,6 +194,9 @@ country_decisions = {
         potential = {
             has_government_attribute = enables_unite_heathens_decision
             NOT = { has_country_modifier = unite_heathens_cooldown }
+            any_owned_province = {
+                NOT = { has_owner_religion = yes }
+            }
         }
         allow = {
             has_government_attribute = enables_unite_heathens_decision
@@ -204,7 +207,7 @@ country_decisions = {
             
             every_owned_province = {
                 limit = {
-                    NOT = { religion_group = ROOT }
+                    NOT = { has_owner_religion = yes }
                 }
                 add_horde_unity = 1
             }
@@ -212,6 +215,7 @@ country_decisions = {
             add_country_modifier = {
                 name = unite_heathens_cooldown
                 duration = 3650
+                hidden = yes
             }
         }		
         ai_will_do = {

@@ -630,23 +630,6 @@ on_monarch_death = {
     
     if = {
         limit = {
-            has_government_attribute = enables_tribal_vote
-        }
-        
-        country_event = { id = wwu_government.15 } # Tribal Vote
-    }
-    
-    # Block if Tribal Vote is used
-    if = {
-        limit = {
-            NOT = { has_government_attribute = enables_tribal_vote }
-        }
-        
-        country_event = { id = wwu_shamanism.1 } # Passing of Great Leader
-    }
-    
-    if = {
-        limit = {
             has_country_modifier = head_of_old_horde
         }
         
@@ -664,6 +647,7 @@ on_monarch_death = {
 	events = {
 		loa.2 # Remove old loa's influence
         wwu_government.11 # Gavelkind Succession
+        wwu_shamanism.1 # Passing of Great Leader
 	}
     
     random_events = {
@@ -708,6 +692,7 @@ on_death_election = {
 	events = {
 		wwu_government.1    # On Death Election
         wwu_government.5    # Lottery Election
+        wwu_government.15   # Tribal Vote
 	}
 }
 
