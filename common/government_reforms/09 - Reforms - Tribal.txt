@@ -91,6 +91,149 @@ wwu_warriors_nomadic_warriors = {
 	}
 }
 
+# Orc
+wwu_warriors_unrelenting_savagery = {
+	icon = "backstab"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    
+	modifiers = {
+        infantry_power = 0.1
+        infantry_shock = 1.0
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_warriors_cannibalistic_tendencies = {
+	icon = "cannibal"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    trigger = {
+        OR = {
+            tag = A39 # Bonechewer
+            calc_true_if = {
+                any_owned_province = {
+                    has_terrain = jungle
+                }
+                
+                amount = 10
+            }
+        }
+    }
+    
+	modifiers = {
+        infantry_power = 0.15
+	}
+    
+    custom_attributes = {
+        enables_cannibals_debuff = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_warriors_dragon_tamers = {
+	icon = "valithra"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    trigger = {
+        OR = {
+            tag = A45 # Dragonmaw
+            calc_true_if = {
+                any_owned_province = {
+                    culture_group = culture_group_dragonkin
+                }
+                
+                amount = 5
+            }
+        }
+    }
+    
+	modifiers = {
+        cavalry_fire = 2
+        artillery_bonus_vs_fort = 2
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_warriors_warg_kinship = {
+	icon = "thrall"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    trigger = {
+        OR = {
+            tag = A37 # Thunderlord
+            tag = A46 # Frostwolf
+            AND = { 
+                num_of_cavalry = 30
+                calc_true_if = {
+                    any_owned_province = {
+                        has_terrain = mountain
+                    }
+                    
+                    amount = 5
+                }
+            }
+        }
+    }
+    
+	modifiers = {
+        cavalry_power = 0.15
+        movement_speed = 0.15
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_warriors_war_songs = {
+	icon = "shout"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    trigger = {
+        OR = {
+            tag = A35 # Warsong
+            total_development = 100
+        }
+    }
+    
+	modifiers = {
+        horde_unity = 1.0
+	}
+    
+    custom_attributes = {
+        enables_warsong_event = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
 #-----------------------------------------
 # Paganism (Level 2)
 #-----------------------------------------
@@ -201,6 +344,102 @@ wwu_paganism_many_gods_one_horde = {
 	}
 }
 
+# Orc
+wwu_paganism_elemental_communion = {
+	icon = "echo_of_the_elements"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    trigger = {
+        OR = {
+            religion = shamanism
+            AND = {
+                NOT = { current_age = age_rise_of_the_horde }
+                NOT = { current_age = age_orcish_horde }
+            }
+        }
+    }
+    
+	modifiers = {
+        tolerance_own = 2 
+	}
+
+    custom_attributes = {
+        enables_embark_on_spirit_journey_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_paganism_slaves_of_mannoroth = {
+	icon = "fel_skull"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    trigger = {
+        religion = fel
+    }
+    
+	modifiers = {
+        discipline = 0.025
+	}
+
+    custom_attributes = {
+        enables_demonic_covenant_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_paganism_occult_shadows = {
+	icon = "clarity_of_power"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    trigger = {
+        OR = {
+            is_old_god_religion = yes
+            OR = {
+                AND = {
+                    tag = A43
+                    is_old_god_religion = yes
+                }
+                AND = {
+                    A43 = {
+                        is_old_god_religion = yes
+                    }
+                    alliance_with = A43
+                }
+                AND = {
+                    A43 = {
+                        is_old_god_religion = yes
+                    }
+                    is_subject_of = A43
+                }
+            }
+        }
+    }
+    
+	modifiers = {
+        land_morale = 0.1
+        global_missionary_strength = 0.03
+	}
+
+    ai = {
+		factor = 1
+	}
+}
+
 #-----------------------------------------
 # Tribal Magic (Level 3)
 #-----------------------------------------
@@ -304,6 +543,87 @@ wwu_tribal_magic_wild_magic = {
         enables_expel_wild_magic_decision = yes
     }
     
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_magic_altar_of_storms = {
+	icon = "stormstrike"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    trigger = {
+        OR = {
+            religion = shamanism
+            religion = fel
+        }
+    }
+    
+	modifiers = {
+        all_power_cost = -0.05
+	}
+
+    custom_attributes = {
+        mechanic_enables_orc_monarch_lifespan_boost = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_magic_temple_of_the_damned = {
+	icon = "brittle_bones"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    trigger = {
+        OR = {
+            tag = A42 # Stormreaver
+            any_owned_province = {
+                region = region_elwynn_forest
+            }
+        }
+    }
+    
+	modifiers = {
+        leader_land_fire = 1
+        leader_land_shock = 1
+        free_leader_pool = 2
+	}
+
+    custom_attributes = {
+        enables_spread_death_and_decay_decision = yes
+    }
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_tribal_magic_warlock_coven = {
+	icon = "demonic_power"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+    }
+    trigger = {
+        OR = {
+            tag = A42 # Stormreaver
+            religion = fel
+        }
+    }
+    
+	modifiers = {
+        
+	}
+
     ai = {
 		factor = 1
 	}

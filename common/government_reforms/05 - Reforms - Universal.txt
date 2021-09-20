@@ -104,6 +104,7 @@ wwu_labor_tier_slavery = {
 	}
 }
 
+# Human
 wwu_labor_tier_peasantry = {
 	icon = "barn"
 	allow_normal_conversion = yes
@@ -195,6 +196,7 @@ wwu_military_elitism = {
 	}
 }
 
+# Human
 wwu_military_knighthood = {
 	icon = "atonement"
 	allow_normal_conversion = yes
@@ -473,6 +475,7 @@ wwu_magic_magical_society = {
 	}
 }
 
+# Human
 wwu_magic_dalaran_education = {
 	icon = "kirin_tor"
 	allow_normal_conversion = yes
@@ -838,12 +841,25 @@ wwu_idealism_unity = {
 	}
 }
 
+# Human
 wwu_idealism_bulwark_of_the_alliance = {
 	icon = "alliance"
 	allow_normal_conversion = yes
 
+    potential = {
+        OR = {
+            has_country_modifier = head_of_alliance
+            culture_group = culture_group_human
+        }
+    }
     trigger = {
-        has_country_modifier = head_of_alliance
+        OR = {
+            has_country_modifier = head_of_alliance
+            AND = {
+                culture_group = culture_group_human
+                num_of_allies = 5
+            }
+        }
     }
 
 	modifiers = {
@@ -855,7 +871,6 @@ wwu_idealism_bulwark_of_the_alliance = {
 		factor = 1
 	}
 }
-
 
 #-----------------------------------------
 # Diplomatic Attitude 
@@ -1071,6 +1086,39 @@ wwu_territory_future_statehood = {
         num_accepted_cultures = 1
 	}
     
+    ai = {
+		factor = 1
+	}
+}
+
+# Human
+wwu_territory_victors_of_the_second_war = {
+	icon = "renewed_vigor"
+	allow_normal_conversion = yes
+
+    potential = {
+        culture_group = culture_group_human
+    }
+    trigger = {
+        culture_group = culture_group_human
+        OR = {
+            current_age = age_scourge
+            current_age = age_burning_legion
+        }
+    }
+
+	modifiers = {
+        prestige = 1.0
+        land_morale = 0.1
+	}
+    
+    effect = {
+        add_power_projection = {
+            type = effect_power_projection_no_decay
+            amount = 15
+        }
+    }
+
     ai = {
 		factor = 1
 	}

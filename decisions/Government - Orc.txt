@@ -1,0 +1,85 @@
+country_decisions = {
+    embark_on_spirit_journey = {
+        potential = {
+            has_government_attribute = enables_embark_on_spirit_journey_decision
+        }
+        allow = {
+            has_government_attribute = enables_embark_on_spirit_journey_decision
+            adm_power = 100
+            NOT = { has_country_modifier = spirit_journey }
+        }
+        effect = {
+            add_adm_power = -100
+            
+            add_country_modifier = {
+                name = spirit_journey
+                duration = 1800
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { is_at_war = yes }
+            }
+        }
+    }
+    
+    form_demonic_covenant = {
+        potential = {
+            has_government_attribute = enables_demonic_covenant_decision
+        }
+        allow = {
+            has_government_attribute = enables_demonic_covenant_decision
+            mil_power = 100
+            NOT = { has_country_modifier = fel_blood }
+        }
+        effect = {
+            add_mil_power = -100
+            
+            add_country_modifier = {
+                name = fel_blood
+                duration = 1800
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { is_at_war = yes }
+            }
+        }
+    }
+    
+    spread_death_and_decay = {
+        potential = {
+            has_government_attribute = enables_spread_death_and_decay_decision
+        }
+        allow = {
+            has_government_attribute = enables_spread_death_and_decay_decision
+            mil_power = 100
+            NOT = { has_country_modifier = death_and_decay }
+        }
+        effect = {
+            add_mil_power = -100
+            
+            add_country_modifier = {
+                name = death_and_decay
+                duration = 1800
+            }
+        }		
+        ai_will_do = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { is_at_war = yes }
+            }
+        }
+    }
+}
