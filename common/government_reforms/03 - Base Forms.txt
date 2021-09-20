@@ -606,8 +606,10 @@ gorian_empire_reform = {
 			mamluk_mechanic
 		}
 	}
+    
+    generals_become_rulers = yes
+    
 	custom_attributes = {
-		generals_become_rulers = yes
 		locked_government_type = yes
 	}
 	
@@ -627,7 +629,42 @@ gorian_empire_reform = {
     nation_designer_cost = 0
 	
 }
-
+zandalari_empire_reform = {
+	icon = "city_of_gold"
+    legacy_equivalent = zandalari_empire_legacy
+    
+    potential = {
+        have_had_reform = zandalari_empire_reform
+        primary_culture = culture_zandalari_troll
+    }
+    
+    monarchy = yes
+    
+    queen = yes
+    heir = no
+    
+    election_on_death = yes
+    
+	modifiers = {
+        prestige = 1.0
+		discipline = 0.05
+        max_absolutism = 30
+	}
+	
+	ai = { factor = 0 }
+    
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
 
 #--------------------------------------------
 # Republic

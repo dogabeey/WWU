@@ -1337,6 +1337,173 @@ country_event = {
 	}
 }
 
+# Zanchuli Council
+country_event = {
+	id = wwu_government.17
+	title = wwu_government.17.title
+	desc = wwu_government.17.desc
+	picture = TROLL_MASK_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_reform = zandalari_empire_reform
+	}
+	
+    # A Prophet shall lead us!
+	option = {
+		name = wwu_government.17.option.a
+
+		define_ruler = {
+            adm = 3
+            min_age = 40
+            hide_skills = yes
+            random_gender = yes
+        }
+		
+		ai_chance = {
+			factor = 25
+		}
+	}
+    
+    # A High Priestess shall lead us!
+	option = {
+		name = wwu_government.17.option.b
+
+		define_ruler = {
+            dip = 3
+            min_age = 40
+            hide_skills = yes
+            female = yes
+        }
+		
+		ai_chance = {
+			factor = 25
+		}
+	}
+    
+    # A Champion shall lead us!
+	option = {
+		name = wwu_government.17.option.c
+
+		define_ruler = {
+            mil = 3
+            min_age = 40
+            hide_skills = yes
+            random_gender = yes
+        }
+		
+		ai_chance = {
+			factor = 25
+		}
+	}
+    
+    # A Hexlord shall lead us!
+	option = {
+		name = wwu_government.17.option.d
+
+		define_ruler = {
+            dip = 2
+            mil = 2
+            min_age = 20
+            hide_skills = yes
+            random_gender = yes
+        }
+        
+		ai_chance = {
+			factor = 25
+		}
+	}
+    
+    # A High Prelate shall lead us!
+	option = {
+		name = wwu_government.17.option.e
+
+		define_ruler = {
+            adm = -2
+            dip = -2
+            mil = 5
+            min_age = 60
+            hide_skills = yes
+            random_gender = yes
+        }
+        
+		ai_chance = {
+			factor = 25
+		}
+	}
+    
+    # Spawn pretenders if legitimacy is low
+    after = {
+        hidden_effect = {
+            if = {
+                limit = {
+                    NOT = { legitimacy = 15 }
+                }
+                random_owned_province = {
+                    limit = { 
+                        is_in_capital_area = yes
+                    }
+                    pretender_rebels = 3
+                }
+                random_owned_province = {
+                    limit = { 
+                        is_in_capital_area = yes
+                    }
+                    pretender_rebels = 2
+                }
+            }
+            else_if = {
+                limit = {
+                    NOT = { legitimacy = 30 }
+                }
+                random_owned_province = {
+                    limit = { 
+                        is_in_capital_area = yes
+                    }
+                    pretender_rebels = 3
+                }
+                random_owned_province = {
+                    limit = { 
+                        is_in_capital_area = yes
+                    }
+                    pretender_rebels = 1
+                }
+            }
+            else_if = {
+                limit = {
+                    NOT = { legitimacy = 45 }
+                }
+                random_owned_province = {
+                    limit = { 
+                        NOT = { is_in_capital_area = yes }
+                    }
+                    pretender_rebels = 3
+                }
+            }
+            else_if = {
+                limit = {
+                    NOT = { legitimacy = 60 }
+                }
+                random_owned_province = {
+                    limit = { 
+                        NOT = { is_in_capital_area = yes }
+                    }
+                    pretender_rebels = 2
+                }
+            }
+            else = {
+                random_owned_province = {
+                    limit = { 
+                        NOT = { is_in_capital_area = yes }
+                    }
+                    pretender_rebels = 1
+                }
+            }
+        }
+    }
+}
+
 # Update Event - Liege and Nobles
 country_event = {
 	id = wwu_government.100
