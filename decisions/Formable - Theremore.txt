@@ -1,0 +1,60 @@
+country_decisions = {
+    theramore_nation = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+			NOT = { has_country_modifier = centralization_modifier }
+			NOT = { exists = A23 } # Theramore
+            
+            # Requisites
+			culture_group = culture_group_human
+			capital_scope = { 
+                continent = continent_eastern_kingdoms 
+            }
+			
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+			area = area_theramore_isle
+		}
+        
+		allow = {
+            # Ownership
+			area_theramore_isle = {
+                owned_by = ROOT
+            }
+            
+		    # General
+			is_at_war = no	
+			stability = 1
+            total_development = 100
+            
+            # Cost
+            adm_power = 200
+			dip_power = 200
+			mil_power = 200
+		}
+        
+		effect = {  
+            # Cost
+            add_adm_power = -200
+			add_dip_power = -200
+            add_mil_power = -200
+            
+            # Switch
+			change_tag = A23
+			change_government = monarchy
+			set_capital = 1456
+            
+            # Bonus
+            add_formable_bonus = yes
+		}
+        
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

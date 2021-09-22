@@ -1,0 +1,53 @@
+country_decisions = {
+    restore_kingdom_of_gilneas = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+			NOT = { has_country_modifier = centralization_modifier }
+			NOT = { exists = A12 } # Gilneas
+            
+            # Requisites
+			primary_culture = culture_gilnean
+			
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+			region = region_gilneas
+		}
+        
+		allow = {
+            # Ownership
+		    owns_core_province = 927 # Gilneas CIty
+
+            # General
+			is_at_war = no	
+			stability = 1
+			total_development = 300
+            
+			# Cost
+            adm_power = 200
+			dip_power = 200
+			mil_power = 200
+		}
+		effect = {  
+            # Cost
+			add_adm_power = -200
+			add_dip_power = -200
+            add_mil_power = -200
+            
+            # Switch
+			change_tag = A12
+            change_government = monarchy
+			set_capital = 927
+            
+            # Bonus
+            add_formable_bonus = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

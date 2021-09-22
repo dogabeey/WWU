@@ -1,0 +1,102 @@
+country_decisions = {
+    form_exodar = {
+		major = yes
+		ai_importance = 300
+        
+		potential = {
+            # Exclusions
+            NOT = { has_country_modifier = centralization_modifier }
+			NOT = { exists = A56 }
+			NOT = { has_global_flag = exodar_escaped }
+            
+            # Requisites
+			OR = {
+				tag = A54
+				AND = {
+					NOT = { exists = A54 }
+					culture_group = culture_group_draenei
+				}
+			}
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+			province_id = 1717
+		}
+        
+		allow = {
+            # Ownership
+			1717 = {
+				controlled_by = ROOT
+			}
+            
+			# General
+			is_at_war = no	
+			stability = 1
+            
+            # Cost
+            adm_power = 200
+			dip_power = 200
+			mil_power = 200
+		}
+		
+		effect = {
+            # Cost
+            add_adm_power = -200
+			add_dip_power = -200
+            add_mil_power = -200
+            
+            # Switch
+			custom_tooltip = form_exodar_tt
+			change_tag = A56
+            
+			1717 = {
+				cede_province = ROOT
+				add_core = ROOT
+				change_culture = ROOT
+				change_religion = ROOT
+				set_province_flag = exodar_ship
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						NOT = { has_province_flag = exodar_ship }
+					}
+					remove_core = ROOT
+					kill_units = {
+						who = ROOT
+						amount = 500
+					}
+					cede_province = V73
+					add_core = V73
+				}
+			}
+			if = {
+				limit = { ai = no }
+				country_event = {
+					id = wwu_exodar.1
+					days = 182
+				}
+			}
+			else = {
+				country_event = {
+					id = wwu_exodar.1
+					days = 3650
+				}
+			}
+			set_global_flag = exodar_escaped
+			set_country_flag = complete_stasis
+            
+            # Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				total_development = 40
+			}
+		}
+	}
+}

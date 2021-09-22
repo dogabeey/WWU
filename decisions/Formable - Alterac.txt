@@ -1,5 +1,4 @@
 country_decisions = {
-
     restore_kingdom_of_alterac = {
 		major = yes
 		potential = {
@@ -27,18 +26,24 @@ country_decisions = {
 			is_at_war = no		
 		}
 		effect = {
-			add_prestige = 25
+            # Cost
+			add_dip_power = -300
+        
+            # Switch
 			change_tag = A17
 			change_primary_culture = culture_alterac
-			add_dip_power = -300
+			change_government = monarchy
+			set_capital = 773
+            
+            # Bonus
+			add_prestige = 25
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
             
-			change_government = monarchy
-			set_capital = 773
-			swap_free_idea_group = yes
+            # National Ideas
+			country_event = { id = wwu_ideagroups.100 }
 		}
 		
 		ai_importance = 300

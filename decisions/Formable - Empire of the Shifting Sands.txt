@@ -1,0 +1,73 @@
+country_decisions = {
+    establish_the_empire_of_the_shifting_sands = {
+		major = yes
+		
+		potential = {
+            # Exclusions
+            NOT = { has_country_modifier = centralization_modifier }
+			NOT = { exists = U02 } 
+            
+            # Requisites
+			culture_group = culture_group_aqir
+		}
+        
+		provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+			OR = {
+                region = region_silithus
+                region = region_ungoro_crater
+                region = region_tanaris
+                region = region_uldum
+            }
+		}
+        
+		allow = {
+            # Ownership
+            region_silithus = {
+                owned_by = ROOT
+                type = all
+            }
+            
+            region_ungoro_crater = {
+                owned_by = ROOT
+                type = all
+            }
+            
+            region_tanaris = {
+                owned_by = ROOT
+                type = all
+            }
+            
+            region_uldum = {
+                owned_by = ROOT
+                type = all
+            }
+            
+			# General
+			is_at_war = no	
+			stability = 1
+            
+            # Cost
+            adm_power = 200
+			dip_power = 200
+			mil_power = 200
+		}
+		
+		effect = {
+            # Cost
+			add_adm_power = -200
+			add_dip_power = -200
+            add_mil_power = -200
+            
+            # Switch
+			change_tag = U02
+
+            # Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

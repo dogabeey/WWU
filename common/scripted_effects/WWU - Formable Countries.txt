@@ -1,0 +1,29 @@
+add_formable_bonus = {
+    # Generic Bonus
+    add_prestige = 25
+    capital_scope = {
+        add_base_tax = 1
+        add_base_production = 1
+        add_base_manpower = 1
+    }
+    
+    # Formable Modifier (this blocks new formables whilst active)
+    add_country_modifier = {
+        name = "centralization_modifier"
+        duration = 7300
+    }
+    
+    # Switch National Ideas
+    country_event = { id = wwu_ideagroups.100 }
+    
+    # Increase Government Rank
+    if = {
+        limit = {
+            government_rank = 2
+        }
+        set_government_rank = 3
+    }
+    else = {
+        set_government_rank = 2
+    }
+}

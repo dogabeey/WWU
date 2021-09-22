@@ -1,0 +1,66 @@
+country_decisions = {
+    restore_kingdom_of_quelthalas = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+			NOT = { has_country_modifier = centralization_modifier }
+			NOT = { tag = B94 }
+			NOT = { exists = A90 } # QuelThalas
+            
+            # Requisites
+			culture_group = culture_group_thalassian
+			
+		}
+        
+        provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+			OR = {
+                province_id = 660
+                province_id = 2991
+                province_id = 1039
+            }
+		}
+        
+		allow = {
+            # Ownership
+		    owns_core_province = 660    # Silvermoon
+			owns_core_province = 2991   # Sunwell
+			owns_core_province = 1039   # Deatholme
+            
+            # General
+			is_at_war = no	
+			stability = 1
+            total_development = 300
+            
+            # Cost
+            adm_power = 200
+			dip_power = 200
+			mil_power = 200
+		}
+		effect = {
+            # Cost
+			add_adm_power = -200
+			add_dip_power = -200
+            add_mil_power = -200
+            
+            # Switch
+			change_tag = A90
+			change_primary_culture = culture_high_elf
+			change_government = monarchy
+			set_capital = 660
+            capital_scope = {
+                change_culture = culture_high_elf
+            }
+            
+            # Bonus
+            add_formable_bonus = yes
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}
