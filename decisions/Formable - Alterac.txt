@@ -1,33 +1,46 @@
 country_decisions = {
     restore_kingdom_of_alterac = {
 		major = yes
+        ai_importance = 300
+        
 		potential = {
-			
+			# Exclusions
+            NOT = { has_country_modifier = centralization_modifier }
 			NOT = { exists = A17 } # Alterac
+            
+            # Requisites
 			primary_culture = culture_alterac
-			is_colonial_nation = no
 			
 		}
+        
         provinces_to_highlight = {
-			region = region_alterac_mountains
-			OR = {
-				NOT = { owned_by = ROOT }
-				#is_city = no
-			}
+            NOT = { owned_by = ROOT }
+			area = area_alterac_heartland
 		}
-		allow = {
-		    owns_core_province = 773 #Ruins of Alterac
-			NOT = { exists = A17 }
-			total_development = 200
-			stability = 2
-			prestige = 50
-			dip = 3
-			dip_power = 300
-			is_at_war = no		
+        
+		allow = {   
+            # Ownership
+		    area_alterac_heartland = {
+                type = all
+                owned_by = ROOT
+            }
+            
+			# General
+			is_at_war = no	
+			stability = 1
+            total_development = 100
+            
+            # Cost
+            adm_power = 200
+			dip_power = 200
+			mil_power = 200
 		}
+        
 		effect = {
             # Cost
-			add_dip_power = -300
+			add_adm_power = -200
+			add_dip_power = -200
+            add_mil_power = -200
         
             # Switch
 			change_tag = A17
@@ -36,17 +49,10 @@ country_decisions = {
 			set_capital = 773
             
             # Bonus
-			add_prestige = 25
-			add_country_modifier = {
-				name = "centralization_modifier"
-				duration = 7300
-			}
-            
-            # National Ideas
-			country_event = { id = wwu_ideagroups.100 }
+			add_formable_bonus = yes
 		}
 		
-		ai_importance = 300
+		
 		
 		ai_will_do = {
 			factor = 1

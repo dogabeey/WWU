@@ -2,18 +2,37 @@ country_decisions = {
 	
 	helm_of_domination = {
 		major = yes
-		
+		ai_importance = 300
+        
 		potential = {
+            # Exclusions
 			NOT = { has_country_modifier = helm_of_domination }
 			NOT = { has_global_flag = destroyed_helm_flag }
-			controls = 1268
+            
+            # Requisites
+			controls = 1268 # Icecrown Citadel
 		}
 		
 		allow = {
-			controls = 1268
+            # Ownership
+			controls = 1268 # Icecrown Citadel
+            
+            # General
+			is_at_war = no
+            
+            # Cost
+            adm_power = 100
+			dip_power = 100
+			mil_power = 100
 		}
 		
 		effect = {
+            # Cost
+			add_adm_power = -100
+			add_dip_power = -100
+            add_mil_power = -100
+            
+            # Helm of Domination
 			hidden_effect = {
 				every_country = {
 					remove_country_modifier = helm_of_domination
@@ -23,22 +42,30 @@ country_decisions = {
 				name = helm_of_domination 
 				duration = -1
 			}
+            
+            # Switch
+            if = {
+                limit = {
+                    exists = P11
+                }
+                inherit = P11
+            }
+            change_tag = P11
+            
+			set_capital = 1268
+            
+            change_government = monarchy
+			add_government_reform = scourge_reform
+			change_technology_group = tech_scourge
+			change_unit_type = tech_scourge
+			change_religion = cult_of_the_damned
+			change_primary_culture = culture_scourge
 			hidden_effect = { 
 				capital_scope = { 
 					change_religion = cult_of_the_damned
 					change_culture = culture_scourge
 				}
 			}
-			set_capital = 1268
-			change_primary_culture = culture_scourge
-			change_religion = cult_of_the_damned
-			change_technology_group = tech_scourge
-			change_unit_type = tech_scourge
-			inherit = P11
-			change_tag = P11
-			change_government = monarchy
-			add_government_reform = scourge_reform
-			country_event = { id = wwu_ideagroups.100 }
 			add_accepted_culture = culture_death_knight
 			add_accepted_culture = culture_crypt_fiend
 			add_accepted_culture = culture_cultist
@@ -46,24 +73,28 @@ country_decisions = {
 			add_accepted_culture = culture_undead_human
 			add_accepted_culture = culture_undead_gnoll
 			add_accepted_culture = culture_undead_troll
-			IF = {
+            
+			if = {
 				limit = {
 					exists = P12
 				}
 				vassalize = P12
 			}
-			IF = {
+			if = {
 				limit = {
 					exists = P52
 				}
 				vassalize = P52
 			}
-			IF = {
+			if = {
 				limit = {
 					exists = F21
 				}
 				vassalize = F21
 			}
+            
+			country_event = { id = wwu_country_switch.1 }
+			country_event = { id = wwu_country_switch.2 }
 		}
 			
 		ai_will_do = {
@@ -106,33 +137,44 @@ country_decisions = {
 			}
 		}
 	}
-}
 
-country_decisions = {
-	
 	destroy_the_helm = {
 		major = yes
-		
+		ai_importance = 300
+        
 		potential = {
+            # Exclusions
 			NOT = { has_country_modifier = helm_of_domination }
 			NOT = { has_global_flag = destroyed_helm_flag }
-			controls = 1268
+            
+            # Requisites
+			controls = 1268 # Icecrown Citadel
 		}
 		
 		allow = {
-			controls = 1268
+            # Ownership
+			controls = 1268 # Icecrown Citadel
+            
+            # Cost
+            mil_power = 250
 		}
 		
 		effect = {
+            # Cost
+            add_mil_power = -250
+            
+            # Effect
 			hidden_effect = {
 				every_country = {
 					remove_country_modifier = helm_of_domination
 				}
 			}
+            
 			add_country_modifier = { 
 				name = destroyed_helm
 				duration = -1
 			}
+            
 			hidden_effect = {
 				P11 = {
 					kill_heir = yes
