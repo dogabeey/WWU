@@ -1,7 +1,7 @@
 #--------------------------------------
-# Ango'rosh
+# ango_rosh
 #--------------------------------------
-wwu_ango'rosh_column_4 = { 
+wwu_ango_rosh_column_4 = { 
 	slot = 4
 	generic = no
 	ai = yes
@@ -9,298 +9,352 @@ wwu_ango'rosh_column_4 = {
     
 	potential = {
 		tag = F69
-		}
-wwu_clobbering_time = { 
+    }
+    
+    wwu_clobbering_time = { 
 		icon = mission_haymaker
-		required_missions = { wwu_build_army_mission } 
-		trigger = { is_at_war = yes }
+		required_missions = { } 
+        
+		trigger = {    
+            custom_trigger_tooltip = {
+                tooltip = wwu_build_army_mission_tt
+                mission_completed = wwu_build_army_mission
+            }
+            is_at_war = yes
+        }
+        
 		effect = {
-		add_manpower = 1
-		add_country_modifier = { 
-		name = mission_renewed_fighting_spirit
+            add_manpower = 1
+            add_country_modifier = { 
+                name = mission_renewed_fighting_spirit
                 duration = -1 
 			}
-		area_sporeggar = {
-		add_permanent_claim = ROOT 
+            
+            area_sporeggar = {
+                add_permanent_claim = ROOT 
 			}
-			}
-		}
+        }
+    }
 		
-wwu_overwhelm_the_sporelings = {
+    wwu_overwhelm_the_sporelings = {
 		icon = mission_ogre
 		required_missions = { wwu_clobbering_time }
+        
 		trigger = { 
-		is_at_war = yes
-		F69 = {
-		controls = 1613
+            is_at_war = yes
+            F69 = {
+                controls = 1613
 			}
 		}
+        
 		effect = {
-		add_country_modifier = {
+            add_country_modifier = {
                 name = mission_power_surge
                 duration = 3650
 			}
-		create_general = { tradition = 50 }
-		area_zabra_jin = { add_permanent_claim = ROOT }
-		area_coilfang = { add_permanent_claim = ROOT }
-			}
-		}
+            create_general = { tradition = 50 }
+            area_zabra_jin = { add_permanent_claim = ROOT }
+            area_coilfang = { add_permanent_claim = ROOT }
+        }
+    }
 		
-wwu_contest_draenei_holdings = {
+    wwu_contest_draenei_holdings = {
 		icon = mission_ancient_sword
 		required_missions = { wwu_overwhelm_the_sporelings }
+        
 		trigger = {
-		num_of_cities = 12
-		army_size_percentage = 0.8
-		F62 = {
-		NOT = { num_of_cities = 7 }
+            num_of_cities = 12
+            army_size_percentage = 0.8
+            F62 = {
+                NOT = { num_of_cities = 7 }
 			}
 		}
+        
 		effect = {
-		add_stability = 1
-		region_zangarmarsh = { add_permanent_claim = ROOT }
-			}
-		}
+            add_stability = 1
+            region_zangarmarsh = { add_permanent_claim = ROOT }
+            hidden_effect = {
+                set_country_flag = contested_draenei_holdings
+            }
+        }
+    }
 		
-wwu_zangarmarsh_conquered = {
+    wwu_zangarmarsh_conquered = {
 		icon = mission_camp_flag
 		required_missions = { wwu_contest_draenei_holdings }
+        
 		trigger = {
-		region_zangarmarsh = {
-			type = all
-			country_or_non_sovereign_subject_holds = ROOT
+            region_zangarmarsh = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
+        
 		provinces_to_highlight = {
             region = region_zangarmarsh
             NOT = { owned_by = ROOT }
-        	}
+        }
+        
 		effect = {
-		add_prestige = 20
-		add_adm_power = 50
-		add_dip_power = 50
-		add_mil_power = 50
-		2052 = { add_permanent_claim = ROOT }
-		area_shattrath = { add_permanent_claim = ROOT }
-			}
-		}
+            add_prestige = 20
+            add_adm_power = 50
+            add_dip_power = 50
+            add_mil_power = 50
+            2052 = { add_permanent_claim = ROOT }
+            area_shattrath = { add_permanent_claim = ROOT }
+        }
+    }
 
-wwu_a_path_to_goria = {
+    wwu_a_path_to_goria = {
 		icon = mission_treasure_map
 		required_missions = { wwu_zangarmarsh_conquered }
+        
 		trigger = {
-		dip_power = 200
-		diplomatic_reputation = 2
-		F83 = {
-		has_opinion = {
+            dip_power = 200
+            diplomatic_reputation = 2
+            F83 = {
+                has_opinion = {
                     who = ROOT
-                    value = 190 }
-		trust = { 
-		who = ROOT
-		value = 90 
+                    value = 190 
+                }
+                trust = { 
+                    who = ROOT
+                    value = 90 
+                }
+            }
+            A51 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 190 
+                }
+                trust = { 
+                    who = ROOT
+                    value = 90 
+                }
 			}
 		}
-		A51 = {
-		has_opinion = {
-                    who = ROOT
-                    value = 190 }
-		trust = { 
-		who = ROOT
-		 value = 90 }
-			}
-		}
+        
 		effect = {
-		add_dip_power = -200
-		vassalize = F83
-		vassalize = A51
-		add_country_modifier = {
+            add_dip_power = -200
+            vassalize = F83
+            vassalize = A51
+            add_country_modifier = {
                 name = mission_competent_diplomats
                 duration = -1 
-		}		
-		region_nagrand = { add_permanent_claim = ROOT }
-			}
-		}
+            }		
+            region_nagrand = { add_permanent_claim = ROOT }
+        }
+    }
 		
-wwu_restore_the_gorian_empire = {
+    wwu_restore_the_gorian_empire = {
 		icon = mission_town_houses
 		required_missions = { wwu_a_path_to_goria }
+        
 		trigger = {
-		exists = OGR
-		area_shattrath = {
-			type = all
-			owned_by = ROOT
+            exists = OGR
+            area_shattrath = {
+                type = all
+                owned_by = ROOT
 			}
-		region_nagrand = {
-			type = all
-			owned_by = ROOT
+            region_nagrand = {
+                type = all
+                owned_by = ROOT
 			}
-			}
+        }
+        
 		provinces_to_highlight = {
 	    	OR = {
 				region = region_nagrand
 				area = area_shattrath
 		   	}
-		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
+        
 		effect = {
-		add_stability = 1
-		add_prestige = 20
-		vassalize = A49
-		add_country_modifier = {
+            add_stability = 1
+            add_prestige = 20
+            vassalize = A49
+            
+            add_country_modifier = {
                 name = mission_ogre_empire 
-		duration = -1 }
-		region_blades_edge_mountains = { add_permanent_claim = ROOT }
-		region_terokkar_forest = { add_permanent_claim = ROOT }
-		hidden_effect = { swap_non_generic_missions = yes }
-			}
-			}
-		}
-		
-wwu_ango'rosh_column_5 = { 
+                duration = -1 
+            }
+            
+            region_blades_edge_mountains = { add_permanent_claim = ROOT }
+            region_terokkar_forest = { add_permanent_claim = ROOT }
+            country_event = { id = wwu_country_switch.2 }
+        }
+    }
+}
+	
+wwu_ango_rosh_column_5 = { 
 	slot = 5
 	generic = no
 	ai = yes
     has_country_shield = yes
+    
 	potential = {
 		tag = F69
 	}
-wwu_seek_support_from_bladespire_clan = {
+    
+    wwu_seek_support_from_bladespire_clan = {
 		icon = mission_rolled_scroll
 		required_missions = { }
 
 		trigger = { 
-		num_of_cities = 15
-		army_size_percentage = 0.8
-		A49 = {
+            num_of_cities = 15
+            army_size_percentage = 0.8
+            A49 = {
                 has_opinion = {
                     who = ROOT
                     value = 100
-			}
+                }
 			}
 		}
+        
 		effect = {
-		add_prestige = 5
-		add_manpower = 3.5
-		add_country_modifier = {
+            add_prestige = 5
+            add_manpower = 3.5
+            add_country_modifier = {
                 name = mission_ancient_apexis_crystal
-		duration = -1
-		}
-		add_trust = {
-    		who = A49
-    		value = 25
-    		mutual = yes 
+                duration = -1
+            }
+            add_trust = {
+                who = A49
+                value = 25
+                mutual = yes 
 			}
-			}
-		}
+        }
+    }
 	
-wwu_seek_support_from_warmaul_clan = {
+    wwu_seek_support_from_warmaul_clan = {
 		icon = mission_rolled_scroll	
 		required_missions = { }		
+        
 		trigger = { 
-		num_of_cities = 12
-		army_size_percentage = 0.8
-		F83 = {
+            num_of_cities = 12
+            army_size_percentage = 0.8
+            F83 = {
                 has_opinion = {
                     who = ROOT
                     value = 100
-			}	
+                }	
 			}
 		}
+        
 		effect = {
-		add_prestige = 5
-		add_manpower = 2.5
-		add_country_modifier = {
-                name = mission_battered_gladiator's_breastplate
-		duration = -1
-		}
-		add_trust = {
-    		who = F83
-    		value = 25
-    		mutual = yes
+            add_prestige = 5
+            add_manpower = 2.5
+            add_country_modifier = {
+                name = mission_battered_gladiators_breastplate
+                duration = -1
+            }
+            add_trust = {
+                who = F83
+                value = 25
+                mutual = yes
 			}	
-			}
-		}
+        }
+    }
 		
-wwu_seek_support_from_boulderfist_clan = {
+    wwu_seek_support_from_boulderfist_clan = {
 		icon = mission_rolled_scroll	
 		required_missions = { }		
+        
 		trigger = { 
-		num_of_cities = 12
-		army_size_percentage = 0.8
-		A51 = {
+            num_of_cities = 12
+            army_size_percentage = 0.8
+            A51 = {
                 has_opinion = {
                     who = ROOT
                     value = 100
-			}
+                }
 			}
 		}
+        
 		effect = {
-		add_prestige = 5
-		add_manpower = 1.5
-		add_country_modifier = {
-                name = mission_blademaster's_blade
-		duration = -1
-		}
-		add_trust = {
-    		who = A51
-    		value = 25
-    		mutual = yes
+            add_prestige = 5
+            add_manpower = 1.5
+            
+            add_country_modifier = {
+                name = mission_blademasters_blade
+                duration = -1
+            }
+            add_trust = {
+                who = A51
+                value = 25
+                mutual = yes
 			}	
-			}
-		}
+        }
+    }
 		
-wwu_seek_gruul's_favor = {
+    wwu_seek_gruuls_favor = {
 		icon = mission_bloodlust	
-		required_missions = { wwu_seek_support_from_bladespire_clan wwu_seek_support_from_warmaul_clan wwu_seek_support_from_boulderfist_clan }		
+		required_missions = { }
+        
 		trigger = { 
-		num_of_cities = 20
-		army_size_percentage = 0.8
-		F77 = {
+            has_country_modifier = mission_ancient_apexis_crystal
+            has_country_modifier = mission_battered_gladiators_breastplate
+            has_country_modifier = mission_blademasters_blade
+            num_of_cities = 20
+            army_size_percentage = 0.8
+            F77 = {
                 has_opinion = {
                     who = ROOT
                     value = 100
-			}
+                }
 			}
 		}
+        
 		effect = {
-		add_stability = 1
-		add_prestige = 10
-		add_legitimacy = 10
-		add_country_modifier = {
-                name = mission_gruul's_favor
-		duration = -1
-		}
-		add_trust = {
-    		who = F77
-    		value = 25
-    		mutual = yes
+            add_stability = 1
+            add_prestige = 10
+            add_legitimacy = 10
+            add_country_modifier = {
+                name = mission_gruuls_favor
+                duration = -1
+            }
+            add_trust = {
+                who = F77
+                value = 25
+                mutual = yes
 			}
-			}
-		}
+        }
+    }
 
-wwu_organise_mound_builders = {
-	icon = mission_karazhan
-	required_missions = { wwu_contest_draenei_holdings }
-	trigger = { 
-	manpower = 5
-	adm_power = 100
-	dip_power = 100
-	mil_power = 100
-	treasury = 50
-		}
-	effect = {
-	add_manpower = -5
-	add_adm_power = -100
-	add_dip_power = -100
-	add_mil_power = -100
-	add_treasury = -50
-	add_country_modifier = {
+    wwu_organise_mound_builders = {
+        icon = mission_karazhan
+        required_missions = { }
+        
+        trigger = { 
+            custom_trigger_tooltip = {
+                tooltip = contested_draenei_holdings_tt
+                mission_completed = wwu_contested_draenei_holdings
+            }
+            
+            manpower = 5
+            adm_power = 100
+            dip_power = 100
+            mil_power = 100
+            treasury = 50
+            1609 = {
+                is_empty = yes
+            }
+        }
+        
+        effect = {
+            add_manpower = -5
+            add_adm_power = -100
+            add_dip_power = -100
+            add_mil_power = -100
+            add_treasury = -50
+            add_country_modifier = {
                 name = mission_mound_builders
-		duration = -1
+                duration = -1
+            }
+            1609 = {
+                add_colonysize = 500
+            }
 		}
-	1609 = {
-	add_siberian_construction = 100
-		}
-		}
-		}
-	}
+    }
+}

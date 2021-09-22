@@ -343,9 +343,12 @@ wwu_scarlet_crusade_column_3 = {
 		icon = mission_stormwind_entrance
         position = 3
 		required_missions = { wwu_encircle_capital_city } 
-		required_missions = { wwu_push_the_scourge_beyond_the_river } 
        
 		trigger = {
+            custom_trigger_tooltip = {
+                tooltip = wwu_push_the_scourge_beyond_the_river_tt
+                mission_completed = wwu_push_the_scourge_beyond_the_river
+            }
             area_lordaeron_capital = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -560,10 +563,13 @@ wwu_scarlet_crusade_column_4 = {
 		icon = mission_town_houses
         position = 2
 
-		required_missions = { wwu_encircle_capital_city } 
 		required_missions = { wwu_increase_the_faith_on_crusaders }
         
 		trigger = {
+            custom_trigger_tooltip = {
+                tooltip = wwu_encircle_capital_city_tt
+                mission_completed = wwu_encircle_capital_city
+            }
             area_silverpine_fields = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -627,25 +633,7 @@ wwu_scarlet_crusade_column_4 = {
 			}
 		}
 	}
-	wwu_scarlet_eastern_kingdoms = { 
-		icon = mission_scroll
-        position = 6
-
-		required_missions = { wwu_western_plaugelands_cleansing_b } 
-        
-		trigger = {
-		    num_of_owned_provinces_with  = { 
-				religion = scarlet_light
-				value = 250
-			}
-		}
-		effect = { 
-			add_country_modifier = {
-				name = mission_scarlet_supremacy
-				duration = -1
-			}
-		}
-	}
+	
 }
 
 wwu_scarlet_crusade_column_5 = {
@@ -662,7 +650,7 @@ wwu_scarlet_crusade_column_5 = {
 	wwu_scourge_interference = { 
 		icon = mission_scourge
         position = 2
-		required_missions = { wwu_increase_the_faith_on_crusaders} 
+		required_missions = { wwu_increase_the_faith_on_crusaders } 
        
 		trigger = {
             area_tirisfal_bulwark = {
@@ -819,6 +807,26 @@ wwu_scarlet_crusade_column_5 = {
             add_dip_power = 200			
 			add_country_modifier = {
 				name = mission_end_of_sourge_of_lordaeron_b
+				duration = -1
+			}
+		}
+	}
+    
+    wwu_scarlet_eastern_kingdoms = { 
+		icon = mission_scroll
+        position = 6
+
+		required_missions = { wwu_western_plaugelands_cleansing_b } 
+        
+		trigger = {
+		    num_of_owned_provinces_with  = { 
+				religion = scarlet_light
+				value = 250
+			}
+		}
+		effect = { 
+			add_country_modifier = {
+				name = mission_scarlet_supremacy
 				duration = -1
 			}
 		}

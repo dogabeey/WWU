@@ -17,9 +17,12 @@ wwu_theramore_column_1 = {
 		icon = mission_goblin_motorbike
 		position = 2
 		required_missions = { wwu_building_a_fleet_a }
-		required_missions = { wwu_kezan_naval_front }
 		
 		trigger = {
+            custom_trigger_tooltip = {
+                tooltip = wwu_felblood_elves_tt
+                mission_completed = wwu_felblood_elves
+            }
             # Kezan
 			1099 = {
 				is_strongest_trade_power = ROOT
@@ -47,9 +50,8 @@ wwu_theramore_column_1 = {
 	}
 	wwu_zandalar_dominance = {
 		icon = mission_gold_pile
-		position = 3
+		position = 4
 		required_missions = { wwu_building_a_fleet_b }
-		required_missions = { wwu_zandalar_invasion }
 		
 		trigger = {
             # Zandalar
@@ -81,9 +83,8 @@ wwu_theramore_column_1 = {
 	}
 	wwu_kul_tiran_dominance = {
 		icon = mission_lakeshire
-		position = 4
+		position = 6
 		required_missions = { wwu_building_a_fleet_c }
-		required_missions = { wwu_pursue_of_global_naval_dominance }
 		
 		trigger = {
             # Kul Tiras
@@ -133,8 +134,8 @@ wwu_theramore_column_2 = {
 	
 	wwu_building_a_fleet_a = {
 		icon = mission_ship_2
-		position = 2
-		required_missions = { wwu_dustmarsh_dominance }
+		position = 1
+		required_missions = { }
 		
 		trigger = {
 			num_of_galley = 15
@@ -149,11 +150,12 @@ wwu_theramore_column_2 = {
 			}
 		}
 	}
+    
+    
 	wwu_building_a_fleet_b = {
 		icon = mission_ship_1
 		position = 3
 		required_missions = { wwu_building_a_fleet_a }
-		required_missions = { wwu_kezan_naval_front }
 		
 		trigger = {
 			num_of_galley = 20
@@ -169,9 +171,8 @@ wwu_theramore_column_2 = {
 	}
 	wwu_building_a_fleet_c = {
 		icon = mission_ship_3
-		position = 4
+		position = 5
 		required_missions = { wwu_building_a_fleet_b }
-		required_missions = { wwu_zandalar_invasion }
 		
 		trigger = {
 			num_of_galley = 30
@@ -187,9 +188,8 @@ wwu_theramore_column_2 = {
 	}
 	wwu_building_a_fleet_d = {
 		icon = mission_ship_sailing
-		position = 5
+		position = 7
 		required_missions = { wwu_building_a_fleet_c }
-		required_missions = { wwu_pursue_of_global_naval_dominance }
 		
 		trigger = {
 			num_of_galley = 40
@@ -205,7 +205,7 @@ wwu_theramore_column_2 = {
 	}
 	wwu_riches_of_broken_shore = { 
 		icon = mission_treasure_map
-		position = 6
+		position = 9
 		required_missions = { wwu_building_a_fleet_d }
         
 		trigger = {
@@ -246,34 +246,9 @@ wwu_theramore_column_3 = {
 		}
 	}
 	
-	wwu_dustmarsh_dominance = {
-		icon = mission_gold_pile
-		required_missions = { }
-		
-		trigger = {
-            # Dustwallow Marsh
-			1456 = {
-				is_strongest_trade_power = ROOT
-			}
-		}
-		
-		effect = {
-			add_dip_power = 50
-			add_adm_power = 50
-			add_mil_power = 50
-			add_country_modifier = {
-				name = mission_dustmarsh_node_dominance
-				duration = -1
-			}
-			region_kezan = {
-                add_permanent_claim = ROOT
-            }
-		}
-	}
 	wwu_kezan_naval_front = { 
 		icon = mission_barracks
 		position = 2
-		required_missions = { wwu_dustmarsh_dominance }
 		required_missions = { wwu_building_a_fleet_a }
         
 		trigger = {
@@ -297,8 +272,7 @@ wwu_theramore_column_3 = {
 	}
 	wwu_zandalar_invasion = {
 		icon = mission_burning_city
-		position = 3
-		required_missions = { wwu_kezan_naval_front } 
+		position = 4
 		required_missions = { wwu_building_a_fleet_b }
         
 		trigger = {
@@ -334,8 +308,7 @@ wwu_theramore_column_3 = {
 	}
 	wwu_pursue_of_global_naval_dominance = { 
 		icon = mission_burning_castle
-		position = 4
-		required_missions = { wwu_zandalar_invasion } 
+		position = 6
 		required_missions = { wwu_building_a_fleet_c }
         
 		trigger = {
@@ -376,8 +349,7 @@ wwu_theramore_column_3 = {
 	}
 	wwu_returning_home = { 
 		icon = mission_blueprint
-		position = 5
-		required_missions = { wwu_pursue_of_global_naval_dominance }
+		position = 8
 		required_missions = { wwu_building_a_fleet_d }
         
 		trigger = {
@@ -637,7 +609,7 @@ wwu_theramore_column_4 = {
 		}
 	}
 	wwu_dismantle_tauren_federation = {
-		icon = burning_castle
+		icon = mission_burning_castle
 		position = 6
 		required_missions = { wwu_isolating_the_horde }
 		
@@ -679,7 +651,7 @@ wwu_theramore_column_5 = {
 	} 
 	
     wwu_northwatch = {
-	    icon = mission_jaina
+	    icon = mission_arcane_tower
 		required_missions = { }
 		position = 1
 		
@@ -697,6 +669,32 @@ wwu_theramore_column_5 = {
 			inherit = G06
 	    }
 	}
+    
+    wwu_dustmarsh_dominance = {
+		icon = mission_gold_pile
+		required_missions = { }
+		
+		trigger = {
+            # Dustwallow Marsh
+			1456 = {
+				is_strongest_trade_power = ROOT
+			}
+		}
+		
+		effect = {
+			add_dip_power = 50
+			add_adm_power = 50
+			add_mil_power = 50
+			add_country_modifier = {
+				name = mission_dustmarsh_node_dominance
+				duration = -1
+			}
+			region_kezan = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
 	wwu_fortify_the_marsh = {
 		icon = mission_workshop
 		position = 3

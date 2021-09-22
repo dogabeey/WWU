@@ -223,13 +223,58 @@ wwu_forsaken_column_3 = {
 		tag = P14
 	}
 	
+    wwu_breaking_the_chains = { 
+		icon = mission_cannibalize
+        
+		required_missions = {  } 
+        
+		trigger = {
+			is_subject = no
+		    is_at_war = no
+			if = {
+				limit = {
+					has_estate = estate_nobility
+				}
+				estate_influence = {
+					estate = estate_nobility
+					influence = 50
+				}
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 60
+				}
+			}
+		}
+		effect = { 
+		    add_adm_power = 100
+			add_country_modifier = {
+                name = mission_seek_freedom
+                duration = -1
+            }
+            area_agamand = {
+                add_permanent_claim = ROOT
+            }
+            area_vandermar = {
+                add_permanent_claim = ROOT
+            }			
+		}
+	}
+    
 	wwu_invade_eastern_plaugelands = { 
 		icon = mission_raid
         position = 5
-		required_missions = { wwu_breaking_the_chains } 
-		required_missions = { wwu_finish_off_the_crusaders } 
+		required_missions = { } 
        
 		trigger = {
+            custom_trigger_tooltip = {
+                tooltip = wwu_breaking_the_chains_tt
+                mission_completed = wwu_breaking_the_chains
+            }
+            custom_trigger_tooltip = {
+                tooltip = wwu_finish_off_the_crusaders_tt
+                mission_completed = wwu_finish_off_the_crusaders
+            }
+            
             area_scholomance = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -337,42 +382,7 @@ wwu_forsaken_column_4 = {
 		tag = P14
 	} 
     
-	wwu_breaking_the_chains = { 
-		icon = mission_cannibalize
-        
-		required_missions = {  } 
-        
-		trigger = {
-			is_subject = no
-		    is_at_war = no
-			if = {
-				limit = {
-					has_estate = estate_nobility
-				}
-				estate_influence = {
-					estate = estate_nobility
-					influence = 50
-				}
-				estate_loyalty = {
-					estate = estate_nobility
-					loyalty = 60
-				}
-			}
-		}
-		effect = { 
-		    add_adm_power = 100
-			add_country_modifier = {
-                name = mission_seek_freedom
-                duration = -1
-            }
-            area_agamand = {
-                add_permanent_claim = ROOT
-            }
-            area_vandermar = {
-                add_permanent_claim = ROOT
-            }			
-		}
-	}
+	
     wwu_consolidate_agamand_vandimar = { 
 		icon = mission_undead_male
         position = 2
@@ -566,9 +576,13 @@ wwu_forsaken_column_4 = {
         position = 7
 
 		required_missions = { wwu_silverpine_trail } 
-        required_missions = { wwu_icreasing_the_population } 
 
 		trigger = {
+            custom_trigger_tooltip = {
+                tooltip = wwu_icreasing_the_population_tt
+                mission_completed = wwu_icreasing_the_population
+            }
+            
             area_silverpine_crossing = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -620,9 +634,13 @@ wwu_forsaken_column_5 = {
 		icon = mission_secretive_plot
         position = 6
 
-		required_missions = { wwu_silverpine_trail } 
+		required_missions = { } 
         
 		trigger = {
+            custom_trigger_tooltip = {
+                tooltip = wwu_silverpine_trail_tt
+                mission_completed = wwu_silverpine_trail
+            }
             check_variable = {
                 which = cultures_converted
                 value = 10
@@ -642,10 +660,13 @@ wwu_forsaken_column_5 = {
 		icon = mission_ship_2
         position = 7
 
-		required_missions = { wwu_invasion_of_gilneas } 
         required_missions = { wwu_icreasing_the_population } 
 
 		trigger = {
+            custom_trigger_tooltip = {
+                tooltip = wwu_invasion_of_gilneas_tt
+                mission_completed = wwu_invasion_of_gilneas
+            }
             area_freehold = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
