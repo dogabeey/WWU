@@ -279,6 +279,154 @@ wwu_sunfury_column_3 = {
 			}
 		}
 	}
+	wwu_invade_northrend = {
+		icon = mission_frozen_throne
+        position = 14
+		
+        
+		required_missions = {
+			wwu_summon_kiljaeden
+			wwu_invade_azeroth_dark_portal
+			}
+		
+		ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+        
+		trigger = {
+			1268 = {
+				owner = {
+					defensive_war_with = A93
+				}
+			}
+		}
+		provinces_to_highlight = {
+            province_id = 1268
+        }
+		effect = {
+			continent_northrend = {
+				add_claim = A93
+			}
+			1268 = {
+				add_permanent_claim = A93
+			}
+		}
+	}
+	wwu_destroy_the_lich_king = {
+		icon = mission_achievement_boss_lichking
+        position = 15
+		
+        
+		required_missions = { wwu_invade_northrend }
+		
+		ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+        
+		trigger = {
+			has_global_flag = destroyed_helm_flag
+		}
+		provinces_to_highlight = {
+            province_id = 1268
+        }
+		effect = {
+			add_absolutism = 50
+			add_prestige = 200
+			add_stability = 3
+			add_treasury = 15000
+			add_war_exhaustion = -20
+			1268 = {
+				cede_province = A93
+				change_religion = fel
+				change_culture = culture_felblood_elf
+				add_devastation = 25
+				add_unrest = 10
+			}
+		}
+	}
+	wwu_burn_the_trees = {
+		icon = mission_world_tree
+        position = 16
+		        
+		required_missions = { wwu_destroy_the_lich_king }
+		
+		ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+        
+		trigger = {
+			has_global_flag = nordrassil_burned
+			has_global_flag = teldrassil_burned
+		}
+		provinces_to_highlight = {
+            province_id = 1334
+            province_id = 1065
+        }
+		effect = {
+			custom_tooltip = burn_the_world_trees_tt
+			hidden_effect = {
+				every_province = {
+					limit = {
+						religion = arcane
+					}
+					change_religion = fel
+					add_devastation = 50
+					add_unrest = 10
+				}
+				every_province = {
+					limit = {
+						NOT = { religion = fel }
+						development = 20
+					}
+					add_devastation = 50
+					add_unrest = 10
+					add_base_tax = -2
+					add_base_tax = -2
+					add_base_manpower = -2
+				}				
+				every_province = {
+					limit = {
+						NOT = { religion = fel }
+						NOT = { development = 20 }
+					}
+					change_religion = fel
+					add_devastation = 100
+					add_unrest = 10
+					add_base_tax = -5
+					add_base_tax = -5
+					add_base_manpower = -5
+				}
+				every_country = {
+					limit = {
+						religion = arcane
+					}
+					change_religion = fel
+					add_stability = -3
+					add_prestige = -100
+					add_corruption = 10
+					add_war_exhaustion = 15
+				}
+				every_country = {
+					limit = {
+						NOT = { religion = fel }
+					}
+					add_stability = -6
+					add_prestige = -200
+					add_corruption = 20
+					add_war_exhaustion = 25
+				}
+			}
+		}
+	}		
 }
 
 wwu_sunfury_column_2 = { 
@@ -1407,6 +1555,7 @@ wwu_sunfury_column_4 = {
 			region_hellfire_peninsula = {
 				add_permanent_claim = A93
 			}
+			add_mercantilism = 10
 		}
 	}
 	wwu_hellfire_citadel = {
@@ -1539,6 +1688,7 @@ wwu_sunfury_column_4 = {
 				name = "leader_of_legion"
 				duration = -1
 			}
+			add_mercantilism = 15
 			create_alliance = B92
 			create_guarantee = B92
 			B92 = {
@@ -1596,7 +1746,7 @@ wwu_sunfury_column_4 = {
 	}
 	wwu_invade_azeroth_dark_portal = {
 		icon = mission_legion_invasion
-        position = 12
+        position = 13
         
 		required_missions = { wwu_leader_of_legion }
 		
