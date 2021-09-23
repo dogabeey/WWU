@@ -1,0 +1,348 @@
+#--------------------------------------
+# zandalar
+#--------------------------------------
+wwu_zandalar_column_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+    
+	potential = {
+		tag = A78
+	}
+	has_country_shield = yes
+	
+	wwu_restore_the_city_of_gold = {
+		icon = mission_city_of_gold
+        
+		required_missions = {  }
+		
+		trigger = {
+            2469 = {
+                owned_by = ROOT
+                is_core = ROOT
+                development = 30
+            }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_city_of_gold
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    wwu_nazmir_incursion = {
+		icon = mission_crawg
+        
+		required_missions = { wwu_restore_the_city_of_gold }
+		
+        provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+            region = region_nazmir
+		}
+        
+		trigger = {
+            any_owned_province = {
+                region = region_nazmir
+                is_core = ROOT
+            }
+		}
+        
+		effect = {
+			region_nazmir = {
+                add_permanent_claim = ROOT
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    wwu_destroy_ghuun = {
+		icon = mission_blood_troll
+        
+		required_missions = { wwu_nazmir_incursion }
+		
+        provinces_to_highlight = {
+			owned_by = NAZ
+		}
+        
+		trigger = {
+            NOT = { exists = NAZ }
+            owns_core_province = 1122
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_destruction_of_ghuun
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    wwu_establish_regional_hegemony = {
+		icon = mission_rastakhan
+        
+		required_missions = { wwu_destroy_ghuun }
+		
+        provinces_to_highlight = {
+            continent = continent_zandalar
+			NOT = { country_or_subject_holds = ROOT }
+            is_empty = no
+		}
+        
+		trigger = {
+            region_zuldazar = {
+                is_empty = no
+                country_or_subject_holds = ROOT
+                is_core = ROOT
+            }
+            region_nazmir = {
+                is_empty = no
+                country_or_subject_holds = ROOT
+                is_core = ROOT
+            }
+            region_voldun = {
+                is_empty = no
+                country_or_subject_holds = ROOT
+                is_core = ROOT
+            }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_zandalar_hegemony
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+}
+
+wwu_zandalar_column_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+    
+	potential = {
+		tag = A78
+	}
+	has_country_shield = yes
+	
+    wwu_restore_the_zandalari_fleet = {
+		icon = mission_ward_of_loa
+        position = 1
+        
+		required_missions = { }
+		
+		trigger = {
+            num_of_galley = 50
+            num_of_heavy_ship = 30
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_zandalari_supremacy
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+	wwu_jade_incursion = {
+		icon = mission_vivify
+        position = 2
+        
+		required_missions = { wwu_restore_the_city_of_gold }
+		
+        provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+            OR = {
+                area = area_jade_islands
+                area = area_windward_isle
+                area = area_thunder_islands
+            }
+		}
+        
+		trigger = {
+            any_owned_province = {
+                OR = {
+                    area = area_jade_islands
+                    area = area_windward_isle
+                    area = area_thunder_islands
+                }
+                is_core = ROOT
+            }
+		}
+        
+		effect = {
+			1901 = { add_permanent_claim = ROOT }
+            1722 = { add_permanent_claim = ROOT }
+            1779 = { add_permanent_claim = ROOT}
+            1867 = { add_permanent_claim = ROOT }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    wwu_control_the_serpent = {
+		icon = mission_yulon
+        position = 3
+        
+		required_missions = { }
+		
+        provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+            province_id = 1722
+		}
+        
+		trigger = {
+            owns_core_province = 1722
+		}
+        
+		effect = {
+            add_country_modifier = {
+                name = mission_mojo_of_yulon
+                duration = -1
+            }
+			region_jade_forest = {
+                add_permanent_claim = ROOT
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    wwu_subjugate_the_tiger = {
+		icon = mission_xuen
+        position = 4
+        
+		required_missions = { }
+		
+        provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+            province_id = 1901
+		}
+        
+		trigger = {
+            owns_core_province = 1901
+		}
+        
+		effect = {
+            add_country_modifier = {
+                name = mission_mojo_of_xuen
+                duration = -1
+            }
+			region_kun_lai_summit = {
+                add_permanent_claim = ROOT
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    wwu_crush_the_ox = {
+		icon = mission_niuzao
+        position = 5
+        
+		required_missions = { }
+		
+        provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+            province_id = 1867
+		}
+        
+		trigger = {
+            owns_core_province = 1867
+		}
+        
+		effect = {
+            add_country_modifier = {
+                name = mission_mojo_of_niuzao
+                duration = -1
+            }
+			region_townlong_steppes = {
+                add_permanent_claim = ROOT
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    wwu_enslave_the_crane = {
+		icon = mission_chiji
+        position = 6
+        
+		required_missions = { }
+		
+        provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+            province_id = 1779
+		}
+        
+		trigger = {
+            owns_core_province = 1779
+		}
+        
+		effect = {
+            add_country_modifier = {
+                name = mission_mojo_of_chiji
+                duration = -1
+            }
+			region_krasarang_wilds = {
+                add_permanent_claim = ROOT
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    wwu_despoil_the_vale = {
+		icon = mission_touch_of_death
+        position = 7
+        
+		required_missions = { }
+		
+        provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+            province_id = 1807
+		}
+        
+		trigger = {
+            mission_completed = wwu_control_the_serpent
+            mission_completed = wwu_subjugate_the_tiger
+            mission_completed = wwu_crush_the_ox
+            mission_completed = wwu_enslave_the_crane
+            owns_core_province = 1807
+		}
+        
+		effect = {
+            add_country_modifier = {
+                name = mission_despoilers_of_pandaria
+                duration = -1
+            }
+			continent_pandaria = {
+                add_permanent_claim = ROOT
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+}
