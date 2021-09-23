@@ -1090,19 +1090,34 @@ wwu_sunfury_column_4 = {
 					}
 					religion = fel
 					NOT = { tag = B87 }
+					NOT = { tag = B92 }
 				}
 				ROOT = {
 					vassalize = PREV
 				}
 			}
 			set_global_flag = leader_of_legion_flag
-#			every_province = {
-#				limit = {
-#					owned_by = B92
-#					continent = continent_outland
-#				}
-#				cede_province = A93
-#			}
+			if = {
+				limit = {
+					953 = {
+						NOT = { owned_by = B92 }
+					}
+				}
+				953 = {
+					cede_province = B92
+					add_core = B92
+					change_religion = fel
+					change_culture = culture_eredar
+					set_capital = B92
+				}
+			}
+			every_province = {
+				limit = {
+					owned_by = B92
+					continent = continent_outland
+				}
+				cede_province = A93
+			}
 		}
 	}
 	wwu_invade_azeroth_dark_portal = {
@@ -1617,6 +1632,7 @@ wwu_sunfury_column_5 = {
 				}
 			}
 			2991 = {
+				change_culture = culture_eredar
 				infantry = B92
 				infantry = B92
 				infantry = B92
@@ -1627,12 +1643,25 @@ wwu_sunfury_column_5 = {
 				artillery = B92
 				artillery = B92
 				artillery = B92
+				add_base_manpower = 6
+				add_devastation = 100
 			}
 			custom_tooltip = summon_kiljaeden_tt
 			hidden_effect = {	
 				B92 = {
 					add_treasury = 5000
 					add_stability = 6
+				}
+				953 = {
+					cede_province = B92
+					add_core = B92
+					change_religion = fel
+					change_culture = culture_eredar
+					set_capital = B92
+					add_base_tax = 2
+					add_base_production = 2
+					add_base_manpower = 2
+					center_of_trade = 3
 				}
 				every_country = {
 					limit = {
