@@ -101,9 +101,31 @@ wwu_warriors_unrelenting_savagery = {
     }
     
 	modifiers = {
-        infantry_power = 0.1
         infantry_shock = 1.0
 	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+# Orc - Unique
+wwu_warriors_war_songs = {
+	icon = "shout"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+        tag = A35
+    }
+
+	modifiers = {
+        horde_unity = 1.0
+	}
+    
+    custom_attributes = {
+        enables_warsong_event = yes
+    }
     
     ai = {
 		factor = 1
@@ -116,22 +138,12 @@ wwu_warriors_cannibalistic_tendencies = {
     
     potential = {
         is_orc_tribe = yes
-    }
-    trigger = {
-        OR = {
-            tag = A39 # Bonechewer
-            calc_true_if = {
-                any_owned_province = {
-                    has_terrain = jungle
-                }
-                
-                amount = 10
-            }
-        }
+        tag = A39 # Bonechewer
     }
     
 	modifiers = {
-        infantry_power = 0.15
+        infantry_power = 0.05
+        hostile_attrition = 1
 	}
     
     custom_attributes = {
@@ -149,18 +161,7 @@ wwu_warriors_dragon_tamers = {
     
     potential = {
         is_orc_tribe = yes
-    }
-    trigger = {
-        OR = {
-            tag = A45 # Dragonmaw
-            calc_true_if = {
-                any_owned_province = {
-                    culture_group = culture_group_dragonkin
-                }
-                
-                amount = 5
-            }
-        }
+        tag = A45 # Dragonmaw
     }
     
 	modifiers = {
@@ -179,27 +180,15 @@ wwu_warriors_warg_kinship = {
     
     potential = {
         is_orc_tribe = yes
-    }
-    trigger = {
         OR = {
             tag = A37 # Thunderlord
             tag = A46 # Frostwolf
-            AND = { 
-                num_of_cavalry = 30
-                calc_true_if = {
-                    any_owned_province = {
-                        has_terrain = mountain
-                    }
-                    
-                    amount = 5
-                }
-            }
         }
     }
     
 	modifiers = {
-        cavalry_power = 0.15
-        movement_speed = 0.15
+        cavalry_power = 0.1
+        movement_speed = 0.1
 	}
     
     ai = {
@@ -207,27 +196,133 @@ wwu_warriors_warg_kinship = {
 	}
 }
 
-wwu_warriors_war_songs = {
-	icon = "shout"
+wwu_warriors_spiritual_vigor = {
+	icon = "dreamstate"
 	allow_normal_conversion = yes
     
     potential = {
         is_orc_tribe = yes
-    }
-    trigger = {
-        OR = {
-            tag = A35 # Warsong
-            total_development = 100
-        }
+        tag = A34 # Shadowmoon
     }
     
 	modifiers = {
-        horde_unity = 1.0
+        recover_army_morale_speed = 0.05
+        land_attrition = -0.1
 	}
     
-    custom_attributes = {
-        enables_warsong_event = yes
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_warriors_shattered_hands = {
+	icon = "brittle_bones"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+        tag = A36 # Shattered Hand
     }
+    
+	modifiers = {
+        shock_damage = 0.1
+        raze_power_gain = 0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_warriors_bloodthirsty_warriors = {
+	icon = "blood_splatter"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+        tag = A38 # Laughing Skull
+    }
+    
+	modifiers = {
+        land_morale = 0.05
+        war_exhaustion = -0.03
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_warriors_dark_ritualists = {
+	icon = "clarity_of_power"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+        tag = A40 # Bleeding Hollow
+    }
+    
+	modifiers = {
+        hostile_attrition = 1
+        manpower_in_true_faith_provinces = 0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_warriors_blackrock_machinery = {
+	icon = "blackrock_ore"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+        tag = A41 # Blackrock
+    }
+    
+	modifiers = {
+        discipline = 0.05
+        production_efficiency = 0.05
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_warriors_power_of_the_pale = {
+	icon = "shadow_reflection"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+        tag = A43 # Twilight's Hammer
+    }
+    
+	modifiers = {
+        fire_damage = 0.1
+        province_warscore_cost = -0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_warriors_blademasters = {
+	icon = "bladestorm"
+	allow_normal_conversion = yes
+    
+    potential = {
+        is_orc_tribe = yes
+        tag = A44 # Burning Blade
+    }
+    
+	modifiers = {
+        mil_tech_cost_modifier = -0.05
+        infantry_power = 0.1
+	}
     
     ai = {
 		factor = 1
