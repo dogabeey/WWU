@@ -471,6 +471,201 @@ country_event = {
 	}
 }
 
+# Alliance
+# Pass Leadership
+country_event = {
+	id = wwu_faction_system.30
+	title = wwu_faction_system.30.title
+	desc = wwu_faction_system.30.desc
+	picture = KING_LLANE_eventPicture
+    
+    major = yes
+    
+    immediate = {
+        # Alliance has been formed
+        has_global_flag = setup_the_alliance
+        
+        # Fire for player if in Alliance, or just a random member if not
+        if = {
+            limit = {
+                any_country = {
+                    has_country_modifier = member_of_alliance
+                    ai = no
+                }
+            }
+            ai = no
+        }
+        else = {
+            has_country_modifier = member_of_alliance
+        }
+        
+        NOT = {
+            any_country = {
+                has_country_modifier = head_of_alliance
+            }
+        }
+    }
+    
+	option = {
+		name = wwu_faction_system.30.option.a
+		
+        # Re-assign High King to an Alliance member, preferring the player if they are a member
+        if = {
+            limit = {
+                any_country = {
+                    has_country_modifier = member_of_alliance
+                    ai = no
+                }
+            }
+            random_country = {
+                limit = {
+                    ai = no
+                    has_country_modifier = member_of_alliance
+                }
+                set_head_of_alliance = yes
+            }
+        }
+        else = {
+            random_country = {
+                limit = {
+                    has_country_modifier = member_of_alliance
+                }
+                set_head_of_alliance = yes
+            }
+        }
+	}
+}
+
+# Old Horde
+# Pass Leadership
+country_event = {
+	id = wwu_faction_system.31
+	title = wwu_faction_system.31.title
+	desc = wwu_faction_system.31.desc
+	picture = ORC_THRONE_eventPicture
+    
+    major = yes
+    
+    immediate = {
+        # Old Horde has been formed
+        has_global_flag = setup_the_old_horde
+        
+        # Fire for player if in Old Horde, or just a random member if not
+        if = {
+            limit = {
+                any_country = {
+                    has_country_modifier = member_of_old_horde
+                    ai = no
+                }
+            }
+            ai = no
+        }
+        else = {
+            has_country_modifier = member_of_old_horde
+        }
+        
+        NOT = {
+            any_country = {
+                has_country_modifier = head_of_old_horde
+            }
+        }
+    }
+    
+	option = {
+		name = wwu_faction_system.31.option.a
+		
+        # Re-assign Warchief to an Old Horde member, preferring the player if they are a member
+        if = {
+            limit = {
+                any_country = {
+                    has_country_modifier = member_of_old_horde
+                    ai = no
+                }
+            }
+            random_country = {
+                limit = {
+                    ai = no
+                    has_country_modifier = member_of_old_horde
+                }
+                set_head_of_old_horde = yes
+            }
+        }
+        else = {
+            random_country = {
+                limit = {
+                    has_country_modifier = member_of_old_horde
+                }
+                set_head_of_old_horde = yes
+            }
+        }
+	}
+}
+
+# Horde
+# Pass Leadership
+country_event = {
+	id = wwu_faction_system.32
+	title = wwu_faction_system.32.title
+	desc = wwu_faction_system.32.desc
+	picture = ORC_THRONE_eventPicture
+    
+    major = yes
+    
+    immediate = {
+        # Horde has been formed
+        has_global_flag = setup_the_horde
+        
+        # Fire for player if in Horde, or just a random member if not
+        if = {
+            limit = {
+                any_country = {
+                    has_country_modifier = member_of_horde
+                    ai = no
+                }
+            }
+            ai = no
+        }
+        else = {
+            has_country_modifier = member_of_horde
+        }
+        
+        NOT = {
+            any_country = {
+                has_country_modifier = head_of_horde
+            }
+        }
+    }
+    
+	option = {
+		name = wwu_faction_system.32.option.a
+		
+        # Re-assign Warchief to an Old Horde member, preferring the player if they are a member
+        if = {
+            limit = {
+                any_country = {
+                    has_country_modifier = member_of_horde
+                    ai = no
+                }
+            }
+            random_country = {
+                limit = {
+                    ai = no
+                    has_country_modifier = member_of_horde
+                }
+                set_head_of_horde = yes
+            }
+        }
+        else = {
+            random_country = {
+                limit = {
+                    has_country_modifier = member_of_horde
+                }
+                set_head_of_horde = yes
+            }
+        }
+	}
+}
+
 # Alliance Roster
 country_event = {
 	id = wwu_faction_system.100
