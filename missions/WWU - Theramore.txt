@@ -652,17 +652,56 @@ wwu_theramore_column_5 = {
 		position = 1
 		
         trigger = {
-			G06 = {
-				has_opinion = { who = ROOT value = 200 }
+			OR = {
+				AND = {
+					NOT = { exists = G06 }
+					owns = 1439
+					owns = 2949
+					owns = 3478
+				}
+				G06 = {
+					has_opinion = { who = ROOT value = 200 }
+				}
 			}
+			adm_power = 200
+			mil_power = 200
+			treasury = 150
 		}
 		effect = {
+			add_adm_power = -200
+			add_mil_power = -200
+			add_treasury = -150
 			add_dip_power = 200
+			1439 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 4
+				add_building = wow_fort_1
+				cede_province = G06
+				set_capital = G06
+				change_culture = culture_lordaeron
+				change_religion = holy_light
+			}			
+			2949 = {
+				cede_province = G06
+				set_capital = G06
+				change_culture = culture_lordaeron
+				change_religion = holy_light
+				add_base_tax = 2
+				center_of_trade = 1
+			}
+			G06 = {
+				add_stability = 1
+				add_treasury = 150
+			}
 			add_country_modifier = {
                 name = mission_northwatch
                 duration = -1
             }
-			inherit = G06
+			create_march = G06
+			area_honor_hold = {
+				add_claim = G06
+			}
 	    }
 	}
     
