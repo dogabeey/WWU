@@ -682,6 +682,8 @@ wwu_theramore_column_5 = {
 			province_id = 3478
 		}
 		trigger = {
+			stability = 1
+			is_at_war = no
 			OR = {
 				has_idea_group = wwu_expansion_ideas
 				has_idea_group = wwu_exploration_ideas
@@ -725,39 +727,45 @@ wwu_theramore_column_5 = {
 			is_core = 3478
 			is_core = 1456
 			is_core = 3477
-			adm_power = 100
-			dip_power = 100
-			mil_power = 100
-			treasury = 250
+			adm_power = 200
+			dip_power = 200
+			mil_power = 200
 		}
 		effect = {
-			add_adm_power = -100
-			add_dip_power = -100
-			add_mil_power = -100
-			add_treasury = -250
-			add_stability = 3
+			add_adm_power = -200
+			add_dip_power = -200
+			add_mil_power = -200
+			add_stability = 2
+			change_primary_culture = culture_theramorean
 			set_capital = 3478
 			1439 = {
 				add_base_tax = -3
 				add_base_production = -2
 				add_base_manpower = -5
+				add_devastation = 20
 			}
 			3478 = {
 				add_base_tax = 4
 				add_base_production = 3
 				add_base_manpower = 6
+				change_culture = culture_theramorean
 				add_building = wow_fort_1
+				change_trade_goods = naval_supplies
 			}
 			1456 = {
 				add_base_tax = 1
 				add_base_production = 1
+				change_culture = culture_theramorean
+				change_trade_goods = fish
 			}
 			3477 = {
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 2
-				center_of_trade = 2
+				add_center_of_trade_level = 1
+				change_culture = culture_theramorean
 				add_building = wow_marketplace
+				change_trade_goods = naval_supplies
 			}
 		}
 	}
@@ -844,12 +852,10 @@ wwu_theramore_column_5 = {
 			}
 			adm_power = 200
 			mil_power = 200
-			treasury = 150
 		}
 		effect = {
 			add_adm_power = -200
 			add_mil_power = -200
-			add_treasury = -150
 			add_dip_power = 200
 			1439 = {
 				add_base_tax = 1
@@ -857,13 +863,16 @@ wwu_theramore_column_5 = {
 				add_base_manpower = 4
 				add_building = wow_fort_1
 				cede_province = G06
+				add_core = G06
+				remove_core = A23
 				set_capital = G06
 				change_culture = culture_lordaeron
 				change_religion = holy_light
 			}			
 			2949 = {
 				cede_province = G06
-				set_capital = G06
+				add_core = G06
+				remove_core = A23
 				change_culture = culture_lordaeron
 				change_religion = holy_light
 				add_base_tax = 2
@@ -871,7 +880,6 @@ wwu_theramore_column_5 = {
 			}
 			G06 = {
 				add_stability = 1
-				add_treasury = 150
 			}
 			add_country_modifier = {
                 name = mission_northwatch
