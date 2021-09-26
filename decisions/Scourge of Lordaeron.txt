@@ -1,0 +1,41 @@
+country_decisions = {
+	purify_the_undead = {
+        potential = {
+			OR = {
+                exists = P52 # Scourge of Lordaeron
+                exists = P12 # Cult of the Damned
+            }
+            culture_group = culture_group_human
+            capital_scope = {
+                OR = {
+                    region = region_eastern_plaguelands
+                    region = region_western_plaguelands
+                    region = region_tirisfal_glades
+                }
+            }
+        }
+        allow = {
+            NOT = { has_country_modifier = purification_of_the_undead }
+            any_owned_province = {
+                has_rebel_faction = scourge_rebels
+            }
+            mil_power = -200
+        }
+        effect = {
+            add_yearly_manpower = -5
+            add_mil_power = -200
+            
+            custom_tooltip = PURIFICATION_OF_THE_UNDEAD_TT
+            
+            add_country_modifier = {
+                name = purification_of_the_undead
+                duration = 365
+            }
+            
+            disband_rebels = scourge_rebels
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+}

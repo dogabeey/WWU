@@ -147,125 +147,43 @@ adventurer_rebels = {
 # Scourge
 #---------------------------------
 scourge_rebels = {
+	color = { 32 12 164 }
 
-	color = { 32 12 164  }
-
-	area = nation_rebel_tag
-	government = any 
-	defection = nation_rebel_tag
-	independence = nation_rebel_tag
-	defect_delay = 60
-	unit_transfer = yes
+	area = nation 					# Stays within the nation
+	government = any
+	defection = none                # Will defect to the "best" alternative.
+	independence = none				# Does not strive for independence
+	defect_delay = 120
 	gfx_type = culture_province
-	will_relocate = yes	
 	
-	resilient = yes
-	reinforcing = yes
-	general = yes
-	smart = yes
+	resilient = yes					# Disbands on retreat
+	reinforcing = yes				# Does not receive reinforcements
+	general = yes					# Does not use generals
+	smart = yes						# Does not assault forts, tactically withdraw from battle, etc.
+	unit_transfer = no				# Units do not remain after enforcing demands.
+	will_relocate = yes				# Units will relocate if they have sieged all provinces nearby and has to move over sea.
 	
-	artillery = 0.1
-	infantry = 0.5
-	cavalry = 0.4
-	
+	artillery = 0.0
+	infantry = 0.9
+	cavalry = 0.1
+    
 	morale = 0.75
 
 	# Possible handle actions
 	handle_action_negotiate = no
-	handle_action_stability = yes
+	handle_action_stability = no
 	handle_action_build_core = no
 	handle_action_send_missionary = no		
  
 	# The rebel type with the highest modifier for this province gets picked
 	spawn_chance = {
 		factor = 10
-		modifier = {
-			factor = 0.01
-			NOT = { nationalism = 1 }
-			owner = {
-				OR = {
-					accepted_culture = ROOT
-					culture_group = ROOT
-					primary_culture = ROOT
-				}
-			}
-			tolerance_to_this = 0			
-	 	}
-		modifier = {
-			factor = 10
-			nationalism = 1
-		}
-	 	modifier = {
-			factor = 0.001
-			is_colony = yes
-		}
-		modifier = {
-			factor = 0.05
-			is_overseas = yes
-			has_owner_religion = yes
-		}
-		modifier = {
-			factor = 2
-			has_province_modifier = "suppress_minority"
-		}
-		modifier = {
-			factor = 1.2
-			NOT = { is_core = owner }
-		}		
-		modifier = {
-			factor = 1.5
-			owner = {
-				NOT = { stability = 0 }
-			}
-		}
-		modifier = {
-			factor = 1.5
-			owner = {
-				NOT = { stability = -2 }
-			}
-		}
-		modifier = {
-			factor = 3
-			owner = {
-				NOT = { primary_culture = ROOT }
-			}
-		}
-		modifier = {
-			factor = 1.5
-			owner = {
-				NOT = { culture_group = ROOT }
-			}
-		}
-		modifier = {
-			factor = 0.4
-			owner = {
-				accepted_culture = ROOT
-			}
-		}
-		modifier = {
-			factor = 2
-			NOT = { tolerance_to_this = 1 }
-		}
-		modifier = {
-			factor = 2
-			NOT = { tolerance_to_this = -1 }
-		}
-		modifier = {
-			factor = 2
-			NOT = { tolerance_to_this = -2 }
-		}
-		modifier = {
-			factor = 1.3
-			owner = {
-				NOT = { legitimacy_or_horde_unity = 66 }
-			}
-		}
-		modifier = {
-			factor = 1.3
-			owner = {
-				NOT = { legitimacy_or_horde_unity = 75 }
-			}
-		}
+        
+        modifier = {
+            factor = 0
+            
+            NOT = { has_global_flag = scourge_of_lordaeron }
+        }
 	}
  
  	# This is checked for EACH province in the Area of Operations
@@ -280,16 +198,12 @@ scourge_rebels = {
 			controlled_by = REB
 		}
 		modifier = {
-			factor = 1.5
-			unrest = 2
-		}
-		modifier = {
-			factor = 1.5
-			unrest = 4
-		}
-		modifier = {
-			factor = 1.5
-			unrest = 6
+			factor = 10
+			OR = {
+                region = region_eastern_plaguelands
+                region = region_western_plaguelands
+                region = region_tirisfal_glades
+            }
 		}
 	}
  
@@ -298,20 +212,29 @@ scourge_rebels = {
  		always = yes
  	}
 	siege_won_effect = {
-		if = {
-			limit = { NOT = { is_core = REB } }
-			add_core = REB
-		}
-		if = {
-			limit = { NOT = { culture = REB } }
-			change_culture = culture_scourge
-		}
-		 # Add ten extra years of nationalism
+        if = {
+            limit = {
+                NOT = { culture = culture_scourge }
+            }
+        }
+        change_culture = culture_scourge
+        change_religion = cult_of_the_damned
+        
+        # Clean up rebels in Scourge nations
+        if = {
+            limit = {
+                owner = {
+                    has_reform = scourge_domain_reform
+                }
+            }
+            kill_units = { who = REB }
+            add_yearly_manpower = 1.0
+        }
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		is_at_war = no
+		always = no
 	}
 	
 	# Country scope
@@ -320,41 +243,14 @@ scourge_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "nationalist_rebels_demand"
+	demands_description = "scourge_rebels_demand"
 	
 	# Country scope
 	demands_enforced_effect = {
-		add_country_modifier = { name = just_lost_to_rebels duration = 10 hidden = yes }
-		add_prestige = -10	
-		if = {
-			limit = {
-				exists = REB
-			}
-			every_owned_province = {
-				limit = {
-					has_rebel_faction = REB
-					culture = REB
-				}
-				if = {
-					limit = { NOT = { is_core = REB } }
-					add_core = REB
-				}			
-				cede_province = REB
-			}			
-		}
-		if = {
-			limit = {
-				NOT = { exists = REB }
-			}
-			every_owned_province = {
-				limit = {
-					has_rebel_faction = REB
-					culture = REB
-					NOT = { is_core = REB }
-				}
-				add_core = REB
-			}
-			create_vassal = REB
-		}		
+		add_stability = -6
+        add_prestige = -200
+        add_adm_power = -999
+        add_dip_power = -999
+        add_mil_power = -999
 	}
 }

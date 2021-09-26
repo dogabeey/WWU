@@ -1,159 +1,409 @@
-namespace = scourge_of_lordaeron_emerge_events
+namespace = wwu_scourge_of_lordaeron
 
-# Scourge of Lordaeron
+# Kel'Thuzad's Betrayal
+#   Event for Dalaran (or any player nation)
+#   Signals the Scourge invasion will begin
 country_event = {
-	id = scourge_of_lordaeron_emerge_events.1
-	title = scourge_of_lordaeron_emerge_events.1.title
-	desc = scourge_of_lordaeron_emerge_events.1.desc
+    id = wwu_scourge_of_lordaeron.1
+	title = wwu_scourge_of_lordaeron.1.title
+	desc = wwu_scourge_of_lordaeron.1.desc
 	picture = UNDEAD_eventPicture
 
     major = yes
+
+    fire_only_once = yes
     
-	trigger = {
+    trigger = {
+        NOT = { has_global_flag = scourge_of_lordaeron }
+        is_year = 615
         ai = no
-		P11 = {
-			ai = yes
-		}
-		is_year = 617
-		NOT = { has_global_flag = scourge_of_lordaeron_flag }
-	}
-	
-	mean_time_to_happen = { 
-        months = 1 
     }
     
-	immediate = {
-		hidden_effect = { set_global_flag = scourge_of_lordaeron_flag }
-    }
-	
-	option = {
-		name = scourge_of_lordaeron_emerge_events.1.option.a
-		
-        custom_tooltip = scourge_of_lordaeron_emerge_events_tt
+    immediate = {
         hidden_effect = {
-			P11 = {
-				complete_mission = wwu_kiljaedens_invasion_plan
-				complete_mission = wwu_recruit_kelthuzad
-				complete_mission = wwu_create_cult_of_the_damned
-				complete_mission = wwu_poison_andorhal_granary
-				complete_mission = wwu_protect_the_grain_shipments
-				complete_mission = wwu_the_scourge_emerge
-				complete_mission = wwu_the_culling
-			}
-			area_stratholme = {
-				cede_province = P52
-				add_core = P52
-				change_culture = culture_scourge
-				change_religion = cult_of_the_damned
-			}
-			area_eastwatch = {
-				cede_province = P52
-				add_core = P52
-				change_culture = culture_scourge
-				change_religion = cult_of_the_damned
-			}
-			area_the_marris_stead = {
-				cede_province = P52
-				add_core = P52
-				change_culture = culture_scourge
-				change_religion = cult_of_the_damned
-			}
-			area_eastwall_tower = {
-				cede_province = P52
-				add_core = P52
-				change_culture = culture_scourge
-				change_religion = cult_of_the_damned
-			}
-			area_northdale = {
-				cede_province = P52
-				add_core = P52
-				change_culture = culture_scourge
-				change_religion = cult_of_the_damned
-			}
-			area_andorhal_fields = {
-				cede_province = P52
-				add_core = P52
-				change_culture = culture_scourge
-				change_religion = cult_of_the_damned
-			}
-			area_andorhal = {
-				cede_province = P52
-				add_core = P52
-				change_culture = culture_scourge
-				change_religion = cult_of_the_damned
-			}
-			area_tirisfal_bulwark = {
-				cede_province = P52
-				add_core = P52
-				change_culture = culture_scourge
-				change_religion = cult_of_the_damned
-			}			
-			area_scholomance = {
-				cede_province = P12
-				add_core = P12
-				change_religion = cult_of_the_damned
-				change_culture = culture_cultist
-				add_core = P12
-			}
-			P12 = {
-				set_capital = 790
-				define_ruler = {
-					    name = "Kel'Thuzad"
-						adm = 6
-						dip = 5
-						mil = 5
-						age = 75
-						claim = 100
+            set_global_flag = scourge_of_lordaeron
+            
+            country_event = {
+                id = wwu_scourge_of_lordaeron.2
+                days = 720
+                random = 720
+            }
+        }
+    }
+    
+    mean_time_to_happen = { 
+        months = 12
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.1.option.a
+
+        A18 = {
+            add_stability = -1
+        }
+    }
+}
+
+# Cult of the Damned
+#   Place the Cult of the Damned in Scholomance
+country_event = {
+    id = wwu_scourge_of_lordaeron.2
+	title = wwu_scourge_of_lordaeron.2.title
+	desc = wwu_scourge_of_lordaeron.2.desc
+	picture = UNDEAD_eventPicture
+
+    major = yes
+    is_triggered_only = yes
+    
+    fire_only_once = yes
+    
+    mean_time_to_happen = { 
+        days = 1
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.2.option.a
+
+        790 = {
+            cede_province = P12
+            add_core = P12
+            change_culture = culture_cultist
+            change_religion = cult_of_the_damned
+        }
+    }
+    
+    after = {
+        hidden_effect = {
+            P12 = {
+                define_ruler = {
+                    name = "Kel'Thuzad"
+                    dynasty = "the Necromancer"
+                    adm = 6
+                    dip = 5
+                    mil = 5
+                    age = 75
+                    claim = 100
 				}
-				add_government_reform = scourge_domain_reform
-				set_ruler_flag = is_immortal
-				event_add_mage_personality = yes
-				add_stability = 3
-				add_treasury = 1500
-				add_prestige = 200
-			}
-			790 = {
-				infantry = P12
-				infantry = P12
-				infantry = P12
-				infantry = P12
-				infantry = P12
-				infantry = P12
-				infantry = P12
-				infantry = P12
-				infantry = P12
-				infantry = P12
-				cavalry = P12
-				cavalry = P12
-				cavalry = P12
-				artillery = P12
-				artillery = P12
-				add_base_tax = 4
-				add_base_production = 4
-				add_base_manpower = 6
-				center_of_trade = 2
-			}
-			P52 = {
-				define_ruler = {
-					    name = "Mal'Ganis"
-						adm = 6
-						dip = 5
-						mil = 4
-						age = 500
-						claim = 100
-				}
-				add_government_reform = scourge_domain_reform
-				set_ruler_flag = is_immortal
-				event_add_mage_personality = yes
-				set_ruler_religion = cult_of_the_damned
-				set_ruler_culture = culture_dreadlord
-				set_capital = 642
-				add_stability = 3
-				add_treasury = 1500
-				add_prestige = 200
-			}
-			642 = {
-				infantry = P52
+                add_stability = 3
+                add_adm_power = 800
+                add_dip_power = 800
+                add_mil_power = 800
+                add_treasury = 10000
+                add_prestige = 200
+                country_event = { id = wwu_country_switch.3 days = 7 } # Discovery of World
+                
+                capital_scope = {
+                    infantry = P12
+                    infantry = P12
+                    infantry = P12
+                    infantry = P12
+                    infantry = P12
+                    infantry = P12
+                    infantry = P12
+                    infantry = P12
+                    infantry = P12
+                    infantry = P12
+                    cavalry = P12
+                    cavalry = P12
+                    cavalry = P12
+                    artillery = P12
+                    artillery = P12
+                    set_base_tax = 8
+                    set_base_production = 10
+                    set_base_manpower = 10
+                }
+            }
+            P11 = {
+                vassalize = P12
+            }
+        }
+    }
+}
+
+# Plague of Undeath
+#   Cult of the Damned exists
+#   Spawn random Scourge rebels in Lordaeron region
+country_event = {
+    id = wwu_scourge_of_lordaeron.3
+	title = wwu_scourge_of_lordaeron.3.title
+	desc = wwu_scourge_of_lordaeron.3.desc
+	picture = UNDEAD_eventPicture
+
+    trigger = {
+        NOT = { has_global_flag = fall_of_lordaeron }
+        OR = {
+            exists = P12 # Cult of the Damned
+            exists = P52 # Scourge of Lordaeron
+        }
+        culture_group = culture_group_human
+        capital_scope = {
+            OR = {
+                region = region_eastern_plaguelands
+                region = region_western_plaguelands
+                region = region_tirisfal_glades
+            }
+        }
+    }
+    
+    mean_time_to_happen = { 
+        months = 6
+        
+        # Slow rate if the Purification of the Undead decision is used
+        modifier = {
+            factor = 2
+            
+            has_country_modifier = purification_of_the_undead
+        }
+        
+        # Slow rate over time
+        modifier = {
+            factor = 2
+            
+            exists = P52
+        }
+        modifier = {
+            factor = 2
+            
+            P52 = {
+                num_of_cities = 20
+            }
+        }
+        modifier = {
+            factor = 2
+            
+            P52 = {
+                num_of_cities = 30
+            }
+        }
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.3.option.a
+
+        random_owned_province = {
+            limit = {
+                OR = {
+                    region = region_eastern_plaguelands
+                    region = region_western_plaguelands
+                    region = region_tirisfal_glades
+                }
+            }
+            random_list = {
+                33 = { scourge_rebels = 1 }
+                33 = { scourge_rebels = 2 }
+                33 = { scourge_rebels = 3 }
+            }
+        }
+    }
+}
+
+# Infestation in Stratholme
+country_event = {
+    id = wwu_scourge_of_lordaeron.4
+	title = wwu_scourge_of_lordaeron.4.title
+	desc = wwu_scourge_of_lordaeron.4.desc
+	picture = UNDEAD_eventPicture
+
+    fire_only_once = yes
+    
+    trigger = {
+        NOT = { has_global_flag = fall_of_lordaeron }
+        exists = P12 # Cult of the Damned
+        culture_group = culture_group_human
+        any_owned_province = {
+            area = area_stratholme
+            owned_by = ROOT
+        }
+        capital_scope = {
+            OR = {
+                region = region_eastern_plaguelands
+                region = region_western_plaguelands
+                region = region_tirisfal_glades
+            }
+        }
+    }
+    
+    mean_time_to_happen = { 
+        months = 36
+        
+        # Slow rate if the Purification of the Undead decision is used
+        modifier = {
+            factor = 3
+            
+            has_country_modifier = purification_of_the_undead
+        }
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.4.option.a
+
+        area_stratholme = {
+            limit = {
+                owned_by = ROOT
+            }
+            scourge_rebels = 4
+        }
+    }
+}
+
+# Infestation in Andorhal
+country_event = {
+    id = wwu_scourge_of_lordaeron.5
+	title = wwu_scourge_of_lordaeron.5.title
+	desc = wwu_scourge_of_lordaeron.5.desc
+	picture = UNDEAD_eventPicture
+
+    fire_only_once = yes
+    
+    trigger = {
+        NOT = { has_global_flag = fall_of_lordaeron }
+        exists = P12 # Cult of the Damned
+        culture_group = culture_group_human
+        any_owned_province = {
+            area = area_andorhal
+            owned_by = ROOT
+        }
+        capital_scope = {
+            OR = {
+                region = region_eastern_plaguelands
+                region = region_western_plaguelands
+                region = region_tirisfal_glades
+            }
+        }
+    }
+    
+    mean_time_to_happen = { 
+        months = 36
+        
+        # Slow rate if the Purification of the Undead decision is used
+        modifier = {
+            factor = 3
+            
+            has_country_modifier = purification_of_the_undead
+        }
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.5.option.a
+
+        area_andorhal = {
+            limit = {
+                owned_by = ROOT
+            }
+            scourge_rebels = 4
+        }
+    }
+}
+
+# Infestation in Brill
+country_event = {
+    id = wwu_scourge_of_lordaeron.6
+	title = wwu_scourge_of_lordaeron.6.title
+	desc = wwu_scourge_of_lordaeron.6.desc
+	picture = UNDEAD_eventPicture
+
+    fire_only_once = yes
+    
+    trigger = {
+        NOT = { has_global_flag = fall_of_lordaeron }
+        exists = P12 # Cult of the Damned
+        culture_group = culture_group_human
+        any_owned_province = {
+            area = area_brill
+            owned_by = ROOT
+        }
+        capital_scope = {
+            OR = {
+                region = region_eastern_plaguelands
+                region = region_western_plaguelands
+                region = region_tirisfal_glades
+            }
+        }
+    }
+    
+    mean_time_to_happen = { 
+        months = 36
+        
+        # Slow rate if the Purification of the Undead decision is used
+        modifier = {
+            factor = 3
+            
+            has_country_modifier = purification_of_the_undead
+        }
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.6.option.a
+
+        area_brill = {
+            limit = {
+                owned_by = ROOT
+            }
+            scourge_rebels = 4
+        }
+    }
+}
+
+# Scourge of Lordaeron
+country_event = {
+    id = wwu_scourge_of_lordaeron.7
+	title = wwu_scourge_of_lordaeron.7.title
+	desc = wwu_scourge_of_lordaeron.7.desc
+	picture = UNDEAD_eventPicture
+
+    fire_only_once = yes
+    
+    trigger = {
+        tag = A08 # Lordaeron
+        calc_true_if = {
+            amount = 8
+            all_owned_province = {
+                culture = culture_scourge
+                religion = cult_of_the_damned
+            }
+        }
+    }
+    
+    mean_time_to_happen = { 
+        months = 1
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.7.option.a
+
+        every_owned_province = {
+            limit = {
+                culture = culture_scourge
+                religion = cult_of_the_damned
+            }
+            cede_province = P52
+            add_core = P52
+        }
+    }
+    after = {
+        P52 = {
+            define_ruler = {
+                name = "Mal'Ganis"
+                dynasty = "the Corruptor"
+                adm = 6
+                dip = 5
+                mil = 4
+                age = 500
+                claim = 100
+            }
+            set_ruler_religion = cult_of_the_damned
+            set_ruler_culture = culture_dreadlord
+            
+            add_stability = 3
+            add_adm_power = 800
+            add_dip_power = 800
+            add_mil_power = 800
+            add_treasury = 10000
+            add_prestige = 200
+            country_event = { id = wwu_country_switch.3 days = 7 } # Discovery of World
+            
+            capital_scope = {
+                infantry = P52
 				infantry = P52
 				infantry = P52
 				infantry = P52
@@ -183,122 +433,397 @@ country_event = {
 				artillery = P52
 				artillery = P52
 				artillery = P52
-			}
-			P11 = {
-				vassalize = P52
-				vassalize = P12
-			}
-			A08 = {
-				add_treasury = -500
-				add_stability = -3
-				define_ruler = {
-					name = "Terenas II"
-					dynasty = "Menethil"
-					adm = 3
-					dip = 2
-					mil = 4
-					age = 60
-					claim = 100
-				}
-				event_add_warrior_personality = yes
-				set_ruler_flag = is_immortal
-			}
-			882 = {
-				cede_province = F38
-				add_core = F38
-				change_culture = culture_lordaeron
-				change_religion = holy_light
-				add_base_tax = 2
-				add_base_tax = 2
-				add_base_manpower = 4
-				center_of_trade = 1
-			}
-			area_halvarde = {
-				cede_province = F38
-				add_core = F38
-				change_culture = culture_lordaeron
-				change_religion = holy_light
-			}
-			583 = {
-				cede_province = F38
-				add_core = F38
-				change_culture = culture_lordaeron
-				change_religion = holy_light
-			}
-			635 = {
-				cede_province = F38
-				add_core = F38
-				change_culture = culture_lordaeron
-				change_religion = holy_light
-			}
-			749 = {
-				change_culture = culture_ironforge
-			}
-			F38 = {
-				add_accepted_culture = culture_ironforge
-				set_capital = 882
-				define_ruler = {
-					name = "Arthas"
-					dynasty = "Menethil"
-					age = 24
-					claim = 100
-					adm = 4
-					dip = 2
-					mil = 6
-				}
-				set_ruler_flag = is_immortal
-				event_add_paladin_personality = yes
-				event_add_ruthless_personality = yes
-				define_general = {
-					name = "Muradin Bronzebeard"
-					fire = 5
-					shock = 7
-					manuever = 5
-					siege = 3
-				}
-			}
-			2413 = {
-				cede_province = P11
-				add_core = P11
-				change_culture = culture_scourge
-				change_religion = cult_of_the_damned
-			}
-			P11 = {
-				declare_war = A08
-			}
-			P52 = {
-				join_all_offensive_wars_of = P11
-			}
-			P12 = {
-				join_all_offensive_wars_of = P11
-			}
-			F38 = {
-				join_all_defensive_wars_of = A08
-			}
-			continent_eastern_kingdoms = {
-				discover_country = P52
-			}
-			continent_northrend = {
-				discover_country = P52
-			}
-			continent_broken_isles = {
-				discover_country = P52
-			}
-			continent_outland = {
-				discover_country = P52
-			}
-			continent_eastern_kingdoms = {
-				discover_country = P12
-			}
-			continent_northrend = {
-				discover_country = P12
-			}
-			continent_broken_isles = {
-				discover_country = P12
-			}
-			continent_outland = {
-				discover_country = P12
-			}
-		}
-	}
+            }
+            
+            P11 = {
+                vassalize = P52
+            }
+            
+            declare_war_with_cb = {
+                who = A08
+                casus_belli = cb_scourge
+            }
+        }
+    }
 }
+
+# Scourge Infestation
+province_event = {
+    id = wwu_scourge_of_lordaeron.8
+	title = wwu_scourge_of_lordaeron.8.title
+	desc = wwu_scourge_of_lordaeron.8.desc
+	picture = UNDEAD_eventPicture
+
+    trigger = {
+        NOT = { has_global_flag = fall_of_lordaeron }
+        exists = P52
+        NOT = { province_id = 542 } # Capital City
+        owner = {
+            NOT = { primary_culture = culture_scourge }
+            NOT = { religion = cult_of_the_damned }
+        }
+        culture = culture_scourge
+        religion = cult_of_the_damned 
+    }
+    
+    mean_time_to_happen = { 
+        months = 64
+
+        # If Scourge of Lordaeron start to lose, make this event much less likely
+        modifier = {
+            factor = 4
+            
+            P52 = {
+                NOT = { num_of_cities = 8 }
+            }
+        }
+        modifier = {
+            factor = 2
+            
+            P52 = {
+                NOT = { num_of_cities = 4 }
+            }
+        }
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.8.option.a
+
+        cede_province = P52
+        add_core = P52
+    }
+}
+
+# Ghouls and Abominations
+country_event = {
+    id = wwu_scourge_of_lordaeron.9
+	title = wwu_scourge_of_lordaeron.9.title
+	desc = wwu_scourge_of_lordaeron.9.desc
+	picture = UNDEAD_eventPicture
+
+    fire_only_once = yes
+    
+    trigger = {
+        tag = P52
+        num_of_cities = 8
+    }
+    
+    mean_time_to_happen = { 
+        days = 1
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.9.option.a
+
+        disband_rebels = scourge_rebels
+        add_yearly_manpower = 10.0
+    }
+}
+
+# Rise of Arthas
+#   Once the Scourge of Lordaeron have atleast 5 provinces
+#   Adds debuff to Cult of the Damned, reduces rate of "Plague of Undeath"
+country_event = {
+    id = wwu_scourge_of_lordaeron.10
+	title = wwu_scourge_of_lordaeron.10.title
+	desc = wwu_scourge_of_lordaeron.10.desc
+	picture = UNDEAD_eventPicture
+
+    fire_only_once = yes
+    major = yes
+    
+    trigger = {
+        tag = A08 # Lordaeron
+        exists = P52 # Scourge of Lordaeron
+    }
+    
+    mean_time_to_happen = { 
+        months = 12
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.10.option.a
+
+        define_general = {
+            name = "Arthas Menethil"
+            shock = 6
+            fire = 3
+            manuever = 3
+            siege = 3
+        }
+
+        # Cult of the Damned
+        P12 = {
+            kill_ruler = yes
+            add_stability = -3
+        }
+    }
+    after = {
+        set_global_flag = arthas_storyline
+    }
+}
+
+# Culling of Stratholme
+#   Occurs after Rise of Arthas, adds debuff to Stratholme region
+#   Player can attempt to stop Arthas here, RNG chance and expensive, but stops the event chain if successful
+country_event = {
+    id = wwu_scourge_of_lordaeron.11
+	title = wwu_scourge_of_lordaeron.11.title
+	desc = wwu_scourge_of_lordaeron.11.desc
+	picture = UNDEAD_eventPicture
+
+    fire_only_once = yes
+    major = yes
+    
+    trigger = {
+        tag = A08 # Lordaeron
+        has_global_flag = arthas_storyline
+        
+        # Stratholme has been converted
+        642 = {
+            culture = culture_scourge
+            religion = cult_of_the_damned 
+        }
+    }
+    
+    mean_time_to_happen = { 
+        months = 1
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.11.option.a
+
+        642 = {
+            change_culture = ROOT
+            change_religion = ROOT
+            add_province_modifier = {
+                name = culling_of_stratholme
+                duration = 18250
+            }
+        }
+        hidden_effect = {
+            set_global_flag = arthas_is_free
+        }
+    }
+    option = {
+		name = wwu_scourge_of_lordaeron.11.option.b
+
+        trigger = {
+            ai = no
+        }
+        
+        add_stability = -6
+        add_prestige = -200
+        add_mil_power = -300
+        
+        # kill_leader = "Arthas Menethil"
+        
+        custom_tooltip = ARTHAS_IS_DEAD_TT
+        hidden_effect = {
+            set_global_flag = arthas_is_dead
+        }
+    }
+}
+
+# Northrend Expedition
+#   If Arthas is not controlled
+#   Describes his acqusition of Frostmourne
+country_event = {
+    id = wwu_scourge_of_lordaeron.12
+	title = wwu_scourge_of_lordaeron.12.title
+	desc = wwu_scourge_of_lordaeron.12.desc
+	picture = UNDEAD_eventPicture
+
+    trigger = {
+        tag = A08 # Lordaeron
+        had_global_flag = {
+            flag = arthas_is_free
+            days = 365
+        }
+    }
+    
+    mean_time_to_happen = { 
+        months = 12
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.12.option.a
+
+        add_stability = 1
+        
+        hidden_effect = {
+            country_event = {
+                id = wwu_scourge_of_lordaeron.13
+                days = 720
+            }
+        }
+    }
+}
+
+# Fall of Lordaeron
+#   Kill King Terenas
+#   A: Mass Scourge rebels appear, if survived Lordaeron exists as normal
+#      Arthas leads the existing Scourge of Lordaeron nation
+#   B: Become the Scourge of Lordaeron, and convert all former Lordaeron land to Scourge of Lordaeron
+country_event = {
+    id = wwu_scourge_of_lordaeron.13
+	title = wwu_scourge_of_lordaeron.13.title
+	desc = wwu_scourge_of_lordaeron.13.desc
+	picture = UNDEAD_eventPicture
+
+    major = yes
+    is_triggered_only = yes
+
+    mean_time_to_happen = { 
+        days = 1
+    }
+    
+    # Fight the Lich King
+	option = {
+		name = wwu_scourge_of_lordaeron.13.option.a
+
+        kill_ruler = yes
+        
+        P52 = {
+            define_ruler = {
+                name = "Arthas" 
+                dynasty = "Menethil" 	
+                adm = 6
+                dip = 6
+                mil = 6
+                age = 34
+            }
+            set_ruler_flag = is_immortal
+            
+            hidden_effect = {
+                event_add_death_knight_personality = yes
+                event_add_ruthless_personality = yes
+            }
+            
+            add_country_modifier = {
+                name = frostmourne
+                duration = -1
+            }
+        }
+        
+        capital_scope = {
+            scourge_rebels = 16
+        }
+        random_owned_province = {
+            scourge_rebels = 4
+        }
+        random_owned_province = {
+            scourge_rebels = 4
+        }
+        random_owned_province = {
+            scourge_rebels = 4
+        }
+        random_owned_province = {
+            scourge_rebels = 4
+        }
+        random_owned_province = {
+            scourge_rebels = 4
+        }
+        random_owned_province = {
+            scourge_rebels = 4
+        }
+        random_owned_province = {
+            scourge_rebels = 4
+        }
+    }
+    
+    # Join Lich King
+    option = {
+		name = wwu_scourge_of_lordaeron.13.option.b
+
+        trigger = {
+            exists = P52
+        }
+
+        switch_tag = P52
+        
+        define_ruler = {
+            name = "Arthas" 
+            dynasty = "Menethil" 	
+            adm = 6
+            dip = 6
+            mil = 6
+            age = 34
+        }
+        set_ruler_flag = is_immortal
+        
+        hidden_effect = {
+            event_add_death_knight_personality = yes
+            event_add_ruthless_personality = yes
+        }
+        
+        add_country_modifier = {
+            name = frostmourne
+            duration = -1
+        }
+        
+        country_event = { id = wwu_scourge_of_lordaeron.14 days = 7 }
+    }
+    
+    after = {
+        set_global_flag = fall_of_lordaeron
+    }
+}
+
+# Integration of Lordaeron
+country_event = {
+    id = wwu_scourge_of_lordaeron.14
+	title = wwu_scourge_of_lordaeron.14.title
+	desc = wwu_scourge_of_lordaeron.14.desc
+	picture = UNDEAD_eventPicture
+
+    is_triggered_only = yes
+
+    mean_time_to_happen = { 
+        days = 1
+    }
+    
+	option = {
+		name = wwu_scourge_of_lordaeron.14.option.a
+
+        set_global_flag = fall_of_lordaeron
+        
+        # Add all Lordaeron subjects into Lordaeron
+        hidden_effect = {
+            A08 = {
+                every_subject_country = {
+                    A08 = {
+                        inherit = PREV
+                    }
+                }
+            }
+        }
+        # Annex Lordaeron
+        inherit = A08
+        
+        every_owned_province = {
+            limit = {
+                OR = {
+                    region = region_eastern_plaguelands
+                    region = region_western_plaguelands
+                    region = region_tirisfal_glades
+                }
+            }
+            change_culture = culture_scourge
+            change_religion = cult_of_the_damned
+        }
+    }
+}
+
+
+# Revival of Kel'Thuzad
+#   For Scourge of Lordaeron if above 10 provinces
+#   Declare war on Quel'Thalas
+
+# Corruption of Sylvanas Windrunner
+#   Occurs during random battle against Quel'Thanas
+
+# Kel'Thuzad Reborn
+#   Scourge of Lordaeron control the Sunwell
+#   Gain buff, and annex all Quel'Thanas land
+

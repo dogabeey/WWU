@@ -30,15 +30,15 @@ rebellious_living_vassals = {
     potential = {
         tag = P11
 		any_subject_country = {
-				has_country_modifier = living_vassals_of_the_scourge
-			}
+            has_country_modifier = living_vassals_of_the_scourge
+        }
     }
     
 	trigger = {
 		tag = P11
 		any_subject_country = {
-				has_country_modifier = living_vassals_of_the_scourge
-			}
+            has_country_modifier = living_vassals_of_the_scourge
+        }
 	}
     
     global_missionary_strength = -5
@@ -46,4 +46,35 @@ rebellious_living_vassals = {
 	global_unrest = 10
 	yearly_absolutism = -2
 	legitimacy = -2
+}
+
+undead_mass = {
+    potential = {
+        has_reform = scourge_domain_reform
+        NOT = { is_year = 650 }
+        capital_scope = {
+            OR = {
+                region = region_eastern_plaguelands
+                region = region_western_plaguelands
+                region = region_tirisfal_glades
+            }
+        }
+    }
+    
+	trigger = {
+		has_reform = scourge_domain_reform
+        NOT = { is_year = 650 }
+        capital_scope = {
+            OR = {
+                region = region_eastern_plaguelands
+                region = region_western_plaguelands
+                region = region_tirisfal_glades
+            }
+        }
+	}
+    
+    land_forcelimit = 50.0
+    global_manpower = 50.0
+    manpower_recovery_speed = 0.33
+    global_regiment_recruit_speed = -0.5
 }
