@@ -12,6 +12,7 @@ invite_to_alliance = {
 	is_visible = {
 		has_country_modifier = head_of_alliance
         FROM = {
+            NOT = { has_country_modifier = member_of_alliance }
 			NOT = { cannot_join_alliance = yes }
 			NOT = { has_country_modifier = recent_faction_interaction }
 		}
@@ -190,6 +191,7 @@ invite_to_horde = {
 	is_visible = {
 		has_country_modifier = head_of_horde
         FROM = {
+            NOT = { has_country_modifier = member_of_horde }
 			NOT = { cannot_join_horde = yes }
 			NOT = { has_country_modifier = recent_faction_interaction }
 		}
@@ -367,6 +369,7 @@ invite_to_old_horde = {
 	is_visible = {
 		has_country_modifier = head_of_old_horde
         FROM = {
+            NOT = { has_country_modifier = member_of_old_horde }
 			NOT = { cannot_join_old_horde = yes }
 			NOT = { has_country_modifier = recent_faction_interaction }
 		}
