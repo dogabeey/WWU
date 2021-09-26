@@ -241,6 +241,7 @@ wwu_theramore_column_3 = {
 		    tag = A23
 		}
 	}
+	 
 	
 	wwu_kezan_naval_front = { 
 		icon = mission_barracks
@@ -264,6 +265,31 @@ wwu_theramore_column_3 = {
 				name = mission_control_kezan
 				duration = -1
 			}
+		}
+	}
+	wwu_dustmarsh_dominance = {
+		icon = mission_gold_pile
+		required_missions = { }
+		position = 3
+		
+		trigger = {
+            # Dustwallow Marsh
+			1456 = {
+				is_strongest_trade_power = ROOT
+			}
+		}
+		
+		effect = {
+			add_dip_power = 50
+			add_adm_power = 50
+			add_mil_power = 50
+			add_country_modifier = {
+				name = mission_dustmarsh_node_dominance
+				duration = -1
+			}
+			region_kezan = {
+                add_permanent_claim = ROOT
+            }
 		}
 	}
 	wwu_zandalar_invasion = {
@@ -646,90 +672,96 @@ wwu_theramore_column_5 = {
 		}
 	} 
 	
-    wwu_northwatch = {
-	    icon = mission_arcane_tower
-		required_missions = { }
+	wwu_theramore_settlers = {
+		icon = mission_human_male
+		completed_by = 617.12.31
 		position = 1
+		required_missions = { }
 		
-        trigger = {
+		provinces_to_highlight = {
+			province_id = 3478
+		}
+		trigger = {
 			OR = {
-				AND = {
-					NOT = { exists = G06 }
-					owns = 1439
-					owns = 2949
-					owns = 3478
-				}
-				G06 = {
-					has_opinion = { who = ROOT value = 200 }
-				}
+				has_idea_group = wwu_expansion_ideas
+				has_idea_group = wwu_exploration_ideas
 			}
-			adm_power = 200
-			mil_power = 200
-			treasury = 150
 		}
 		effect = {
-			add_adm_power = -200
-			add_mil_power = -200
-			add_treasury = -150
-			add_dip_power = 200
+			if = {
+				limit = {					
+					has_idea_group = wwu_expansion_ideas
+				}				
+				add_idea = wwu_expansion_ideas_1
+			}
+			else_if = {
+				limit = {					
+					has_idea_group = wwu_exploration_ideas
+				}				
+				add_idea = wwu_exploration_ideas_1
+			}
+			add_country_modifier = {
+				name = mission_theramore_settlers
+				duration = 365
+			}
+#			3478 = {
+#				create_colony = 100
+#			}
+		}
+	}
+	
+	wwu_theramore_isle_capital = {
+		icon = mission_arcane_tower
+		completed_by = 617.12.31
+		position = 2
+		required_missions = { wwu_theramore_settlers }
+		
+		provinces_to_highlight = {
+			province_id = 3478
+			province_id = 1456
+			province_id = 3477			
+		}
+		trigger = {
+			is_core = 3478
+			is_core = 1456
+			is_core = 3477
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+			treasury = 250
+		}
+		effect = {
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			add_treasury = -250
+			add_stability = 3
+			set_capital = 3478
 			1439 = {
+				add_base_tax = -3
+				add_base_production = -2
+				add_base_manpower = -5
+			}
+			3478 = {
+				add_base_tax = 4
+				add_base_production = 3
+				add_base_manpower = 6
+				add_building = wow_fort_1
+			}
+			1456 = {
 				add_base_tax = 1
 				add_base_production = 1
-				add_base_manpower = 4
-				add_building = wow_fort_1
-				cede_province = G06
-				set_capital = G06
-				change_culture = culture_lordaeron
-				change_religion = holy_light
-			}			
-			2949 = {
-				cede_province = G06
-				set_capital = G06
-				change_culture = culture_lordaeron
-				change_religion = holy_light
-				add_base_tax = 2
-				center_of_trade = 1
 			}
-			G06 = {
-				add_stability = 1
-				add_treasury = 150
-			}
-			add_country_modifier = {
-                name = mission_northwatch
-                duration = -1
-            }
-			create_march = G06
-			area_honor_hold = {
-				add_claim = G06
-			}
-	    }
-	}
-    
-    wwu_dustmarsh_dominance = {
-		icon = mission_gold_pile
-		required_missions = { }
-		
-		trigger = {
-            # Dustwallow Marsh
-			1456 = {
-				is_strongest_trade_power = ROOT
+			3477 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 2
+				center_of_trade = 2
+				add_building = wow_marketplace
 			}
 		}
-		
-		effect = {
-			add_dip_power = 50
-			add_adm_power = 50
-			add_mil_power = 50
-			add_country_modifier = {
-				name = mission_dustmarsh_node_dominance
-				duration = -1
-			}
-			region_kezan = {
-                add_permanent_claim = ROOT
-            }
-		}
 	}
-    
+		    
 	wwu_fortify_the_marsh = {
 		icon = mission_workshop
 		position = 3
@@ -786,6 +818,70 @@ wwu_theramore_column_5 = {
 				}
 			}
 		}
+	}
+	wwu_northwatch = {
+	    icon = mission_arcane_tower
+		required_missions = { }
+		position = 4
+		
+        trigger = {
+            mission_completed = wwu_theramore_isle_capital
+			OR = {
+				AND = {
+					NOT = { exists = G06 }
+					is_core = 1439
+					is_core = 2949
+					is_core = 3478
+					is_core = 1456
+					is_core = 3477
+				}
+				G06 = {
+					has_opinion = { 
+						who = ROOT 
+						value = 200
+					}
+				}
+			}
+			adm_power = 200
+			mil_power = 200
+			treasury = 150
+		}
+		effect = {
+			add_adm_power = -200
+			add_mil_power = -200
+			add_treasury = -150
+			add_dip_power = 200
+			1439 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 4
+				add_building = wow_fort_1
+				cede_province = G06
+				set_capital = G06
+				change_culture = culture_lordaeron
+				change_religion = holy_light
+			}			
+			2949 = {
+				cede_province = G06
+				set_capital = G06
+				change_culture = culture_lordaeron
+				change_religion = holy_light
+				add_base_tax = 2
+				center_of_trade = 1
+			}
+			G06 = {
+				add_stability = 1
+				add_treasury = 150
+			}
+			add_country_modifier = {
+                name = mission_northwatch
+                duration = -1
+            }
+			create_march = G06
+			area_honor_hold = {
+				add_claim = G06
+			}
+	    }
 	}
 	wwu_hitting_the_snake_on_the_head = {
 		icon = mission_burning_city
