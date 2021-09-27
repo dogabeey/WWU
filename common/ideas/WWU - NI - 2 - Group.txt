@@ -628,13 +628,63 @@ kul_tiran_ideas = {
 		discipline = 0.05
 	}
 	kul_tiran_ideas_6 = { #House Proudmoore: House Proudmoore is one of four noble houses that rule Kul Tiras. Masters of the sea and commanders of Azeroth's finest navy, the distinguished Proudmoore family has led Kul Tiras for decades from their seat of power in Boralus.[1] Their seat is Proudmoore Keep, located in the city of Boralus. House Proudmoore rules Kul Tiras, commanding both the military and the guard in the form of the Proudmoore Admiralty and the Proudmoore Guard. 
-	     navy_tradition_decay = -0.1
+	    navy_tradition_decay = -0.1
 	}
 	#Every Kul Tiran shares a bond with the sea. From the tides, we draw our strength. Our courage. For a time, we let fear and distrust divide us. Lost in a storm of doubt, we forgot what it meant to stand as one people. As one family. Today, Kul Tiras proudly flies the Alliance flag once more. Whatever awaits us on the horizon, we will face it... together. - Katherine Proudmoore
 	kul_tiran_ideas_7 = {
 		naval_morale = 0.2
-		diplomatic_upkeep = 2
-			
+		diplomatic_upkeep = 2		
+	}
+}
+
+theramore_ideas = {
+	start = {
+		naval_forcelimit_modifier = 0.5
+		sailors_recovery_speed = 0.25
+	}
+
+	bonus = {
+		light_ship_power = 0.10
+		fire_damage = 0.2
+	}
+	
+	trigger = {
+		OR = {
+			primary_culture = culture_theramorean
+		}
+	}
+	free = yes		
+	
+	theramore_ideas_1 = { #To rule the marsh : After settling on this hostile marsh and with the constant arival of refugees from Lordaeron, we have to find a way to establish ourselves to the area!
+        native_uprising_chance = -0.25
+		may_establish_frontier = yes
+	}
+	theramore_ideas_2 = { #Lady Proudmoore: With Jaina as our leader we managed to not only set a foothold in Kalimdor but also create a strong fleet equal to the fleets of Kul'Tiras! This is a great benefit for the people of Theramore!
+		navy_tradition_decay = -0.1
+		naval_morale = 0.2
+	}
+	theramore_ideas_3 = { #Theramorean Marines: To maintain our holds we need strong men to protect our dominion! The marines of Theramore will not retreat on the face of any danger in Dastswallow or Barrens!
+		sailors_recovery_speed = 0.25
+		discipline = 0.05
+		allowed_marine_fraction = 0.02
+	}
+	theramore_ideas_4 = { #Pride of Theramore: Citizens of Theramore are the proove that humanity can strive even to the harshest of enviroments. With our Lordaeron ancestry and Kul tiran skill on the seas we will be unbeatable!
+		development_cost = -0.2
+		core_creation = -0.5
+		navy_tradition = 1
+	}
+	theramore_ideas_5 = { #Holy Light: We keep the faith of our forefathers to the holy light with passion! But in this hostile land we have to improvise with the locals and their beliefs.
+		tolerance_heathen = 1
+        tolerance_heretic = 1
+	}
+	theramore_ideas_6 = { #Dalaran Teachings: As we have some of the strongest users of arcane in humanity, we have to take measures against demonic corruption or foreign threats.
+	    global_spy_defence = 0.2
+		spy_offence = 0.5
+	}
+	#Every Theramorean shares a bond with the sea. From the tides, we draw our strength. Our courage. For a time, we let fear and distrust divide us. Lost in the storm of civil war, we forgot what it meant to stand as one people. As one family. Today, Theramore takes the heavy burden of Dealin Proudmoore's death and proudly stands as the gate to Kalimdor! LONG LIVE THERAMORE!
+	theramore_ideas_7 = {
+		yearly_absolutism = 0.1
+		diplomatic_reputation = 2		
 	}
 }
 
