@@ -1,0 +1,277 @@
+#--------------------------------------
+# Vol'dun Cartel
+#--------------------------------------
+wwu_voldun_column_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+    
+	potential = {
+		tag = VLC
+	}
+	has_country_shield = yes
+	
+    # Bolster the Hideaway
+    wwu_bolster_the_hideaway = {
+		icon = mission_axe_and_sword
+        
+		required_missions = {  }
+		
+		trigger = {
+            owns_core_province = 1117
+            1117 = {
+                is_capital = yes
+                has_building = wow_fort_1
+            }
+		}
+            
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+            province_id = 1117
+        }
+        
+		effect = {
+			1126 = {
+                add_permanent_claim = ROOT
+            }
+            add_country_modifier = {
+                name = hideaway_secured
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    # Zandalari Connection
+    wwu_zandalari_connection = {
+		icon = mission_rastakhan
+        
+		required_missions = { wwu_bolster_the_hideaway }
+		
+		trigger = {
+            has_opinion = {
+                who = A78
+                value = 100
+            }
+            alliance_with = A78
+		}
+        
+		effect = {
+			1126 = {
+                add_permanent_claim = ROOT
+            }
+            add_country_modifier = {
+                name = zandalari_alliances
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    # Mercantile Dominance
+    wwu_mercantile_dominance = {
+		icon = mission_trading_outpost
+        
+		required_missions = { wwu_zandalari_connection }
+		
+		trigger = {
+            capital_scope = {
+                region = region_voldun
+            }
+            home_trade_node = {
+				trade_share = {
+					country = ROOT
+					share = 90
+				}
+			}
+		}
+        
+		effect = {
+            add_country_modifier = {
+                name = market_dominance
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    # Pandarian Exchange
+    wwu_pandarian_exchange = {
+		icon = mission_yin_yang
+        
+		required_missions = { wwu_mercantile_dominance }
+		
+		trigger = {
+            calc_true_if = {
+                amount = 3
+                
+                all_country = {
+                    alliance_with = ROOT
+                    culture_group = culture_group_pandaren
+                }
+            }
+		}
+        
+		effect = {
+            add_country_modifier = {
+                name = pandarian_exchange
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+}
+
+wwu_voldun_column_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+    
+	potential = {
+		tag = VLC
+	}
+	has_country_shield = yes
+	
+    # Pushback the Sethrak
+    wwu_push_back_the_sethrak = {
+		icon = mission_thunderstrike
+        
+		required_missions = {  }
+		
+		trigger = {
+            owns = 1113
+		}
+            
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+            province_id = 1113
+        }
+        
+		effect = {
+            1113 = {
+                add_core = ROOT
+            }
+            if = {
+                limit = {
+                    1114 = { is_empty = yes }
+                }
+                1114 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                }
+            }
+            if = {
+                limit = {
+                    1116 = { is_empty = yes }
+                }
+                1116 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                }
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    # Secure Nazmir Borderlands
+    wwu_secure_borderlands_in_nazmir = {
+		icon = mission_blood_troll
+        
+		required_missions = { wwu_push_back_the_sethrak }
+		
+		trigger = {
+            owns_core_province = 1126
+		}
+            
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+            province_id = 1126
+        }
+        
+		effect = {
+            1126 = {
+                if = {
+                    limit = {
+                        NOT = { has_building = wow_fort_1 }
+                    }
+                    add_building = wow_fort_1
+                    add_base_manpower = 3
+                }
+                else = {
+                    add_base_manpower = 4
+                }
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    # Unity in Zandalar
+    wwu_unity_in_zandalar = {
+		icon = mission_city_of_gold
+        
+		required_missions = { wwu_secure_borderlands_in_nazmir }
+		
+		trigger = {
+            NOT = { exists = SEK }
+            NOT = { exists = NAZ }
+            OR = {
+                NOT = { exists = A78 }
+                alliance_with = A78
+            }
+            OR = {
+                NOT = { exists = TOR }
+                alliance_with = TOR
+            }
+            owns_core_province = 1118
+            owns_core_province = 1122
+            owns_core_province = 1127
+            owns_core_province = 1115
+		}
+            
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+            OR = {
+                owned_by = A78
+                owned_by = NAZ
+                if = {
+                    limit = {
+                        NOT = { alliance_with = A78 }
+                    }
+                    owned_by = A78
+                }
+                if = {
+                    limit = {
+                        NOT = { alliance_with = TOR }
+                    }
+                    owned_by = TOR
+                }
+                province_id = 1118
+                province_id = 1122
+                province_id = 1127
+                province_id = 1115
+            }
+        }
+        
+		effect = {
+            add_country_modifier = {
+                name = unity_in_zandalar
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+}
