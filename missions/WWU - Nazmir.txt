@@ -1,58 +1,241 @@
 #--------------------------------------
 # Nazmir
 #--------------------------------------
-# wwu_nazmir_column_4 = {
-	# slot = 4
-	# generic = no
-	# ai = yes
+wwu_nazmir_column_4 = {
+	slot = 4
+	generic = no
+	ai = yes
     
-	# potential = {
-		# tag = NAZ
-	# }
-	# has_country_shield = yes
+	potential = {
+		tag = NAZ
+	}
+	has_country_shield = yes
 	
-	# wwu_restore_the_city_of_gold = {
-		# icon = mission_city_of_gold
+    # Claim the Blood Gate
+    wwu_claim_the_blood_gate = {
+		icon = mission_blood_rage
         
-		# required_missions = {  }
+		required_missions = {  }
 		
-		# trigger = {
+		trigger = {
+            owns_core_province = 1136
+		}
             
-		# }
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+            province_id = 1136
+        }
         
-		# effect = {
-			
-		# }
+		effect = {
+			region_zuldazar = {
+                add_permanent_claim = ROOT
+            }
+		}
         
-        # ai_weight   = { factor = 1 }
-		# ai_priority = { factor = 1 }
-	# }
-# }
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    # Crush the Zandalari
+    wwu_crush_the_zandalari = {
+		icon = mission_troll_hexxer
+        
+		required_missions = { wwu_claim_the_blood_gate }
+		
+		trigger = {
+            NOT = { exists = A78 }
+            owns_core_province = 2469
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+            OR = {
+                owned_by = A78
+                province_id = 2469
+            }
+        }
+        
+		effect = {
+            add_mil_power = 300
+            
+			add_country_modifier = {
+                name = dazaralor_riches
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    # Spread the Blood of G'huun
+    wwu_spread_the_blood_of_ghuun = {
+		icon = mission_blood_troll
+        
+		required_missions = { wwu_crush_the_zandalari }
+		
+		trigger = {
+            any_owned_province = {
+                NOT = { continent = continent_zandalar }
+            }
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+            NOT = { continent = continent_zandalar }
+            is_sea = no
+        }
+        
+		effect = {
+            add_prestige = 25
+            
+			add_country_modifier = {
+                name = blood_of_ghuun
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+}
 
-# wwu_nazmir_column_5 = {
-	# slot = 5
-	# generic = no
-	# ai = yes
+wwu_nazmir_column_5 = {
+	slot = 5
+	generic = no
+	ai = yes
     
-	# potential = {
-		# tag = A78
-	# }
-	# has_country_shield = yes
+	potential = {
+		tag = NAZ
+	}
+	has_country_shield = yes
 	
-    # wwu_restore_the_city_of_gold = {
-		# icon = mission_city_of_gold
+    # Restore the Necropolis
+    wwu_restore_the_necropolis = {
+		icon = mission_blood_corruption
         
-		# required_missions = {  }
+		required_missions = {  }
 		
-		# trigger = {
+		trigger = {
+            owns_core_province = 1127
+            1127 = {
+                base_tax = 8
+                base_production = 8
+                base_manpower = 8
+            }
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+            province_id = 1127
+        }
+        
+		effect = {
+            if = {
+                limit = {
+                    1128 = { is_empty = yes }
+                }
+                1128 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                }
+            }
+            if = {
+                limit = {
+                    1129 = { is_empty = yes }
+                }
+                1129 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                }
+            }
+            if = {
+                limit = {
+                    1130 = { is_empty = yes }
+                }
+                1130 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                }
+            }
+            add_country_modifier = {
+                name = necropolis_restored
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    # Oust the Tortollan
+    wwu_oust_the_tortollan = {
+		icon = mission_hearthstone_vanilla
+        
+		required_missions = { wwu_restore_the_necropolis }
+		
+		trigger = {
+            owns_core_province = 1120
+            NOT = { exists = TOR }
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+            OR = {
+                owned_by = TOR
+                province_id = 1120
+            }
+        }
+        
+		effect = {
+            add_prestige = 10
             
-		# }
+			region_voldun = {
+                add_permanent_claim = ROOT
+            }
+		}
         
-		# effect = {
-			
-		# }
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+    
+    # Dominate Vol'dun
+    wwu_dominate_voldun = {
+		icon = mission_cannibalize
         
-        # ai_weight   = { factor = 1 }
-		# ai_priority = { factor = 1 }
-	# }
-# }
+		required_missions = { wwu_oust_the_tortollan }
+		
+		trigger = {
+            NOT = { exists = TOR }
+            NOT = { exists = SEK }
+            NOT = { exists = VLC }
+            owns_core_province = 1115
+            owns_core_province = 1118
+            owns_core_province = 1120
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+            OR = {
+                owned_by = TOR
+                owned_by = SEK
+                owned_by = VLC
+                province_id = 1115
+                province_id = 1118
+                province_id = 1120
+            }
+        }
+        
+		effect = {
+            add_prestige = 50
+            
+			add_country_modifier = {
+                name = subjugation_of_sethraliss
+                duration = -1
+            }
+		}
+        
+        ai_weight   = { factor = 1 }
+		ai_priority = { factor = 1 }
+	}
+}

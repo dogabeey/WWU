@@ -24,8 +24,10 @@ country_decisions = {
         
         provinces_to_highlight = {
             NOT = { owned_by = ROOT }
-			region = region_elwynn_forest
-			region = region_redridge_mountains
+			OR = {
+                region = region_elwynn_forest
+                region = region_redridge_mountains
+            }
 		}
         
 		allow = {
@@ -60,6 +62,8 @@ country_decisions = {
             
             # Bonus
             add_formable_bonus = yes
+            
+            change_government = tribal
 			add_government_reform = warband_reform
 		}
 		
