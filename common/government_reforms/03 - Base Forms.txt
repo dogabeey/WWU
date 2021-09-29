@@ -3,12 +3,13 @@
 #--------------------------------------------
 # Monarchy
 #--------------------------------------------
+# Generic
 autocracy_reform = {
 	icon = "control_is_king"
 	legacy_equivalent = autocracy_legacy
     
 	modifiers = {
-		harsh_treatment_cost = -0.25
+		stability_cost_modifier = -0.05
 		years_of_nationalism = -5
 	}
 	
@@ -21,6 +22,8 @@ autocracy_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
 }
+
+# Generic
 feudalism_reform = {
 	icon = "barracks"
     legacy_equivalent = feudalism_legacy
@@ -47,6 +50,36 @@ feudalism_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
 }
+
+# Generic / Kul Tiras
+admiralty_reform = {
+	icon = "admiral_hat"
+    legacy_equivalent = admiralty_legacy
+    
+	potential = {
+		OR = {
+            num_of_ports = 20
+            primary_culture = culture_kul_tiran
+        }
+	}
+	
+	modifiers = {
+        naval_forcelimit_modifier = 0.5
+        navy_tradition = 1
+        max_absolutism = 25
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+	allow_convert = no              # Can be converted to via peace term
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+}
+
+# Used by Head of Alliance
 alliance_reform = {
 	icon = "alliance"
 	legacy_equivalent = alliance_legacy
@@ -63,7 +96,7 @@ alliance_reform = {
 	
 	assimilation_cultures = {
 		culture_group_human = {
-			ship_durability = 0.10
+			ship_durability = 0.05
 		}
 		culture_group_darnassian = {
 			free_leader_pool = 1
@@ -72,22 +105,22 @@ alliance_reform = {
 			land_attrition = -0.1
 		}
 		culture_group_broken = {
-			state_maintenance_modifier = -0.10
+			state_maintenance_modifier = -0.1
 		}
 		culture_group_draenei = {
 			missionaries = 1
 		}
 		culture_group_furbolg = {
-			global_trade_goods_size_modifier = 0.10
+			global_trade_goods_size_modifier = 0.05
 		}
 		culture_group_wolvar = {
-			production_efficiency = 0.10
+			production_efficiency = 0.05
 		}
 		culture_group_gorloc = {
 			diplomats = 1
 		}
 		culture_group_kobold = {
-			global_institution_spread = 0.10
+			global_institution_spread = 0.1
 		}
 		culture_group_harpy = {
 			core_creation = -0.05
@@ -96,19 +129,19 @@ alliance_reform = {
 			advisor_cost = -0.1
 		}
 		culture_group_pandaren = {
-			land_morale = 0.1
+			land_morale = 0.05
 		}
 		culture_group_tauren = {
-			idea_cost = -0.10
+			idea_cost = -0.05
 		}
 		culture_group_orc = {
-			discipline = 0.05
+			discipline = 0.025
 		}
 		culture_group_thalassian = {
 			merchants = 1
 		}
 		culture_group_goblin = {
-			movement_speed = 0.1
+			movement_speed = 0.05
 		}
 		culture_group_gnoll = {
 			mil_advisor_cost = -0.1
@@ -117,22 +150,23 @@ alliance_reform = {
 			caravan_power = 0.1
 		}
 		culture_group_naga = {
-			prestige_decay = -0.01
+			prestige_decay = -0.005
 		}
 		culture_group_dragonkin = {
-			global_autonomy = -0.01
+			global_autonomy = -0.005
 		}
 		culture_group_demonic = {
 			leader_land_fire = 1
 		}
 		culture_group_satyr = {
-			trade_efficiency = 0.10
+			trade_efficiency = 0.05
 		}
 	}
     
 	modifiers = {
-        improve_relation_modifier = 0.3
-		monarch_military_power = 1
+        prestige_decay = -0.01
+        improve_relation_modifier = 0.1
+		diplomatic_upkeep = 2
 	}
     
 	ai = { factor = 0 }	
@@ -145,6 +179,8 @@ alliance_reform = {
 	valid_for_nation_designer = no
 	nation_designer_cost = 0
 }
+
+# Used by Head of Horde/Old Horde
 horde_reform = {
 	icon = "horde"
 	legacy_equivalent = horde_legacy
@@ -173,7 +209,8 @@ horde_reform = {
 	}
 	
 	modifiers = {
-		advisor_cost = -0.25
+        prestige_decay = -0.01
+		advisor_cost = -0.1
         advisor_pool = 1
 	}
     
@@ -187,6 +224,46 @@ horde_reform = {
 	valid_for_nation_designer = no
 	nation_designer_cost = 0
 }
+
+# Used by Vrykul nations
+vrykul_kingdom_reform = {
+	icon = "salvage_yard"
+	legacy_equivalent = vrykul_kingdom_legacy
+    
+    potential = {
+		technology_group = tech_vrykul
+	}
+    
+    maintain_dynasty = yes
+    
+	custom_attributes = {
+		locked_government_type = yes
+	}
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+	}
+    
+	modifiers = {
+        core_creation = -0.05
+        army_tradition_decay = -0.01
+        max_absolutism = 10
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+	allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+}
+
+# Used by ancient Highborne nations
 ancient_kingdom_reform = {
 	icon = "ancient_history"
 	legacy_equivalent = ancient_kingdom_legacy
@@ -208,8 +285,8 @@ ancient_kingdom_reform = {
 	}
     
 	modifiers = {
-        capture_ship_chance = 0.2
-        naval_attrition = -0.25
+        prestige = 0.5
+        global_unrest = -2
 	}
     
 	ai = { factor = 0 }
@@ -225,32 +302,8 @@ ancient_kingdom_reform = {
         is_ancient = yes
     }
 }
-admiralty_reform = {
-	icon = "admiral_hat"
-    legacy_equivalent = admiralty_legacy
-    
-	potential = {
-		OR = {
-            num_of_ports = 20
-            primary_culture = culture_kul_tiran
-        }
-	}
-	
-	modifiers = {
-        naval_forcelimit_modifier = 0.5
-        navy_tradition = 1
-        max_absolutism = 25
-	}
-	
-	ai = { factor = 0 }
-    
-    valid_for_new_country = no      # Can be converted to via nation release
-    allow_normal_conversion = yes   # Can be picked as a new reform
-	allow_convert = no              # Can be converted to via peace term
-    
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-}
+
+# Used by main Scourge nation
 scourge_reform = {
 	icon = "lich_king"
     legacy_equivalent = scourge_legacy
@@ -265,10 +318,7 @@ scourge_reform = {
     
 	royal_marriage = no
     maintain_dynasty = no
-	
-    #uses_revolutionary_zeal = yes
-	#revolutionary = yes
-    
+
 	custom_attributes = {
         champion_system = yes
         locked_government_type = yes
@@ -276,7 +326,7 @@ scourge_reform = {
     
 	modifiers = {
 		land_morale = 0.05
-        recover_army_morale_speed = 1.0
+        recover_army_morale_speed = 0.25
 	}
     
     conditional = {
@@ -284,17 +334,17 @@ scourge_reform = {
         
 		states_general_mechanic = {
 			sg_lichborne = {
-				infantry_power = 0.2
-                siege_ability = 0.2
-                fire_damage_received = -0.2
-                shock_damage_received = -0.2
+				infantry_power = 0.1
+                siege_ability = 0.1
+                fire_damage_received = -0.1
+                shock_damage_received = -0.1
 			}
 
 			sg_stitched = {
-				global_manpower_modifier = 0.33
-                manpower_recovery_speed = 0.33
-                reinforce_speed = 0.33
-                reinforce_cost_modifier = -0.5
+				global_manpower_modifier = 0.2
+                manpower_recovery_speed = 0.2
+                reinforce_speed = 0.2
+                reinforce_cost_modifier = -0.2
 			}
 		}
 	}
@@ -321,17 +371,14 @@ scourge_reform = {
 		}
     }
 }
+
+# Used by lesser Scourge nations
 scourge_domain_reform = {
     icon = "lich_king"
     legacy_equivalent = scourge_domain_legacy
     
     potential = {
 		technology_group = tech_scourge
-		#NOT = { has_global_flag = destroyed_lich_king }
-        #custom_trigger_tooltip = {
-        #    tooltip = SCOURGE_SUCCUMBED_TO_TT
-        #    has_country_flag = allow_scourge_government
-        #}
 	}
     
     heir = yes
@@ -352,17 +399,17 @@ scourge_domain_reform = {
         
 		states_general_mechanic = {
 			sg_lichborne = {
-				infantry_power = 0.2
-                siege_ability = 0.2
-                fire_damage_received = -0.2
-                shock_damage_received = -0.2
+				infantry_power = 0.1
+                siege_ability = 0.1
+                fire_damage_received = -0.1
+                shock_damage_received = -0.1
 			}
 
 			sg_stitched = {
-				global_manpower_modifier = 0.33
-                manpower_recovery_speed = 0.33
-                reinforce_speed = 0.33
-                reinforce_cost_modifier = -0.5
+				global_manpower_modifier = 0.2
+                manpower_recovery_speed = 0.2
+                reinforce_speed = 0.2
+                reinforce_cost_modifier = -0.2
 			}
 		}
 	}
@@ -380,12 +427,18 @@ scourge_domain_reform = {
         technology_group = tech_scourge
     }
 }
-kingdom_of_magic_reform = {
-	icon = "kirin_tor"
-    legacy_equivalent = kingdom_of_magic_legacy
+
+# Used by Suramar
+nighthold_reform = {
+	icon = "purple_arcane_barrage"
+    legacy_equivalent = nighthold_legacy
     
 	queen = yes
 
+    potential = {
+		have_had_reform = nighthold_reform
+	}
+    
 	custom_attributes = {
 		council_system = yes
         locked_government_type = yes
@@ -398,8 +451,51 @@ kingdom_of_magic_reform = {
 	}
 	
 	modifiers = {
-        global_institution_spread = 0.4
-        advisor_cost = -0.25
+        technology_cost = -0.05
+        advisor_cost = -0.1
+        prestige_decay = -0.01
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+	allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+    
+    nation_designer_trigger = {
+        technology_group = tech_nightborne
+    }
+}
+
+# Used by High elf nations (except Silvermoon/Quel'Thalas)
+kingdom_of_magic_reform = {
+	icon = "kirin_tor"
+    legacy_equivalent = kingdom_of_magic_legacy
+    
+	queen = yes
+
+    potential = {
+		have_had_reform = kingdom_of_magic_reform
+	}
+    
+	custom_attributes = {
+		council_system = yes
+        locked_government_type = yes
+	}
+	
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		heir = no
+		foreign_slave_rulers = yes
+	}
+	
+	modifiers = {
+        global_institution_spread = 0.25
+        advisor_cost = -0.1
         idea_cost = -0.05
 	}
     
@@ -408,7 +504,6 @@ kingdom_of_magic_reform = {
     factions = {
         faction_magisters
         faction_farstriders
-        # faction_blood_knights # Not present by default
     }
     
     valid_for_new_country = no      # Can be converted to via nation release
@@ -421,11 +516,14 @@ kingdom_of_magic_reform = {
     
     nation_designer_trigger = {
         OR = {
-			religion = arcane
-			religion = fel
+            primary_culture = culture_high_elf
+            primary_culture = culture_blood_elf
+            primary_culture = culture_void_elf
 		}
     }
 }
+
+# Used by Silvermoon/Quel'Thalas
 convocation_of_silvermoon_reform = {
 	icon = "arcane_pattern"
     legacy_equivalent = convocation_of_silvermoon_legacy
@@ -448,13 +546,12 @@ convocation_of_silvermoon_reform = {
     factions = {
         faction_magisters
         faction_farstriders
-        # faction_blood_knights # Not present by default
     }
     
 	modifiers = {
-        same_culture_advisor_cost = -0.3
-        female_advisor_chance = 0.5
         all_power_cost = -0.05
+        same_culture_advisor_cost = -0.15
+        female_advisor_chance = 0.5
         max_absolutism = -20
 	}
     
@@ -464,9 +561,9 @@ convocation_of_silvermoon_reform = {
     allow_normal_conversion = no    # Can be picked as a new reform
 	allow_convert = no              # Can be converted to via peace term
     lock_level_when_selected = yes
-    
-    
 }
+
+# Used by Naga nations
 naga_domain_reform = {
     icon = "warlord_kalithresh"
     legacy_equivalent = naga_domain_legacy
@@ -483,9 +580,9 @@ naga_domain_reform = {
 	}
 
 	modifiers = {
-        loot_amount = 2
-		naval_maintenance_modifier = -0.3
-        sailor_maintenance_modifer = -0.3
+        loot_amount = 0.25
+		naval_maintenance_modifier = -0.1
+        sailor_maintenance_modifer = -0.1
 	}
     
 	ai = { factor = 0 }
@@ -507,6 +604,8 @@ naga_domain_reform = {
         technology_group = tech_naga
     }
 }
+
+# Used by Troll nations
 troll_kingdom_reform = {
 	icon = "troll_male"
     legacy_equivalent = troll_kingdom_legacy
@@ -523,9 +622,9 @@ troll_kingdom_reform = {
     heir = no
     
 	modifiers = {
-		infantry_power = 0.1
-		core_creation = -0.05
-        max_absolutism = 25
+		infantry_power = 0.05
+        army_tradition = 0.5
+        max_absolutism = 10
 	}
 	
 	ai = { factor = 0 }
@@ -543,6 +642,7 @@ troll_kingdom_reform = {
     nation_designer_cost = 0
 }
 
+# Used by Scarlet Crusade
 scarlet_monarchy_reform = {
 	icon = "scarlet_monarchy"
     legacy_equivalent = scarlet_monarchy_legacy
@@ -560,16 +660,10 @@ scarlet_monarchy_reform = {
 	}
     
 	modifiers = {
-		legitimacy = 2
-		war_exhaustion = -0.10
-		mil_advisor_cost = -0.50
-		warscore_cost_vs_other_religion = -0.20
-		free_mil_policy = 1
-		free_adm_policy = 1
-		missionaries = 2
-		discipline = 0.15
-        	tolerance_own = 2
-		manpower_in_true_faith_provinces= 0.9
+		war_exhaustion = -0.05
+		mil_advisor_cost = -0.25
+		warscore_cost_vs_other_religion = -0.25
+		missionaries = 1
 	}
 	
     ai = { factor = 0 }
@@ -585,19 +679,23 @@ scarlet_monarchy_reform = {
         religion = scarlet_light
     }
 }
+
+# Used by Gorian Empire
 gorian_empire_reform = {
 	icon = "goria"
+    legacy_equivalent = gorian_empire_legacy
 	
     potential = {
 		tag = OGR
 	}
     
     modifiers = {
-        technology_cost = -0.1
-        innovativeness_gain = 0.15
-        max_absolutism = 25
-        global_unrest = 2
+        technology_cost = -0.05
+        innovativeness_gain = 0.1
+        max_absolutism = 20
+        global_unrest = 1
 	}
+    
     conditional = {
 		heir = no
 		queen = yes
@@ -629,6 +727,8 @@ gorian_empire_reform = {
     nation_designer_cost = 0
 	
 }
+
+# Used by Zandalar
 zandalari_empire_reform = {
 	icon = "city_of_gold"
     legacy_equivalent = zandalari_empire_legacy
@@ -646,9 +746,9 @@ zandalari_empire_reform = {
     election_on_death = yes
     
 	modifiers = {
-        prestige = 1.0
-		discipline = 0.05
-        max_absolutism = 30
+        prestige = 0.5
+		administrative_efficiency = 0.05
+        max_absolutism = 10
 	}
 	
 	ai = { factor = 0 }
@@ -669,6 +769,7 @@ zandalari_empire_reform = {
 #--------------------------------------------
 # Republic
 #--------------------------------------------
+# Generic
 noble_republic_reform = {
 	icon = "book_3"
     legacy_equivalent = noble_republic_legacy
@@ -683,7 +784,7 @@ noble_republic_reform = {
 	royal_marriage = yes
     
 	modifiers = {
-		global_manpower_modifier = 0.15
+		global_manpower_modifier = 0.1
         stability_cost_modifier = -0.1
 	}
     
@@ -694,6 +795,8 @@ noble_republic_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Generic
 mercantile_republic_reform = {
 	icon = "cash_flow"
     legacy_equivalent = mercantile_republic_legacy
@@ -742,7 +845,7 @@ mercantile_republic_reform = {
     
     modifiers = {
 		merchants = 1
-		trade_efficiency = 0.1
+		trade_efficiency = 0.05
 		governing_capacity_modifier = -0.25
 	}
     
@@ -755,6 +858,8 @@ mercantile_republic_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Generic
 despotic_republic_reform = {
 	icon = "backstab"
     legacy_equivalent = despotic_republic_legacy
@@ -786,55 +891,15 @@ despotic_republic_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
-ancient_republic_reform = {
-	icon = "ancient_history"
-	legacy_equivalent = ancient_republic_legacy
-    
-    potential = {
-		is_ancient = yes
-	}
-    
-	has_term_election = no
-	
-    conditional = {
-		allow = { has_dlc = "Common Sense" }
-		has_parliament = yes
-	}
-    conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			mamluk_mechanic
-		}
-	}
-    
-	modifiers = {
-		prestige = 1
-        governing_capacity_modifier = 0.1
-        max_absolutism = -20
-	}
-    
-	ai = { factor = 0 }
-    
-    valid_for_new_country = no      # Can be converted to via nation release
-    allow_normal_conversion = no    # Can be picked as a new reform
-    allow_convert = no              # Can be converted to via peace term
-    lock_level_when_selected = yes
 
-    valid_for_nation_designer = yes
-    nation_designer_cost = 0
-    nation_designer_trigger = {
-        is_ancient = yes
-    }
-}
+# Used by magical nations
 magocracy_reform = {
 	icon = "kirin_tor"
     legacy_equivalent = magocracy_legacy
     
     potential = {
-		NOT = { has_reform = free_city_reform }
-		NOT = { has_reform = trading_city_reform }
-		NOT = { has_reform = colonial_government_reform }
 		OR = {
+            have_had_reform = magocracy_reform
 			religion = arcane
 			religion = fel
 		}
@@ -860,9 +925,9 @@ magocracy_reform = {
 	}
 
 	modifiers = {
-		technology_cost = -0.1
-        idea_cost = -0.1
-		governing_capacity_modifier = -0.25
+		technology_cost = -0.05
+        idea_cost = -0.05
+		governing_capacity_modifier = -0.1
 	}
     
     ai = { factor = 0 }
@@ -880,6 +945,8 @@ magocracy_reform = {
 		}
     }
 }
+
+# Used via Trade City mechanic
 trading_city_reform = {
 	icon = "cash_flow"
     legacy_equivalent = trading_city_legacy
@@ -925,7 +992,7 @@ trading_city_reform = {
         merchants = 1
 		trade_steering = 0.10
 		global_trade_power = 0.1
-		governing_capacity_modifier = -0.25
+		governing_capacity_modifier = -0.1
 	}
 	
     ai = { factor = 0 }
@@ -938,6 +1005,8 @@ trading_city_reform = {
     valid_for_nation_designer = no
     nation_designer_cost = 0
 }
+
+# Used via Colonial nation mechanic
 colonial_government_reform = {
 	icon = "blueprint"
     legacy_equivalent = colonial_government_legacy
@@ -968,6 +1037,8 @@ colonial_government_reform = {
     valid_for_nation_designer = no
     nation_designer_cost = 0
 }
+
+# Used by friendly Troll nations
 troll_republic_reform = {
 	icon = "troll_male"
     legacy_equivalent = troll_republic_legacy
@@ -984,9 +1055,9 @@ troll_republic_reform = {
 	}
     
 	modifiers = {
-		infantry_power = 0.1
-		global_unrest = -2
-        max_absolutism = -20
+		diplomatic_reputation = 1
+		global_unrest = -1
+        max_absolutism = -10
 	}
 	
     ai = { factor = 0 }
@@ -998,6 +1069,8 @@ troll_republic_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used by Gnomeregan
 tinker_republic_reform = {
 	icon = "engineering_pattern"
     legacy_equivalent = tinker_republic_legacy
@@ -1024,9 +1097,9 @@ tinker_republic_reform = {
 	}
     
     modifiers = {
-		innovativeness_gain = 1.0
-        production_efficiency = 0.1
-        governing_capacity_modifier = -0.25
+		innovativeness_gain = 0.25
+        production_efficiency = 0.05
+        governing_capacity_modifier = -0.1
 	}
     
 	ai = { factor = 0 }
@@ -1042,6 +1115,7 @@ tinker_republic_reform = {
     }
 }
 
+# Used by Pirate nations
 pirate_republic_reform = {
 	icon = "freehold"
     legacy_equivalent = pirate_republic_legacy
@@ -1051,8 +1125,8 @@ pirate_republic_reform = {
     
 	modifiers = {
 		republican_tradition = -1
-		naval_forcelimit_modifier = 0.5
-		capture_ship_chance = 0.33
+		naval_forcelimit_modifier = 0.33
+		capture_ship_chance = 0.25
 		may_perform_slave_raid_on_same_religion = yes
 	}
 	
@@ -1076,6 +1150,7 @@ pirate_republic_reform = {
 #--------------------------------------------
 # Theocracy
 #--------------------------------------------
+# Generic
 theocracy_reform = {
 	icon = "clarity_of_purpose"
     legacy_equivalent = theocracy_legacy
@@ -1101,6 +1176,8 @@ theocracy_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Generic
 monastic_order_reform = {
 	icon = "clarity_of_will"
     legacy_equivalent = monastic_order_legacy
@@ -1111,7 +1188,7 @@ monastic_order_reform = {
 	
 	modifiers = {
 		tolerance_own = 1
-	    land_morale = 0.1
+	    land_morale = 0.05
 	}
 	
     ai = { factor = 0 }
@@ -1123,6 +1200,8 @@ monastic_order_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used by Night Elves
 ancient_theocracy_reform = {
 	icon = "ancient_history"
 	legacy_equivalent = ancient_theocracy_legacy
@@ -1142,8 +1221,9 @@ ancient_theocracy_reform = {
 	}
     
 	modifiers = {
-		prestige = 2
-        global_missionary_strength = 0.03
+		prestige = 0.5
+        tolerance_own = 1
+        global_missionary_strength = 0.01
 	}
     
 	ai = { factor = 0 }
@@ -1159,6 +1239,8 @@ ancient_theocracy_reform = {
         is_ancient = yes
     }
 }
+
+# Used by Scarlet Crusade
 scarlet_crusade_reform = {
 	icon = "scarlet_crusade"
     legacy_equivalent = scarlet_crusade_legacy
@@ -1176,15 +1258,10 @@ scarlet_crusade_reform = {
 	}
     
 	modifiers = {
-		devotion = 1
-		war_exhaustion = -0.05
-		mil_advisor_cost = -0.25
-		warscore_cost_vs_other_religion = -0.10
-		free_mil_policy = 1
+		tolerance_own = 1
 		missionaries = 1
+		warscore_cost_vs_other_religion = -0.1
 		discipline = 0.05
-        	tolerance_own = 2
-		manpower_in_true_faith_provinces= 0.3
 	}
 	
     ai = { factor = 0 }
@@ -1200,6 +1277,8 @@ scarlet_crusade_reform = {
         religion = holy_light
     }
 }
+
+# Used by Argent Crusade
 argent_crusade_reform = {
 	icon = "argent_crusade"
     legacy_equivalent = argent_crusade_legacy
@@ -1217,13 +1296,10 @@ argent_crusade_reform = {
 	}
     
 	modifiers = {
-	missionaries = 1
-        tolerance_own = 2
-	mil_advisor_cost = -0.25
-	free_mil_policy = 1
-	infantry_power = 0.1
-	manpower_in_true_faith_provinces= 0.5
-	mil_tech_cost_modifier = -0.05
+        tolerance_own = 1
+        missionaries = 1
+        free_mil_policy = 1
+        manpower_in_true_faith_provinces = 0.25
 	}
 	
     ai = { factor = 0 }
@@ -1239,6 +1315,8 @@ argent_crusade_reform = {
         religion = argent_light
     }
 }
+
+# Used by Fel nations
 demonic_order_reform = {
 	icon = "demonic_power"
     legacy_equivalent = demonic_order_legacy
@@ -1261,7 +1339,7 @@ demonic_order_reform = {
     
 	modifiers = {
         papal_influence = 1
-        warscore_cost_vs_other_religion = -0.33
+        warscore_cost_vs_other_religion = -0.1
 	}
     
     conditional = {
@@ -1284,6 +1362,8 @@ demonic_order_reform = {
         religion = fel
     }
 }
+
+# Used by Druidic nations
 druidic_circle_reform = {
 	icon = "cylone"
     legacy_equivalent = druidic_circle_legacy
@@ -1302,8 +1382,8 @@ druidic_circle_reform = {
 	royal_marriage = no
 
 	modifiers = {
-		diplomatic_reputation = 2
-        unjustified_demands = -0.1
+		diplomatic_reputation = 1
+        unjustified_demands = -0.05
 	}
     
     conditional = {
@@ -1330,6 +1410,8 @@ druidic_circle_reform = {
         }
     }
 }
+
+# Used by Elemental nations
 elemental_cult_reform = {
 	icon = "echo_of_the_elements"
     legacy_equivalent = elemental_cult_legacy
@@ -1345,8 +1427,9 @@ elemental_cult_reform = {
     }
     
 	modifiers = {
-		global_unrest = -4
-		warscore_cost_vs_other_religion = -0.25
+		global_unrest = -1
+		warscore_cost_vs_other_religion = -0.1
+        max_absolutism = 10
 	}
     
     conditional = {
@@ -1375,6 +1458,8 @@ elemental_cult_reform = {
         }
     }
 }
+
+# Used by Shadow nations
 shadow_cult_reform = {
 	icon = "clarity_of_power"
     legacy_equivalent = shadow_cult_legacy
@@ -1391,8 +1476,8 @@ shadow_cult_reform = {
 	}
     
 	modifiers = {
-		culture_conversion_cost = -0.4
-        stability_cost_modifier = -0.25
+		culture_conversion_cost = -0.1
+        stability_cost_modifier = -0.1
 	}
 	
 	ai = { factor = 0 }
@@ -1408,6 +1493,8 @@ shadow_cult_reform = {
         religion = shadow
     }
 }
+
+# Used by Hakkari
 cult_of_hakkar_reform = {
 	icon = "hakkar"
     legacy_equivalent = cult_of_hakkar_legacy
@@ -1427,7 +1514,7 @@ cult_of_hakkar_reform = {
 	}
     
 	modifiers = {
-		global_missionary_strength = 0.03
+		global_missionary_strength = 0.01
         hostile_attrition = 2
 	}
 	
@@ -1448,6 +1535,8 @@ cult_of_hakkar_reform = {
         religion = hakkari
     }
 }
+
+# Used by Dragonflights
 dragonflight_brood_reform = {
 	icon = "valithra"
     legacy_equivalent = dragonflight_brood_legacy
@@ -1466,9 +1555,9 @@ dragonflight_brood_reform = {
 	different_religion_group_acceptance = 0
     
 	modifiers = {
-		prestige = 1
-        improve_relation_modifier = 0.2
-        governing_capacity_modifier = -0.25
+		prestige = 0.5
+        improve_relation_modifier = 0.1
+        governing_capacity_modifier = -0.1
 	}
     
     conditional = {
@@ -1476,34 +1565,34 @@ dragonflight_brood_reform = {
     
         assimilation_cultures = {
             azerothian_group = {
-                all_power_cost = -0.05
+                all_power_cost = -0.01
             }
             draenei_group = {
-                all_power_cost = -0.05
+                all_power_cost = -0.01
             }
             dwarf_group = {
-                all_power_cost = -0.05
+                all_power_cost = -0.01
             }
             high_elf_group = {
-                all_power_cost = -0.05
+                all_power_cost = -0.01
             }
             nightborne_group = {
-                all_power_cost = -0.05
+                all_power_cost = -0.01
             }
             night_elf_group = {
-                all_power_cost = -0.05
+                all_power_cost = -0.01
             }
             gnome_group = {
-                all_power_cost = -0.05
+                all_power_cost = -0.01
             }
             goblin_group = {
-                all_power_cost = -0.05
+                all_power_cost = -0.01
             }
             pandaren_group = {
-                all_power_cost = -0.05
+                all_power_cost = -0.01
             }
             tauren_group = {
-                all_power_cost = -0.05
+                all_power_cost = -0.01
             }
         }
     }
@@ -1527,12 +1616,14 @@ dragonflight_brood_reform = {
     valid_for_nation_designer = no
     nation_designer_cost = 0
 }
+
+# Used by Titan nations
 titan_facility_reform = {
 	icon = "tribunal_of_ages"
     legacy_equivalent = titan_facility_legacy
     
 	potential = {
-        have_had_reform = titan_facility_reform
+        technology_group = tech_titan
     }
     
     republican_name = yes
@@ -1540,9 +1631,11 @@ titan_facility_reform = {
     heir = no
       
 	modifiers = {
-        yearly_corruption = -0.1
-		fire_damage_received = -0.2
-        governing_capacity_modifier = -0.25
+        fire_damage_received = -0.05
+        shock_damage_received = -0.05
+		defensiveness = 0.1
+        
+        governing_capacity_modifier = -0.1
 	}
     
     conditional = {
@@ -1566,12 +1659,11 @@ titan_facility_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
     nation_designer_trigger = {
-        OR = {
-            religion = titan_worship
-            religion = corrupt_titan_worship
-        }
+        technology_group = tech_titan
     }
 }
+
+# Used by Tol'vir nations
 tolvir_kingdom_reform = {
 	icon = "tolvir_arena"
     legacy_equivalent = tolvir_kingdom_legacy
@@ -1585,9 +1677,9 @@ tolvir_kingdom_reform = {
     heir = no
       
 	modifiers = {
-        production_efficiency = 0.1
-        trade_efficiency = 0.1
-        missionary_maintenance_cost = -0.2
+        production_efficiency = 0.05
+        trade_efficiency = 0.05
+        missionary_maintenance_cost = -0.1
 	}
     
     conditional = {
@@ -1611,6 +1703,8 @@ tolvir_kingdom_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used by Aqir nations
 aqir_kingdom_reform = {
 	icon = "aqir"
     legacy_equivalent = aqir_kingdom_legacy
@@ -1624,9 +1718,9 @@ aqir_kingdom_reform = {
     heir = no
     
 	modifiers = {
-		province_warscore_cost = -0.25
-        unjustified_demands = -0.5
-        max_absolutism = 25
+        global_manpower_modifier = 0.1
+		province_warscore_cost = -0.1
+        max_absolutism = 20
 	}
 	
     conditional = {
@@ -1650,6 +1744,8 @@ aqir_kingdom_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used by Nerubian nations
 nerubian_kingdom_reform = {
 	icon = "nerubian"
     legacy_equivalent = nerubian_kingdom_legacy
@@ -1663,9 +1759,9 @@ nerubian_kingdom_reform = {
     heir = no
     
 	modifiers = {
-        technology_cost = -0.1
+        technology_cost = -0.05
 		innovativeness_gain = 0.25
-        max_absolutism = 25
+        max_absolutism = 10
 	}
 	
     conditional = {
@@ -1689,6 +1785,8 @@ nerubian_kingdom_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used by Mantid nations
 mantid_kingdom_reform = {
 	icon = "mantid"
     legacy_equivalent = mantid_kingdom_legacy
@@ -1702,9 +1800,9 @@ mantid_kingdom_reform = {
     heir = no
     
 	modifiers = {
-		global_manpower_modifier = 0.25
-        global_regiment_recruit_speed = -0.5
-        max_absolutism = 25
+		global_manpower_modifier = 0.1
+        manpower_recovery_speed = 0.1
+        max_absolutism = 20
 	}
 	
     conditional = {
@@ -1728,6 +1826,8 @@ mantid_kingdom_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used by Nazjatar
 naga_empire_reform = {
 	icon = "azshara"
     legacy_equivalent = naga_empire_legacy
@@ -1741,9 +1841,9 @@ naga_empire_reform = {
     heir = no
     
 	modifiers = {
-		discipline = 0.05
-        global_naval_engagement_modifier = 0.25
-        max_absolutism = 40
+		army_tradition = 1.0
+        global_naval_engagement_modifier = 0.1
+        max_absolutism = 20
 	}
 	
     conditional = {
@@ -1773,6 +1873,8 @@ naga_empire_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used by Nazmir
 blood_matriarchy_reform = {
 	icon = "blood_frenzy"
     legacy_equivalent = blood_matriarchy_legacy
@@ -1783,9 +1885,9 @@ blood_matriarchy_reform = {
     }
     
 	modifiers = {
-        global_manpower_modifier = 0.25
-		manpower_recovery_speed = 0.2
-        global_regiment_recruit_speed = -0.33
+        global_manpower_modifier = 0.1
+		manpower_recovery_speed = 0.1
+        global_regiment_recruit_speed = -0.15
 	}
 	
     heir = no
@@ -1815,28 +1917,74 @@ blood_matriarchy_reform = {
 #--------------------------------------------
 # Tribal
 #--------------------------------------------
-warband_reform = {
+# Generic
+tribal_federation_reform = {
+	icon = "ancestral_call"
+    legacy_equivalent = tribal_federation_legacy
+    
+	heir = yes
+	queen = yes
+    
+	modifiers = {
+		global_tax_modifier = 0.1
+		reinforce_speed = 0.05
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+
+# Generic
+tribal_despotism_reform = {
+	icon = "hunger_for_blood"
+    legacy_equivalent = tribal_despotism_legacy
+    
+	heir = yes
+	queen = yes
+    
+	modifiers = {
+		global_unrest = -1
+		core_creation = -0.05
+	}
+	
+	ai = { factor = 0 }
+    
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+
+# Used by Orc nations
+orc_clan_reform = {
 	icon = "blood_frenzy"
-    legacy_equivalent = warband_legacy
+    legacy_equivalent = orc_clan_legacy
     
     monarchy = no
     nomad = yes
+    
     generals_become_rulers = yes
 	republican_name = yes
+    
     queen = no
     heir = no
     
     potential = {
-		OR = {
-			have_had_reform = warband_reform
-			has_reform = warband_reform
-		}
+		technology_group = tech_orc
 	}
     
 	modifiers = {
-		army_tradition_from_battle = 1.0
-        global_regiment_cost = -0.15
-        global_regiment_recruit_speed = -0.15
+		army_tradition_from_battle = 0.25
+        global_regiment_cost = -0.1
+        global_regiment_recruit_speed = -0.1
 	}
 		
     conditional = {
@@ -1860,70 +2008,238 @@ warband_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
-tribal_federation_reform = {
-	icon = "ancestral_call"
-    legacy_equivalent = tribal_federation_legacy
+
+# Used by Yaungol tribes
+yaungol_tribe_reform = {
+	icon = "dirty_deeds"
+    legacy_equivalent = yaungol_tribe_legacy
     
-	heir = yes
-	queen = yes
+    monarchy = no
+    nomad = yes
+    
+    generals_become_rulers = yes
+	republican_name = yes
+    
+    queen = no
+    heir = no
+    
+    potential = {
+		technology_group = tech_yaungol
+	}
     
 	modifiers = {
-		global_tax_modifier = 0.2
-		reinforce_speed = 0.1
+		army_tradition_from_battle = 0.25
+        infantry_power = 0.05
 	}
-	
-	ai = { factor = 0 }
+		
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			tribal_federation_mechanic
+		}
+	}
     
+	ai = { factor = 0 }
+	    
+	custom_attributes = {
+		locked_government_type = yes
+	}
+		
     valid_for_new_country = yes     # Can be converted to via nation release
     allow_normal_conversion = yes   # Can be picked as a new reform
     allow_convert = yes             # Can be converted to via peace term
+	lock_level_when_selected = yes
 
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
-tribal_despotism_reform = {
-	icon = "hunger_for_blood"
-    legacy_equivalent = tribal_despotism_legacy
+
+# Used by Gnoll Horde
+gnoll_horde_reform = {
+	icon = "challenge"
+    legacy_equivalent = gnoll_horde_legacy
     
-	heir = yes
-	queen = yes
+    monarchy = no
+    nomad = yes
+    
+    generals_become_rulers = yes
+	republican_name = yes
+    
+    queen = no
+    heir = no
+    
+    potential = {
+		tag = GHR
+	}
     
 	modifiers = {
+		army_tradition = 0.5
+        infantry_power = 0.05
+        global_manpower_modifier = 0.1
+	}
+		
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			tribal_federation_mechanic
+		}
+	}
+    
+	ai = { factor = 0 }
+	    
+	custom_attributes = {
+		locked_government_type = yes
+	}
+		
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+	lock_level_when_selected = yes
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+
+# Used by Saurok tribes
+saurok_pod_reform = {
+	icon = "dirty_deeds"
+    legacy_equivalent = saurok_pod_legacy
+    
+    monarchy = no
+    nomad = yes
+    
+    generals_become_rulers = yes
+	republican_name = yes
+    
+    queen = no
+    heir = no
+    
+    potential = {
+		primary_culture = culture_saurok
+	}
+    
+	modifiers = {
+		army_tradition_from_battle = 0.25
+        shock_damage = 0.05
+	}
+		
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			tribal_federation_mechanic
+		}
+	}
+    
+	ai = { factor = 0 }
+	    
+	custom_attributes = {
+		locked_government_type = yes
+	}
+		
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+	lock_level_when_selected = yes
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+
+# Used by Giant tribes
+giant_tribe_reform = {
+	icon = "accretion"
+    legacy_equivalent = giant_tribe_legacy
+    
+    monarchy = yes
+    nomad = no
+    
+    generals_become_rulers = yes
+	republican_name = yes
+    
+    queen = no
+    heir = no
+    
+    potential = {
+		primary_culture = culture_saurok
+	}
+    
+	modifiers = {
+		defensiveness = 0.15
+        hostile_attrition = 1
+	}
+		
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			tribal_federation_mechanic
+		}
+	}
+    
+	ai = { factor = 0 }
+	    
+	custom_attributes = {
+		locked_government_type = yes
+	}
+		
+    valid_for_new_country = yes     # Can be converted to via nation release
+    allow_normal_conversion = yes   # Can be picked as a new reform
+    allow_convert = yes             # Can be converted to via peace term
+	lock_level_when_selected = yes
+
+    valid_for_nation_designer = yes
+    nation_designer_cost = 0
+}
+
+# Used by Draenei/Broken tribes
+draenei_clan_reform = {
+	icon = "ancestral_guardian"
+    legacy_equivalent = draenei_clan_legacy
+    
+	potential = {
+		technology_group = tech_draenei
+	}
+    
+	heir = yes
+	queen = no
+    
+    conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+    
+	modifiers = {
+		tolerance_own = 1
 		global_unrest = -1
-		core_creation = -0.05
 	}
 	
-	ai = { factor = 0 }
+    ai = { factor = 0 }
     
-    valid_for_new_country = yes     # Can be converted to via nation release
-    allow_normal_conversion = yes   # Can be picked as a new reform
-    allow_convert = yes             # Can be converted to via peace term
-
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+    allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used by Mogu nations
 ancient_clan_reform = {
 	icon = "ancient_history"
     legacy_equivalent = ancient_clan_legacy
     
 	potential = {
-		is_ancient = yes
+		technology_group = tech_mogu
 	}
     
 	heir = yes
-	queen = yes
-	maintain_dynasty = yes
-    
-    conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			mamluk_mechanic
-		}
-	}
+	queen = no
     
 	modifiers = {
-		prestige = 1
-		yearly_corruption = -0.05
+		discipline = 0.05
+        max_absolutism = 10
 	}
 	
     ai = { factor = 0 }
@@ -1936,9 +2252,11 @@ ancient_clan_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
     nation_designer_trigger = {
-        is_ancient = yes
+        technology_group = tech_mogu
     }
 }
+
+# Used for splinter groups of important nations
 expeditionary_force_reform = {
 	icon = "return_to_camp"
     legacy_equivalent = expeditionary_force_legacy
@@ -1954,8 +2272,8 @@ expeditionary_force_reform = {
 	queen = no
 
 	modifiers = {
-		global_regiment_cost = -0.2
-        global_regiment_recruit_speed = -0.33
+		global_regiment_cost = -0.1
+        global_regiment_recruit_speed = -0.2
 	}
 	
 	ai = { factor = 0 }
@@ -1968,6 +2286,8 @@ expeditionary_force_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used for Criminal nations
 criminal_organization_reform = {
 	icon = "shadow_reflection"
 	legacy_equivalent = criminal_organization_legacy
@@ -1982,8 +2302,9 @@ criminal_organization_reform = {
 	queen = no
     
 	modifiers = {
-		loot_amount = 2
-        available_province_loot = 2
+        infantry_shock = 0.25
+		loot_amount = 0.25
+        available_province_loot = 0.25
 	}
     
     ai = { factor = 0 }
@@ -1996,6 +2317,8 @@ criminal_organization_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used for Dwarven clans
 dwarven_clan_reform = {
 	icon = "dwarf"
     legacy_equivalent = dwarven_clan_legacy
@@ -2008,8 +2331,8 @@ dwarven_clan_reform = {
     }
     
 	modifiers = {
-		defensiveness = 0.33
-		siege_ability = 0.1
+		defensiveness = 0.2
+		siege_ability = 0.05
 	}
 	
 	ai = { factor = 0 }
@@ -2026,6 +2349,8 @@ dwarven_clan_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used for Satyr nations
 satyr_sect_reform = {
 	icon = "satyr"
     legacy_equivalent = satyr_sect_legacy
@@ -2036,15 +2361,17 @@ satyr_sect_reform = {
     
     monarchy = no
     nomad = yes
+    
     generals_become_rulers = yes
 	republican_name = yes
+    
     queen = no
     heir = no
     
 	modifiers = {
 		papal_influence = 1
-        global_missionary_strength = 0.02
-        movement_speed = 0.25
+        global_missionary_strength = 0.01
+        movement_speed = 0.1
 	}
 	
     conditional = {
@@ -2063,6 +2390,8 @@ satyr_sect_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used for Tauren nations
 tauren_tribe_reform = {
 	icon = "tauren_bull_rush"
     legacy_equivalent = tauren_tribe_legacy
@@ -2075,7 +2404,8 @@ tauren_tribe_reform = {
     }
     
 	modifiers = {
-		development_cost = -0.1
+		development_cost = -0.05
+        improve_relation_modifier = 0.1
         global_unrest = -1
 	}
 	
@@ -2093,6 +2423,8 @@ tauren_tribe_reform = {
     valid_for_nation_designer = yes
     nation_designer_cost = 0
 }
+
+# Used for HRE Free City mechanic
 free_city_reform = {
 	icon = "tauren_bull_rush"
     legacy_equivalent = free_city_legacy
@@ -2111,10 +2443,10 @@ free_city_reform = {
 	}
     
 	modifiers = {
-		army_tradition = 1
-		defensiveness = 0.33
-        land_morale = 0.2
-		governing_capacity_modifier = -0.25
+		army_tradition = 0.5
+		defensiveness = 0.1
+        land_morale = 0.1
+		governing_capacity_modifier = -0.1
 	}
 
 	ai = { factor = 0 }
@@ -2130,14 +2462,18 @@ free_city_reform = {
 		capital_scope = { is_part_of_hre = yes }
 	}
 }
+
+# Used for Centaur nations
 centaur_khanate_reform = {
 	icon = "centaur"
     legacy_equivalent = centaur_khanate_legacy
     
     monarchy = no
     nomad = yes
+    
     generals_become_rulers = yes
 	republican_name = yes
+    
     queen = no
     heir = no
     
@@ -2148,6 +2484,7 @@ centaur_khanate_reform = {
 	modifiers = {
 		cavalry_power = 0.1
         movement_speed = 0.1
+        max_absolutism = 10
 	}
 	
     custom_attributes = {
@@ -2188,8 +2525,8 @@ native_tribe_reform = {
     fixed_rank = 1
     
 	modifiers = {
-		stability_cost_modifier = -0.33
-		land_maintenance_modifier = -0.2
+		stability_cost_modifier = -0.1
+		land_maintenance_modifier = -0.1
 	}
 	
 	ai = { factor = 0 }
