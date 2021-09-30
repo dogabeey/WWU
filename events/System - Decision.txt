@@ -1,0 +1,124 @@
+#---------------------------------------
+# Used for decisions that need randomisation
+#---------------------------------------
+namespace = wwu_decision_events
+
+# Research Finished!
+country_event = {
+	id = wwu_decision_events.1
+	title = wwu_decision_events.1.title
+	desc = wwu_decision_events.1.desc
+	picture = BIG_BOOK_eventPicture
+    
+    trigger = {
+        has_country_flag = human_magi_discovery
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = human_magi_discovery
+        }
+    }
+	
+    mean_time_to_happen = {
+		months = 24
+    }
+    
+	option = {
+		name = wwu_decision_events.1.option.a
+	
+        random_list = {
+            10 = {
+                add_country_modifier = {
+                    name = illusion_of_grandeur
+                    duration = 3650
+                }
+            }
+            10 = {
+                add_country_modifier = {
+                    name = enchanted_spyglass
+                    duration = 3650
+                }
+            }
+            10 = {
+                add_country_modifier = {
+                    name = scrying_orb
+                    duration = 3650
+                }
+            }
+            10 = {
+                add_country_modifier = {
+                    name = arcane_familiars
+                    duration = 3650
+                }
+            }
+            10 = {
+                add_country_modifier = {
+                    name = conjured_feasts
+                    duration = 3650
+                }
+            }
+            10 = {
+                add_country_modifier = {
+                    name = enchanted_broom
+                    duration = 3650
+                }
+            }
+            10 = {
+                add_country_modifier = {
+                    name = embued_tome
+                    duration = 3650
+                }
+            }
+            10 = {
+                add_country_modifier = {
+                    name = mana_shields
+                    duration = 3650
+                }
+            }
+            10 = {
+                add_country_modifier = {
+                    name = invisibility_cloaks
+                    duration = 3650
+                }
+            }
+            10 = {
+                add_country_modifier = {
+                    name = arcane_crystal
+                    duration = 3650
+                }
+            }
+        }
+	}
+}
+
+# Kaja'mite
+country_event = {
+	id = wwu_decision_events.2
+	title = wwu_decision_events.2.title
+	desc = wwu_decision_events.2.desc
+	picture = BIG_BOOK_eventPicture
+    
+    trigger = {
+        has_country_flag = seek_kajamite
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = seek_kajamite
+        }
+    }
+	
+    mean_time_to_happen = {
+		months = 36
+    }
+    
+	option = {
+		name = wwu_decision_events.2.option.a
+	
+        add_country_modifier = {
+            name = kaja_mite
+            duration = 3650
+        }
+	}
+}

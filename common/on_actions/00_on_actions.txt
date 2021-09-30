@@ -17,102 +17,11 @@ on_startup = {
 		save_global_event_target_as = celestial_emperor
 	}
     
+    unlock_initial_cults = yes
+    
     events = {
         wwu_setup.1    # Global
         wwu_setup.2    # Country
-	}
-    
-    unlock_initial_cults = yes
-    
-	if = {
-		limit = { NOT = { has_global_flag = wwu_set_up_flag } }
-		2505 = { remove_canal = gp_deeprun_tram_eastern_kingdoms }
-		set_global_flag = wwu_set_up_flag
-		if = {
-			limit = {is_year = 592}
-			set_global_flag = dark_portal_opened_flag
-		}
-		if = {
-			limit = {is_year = 600}
-			1586 = { remove_canal = gp_dark_portal_outland }
-			clr_global_flag = dark_portal_opened_flag
-			set_global_flag = dark_portal_closed_firsttime
-			set_global_flag = sonsoflothar
-			set_global_flag = khadgar
-		}
-		if = {
-			limit = {is_year = 617}
-			set_global_flag = scourge_of_lordaeron_flag
-		}
-		if = {
-			limit = {is_year = 618}
-			set_global_flag = archimonde_dead
-			set_global_flag = eye_of_sargeras
-			set_global_flag = sunfury_arrived
-			set_global_flag = nerzhul_arrived
-		}
-		if = {
-			limit = {is_year = 622}
-			set_global_flag = illidan_frozen_throne
-		}
-	}
-    
-	every_province = {
-		limit = {
-			culture_group = culture_group_scourge
-			trade_goods = grain
-		}
-		change_trade_goods = crypts
-	}
-	
-	every_province = {
-		limit = {
-			culture_group = culture_group_undead
-			trade_goods = grain
-		}
-		change_trade_goods = crypts
-	}
-	
-#	every_province = {
-#		limit = {
-#			NOT = { culture_group = culture_group_scourge }
-#			trade_goods = crypts
-#		}
-#		change_trade_goods = grain
-#	}
-
-	every_province = {
-		limit = {
-			religion = fel
-			trade_goods = arcane
-		}
-		change_trade_goods = fel
-	}
-	
-	every_province = {
-		limit = {
-			religion = cult_of_the_damned
-			trade_goods = arcane
-		}
-		change_trade_goods = fel
-	}
-	
-	every_province = {
-		limit = {
-			NOT = { religion = fel }
-			NOT = { religion = cult_of_the_damned }
-			trade_goods = fel
-		}
-		change_trade_goods = arcane
-	}
-	
-	1671 = {
-		owner = {
-			add_country_modifier = {
-				name = lord_of_outland
-				duration = -1
-			}
-		}
 	}
 }
 

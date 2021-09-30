@@ -62,6 +62,7 @@ country_event = {
                 NOT = { is_year = 598 }
             }
             set_global_flag = the_first_war
+            set_global_flag = dark_portal_opened_flag
         }
 
         # The Second War
@@ -80,6 +81,12 @@ country_event = {
                 NOT = { is_year = 617 }
             }
             set_global_flag = beyond_the_dark_portal
+			clr_global_flag = dark_portal_opened_flag
+			set_global_flag = dark_portal_closed_firsttime
+			set_global_flag = sonsoflothar
+			set_global_flag = khadgar
+            
+            1586 = { remove_canal = gp_dark_portal_outland }
         }
 
         # The Third War
@@ -89,6 +96,7 @@ country_event = {
                 NOT = { is_year = 618 }
             }
             set_global_flag = the_third_war 
+            set_global_flag = scourge_of_lordaeron_flag
         }
 
         # The Frozen Throne
@@ -98,6 +106,10 @@ country_event = {
                 NOT = { is_year = 622 }
             }
             set_global_flag = the_frozen_throne
+            set_global_flag = archimonde_dead
+			set_global_flag = eye_of_sargeras
+			set_global_flag = sunfury_arrived
+			set_global_flag = nerzhul_arrived
         }
 
         # The Rise of the Qiraji
@@ -107,6 +119,7 @@ country_event = {
                 NOT = { is_year = 625 }
             }
             set_global_flag = rise_of_the_qiraji
+            set_global_flag = illidan_frozen_throne
         }
 
         # The Burning Crusade
@@ -177,6 +190,57 @@ country_event = {
         discover_home_continent = yes
         
         set_country_flag = completed_country_wwu_setup
+        
+        every_owned_province = {
+            limit = {
+                culture_group = culture_group_scourge
+                trade_goods = grain
+            }
+            change_trade_goods = crypts
+        }
+        
+        every_owned_province = {
+            limit = {
+                culture_group = culture_group_undead
+                trade_goods = grain
+            }
+            change_trade_goods = crypts
+        }
+        
+        every_owned_province = {
+            limit = {
+                religion = fel
+                trade_goods = arcane
+            }
+            change_trade_goods = fel
+        }
+        
+        every_owned_province = {
+            limit = {
+                religion = cult_of_the_damned
+                trade_goods = arcane
+            }
+            change_trade_goods = fel
+        }
+        
+        every_owned_province = {
+            limit = {
+                NOT = { religion = fel }
+                NOT = { religion = cult_of_the_damned }
+                trade_goods = fel
+            }
+            change_trade_goods = arcane
+        }
+        
+        if = {
+            limit = {
+                owns = 1671
+            }
+            add_country_modifier = {
+                name = lord_of_outland
+                duration = -1
+            }
+        }
     }
     
     option = {

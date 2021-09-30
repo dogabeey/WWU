@@ -1,0 +1,93 @@
+namespace = inhospitable_terrain
+
+# Underwater
+province_event = {
+	id = inhospitable_terrain.1
+	title = inhospitable_terrain.1.title
+	desc = inhospitable_terrain.1.desc
+	picture = DARK_PORTAL_CLOSEUP_eventPicture
+	
+	hidden = yes
+    
+	trigger = {
+		NOT = { has_province_modifier = inhospitable_terrain_underwater }
+		has_terrain = underwater
+		NOT = { is_underwater = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = inhospitable_terrain.1.option.a
+		
+		add_province_modifier = {
+			name = inhospitable_terrain_underwater
+			duration = -1
+		}
+	}
+}
+# Underground
+province_event = {
+	id = inhospitable_terrain.2
+	title = inhospitable_terrain.2.title
+	desc = inhospitable_terrain.2.desc
+	picture = DARK_PORTAL_CLOSEUP_eventPicture
+    
+	hidden = yes
+    
+	trigger = {
+		NOT = { has_province_modifier = inhospitable_terrain_underground }
+		has_terrain = underground
+		NOT = { is_underground = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = inhospitable_terrain.2.option.a
+		
+		add_province_modifier = {
+			name = inhospitable_terrain_underground
+			duration = -1
+		}
+	}
+}
+# Removal
+province_event = {
+	id = inhospitable_terrain.3
+	title = inhospitable_terrain.3.title
+	desc = inhospitable_terrain.3.desc
+	picture = DARK_PORTAL_CLOSEUP_eventPicture
+    
+	hidden = yes
+    
+	trigger = {
+		OR = {
+			AND = {
+				has_province_modifier = inhospitable_terrain_underground
+				has_terrain = underground
+				is_underground = yes 
+			}
+			AND = {
+				has_province_modifier = inhospitable_terrain_underwater
+				has_terrain = underwater
+				is_underwater = yes 
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = inhospitable_terrain.3.option.a
+		
+		remove_province_modifier = inhospitable_terrain_underground
+		remove_province_modifier = inhospitable_terrain_underwater
+	}
+}

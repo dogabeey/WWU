@@ -1,4 +1,5 @@
 country_decisions = {    
+    # Allow the Orc clans to jump into Azeroth
 	establish_foothold_at_azeroth = {
 		potential = {
 		    culture_group = culture_group_orc
@@ -78,9 +79,8 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
 
-country_decisions = {     
+    # Used to expand ownership in Blasted Lands
     expand_foothold_in_azeroth = {
 		potential = {
 		    any_owned_province = {
@@ -122,9 +122,8 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
 
-country_decisions = { 
+    # Allow Alliance members to jump into Outland
     establish_foothold_in_outland = {
 		major = yes
 		potential = {   
@@ -157,9 +156,8 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
 
-country_decisions = { 
+    # Open the Dark Portal
 	open_the_dark_portal = {
 		major = yes
 		potential = {
@@ -200,10 +198,10 @@ country_decisions = {
 			add_mil_power = -100
 			continent_outland = {
 				add_devastation = 25
-				}
+            }
 			region_blasted_lands = {
 				add_devastation = 25
-				}
+            }
 			clr_global_flag = dark_portal_closed_flag
 			clr_global_flag = dark_portal_closed_firsttime
 			1586 = {
@@ -223,9 +221,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
-
-country_decisions = { 	
+	
 	open_the_dark_portal_magic = {
 		major = yes
 		potential = {  
@@ -240,18 +236,18 @@ country_decisions = {
 			}		
 			is_year = 600
 			OR = {
-                        religion = arcane
-						religion = light_of_the_naaru
-						religion_group = shadow_group
-				}
+                religion = arcane
+                religion = light_of_the_naaru
+                religion_group = shadow_group
+            }
 			NOT = { has_global_flag = dark_portal_opened_flag }
 		}
 		allow =  {
 			is_year = 600
 			OR = {
-						owns = 1586
-                        owns = 1035
-				}
+                owns = 1586
+                owns = 1035
+            }
 			OR = {
                     AND = {
 						religion = arcane
@@ -303,9 +299,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
 
-country_decisions = { 
 	open_the_dark_portal_normal = {
 		major = yes
 		potential = {
@@ -330,9 +324,9 @@ country_decisions = {
 		allow =  {
 			is_year = 600
 			OR = {
-						owns = 1586
-                        owns = 1035
-				}
+                owns = 1586
+                owns = 1035
+            }
 			treasury = 2500
 			adm_power = 500
 			dip_power = 500
@@ -369,9 +363,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}
 
-country_decisions = { 
 	secure_the_dark_portal = {
 		major = yes
 		potential = {
@@ -391,9 +383,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-}			
 
-country_decisions = { 
 	close_the_dark_portal = {
 		major = yes
 		potential = {
@@ -505,56 +495,6 @@ country_decisions = {
             every_country = {
                 limit = { has_country_flag = dark_portal_builder } clr_country_flag = dark_portal_builder 
             }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-}
-
-country_decisions = { 
-	build_deeprun_tram = {
-		major = yes
-		potential = {   
-            owns = 2505
-			NOT = { has_global_flag = deeprun_tram_build_flag }
-			NOT = { tag = B92 }
-		}
-		allow =  {
-			owns = 2505
-			NOT = { has_global_flag = deeprun_tram_build_flag }
-			NOT = { tag = B92 }
-		}
-		effect = {
-			2505 = {
-				add_canal = gp_deeprun_tram_eastern_kingdoms 
-			}
-			set_global_flag = deeprun_tram_build_flag
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-}
-
-country_decisions = { 
-	destroy_deeprun_tram = {
-		major = yes
-		potential = {   
-            owns = 2505
-			tag = B92
-			has_global_flag = deeprun_tram_build_flag
-		}
-		allow =  {
-			owns = 2505
-			tag = B92
-			has_global_flag = deeprun_tram_build_flag
-		}
-		effect = {
-			2505 = {
-				remove_canal = gp_deeprun_tram_eastern_kingdoms 
-			}
-			clr_global_flag = deeprun_tram_build_flag
 		}
 		ai_will_do = {
 			factor = 1
