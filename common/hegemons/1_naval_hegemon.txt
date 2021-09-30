@@ -1,9 +1,21 @@
 naval_hegemon = {
 	allow = {
 		is_great_power = yes
-		OR = {
-            num_of_heavy_ship = 100
-            num_of_galley = 200
+        OR = {
+            AND = {
+                ai = yes
+                OR = {
+                    num_of_heavy_ship = 30
+                    num_of_galley = 50
+                }
+            }
+            AND = {
+                ai = no
+                OR = {
+                    num_of_heavy_ship = 100
+                    num_of_galley = 200
+                }
+            }
         }
 		NOT = { 
             any_other_great_power = { 

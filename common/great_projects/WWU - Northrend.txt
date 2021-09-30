@@ -80,13 +80,14 @@ gp_vordrassil = {
 			factor = 1000 # Tier 1 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.05
 		}
 		area_modifier = {
-            
+            local_production_efficiency = 0.25
 		}
 		country_modifiers = {
-            yearly_corruption = -0.05
+            tolerance_own = 1
+            missionary_maintenance_cost = -0.1
 		}
 	}
 	tier_2 = {
@@ -97,13 +98,14 @@ gp_vordrassil = {
 			factor = 3000 # Tier 2 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.075
 		}
 		area_modifier = {
-            
+            local_production_efficiency = 0.33
 		}
 		country_modifiers = {
-            yearly_corruption = -0.075
+            tolerance_own = 1
+            missionary_maintenance_cost = -0.15
 		}
 	}
 	tier_3 = {
@@ -114,13 +116,14 @@ gp_vordrassil = {
 			factor = 5000 # Tier 3 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.1
 		}
 		area_modifier = {
-            
+            local_production_efficiency = 0.5
 		}
 		country_modifiers = {
-            yearly_corruption = -0.1
+            tolerance_own = 1
+            missionary_maintenance_cost = -0.2
 		}
 	}
 }
@@ -165,6 +168,10 @@ gp_dalaran_northrend = {
     
     # Conditions
 	can_use_modifiers_trigger = {
+        OR = {
+            current_age = age_scourge
+            current_age = age_burning_legion
+        }
 		OR = {
             has_unlocked_adaptable_usage = yes
             is_available_to_human = yes
@@ -208,13 +215,14 @@ gp_dalaran_northrend = {
 			factor = 1000 # Tier 1 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.05
 		}
 		area_modifier = {
-            
+            local_institution_spread = 0.25
+            allowed_num_of_manufactories = 1
 		}
 		country_modifiers = {
-            idea_cost = -0.1
+            technology_cost = -0.05
 		}
 	}
 	tier_2 = {
@@ -225,13 +233,14 @@ gp_dalaran_northrend = {
 			factor = 3000 # Tier 2 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.075
 		}
 		area_modifier = {
-            
+            local_institution_spread = 0.33
+            allowed_num_of_manufactories = 1
 		}
 		country_modifiers = {
-            idea_cost = -0.125
+            technology_cost = -0.075
 		}
 	}
 	tier_3 = {
@@ -242,13 +251,14 @@ gp_dalaran_northrend = {
 			factor = 5000 # Tier 3 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.1
 		}
 		area_modifier = {
-            
+            local_institution_spread = 0.5
+            allowed_num_of_manufactories = 1
 		}
 		country_modifiers = {
-            idea_cost = -0.15
+            technology_cost = -0.1
 		}
 	}
 }
@@ -334,13 +344,14 @@ gp_valiance_keep = {
 			factor = 1000 # Tier 1 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.05
 		}
 		area_modifier = {
             local_defensiveness = 0.25
+            local_manpower_modifier = 0.25
 		}
 		country_modifiers = {
-            infantry_power = 0.1
+            global_manpower_modifier = 0.1
 		}
 	}
 	tier_2 = {
@@ -351,13 +362,14 @@ gp_valiance_keep = {
 			factor = 3000 # Tier 2 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.075
 		}
 		area_modifier = {
             local_defensiveness = 0.33
+            local_manpower_modifier = 0.33
 		}
 		country_modifiers = {
-           infantry_power = 0.125
+            global_manpower_modifier = 0.15
 		}
 	}
 	tier_3 = {
@@ -368,13 +380,14 @@ gp_valiance_keep = {
 			factor = 5000 # Tier 3 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.1
 		}
 		area_modifier = {
             local_defensiveness = 0.5
+            local_manpower_modifier = 0.5
 		}
 		country_modifiers = {
-            infantry_power = 0.15
+            global_manpower_modifier = 0.2
 		}
 	}
 }
@@ -446,14 +459,14 @@ gp_mimirons_workshop = {
 			factor = 1000 # Tier 1 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.05
 		}
 		area_modifier = {
-            
+            local_production_efficiency = 0.25
 		}
 		country_modifiers = {
-            technology_cost = -0.05
-            idea_cost = -0.05
+            mil_tech_cost_modifier = -0.05
+            great_project_upgrade_cost = -0.05
 		}
 	}
 	tier_2 = {
@@ -464,14 +477,14 @@ gp_mimirons_workshop = {
 			factor = 3000 # Tier 2 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.075
 		}
 		area_modifier = {
-            
+            local_production_efficiency = 0.33
 		}
 		country_modifiers = {
-            technology_cost = -0.075
-            idea_cost = -0.075
+            mil_tech_cost_modifier = -0.075
+            great_project_upgrade_cost = -0.075
 		}
 	}
 	tier_3 = {
@@ -482,14 +495,14 @@ gp_mimirons_workshop = {
 			factor = 5000 # Tier 3 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.1
 		}
 		area_modifier = {
-            
+            local_production_efficiency = 0.5
 		}
 		country_modifiers = {
-            technology_cost = -0.1
-            idea_cost = -0.1
+            mil_tech_cost_modifier = -0.1
+            great_project_upgrade_cost = -0.1
 		}
 	}
 }
@@ -570,14 +583,14 @@ gp_gundrak = {
 			factor = 1000 # Tier 1 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.05
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.25
 		}
 		country_modifiers = {
-            land_forcelimit_modifier = 0.1
-            land_maintenance_modifier = -0.1
+            global_manpower_modifier = 0.05
+            manpower_recovery_speed = 0.1
 		}
 	}
 	tier_2 = {
@@ -588,14 +601,14 @@ gp_gundrak = {
 			factor = 3000 # Tier 2 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.075
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.33
 		}
 		country_modifiers = {
-            land_forcelimit_modifier = 0.125
-            land_maintenance_modifier = -0.125
+            global_manpower_modifier = 0.075
+            manpower_recovery_speed = 0.15
 		}
 	}
 	tier_3 = {
@@ -606,14 +619,14 @@ gp_gundrak = {
 			factor = 5000 # Tier 3 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.1
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.5
 		}
 		country_modifiers = {
-            land_forcelimit_modifier = 0.15
-            land_maintenance_modifier = -0.15
+            global_manpower_modifier = 0.1
+            manpower_recovery_speed = 0.2
 		}
 	}
 }
@@ -701,14 +714,16 @@ gp_icecrown_citadel = {
 			factor = 1000 # Tier 1 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.05
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.25
+            local_defensiveness = 0.25
 		}
 		country_modifiers = {
-            country_military_power = 1
-            manpower_in_true_faith_provinces = 1.0
+            manpower_recovery_speed = 0.1
+            reinforce_cost_modifier = -0.1
+            reinforce_speed = 0.1
 		}
 	}
 	tier_2 = {
@@ -719,14 +734,16 @@ gp_icecrown_citadel = {
 			factor = 3000 # Tier 2 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.075
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.33
+            local_defensiveness = 0.33
 		}
 		country_modifiers = {
-            country_military_power = 1
-            manpower_in_true_faith_provinces = 2.0
+            manpower_recovery_speed = 0.15
+            reinforce_cost_modifier = -0.15
+            reinforce_speed = 0.15
 		}
 	}
 	tier_3 = {
@@ -737,14 +754,16 @@ gp_icecrown_citadel = {
 			factor = 5000 # Tier 3 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.1
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.5
+            local_defensiveness = 0.5
 		}
 		country_modifiers = {
-            country_military_power = 1
-            manpower_in_true_faith_provinces = 3.0
+            manpower_recovery_speed = 0.2
+            reinforce_cost_modifier = -0.2
+            reinforce_speed = 0.2
 		}
 	}
 }
@@ -832,14 +851,14 @@ gp_naxxramas = {
 			factor = 1000 # Tier 1 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.05
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.25
+            local_defensiveness = 0.25
 		}
 		country_modifiers = {
-            discipline = 0.05
-            free_leader_pool = 1
+            siege_ability = 0.05
 		}
 	}
 	tier_2 = {
@@ -850,14 +869,14 @@ gp_naxxramas = {
 			factor = 3000 # Tier 2 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.075
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.33
+            local_defensiveness = 0.33
 		}
 		country_modifiers = {
-            discipline = 0.075
-            free_leader_pool = 1
+            siege_ability = 0.075
 		}
 	}
 	tier_3 = {
@@ -868,14 +887,14 @@ gp_naxxramas = {
 			factor = 5000 # Tier 3 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.1
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.5
+            local_defensiveness = 0.5
 		}
 		country_modifiers = {
-            discipline = 0.1
-            free_leader_pool = 1
+            siege_ability = 0.1
 		}
 	}
 }
@@ -963,13 +982,14 @@ gp_shadow_vault = {
 			factor = 1000 # Tier 1 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.05
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.25
 		}
 		country_modifiers = {
-            technology_cost = -0.1
+            spy_offence = 0.1
+            global_spy_defence = 0.1
 		}
 	}
 	tier_2 = {
@@ -980,13 +1000,14 @@ gp_shadow_vault = {
 			factor = 3000 # Tier 2 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.075
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.33
 		}
 		country_modifiers = {
-            technology_cost = -0.125
+            spy_offence = 0.15
+            global_spy_defence = 0.15
 		}
 	}
 	tier_3 = {
@@ -997,13 +1018,14 @@ gp_shadow_vault = {
 			factor = 5000 # Tier 3 Cost
 		}
         province_modifiers = {
-            
+            local_monthly_devastation = -0.1
 		}
 		area_modifier = {
-            
+            local_manpower_modifier = 0.5
 		}
 		country_modifiers = {
-            technology_cost = -0.15
+            spy_offence = 0.2
+            global_spy_defence = 0.2
 		}
 	}
 }
