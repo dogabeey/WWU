@@ -1007,6 +1007,32 @@ on_annexed = {
 		which = annexed_nation
 		value = 1
 	}
+    
+    # If Head of faction is annxed, re-assign leadership
+    if = {
+        limit = {
+            FROM = {
+                has_country_modifier = head_of_alliance
+            }
+        }
+        country_event = { id = wwu_faction_system.30 }
+    }
+    if = {
+        limit = {
+            FROM = {
+                has_country_modifier = head_of_old_horde
+            }
+        }
+        country_event = { id = wwu_faction_system.31 }
+    }
+    if = {
+        limit = {
+            FROM = {
+                has_country_modifier = head_of_horde
+            }
+        }
+        country_event = { id = wwu_faction_system.32 }
+    }
 }
 
 # When the chinese empire gets dismantled (e.g. when the emperor is annexed)

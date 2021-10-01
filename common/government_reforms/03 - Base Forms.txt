@@ -180,16 +180,13 @@ alliance_reform = {
 	nation_designer_cost = 0
 }
 
-# Used by Head of Horde/Old Horde
+# Used by Head of Horde
 horde_reform = {
 	icon = "horde"
 	legacy_equivalent = horde_legacy
     
     potential = {
-		OR = {
-            has_country_modifier = head_of_old_horde
-            has_country_modifier = head_of_horde
-        }
+		has_country_modifier = head_of_horde
 	}
     
     custom_attributes = {
@@ -212,6 +209,48 @@ horde_reform = {
         prestige_decay = -0.01
 		advisor_cost = -0.1
         advisor_pool = 1
+	}
+    
+	ai = { factor = 0 }
+    
+    valid_for_new_country = no      # Can be converted to via nation release
+    allow_normal_conversion = no    # Can be picked as a new reform
+	allow_convert = no              # Can be converted to via peace term
+    lock_level_when_selected = yes
+    
+	valid_for_nation_designer = no
+	nation_designer_cost = 0
+}
+
+# Used by Head of Old Horde
+old_horde_reform = {
+	icon = "old_horde"
+	legacy_equivalent = old_horde_legacy
+    
+    potential = {
+		has_country_modifier = head_of_old_horde
+	}
+    
+    custom_attributes = {
+		locked_government_type = yes
+	}
+    
+	conditional = {
+		allow = { 
+			has_dlc = "Cradle of Civilization"
+		}
+		heir = no
+		foreign_slave_rulers = yes
+	}
+
+	custom_attributes = {
+		generals_become_rulers = yes
+	}
+	
+	modifiers = {
+        mil_advisor_cost = -0.1
+        mil_tech_cost_modifier = -0.1
+		land_morale = 0.05
 	}
     
 	ai = { factor = 0 }

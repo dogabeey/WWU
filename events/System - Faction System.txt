@@ -93,6 +93,7 @@ country_event = {
 	picture = KING_LLANE_eventPicture
     
     trigger = {
+        has_country_modifier = member_of_alliance
         has_country_modifier = head_of_alliance
         NOT = { has_reform = alliance_reform }
     }
@@ -116,7 +117,8 @@ country_event = {
 	desc = wwu_faction_system.4.desc
 	picture = KING_LLANE_eventPicture
     
-    trigger = {
+    trigger = { 
+        has_country_modifier = member_of_alliance
         NOT = { has_country_modifier = head_of_alliance }
         has_reform = alliance_reform
     }
@@ -141,6 +143,7 @@ country_event = {
 	picture = KING_LLANE_eventPicture
     
     trigger = {
+        has_country_modifier = member_of_horde
         has_country_modifier = head_of_horde
         NOT = { has_reform = horde_reform }
     }
@@ -165,6 +168,7 @@ country_event = {
 	picture = KING_LLANE_eventPicture
     
     trigger = {
+        has_country_modifier = member_of_horde
         NOT = { has_country_modifier = head_of_horde }
         has_reform = horde_reform
     }
@@ -189,8 +193,9 @@ country_event = {
 	picture = KING_LLANE_eventPicture
     
     trigger = {
+        has_country_modifier = member_of_old_horde
         has_country_modifier = head_of_old_horde
-        NOT = { has_reform = horde_reform }
+        NOT = { has_reform = old_horde_reform }
     }
     
     mean_time_to_happen = {
@@ -200,8 +205,8 @@ country_event = {
 	option = {
 		name = wwu_faction_system.7.option.a
 		
-        change_government = monarchy
-        add_government_reform = horde_reform
+        change_government = tribal
+        add_government_reform = old_horde_reform
 	}
 }
 
@@ -213,6 +218,7 @@ country_event = {
 	picture = KING_LLANE_eventPicture
     
     trigger = {
+        has_country_modifier = member_of_old_horde
         NOT = { has_country_modifier = head_of_old_horde }
         has_reform = horde_reform
     }
@@ -224,8 +230,17 @@ country_event = {
 	option = {
 		name = wwu_faction_system.8.option.a
 		
-        change_government = monarchy
-        add_government_reform = autocracy_reform
+        if = {
+            limit = {
+                technology_group = tech_orc
+            }
+            change_government = tribal
+            add_government_reform = orc_clan_reform
+        }
+        else = {
+            change_government = tribal
+            add_government_reform = tribal_despotism_reform
+        }
 	}
 }
 
@@ -480,58 +495,20 @@ country_event = {
 	picture = KING_LLANE_eventPicture
     
     major = yes
-    
-    trigger = {
-        # Alliance has been formed
-        has_global_flag = setup_the_alliance
-        
-        # Fire for player if in Alliance, or just a random member if not
-        if = {
-            limit = {
-                any_country = {
-                    has_country_modifier = member_of_alliance
-                    ai = no
-                }
-            }
-            ai = no
-        }
-        else = {
-            has_country_modifier = member_of_alliance
-        }
-        
-        NOT = {
-            any_country = {
-                has_country_modifier = head_of_alliance
-            }
-        }
-    }
+    is_triggered_only = yes
+
+    mean_time_to_happen = {
+		days = 1
+	}
     
 	option = {
 		name = wwu_faction_system.30.option.a
 		
-        # Re-assign High King to an Alliance member, preferring the player if they are a member
-        if = {
+        random_country = {
             limit = {
-                any_country = {
-                    has_country_modifier = member_of_alliance
-                    ai = no
-                }
+                has_country_modifier = member_of_alliance
             }
-            random_country = {
-                limit = {
-                    ai = no
-                    has_country_modifier = member_of_alliance
-                }
-                set_head_of_alliance = yes
-            }
-        }
-        else = {
-            random_country = {
-                limit = {
-                    has_country_modifier = member_of_alliance
-                }
-                set_head_of_alliance = yes
-            }
+            set_head_of_alliance = yes
         }
 	}
 }
@@ -545,58 +522,20 @@ country_event = {
 	picture = ORC_THRONE_eventPicture
     
     major = yes
-    
-    trigger = {
-        # Old Horde has been formed
-        has_global_flag = setup_the_old_horde
-        
-        # Fire for player if in Old Horde, or just a random member if not
-        if = {
-            limit = {
-                any_country = {
-                    has_country_modifier = member_of_old_horde
-                    ai = no
-                }
-            }
-            ai = no
-        }
-        else = {
-            has_country_modifier = member_of_old_horde
-        }
-        
-        NOT = {
-            any_country = {
-                has_country_modifier = head_of_old_horde
-            }
-        }
-    }
+    is_triggered_only = yes
+
+    mean_time_to_happen = {
+		days = 1
+	}
     
 	option = {
 		name = wwu_faction_system.31.option.a
 		
-        # Re-assign Warchief to an Old Horde member, preferring the player if they are a member
-        if = {
+        random_country = {
             limit = {
-                any_country = {
-                    has_country_modifier = member_of_old_horde
-                    ai = no
-                }
+                has_country_modifier = member_of_old_horde
             }
-            random_country = {
-                limit = {
-                    ai = no
-                    has_country_modifier = member_of_old_horde
-                }
-                set_head_of_old_horde = yes
-            }
-        }
-        else = {
-            random_country = {
-                limit = {
-                    has_country_modifier = member_of_old_horde
-                }
-                set_head_of_old_horde = yes
-            }
+            set_head_of_old_horde = yes
         }
 	}
 }
@@ -610,58 +549,20 @@ country_event = {
 	picture = ORC_THRONE_eventPicture
     
     major = yes
-    
-    trigger = {
-        # Horde has been formed
-        has_global_flag = setup_the_horde
-        
-        # Fire for player if in Horde, or just a random member if not
-        if = {
-            limit = {
-                any_country = {
-                    has_country_modifier = member_of_horde
-                    ai = no
-                }
-            }
-            ai = no
-        }
-        else = {
-            has_country_modifier = member_of_horde
-        }
-        
-        NOT = {
-            any_country = {
-                has_country_modifier = head_of_horde
-            }
-        }
-    }
+    is_triggered_only = yes
+
+    mean_time_to_happen = {
+		days = 1
+	}
     
 	option = {
 		name = wwu_faction_system.32.option.a
 		
-        # Re-assign Warchief to an Old Horde member, preferring the player if they are a member
-        if = {
+        random_country = {
             limit = {
-                any_country = {
-                    has_country_modifier = member_of_horde
-                    ai = no
-                }
+                has_country_modifier = member_of_horde
             }
-            random_country = {
-                limit = {
-                    ai = no
-                    has_country_modifier = member_of_horde
-                }
-                set_head_of_horde = yes
-            }
-        }
-        else = {
-            random_country = {
-                limit = {
-                    has_country_modifier = member_of_horde
-                }
-                set_head_of_horde = yes
-            }
+            set_head_of_horde = yes
         }
 	}
 }
