@@ -1,0 +1,543 @@
+#--------------------------------------
+# Riverpaw
+#--------------------------------------
+wwu_riverpaw_column_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+	    OR = {
+		    tag = B15
+		}
+	} 
+	
+	wwu_raiding_redridge_rpw = {
+		icon = mission_raid
+		required_missions = { wwu_eat_the_weak_rpw }
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = area_lakeshire
+				area = area_lakeshire_highway
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			area_lakeshire_highway = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_lakeshire = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 200
+			add_country_modifier = {
+                name = mission_invade_redridge_rpw
+                duration = -1
+            }
+		}
+	}
+    
+	wwu_gnollridge_rpw = {
+		icon = mission_gnoll
+		required_missions = { wwu_raiding_redridge_rpw }
+		position = 7
+
+		trigger = {
+			area_lakeshire = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_lakeshire_highway = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			trigger = {
+			    num_of_owned_provinces_with = {
+				    value = 5
+				    
+                    has_manpower_building_trigger = yes
+                }
+				region = region_westfall
+			}
+		}
+		effect = {
+			add_dip_power = 200
+			add_country_modifier = {
+                name = mission_colonising_redridge_rpw
+                duration = -1
+            }
+			region_redridge_mountains = {
+			    owned_by = ROOT
+			    change_culture = ROOT
+			}
+		}
+	}
+}
+
+wwu_riverpaw_column_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+	    OR = {
+		    tag = B15
+		}
+	} 
+	
+	wwu_force_of_nature_rpw = {
+		icon = mission_faction_fight
+		required_missions = { }
+		
+		trigger = {
+			is_subject = no
+		    is_at_war = no
+			manpower_percentage = 0.5
+			if = {
+				limit = {
+					has_estate = estate_nobility
+				}
+				estate_influence = {
+					estate = estate_nobility
+					influence = 50
+				}
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 60
+				}
+			}
+		}
+		effect = {
+			add_dip_power = 50
+			add_adm_power = 50
+			add_mil_power = 100
+			add_prestige = 10
+			add_country_modifier = {
+				name = mission_gnoll_raiders_rpw
+				duration = -1
+			}
+			area_goldshire = {
+                add_permanent_claim = ROOT
+			}
+			area_westbrook = {
+                add_permanent_claim = ROOT
+			}
+			area_westvale = {
+			    add_permanent_claim = ROOT
+			}			
+			area_the_darkened_banks = {
+                add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_preparing_for_a_feast_rpw = {
+		icon = mission_gnoll
+		position = 2
+		required_missions = { wwu_force_of_nature_rpw }
+		
+		trigger = {
+			army_size_percentage = 1 			
+		}
+		effect = {
+			add_mil_power = 100
+			add_prestige = 15
+			add_country_modifier = {
+				name = mission_preparing_feast_rpw
+			}
+		}
+	}
+	wwu_uniting_the_tribes_rpw = {
+		icon = mission_classicon_warrior
+		position = 3
+		required_missions = { wwu_preparing_for_a_feast_rpw }
+		
+		trigger = {
+            prestige = 50
+			B16 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+			B17 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+		}
+		effect = {
+			add_mil_power = 100
+			add_country_modifier = {
+				name = mission_united_tribes_rpw
+				duration = -1
+			}
+			vassalize = B16
+			vassalize = B17
+		}	
+	}
+	wwu_packlord_hogger = {
+		icon = mission_cannibalize
+		position = 4
+		required_missions = { wwu_uniting_the_tribes_rpw }
+		
+		trigger = {
+			legitimacy_equivalent = 80
+			army_tradition = 40
+		}
+		effect = {
+			add_mil_power = 100
+			add_adm_power = 150
+			add_country_modifier = {
+				name = mission_hogger
+				duration = -1
+			}
+			define_ruler = {
+                name = "Hogger Riverpaw"
+                dynasty = "Riverpaw
+                ADM = 4
+                DIP = 3
+                MIL = 6
+                attach_leader = "Hogger Riverpaw"
+            }
+			define_ruler_to_general = {
+                fire = 5
+                shock = 5
+                manuever = 4
+                siege = 2
+			}
+			inherit = B16
+			inherit = B17
+		}	
+	}
+	wwu_eat_the_weak_rpw = {
+		icon = mission_warrior_talent_icon_skirmisher
+		position = 5
+		required_missions = { wwu_packlord_hogger }		
+		
+		provinces_to_highlight = {
+			OR = {
+				area = area_goldshire
+				area = area_westbrook
+				area = area_westvale
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			area_goldshire = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_westbrook = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_westvale = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 200
+			add_adm_power = 200
+			add_country_modifier = {
+                name = mission_attack_the_humans_rpw
+                duration = -1
+            }
+			area_northshire = {
+				add_permanent_claim = ROOT
+			}
+			area_eastvale = {
+				add_permanent_claim = ROOT
+			}
+			area_westfall_farmland = {
+				add_permanent_claim = ROOT
+			}
+			area_sentinel_hill = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_raiding_westfall_rpw = {
+		icon = mission_garrison_building_barn
+		required_missions = { wwu_eat_the_weak_rpw }
+		position = 6
+		
+		provinces_to_highlight = {
+			OR = {
+				area = area_westfall_farmland
+				area = area_sentinel_hill
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			area_westfall_farmland = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_sentinel_hill = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_dip_power = 200
+			add_country_modifier = {
+                name = mission_northwest_westfall_rpw
+                duration = -1
+            }
+			area_moonbrook = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_gnollfall_rpw = {
+		icon = mission_garrison_purplearmorupgrade
+		required_missions = { wwu_raiding_westfall_rpw }
+		position = 7
+		provinces_to_highlight = {
+			area = area_moonbrook
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			area_moonbrook = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				
+                has_manpower_building_trigger = yes
+				region = region_westfall
+			}
+		}
+		effect = {
+			add_dip_power = 200
+			add_country_modifier = {
+                name = mission_colonising_westfall_rpw
+                duration = -1
+            }
+			region_westfall = {
+			    change_culture = ROOT
+			}
+		}
+	}
+}
+
+wwu_riverpaw_column_3 = { 
+	slot = 3
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+	    OR = {
+		    tag = B15
+		}
+	} 
+	
+	wwu_raiding_elwynn_rpw = {
+		icon = mission_raid
+		required_missions = { wwu_eat_the_weak_rpw }
+		position = 6
+		
+		provinces_to_highlight = {
+			OR = {
+				area = area_eastvale
+				area = area_northshire
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			area_eastvale = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_northshire = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 200
+			add_country_modifier = {
+                name = mission_surrounding_stormwind_city_rpw
+                duration = -1
+            }
+			area_stormwind = {
+				add_permanent_claim = ROOT
+			}
+			area_stormwind_coast = {
+				add_permanent_claim = ROOT
+			}
+			area_lower_stormwind = {
+				add_permanent_claim = ROOT
+			}
+			area_goldshire = {
+			    change_culture = ROOT
+			}
+			area_westbrook = {
+			    change_culture = ROOT
+			}
+			area_westvale = {
+			    change_culture = ROOT
+			}
+		}
+	}
+	wwu_pawind_rpw = {
+		icon = mission_burning_city
+		required_missions = { wwu_raiding_elwynn_rpw }
+		position = 7
+		
+		provinces_to_highlight = {
+			OR = {
+				area = area_stormwind_coast
+				area = area_stormwind
+				area = area_lower_stormwind
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			area_stormwind = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_stormwind_coast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_lower_stormwind = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_prestige = 50
+			add_mil_power = 200
+			add_country_modifier = {
+                name = mission_fall_of_humanity_rpw
+                duration = -1
+            }
+		}
+	}
+	wwu_capital_pawind_rpw = {
+	    icon = mission_stormwind_entrance
+		required_missions = { wwu_pawind_rpw }
+		position = 8
+		
+		trigger = {
+		    1022 = {
+                owned_by = ROOT
+                is_core = ROOT
+                development = 30
+				culture = ROOT
+            }	
+		}
+		effect = {
+			set_capital = 1022
+			rename_capital = Pawind
+			add_country_modifier = {
+                name = mission_new_capital_rpw
+                duration = -1
+            }
+			area_stormwind = {
+			    change_culture = ROOT
+			}
+			area_stormwind_coast = {
+			    change_culture = ROOT
+			}
+			area_lower_stormwind = {
+			    change_culture = ROOT
+			}
+		}
+	}
+}
+
+wwu_riverpaw_column_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
+	
+	potential = {
+	    OR = {
+		    tag = B15
+		}
+	} 
+	
+	wwu_finding_a_place_in_the_world_rpw = {
+		icon = mission_racechange
+		required_missions = { }
+		
+		trigger = {
+			has_country_flag = was_lesser
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_we_are_important_boys_now
+                duration = -1
+            }
+		}
+	}
+	wwu_form_gnoll_horde_rpw = {
+		icon = mission_inv_misc_head_gnoll_01
+		position = 2
+		required_missions = { }
+		
+		trigger = {
+			tag = GHR
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_gnoll_horde_rpw
+                duration = -1
+            }
+		}
+	}
+	wwu_join_horde_or_alliance_rpw = {
+		icon = mission_faction_fight_2
+		position = 3
+		required_missions = { }
+		
+		trigger = {
+			OR = {
+                has_country_modifier = member_of_alliance
+                has_country_modifier = member_of_horde
+            }
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_join_horde_or_alliance_rpw
+                duration = -1
+            }
+		}
+	}
+	wwu_gnolls_against_the_world_rpw = {
+		icon = mission_achievement_zone_easternkingdoms_01
+		position = 4
+		required_missions = { }
+		
+		trigger = {
+			num_of_cities = 300
+			production_leader = {   
+                trade_goods = copper
+				trade_goods = iron
+				trade_goods = army_supplies
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_gnolls_vs_world_rpw
+                duration = -1
+            }
+		}
+	}
+}
