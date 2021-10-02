@@ -47,49 +47,35 @@ is_underground = {
 	}
 }
 
-has_no_cav = {
-	OR = {
-		technology_group = tech_elemental
-		technology_group = tech_satyr
-		technology_group = tech_naga
-		technology_group = tech_dragonkin
-		technology_group = tech_centaur
-		technology_group = tech_harpy
-		technology_group = tech_titan
-		technology_group = tech_worgen
-		technology_group = tech_ethereal
-		technology_group = tech_magnataur
-	}
-}
-
 is_civilized = {
     OR = {
-        technology_group = tech_human
-        technology_group = tech_gnome
-        technology_group = tech_darnassian
-        technology_group = tech_thalassian
-        technology_group = tech_dwarven
-        technology_group = tech_draenei
-        technology_group = tech_goblin
-        technology_group = tech_tauren
-        technology_group = tech_undead
-        technology_group = tech_worgen
-        technology_group = tech_tuskarr
-        technology_group = tech_pandaren
+        culture_group = culture_group_human
+        culture_group = culture_group_darnassian
+        culture_group = culture_group_thalassian
+        culture_group = culture_group_draenei
+        culture_group = culture_group_jinyu
+        culture_group = culture_group_dragonkin
+        culture_group = culture_group_dwarven
+        culture_group = culture_group_titan
+        culture_group = culture_group_earthen
+        culture_group = culture_group_worgen
+        culture_group = culture_group_arrakoa
+        culture_group = culture_group_fallen_arrakoa
+        culture_group = culture_group_tuskarr
+        culture_group = culture_group_pandaren
+        culture_group = culture_group_ethereal
+        culture_group = culture_group_gnomish
+        culture_group = culture_group_mecha_gnomish
+        culture_group = culture_group_tol_vir
+        culture_group = culture_group_shalassian
+        culture_group = culture_group_vulpera
+        culture_group = culture_group_tortollan
     }
+    NOT = { primary_culture = culture_withered }
 }
 
 is_savage = {
-    OR = {
-		is_lesser = yes
-        technology_group = tech_orc
-        technology_group = tech_ogre
-        technology_group = tech_troll
-        technology_group = tech_scourge
-        technology_group = tech_undead
-        technology_group = tech_mogu
-        technology_group = tech_yaungol
-    }
+    NOT = { is_civilized = yes }
 }
 
 is_pirate = {
@@ -114,17 +100,25 @@ is_lesser = {
     custom_trigger_tooltip = {
         tooltip = IS_LESSER_TT
         OR = {
-            technology_group = tech_depths
-            technology_group = tech_gnoll
-            technology_group = tech_centaur
-            technology_group = tech_furbolg
-            technology_group = tech_wolfvar
-            technology_group = tech_gorloc
-            technology_group = tech_kobold
-            technology_group = tech_harpy
-            technology_group = tech_quillboar
-            technology_group = tech_primitive
-            technology_group = tech_magnataur
+            culture_group = culture_group_murloc
+            culture_group = culture_group_lobstrok
+            culture_group = culture_group_gnoll
+            culture_group = culture_group_centaur
+            culture_group = culture_group_furbolg
+            culture_group = culture_group_wolvar
+            culture_group = culture_group_gorloc
+            culture_group = culture_group_kobold
+            culture_group = culture_group_magnataur
+            culture_group = culture_group_harpy
+            culture_group = culture_group_quillboar
+            culture_group = culture_group_trogg
+            culture_group = culture_group_hozen
+            culture_group = culture_group_taunka
+            culture_group = culture_group_virmen
+            culture_group = culture_group_zangar
+            culture_group = culture_group_pygmy
+            culture_group = culture_group_drogbar
+            culture_group = culture_group_fungarian
         }
         NOT = { has_country_flag = was_lesser } # set this on a lesser race to make them lesser no more.
     }
@@ -132,40 +126,55 @@ is_lesser = {
 
 is_bug = {
     OR = {
-        technology_group = tech_aqir
-        technology_group = tech_mantid
+        culture_group = culture_group_aqir
+        culture_group = culture_group_nerubian
+        culture_group = culture_group_mantid
     }
 }
 
 is_ancient = {
     OR = {
-		technology_group = tech_vrykul
-		technology_group = tech_titan
-		technology_group = tech_aqir
-		technology_group = tech_old_god
-		technology_group = tech_dragonkin
-		technology_group = tech_elemental
-		technology_group = tech_darnassian
-		technology_group = tech_draenei
-		has_country_flag = is_custom_ancient
-        technology_group = tech_mantid
-        technology_group = tech_thalassian
+		culture_group = culture_group_darnassian
+		culture_group = culture_group_thalassian
+		culture_group = culture_group_vrykul
+		culture_group = culture_group_drust
+		culture_group = culture_group_aqir
+        culture_group = culture_group_nerubian
+        culture_group = culture_group_mantid
+		culture_group = culture_group_dragonkin
+		culture_group = culture_group_ghost
+		culture_group = culture_group_titan
+		culture_group = culture_group_earthen
+		culture_group = culture_group_fire
+		culture_group = culture_group_earth
+		culture_group = culture_group_water
+		culture_group = culture_group_air
+		culture_group = culture_group_nature
+		culture_group = culture_group_sha
+		culture_group = culture_group_mogu
+		culture_group = culture_group_ice_giant
+		culture_group = culture_group_sea_giant
+		culture_group = culture_group_earth_giant
+		culture_group = culture_group_dryad
+		culture_group = culture_group_tol_vir
+		culture_group = culture_group_shalassian
+		culture_group = culture_group_faldorei
 	}
 }
 
 is_honorable = {
     OR = {
-        technology_group = tech_orc
-        technology_group = tech_tauren
-        technology_group = tech_human
-        technology_group = tech_vrykul
+        culture_group = culture_group_orc
+        culture_group = culture_group_tauren
+        culture_group = culture_group_human
+        culture_group = culture_group_vrykul
 	}
 }
 
 is_otherworld = {
-    OR = {
-        technology_group = tech_demonic
-        technology_group = tech_old_god
+    OR = {  
+        culture_group = culture_group_demonic
+        culture_group = culture_group_old_ones
 		culture_group = culture_group_ethereal
     }
 }
@@ -247,5 +256,6 @@ is_organization = {
 }
 
 is_spectator = {
+
 }
 
