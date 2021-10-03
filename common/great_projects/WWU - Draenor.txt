@@ -1,0 +1,650 @@
+#--------------------------------------
+# Oshu'gun
+#--------------------------------------
+gp_oshugun_draenor = {
+    type = monument
+    
+	start = 3753
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 0
+
+    # Construction
+	build_trigger = {
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_orc = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_orc = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_orc = yes
+        }
+	}
+	keep_trigger = { always = yes }
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32 # Tier 1 Time
+		}
+		cost_to_upgrade = {
+			factor = 1000 # Tier 1 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.05
+		}
+		area_modifier = {
+            local_defensiveness = 0.25
+		}
+		country_modifiers = {
+            tolerance_own = 1
+            religious_unity = 0.05
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64 # Tier 2 Time
+		}
+		cost_to_upgrade = {
+			factor = 3000 # Tier 2 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.075
+		}
+		area_modifier = {
+            local_defensiveness = 0.33
+		}
+		country_modifiers = {
+            tolerance_own = 1
+            religious_unity = 0.1
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120 # Tier 3 Time
+		}
+		cost_to_upgrade = {
+			factor = 5000 # Tier 3 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.1
+		}
+		area_modifier = {
+            local_defensiveness = 0.5
+		}
+		country_modifiers = {
+            tolerance_own = 1
+            religious_unity = 0.15
+		}
+	}
+}
+
+#--------------------------------------
+# Hellfire Citadel
+#--------------------------------------
+gp_hellfire_citadel_draenor = {
+    type = monument
+    
+	start = 3785
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 0
+
+    # Construction
+	build_trigger = {
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_orc = yes
+            is_available_to_ogre = yes
+            is_available_to_demonic = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_orc = yes
+            is_available_to_ogre = yes
+            is_available_to_demonic = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_orc = yes
+            is_available_to_ogre = yes
+            is_available_to_demonic = yes
+        }
+	}
+	keep_trigger = { always = yes }
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32 # Tier 1 Time
+		}
+		cost_to_upgrade = {
+			factor = 1000 # Tier 1 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.05
+		}
+		area_modifier = {
+            local_defensiveness = 0.25
+            local_manpower_modifier = 0.25
+		}
+		country_modifiers = {
+            infantry_power = 0.05
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64 # Tier 2 Time
+		}
+		cost_to_upgrade = {
+			factor = 3000 # Tier 2 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.075
+		}
+		area_modifier = {
+            local_defensiveness = 0.33
+            local_manpower_modifier = 0.33
+		}
+		country_modifiers = {
+            infantry_power = 0.075
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120 # Tier 3 Time
+		}
+		cost_to_upgrade = {
+			factor = 5000 # Tier 3 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.1
+		}
+		area_modifier = {
+            local_defensiveness = 0.5
+            local_manpower_modifier = 0.5
+		}
+		country_modifiers = {
+            infantry_power = 0.1
+		}
+	}
+}
+
+#--------------------------------------
+# Shattrath
+#--------------------------------------
+gp_shattrath_draenor = {
+    type = monument
+    
+	start = 3765
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 0
+
+    # Construction
+	build_trigger = {
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_draenei = yes
+            is_available_to_broken = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_draenei = yes
+            is_available_to_broken = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_draenei = yes
+            is_available_to_broken = yes
+        }
+	}
+	keep_trigger = { always = yes }
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32 # Tier 1 Time
+		}
+		cost_to_upgrade = {
+			factor = 1000 # Tier 1 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.05
+		}
+		area_modifier = {
+            local_production_efficiency = 0.05
+		}
+		country_modifiers = {
+            global_tax_modifier = 0.05
+            governing_capacity_modifier = 0.05
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64 # Tier 2 Time
+		}
+		cost_to_upgrade = {
+			factor = 3000 # Tier 2 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.075
+		}
+		area_modifier = {
+            local_production_efficiency = 0.075
+		}
+		country_modifiers = {
+            global_tax_modifier = 0.075
+            governing_capacity_modifier = 0.075
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120 # Tier 3 Time
+		}
+		cost_to_upgrade = {
+			factor = 5000 # Tier 3 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.1
+		}
+		area_modifier = {
+            local_production_efficiency = 0.1
+		}
+		country_modifiers = {
+            global_tax_modifier = 0.1
+            governing_capacity_modifier = 0.1
+		}
+	}
+}
+
+#--------------------------------------
+# Karabor
+#--------------------------------------
+gp_karabor = {
+    type = monument
+    
+	start = 3806
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 0
+
+    # Construction
+	build_trigger = {
+        current_age = age_rise_of_the_horde
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_draenei = yes
+            is_available_to_broken = yes
+            is_available_to_demonic = yes
+            is_available_to_demon_hunter = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_draenei = yes
+            is_available_to_broken = yes
+            is_available_to_demonic = yes
+            is_available_to_demon_hunter = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_draenei = yes
+            is_available_to_broken = yes
+            is_available_to_demonic = yes
+            is_available_to_demon_hunter = yes
+        }
+	}
+	keep_trigger = { always = yes }
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32 # Tier 1 Time
+		}
+		cost_to_upgrade = {
+			factor = 1000 # Tier 1 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.05
+		}
+		area_modifier = {
+            local_tax_modifier = 0.25
+            local_defensiveness = 0.25
+		}
+		country_modifiers = {
+            development_cost = -0.05
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 64 # Tier 2 Time
+		}
+		cost_to_upgrade = {
+			factor = 3000 # Tier 2 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.075
+		}
+		area_modifier = {
+            local_tax_modifier = 0.33
+            local_defensiveness = 0.33
+		}
+		country_modifiers = {
+            development_cost = -0.075
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120 # Tier 3 Time
+		}
+		cost_to_upgrade = {
+			factor = 5000 # Tier 3 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.1
+		}
+		area_modifier = {
+            local_tax_modifier = 0.5
+            local_defensiveness = 0.5
+		}
+		country_modifiers = {
+            development_cost = -0.1
+		}
+	}
+}
+
+#--------------------------------------
+# Auchindoun
+#--------------------------------------
+gp_auchindoun_draenor = {
+    type = monument
+    
+	start = 3770
+
+	date = 100.01.01
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+    
+    build_cost = 0
+	time = {
+		months = 0
+	}
+
+	starting_tier = 0
+
+    # Construction
+	build_trigger = {
+        OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_draenei = yes
+            is_available_to_broken = yes
+            is_available_to_demonic = yes
+            is_available_to_demon_hunter = yes
+        }
+	}
+	on_built = {
+		
+	}
+	on_destroyed = {
+		
+	}
+    
+    # Conditions
+	can_use_modifiers_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_draenei = yes
+            is_available_to_broken = yes
+            is_available_to_demonic = yes
+            is_available_to_demon_hunter = yes
+        }
+	}
+	can_upgrade_trigger = {
+		OR = {
+            has_unlocked_adaptable_usage = yes
+            is_available_to_draenei = yes
+            is_available_to_broken = yes
+            is_available_to_demonic = yes
+            is_available_to_demon_hunter = yes
+        }
+	}
+	keep_trigger = { always = yes }
+
+	# Tiers
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+            
+		}
+		area_modifier = {
+            
+		}
+		country_modifiers = {
+            
+		}
+		on_upgraded = {
+		}
+	}
+	tier_1 = {
+		upgrade_time = {
+			months = 32 # Tier 1 Time
+		}
+		cost_to_upgrade = {
+			factor = 1000 # Tier 1 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.05
+		}
+		area_modifier = {
+            local_tax_modifier = 0.25
+            local_defensiveness = 0.25
+		}
+		country_modifiers = {
+            tolerance_own = 1
+            global_missionary_strength = 0.01
+		}
+	}
+	tier_2 = {
+		upgrade_time = {
+			months = 120 # Tier 3 Time
+		}
+		cost_to_upgrade = {
+			factor = 64
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.075
+		}
+		area_modifier = {
+            local_tax_modifier = 0.33
+            local_defensiveness = 0.33
+		}
+		country_modifiers = {
+            tolerance_own = 1
+            global_missionary_strength = 0.015
+		}
+	}
+	tier_3 = {
+		upgrade_time = {
+			months = 120 # Tier 3 Time
+		}
+		cost_to_upgrade = {
+			factor = 5000 # Tier 3 Cost
+		}
+        province_modifiers = {
+            local_monthly_devastation = -0.1
+		}
+		area_modifier = {
+            local_tax_modifier = 0.5
+            local_defensiveness = 0.5
+		}
+		country_modifiers = {
+            tolerance_own = 1
+            global_missionary_strength = 0.02
+		}
+	}
+}
