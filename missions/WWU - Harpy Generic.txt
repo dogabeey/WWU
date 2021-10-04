@@ -1,0 +1,160 @@
+#--------------------------------------
+# Harpy Generic
+#--------------------------------------
+wwu_harpy_generic_column_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
+	
+	potential = {
+	    OR = {
+		    culture_group = culture_group_harpy
+		}
+	} 
+	
+	wwu_finding_a_place_in_the_world_hrg = {
+		icon = mission_race_change
+		required_missions = { }
+		
+		trigger = {
+			has_country_flag = was_lesser
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_we_are_important_boys_now_hrg
+                duration = -1
+            }
+		}
+	}
+	wwu_join_horde_or_alliance_hrg = {
+		icon = mission_faction_fight_2
+		position = 2
+		required_missions = { }
+		
+		trigger = {
+			OR = {
+                has_country_modifier = member_of_alliance
+                has_country_modifier = member_of_horde
+            }
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_join_horde_or_alliance_hrg
+                duration = -1
+            }
+		}
+	}
+	wwu_harpies_against_the_world_hrg = {
+		icon = mission_map_eastern_kingdoms
+		position = 3
+		required_missions = { }
+		
+		trigger = {
+			num_of_cities = 300
+			production_leader = {   
+                trade_goods = copper
+				trade_goods = iron
+				trade_goods = army_supplies
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_harpies_vs_world_hrg
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_harpy_generic_column_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
+	
+	potential = {
+	    OR = {
+		    culture_group = culture_group_murloc
+		}
+	} 
+	
+	wwu_regional_aspirations_hrg = {
+		icon = mission_naga_centaur
+		required_missions = { }
+
+		trigger = {
+			num_of_states = 10
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_regional_scale_challenge_hrg
+                duration = -1
+            }
+		}
+	}
+	wwu_multi_regional_aspirations_hrg = {
+		icon = mission_naga_centaur
+		required_missions = { wwu_regional_aspirations_hrg }
+		position = 2
+
+		trigger = {
+			num_of_states = 20
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_multi_regional_scale_challenge_hrg
+                duration = -1
+            }
+		}
+	}
+	wwu_continental_aspirations_hrg = {
+		icon = mission_naga_centaur
+		required_missions = { wwu_multi_regional_aspirations_hrg }
+		position = 3
+
+		trigger = {		
+			num_of_states = 25
+			num_of_territories = 50
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_continental_scale_challenge_hrg
+                duration = -1
+            }
+		}
+	}
+	wwu_azerothian_aspirations_hrg = {
+		icon = mission_naga_centaur
+		required_missions = { wwu_continental_aspirations_hrg }
+		position = 4
+
+		trigger = {
+			num_of_states = 40	
+            num_of_territories = 100
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_planetery_scale_challenge_hrg
+                duration = -1
+            }
+		}
+	}
+	wwu_vassal_swarm_hrg = {
+		icon = mission_naga_elite_male
+		required_missions = { }
+		position = 5
+
+		trigger = {
+			calc_true_if = {
+			    num_of_subjects = 8
+				amount = 1
+			}			
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_vassal_swarm_master_hrg
+                duration = -1
+            }
+		}
+	}
