@@ -4223,13 +4223,13 @@ bloodmancy_rebels = {
 	}
 }
 #---------------------------------
-# Terokk
+# Light of Rukhmar
 #---------------------------------
-arrakoa_rebels = {
+light_of_rukhmar_rebels = {
 	color = { 163 240 164 }
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = arrakoa
+	religion = light_of_rukhmar
 	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -4267,7 +4267,7 @@ arrakoa_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = arrakoa }
+			NOT = { religion = light_of_rukhmar }
 		}
 		modifier = {
 			factor = 0.001
@@ -4308,22 +4308,22 @@ arrakoa_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = anglican
-			owner = { religion = arrakoa }
+			religion = light_of_rukhmar
+			owner = { religion = light_of_rukhmar }
 		}
-		modifier = {
-			factor = 2.0
-			NOT = { religion = anglican }
-			any_neighbor_province = {
-	 			religion = anglican
-	 			NOT = { has_province_modifier = "forced_conversion" }
-	 		}
-	 	}
 		modifier = {
 			factor = 5
 			has_missionary = yes
-			religion = arrakoa
+			religion = light_of_rukhmar
 		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion = light_of_rukhmar }
+			any_neighbor_province = {
+	 			religion = light_of_rukhmar
+	 			NOT = { has_province_modifier = "forced_conversion" }
+	 		}
+	 	}
 		modifier = {
 			factor = 1.5
 			unrest = 2
@@ -4349,10 +4349,10 @@ arrakoa_rebels = {
 		hidden_effect = {
 			if = {
 				limit = {
-					NOT = { religion = arrakoa }
-					NOT = { owner = { religion = arrakoa } }
+					NOT = { religion = light_of_rukhmar }
+					NOT = { owner = { religion = light_of_rukhmar } }
 				}
-				change_religion = arrakoa
+				change_religion = light_of_rukhmar
 				add_province_modifier = {
 					name = "forced_conversion"
 					duration = 730
@@ -4370,7 +4370,7 @@ arrakoa_rebels = {
 
 	# Country scope
 	can_negotiate_trigger = {
-        dominant_religion = arrakoa
+        dominant_religion = light_of_rukhmar
 	}
 
 	# Country scope
@@ -4379,7 +4379,7 @@ arrakoa_rebels = {
 	}
 
 	# Localisation for their demands
-	demands_description = "arrakoa_rebels_demand"
+	demands_description = "light_of_rukhmar_rebels_demand"
 
 	# Country Scope
 	demands_enforced_effect = {
@@ -4392,7 +4392,7 @@ arrakoa_rebels = {
 		}
 		if = {
 			limit = {
-				religion = arrakoa
+				religion = light_of_rukhmar
 			}
 			add_country_modifier = {
 				name = "religious_intolerance_enforced"
@@ -4401,10 +4401,10 @@ arrakoa_rebels = {
 		}
 		else_if = {
 			limit = {
-				NOT = { religion = arrakoa }
-				dominant_religion = arrakoa
+				NOT = { religion = light_of_rukhmar }
+				dominant_religion = light_of_rukhmar
 			}
-			change_religion = arrakoa
+			change_religion = light_of_rukhmar
 			force_converted = yes
 		}
 		else = { add_stability = -1 } 
@@ -4597,6 +4597,198 @@ zangar_rebels = {
 				dominant_religion = zangar
 			}
 			change_religion = zangar
+			force_converted = yes
+		}
+		else = { add_stability = -1 } 
+		change_estate_land_share = {
+			estate = estate_clergy
+			share = 10.0
+		}
+	}
+}
+#---------------------------------
+# Sporemounds
+#---------------------------------
+sporemounds_rebels = {
+	color = { 210 3 12 }
+	area = nation 					# Sticks to provinces of their nation
+	government = theocracy 			# Desires Theocracy
+	religion = sporemounds
+	defection = none				# Will not defect
+	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
+	independence = none				# Does not strive for independence
+	unit_transfer = no
+	gfx_type = culture_province
+	will_relocate = yes
+
+	resilient = no
+	reinforcing = yes
+	general = yes
+	smart = yes
+
+	artillery = 0.0
+	infantry = 0.7
+	cavalry = 0.3
+
+	morale = 0.75
+
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = yes
+	handle_action_build_core = yes
+	handle_action_send_missionary = yes
+
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 0.0
+			owner = { religion = ROOT }
+		}
+		modifier = {
+			factor = 0.0
+			NOT = { religion = sporemounds }
+		}
+		modifier = {
+			factor = 0.001
+			tolerance_to_this = 5
+		}
+		modifier = {
+			factor = 0.5
+			tolerance_to_this = 2
+		}
+		modifier = {
+			factor = 2000
+			has_missionary = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = 1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -2 }
+		}
+	}
+
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 0.0
+			religion = sporemounds
+			owner = { religion = sporemounds }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion = sporemounds }
+			any_neighbor_province = {
+	 			religion = sporemounds
+	 			NOT = { has_province_modifier = "forced_conversion" }
+	 		}
+	 	}
+		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = zangar
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+
+ 	# Province Scope
+ 	siege_won_trigger = {
+		NOT = {
+			is_capital = yes
+		}
+ 	}
+	siege_won_effect = {
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { religion = sporemounds }
+					NOT = { owner = { religion = sporemounds } }
+				}
+				change_religion = sporemounds
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
+			}
+		}
+		owner = {
+			change_estate_land_share = {
+				estate = estate_clergy
+				share = 10.0
+				province = ROOT
+			}
+		}
+	}
+
+	# Country scope
+	can_negotiate_trigger = {
+        dominant_religion = sporemounds
+	}
+
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+
+	# Localisation for their demands
+	demands_description = "sporemounds_rebels_demand"
+
+	# Country Scope
+	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				religion = sporemounds
+			}
+			add_country_modifier = {
+				name = "religious_intolerance_enforced"
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = sporemounds }
+				dominant_religion = sporemounds
+			}
+			change_religion = sporemounds
 			force_converted = yes
 		}
 		else = { add_stability = -1 } 

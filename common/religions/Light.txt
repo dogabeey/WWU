@@ -158,6 +158,33 @@ light_group = {
         harmonized_modifier = harmonized_light_of_the_sunwell
 	}
     
+    light_of_rukhmar = {
+        color = { 227 218 74 }
+		icon = 43
+		
+		country = {
+            hostile_attrition = 3
+		}
+        country_as_secondary = {
+            hostile_attrition = 1.5
+		}
+        province = {
+            local_missionary_strength = -0.02
+        }
+        
+        on_convert = {
+			change_religion = light_of_rukhmar
+			add_prestige = -100
+
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}			
+		}
+        
+        harmonized_modifier = harmonized_light_of_rukhmar
+    }
+    
     religious_schools = {
 		brotherhood_of_northshire = {
 			potential_invite_scholar = {
