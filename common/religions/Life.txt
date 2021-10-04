@@ -118,24 +118,24 @@ life_group = {
         heretic = { HERETIC }
 	}
     
-	arrakoa = {
-		color = { 63 72 156 }
-		icon = 19
+    sporemounds = {
+		color = { 63 72 204 }
+		icon = 33
 		
 		country = {
-			global_manpower_modifier = 0.1
-            reinforce_speed = 0.1
+			global_regiment_recruit_speed = -0.2
+            hostile_attrition = 1
 		}
-        country_as_secondary = {
-			global_manpower_modifier = 0.05
-            reinforce_speed = 0.05
+		country_as_secondary = {
+			global_regiment_recruit_speed = -0.1
+            hostile_attrition = 0.5
 		}
         province = {
-            
+			local_missionary_strength = -0.02
 		}
-        
+
 		on_convert = {
-			change_religion = arrakoa
+			change_religion = sporemounds
 			add_prestige = -100
 
 			add_country_modifier = {
@@ -146,7 +146,7 @@ life_group = {
         
         heretic = { HERETIC }
 	}
-	
+    
 	zangar = {
 		color = { 63 72 204 }
 		icon = 33
