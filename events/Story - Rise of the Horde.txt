@@ -78,7 +78,7 @@ country_event = {
         
         NOT = { has_country_flag = set_side_for_nerzhul_event }
         
-        capital_scope = { continent = continent_outland }
+        capital_scope = { continent = continent_draenor }
         culture_group = culture_group_orc
         government = tribal
 	}
@@ -99,16 +99,16 @@ country_event = {
             limit = {
                 exists = event_target:buring_legion_conduit_nation
             }
-        }
-        event_target:buring_legion_conduit_nation = {
+            event_target:buring_legion_conduit_nation = {
+                add_opinion = {
+                    who = ROOT
+                    modifier = allies_of_nerzhul
+                }
+            }
             add_opinion = {
-                who = ROOT
+                who = event_target:buring_legion_conduit_nation
                 modifier = allies_of_nerzhul
             }
-        }
-        add_opinion = {
-            who = event_target:buring_legion_conduit_nation
-            modifier = allies_of_nerzhul
         }
         
         add_ruler_modifier = {
@@ -127,17 +127,22 @@ country_event = {
     option = {
 		name = rise_of_the_horde.2.option.b
 		
-        event_target:buring_legion_conduit_nation = {
+        if = {
+            limit = {
+                exists = event_target:buring_legion_conduit_nation
+            }
+            event_target:buring_legion_conduit_nation = {
+                add_opinion = {
+                    who = ROOT
+                    modifier = enemies_of_nerzhul
+                }
+            }
             add_opinion = {
-                who = ROOT
+                who = event_target:buring_legion_conduit_nation
                 modifier = enemies_of_nerzhul
             }
         }
-        add_opinion = {
-            who = event_target:buring_legion_conduit_nation
-            modifier = enemies_of_nerzhul
-        }
-        
+
         set_country_flag = refused_nerzhul
         
         ai_chance = {
@@ -145,7 +150,8 @@ country_event = {
             
             modifier = {
                 factor = 6
-                tag = A46
+                
+                tag = A46 # Frostwolf
             }
         }
     }
@@ -163,12 +169,12 @@ country_event = {
     
 	trigger = {
         current_age = age_rise_of_the_horde
-        had_global_flag = { flag = nerzhul_recruitment days = 365 }
+        has_global_flag = nerzhul_recruitment
 		tag = event_target:buring_legion_conduit_nation
 	}
 	
     mean_time_to_happen = {
-		months = 12
+		months = 24
 	}
     
     immediate = {
@@ -206,6 +212,7 @@ country_event = {
 		
         set_global_flag = guldan_recruitment
         set_country_flag = joined_guldan
+        set_country_flag = exiled_nerzhul_flag
         
         define_ruler = {
             name = "Teron'gor"
@@ -216,8 +223,6 @@ country_event = {
             mil = 6
         }
         
-        set_country_flag = exiled_nerzhul_flag
-		
         add_ruler_modifier = {
             name = kiljaedens_favour
             duration = -1
@@ -239,7 +244,7 @@ country_event = {
         NOT = { tag = event_target:buring_legion_conduit_nation }
         NOT = { has_country_flag = set_side_for_guldan_event }
         
-        capital_scope = { continent = continent_outland }
+        capital_scope = { continent = continent_draenor }
         culture_group = culture_group_orc
         government = tribal
 	}
@@ -288,7 +293,7 @@ country_event = {
 		
 		every_country = {
 			limit = {
-				capital_scope = { continent = continent_outland }
+				capital_scope = { continent = continent_draenor }
 				culture_group = culture_group_draenei
 			}
 			capital_scope = {
@@ -343,12 +348,11 @@ country_event = {
 	option = {
 		name = rise_of_the_horde.5.option.a#
 		
-        
         set_country_flag = set_blood_of_mannoroth
         set_country_flag = drank_the_demonsblood
         
         # Setup Shadow Council
-		1671 = {
+		3806 = {
 			remove_core = A55
 			cede_province = B88
 			add_core = B88
@@ -377,6 +381,11 @@ country_event = {
             }
         }
     }
+    after = {
+        B88 = {
+            discover_home_continent = yes
+        }
+    }
 }
 
 # Collapse of the Draenei
@@ -392,10 +401,10 @@ country_event = {
     
 	trigger = {
         has_global_flag = guldan_recruitment
-        capital_scope = { continent = continent_outland }
+        capital_scope = { continent = continent_draenor }
         culture_group = culture_group_draenei
         FROM = {
-            capital_scope = { continent = continent_outland }
+            capital_scope = { continent = continent_draenor }
             culture_group = culture_group_orc
             government = tribal
         }
@@ -425,7 +434,7 @@ country_event = {
         current_age = age_rise_of_the_horde
         has_global_flag = blood_of_mannoroth
         
-        capital_scope = { continent = continent_outland }
+        capital_scope = { continent = continent_draenor }
         culture_group = culture_group_orc
         NOT = { has_country_flag = set_blood_of_mannoroth }
 	}
@@ -523,24 +532,14 @@ country_event = {
 	trigger = {
         current_age = age_rise_of_the_horde
         has_global_flag = blood_of_mannoroth
-		A54 = {
-			OR = {
-				NOT = { total_development = 50 } 
-				is_subject = yes
-			}
-		}
-		A55 = {
-			OR = {
-				NOT = { total_development = 50 } 
-				is_subject = yes
-			}
-		}
-		F49 = {
-			OR = {
-				NOT = { total_development = 50 } 
-				is_subject = yes
-			}
-		}
+        NOT = { exists = A54 }
+        NOT = { exists = A55 }
+        NOT = { exists = F49 }
+        NOT = { exists = TUU }
+        NOT = { exists = ELO }
+        NOT = { exists = EMB }
+        NOT = { exists = ORU }
+        NOT = { exists = TEL }
 	}
 	
     mean_time_to_happen = {
@@ -587,27 +586,43 @@ country_event = {
 			set_global_flag = contact_with_medivh 
 		}
         
-        1586 = {
+        3792 = {
             cede_province = B88
 			add_core = B88
 			change_culture = culture_orc
 			change_religion = fel
+            add_canal = gp_dark_portal_draenor
 		}
 		
 		hidden_effect = {
 			set_global_flag = dark_portal_opened_flag
-			show_ambient_object = "dark_portal_ek"
-			show_ambient_object = "dark_portal_outland"
-			continent_outland = {
+            
+			continent_draenor = {
 				add_devastation = 25
             }
 			region_blasted_lands = {
 				add_devastation = 25
             }
 		}
-		
-        custom_tooltip = may_now_build_dark_portal
     }	
+    option = {
+		name = rise_of_the_horde.9.option.b
+        
+        trigger = {
+            ai = no
+        }
+		
+        hidden_effect = { 
+			set_global_flag = contact_with_medivh 
+		}
+
+        custom_tooltip = DRAENOR_SHUT_TT
+    }	
+    after = {
+        B88 = {
+            discover_home_continent = yes
+        }
+    }
 }
 
 # The Dark Portal
@@ -622,11 +637,8 @@ country_event = {
 	
     trigger = {
 		current_age = age_rise_of_the_horde
-		1586 = {
-			has_great_project = {
-                type = gp_dark_portal_outland
-            }
-		}
+		has_global_flag = contact_with_medivh 
+        
 		OR = {
             tag = event_target:buring_legion_conduit_nation
 			has_country_modifier = head_of_old_horde
@@ -661,7 +673,7 @@ country_event = {
 	trigger = {
         has_global_flag = guldan_recruitment
         NOT = { has_global_flag = blood_of_mannoroth }
-        is_year = 600
+        is_year = 580
 	}
 	
     mean_time_to_happen = {
@@ -687,7 +699,7 @@ country_event = {
 	trigger = {
         has_global_flag = blood_of_mannoroth
         NOT = { has_global_flag = the_dying_times }
-        is_year = 605
+        is_year = 585
 	}
 	
     mean_time_to_happen = {

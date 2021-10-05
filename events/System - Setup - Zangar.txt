@@ -1,0 +1,85 @@
+namespace = wwu_setup_zangar
+
+# Sporeggar
+country_event = {
+	id = wwu_setup_zangar.1
+	title = wwu_setup_zangar.1.title
+	desc = wwu_setup_zangar.1.desc
+	picture = DARK_PORTAL_CLOSEUP_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = F62 }
+        NOT = { has_global_flag = setup_sporeggar }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_sporeggar
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 360
+	}
+
+	option = {
+		name = wwu_setup_zangar.1.option.a
+        
+        1613 = {
+            cede_province = F62
+            add_core = F62
+            change_culture = culture_sporeling
+            change_religion = zangar
+        }
+        1614 = {
+            cede_province = F62
+            add_core = F62
+            change_culture = culture_sporeling
+            change_religion = zangar
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+	option = {
+		name = wwu_setup_zangar.1.option.b
+        
+        trigger = {
+            OR = {
+                1613 = {
+                    owned_by = ROOT
+                }
+                1614 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        
+        1613 = {
+            add_core = F62
+            change_culture = culture_sporeling
+            change_religion = zangar
+        }
+        1614 = {
+            add_core = F62
+            change_culture = culture_sporeling
+            change_religion = zangar
+        }
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}

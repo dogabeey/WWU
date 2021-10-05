@@ -2,22 +2,22 @@ country_decisions = {
     # Allow the Orc clans to jump into Azeroth
 	establish_foothold_at_azeroth = {
 		potential = {
+            has_global_flag = contact_with_medivh
 		    culture_group = culture_group_orc
 			capital_scope = {
-				continent = continent_outland
+				continent = continent_draenor
+			}
+			NOT = { has_country_flag = moved_capital }
+		}
+		allow =  {
+            culture_group = culture_group_orc
+			capital_scope = {
+				continent = continent_draenor
 			}
             religion = fel
-			NOT = { has_country_flag = moved_capital }
-            
             region_blasted_lands = {
                 type = any
                 is_empty = yes
-            }
-		}
-		allow =  {
-            custom_trigger_tooltip = {
-                tooltip = dark_portal_built_tt
-                has_global_flag = dark_portal_built
             }
             mil_power = 200
 		}
@@ -145,11 +145,25 @@ country_decisions = {
 				name = motivated_for_assault
 				duration = 3650
 			}
-			1586 = {
-                cede_province = ROOT
-                add_core = ROOT
-                change_culture = ROOT
-                change_religion = ROOT
+            
+            if = {
+                limit = {
+                    has_global_flag = setup_outland
+                }
+                1586 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                    change_culture = ROOT
+                    change_religion = ROOT
+                }
+            }
+            else = {
+                3792 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                    change_culture = ROOT
+                    change_religion = ROOT
+                }
             }
 		}
 		ai_will_do = {
@@ -157,246 +171,45 @@ country_decisions = {
 		}
 	}
 
-    # Open the Dark Portal
-	open_the_dark_portal = {
-		major = yes
-		potential = {
-			OR = {
-				had_global_flag = {
-					flag = dark_portal_closed_firsttime
-				}
-				had_global_flag = {
-					flag = dark_portal_closed_flag
-					days = 18250
-				}
-			}
-			is_year = 600
-            religion = fel
-			NOT = { has_global_flag = dark_portal_opened_flag }
-		}
-		allow =  {
-			is_year = 600
-			OR = {
-						owns = 1586
-                        owns = 1035
-				}
-            religion = fel
-			adm_power = 100
-			dip_power = 100
-			mil_power = 100
-		}
-		effect = {
-			1586 = {
-				add_canal = gp_dark_portal_outland 
-			}
-			set_global_flag = dark_portal_opened_flag
-			set_country_flag = dark_portal_builder
-			show_ambient_object = "dark_portal_ek"
-			show_ambient_object = "dark_portal_outland"
-			add_adm_power = -100
-			add_dip_power = -100
-			add_mil_power = -100
-			continent_outland = {
-				add_devastation = 25
-            }
-			region_blasted_lands = {
-				add_devastation = 25
-            }
-			clr_global_flag = dark_portal_closed_flag
-			clr_global_flag = dark_portal_closed_firsttime
-			1586 = {
-                cede_province = ROOT
-                add_core = ROOT
-                change_culture = ROOT
-                change_religion = ROOT
-            }
-			1035 = {
-                cede_province = ROOT
-                add_core = ROOT
-                change_culture = ROOT
-                change_religion = ROOT
-            }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	open_the_dark_portal_magic = {
-		major = yes
-		potential = {  
-			OR = {
-				had_global_flag = {
-					flag = dark_portal_closed_firsttime
-				}
-				had_global_flag = {
-					flag = dark_portal_closed_flag
-					days = 18250
-				}
-			}		
-			is_year = 600
-			OR = {
-                religion = arcane
-                religion = light_of_the_naaru
-                religion_group = shadow_group
-            }
-			NOT = { has_global_flag = dark_portal_opened_flag }
-		}
-		allow =  {
-			is_year = 600
-			OR = {
-                owns = 1586
-                owns = 1035
-            }
-			OR = {
-                    AND = {
-						religion = arcane
-						patriarch_authority = 0.75
-					}	
-					AND = {
-						religion = light_of_the_naaru
-						harmony = 75
-					}
-					AND = {
-						religion_group = shadow_group
-						church_power = 75
-					}
-				}
-			adm_power = 100
-			dip_power = 100
-			mil_power = 100
-		}
-		effect = {
-			1586 = {
-				add_canal = gp_dark_portal_outland 
-			}
-			set_global_flag = dark_portal_opened_flag
-			set_country_flag = dark_portal_builder
-			show_ambient_object = "dark_portal_ek"
-			show_ambient_object = "dark_portal_outland"
-			add_adm_power = -100
-			add_dip_power = -100
-			add_mil_power = -100
-			add_harmony = -25
-			add_patriarch_authority = -0.25
-			add_church_power = -25
-			clr_global_flag = dark_portal_closed_flag
-			clr_global_flag = dark_portal_closed_firsttime
-			1586 = {
-                cede_province = ROOT
-                add_core = ROOT
-                change_culture = ROOT
-                change_religion = ROOT
-            }
-			1035 = {
-                cede_province = ROOT
-                add_core = ROOT
-                change_culture = ROOT
-                change_religion = ROOT
-            }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+    
 
-	open_the_dark_portal_normal = {
+	secure_the_dark_portal_draenor = {
 		major = yes
 		potential = {
-			OR = {
-				had_global_flag = {
-					flag = dark_portal_closed_firsttime
-				}
-				had_global_flag = {
-					flag = dark_portal_closed_flag
-					days = 18250
-				}
-			}
-			is_year = 600
-			NOT = {
-				religion = fel
-				religion = arcane
-				religion = light_of_the_naaru
-				religion_group = shadow_group
-			}
-			NOT = { has_global_flag = dark_portal_opened_flag }
-		}
-		allow =  {
-			is_year = 600
-			OR = {
-                owns = 1586
-                owns = 1035
-            }
-			treasury = 2500
-			adm_power = 500
-			dip_power = 500
-			mil_power = 500
-		}
-		effect = {
-			1586 = {
-				add_canal = gp_dark_portal_outland 
-			}
-			set_global_flag = dark_portal_opened_flag
-			set_country_flag = dark_portal_builder
-			show_ambient_object = "dark_portal_ek"
-			show_ambient_object = "dark_portal_outland"
-			add_treasury = -2500
-			add_adm_power = -500
-			add_dip_power = -500
-			add_mil_power = -500
-			clr_global_flag = dark_portal_closed_flag
-			clr_global_flag = dark_portal_closed_firsttime
-			1586 = {
-                cede_province = ROOT
-                add_core = ROOT
-                change_culture = ROOT
-                change_religion = ROOT
-            }
-			1035 = {
-                cede_province = ROOT
-                add_core = ROOT
-                change_culture = ROOT
-                change_religion = ROOT
-            }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
-	secure_the_dark_portal = {
-		major = yes
-		potential = {
+            NOT = { has_global_flag = setup_outland }
 			NOT = { owns = 1035 }
-			NOT = { controls = 1586 }
+			NOT = { controls = 3792 }
 			controls = 1035
 		}
 		allow = {
 			NOT = { owns = 1035 }
-			NOT = { controls = 1586 }
+			NOT = { controls = 3792 }
 			controls = 1035
 		}
 		effect = {
-			1586 = { change_controller = ROOT }
+			3792 = { change_controller = ROOT }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
 
+    # Happens just before Collapse of Outland
 	close_the_dark_portal = {
 		major = yes
+        
 		potential = {
+            NOT = { has_global_flag = setup_outland }
 			NOT = {
 				religion = fel
-				}
+            }
 			has_global_flag = dark_portal_opened_flag
 			NOT = { has_country_flag = dark_portal_builder }
 		}
 		allow =  {
 			NOT = {
 				religion = fel
-				}
+            }
 			controls = 1586
 			controls = 1035
 		}
@@ -421,7 +234,7 @@ country_decisions = {
 						NOT = { has_global_flag = sonsoflothar }
 						religion = holy_light
 					}
-					1590 = {
+					3790 = {
 						cede_province = SOL
 						set_base_tax = 7
 						set_base_production = 7
@@ -430,7 +243,7 @@ country_decisions = {
 						change_religion = holy_light
 						change_culture = culture_stormwindian
 					}
-					1708 = {
+					3791 = {
 						cede_province = SOL
 						set_base_tax = 4
 						set_base_production = 4
@@ -438,7 +251,7 @@ country_decisions = {
 						change_religion = holy_light
 						change_culture = culture_dalaran
 					}
-					1664 = {
+					3785 = {
 						cede_province = SOL
 						set_base_tax = 4
 						set_base_production = 4
@@ -447,7 +260,7 @@ country_decisions = {
 						change_religion = holy_light
 						change_culture = culture_wildhammer
 					}
-					1646 = {
+					3789 = {
 						cede_province = SOL
 						set_base_tax = 4
 						set_base_production = 4
@@ -455,7 +268,7 @@ country_decisions = {
 						change_religion = holy_light
 						change_culture = culture_high_elf
 					}
-					1589 = {
+					3788 = {
 						cede_province = SOL
 						set_base_tax = 4
 						set_base_production = 4

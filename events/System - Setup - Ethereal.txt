@@ -1,0 +1,254 @@
+namespace = wwu_setup_ethereal
+
+# The Consortium
+country_event = {
+	id = wwu_setup_ethereal.1
+	title = wwu_setup_ethereal.1.title
+	desc = wwu_setup_ethereal.1.desc
+	picture = DARK_PORTAL_CLOSEUP_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = P18 }
+        NOT = { has_global_flag = setup_consortium }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_consortium
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 24
+	}
+
+	option = {
+		name = wwu_setup_ethereal.1.option.a
+        
+        1711 = {
+            cede_province = P18
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1712 = {
+            cede_province = P18
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1713 = {
+            cede_province = P18
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1714 = {
+            cede_province = P18
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        2060 = {
+            cede_province = P18
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        2061 = {
+            cede_province = P18
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1705 = {
+            cede_province = P18
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+	option = {
+		name = wwu_setup_ethereal.1.option.b
+        
+        trigger = {
+            OR = {
+                1711 = {
+                    owned_by = ROOT
+                }
+                1712 = {
+                    owned_by = ROOT
+                }
+                1713 = {
+                    owned_by = ROOT
+                }
+                1714 = {
+                    owned_by = ROOT
+                }
+                2060 = {
+                    owned_by = ROOT
+                }
+                2061 = {
+                    owned_by = ROOT
+                }
+                1705 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        
+        1711 = {
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1712 = {
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1713 = {
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1714 = {
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        2060 = {
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        2061 = {
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1705 = {
+            add_core = P18
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Ethereum
+country_event = {
+	id = wwu_setup_ethereal.2
+	title = wwu_setup_ethereal.2.title
+	desc = wwu_setup_ethereal.2.desc
+	picture = DARK_PORTAL_CLOSEUP_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = F80 }
+        NOT = { has_global_flag = setup_ethereum }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_ethereum
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 24
+	}
+
+	option = {
+		name = wwu_setup_ethereal.2.option.a
+        
+        2059 = {
+            cede_province = F80
+            add_core = F80
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1715 = {
+            cede_province = F80
+            add_core = F80
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1716 = {
+            cede_province = F80
+            add_core = F80
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+	option = {
+		name = wwu_setup_ethereal.1.option.b
+        
+        trigger = {
+            OR = {
+                2059 = {
+                    owned_by = ROOT
+                }
+                1715 = {
+                    owned_by = ROOT
+                }
+                1716 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        
+        2059 = {
+            add_core = F80
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1715 = {
+            add_core = F80
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        1716 = {
+            add_core = F80
+            change_culture = culture_ethereal
+            change_religion = arcane
+        }
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}
+

@@ -1,0 +1,100 @@
+namespace = wwu_setup_outland
+
+# Collapse of Draenor
+country_event = {
+	id = wwu_setup_outland.1
+	title = wwu_setup_outland.1.title
+	desc = wwu_setup_outland.1.desc
+	picture = DARK_PORTAL_CLOSEUP_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        ai = no
+        NOT = { has_global_flag = setup_outland }
+        current_age = age_orcish_horde
+        any_country = {
+            has_country_modifier = member_of_alliance
+            owns = 3792
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_outland
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 12
+	}
+    
+    immediate = {
+        hidden_effect = {
+            every_country = {
+                limit = {
+                    any_owned_province = {
+                        continent = continent_draenor
+                    }
+                    is_at_war = yes
+                }
+                white_peace = THIS
+            }
+            convert_ashran = yes
+            convert_shadowmoon_valley = yes
+            convert_spires_of_arak = yes
+            convert_talador = yes
+            convert_tanaan_jungle = yes
+            convert_gorgrond = yes
+            convert_farahlon = yes
+            convert_frostfire_ridge = yes
+            convert_nagrand = yes
+        }
+    }
+
+	option = {
+		name = wwu_setup_outland.1.option.a
+	}
+    
+    after = {
+        # Convert the lesser Draenei nations to Broken
+        every_country = {
+            limit = {
+                OR = {
+                    tag = TUU
+                    tag = ELO
+                    tag = EMB
+                    tag = ORU
+                    tag = TEL
+                    tag = A55
+                }
+            }
+            change_technology_group = tech_broken
+            change_unit_type = tech_broken
+            change_primary_culture = culture_broken
+            every_owned_province = {
+                change_culture = culture_broken
+            }
+            random_list = {
+                50 = {
+                    change_religion = shamanism
+                    every_owned_province = {
+                        change_religion = shamanism
+                    }
+                }
+                50 = {
+                    change_religion = shadow
+                    every_owned_province = {
+                        change_religion = shadow
+                    }
+                }
+            }
+        }
+        
+        # Enable Outland portal
+        1586 = {
+            add_canal = gp_dark_portal_outland
+        }
+    }
+}

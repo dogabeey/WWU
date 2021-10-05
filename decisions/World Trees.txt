@@ -67,7 +67,10 @@ country_decisions = {
 				hide_ambient_object = nordrassil_01
 				set_global_flag = nordrassil_burned
 				every_province = {
-					limit = { NOT = { continent = continent_outland } }
+					limit = {
+                        NOT = { continent = continent_outland } 
+                        NOT = { continent = continent_draenor }
+                    }
 					add_permanent_province_modifier = {
 						name = world_tree_destruction
 						duration = -1
@@ -180,7 +183,10 @@ country_decisions = {
 				hide_ambient_object = nordrassil_01
 				set_global_flag = teldrassil_burned
 				every_province = {
-					limit = { NOT = { continent = continent_outland } }
+					limit = {
+                        NOT = { continent = continent_outland } 
+                        NOT = { continent = continent_draenor }
+                    }
 					add_permanent_province_modifier = {
 						name = world_tree_destruction
 						duration = -1

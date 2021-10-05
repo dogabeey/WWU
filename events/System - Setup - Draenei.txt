@@ -1,0 +1,715 @@
+namespace = wwu_setup_draenei
+
+# Umbrafen
+country_event = {
+	id = wwu_setup_draenei.1
+	title = wwu_setup_draenei.1.title
+	desc = wwu_setup_draenei.1.desc
+	picture = DRAENEI_DEVOLUTION_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = F65 }
+        NOT = { has_global_flag = setup_umbrafen }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_umbrafen
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 360
+	}
+
+	option = {
+		name = wwu_setup_draenei.1.option.a
+        
+        1608 = {
+            cede_province = F65
+            add_core = F65
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1606 = {
+            cede_province = F65
+            add_core = F65
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1607 = {
+            cede_province = F65
+            add_core = F65
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1610 = {
+            cede_province = F65
+            add_core = F65
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+	option = {
+		name = wwu_setup_draenei.1.option.b
+        
+        trigger = {
+            OR = {
+                1608 = {
+                    owned_by = ROOT
+                }
+                1606 = {
+                    owned_by = ROOT
+                }
+                1607 = {
+                    owned_by = ROOT
+                }
+                1610 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        
+        1608 = {
+            add_core = F65
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1606 = {
+            add_core = F65
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1607 = {
+            add_core = F65
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1610 = {
+            add_core = F65
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Feralfen
+country_event = {
+	id = wwu_setup_draenei.2
+	title = wwu_setup_draenei.2.title
+	desc = wwu_setup_draenei.2.desc
+	picture = DRAENEI_DEVOLUTION_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = F66 }
+        NOT = { has_global_flag = setup_feralfen }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_feralfen
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 360
+	}
+
+	option = {
+		name = wwu_setup_draenei.2.option.a
+        
+        2062 = {
+            cede_province = F66
+            add_core = F66
+            change_culture = culture_lost_one
+            change_religion = shamanism
+        }
+        2063 = {
+            cede_province = F66
+            add_core = F66
+            change_culture = culture_lost_one
+            change_religion = shamanism
+        }
+        1612 = {
+            cede_province = F66
+            add_core = F66
+            change_culture = culture_lost_one
+            change_religion = shamanism
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+	option = {
+		name = wwu_setup_draenei.2.option.b
+        
+        trigger = {
+            OR = {
+                2062 = {
+                    owned_by = ROOT
+                }
+                2063 = {
+                    owned_by = ROOT
+                }
+                1612 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        
+        2062 = {
+            add_core = F66
+            change_culture = culture_lost_one
+            change_religion = shamanism
+        }
+        2063 = {
+            add_core = F66
+            change_culture = culture_lost_one
+            change_religion = shamanism
+        }
+        1612 = {
+            add_core = F66
+            change_culture = culture_lost_one
+            change_religion = shamanism
+        }
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Daggerfen
+country_event = {
+	id = wwu_setup_draenei.3
+	title = wwu_setup_draenei.3.title
+	desc = wwu_setup_draenei.3.desc
+	picture = DRAENEI_DEVOLUTION_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = F67 }
+        NOT = { has_global_flag = setup_daggerfen }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_daggerfen
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 360
+	}
+
+	option = {
+		name = wwu_setup_draenei.3.option.a
+        
+        1616 = {
+            cede_province = F67
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        2065 = {
+            cede_province = F67
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1615 = {
+            cede_province = F67
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        2064 = {
+            cede_province = F67
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1611 = {
+            cede_province = F67
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1617 = {
+            cede_province = F67
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+	option = {
+		name = wwu_setup_draenei.3.option.b
+        
+        trigger = {
+            OR = {
+                1616 = {
+                    owned_by = ROOT
+                }
+                2065 = {
+                    owned_by = ROOT
+                }
+                1615 = {
+                    owned_by = ROOT
+                }
+                2064 = {
+                    owned_by = ROOT
+                }
+                1611 = {
+                    owned_by = ROOT
+                }
+                1617 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        
+        1616 = {
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        2065 = {
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1615 = {
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        2064 = {
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1611 = {
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        1617 = {
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Kurenai
+country_event = {
+	id = wwu_setup_draenei.4
+	title = wwu_setup_draenei.4.title
+	desc = wwu_setup_draenei.4.desc
+	picture = DRAENEI_DEVOLUTION_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = F68 }
+        NOT = { has_global_flag = setup_kurenai }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_kurenai
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 360
+	}
+
+	option = {
+		name = wwu_setup_draenei.4.option.a
+        
+        1632 = {
+            add_core = F68
+        }
+	}
+}
+
+# Dreghood
+country_event = {
+	id = wwu_setup_draenei.5
+	title = wwu_setup_draenei.5.title
+	desc = wwu_setup_draenei.5.desc
+	picture = DRAENEI_DEVOLUTION_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = F74 }
+        NOT = { has_global_flag = setup_dreghood }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_dreghood
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 360
+	}
+
+	option = {
+		name = wwu_setup_draenei.5.option.a
+        
+        1599 = {
+            cede_province = F74
+            add_core = F74
+            change_culture = culture_broken
+            change_religion = shamanism
+        }
+        1596 = {
+            cede_province = F67
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+	option = {
+		name = wwu_setup_draenei.5.option.b
+        
+        trigger = {
+            OR = {
+                1599 = {
+                    owned_by = ROOT
+                }
+                1596 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        
+        1599 = {
+            add_core = F74
+            change_culture = culture_broken
+            change_religion = shamanism
+        }
+        1596 = {
+            add_core = F67
+            change_culture = culture_lost_one
+            change_religion = shadow
+        }
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Wrekt
+country_event = {
+	id = wwu_setup_draenei.6
+	title = wwu_setup_draenei.6.title
+	desc = wwu_setup_draenei.6.desc
+	picture = DRAENEI_DEVOLUTION_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = F75 }
+        NOT = { has_global_flag = setup_wrekt }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_wrekt
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 360
+	}
+
+	option = {
+		name = wwu_setup_draenei.6.option.a
+        
+        1604 = {
+            cede_province = F74
+            add_core = F74
+            change_culture = culture_broken
+            change_religion = shadow
+        }
+        1605 = {
+            cede_province = F74
+            add_core = F74
+            change_culture = culture_broken
+            change_religion = shadow
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+	option = {
+		name = wwu_setup_draenei.6.option.b
+        
+        trigger = {
+            OR = {
+                1604 = {
+                    owned_by = ROOT
+                }
+                1605 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        
+        1604 = {
+            add_core = F74
+            change_culture = culture_broken
+            change_religion = shadow
+        }
+        1605 = {
+            add_core = F74
+            change_culture = culture_broken
+            change_religion = shadow
+        }
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Murkblood
+country_event = {
+	id = wwu_setup_draenei.7
+	title = wwu_setup_draenei.7.title
+	desc = wwu_setup_draenei.7.desc
+	picture = DRAENEI_DEVOLUTION_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = F84 }
+        NOT = { has_global_flag = setup_murkblood }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_murkblood
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 360
+	}
+
+	option = {
+		name = wwu_setup_draenei.7.option.a
+        
+        1609 = {
+            cede_province = F84
+            add_core = F84
+            change_culture = culture_broken
+            change_religion = shamanism
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+	option = {
+		name = wwu_setup_draenei.7.option.b
+        
+        trigger = {
+            OR = {
+                1609 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        
+        1609 = {
+            add_core = F84
+            change_culture = culture_broken
+            change_religion = shamanism
+        }
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Windyreed
+country_event = {
+	id = wwu_setup_draenei.8
+	title = wwu_setup_draenei.8.title
+	desc = wwu_setup_draenei.8.desc
+	picture = DRAENEI_DEVOLUTION_eventPicture
+
+    major = yes
+	fire_only_once = yes
+    
+	trigger = {
+        OR = {
+            ai = no
+            is_great_power = yes
+        }
+        NOT = { exists = F86 }
+        NOT = { has_global_flag = setup_windyreed }
+        had_global_flag = {
+            flag = setup_outland
+            days = 365
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = setup_windyreed
+        }
+    }
+    
+    mean_time_to_happen = {
+		months = 360
+	}
+
+	option = {
+		name = wwu_setup_draenei.8.option.a
+        
+        2051 = {
+            cede_province = F86
+            add_core = F86
+            change_culture = culture_broken
+            change_religion = shamanism
+        }
+        2052 = {
+            cede_province = F86
+            add_core = F86
+            change_culture = culture_broken
+            change_religion = shamanism
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+	option = {
+		name = wwu_setup_draenei.7.option.b
+        
+        trigger = {
+            OR = {
+                2051 = {
+                    owned_by = ROOT
+                }
+                2052 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        
+        2051 = {
+            add_core = F86
+            change_culture = culture_broken
+            change_religion = shamanism
+        }
+        2052 = {
+            add_core = F86
+            change_culture = culture_broken
+            change_religion = shamanism
+        }
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}
