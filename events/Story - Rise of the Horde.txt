@@ -183,24 +183,29 @@ country_event = {
                 limit = {
                     has_country_flag = set_side_for_nerzhul_event
                 }
-                remove_opinion = {
-                    who = event_target:buring_legion_conduit_nation
-                    modifier = allies_of_nerzhul
-                }
-                event_target:buring_legion_conduit_nation = {
+                if = {
+                    limit = {
+                        exists = event_target:buring_legion_conduit_nation
+                    }
                     remove_opinion = {
-                        who = ROOT
+                        who = event_target:buring_legion_conduit_nation
                         modifier = allies_of_nerzhul
                     }
-                }
-                remove_opinion = {
-                    who = event_target:buring_legion_conduit_nation
-                    modifier = enemies_of_nerzhul
-                }
-                event_target:buring_legion_conduit_nation = {
+                    event_target:buring_legion_conduit_nation = {
+                        remove_opinion = {
+                            who = ROOT
+                            modifier = allies_of_nerzhul
+                        }
+                    }
                     remove_opinion = {
-                        who = ROOT
+                        who = event_target:buring_legion_conduit_nation
                         modifier = enemies_of_nerzhul
+                    }
+                    event_target:buring_legion_conduit_nation = {
+                        remove_opinion = {
+                            who = ROOT
+                            modifier = enemies_of_nerzhul
+                        }
                     }
                 }
             }
@@ -256,26 +261,35 @@ country_event = {
     immediate = {
         set_country_flag = set_side_for_guldan_event
         
-		event_target:buring_legion_conduit_nation = {
-			set_country_flag = joined_guldan
-		}
+        if = {
+            limit = {
+                exists = event_target:buring_legion_conduit_nation
+            }
+            event_target:buring_legion_conduit_nation = {
+                set_country_flag = joined_guldan
+            }
+        }
     }
 	
     # Join
 	option = {
 		name = rise_of_the_horde.4.option.a
 		
-        event_target:buring_legion_conduit_nation = {
+        if = {
+            limit = {
+                exists = event_target:buring_legion_conduit_nation
+            }
+            event_target:buring_legion_conduit_nation = {
+                add_opinion = {
+                    who = ROOT
+                    modifier = allies_of_guldan
+                }
+            }
             add_opinion = {
-                who = ROOT
+                who = event_target:buring_legion_conduit_nation
                 modifier = allies_of_guldan
             }
         }
-        add_opinion = {
-            who = event_target:buring_legion_conduit_nation
-            modifier = allies_of_guldan
-        }
-        
         add_ruler_modifier = {
             name = kiljaedens_favour
             duration = -1
@@ -306,15 +320,20 @@ country_event = {
     option = {
 		name = rise_of_the_horde.4.option.b
 		
-        event_target:buring_legion_conduit_nation = {
+        if = {
+            limit = {
+                exists = event_target:buring_legion_conduit_nation
+            }
+            event_target:buring_legion_conduit_nation = {
+                add_opinion = {
+                    who = ROOT
+                    modifier = enemies_of_guldan
+                }
+            }
             add_opinion = {
-                who = ROOT
+                who = event_target:buring_legion_conduit_nation
                 modifier = enemies_of_guldan
             }
-        }
-        add_opinion = {
-            who = event_target:buring_legion_conduit_nation
-            modifier = enemies_of_guldan
         }
         
         set_country_flag = refused_guldan
