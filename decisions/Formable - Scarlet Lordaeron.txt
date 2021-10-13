@@ -1,0 +1,80 @@
+country_decisions = {
+
+	form_scarlet_lordaeron = {
+		major = yes
+		potential = {
+			NOT = { exists = A08 }
+			tag = A22
+			NOT = { has_country_flag = is_scarlet_lordaeron_flag }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 15
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 543	# Undercity
+				province_id = 927	# Gilneas City
+				province_id = 863	# Dalaran
+				province_id = 773	# Ruins of Alterac
+				province_id = 642	# Stratholme
+				province_id = 790	# Scholomance
+				province_id = 557	# Light's Hope Chapel
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 543	# Undercity
+			owns_core_province = 927	# Gilneas City
+			owns_core_province = 863	# Dalaran
+			owns_core_province = 773	# Ruins of Alterac
+			owns_core_province = 642	# Stratholme
+			owns_core_province = 790	# Scholomance
+			owns_core_province = 557	# Light's Hope Chapel
+		}
+		effect = {
+			every_province = {
+				limit = {
+					region = region_tirisfal_glades
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			every_province = {
+				limit = {
+					region = region_western_plaguelands
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			every_province = {
+				limit = {
+					region = region_eastern_plaguelands
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			every_province = {
+				limit = {
+					region = region_silverpine_forest
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			override_country_name = SCARLET_LORDAERON
+			set_country_flag = is_scarlet_lordaeron_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
