@@ -1,0 +1,73 @@
+country_decisions = {
+    form_flayer_point = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+            NOT = { has_country_modifier = centralization_modifier }
+            
+            # Requisites
+			OR = {
+			    tag = A44
+			    tag = IRH
+			    tag = A70
+			    tag = GTL
+			    tag = B18
+			    tag = B20
+			    tag = B21
+			    tag = B22
+			    tag = B23
+			    tag = B24
+			}
+		}
+        
+        provinces_to_highlight = {
+			province_id = 1393	# Last Forest Coast
+			province_id = 3683	# S. Last Forest
+			province_id = 3684	# Last Forest
+			province_id = 3687	# N. Last Forest
+            province_id = 3689	# E. Last Forest
+			province_id = 3694	# Flayer's Coast
+			province_id = 3686	# Flayer's Point
+		}
+        
+		allow = {
+            # Ownership
+			owns_core_province = 1393   # Last Forest Coast
+			owns_core_province = 3683   # S. Last Forest
+			owns_core_province = 3684   # Last Forest
+			owns_core_province = 3687   # N. Last Forest
+			owns_core_province = 3689   # E. Last Forest
+			owns_core_province = 3694   # Flayer's Coast
+			owns_core_province = 3686   # Flayer's Point
+            
+            # General
+			is_at_war = no	
+			stability = 1
+			total_development = 100
+            
+			# Cost
+            adm_power = 100
+			dip_power = 100
+			mil_power = 100
+		}
+        
+		effect = {
+            # Cost
+			add_adm_power = -100
+			add_dip_power = -100
+            add_mil_power = -100
+            
+            # Switch
+			change_tag = FLP
+            
+			# Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
