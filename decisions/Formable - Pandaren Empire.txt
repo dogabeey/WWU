@@ -1,0 +1,89 @@
+country_decisions = {
+    restore_pandaren_empire = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+            NOT = { has_country_modifier = centralization_modifier }
+			NOT = { exists = PAN } # Pandaren Empire
+            
+            # Requisites
+			OR = {
+			primary_culture = culture_pandaren
+			primary_culture = culture_mountain_hozen
+			primary_culture = culture_forest_hozen
+			primary_culture = culture_jinyu
+			primary_culture = culture_yaungol
+			primary_culture = culture_grummle
+			}
+		}
+        
+        provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+			OR = {
+                region = region_vale_of_eternal_blossoms
+				area = area_kun_lai
+				area = area_shado_pan_garrison
+                province_id = 1917
+                province_id = 1719
+				province_id = 1722
+				province_id = 1435
+				province_id = 1829
+				province_id = 1437
+            }
+		}
+        
+		allow = {
+            # Ownership
+		    region_vale_of_eternal_blossoms = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_kun_lai = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_shado_pan_garrison = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_core_province = 1917   # The Grummle Bazaar
+			owns_core_province = 1719   # Pearlfin Village
+			owns_core_province = 1722   # Temple of the Jade Serpent
+			owns_core_province = 1435   # Murky Hollow
+			owns_core_province = 1829   # Stoneplow Passage
+			owns_core_province = 1437   # Swarming Plains
+			
+            # General
+			is_at_war = no	
+			stability = 2
+            total_development = 650
+            
+            # Cost
+            adm_power = 400
+			dip_power = 400
+			mil_power = 400
+		}
+		effect = {
+            # Cost
+			add_adm_power = -200
+			add_dip_power = -200
+            add_mil_power = -200
+            
+            # Switch
+			change_tag = PAN
+			change_government = monarchy
+			set_government_rank = 3
+			set_capital = 1725
+
+			# Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}

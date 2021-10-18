@@ -1,0 +1,63 @@
+country_decisions = {
+    restore_mantid_empire = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+            NOT = { has_country_modifier = centralization_modifier }
+            
+            # Requisites
+			culture_group = culture_group_mantid
+		}
+        
+		provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+			OR = {
+                region = region_townlong_steppes
+				region = region_dread_wastes
+            }
+		}
+		
+		allow = {
+            # Ownership
+			region_townlong_steppes = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_dread_wastes = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			
+            # General
+			is_at_war = no	
+			stability = 2
+            total_development = 300
+            
+            # Cost
+            adm_power = 200
+			dip_power = 200
+			mil_power = 200
+		}
+		effect = {
+            # Cost
+			add_adm_power = -200
+			add_dip_power = -200
+            add_mil_power = -200
+            
+            # Switch
+			change_tag = MNE
+			set_capital = 1839
+			set_government_rank = 3
+
+			# Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}
