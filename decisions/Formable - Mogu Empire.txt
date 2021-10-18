@@ -1,0 +1,63 @@
+country_decisions = {
+    restore_mogu_empire = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+            NOT = { has_country_modifier = centralization_modifier }
+			NOT = { exists = MOE }
+            
+            # Requisites
+			OR = {
+			primary_culture = culture_mogu
+			}
+		}
+        
+        provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+			OR = {
+                province_id = 1807
+                province_id = 1890
+				province_id = 1902
+            }
+		}
+        
+		allow = {
+            # Ownership
+			owns_core_province = 1807   # Mogu'shan Palace
+			owns_core_province = 1890   # Throne of Thunder
+			owns_core_province = 1902   # Mogu'shan Terrace
+			
+            # General
+			is_at_war = no	
+			stability = 2
+            total_development = 650
+            
+            # Cost
+            adm_power = 400
+			dip_power = 400
+			mil_power = 400
+		}
+		effect = {
+            # Cost
+			add_adm_power = -200
+			add_dip_power = -200
+            add_mil_power = -200
+            
+            # Switch
+			change_tag = MOE
+			change_government = monarchy
+			set_government_rank = 3
+			set_capital = 1807
+
+			# Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}
