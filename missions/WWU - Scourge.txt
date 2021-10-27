@@ -146,9 +146,7 @@ wwu_scourge_column_1 = {
 		}
 		
 		trigger = {
-			owns_all_provinces = {
-				area = area_icecrown_interior
-			}
+			country_or_subject_holds = area_icecrown_interior
 		}
 		provinces_to_highlight = {
             area = area_icecrown_interior
@@ -579,9 +577,15 @@ wwu_scourge_column_2 = {
 		}
 		
 		trigger = {
-            has_spy_network_in = {
-				who = P17
-				value = 10
+			OR = {
+				has_spy_network_in = {
+					who = P17
+					value = 10
+				}
+				num_of_owned_provinces_with = {
+					value = 5
+					culture = culture_vrykul
+				}
 			}
 			church_power = 5
 		}
@@ -616,10 +620,17 @@ wwu_scourge_column_2 = {
 		}
 		
 		trigger = {
-			P17 = {
-				has_opinion = {
-					who = P11
-					value = 75
+			OR = {
+				P17 = {
+					has_opinion = {
+						who = P11
+						value = 75
+					}
+				}
+				country_or_subject_holds = 761
+				num_of_owned_provinces_with = {
+					value = 8
+					culture = culture_vrykul
 				}
 			}
 			church_power = 10
@@ -643,6 +654,7 @@ wwu_scourge_column_2 = {
 				add_stability = 1
 			}
 			create_alliance = P17
+			add_prestige = 25
 		}
 	}
 	wwu_infiltrate_dragonflayer = { 
@@ -659,9 +671,15 @@ wwu_scourge_column_2 = {
 		}
 		
 		trigger = {
-            has_spy_network_in = {
-				who = B08
-				value = 10
+			OR = {
+				has_spy_network_in = {
+					who = B08
+					value = 10
+				}
+				num_of_owned_provinces_with = {
+					value = 5
+					culture = culture_vrykul
+				}
 			}
 			church_power = 5
 		}
@@ -696,10 +714,17 @@ wwu_scourge_column_2 = {
 		}
 		
 		trigger = {
-			B08 = {
-				has_opinion = {
-					who = P11
-					value = 75
+			OR = {
+				B08 = {
+					has_opinion = {
+						who = P11
+						value = 75
+					}
+				}
+				country_or_subject_holds = 734
+				num_of_owned_provinces_with = {
+					value = 8
+					culture = culture_vrykul
 				}
 			}
 			church_power = 10
@@ -723,6 +748,7 @@ wwu_scourge_column_2 = {
 				add_stability = 1
 			}
 			create_alliance = B08
+			add_prestige = 25
 		}
 	}
 	wwu_corrupt_the_ascension = { 
@@ -2502,9 +2528,7 @@ wwu_scourge_column_4 = {
 		}
 		
 		trigger = {
-			owns_all_provinces = {
-				area = area_thalassian_pass
-			}
+			country_or_subject_holds = area_thalassian_pass
 		}
 		provinces_to_highlight = {
             area = area_thalassian_pass
@@ -2533,7 +2557,7 @@ wwu_scourge_column_4 = {
 		}
 		
 		trigger = {
-			owns = 1039
+			country_or_subject_holds = 1039
 			church_power = 50
 			adm_power = 100
 			dip_power = 100
@@ -2661,9 +2685,7 @@ wwu_scourge_column_4 = {
 		}
 		
 		trigger = {
-			owns_all_provinces = {
-				area = area_silvermoon
-			}
+			country_or_subject_holds = area_silvermoon
 		}
 		provinces_to_highlight = {
             area = area_silvermoon
@@ -2834,7 +2856,7 @@ wwu_scourge_column_5 = {
 		
 		trigger = {
             mission_completed = wwu_fall_of_silvermoon
-			owns = 2991
+			country_or_subject_holds = 2991
 		}
 		provinces_to_highlight = {
             province_id = 2991
