@@ -19,13 +19,18 @@ country_decisions = {
             # General
 			is_at_war = no	
 			stability = 1
-			total_development = 200
+			total_development = 250
 			calc_true_if = {
-			    num_of_allies = 3
 				any_ally = {
-                    is_lesser = yes					
+                    is_lesser = yes
+					OR = {
+						culture_group = culture_group_gnoll
+						culture_group = culture_group_murloc
+						culture_group = culture_group_kobold
+						culture_gnoll = culture_group_trogg
+					}					
 				}
-				amount = 2
+				amount = 3
 			}
 			
             # Cost
@@ -45,10 +50,16 @@ country_decisions = {
 			change_government = republic
 			every_ally = {
                 limit = {
-                    is_lesser = yes
-                }
-                ROOT = {
-                    inherit = PREV
+                   is_lesser = yes
+					OR = {
+						culture_group = culture_group_gnoll
+						culture_group = culture_group_murloc
+						culture_group = culture_group_kobold
+						culture_gnoll = culture_group_trogg
+					}	
+				}
+				add_stability = 3
+				add_prestige = 100
                 }
             }
             
