@@ -402,13 +402,19 @@ is_available_to_worgen = {
     }
 }
 is_available_to_arrakoa = {
-    AND = {
-        owner = { culture_group = culture_group_arrakoa }
-        OR = {
-            has_owner_culture = yes
-            has_owner_accepted_culture = yes
-        }
-    }
+	OR = {
+		AND = {
+			owner = { culture_group = culture_group_arrakoa }
+			OR = {
+				has_owner_culture = yes
+				has_owner_accepted_culture = yes
+			}
+		}
+		AND = {
+			owner = { religion = arrakoa }
+			has_owner_religion = yes
+		}
+	}
 }
 is_available_to_fallen_arrakoa = {
     AND = {
@@ -552,13 +558,19 @@ is_available_to_void = {
     }
 }
 is_available_to_zangar = {
-    AND = {
-        owner = { culture_group = culture_group_zangar }
-        OR = {
-            has_owner_culture = yes
-            has_owner_accepted_culture = yes
-        }
-    }
+	OR = {
+		AND = {
+			owner = { culture_group = culture_group_zangar }
+			OR = {
+				has_owner_culture = yes
+				has_owner_accepted_culture = yes
+			}
+		}
+		AND = {
+			owner = { religion = zangar }
+			has_owner_religion = yes
+		}
+	}
 }
 is_available_to_tolvir = {
     AND = {
@@ -702,18 +714,6 @@ is_available_to_elune = {
 is_available_to_celestials = {
     AND = {
         owner = { religion = celestials }
-        has_owner_religion = yes
-    }
-}
-is_available_to_arrakoa = {
-    AND = {
-        owner = { religion = arrakoa }
-        has_owner_religion = yes
-    }
-}
-is_available_to_zangar = {
-    AND = {
-        owner = { religion = zangar }
         has_owner_religion = yes
     }
 }
