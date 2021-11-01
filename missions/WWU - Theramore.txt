@@ -8,9 +8,7 @@ wwu_theramore_column_1 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = A23
-		}
+	    tag = A23
 	} 
 	
 	wwu_kezan_dominance = {
@@ -123,9 +121,7 @@ wwu_theramore_column_2 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = A23
-		}
+	    tag = A23
 	} 
 	
 	wwu_building_a_fleet_a = {
@@ -237,9 +233,7 @@ wwu_theramore_column_3 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = A23
-		}
+	    tag = A23
 	}
 	 
 	
@@ -425,9 +419,7 @@ wwu_theramore_column_4 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = A23
-		}
+	    tag = A23
 	} 
     
 	wwu_uniting_the_populace = { 
@@ -584,9 +576,7 @@ wwu_theramore_column_4 = {
 		required_missions = { wwu_pushing_into_north_barrens }
 		
 		provinces_to_highlight = {
-		    OR = {
-		        region = region_north_barrens
-			}
+		    region = region_north_barrens
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
@@ -636,9 +626,7 @@ wwu_theramore_column_4 = {
 		required_missions = { wwu_isolating_the_horde }
 		
 		provinces_to_highlight = {
-		    OR = {
-		        region = region_mulgore
-			}
+		    region = region_mulgore
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
@@ -667,9 +655,7 @@ wwu_theramore_column_5 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = A23
-		}
+	    tag = A23
 	} 
 	
 	wwu_theramore_settlers = {
@@ -719,9 +705,11 @@ wwu_theramore_column_5 = {
 		required_missions = { wwu_theramore_settlers }
 		
 		provinces_to_highlight = {
+			OR = {
 			province_id = 3478
 			province_id = 1456
-			province_id = 3477			
+			province_id = 3477	
+			}			
 		}
 		trigger = {
 			is_core = 3478
@@ -781,9 +769,7 @@ wwu_theramore_column_5 = {
 		trigger = {
 			num_of_owned_provinces_with = {
 				value = 3
-				OR = {
-					has_building = wow_fort_1
-				}
+				has_building = wow_fort_1
 				OR = {
 					province_id = 1463
 					province_id = 1450
@@ -862,7 +848,6 @@ wwu_theramore_column_5 = {
 				cede_province = G06
 				add_core = G06
 				remove_core = A23
-				set_capital = G06
 				change_culture = culture_lordaeron
 				change_religion = holy_light
 			}			
@@ -877,6 +862,7 @@ wwu_theramore_column_5 = {
 			}
 			G06 = {
 				add_stability = 1
+				set_capital = 1439
 			}
 			add_country_modifier = {
                 name = mission_northwatch
@@ -891,8 +877,7 @@ wwu_theramore_column_5 = {
 	wwu_hitting_the_snake_on_the_head = {
 		icon = mission_burning_city
 		position = 5
-		required_missions = { wwu_isolating_the_horde }
-		required_missions = { wwu_pushing_into_north_barrens }
+		required_missions = { wwu_isolating_the_horde wwu_pushing_into_north_barrens  }
 		
 		provinces_to_highlight = {
 		    OR = {
@@ -956,9 +941,7 @@ wwu_theramore_column_5 = {
 		required_missions = { wwu_isolating_the_horde }
 		
 		provinces_to_highlight = {
-		    OR = {
-				region = region_mulgore
-			}
+		    region = region_mulgore
 			NOT = { religion = ROOT }
 		}
 		trigger = {

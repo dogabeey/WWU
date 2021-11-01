@@ -43,10 +43,6 @@ wwu_sunfury_column_3 = {
 				religion = fel
 			}
 		}
-		provinces_to_highlight = {
-            owned_by = B87
-			owned_by = B92
-        }
 		effect = {
 			remove_country_modifier = no_power_source
 			add_stability = -1
@@ -361,8 +357,10 @@ wwu_sunfury_column_3 = {
 			has_global_flag = teldrassil_burned
 		}
 		provinces_to_highlight = {
+			OR = {
             province_id = 1334
             province_id = 1065
+			}
         }
 		effect = {
 			custom_tooltip = burn_the_world_trees_tt
@@ -385,7 +383,7 @@ wwu_sunfury_column_3 = {
 					add_devastation = 50
 					add_unrest = 10
 					add_base_tax = -2
-					add_base_tax = -2
+					add_base_production = -2
 					add_base_manpower = -2
 				}				
 				every_province = {
@@ -398,7 +396,7 @@ wwu_sunfury_column_3 = {
 					add_devastation = 100
 					add_unrest = 10
 					add_base_tax = -5
-					add_base_tax = -5
+					add_base_production = -5
 					add_base_manpower = -5
 				}
 				every_country = {
@@ -497,7 +495,7 @@ wwu_sunfury_column_2 = {
 		effect = {
 			add_manpower = -50
 			add_adm_power = -100
-			add_adm_power = -100
+			add_dip_power = -100
 			add_mil_power = -200
 			1707 = {
 				cede_province = A93
@@ -732,8 +730,10 @@ wwu_sunfury_column_2 = {
 			}
 		}
 		provinces_to_highlight = {
+			OR = {
 			province_id = 660
 			province_id = 676
+			}
         }
 		effect = {
 			create_alliance = F54
@@ -805,8 +805,10 @@ wwu_sunfury_column_2 = {
 			}
 		}
 		provinces_to_highlight = {
+			OR = {
 			province_id = 660
 			province_id = 676
+			}
         }
 		effect = {
 			660 = {
@@ -814,7 +816,6 @@ wwu_sunfury_column_2 = {
 				add_core = A91
 				change_culture = culture_blood_elf
 				change_religion = arcane
-				set_capital = A91
 			}
 			676 = {
 				cede_province = A91
@@ -829,6 +830,7 @@ wwu_sunfury_column_2 = {
 				add_prestige = 50
 			}		
 			A91 = {			
+				set_capital = 660
 				add_stability = 3
 				add_prestige = 100
 				add_treasury = 500
@@ -932,9 +934,11 @@ wwu_sunfury_column_2 = {
 			}
 		}
 		provinces_to_highlight = {
+			OR = {
 			province_id = 2990
 			province_id = 760
 			province_id = 724
+			}
         }
 		effect = {
 			2990 = {
@@ -942,7 +946,6 @@ wwu_sunfury_column_2 = {
 				add_core = G18
 				change_culture = culture_blood_elf
 				change_religion = fel
-				set_capital = G18
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 3
@@ -970,7 +973,8 @@ wwu_sunfury_column_2 = {
 			}
 			G18 = {
 				add_stability = 3
-				add_treasury = 250				
+				add_treasury = 250	
+				set_capital	= 2990			
 			}
 			create_march = G18
 			2991 = {
@@ -1083,13 +1087,13 @@ wwu_sunfury_column_2 = {
 				B92 = {
 					add_treasury = 5000
 					add_stability = 6
+					set_capital = 953
 				}
 				953 = {
 					cede_province = B92
 					add_core = B92
 					change_religion = fel
 					change_culture = culture_eredar
-					set_capital = B92
 					add_base_tax = 2
 					add_base_production = 2
 					add_base_manpower = 2
@@ -1169,11 +1173,10 @@ wwu_sunfury_column_2 = {
 				}
 				2990 = {
 					cede_province = G19
-					add_accepted_culture = culture_blood_elf
+					owner = { add_accepted_culture = culture_blood_elf }
 					change_religion = light_of_the_naaru
 					add_devastation = -100
 					add_unrest = -25
-					set_capital = G19
 					infantry = G19
 					infantry = G19
 					infantry = G19
@@ -1193,6 +1196,7 @@ wwu_sunfury_column_2 = {
 				G19 = {
 					add_stability = 3
 					add_treasury = 1000
+					set_capital = 2990
 				}
 				A91 = {
 					create_alliance = G19
@@ -1357,11 +1361,13 @@ wwu_sunfury_column_1 = {
 			}
 		}
 		provinces_to_highlight = {
-            province_id = 1706
-			province_id = 1709
-			province_id = 1715
-			province_id = 1701
-			province_id = 1705
+			OR = {
+				province_id = 1706
+				province_id = 1709
+				province_id = 1715
+				province_id = 1701
+				province_id = 1705
+			}
         }
 		effect = {
 			1717 = {
@@ -1673,6 +1679,7 @@ wwu_sunfury_column_4 = {
 			is_core = 1717
 		}
 		provinces_to_highlight = {
+			OR = {
             province_id = 1671
 			province_id = 1591
 			province_id = 1641
@@ -1680,6 +1687,7 @@ wwu_sunfury_column_4 = {
 			province_id = 2066
 			province_id = 1685
 			province_id = 1717
+			}
         }
 		effect = {
 			add_country_modifier = {
@@ -1730,8 +1738,8 @@ wwu_sunfury_column_4 = {
 					add_core = B92
 					change_religion = fel
 					change_culture = culture_eredar
-					set_capital = B92
 				}
+				B92 = { set_capital = 953 }
 			}
 			every_province = {
 				limit = {

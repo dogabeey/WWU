@@ -121,8 +121,7 @@ wwu_scourge_column_1 = {
         }
 		effect = {  
 			1267 = {
-				add_mil_power = -200
-				add_treasury = -200
+				owner = { add_mil_power = -200 add_treasury = -200 }
 				add_base_manpower = 4
 				add_building = wow_arsenal
 				add_building = wow_barracks
@@ -1385,7 +1384,6 @@ wwu_scourge_column_3 = {
 				add_core = P12
 				change_religion = cult_of_the_damned
 				change_culture = culture_cultist
-				add_core = P12
 			}
 			P12 = {
 				set_capital = 790
@@ -1487,8 +1485,10 @@ wwu_scourge_column_3 = {
 			mil_power = 150
 		}
 		provinces_to_highlight = {
+			OR = {
             region = region_western_plaguelands
 			region = region_eastern_plaguelands
+			}
         }
 		effect = {
 			P12 = {
@@ -1553,11 +1553,13 @@ wwu_scourge_column_3 = {
 			church_power = 50
 		}
 		provinces_to_highlight = {
+			OR = {
 			area = area_stratholme
             area = area_the_marris_stead
 			area = area_andorhal_fields
 			area = area_eastwatch
 			area = area_eastwall_tower
+			}
         }
 		effect = {
 			642 = {
@@ -1670,8 +1672,10 @@ wwu_scourge_column_3 = {
 			}
 		}
 		provinces_to_highlight = {
+			OR = {
 			province_id = 775
 			province_id = 642
+			}
         }
 		effect = {
 			1284 = {
@@ -1719,7 +1723,6 @@ wwu_scourge_column_3 = {
 					add_core = F38
 					change_culture = culture_lordaeron
 					change_religion = holy_light
-					add_base_tax = 2
 					add_base_tax = 2
 					add_base_manpower = 4
 					center_of_trade = 1
@@ -2672,9 +2675,11 @@ wwu_scourge_column_4 = {
 			}
 		}
 		provinces_to_highlight = {
-            area = area_sanctum_of_the_moon
-			area = area_andaroth
-			area = area_tranquillien
+			OR = {
+				area = area_sanctum_of_the_moon
+				area = area_andaroth
+				area = area_tranquillien
+			}
         }
 		effect = {
 			A90 = {
@@ -3107,51 +3112,7 @@ wwu_scourge_column_5 = {
 				}
 				join_all_offensive_wars_of = B92
 			}
-			every_country = {
-				limit = {
-					religion = elune
-				}
-				join_all_defensive_wars_of = A95
-			}
-			every_country = {
-				limit = {
-					provinces_on_capital_continent_of = A95
-					culture = culture_orc
-				}
-				join_all_defensive_wars_of = A95
-			}
-			every_country = {
-				limit = {
-					provinces_on_capital_continent_of = A95
-					culture = culture_tauren
-				}
-				join_all_defensive_wars_of = A95
-			}
 			hidden_effect = {
-				every_province = {
-					limit = {
-						owned_by = A95
-						area = area_hyjal_lowland
-						}
-					change_controller = B92
-					add_devastation = 50
-				}
-				every_province = {
-					limit = {
-						owned_by = A95
-						area = area_grove_of_aessina
-						}
-					change_controller = B92
-					add_devastation = 50
-				}
-				every_province = {
-					limit = {
-						owned_by = A95
-						area = area_grove_of_goldrinn
-						}
-					change_controller = B92
-					add_devastation = 50
-				}
 				1345 = {
 					B92 = {
 						infantry = PREV

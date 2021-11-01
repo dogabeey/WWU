@@ -8,9 +8,7 @@ wwu_shadowhide_column_1 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = B16
-		}
+	    tag = B16
 	}
     
 	wwu_gnollridge_sdh = {
@@ -32,7 +30,6 @@ wwu_shadowhide_column_1 = {
                 
                 has_manpower_building_trigger = yes
             }
-            region = region_westfall
 		}
 		effect = {
 			add_dip_power = 200
@@ -55,9 +52,7 @@ wwu_shadowhide_column_2 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = B16
-		}
+	    tag = B16
 	} 
 	
 	wwu_force_of_nature_sdh = {
@@ -299,9 +294,7 @@ wwu_shadowhide_column_3 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = B16
-		}
+	    tag = B16
 	} 
 	
 	wwu_raiding_elwynn_sdh = {
@@ -429,9 +422,7 @@ wwu_shadowhide_column_4 = {
     has_country_shield = yes
 	
 	potential = {
-	    OR = {
-		    tag = B16
-		}
+	    tag = B16
 	} 
 	
 	wwu_finding_a_place_in_the_world_sdh = {
@@ -488,10 +479,10 @@ wwu_shadowhide_column_4 = {
 		
 		trigger = {
 			num_of_cities = 300
-			production_leader = {   
-                trade_goods = copper
-				trade_goods = iron
-				trade_goods = army_supplies
+			OR = {
+				production_leader = { trade_goods = copper }
+				production_leader = { trade_goods = iron }
+				production_leader = { trade_goods = army_supplies }
 			}
 		}
 		effect = {
