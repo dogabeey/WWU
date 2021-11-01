@@ -823,18 +823,6 @@ battle_cult_spreading_effect = {
 		limit = {
 			FROM = {
 				uses_cults = yes
-				NOT = { has_unlocked_cult = arrakoa_teaching }
-			}
-			ROOT = {
-				religion = arrakoa
-			}
-		}
-		FROM = { country_event = { id = battle_teaching.10 } }
-	}
-    if = {
-		limit = {
-			FROM = {
-				uses_cults = yes
 				NOT = { has_unlocked_cult = zangar_teaching }
 			}
 			ROOT = {
@@ -1196,12 +1184,6 @@ unlock_initial_cults = {
                 religion = celestials
             }
             unlock_cult = celestial_teaching
-        }
-        if = {
-            limit = {
-                religion = arrakoa
-            }
-            unlock_cult = arrakoa_teaching
         }
         if = {
             limit = {
