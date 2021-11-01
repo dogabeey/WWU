@@ -210,7 +210,6 @@ wwu_diplomatic_missions = {
 					random_trade_node_member_province = {
 						limit = {
 							owned_by = ROOT
-							development = CAPITAL
 							is_capital = no
 						}
 						save_event_target_as = reward_province
@@ -218,7 +217,6 @@ wwu_diplomatic_missions = {
 					random_trade_node_member_province = {
 						limit = {
 							owned_by = ROOT
-							development = CAPITAL
 							is_capital = no
 							development = 20
 						}
@@ -227,7 +225,6 @@ wwu_diplomatic_missions = {
 					random_trade_node_member_province = {
 						limit = {
 							owned_by = ROOT
-							development = CAPITAL
 							is_capital = no
 							development = 25
 						}
@@ -236,7 +233,6 @@ wwu_diplomatic_missions = {
 					random_trade_node_member_province = {
 						limit = {
 							owned_by = ROOT
-							development = CAPITAL
 							is_capital = no
 							development = 30
 						}
@@ -372,12 +368,10 @@ wwu_administrative_missions = {
 		required_missions = { wwu_build_treasury }
         
 		trigger = {
+			custom_tooltip = build_manufactories_mission_tooltip
 			calc_true_if = {
-				desc = build_manufactories_mission_tooltip
 				all_owned_province = {
-					OR = {
-						has_building = wow_manufactory
-					}
+					has_building = wow_manufactory
 				}
 				amount = 20
 			}

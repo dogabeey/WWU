@@ -8,9 +8,7 @@ wwu_riverpaw_column_1 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = B15
-		}
+	    tag = B15
 	} 
 	
 	wwu_raiding_redridge_rpw = {
@@ -62,7 +60,6 @@ wwu_riverpaw_column_1 = {
                 
                 has_manpower_building_trigger = yes
             }
-            region = region_westfall
 		}
 		effect = {
 			add_dip_power = 200
@@ -70,8 +67,8 @@ wwu_riverpaw_column_1 = {
                 name = mission_colonising_redridge_rpw
                 duration = -1
             }
-			region_redridge_mountains = {
-			    limit = { owned_by = ROOT }
+			every_owned_province = {
+			    limit = { region = region_redridge_mountains }
 			    change_culture = ROOT
 			}
 		}
@@ -85,9 +82,7 @@ wwu_riverpaw_column_2 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = B15
-		}
+	    tag = B15
 	} 
 	
 	wwu_force_of_nature_rpw = {
@@ -337,9 +332,7 @@ wwu_riverpaw_column_3 = {
     has_country_shield = yes
     
 	potential = {
-	    OR = {
-		    tag = B15
-		}
+	    tag = B15
 	} 
 	
 	wwu_raiding_elwynn_rpw = {
@@ -467,9 +460,7 @@ wwu_riverpaw_column_4 = {
     has_country_shield = yes
 	
 	potential = {
-	    OR = {
-		    tag = B15
-		}
+	    tag = B15
 	} 
 	
 	wwu_finding_a_place_in_the_world_rpw = {
@@ -526,10 +517,10 @@ wwu_riverpaw_column_4 = {
 		
 		trigger = {
 			num_of_cities = 300
-			production_leader = {   
-                trade_goods = copper
-				trade_goods = iron
-				trade_goods = army_supplies
+			OR = {
+				production_leader = { trade_goods = copper }
+				production_leader = { trade_goods = iron }
+				production_leader = { trade_goods = army_supplies }
 			}
 		}
 		effect = {
