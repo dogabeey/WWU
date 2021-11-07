@@ -74,14 +74,87 @@ country_decisions = {
 			change_tag = PAN
 			change_government = monarchy
 			set_government_rank = 3
-			change_primary_culture = culture_imperial_pandaria
+			if = {
+			    limit = {
+			        primary_culture = culture_pandaren 
+				}
+			    change_primary_culture = culture_imperial_pandaria
+			}
+			if = {
+				limit = {
+				    OR = {
+					primary_culture = culture_forest_hozen
+				    primary_culture = culture_mountain_hozen
+					}
+				}
+				change_primary_culture = culture_imperial_hozen
+			}
+			if = {
+			    limit = {
+			        primary_culture = culture_jinyu
+				}
+			    change_primary_culture = culture_imperial_jinyu
+			}
+			if = {
+			    limit = {
+			        primary_culture = culture_grummle
+				}
+			    change_primary_culture = culture_imperial_grummle
+			}
+			if = {
+			    limit = {
+			        primary_culture = culture_yaungol
+				}
+			    change_primary_culture = culture_imperial_yaungol
+			}
 			set_capital = 1725
 			every_owned_province = { 
                 limit = {
                     continent = continent_pandaria
+                    culture = culture_pandaren
                     NOT = { culture = culture_imperial_pandaria }
                 }
                 change_culture = culture_imperial_pandaria 
+            }
+            every_owned_province = { 
+                limit = {
+                    continent = continent_pandaria
+                    culture = culture_forest_hozen
+                    NOT = { culture = culture_imperial_hozen }
+                }
+                change_culture = culture_imperial_hozen
+            }
+			every_owned_province = { 
+                limit = {
+                    continent = continent_pandaria
+                    culture = culture_mountain_hozen
+                    NOT = { culture = culture_imperial_hozen }
+                }
+                change_culture = culture_imperial_hozen
+            }
+            every_owned_province = { 
+                limit = {
+                    continent = continent_pandaria
+                    culture = culture_jinyu
+                    NOT = { culture = culture_imperial_jinyu}
+                }
+                change_culture = culture_imperial_jinyu
+            }
+			every_owned_province = { 
+                limit = {
+                    continent = continent_pandaria
+                    culture = culture_grummle
+                    NOT = { culture = culture_imperial_grummle }
+                }
+                change_culture = culture_imperial_grummle
+            }
+            every_owned_province = { 
+                limit = {
+                    continent = continent_pandaria
+                    culture = culture_yaungol
+                    NOT = { culture = culture_imperial_yaungol}
+                }
+                change_culture = culture_imperial_yaungol
             }
 
 			# Bonus
