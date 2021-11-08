@@ -5,30 +5,39 @@ country_decisions = {
         
 		potential = {
             # Exclusions
-		    NOT = { tag = AGC }
-			NOT = { tag = A24 }
-			NOT = { tag = A22 }
 			NOT = { exists = FNA }
             
             # Requisites
-			culture_group = culture_group_human
+			OR = {
+			    tag = A08
+				tag = A12
+				tag = A14
+				tag = A16
+				tag = A17
+				tag = A18
+				tag = STW
+			}
 		}
         
         provinces_to_highlight = {
 			OR = {
-                region = region_hillsbrad_foothills
-                region = region_arathi_highlands
-            }
+			    province_id = 543
+                province_id = 927
+				province_id = 773
+				province_id = 863
+				province_id = 981
+				province_id = 570
+			}
 		}
         
 		allow = {
             # Ownership
-            capital_scope = {
-                OR = {
-                    region = region_hillsbrad_foothills
-                    region = region_arathi_highlands
-                }
-            }
+			owns_core_province = 543   
+			owns_core_province = 927
+			owns_core_province = 773
+			owns_core_province = 863
+			owns_core_province = 981
+			owns_core_province = 824
             
             # General
 			is_at_war = no	
@@ -53,6 +62,7 @@ country_decisions = {
             every_owned_province = { 
                 limit = {
                     continent = continent_eastern_kingdoms
+					culture_group = culture_group_human
                     NOT = { culture = culture_arathorian }
                 }
                 change_culture = culture_arathorian 
