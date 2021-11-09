@@ -1,0 +1,86 @@
+country_decisions = {
+    form_new_argus = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+			NOT = { exists = NAR }
+            
+            # Requisites
+			culture_group = culture_group_draenei
+		}
+        
+        provinces_to_highlight = {
+			OR = {			
+			region = region_hellfire_peninsula  
+			region = region_zangarmarsh
+			region = region_terokkar_forest  
+			region = region_nagrand
+			region = region_shadowmoon_valley  
+			region = region_blades_edge_mountains
+			region = region_netherstorm
+			}
+			NOT = { owned_by = ROOT }
+		}
+        
+		allow = {
+            # Ownership
+			region_hellfire_peninsula = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_zangarmarsh = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_terokkar_forest = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+            region_nagrand = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_shadowmoon_valley = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_blades_edge_mountains = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_netherstorm = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			
+            # General
+			is_at_war = no	
+			stability = 2
+            
+			# Cost
+            adm_power = 500
+			dip_power = 500
+			mil_power = 500
+		}
+        
+		effect = {
+            # Cost
+			add_adm_power = -500
+			add_dip_power = -500
+            add_mil_power = -500
+            
+            # Switch
+			change_tag = NAR
+			set_government_rank = 3
+            
+			# Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
