@@ -1,0 +1,102 @@
+country_decisions = {
+    form_new_arathor = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+			NOT = { exists = FNN }
+			NOT = { tag = FNA }
+            
+            # Requisites
+			primary_culture = culture_stormwindian
+		}
+        
+        provinces_to_highlight = {
+			OR = {			
+			region = region_elwynn_forest  
+			region = region_redridge_mountains
+			region = region_swamp_of_sorrows  
+			region = region_blasted_lands
+			region = region_deadwind_pass  
+			region = region_duskwood
+			region = region_westfall  
+			region = region_stranglethorn_vale
+			}
+			NOT = { owned_by = ROOT }
+		}
+        
+		allow = {
+            # Ownership
+			region_elwynn_forest = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_redridge_mountains = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_swamp_of_sorrows = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+            region_blasted_lands = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_deadwind_pass = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_duskwood = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_westfall = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			region_stranglethorn_vale = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			
+            # General
+			is_at_war = no	
+			stability = 1
+			total_development = 1000
+            
+			# Cost
+            adm_power = 500
+			dip_power = 500
+			mil_power = 500
+		}
+        
+		effect = {
+            # Cost
+			add_adm_power = -500
+			add_dip_power = -500
+            add_mil_power = -500
+            
+            # Switch
+			change_tag = FNN
+			change_primary_culture = culture_arathorian
+			set_government_rank = 3
+            every_owned_province = { 
+                limit = {
+                    continent = continent_eastern_kingdoms
+					culture_group = culture_group_human
+                    NOT = { culture = culture_arathorian }
+                }
+                change_culture = culture_arathorian 
+            }
+            
+			# Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
