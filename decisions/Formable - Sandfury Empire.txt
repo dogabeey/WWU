@@ -1,0 +1,54 @@
+country_decisions = {
+    form_sandfury_empire = {
+	    major = yes
+        ai_importance = 300
+		
+		potential = {
+            # Exclusions
+			NOT = { exists = SAN }
+            
+            # Requisites
+			primary_culture = culture_sand_troll
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+			region = region_tanaris
+		}
+        
+		allow = {
+            # Ownership
+            region_tanaris = {
+                type = all
+				owned_by = ROOT
+			}
+            
+            # General
+			is_at_war = no	
+			stability = 1
+            
+            # Cost
+            adm_power = 300
+			dip_power = 300
+			mil_power = 300
+		}
+		effect = {
+            # Cost
+			add_adm_power = -300
+			add_dip_power = -300
+            add_mil_power = -300
+            
+            # Switch
+			change_tag = SAN
+            
+			# Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_importance = 300
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
