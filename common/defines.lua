@@ -23,6 +23,15 @@ NGame = {
 
 	DAYS_BEHIND_PAUSE = 25,					-- In multiplayer, if the slowest player is lagging behind this amount of days, the game will pause
 	DAYS_BEHIND_LOWER_SPEED = 10,			-- In multiplayer, if the slowest player is lagging behind this amount of days, the game will slow down
+	MERC_COMPANIES_PER_RNW_REGION = 5, 		-- auto-generated merc companies per region in RNW
+	RNW_MERC_COMPANY_MODIFIER_CHANCE = 0.33, -- chance of a modifier being applied to a RNW mercenary company
+	RNW_MERC_COMPANY_DEV_FACTOR_MIN = 0.01, 	-- min regiments_per_development
+	RNW_MERC_COMPANY_DEV_FACTOR_MAX = 0.05, 	-- max regiments_per_development
+	RNW_MERC_COMPANY_CAVALRY_MIN = 0.1, 	-- min cavalry_weight if we're using cavalry
+	RNW_MERC_COMPANY_CAVALRY_MAX = 0.3, 	-- max cavalry_weight if we're using cavalry
+	RNW_MERC_COMPANY_ARTILLERY_MIN = 0.1, 	-- min artillery_weight if we're using artillery
+	RNW_MERC_COMPANY_ARTILLERY_MAX = 0.3, 	-- max artillery_weight if we're using artillery
+	RNW_MERC_COMPANY_RANDOM_NAME_COUNT = 20, -- RANDOM_MERCENARY_NAME + number up to this value																				
 },
 
 NDiplomacy = {
@@ -291,6 +300,7 @@ NDiplomacy = {
 	PEACE_COST_SPREAD_REVOLUTION = 60,
 	MAX_PEACE_COST_TRIBUTARY_STATE = 80,
 	MAX_PEACE_COST_CANCEL_SUBJECT = 100,
+	MAX_WARSCORE = 100,				
 
 	MAX_PEACE_TREATY_PRESTIGE = 100,
 	MAX_PEACE_TREATY_AE = 50,
@@ -394,6 +404,7 @@ NDiplomacy = {
 
 	FORCE_BREAK_ALLIANCE_TRUCE_YEARS = 2,			-- Length of truce imposed by Break Alliance.
 	FORCE_END_RIVALRY_YEARS = 15,					-- Years until you can re-add a Rival after being forced to remove them by peace treaty.
+	DECLINE_FAVOR_ACTION_STAB_HIT = 0,																					
 	TRIBUTE_BASE_CASH = 0.125,						-- Tributary State: Part of yearly income given in tribute
 	TRIBUTE_BASE_ADM = 0.03,						-- Tributary State: Part Adm tribute, mulitplied by total development
 	TRIBUTE_BASE_DIP = 0.03,						-- Tributary State: Part Dip tribute, mulitplied by total development
@@ -450,14 +461,20 @@ NDiplomacy = {
 	IMPERIAL_REALM_WAR_IA_COST = 10.0,				-- How much IA the Realm War CB costs.
 	IMPERIAL_REALM_WAR_MONTHS = 60,					-- How many months the CB will be available
 	SAME_TRIBUTARY_OVERLORD_SUPPORT_INDEPENDENCE_CHANCE = -50,
+	UNCONDITIONAL_SURRENDER_MIN_MONTHS = 12,								 
 },
 
 NCountry = {
+	CLEAR_PROVINCE_VARIABLES_ON_CLEAR_OWNER = 1, 	--set to 0 to avoid clearing province variables when a province's owner is set to none (modder request)
+	CLEAR_PROVINCE_FLAGS_ON_CLEAR_OWNER = 1,	 	--set to 0 to avoid clearing province flags when a province's owner is set to none (modder request)
+	CLEAR_PROVINCE_SAVED_NAMES_ON_CLEAR_OWNER = 1, 	--set to 0 to avoid clearing province saved names when a province's owner is set to none (modder request)
+	CREATE_LEADER_FROM_CONSORT_PRESTIGE_COST = 10,
 	EXPLOIT_ADM_INCOME = 60,	-- months of income
 	EXPLOIT_DIP_SAILORS = 6,
 	EXPLOIT_MIL_MANPOWER = 6,
 	EXPLOIT_COOLDOWN_MONTHS = 64,
 
+	SCORNFUL_INSULT_MULTIPLIER = 2,							
 	MONTHS_FOR_MAX_MP_ALERT = 3,
 
 	CHANGE_COLONIAL_TYPE_COOLDOWN_DURATION = 10,
@@ -604,9 +621,9 @@ NCountry = {
 
 	RANDOM_LUCKY_BASE_WEIGHT = 100,					-- Base weight given to each nation when rolling for random lucky
 	RANDOM_LUCKY_DEVELOPMENT_WEIGHT = 0.4,					-- Extra weight given for each base development when rolling for random luck
-	RANDOM_LUCKY_TECH_WEIGHT = 1,					-- Multiplier on penalty given to slower tech group nations when rolling for random lucky (higher = more penalty)
-	RANDOM_LUCKY_SLOW_TECH_PENALTY = 0.33,			-- Extra penalty on tech groups with more than 75% penalty when rolling for random lucky (lower = more penalty)
-
+	RANDOM_LUCKY_INSTITUTION_FACTOR = 1.5,
+	
+	
 	PLAYER_CAN_MOVE_FIXED_CAPITAL = 1,				-- Controls whether player can move capital even if capital is fixed
 	DEVELOPMENT_ON_CONTINENT_FOR_NEW_CAPITAL = 0.0,	-- How many percent of your development needs to be on the other continent to move your capital there
 
@@ -687,8 +704,6 @@ NCountry = {
 	DISMANTLE_HRE_PRESTIGE = 100,					-- Prestige gain on dismantling HRE
 	CROWN_LANDS_ALERT_THRESHOLD = 30,
 	FREE_IDEA_GROUP_COST  = 3,						-- modifier on cheapness of "free" idea group
-	MAX_TOLERANCE_HERETIC = 3, 						-- maximum tolerance towards heretics
-	MAX_TOLERANCE_HEATHEN = 3, 						-- maximum tolerance towards heathens
 	CONVERSION_COOLDOWN = 120,						-- months before you can convert again.
 	CONVERSION_COOLDOWN_SECONDARY = 120,			-- months before you can convert secondary religion again.
 
@@ -710,6 +725,7 @@ NCountry = {
 	PS_ARTILLERY_BARRAGE = 50,
 	PS_NAVAL_BARRAGE = 50,
 	PS_ADD_TRIBAL_LAND = 100,
+	PS_ADD_TRIBAL_LAND_EXTRA_COST_PER_PROVINCE = 10,											 
 	PS_FORCE_MARCH = 2,
 	PS_DEMAND_NON_WARGOAL_PROVINCE = 50,
 	PS_DEMAND_NON_WARGOAL_PEACE = 3,
@@ -811,6 +827,7 @@ NCountry = {
 	LAGGINGTECH_CORRUPTION_MAX = 0.5,				-- Max increase/year
 	POPULATION_GROWTH = 0.03, 						-- _CDEF_POPULATION_GROWTH_; Base population growth.
 	COLONIAL_GROWTH_PENALTY = 100, 					-- growth penalty for low colonial maintenance
+	BANKRUPTCY_COLONIAL_GROWTH_PENALTY = -200, 		-- growth penalty for bankruptcy																		  
 	MAX_NATIONALISM = 10,
 	YEARS_OF_NATIONALISM = 30, 						-- _CDEF_YEARS_OF_NATIONALISM_; Years of Nationalism
 	YEARS_UNTIL_BROKEN = 2, 						-- _CDEF_YEARS_UNTIL_BROKEN_; Years until rebel held capital results in broken country.
@@ -889,7 +906,6 @@ NCountry = {
 	MAX_CROWN_COLONIES = 4,							-- How many province a country can hold in a colonial region before creating a colonial nation
 	RIVAL_TECH_THRESHOLD = 0.5,						-- Difference in tech group cost modifiers
 	OVERSEAS_DISTANCE = 150,						-- Provinces beyond this distance to capital are distant overseas
-	TRADE_LEAGUE_TECH_LIMIT = 2,					-- Tech limit for joining a trade league
 
 	NORMAL_ELECTION_CYCLE = 4,						-- The normal election cycle at which 10 republican tradition is lost from 1 unit of scaled republican tradition
 	DICTATORSHIP_TRADITION_FOR_MONARCHY = 50,		-- If republican tradition is lower than this on death of ruler, dictatorship turns into monarchy
@@ -1034,6 +1050,7 @@ NCountry = {
 	TRIBE_MIGRATION_MIL_COST = 50,
 	SIBERIAN_TRIBE_MIGRATION_BONUS = 50,
 	SIBERIAN_TRIBE_MIGRATION_COOLDOWN_YEARS = 5,
+	TRIBE_MIGRATION_NON_TRIBAL_LAND_COOLDOWN_YEARS = 2,												
 
 	TRIBE_SETTLE_ADM_COST = 0,
 	TRIBE_SETTLE_DIP_COST = 50,
@@ -1180,6 +1197,8 @@ NEconomy = {
 	EXPELLED_MINORITY_DEV_BONUS_FACTOR = 0.2,		-- Bonus development on minority expulsion completion, multiplied by origin province development
 	EXPELLING_MINORITY_COLONIST_COST_FACTOR =  0.5,	-- Colonist maintenance cost factor when expelling minority
 	EXPELLING_MINORITY_SETTLER_CHANCE_FACTOR = 0.001,	-- Settler chance bonus when expelling minority, multiplied by origin province development
+	USE_COLONIZER_RELIGION_ON_COLONY_COMPLETION_WITH_COLONIST = 1,
+	USE_COLONIZER_CULTURE_ON_COLONY_COMPLETION_WITH_COLONIST = 0,														  
 },
 
 NMilitary = {
@@ -1205,7 +1224,9 @@ NMilitary = {
 	BANNER_REINFORCE_SPEED = 1.0,
 	BANNER_MAINTENANCE_COST = 2.0,
 	BANNER_AGE_MULTIPLIER = 0.50,
+	BANNER_STARTING_STRENGTH = 0.1,																									   
 	BANNER_STARTING_STRENGTH = 1.0,					-- Starting strength of a banner regiment, 1.0 being full strength
+	CAWA_STARTING_MORALE = 0.5,																									
 	FORT_DEVASTATION_IMPACT = -10,					-- multiplied by fortlevel/max fortlevel in area per year.
 	REVANCHISM_DEVASTATION_IMPACT = -0.02,			-- 100 revanschism is -2 a year.
 	SURRENDER_DEVASTATION_IMPACT = -3.4,
@@ -1266,9 +1287,6 @@ NMilitary = {
 	INFANTRY_SPEED = 1.0, 							-- _MDEF_INFANTRY_SPEED = 10,
 	CAVALRY_SPEED = 1.0, 							-- _MDEF_CAVALRY_SPEED = 10,
 	ARTILLERY_SPEED = 1.0, 							-- _MDEF_ARTILLERY_SPEED = 10,
-
-
-	TRANSPORT_SPEED = 6.0, 							-- _MDEF_TRANSPORT_SPEED = 10,
 
 	INFANTRY_COST = 10.0, 							-- _MDEF_INFANTRY_COST = 10,
 	CAVALRY_COST = 25.0, 							-- _MDEF_CAVALRY_COST = 10,
@@ -1383,6 +1401,7 @@ NMilitary = {
 	SUPPLY_DEPOT_MIL_COST = 20,						-- Mil power cost to build a supply depot in an area.
 	RESERVE_TICK_DAMAGE = 0.03,
 	CREATE_JANISSARIES_MIL_COST = 10,				-- Cost to create janissaries (per unit)
+	CREATE_CAWA_MIL_COST = 5,						-- Cost to create Cawa (per unit)															 
 	COSSACKS_MAXIMUM_RATIO = 1.0,					-- Maximum number of Cossacks regiments, relative to force limit
 	REVOLUTIONARY_GUARD_MAXIMUM_RATIO = 1.0,			-- Maximum number of Revolutionary Guard regiments, relative to force limit
 	RAJPUT_MAXIMUM_RATIO = 1.0,						-- Maximum number of Rajput regiments, relative to force limit
@@ -1403,6 +1422,7 @@ NMilitary = {
 	STRELTSY_USES_CONSTRUCTION = 0,
 	COSSACKS_USES_CONSTRUCTION = 1,
 	JANISSARIES_USES_CONSTRUCTION = 0,
+	CAWA_USES_CONSTRUCTION = 0,						
 	RAJPUT_USES_CONSTRUCTION = 1,
 	MARINES_USES_CONSTRUCTION = 1,
 	REVOLUTIONARY_GUARD_USES_CONSTRUCTION = 1,
@@ -1453,9 +1473,15 @@ NMilitary = {
 	WARDEC_COBELLI_FOR_TRADE_LEAGUES = 1,
 	WARDEC_COBELLI_FOR_TRIBAL_FEDERATION = 1,
 	WARDEC_COBELLI_FOR_WARNINGS = 1,
+	SIEGE_BONUS_SUPPLIES_SHORTAGE = 1,
+	SIEGE_BONUS_FOOD_SHORTAGE = 2,
+	SIEGE_BONUS_WATER_SHORTAGE = 3,
+	SIEGE_BONUS_DEFENDERS_DESERT = 2,						  
 },
 
 NAI = {
+	OVERLORD_VITAL_PROVINCE_CLAIM_BIAS = 500,
+	OVERLORD_INTERESTING_PROVINCE_BIAS = 250,									  
 	ACCEPTABLE_FRACTION_OF_INTEREST_PAYMENTS = 0.3, --of income
 	ACCEPTABLE_FRACTION_OF_INTEREST_PAYMENTS_VASSAL = 0.5, --of income
 	GREAT_PROJECT_DESIRE_MOVE_FROM_SUBJECT_MODIFIER = 2,
@@ -1465,6 +1491,7 @@ NAI = {
 	GREAT_PROJECT_DESIRE_BUILD_NEW_MODIFIER = 2,
 	GREAT_PROJECT_DESIRE_CAPITAL_MODIFIER = 10,
 	GREAT_PROJECT_DESIRE_CAPITAL_BASE = 10,
+	GREAT_PROJECT_DESIRE_CAPITAL_AREA_MODIFIER = 10,											 
 	ACCEPTABLE_BALANCE_DEFAULT = 1.3, --AI wants this advantage to enter battles typically. (There are some exceptions, e.g. offensives.)
 	ACCEPTABLE_BALANCE_FRIEND_IN_COMBAT = 0.75,
 	EDICT_VALUE_THRESHOLD = 120, -- The higher this value, the less the AI will use Edicts
@@ -1529,6 +1556,7 @@ NAI = {
 	TRANSPORT_FRACTION = 0.4, -- Max fraction of naval forcelimit that should be transports
 	INCOME_SAVINGS_FRACTION = 0.60, -- AI will reserve this amount of their surplus for long-term savings
 	OVER_FORCELIMIT_AVOIDANCE_FACTOR = 75, -- The higher this number is, the less willing the AI will be to exceed forcelimits
+	MILITARISE_FORT_BUDGET_FACTOR = 1.5, --if the country should militarise, multiply fort budget priority by this																										   
 	DESIRED_SURPLUS = 0.15, -- AI will aim for having at least this fraction of their income as surplus when they don't have large savings
 	DESIRED_DEFICIT = 0.135, -- AI will try to spend this fraction of their money above their target for long term savings.
 	EXTRA_SURPLUS_WHEN_NEEDING_BUILDINGS = 0.25, -- AI will aim for having at least this fraction of their income as additional surplus when they need buildings
@@ -1562,6 +1590,8 @@ NAI = {
 	BASE_CAN_MAKE_CORE_DESIRE_TO_RETURN_PROVINCE = 10, --score to add to desire to keep province rather than returning it to someone or creating a trading city if you can core it straight away
 	BASE_CAN_MAKE_CORE_IN_AREA_DESIRE_TO_RETURN_PROVINCE = 8, --score to add to desire to keep province rather than returning it to someone or creating a trading city if you can core it soon
 	GOVERNING_CAPACITY_OVER_PERCENTAGE_TOLERATED = 0.1,
+	GOVERNING_CAPACITY_REFORM_PROGRESS_GAP_TOLERANCE = 50,
+	GOVERNING_CAPACITY_REFORM_BIAS_IF_NEEDED = 100,											
 	DANGEROUS_OVEREXTENSION_PERCENTAGE = 0.1,
 
 	DEBASE_THRESHOLD = 3500,-- AI will not debase if it has more gold than this.
@@ -2048,6 +2078,14 @@ NGraphics = {
 	AGGRESSIVE_EXPANSION_MAX_G = 0.25,
 	AGGRESSIVE_EXPANSION_MAX_B = 0.0,
 	AGGRESSIVE_EXPANSION_MAX_A = 1.0,
+	AGGRESSIVE_EXPANSION_AMBER_R = 1.0,
+	AGGRESSIVE_EXPANSION_AMBER_G = 0.95,
+	AGGRESSIVE_EXPANSION_AMBER_B = 0.0,
+	AGGRESSIVE_EXPANSION_AMBER_A = 1.0,
+	AGGRESSIVE_EXPANSION_GREEN_R = 0.0,
+	AGGRESSIVE_EXPANSION_GREEN_G = 0.95,
+	AGGRESSIVE_EXPANSION_GREEN_B = 0.0,
+	AGGRESSIVE_EXPANSION_GREEN_A = 1.0,						
 	AG_FOR_MAX_COLOR_IN_COALITION_MAPMODE = 150,
 	TRUCE_LENGTH_MIN_R = 1.0,
 	TRUCE_LENGTH_MIN_G = 0.75,
@@ -2458,7 +2496,7 @@ NGovernment = {
 	LEADER_AS_MONARCH_TRADITION = 30, -- How much tradition leaders will get when generated for
 	
 	CONCENTRATE_DEVELOPMENT_CAPITAL_PROPORTION = 0.5,
-	CONCENTRATE_DEVELOPMENT_OTHER_STATE_PROVINCES_PROPORTION = 0.3,
+	DEVASTATION_PER_DEV_STOLEN = 5,
 	FREE_CONCENTRATE_DEVELOPMENT_CAPITAL_PROPORTION = 0.7,
 	FREE_CONCENTRATE_DEVELOPMENT_OTHER_STATE_PROVINCES_PROPORTION = 0.3,
 },
