@@ -46,6 +46,7 @@ guiTypes = {
 			maxWidth = 135
 			maxHeight = 32
 			format = left
+            truncate = yes
 			fixedsize = yes
 		}
 		
@@ -59,6 +60,8 @@ guiTypes = {
 			maxWidth = 100
 			maxHeight = 32
 			format = left
+            truncate = yes
+			fixedsize = yes
 		}
 		
 		instantTextBoxType = {
@@ -978,6 +981,8 @@ guiTypes = {
 				maxHeight = 24
 				Orientation = "UPPER_LEFT"
 				format = left
+                truncate = yes
+                fixedsize = yes
 			}
 			
 			iconType =
@@ -999,6 +1004,8 @@ guiTypes = {
 				maxHeight = 24
 				Orientation = "UPPER_LEFT"
 				format = left
+                truncate = yes
+                fixedsize = yes
 			}
 			
 			iconType =
@@ -1020,6 +1027,8 @@ guiTypes = {
 				maxHeight = 24
 				Orientation = "UPPER_LEFT"
 				format = left
+                truncate = yes
+                fixedsize = yes
 			}
 			
 			iconType =
@@ -1041,6 +1050,8 @@ guiTypes = {
 				maxHeight = 24
 				Orientation = "UPPER_LEFT"
 				format = left
+                truncate = yes
+                fixedsize = yes
 			}
 			
 			iconType =
@@ -1062,6 +1073,8 @@ guiTypes = {
 				maxHeight = 24
 				Orientation = "UPPER_LEFT"
 				format = left
+                truncate = yes
+                fixedsize = yes
 			}
 		}
 		
@@ -1395,12 +1408,6 @@ guiTypes = {
 			dontRender = ""
 			horizontalBorder = ""
 			Orientation = "UPPER_LEFT"
-		    iconType ={
-			    name ="sikh_bg"
-			    spriteType = "GFX_sikh_bg"
-			    position = { x= 5 y = -28 }
-			    Orientation = "UPPER_LEFT"
-		    }
 
 			windowType = {
 				name = "current_guru"
@@ -1718,13 +1725,6 @@ guiTypes = {
 				format = left
 			}
 			
-			iconType =
-			{
-				name ="protestant_aspects_frame_bg"
-				spriteType = "GFX_country_religion_view_protestant_bg"
-				position = { x= 3 y = -44 }
-			}
-			
 			instantTextBoxType = {
 				name = "church_power_label"
 				position = { x = 100 y = -54 }
@@ -1745,93 +1745,6 @@ guiTypes = {
 				Orientation = "UPPER_LEFT"
 				format = left
 				spacing = 14
-			}
-			guiButtonType = {
-				name = "view_aspects"
-				position = { x=8 y = -22}
-				quadTextureSprite ="GFX_protestant_aspects_icon"
-				Orientation = "LEFT"
-			}
-		}
-
-		windowType = {
-			name = "jewish_specific_window"
-			backGround =""
-			position = { x=40 y=235 }	
-			size = { x=280 y=50 }
-			moveable = 0
-			dontRender = ""
-			horizontalBorder = ""
-			Orientation = "UPPER_LEFT"
-
-			iconType =
-			{
-				name ="protestant_aspects_frame_bg"
-				spriteType = "GFX_country_religion_view_protestant_bg"
-				position = { x= 0 y = 16 }
-			}
-
-			instantTextBoxType = {
-				name = "church_name"
-				position = { x = 10 y = 0 }
-				font = "vic_18"
-				borderSize = {x = 0 y = 0}
-				text = "Church of Nothingland"
-				maxWidth = 200
-				maxHeight = 25
-				Orientation = "UPPER_LEFT"
-				format = left
-			}
-
-			instantTextBoxType = {
-				name = "church_power_label"
-				position = { x = 10 y = 20 }
-				font = "vic_18"
-				borderSize = {x = 0 y = 0}
-				maxWidth = 150
-				maxHeight = 25
-				Orientation = "UPPER_LEFT"
-				format = left
-			}
-
-			guiButtonType = {
-				name = "adm_aspect"
-				position = { x=8 y = 38 }
-				quadTextureSprite ="GFX_jewish_aspects_icon"
-				Orientation = "UPPER_LEFT"
-			}
-
-			guiButtonType = {
-				name = "dip_aspect"
-				position = { x=58 y = 38 }
-				quadTextureSprite ="GFX_jewish_aspects_icon"
-				Orientation = "UPPER_LEFT"
-			}
-
-			guiButtonType = {
-				name = "mil_aspect"
-				position = { x=108 y = 38 }
-				quadTextureSprite ="GFX_jewish_aspects_icon"
-				Orientation = "UPPER_LEFT"
-			}
-
-			instantTextBoxType = {
-				name = "celebrate_label"
-				position = { x = 228 y = 20 }
-				font = "vic_18"
-				text = "CELEBRATE"
-				borderSize = {x = 0 y = 0}
-				maxWidth = 150
-				maxHeight = 25
-				Orientation = "UPPER_LEFT"
-				format = left
-			}
-
-			guiButtonType = {
-				name = "celebrate"
-				position = { x=228 y = 38 }
-				quadTextureSprite ="GFX_jewish_aspects_icon"
-				Orientation = "UPPER_LEFT"
 			}
 		}
 
@@ -1873,12 +1786,6 @@ guiTypes = {
 				maxHeight = 25
 				Orientation = "UPPER_LEFT"
 				format = left
-			}
-			guiButtonType = {
-				name = "view_aspects"
-				position = { x=10 y = -43}
-				quadTextureSprite ="GFX_anglican_aspects_icon"
-				Orientation = "LEFT"
 			}
 		}
 		
@@ -2756,6 +2663,8 @@ guiTypes = {
 			maxHeight = 24
 			Orientation = "UPPER_LEFT"
 			format = left
+            fixedsize = yes
+			truncate = yes
 		}
 		
 		instantTextBoxType = {
@@ -2921,58 +2830,6 @@ guiTypes = {
 	}
 
 	################################################################################################
-	################# Church aspect item (for selection) For Jewish
-	windowType = {
-		name = "countryreligionview_aspectitem_jewish"
-		backGround =""
-		position = { x=10 y=-20 }	
-		size = { x=50 y=46 }
-		moveable = 0
-		dontRender = ""
-		horizontalBorder = ""
-		Orientation = "UPPER_LEFT"
-		
-		iconType = {
-			name = "aspect_icon"
-			spriteType = "GFX_hindu_deities_strip"
-			position = { x= 45 y = -14 }
-		}
-		
-		instantTextBoxType = {
-			name = "aspect_name"
-			position = { x= -42 y = 6 }
-			font = "vic_18"
-			borderSize = {x = 0 y = 0}
-			text = "AspectName"	
-			maxWidth = 102
-			maxHeight = 24
-			Orientation = "UPPER_LEFT"
-			format = left
-		}
-		
-		instantTextBoxType = {
-			name = "aspect_effect"
-			position = { x = 98 y = -2 }
-			font = "vic_18"
-			borderSize = {x = 0 y = 0}
-			text = "AspectEffect"	
-			maxWidth = 206
-			maxHeight = 24
-			Orientation = "UPPER_LEFT"
-			format = left
-		}
-		
-		guiButtonType = {
-			name = "pick_aspect"
-			position = { x=301 y = 1}
-			quadTextureSprite ="GFX_standard_button_71"
-			buttonText = "SELECT"
-			buttonFont = "vic_18"
-			Orientation = "LEFT"
-		}
-	}
-
-	################################################################################################																					 
 	################# Church aspect item (for selection) For Anglican
 	windowType = {
 		name = "countryreligionview_aspectitem_anglican"
@@ -3201,7 +3058,6 @@ guiTypes = {
 			maxHeight = 24
 			Orientation = "UPPER_LEFT"
 			format = left
-			alwaystransparent = yes			  
 		}
 
 		instantTextBoxType = {
@@ -3214,7 +3070,6 @@ guiTypes = {
 			maxHeight = 24
 			Orientation = "UPPER_LEFT"
 			format = left
-			alwaystransparent = yes			  
 		}
 	}
 
