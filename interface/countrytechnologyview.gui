@@ -91,13 +91,22 @@ guiTypes = {
 			position = { x=-7 y=130 }
 			moveable = 0
 			Orientation = "UPPER_LEFT"
-		
-			iconType = {
-				name = "bg"
-				spriteType ="GFX_country_institutions_overlay"	
-				position = { x = -18 y = -152 }
-				orientation = "UPPER_LEFT"
-			}
+
+            iconType =
+            {
+                name ="bg"
+                spriteType = "GFX_country_institutions_bg"
+                position = { x= 0 y = 0 }
+                Orientation = "UPPER_LEFT"
+
+            }
+        
+			# iconType = {
+				# name = "bg"
+				# spriteType ="GFX_country_institutions_overlay"	
+				# position = { x = -18 y = -152 }
+				# orientation = "UPPER_LEFT"
+			# }
 			
 			instantTextBoxType = {
 				name = "institutions_title"
@@ -108,7 +117,7 @@ guiTypes = {
 				text = "INSTITUTIONS"	
 				maxWidth = 300
 				maxHeight = 32
-				format = left
+				format = center
 				fixedsize = yes
 			}			
 			
@@ -117,10 +126,17 @@ guiTypes = {
 				position = { x = 20 y = 185 }
 				size = { x = 604 y = 128 }
 				Orientation = "UPPER_LEFT"
-				format = center
+				format = left
 				spacing = 1
 			}
 			
+            iconType = {
+				name = "institution_red_banner_2"
+				spriteType ="GFX_institution_red_banner"	
+				position = { x = 17 y = 130 }
+				orientation = "UPPER_LEFT"
+			}
+            
 			iconType = {
 				name = "institution_red_banner"
 				spriteType ="GFX_institution_red_banner"	
@@ -275,16 +291,25 @@ guiTypes = {
 				text = "4322 ¤"
 			}
 			
-			guiButtonType =
-			{
-				name ="back_button"
-				quadTextureSprite= "GFX_standard_button_105"
-				position = { x = 214 y = 370 }
-				Orientation = "UPPER_LEFT"
-				buttonText = "BACK"
-				buttonFont = "vic_18"
-				shortcut = "n"
+			instantTextBoxType = {
+				name = "penalty"
+				position = { x = 36 y = 9999 }
+				textureFile = ""
+				font = "vic_22"
+				borderSize = {x = 4 y = 4}	
+				maxWidth = 300
+				maxHeight = 32
+				format = left
 			}
+			
+            guiButtonType = {
+                name = "back_button"
+                position = { x = 521 y = 9 }
+                quadTextureSprite ="GFX_closebutton2"	
+                shortcut = "ESCAPE"
+                Orientation = "UPPER_LEFT"
+                clicksound = close_window
+            }	
 		}
 	}
 	
@@ -752,7 +777,6 @@ guiTypes = {
 			Orientation = "UPPERL_LEFT"
 			format = right
 			spacing = -15
-		}
 		
 		iconType =
 		{
@@ -1212,7 +1236,6 @@ guiTypes = {
 			Orientation = "UPPERL_LEFT"
 			format = right
 			spacing = -15
-		}
 		
 		iconType =
 		{
@@ -2092,5 +2115,4 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 			scale = 0.64
 		}
-	}
 }
