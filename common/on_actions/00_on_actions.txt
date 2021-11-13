@@ -2480,6 +2480,8 @@ on_janissaries_raised = {
 }
 
 # THIS = Province
+on_cawa_raised = {
+} 
 on_revolutionary_guard_raised = {
     #log = "[Root.GetName]: Triggered on_revolutionary_guard_raised"
 }
@@ -2791,3 +2793,61 @@ on_extended_regency = {
 	
 }
 
+on_estate_removed = {
+}
+
+on_colonist_boosting_colony = {
+	hidden_effect = {
+		if = {
+			limit = {
+				OR = {
+					religion = noreligion
+					#test if colonists outnumber natives
+					variable_arithmetic_trigger = {
+						custom_tooltip = colonysize_is_larger_than_nativesize_tt
+						export_to_variable = {
+							which = vab_colonysize
+							value = trigger_value:colonysize
+						}
+						export_to_variable = {
+							which = vab_nativesize
+							value = trigger_value:native_size
+						}
+						check_variable = {
+							which = vab_colonysize
+							which = vab_nativesize
+						}
+					}
+					is_in_capital_area = yes
+				}
+			}
+			change_religion = FROM
+		}
+		if = {
+			limit = {
+				OR = {
+					culture = noculture
+					#test if colonists outnumber natives
+					variable_arithmetic_trigger = {
+						custom_tooltip = colonysize_is_larger_than_nativesize_tt
+						export_to_variable = {
+							which = vab_colonysize
+							value = trigger_value:colonysize
+						}
+						export_to_variable = {
+							which = vab_nativesize
+							value = trigger_value:native_size
+						}
+						check_variable = {
+							which = vab_colonysize
+							which = vab_nativesize
+						}
+					}
+					is_in_capital_area = yes
+				}
+			}
+			change_culture = FROM
+			change_original_culture = FROM
+		}
+	}
+}

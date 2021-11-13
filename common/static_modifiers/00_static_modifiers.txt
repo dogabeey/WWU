@@ -112,6 +112,7 @@ in_state = {
 
 in_capital_state = {
 	local_institution_spread = 0.25
+	local_state_maintenance_modifier = -0.5									
 	local_governing_cost = -1.0
 }
 
@@ -184,6 +185,7 @@ mild_winter = {
 normal_winter = {
 	local_hostile_attrition = 2
 	supply_limit_modifier = -0.2
+	migration_cost = 0.1				 
 
 	picture = "winter_normal"
 }
@@ -191,6 +193,7 @@ normal_winter = {
 severe_winter = {
 	local_hostile_attrition = 3
 	supply_limit_modifier = -0.3
+	migration_cost = 0.2				 
 
 	picture = "winter_severe"
 }
@@ -267,7 +270,7 @@ development = {
 	local_sailors = 60			    # special case, affected by autonomy & set to 0 by code if not port
 	province_trade_power_value = 0.2
 	local_amount_of_banners = 0.066
-    
+    local_amount_of_cawa = 0.125
 	local_missionary_strength = -0.002
     local_missionary_maintenance_cost = 0.001
 }
@@ -563,6 +566,9 @@ base_values = {
     
     monthly_piety = -0.01 # Piety
     allowed_marine_fraction = 0.2
+	
+	tolerance_of_heretics_capacity = 3
+	tolerance_of_heathens_capacity = 3
 }
 
 # AI 'cheats' that compensate for flaws in its long-term decision making, removing these may severely cripple the AI
@@ -1758,6 +1764,7 @@ expanded_infrastructure = {
 
 centralize_state = {
 	state_governing_cost_increase = -20
+	picture = "centralize_state"						 
 }
 
 # Applied once for each guru teaching
