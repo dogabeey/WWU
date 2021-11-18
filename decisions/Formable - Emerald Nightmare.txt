@@ -1,0 +1,116 @@
+country_decisions = {
+    form_emerald_nightmare = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+			# Exclusions
+			NOT = { exists = NHE } # Emerald Nightmare			
+		}
+        
+		allow = {
+		
+			# General
+			OR = {
+			    primary_culture = culture_satyr
+				primary_culture = culture_night_elf
+				primary_culture = culture_sentinel
+				primary_culture = culture_cenarion
+			    primary_culture = culture_nightmare_dragonflight
+			    piety = -100
+			    religion = nightmare
+			}
+			is_at_war = no	
+			stability = 2
+            total_development = 1200
+            
+            # Cost
+            adm_power = 400
+			dip_power = 400
+			mil_power = 400
+		}
+        
+		effect = {
+            # Cost
+			add_adm_power = -400
+			add_dip_power = -400
+            add_mil_power = -400
+        
+            # Switch
+			change_tag = NHE
+			change_religion = nightmare
+			set_government_rank = 3
+			if = {
+			    limit = {
+			        primary_culture = culture_green_dragonflight 
+				}
+			    change_primary_culture = culture_nightmare_dragonflight
+			}
+			if = {
+			    limit = {
+			        primary_culture = culture_night_elf 
+				}
+			    change_primary_culture = culture_satyr
+			}
+			if = {
+			    limit = {
+			        primary_culture = culture_sentinel
+				}
+			    change_primary_culture = culture_satyr
+			}
+			every_owned_province = { 
+                limit = {
+                    culture = culture_green_dragonflight
+                    NOT = { culture = culture_nightmare_dragonflight }
+                }
+                change_culture = culture_nightmare_dragonflight
+            }
+			every_owned_province = { 
+                limit = {
+                    culture = culture_night_elf
+                    NOT = { culture = culture_satyr }
+                }
+                change_culture = culture_satyr
+            }
+			every_owned_province = { 
+                limit = {
+                    culture = culture_sentinel
+                    NOT = { culture = culture_satyr }
+                }
+                change_culture = culture_satyr
+            }
+			every_owned_province = { 
+                limit = {
+                    religion = fel
+                    NOT = { religion = nightmare }
+                }
+                change_religion = nightmare
+            }
+			
+			every_owned_province = { 
+                limit = {
+                    religion = druidism
+                    NOT = { religion = nightmare }
+                }
+                change_religion = nightmare
+            }
+			
+			every_owned_province = { 
+                limit = {
+                    religion = dragon_aspects
+                    NOT = { religion = nightmare }
+                }
+                change_religion = nightmare
+            }
+            
+            # Bonus
+			add_formable_bonus = yes
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
