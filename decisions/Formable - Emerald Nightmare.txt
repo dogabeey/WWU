@@ -12,13 +12,8 @@ country_decisions = {
 		
 			# General
 			OR = {
-			    primary_culture = culture_satyr
-				primary_culture = culture_night_elf
-				primary_culture = culture_sentinel
-				primary_culture = culture_cenarion
-			    primary_culture = culture_nightmare_dragonflight
-			    piety = -10
 			    religion = nightmare
+				religion = fel
 			}
 			is_at_war = no	
 			stability = 2
@@ -50,13 +45,31 @@ country_decisions = {
 			    limit = {
 			        primary_culture = culture_night_elf 
 				}
-			    change_primary_culture = culture_satyr
+			    change_primary_culture = culture_nightmare_satyr
 			}
 			if = {
 			    limit = {
 			        primary_culture = culture_sentinel
 				}
-			    change_primary_culture = culture_satyr
+			    change_primary_culture = culture_nightmare_satyr
+			}
+			if = {
+			    limit = {
+			        primary_culture = culture_cenarion
+				}
+			    change_primary_culture = culture_nightmare_cenarion
+			}
+			if = {
+			    limit = {
+			        primary_culture = culture_treant
+				}
+			    change_primary_culture = culture_nightmare_treant
+			}
+			if = {
+			    limit = {
+			        culture_group = culture_group_dryad
+				}
+			    change_primary_culture = culture_nightmare_nymph
 			}
 			every_owned_province = { 
                 limit = {
@@ -68,17 +81,39 @@ country_decisions = {
 			every_owned_province = { 
                 limit = {
                     culture = culture_night_elf
-                    NOT = { culture = culture_satyr }
+                    NOT = { culture = culture_nightmare_satyr }
                 }
-                change_culture = culture_satyr
+                change_culture = culture_nightmare_satyr
             }
 			every_owned_province = { 
                 limit = {
                     culture = culture_sentinel
-                    NOT = { culture = culture_satyr }
+                    NOT = { culture = culture_nightmare_satyr }
                 }
-                change_culture = culture_satyr
+                change_culture = culture_nightmare_satyr
             }
+			every_owned_province = { 
+                limit = {
+                    culture = culture_cenarion
+                    NOT = { culture = culture_nightmare_cenarion }
+                }
+                change_culture = culture_nightmare_cenarion
+            }
+			every_owned_province = { 
+                limit = {
+                    culture = culture_treant
+                    NOT = { culture = culture_nightmare_treant }
+                }
+                change_culture = culture_nightmare_treant
+            }
+			every_owned_province = { 
+                limit = {
+                    culture_group = culture_group_dryad
+                    NOT = { culture = culture_nightmare_nymph }
+                }
+                change_culture = culture_nightmare_nymph
+            }
+
 			every_owned_province = { 
                 limit = {
                     religion = fel
@@ -86,7 +121,6 @@ country_decisions = {
                 }
                 change_religion = nightmare
             }
-			
 			every_owned_province = { 
                 limit = {
                     religion = druidism
@@ -94,7 +128,6 @@ country_decisions = {
                 }
                 change_religion = nightmare
             }
-			
 			every_owned_province = { 
                 limit = {
                     religion = dragon_aspects
