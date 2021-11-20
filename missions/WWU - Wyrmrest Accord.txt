@@ -645,10 +645,12 @@ wwu_wyrmrest_accord_column_5 = {
 		position = 4
 		
         trigger = {
-			calc_if_true = {
-			    region = region_dragonblight = {
-				    culture = culture_proto_drake
+			calc_true_if = {
+				all_owned_province = {
+					region = region_dragonblight
+					culture = culture_proto_drake
 				}
+				amount = 50
 			}
 		}
 		effect = {
