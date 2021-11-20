@@ -1,0 +1,709 @@
+#--------------------------------------
+# Wyrmrest Accord
+#--------------------------------------
+wwu_wyrmrest_accord_column_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = WYA
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_wall_of_dragons = {
+		icon = mission_titan_spirits
+		required_missions = { }
+		
+		trigger = {
+            is_subject = no
+		    is_at_war = no
+			if = {
+				limit = {
+					has_estate = estate_nobility
+				}
+				estate_influence = {
+					estate = estate_nobility
+					influence = 50
+				}
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 60
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_center_of_all_dragons
+                duration = -1
+            }
+		}
+	}
+	wwu_expanding_temple_infuence_wya = {
+		icon = mission_equipment
+		required_missions = { wwu_wall_of_dragons }
+		position = 2
+		
+		trigger = {
+			share_of_starting_income = 1.5 
+		}
+		effect = {
+		    add_adm_power = 100
+			add_dip_power = 100
+			add_country_modifier = {
+                name = mission_access_to_sea_wya
+                duration = -1
+            }
+		}
+	}
+	wwu_link_of_all_dragons_wya = {
+	    icon = mission_drake_red
+		required_missions = { wwu_expanding_temple_infuence_wya }
+		position = 3
+		
+		trigger = {
+			own_core_province = 545
+			own_core_province = 1233
+			own_core_province = 1544
+			own_core_province = 529
+			own_core_province = 1018
+		}
+		effect = {
+			add_prestige = 20
+			capital_scope = {
+				add_base_manpower = 3
+				add_base_tax = 3
+				add_base_production = 3
+			}
+			add_country_modifier = {
+                name = mission_flight_of_all_dragonflights
+                duration = -1
+            }
+			area_moakai_harbor = {
+                add_permanent_claim = ROOT
+            }
+			area_south_hearthglen = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_expanding_into_dragonblight_wya = {
+	    icon = mission_drake_red
+		required_missions = { wwu_expanding_temple_infuence_wya }
+		position = 4
+		
+		provinces_to_highlight = {
+		    OR = {
+			    area = area_south_hearthglen
+		        area = area_moakai_harbor
+				area = area_north_hearthglen
+				area = area_moonrest_gardens
+				area = area_stars_rest
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+            area_moakai_harbor = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_south_hearthglen = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_north_hearthglen = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_moonrest_gardens = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_stars_rest = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_dragon_dragonblight
+                duration = -1
+            }
+		}
+	}
+	wwu_dragonblight_masters_wya = {
+	    icon = mission_drake_bronze
+		required_missions = { wwu_expanding_into_dragonblight_wya }
+		position = 5
+		
+		provinces_to_highlight = {
+			region = region_dragonblight
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+            region_dragonblight = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_prestige = 20
+			add_stability = 1
+			add_country_modifier = {
+                name = mission_dragonblight_masters_wya
+                duration = -1
+            }
+			area_ulduar = {
+                add_permanent_claim = ROOT
+            }
+			area_coldarra = {
+                add_permanent_claim = ROOT
+            }
+		}		
+	}
+	wwu_danger_from_nexus_wya = {
+	    icon = mission_drake_blue
+		required_missions = { wwu_dragonblight_masters_wya }
+		position = 6
+		
+		provinces_to_highlight = {
+			area = area_coldarra
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		    area_coldarra = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = { exists = B01 } #Blue Dragonflight
+		}
+        effect = {
+			add_mil_power = 200
+			add_adm_power = 100
+			add_country_modifier = {
+                name = mission_the_last_dragon_kingdom_of_northrend_wya
+                duration = -1
+            }
+		}
+	}
+	wwu_danger_from_the_west_wya = {
+	    icon = mission_vrykul_belt
+		required_missions = { wwu_danger_from_nexus_wya }
+		position = 7
+		
+		provinces_to_highlight = {
+			region = region_howling_fjord
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		    region_howling_fjord = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        effect = {
+			add_mil_power = 200
+			add_country_modifier = {
+                name = mission_kill_the_dragonriders_wya
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_wyrmrest_accord_column_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = WYA
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_strike_at_ulduar_wya = { 
+		icon = mission_strand_of_the_ancients
+		required_missions = { wwu_dragonblight_masters_wya }
+		position = 6
+		
+		provinces_to_highlight = {
+		    area = area_ulduar
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			area_ulduar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { 
+		    add_dip_power = 200
+			add_mil_power = 100
+			add_country_modifier = {
+                name = mission_deal_with_yogg_saron_wya
+                duration = -1
+            }
+		}
+	}
+	wwu_heal_old_god_corruption = {
+		icon = mission_void_walker
+		required_missions = { wwu_strike_at_ulduar_wya }
+		position = 7
+
+		provinces_to_highlight = {
+			area = area_ulduar				
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+		    area_uldaman = {
+				type = all
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_removing_yoggsaron_corruption
+                duration = -1
+            }
+			area_deepholm = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	wwu_reverse_cataclysm = {
+		icon = mission_black_dragonflight
+		required_missions = { wwu_heal_old_god_corruption }
+		position = 8
+		provinces_to_highlight = {
+			area = area_deepholm
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			area_deepholm = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 20
+			add_country_modifier = {
+                name = mission_no_cataclysm_on_my_watch
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_wyrmrest_accord_column_3 = {
+    slot = 3
+	generic = no
+	ai = yes
+	
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = WYA
+	}
+	
+	has_country_shield = yes
+	
+	wwu_organising_the_faith_wya = {
+	    icon = mission_paladin_blinding_light
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+            is_subject = no
+		    is_at_war = no
+			NOT = { mission_completed = wwu_dragonblight_owners_wya }
+			if = {
+				limit = {
+					has_estate = estate_clergy
+				}
+				estate_influence = {
+					estate = estate_nobility
+					influence = 50
+				}
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 60
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_organised_clergy_wya
+                duration = -1
+            }
+	    }
+	}
+	wwu_religious_dragonblight_wya = {
+		icon = mission_drake_red
+		position = 2
+		required_missions = { wwu_organising_the_faith_wya }
+		
+		trigger = {
+			calc_true_if = {
+			    all_owned_province = {
+			        religion = ROOT
+				}
+				amount = 20
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mission_dranon_aspect_dragonblight_wya
+				duration = -1
+			}
+		}
+	}
+	wwu_black_dragonflight_corruption = {
+		icon = mission_black_dragonflight
+		required_missions = { wwu_religious_dragonblight_wya }
+		position = 3
+		
+		trigger = {
+		    OR = {
+			    BD1 = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 60
+					}
+                }
+				BD2 = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 60
+					}
+                }
+				BD3 = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 60
+					}
+                }
+				BD4 = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 60
+					}
+                }
+            }
+		}
+		effect = {
+			random_owned_province = {
+                limit = {
+                    change_religion = corrupt_dragon_aspect
+				}
+				value = 4
+            }
+			add_country_modifier = {
+                name = mission_black_dr_corruption
+                duration = -1
+            }
+		}
+	}
+	wwu_rise_of_chromatic_dragonflight_wya = {
+	    icon = mission_drake_twilight
+		required_missions = { wwu_black_dragonflight_corruption }
+		position = 4
+		
+        trigger = {
+			calc_true_if = {
+			    all_owned_province = {
+			        religion = corrupt_dragon_aspect
+				}
+				amount = 15
+			}
+		}
+		effect = {
+			change_religion = corrupt_dragon_aspect
+            change_tag = CHR
+			add_country_modifier = {
+                name = mission_chromatic_dr_wya
+                duration = -1
+            }
+		}
+	}
+	wwu_stabilize_the_new_brood_wya = {
+	    icon = mission_drake_twilight
+		required_missions = { wwu_rise_of_chromatic_dragonflight_wya }
+		position = 5
+		
+        trigger = {
+			stability = 2
+			prestige = 70
+			legitimacy_equivalent = 80
+		}
+		effect = {
+			add_dip_power = 100
+			add_adm_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+                name = mission_stabilise_chromatic_dr_wya
+                duration = -1
+            }
+	    }
+	}
+	wwu_time_to_conquer_the_world_wya = {
+	    icon = mission_hunter_rapid_killing
+		required_missions = { wwu_rise_of_chromatic_dragonflight_wya }
+		position = 6
+		
+        trigger = {
+			num_of_states = 30
+		}
+		effect = {
+			add_dip_power = 100
+			add_adm_power = 100
+			add_mil_power = 100
+			add_casus_belli = {
+                target = heathen
+                type = cb_world_crusade
+                months = -1
+            }
+			add_casus_belli = {
+                target = heretic
+                type = cb_world_crusade
+                months = -1
+            }
+			add_country_modifier = {
+                name = mission_chromatic_wc_wya
+                duration = -1
+            }
+	    }
+	}
+}
+
+wwu_wyrmrest_accord_column_4 = {
+    slot = 4
+    generic = no
+	ai = yes
+	
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = WYA
+	}
+	
+	has_country_shield = yes
+	
+	wwu_unite_the_dragonflights_wya = {
+	    icon = mission_drake_bronze
+	    required_missions = { wwu_dragonblight_for_dragonflights_wya }
+	    position = 3
+	
+    	trigger = {
+	        NOT = { mission_completed = wwu_turn_to_the_old_ways_wya }
+	        NOT = { exists = A99}
+		    NOT = { exists = B01}
+		    NOT = { exists = B02}
+		    NOT = { exists = B03}
+		    NOT = { exists = B04}
+			prestige = 100
+			legitimacy_equivalent = 90
+			stability = 2
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_one_dragonflight_wya
+                duration = -1
+            }
+			every_owned_province = { 
+                limit = {
+                    culture_group = culture_group_dragonkin
+                    NOT = { culture = culture_aspects }
+                }
+                change_culture = culture_aspects
+            }
+		}	
+	}
+	wwu_dawn_of_aspects_wya = {
+	    icon = mission_drake_proto
+	    required_missions = { wwu_unite_the_dragonflights_wya }
+	    position = 4
+	
+    	trigger = {
+	        region_dragonblight = {
+		        culture = culture_aspects
+				owned_by = ROOT
+			}
+			region_borean_tundra = {
+		        culture = culture_aspects
+				owned_by = ROOT
+			}
+			region_grizzly_hills = {
+		        culture = culture_aspects
+				owned_by = ROOT
+			}
+			region_crystalsong = {
+		        culture = culture_aspects
+				owned_by = ROOT
+			}
+			region_howling_fjord = {
+		        culture = culture_aspects
+				owned_by = ROOT
+			}
+		}
+		effect = {
+		    add_prestige = 100
+			add_stability = 1
+			add_dip_power = 300
+			add_mil_power = 300
+			add_adm_power = 300
+			add_country_modifier = {
+                name = mission_dawn_of_aspects_wya
+                duration = -1
+            }
+		}	
+	}
+}
+
+wwu_wyrmrest_accord_column_5 = {
+    slot = 5
+    generic = no
+	ai = yes
+	
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = WYA
+	}
+	
+	has_country_shield = yes
+	
+	wwu_dragonblight_owners_wya = {
+	    icon = mission_drake_bronze
+		required_missions = { }
+		
+		provinces_to_highlight = {
+			region = region_dragonblight
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		    NOT = { mission_completed = wwu_organising_the_faith_wya }
+            region_dragonblight = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}		
+		effect = {
+		    add_prestige = 20
+			add_country_modifier = {
+                name = mission_dragonblight_owners_wya
+                duration = -1
+            }
+		}		
+	}
+	wwu_dragonblight_for_dragonflights_wya = {
+	    icon = mission_eranikus
+		required_missions = { wwu_dragonblight_owners_wya }
+		position = 2
+		
+        trigger = {
+			calc_true_if = {
+			    all_owned_province = {
+			        culture = ROOT
+				}
+				amount = 20
+			}
+		}
+		effect = {
+		    add_prestige = 20
+			add_country_modifier = {
+                name = mission_dragonflight_culture_wya
+                duration = -1
+            }
+		}
+	}
+	wwu_turn_to_the_old_ways_wya = {
+	    icon = mission_drake_proto
+		required_missions = { wwu_dragonblight_ford_dragonflights_wya }
+		position = 3
+		
+		provinces_to_highlight = {
+		    province_id = 733
+		    NOT = { owned_by = ROOT }
+		}
+        trigger = {
+		    NOT = { mission_completed = wwu_unite_the_dragonflights_wya }
+			own_core_province = 733
+			prestige = 60
+			stability = 2
+		}
+		effect = {
+		    add_prestige = 20
+			change_primary_culture = culture_proto_drake
+			add_country_modifier = {
+                name = mission_proto_drakes_wya
+                duration = -1
+            }
+		}
+	}
+	wwu_devour_the_other_dragonflights_wya = {
+	    icon = mission_cannibalize
+		required_missions = { wwu_turn_to_the_old_ways_wya }
+		position = 4
+		
+        trigger = {
+			calc_if_true = {
+			    region = region_dragonblight = {
+				    culture = culture_proto_drake
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_proto_drake_sepremacy_wya
+                duration = -1
+            }
+		}
+	}
+	wwu_galakrond_the_father_of_dragons_wya = {
+	    icon = mission_devour
+		required_missions = { wwu_devour_the_other_dragonflights_wya }
+		position = 5
+		
+        trigger = {
+			733 = { development = 20 }
+		}
+		effect = {
+		    change_tag = GKS
+			add_country_modifier = {
+                name = mission_galakrond_awakened_wya
+                duration = -1
+            }
+			define_ruler = {
+                name = "Galakrond"
+                dynasty = "Father of Dragons"
+                adm = 4
+                dip = 4
+                mil = 7
+                fixed = yes
+            }
+			set_ruler_flag = is_immortal
+		}
+	}
+	wwu_devour_the_world_wya = {
+	    icon = mission_hunter_rapid_killing
+		required_missions = { wwu_galakrond_the_father_of_dragons_wya }
+		position = 6
+		
+        trigger = {
+			num_of_states = 30
+		}
+		effect = {
+			add_dip_power = 100
+			add_adm_power = 100
+			add_mil_power = 100
+			add_casus_belli = {
+                target = tags
+                type = cb_imperialism
+                months = -1
+            }
+			add_country_modifier = {
+                name = mission_galakrond_wc_wya
+                duration = -1
+            }
+	    }
+	}
+}
