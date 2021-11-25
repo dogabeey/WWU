@@ -1,17 +1,17 @@
 #--------------------------------------
-# Wyrmrest Accord
+# Red Dragonflight
 #--------------------------------------
-wwu_wyrmrest_accord_column_1 = {
+wwu_red_dragonflight_column_1 = {
 	slot = 1
 	generic = no
 	ai = yes
 	potential = {
-		tag = WYA
+		tag = B03
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
 	
-	wwu_wall_of_dragons_wya = {
+	wwu_red_dragon_nest_b03 = {
 		icon = mission_titan_spirits
 		required_missions = { }
 		
@@ -34,14 +34,17 @@ wwu_wyrmrest_accord_column_1 = {
 		}
 		effect = {
 			add_country_modifier = {
-                name = mission_center_of_all_dragons_wya
+                name = mission_red_dragonflights_nest_b03
                 duration = -1
             }
 		}
+		area_wyrmrest_temple = {
+            add_permanent_claim = ROOT
+        }
 	}
-	wwu_expanding_temple_infuence_wya = {
+	wwu_expanding_dragonflights_infuence_b03 = {
 		icon = mission_equipment
-		required_missions = { wwu_wall_of_dragons_wya }
+		required_missions = { wwu_red_dragon_nest_b03 }
 		position = 2
 		
 		trigger = {
@@ -51,21 +54,21 @@ wwu_wyrmrest_accord_column_1 = {
 		    add_adm_power = 100
 			add_dip_power = 100
 			add_country_modifier = {
-                name = mission_access_to_sea_wya
+                name = mission_access_to_sea_b03
                 duration = -1
             }
 		}
 	}
-	wwu_link_of_all_dragons_wya = {
+	wwu_control_the_other_broods_b03 = {
 	    icon = mission_drake_red
-		required_missions = { wwu_expanding_temple_infuence_wya }
+		required_missions = { wwu_expanding_dragonflights_infuence_b03 }
 		position = 3
 		
 		trigger = {
 			owns_or_non_sovereign_subject_of = 545
 			owns_or_non_sovereign_subject_of = 1233
 			owns_or_non_sovereign_subject_of = 2418
-			owns_or_non_sovereign_subject_of = 529
+			owns_or_non_sovereign_subject_of = 3241
 			owns_or_non_sovereign_subject_of = 1018
 		}
 		effect = {
@@ -76,7 +79,7 @@ wwu_wyrmrest_accord_column_1 = {
 				add_base_production = 3
 			}
 			add_country_modifier = {
-                name = mission_flight_of_all_dragonflights_wya
+                name = mission_flight_of_all_dragonflights_b03
                 duration = -1
             }
 			area_moakai_harbor = {
@@ -87,9 +90,9 @@ wwu_wyrmrest_accord_column_1 = {
             }
 		}
 	}
-	wwu_expanding_into_dragonblight_wya = {
+	wwu_expanding_into_dragonblight_b03 = {
 	    icon = mission_drake_red
-		required_missions = { wwu_link_of_all_dragons_wya }
+		required_missions = { wwu_control_the_other_broods_b03 }
 		position = 4
 		
 		provinces_to_highlight = {
@@ -126,14 +129,14 @@ wwu_wyrmrest_accord_column_1 = {
 		}
 		effect = {
 			add_country_modifier = {
-                name = mission_dragon_dragonblight_wya
+                name = mission_dragon_dragonblight_b03
                 duration = -1
             }
 		}
 	}
-	wwu_dragonblight_masters_wya = {
+	wwu_dragonblight_masters_b03 = {
 	    icon = mission_drake_bronze
-		required_missions = { wwu_expanding_into_dragonblight_wya }
+		required_missions = { wwu_expanding_into_dragonblight_b03 }
 		position = 5
 		
 		provinces_to_highlight = {
@@ -150,20 +153,20 @@ wwu_wyrmrest_accord_column_1 = {
 		    add_prestige = 20
 			add_stability = 1
 			add_country_modifier = {
-                name = mission_dragonblight_masters_wya
+                name = mission_dragonblight_masters_b03
                 duration = -1
-            }
-			area_ulduar = {
-                add_permanent_claim = ROOT
             }
 			area_coldarra = {
                 add_permanent_claim = ROOT
             }
+			area_deepholm = {
+                add_permanent_claim = ROOT
+            }
 		}		
 	}
-	wwu_danger_from_nexus_wya = {
+	wwu_danger_from_nexus_b03 = {
 	    icon = mission_drake_blue
-		required_missions = { wwu_dragonblight_masters_wya }
+		required_missions = { wwu_dragonblight_masters_b03 }
 		position = 6
 		
 		provinces_to_highlight = {
@@ -181,14 +184,14 @@ wwu_wyrmrest_accord_column_1 = {
 			add_mil_power = 200
 			add_adm_power = 100
 			add_country_modifier = {
-                name = mission_the_last_dragon_kingdom_of_northrend_wya
+                name = mission_the_last_dragon_kingdom_of_northrend_b03
                 duration = -1
             }
 		}
 	}
-	wwu_danger_from_the_east_wya = {
+	wwu_danger_from_the_east_b03 = {
 	    icon = mission_vrykul_belt
-		required_missions = { wwu_danger_from_nexus_wya }
+		required_missions = { wwu_danger_from_nexus_b03 }
 		position = 7
 		
 		provinces_to_highlight = {
@@ -204,78 +207,27 @@ wwu_wyrmrest_accord_column_1 = {
         effect = {
 			add_mil_power = 200
 			add_country_modifier = {
-                name = mission_kill_the_dragonriders_wya
+                name = mission_kill_the_dragonriders_b03
                 duration = -1
             }
 		}
 	}
 }
 
-wwu_wyrmrest_accord_column_2 = {
+wwu_red_dragonflight_column_2 = {
 	slot = 2
 	generic = no
 	ai = yes
 	potential = {
-		tag = WYA
+		tag = B03
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
 	
-	wwu_strike_at_ulduar_wya = { 
-		icon = mission_strand_of_the_ancients
-		required_missions = { wwu_dragonblight_masters_wya }
-		position = 6
-		
-		provinces_to_highlight = {
-		    area = area_ulduar
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		
-		trigger = {
-			area_ulduar = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		effect = { 
-		    add_dip_power = 200
-			add_mil_power = 100
-			add_country_modifier = {
-                name = mission_deal_with_yogg_saron_wya
-                duration = -1
-            }
-		}
-	}
-	wwu_heal_old_god_corruption_wya = {
-		icon = mission_void_walker
-		required_missions = { wwu_strike_at_ulduar_wya }
-		position = 7
-
-		provinces_to_highlight = {
-			area = area_ulduar				
-			NOT = { religion = ROOT }
-		}
-		trigger = {
-		    area_uldaman = {
-				type = all
-				religion = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-                name = mission_removing_yoggsaron_corruption_wya
-                duration = -1
-            }
-			area_deepholm = {
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-	
-	wwu_reverse_cataclysm_wya = {
+	wwu_reverse_cataclysm_b03 = {
 		icon = mission_black_dragonflight
-		required_missions = { wwu_heal_old_god_corruption_wya }
-		position = 8
+		required_missions = { wwu_dragonblight_masters_b03 }
+		position = 6
 		provinces_to_highlight = {
 			area = area_deepholm
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -287,28 +239,28 @@ wwu_wyrmrest_accord_column_2 = {
 			}
 		}
 		effect = {
-			add_prestige = 20
+			add_prestige = 30
 			add_country_modifier = {
-                name = mission_no_cataclysm_on_my_watch_wya
+                name = mission_no_cataclysm_on_my_watch_b03
                 duration = -1
             }
 		}
 	}
 }
 
-wwu_wyrmrest_accord_column_3 = {
+wwu_red_dragonflight_column_3 = {
     slot = 3
 	generic = no
 	ai = yes
 	
 	potential = {
 		NOT = { map_setup = map_setup_random }
-		tag = WYA
+		tag = B03
 	}
 	
 	has_country_shield = yes
 	
-	wwu_organising_the_faith_wya = {
+	wwu_organising_the_faith_b03 = {
 	    icon = mission_paladin_blinding_light
 		required_missions = { }
 		position = 1
@@ -316,7 +268,7 @@ wwu_wyrmrest_accord_column_3 = {
 		trigger = {
             is_subject = no
 		    is_at_war = no
-			NOT = { mission_completed = wwu_dragonblight_owners_wya }
+			NOT = { mission_completed = wwu_dragonblight_owners_b03 }
 			if = {
 				limit = {
 					has_estate = estate_clergy
@@ -333,15 +285,15 @@ wwu_wyrmrest_accord_column_3 = {
 		}
 		effect = {
 			add_country_modifier = {
-                name = mission_organised_clergy_wya
+                name = mission_organised_clergy_b03
                 duration = -1
             }
 	    }
 	}
-	wwu_religious_dragonblight_wya = {
+	wwu_religious_dragonblight_b03 = {
 		icon = mission_drake_red
 		position = 2
-		required_missions = { wwu_organising_the_faith_wya }
+		required_missions = { wwu_organising_the_faith_b03 }
 		
 		trigger = {
 			calc_true_if = {
@@ -353,14 +305,14 @@ wwu_wyrmrest_accord_column_3 = {
 		}
 		effect = {
 			add_country_modifier = {
-				name = mission_dragon_aspect_dragonblight_wya
+				name = mission_dragon_aspect_dragonblight_b03
 				duration = -1
 			}
 		}
 	}
-	wwu_black_dragonflight_corruption_wya = {
+	wwu_black_dragonflight_corruption_b03 = {
 		icon = mission_black_dragonflight
-		required_missions = { wwu_religious_dragonblight_wya }
+		required_missions = { wwu_religious_dragonblight_b03 }
 		position = 3
 		
 		trigger = {
@@ -368,25 +320,25 @@ wwu_wyrmrest_accord_column_3 = {
 			    BD1 = {
                     has_opinion = {
                         who = ROOT
-                        value = 60
+                        value = -100
 					}
                 }
 				BD2 = {
                     has_opinion = {
                         who = ROOT
-                        value = 60
+                        value = -100
 					}
                 }
 				BD3 = {
                     has_opinion = {
                         who = ROOT
-                        value = 60
+                        value = -100
 					}
                 }
 				BD4 = {
                     has_opinion = {
                         who = ROOT
-                        value = 60
+                        value = -100
 					}
                 }
             }
@@ -396,14 +348,14 @@ wwu_wyrmrest_accord_column_3 = {
 				change_religion = corrupt_dragon_aspect
 			}
 			add_country_modifier = {
-                name = mission_black_dr_corruption_wya
+                name = mission_black_dr_corruption_b03
                 duration = -1
             }
 		}
 	}
-	wwu_rise_of_chromatic_dragonflight_wya = {
+	wwu_rise_of_chromatic_dragonflight_b03 = {
 	    icon = mission_drake_twilight
-		required_missions = { wwu_black_dragonflight_corruption_wya }
+		required_missions = { wwu_black_dragonflight_corruption_b03 }
 		position = 4
 		
         trigger = {
@@ -418,14 +370,14 @@ wwu_wyrmrest_accord_column_3 = {
 			change_religion = corrupt_dragon_aspect
             change_tag = CHR			
 			add_country_modifier = {
-                name = mission_chromatic_dr_wya
+                name = mission_chromatic_dr_b03
                 duration = -1
             }
 		}
 	}
-	wwu_stabilize_the_new_brood_wya = {
+	wwu_stabilize_the_new_brood_b03 = {
 	    icon = mission_drake_twilight
-		required_missions = { wwu_rise_of_chromatic_dragonflight_wya }
+		required_missions = { wwu_rise_of_chromatic_dragonflight_b03 }
 		position = 5
 		
         trigger = {
@@ -438,14 +390,14 @@ wwu_wyrmrest_accord_column_3 = {
 			add_mil_power = 100
 			change_primary_culture = culture_chromatic_dragonflight
 			add_country_modifier = {
-                name = mission_stabilise_chromatic_dr_wya
+                name = mission_stabilise_chromatic_dr_b03
                 duration = -1
             }
 	    }
 	}
-	wwu_time_to_conquer_the_world_wya = {
+	wwu_time_to_conquer_the_world_b03 = {
 	    icon = mission_hunter_rapid_killing
-		required_missions = { wwu_stabilize_the_new_brood_wya }
+		required_missions = { wwu_stabilize_the_new_brood_b03 }
 		position = 6
 		
         trigger = {
@@ -456,36 +408,36 @@ wwu_wyrmrest_accord_column_3 = {
 			add_adm_power = 200
 			add_mil_power = 200
 			add_country_modifier = {
-                name = mission_chromatic_wc_wya
+                name = mission_chromatic_wc_b03
                 duration = -1
             }
 	    }
 	}
 }
 
-wwu_wyrmrest_accord_column_4 = {
+wwu_red_dragonflight_column_4 = {
     slot = 4
     generic = no
 	ai = yes
 	
 	potential = {
 		NOT = { map_setup = map_setup_random }
-		tag = WYA
+		tag = B03
 	}
 	
 	has_country_shield = yes
 	
-	wwu_unite_the_dragonflights_wya = {
+	wwu_unite_the_dragonflights_b03 = {
 	    icon = mission_drake_bronze
-	    required_missions = { wwu_dragonblight_for_dragonflights_wya }
+	    required_missions = { wwu_dragonblight_for_dragonflights_b03 }
 	    position = 3
 	
     	trigger = {
-	        NOT = { mission_completed = wwu_turn_to_the_old_ways_wya }
+	        NOT = { mission_completed = wwu_turn_to_the_old_ways_b03 }
 	        NOT = { exists = A99}
 		    NOT = { exists = B01}
 		    NOT = { exists = B02}
-		    NOT = { exists = B03}
+		    NOT = { exists = WYA}
 		    NOT = { exists = B04}
 			prestige = 100
 			legitimacy_equivalent = 90
@@ -493,7 +445,7 @@ wwu_wyrmrest_accord_column_4 = {
 		}
 		effect = {
 			add_country_modifier = {
-                name = mission_one_dragonflight_wya
+                name = mission_one_dragonflight_b03
                 duration = -1
             }
 			every_owned_province = { 
@@ -505,9 +457,9 @@ wwu_wyrmrest_accord_column_4 = {
             }
 		}	
 	}
-	wwu_dawn_of_aspects_wya = {
+	wwu_dawn_of_red_dragonflight_b03 = {
 	    icon = mission_drake_proto
-	    required_missions = { wwu_unite_the_dragonflights_wya }
+	    required_missions = { wwu_unite_the_dragonflights_b03 }
 	    position = 4
 	
     	trigger = {
@@ -544,26 +496,26 @@ wwu_wyrmrest_accord_column_4 = {
 			add_mil_power = 300
 			add_adm_power = 300
 			add_country_modifier = {
-                name = mission_dawn_of_aspects_wya
+                name = mission_dawn_of_red_drag_b03
                 duration = -1
             }
 		}	
 	}
 }
 
-wwu_wyrmrest_accord_column_5 = {
+wwu_red_dragonflight_column_5 = {
     slot = 5
     generic = no
 	ai = yes
 	
 	potential = {
 		NOT = { map_setup = map_setup_random }
-		tag = WYA
+		tag = B03
 	}
 	
 	has_country_shield = yes
 	
-	wwu_dragonblight_owners_wya = {
+	wwu_dragonblight_owners_b03 = {
 	    icon = mission_drake_bronze
 		required_missions = { }
 		
@@ -572,7 +524,7 @@ wwu_wyrmrest_accord_column_5 = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-		    NOT = { mission_completed = wwu_organising_the_faith_wya }
+		    NOT = { mission_completed = wwu_organising_the_faith_b03 }
             region_dragonblight = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -581,14 +533,14 @@ wwu_wyrmrest_accord_column_5 = {
 		effect = {
 		    add_prestige = 20
 			add_country_modifier = {
-                name = mission_dragonblight_owners_wya
+                name = mission_dragonblight_owners_b03
                 duration = -1
             }
 		}		
 	}
-	wwu_dragonblight_for_dragonflights_wya = {
+	wwu_dragonblight_for_dragonflights_b03 = {
 	    icon = mission_eranikus
-		required_missions = { wwu_dragonblight_owners_wya }
+		required_missions = { wwu_dragonblight_owners_b03 }
 		position = 2
 		
         trigger = {
@@ -602,14 +554,14 @@ wwu_wyrmrest_accord_column_5 = {
 		effect = {
 		    add_prestige = 20
 			add_country_modifier = {
-                name = mission_dragonflight_culture_wya
+                name = mission_dragonflight_culture_b03
                 duration = -1
             }
 		}
 	}
-	wwu_turn_to_the_old_ways_wya = {
+	wwu_turn_to_the_old_ways_b03 = {
 	    icon = mission_drake_proto
-		required_missions = { wwu_dragonblight_for_dragonflights_wya }
+		required_missions = { wwu_dragonblight_for_dragonflights_b03 }
 		position = 3
 		
 		provinces_to_highlight = {
@@ -617,7 +569,7 @@ wwu_wyrmrest_accord_column_5 = {
 		    NOT = { owned_by = ROOT }
 		}
         trigger = {
-		    NOT = { mission_completed = wwu_unite_the_dragonflights_wya }
+		    NOT = { mission_completed = wwu_unite_the_dragonflights_b03 }
 			own_core_province = 733
 			prestige = 60
 			stability = 2
@@ -626,14 +578,14 @@ wwu_wyrmrest_accord_column_5 = {
 		    add_prestige = 20
 			change_primary_culture = culture_proto_drake
 			add_country_modifier = {
-                name = mission_proto_drakes_wya
+                name = mission_proto_drakes_b03
                 duration = -1
             }
 		}
 	}
-	wwu_devour_the_other_dragonflights_wya = {
+	wwu_devour_the_other_dragonflights_b03 = {
 	    icon = mission_cannibalize
-		required_missions = { wwu_turn_to_the_old_ways_wya }
+		required_missions = { wwu_turn_to_the_old_ways_b03 }
 		position = 4
 		
         trigger = {
@@ -647,14 +599,14 @@ wwu_wyrmrest_accord_column_5 = {
 		}
 		effect = {
 			add_country_modifier = {
-                name = mission_proto_drake_sepremacy_wya
+                name = mission_proto_drake_sepremacy_b03
                 duration = -1
             }
 		}
 	}
-	wwu_galakrond_the_father_of_dragons_wya = {
+	wwu_galakrond_the_father_of_dragons_b03 = {
 	    icon = mission_devour
-		required_missions = { wwu_devour_the_other_dragonflights_wya }
+		required_missions = { wwu_devour_the_other_dragonflights_b03 }
 		position = 5
 		
         trigger = {
@@ -663,7 +615,7 @@ wwu_wyrmrest_accord_column_5 = {
 		effect = {
 		    change_tag = GKS
 			add_country_modifier = {
-                name = mission_galakrond_awakened_wya
+                name = mission_galakrond_awakened_b03
                 duration = -1
             }
 			define_ruler = {
@@ -677,9 +629,9 @@ wwu_wyrmrest_accord_column_5 = {
 			set_ruler_flag = is_immortal
 		}
 	}
-	wwu_devour_the_world_wya = {
+	wwu_devour_the_world_b03 = {
 	    icon = mission_hunter_rapid_killing
-		required_missions = { wwu_galakrond_the_father_of_dragons_wya }
+		required_missions = { wwu_galakrond_the_father_of_dragons_b03 }
 		position = 6
 		
         trigger = {
@@ -690,7 +642,7 @@ wwu_wyrmrest_accord_column_5 = {
 			add_adm_power = 300
 			add_mil_power = 300
 			add_country_modifier = {
-                name = mission_galakrond_wc_wya
+                name = mission_galakrond_wc_b03
                 duration = -1
             }
 	    }
