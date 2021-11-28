@@ -1,0 +1,527 @@
+#--------------------------------------
+# Vermilion Redoubt
+#--------------------------------------
+wwu_vermilion_redoubt_column_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = V01
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_red_dragon_nest_v01 = {
+		icon = mission_drake_red
+		required_missions = { }
+		
+		trigger = {
+            is_subject = no
+		    is_at_war = no
+			if = {
+				limit = {
+					has_estate = estate_nobility
+				}
+				estate_influence = {
+					estate = estate_nobility
+					influence = 50
+				}
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 60
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_redoubts_nests_v01
+                duration = -1
+            }
+			area_lower_wetlands = {
+            add_permanent_claim = ROOT
+			}
+			area_dun_modr = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_nest_safety_investments_v01 = {
+		icon = mission_equipment
+		required_missions = { wwu_red_dragon_nest_v01 }
+		position = 2
+		
+		trigger = {
+			841 = { development = 30 }
+		}
+		effect = {
+		    add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+                name = mission_nest_development_v01
+                duration = -1
+            }
+		}
+	}
+	wwu_invade_the_highlands_v01 = {
+	    icon = mission_hunter_vs_wild
+		required_missions = { wwu_nest_safety_investments_v01 }
+		position = 3
+		
+		provinces_to_highlight = {
+		    OR = {
+			    area = area_grim_batol
+		        area = area_thundermar
+				area = area_maw_of_madness
+				area = area_kirkhaven
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		    NOT = { mission_completed = wwu_ally_the_wildhammer_v01 }
+			area_grim_batol = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_thundermar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_maw_of_madness = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_kirkhaven = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 20
+			add_mil_power = 200
+			add_country_modifier = {
+                name = mission_invade_highlands_v01
+                duration = -1
+            }
+			area_dragonmaw_port = {
+                add_permanent_claim = ROOT
+            }
+			area_obsidian_scar = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_south_highlands_v01 = {
+	    icon = mission_troll_male
+		required_missions = { wwu_invade_the_highlands_v01 }
+		position = 4
+		
+		provinces_to_highlight = {
+		    OR = {
+			    area = area_twilight_shore
+		        area = area_bastion_of_twilight
+				area = area_dragonmaw_port
+				area = area_obsidian_scar
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+            area_twilight_shore = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_bastion_of_twilight = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_dragonmaw_port = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_obsidian_scar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_dragonic_highlands_v01
+                duration = -1
+            }
+		}
+	}
+	wwu_wetlands_threat_v01 = {
+	    icon = mission_orc_ogrim
+		required_missions = { wwu_south_highlands_v01 }
+		position = 5
+		
+		provinces_to_highlight = {
+			area = area_dun_algaz
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+            area_dun_algaz = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_prestige = 20
+			add_stability = 1
+			add_country_modifier = {
+                name = mission_dragonmaw_threat_v01
+                duration = -1
+            }
+		}		
+	}
+}
+
+wwu_vermilion_redoubt_column_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = V01
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_ally_the_wildhammer_v01 = {
+		icon = mission_wildhammer_tabard
+		required_missions = { wwu_nest_safety_investments_v01 }
+		position = 3
+		
+		trigger = {
+		    NOT = { mission_completed = wwu_invade_the_highlands_v01 }
+			A28 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+		}
+		effect = {
+			add_prestige = 10
+			create_alliance = A28
+			add_country_modifier = {
+                name = mission_wildhammer_allies_v01
+                duration = -1
+            }
+		}
+	}
+	wwu_south_highlands_threats_v01 = {
+	    icon = mission_troll_male
+		required_missions = { wwu_ally_the_wildhammer_v01 }
+		position = 4
+		
+		provinces_to_highlight = {
+		    OR = {
+			    area = area_twilight_shore
+		        area = area_bastion_of_twilight
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+            area_twilight_shore = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_bastion_of_twilight = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_pacify_highlands_v01
+                duration = -1
+            }
+		}
+	}
+	wwu_ally_gnomes_and_dwarves_v01 = {
+		icon = mission_gnome_male
+		required_missions = { wwu_south_highlands_threats_v01 }
+		position = 5
+		
+		trigger = {
+			A29 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+			A32 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+		}
+		effect = {
+			add_prestige = 10
+			create_alliance = A29
+			create_alliance = A32
+			add_country_modifier = {
+                name = mission_dun_morogh_allies_v01
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_vermilion_redoubt_column_3 = {
+    slot = 3
+	generic = no
+	ai = yes
+	
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = V01
+	}
+	
+	has_country_shield = yes
+	
+	wwu_organising_the_faith_v01 = {
+	    icon = mission_paladin_blinding_light
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+            is_subject = no
+		    is_at_war = no
+			if = {
+				limit = {
+					has_estate = estate_clergy
+				}
+				estate_influence = {
+					estate = estate_nobility
+					influence = 50
+				}
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 60
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_organised_clergy_v01
+                duration = -1
+            }
+	    }
+	}
+	wwu_faith_of_dragonflight_v01 = {
+		icon = mission_drake_red
+		position = 2
+		required_missions = { wwu_organising_the_faith_v01 }
+		
+		trigger = {
+			calc_true_if = {
+			    all_owned_province = {
+			        religion = ROOT
+				}
+				amount = 20
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mission_dragon_aspect_dragonblight_v01
+				duration = -1
+			}
+		}
+	}
+	wwu_black_dragonflight_corruption_v01 = {
+		icon = mission_black_dragonflight
+		required_missions = { wwu_faith_of_dragonflight_v01 }
+		position = 3
+		
+		trigger = {
+		    OR = {
+			    BD1 = {
+                    has_opinion = {
+                        who = ROOT
+                        value = -100
+					}
+                }
+				BD2 = {
+                    has_opinion = {
+                        who = ROOT
+                        value = -100
+					}
+                }
+				BD3 = {
+                    has_opinion = {
+                        who = ROOT
+                        value = -100
+					}
+                }
+				BD4 = {
+                    has_opinion = {
+                        who = ROOT
+                        value = -100
+					}
+                }
+            }
+		}
+		effect = {
+			1061 = {
+				change_religion = corrupt_dragon_aspect
+			}
+			add_country_modifier = {
+                name = mission_black_dr_corruption_v01
+                duration = -1
+            }
+		}
+	}
+	wwu_rise_of_chromatic_dragonflight_v01 = {
+	    icon = mission_drake_twilight
+		required_missions = { wwu_black_dragonflight_corruption_v01 }
+		position = 4
+		
+        trigger = {
+		    NOT = { mission_completed = wwu_destroy_twilight_and_chromatic_eggs_v01 }
+			calc_true_if = {
+			    all_owned_province = {
+			        religion = corrupt_dragon_aspect
+				}
+				amount = 15
+			}
+		}
+		effect = {
+			change_religion = corrupt_dragon_aspect
+            change_tag = CHR			
+			add_country_modifier = {
+                name = mission_chromatic_dr_v01
+                duration = -1
+            }
+		}
+	}
+	wwu_stabilize_the_new_brood_v01 = {
+	    icon = mission_drake_twilight
+		required_missions = { wwu_rise_of_chromatic_dragonflight_v01 }
+		position = 5
+		
+        trigger = {
+			stability = 2
+			prestige = 80
+		}
+		effect = {
+			add_dip_power = 100
+			add_adm_power = 100
+			add_mil_power = 100
+			change_primary_culture = culture_chromatic_dragonflight
+			add_country_modifier = {
+                name = mission_stabilise_chromatic_dr_v01
+                duration = -1
+            }
+	    }
+	}
+	wwu_time_to_conquer_eastern_kingdoms_v01 = {
+	    icon = mission_hunter_rapid_killing
+		required_missions = { wwu_stabilize_the_new_brood_v01 }
+		position = 6
+		
+        trigger = {
+			num_of_states = 20
+		}
+		effect = {
+			add_dip_power = 200
+			add_adm_power = 200
+			add_mil_power = 200
+			add_country_modifier = {
+                name = mission_chromatic_ek_conquest_v01
+                duration = -1
+            }
+	    }
+	}
+}
+
+wwu_vermilion_redoubt_column_4 = {
+    slot = 4
+    generic = no
+	ai = yes
+	
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = V01
+	}
+	
+	has_country_shield = yes
+	
+	wwu_destroy_twilight_and_chromatic_eggs_v01 = {
+	    icon = mission_drake_twilight
+	    required_missions = { wwu_black_dragonflight_corruption_v01 }
+	    position = 4
+	
+    	trigger = {
+		    NOT = { mission_completed = wwu_rise_of_chromatic_dragonflight_v01 }
+		    OR = {
+	            NOT = { exists = B06 }
+				NOT = { exists = SIN }
+				NOT = { exists = BD4 }
+			}
+			prestige = 60
+			stability = 2
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_destroyed_eggs_v01
+                duration = -1
+            }
+			every_owned_province = { 
+                limit = {
+                    culture_group = culture_group_dragonkin
+                    NOT = { culture = culture_red_dragonflight }
+                }
+                change_culture = culture_red_dragonflight
+            }
+		}	
+	}
+	wwu_hunt_down_the_black_broods_v01 = {
+	    icon = mission_fire
+	    required_missions = { wwu_destroy_twilight_and_chromatic_eggs_v01 }
+	    position = 5
+	
+    	trigger = {
+	        NOT = { exists = BD2 }
+			NOT = { exists = BD3 }
+			NOT = { exists = BD4 }
+		}
+		effect = {
+		    add_prestige = 20
+			add_stability = 1
+			add_dip_power = 120
+			add_mil_power = 120
+			add_adm_power = 120
+			add_country_modifier = {
+                name = mission_fall_of_deathwings_children_v01
+                duration = -1
+            }
+		}	
+	}
+	wwu_the_last_bastion_v01 = {
+	    icon = mission_blackrock_mountain
+	    required_missions = { wwu_hunt_down_the_black_broods_v01 }
+	    position = 6
+	    
+		provinces_to_highlight = {
+			area = area_blackrock_mountain
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+    	trigger = {
+	        area_blackrock_mountain = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		    add_prestige = 30
+			add_dip_power = 200
+			add_mil_power = 200
+			add_country_modifier = {
+                name = mission_last_bastion_v01
+                duration = -1
+            }
+		}	
+	}
+}
