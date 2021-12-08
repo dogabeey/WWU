@@ -1,0 +1,45 @@
+country_decisions = {
+    form_the_nightfallen = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {            
+            # Requisites
+			has_country_modifier = restoration_of_the_nightfallen
+		}
+        
+		allow = {
+            # Ownership
+		    has_country_modifier = restoration_of_the_nightfallen
+			
+            # General
+			is_at_war = no	
+			stability = 1
+            total_development = 100
+            
+            # Cost
+            adm_power = 100
+			dip_power = 100
+			mil_power = 100
+		}
+		effect = {
+            # Cost
+			add_adm_power = -100
+			add_dip_power = -100
+            add_mil_power = -100
+            
+            # Switch
+			change_tag = NTF
+			change_government = monarchy
+			add_accepted_culture = culture_nightborne
+
+			# Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}
