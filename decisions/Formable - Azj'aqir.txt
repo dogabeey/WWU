@@ -1,0 +1,64 @@
+country_decisions = {
+    restore_azjaqir = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+            NOT = { exists = AZQ }
+			
+            # Requisites
+			OR = {
+			    tag = A98
+				tag = P74
+			}
+		}
+        
+		provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+			OR = {
+                area = area_hive_regal
+				area = area_naxxanar
+            }
+		}
+		
+		allow = {
+            # Ownership
+			area_hive_regal = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_naxxanar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			
+            # General
+			is_at_war = no	
+			stability = 2
+            total_development = 900
+            
+            # Cost
+            adm_power = 400
+			dip_power = 400
+			mil_power = 400
+		}
+		effect = {
+            # Cost
+			add_adm_power = -400
+			add_dip_power = -400
+            add_mil_power = -400
+            
+            # Switch
+			change_tag = AZQ
+			set_government_rank = 3
+
+			# Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+}
