@@ -2509,7 +2509,7 @@ wwu_scourge_column_4 = {
 		completed_by = 617.12.31
         
 		required_missions = { wwu_destroy_the_silver_hand } 
-                		
+		
 		ai_weight = {
 			factor = 3
 		}
@@ -2518,7 +2518,10 @@ wwu_scourge_column_4 = {
 		}
 		
 		trigger = {
-			country_or_subject_holds = area_thalassian_pass
+			area_thalassian_pass = {
+				type = all
+				owned_by = ROOT
+			}
 		}
 		provinces_to_highlight = {
             area = area_thalassian_pass
