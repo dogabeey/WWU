@@ -359,6 +359,7 @@ wwu_red_dragonflight_column_3 = {
 		position = 4
 		
         trigger = {
+		    NOT = { mission_completed = wwu_destroy_twilight_and_chromatic_eggs_b03 }
 			calc_true_if = {
 			    all_owned_province = {
 			        religion = corrupt_dragon_aspect
@@ -388,6 +389,13 @@ wwu_red_dragonflight_column_3 = {
 			add_dip_power = 100
 			add_adm_power = 100
 			add_mil_power = 100
+			every_owned_province = { 
+                limit = {
+                    culture_group = culture_group_dragonkin
+                    NOT = { culture = culture_red_dragonflight }
+                }
+                change_culture = culture_chromatic_dragonflight
+            }
 			change_primary_culture = culture_chromatic_dragonflight
 			add_country_modifier = {
                 name = mission_stabilise_chromatic_dr_b03
@@ -427,76 +435,80 @@ wwu_red_dragonflight_column_4 = {
 	
 	has_country_shield = yes
 	
-	wwu_unite_the_dragonflights_b03 = {
-	    icon = mission_drake_bronze
-	    required_missions = { wwu_dragonblight_for_dragonflights_b03 }
-	    position = 3
+    wwu_destroy_twilight_and_chromatic_eggs_b03 = {
+	    icon = mission_drake_twilight
+	    required_missions = { wwu_black_dragonflight_corruption_b03 }
+	    position = 4
 	
     	trigger = {
-	        NOT = { mission_completed = wwu_turn_to_the_old_ways_b03 }
-	        NOT = { exists = A99}
-		    NOT = { exists = B01}
-		    NOT = { exists = B02}
-		    NOT = { exists = WYA}
-		    NOT = { exists = B04}
-			prestige = 100
-			legitimacy_equivalent = 90
+		    NOT = { mission_completed = wwu_rise_of_chromatic_dragonflight_b03 }
+		    OR = {
+	            NOT = { exists = B06 }
+				NOT = { exists = SIN }
+				NOT = { exists = BD4 }
+			}
+			prestige = 60
 			stability = 2
 		}
 		effect = {
 			add_country_modifier = {
-                name = mission_one_dragonflight_b03
+                name = mission_destroyed_eggs_b03
                 duration = -1
             }
 			every_owned_province = { 
                 limit = {
                     culture_group = culture_group_dragonkin
-                    NOT = { culture = culture_aspects }
+                    NOT = { culture = culture_red_dragonflight }
                 }
-                change_culture = culture_aspects
+                change_culture = culture_red_dragonflight
             }
 		}	
 	}
-	wwu_dawn_of_red_dragonflight_b03 = {
-	    icon = mission_drake_proto
-	    required_missions = { wwu_unite_the_dragonflights_b03 }
-	    position = 4
+	wwu_hunt_down_the_black_broods_b03 = {
+	    icon = mission_fire
+	    required_missions = { wwu_destroy_twilight_and_chromatic_eggs_b03 }
+	    position = 5
 	
     	trigger = {
-	        region_dragonblight = {
+		    NOT = { exists = A99 }
+		    NOT = { exists = BD1 }
+	        NOT = { exists = BD2 }
+			NOT = { exists = BD3 }
+			NOT = { exists = BD4 }
+		}
+		effect = {
+		    add_prestige = 20
+			add_stability = 1
+			add_dip_power = 120
+			add_mil_power = 120
+			add_adm_power = 120
+			add_country_modifier = {
+                name = mission_fall_of_deathwings_children_b03
+                duration = -1
+            }
+		}	
+	}
+	wwu_the_last_bastion_b03 = {
+	    icon = mission_blackrock_mountain
+	    required_missions = { wwu_hunt_down_the_black_broods_b03 }
+	    position = 6
+	    
+		provinces_to_highlight = {
+			area = area_deepholm
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+    	trigger = {
+	        area_deepholm = {
 				type = all
-		        culture = culture_aspects
-				owned_by = ROOT
-			}
-			region_borean_tundra = {
-				type = all
-		        culture = culture_aspects
-				owned_by = ROOT
-			}
-			region_grizzly_hills = {
-				type = all
-		        culture = culture_aspects
-				owned_by = ROOT
-			}
-			region_crystalsong = {
-				type = all
-		        culture = culture_aspects
-				owned_by = ROOT
-			}
-			region_howling_fjord = {
-				type = all
-		        culture = culture_aspects
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-		    add_prestige = 100
-			add_stability = 1
-			add_dip_power = 300
-			add_mil_power = 300
-			add_adm_power = 300
+		    add_prestige = 30
+			add_dip_power = 200
+			add_mil_power = 200
 			add_country_modifier = {
-                name = mission_dawn_of_red_drag_b03
+                name = mission_last_bastion_b03
                 duration = -1
             }
 		}	
@@ -569,7 +581,6 @@ wwu_red_dragonflight_column_5 = {
 		    NOT = { owned_by = ROOT }
 		}
         trigger = {
-		    NOT = { mission_completed = wwu_unite_the_dragonflights_b03 }
 			owns_core_province = 733
 			prestige = 60
 			stability = 2
