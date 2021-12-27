@@ -356,10 +356,8 @@ wow_temple = {
 		}
 		modifier = {
 			factor = 10.0
-			AND = {
-				has_manufactory_trigger = yes
-				has_production_building_trigger = yes
-			}
+			has_manufactory_trigger = yes
+			has_production_building_trigger = yes
 		}
 	}
 }
@@ -490,10 +488,8 @@ wow_grand_temple = {
 		}
 		modifier = {
 			factor = 10.0
-			AND = {
-				has_manufactory_trigger = yes
-				has_production_building_trigger = yes
-			}
+			has_manufactory_trigger = yes
+			has_production_building_trigger = yes
 		}
 	}
 }
@@ -1578,6 +1574,7 @@ wow_dockyard = {
         
 		modifier = {
 			factor = 0.5
+			NOT = { owner = { navy_size = 25 } }
 		}
 	}
 }
@@ -1600,6 +1597,7 @@ wow_grand_dockyard = {
         
 		modifier = {
 			factor = 0.5
+			NOT = { owner = { navy_size = 50 } }
 		}
 	}
 }
@@ -2086,7 +2084,6 @@ wow_manufactory = {
 }
 
 wow_arcane_tower = {
-    cost = 3000
     
 	manufactory = {
 		artifacts
@@ -2104,7 +2101,6 @@ wow_arcane_tower = {
 }
 
 wow_stables = {
-    cost = 2000
     
 	manufactory = {
 		mounts
@@ -2124,7 +2120,6 @@ wow_stables = {
 }
 
 wow_citadel = {
-    cost = 1000
     
 	manufactory = {
 		all
