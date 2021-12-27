@@ -1,8 +1,8 @@
 #--------------------------------------
 # Ironforge
 #--------------------------------------
-wwu_ironforge_column_4 = {
-	slot = 4
+wwu_ironforge_column_1 = {
+	slot = 1
 	generic = no
 	ai = yes
 	potential = {
@@ -11,21 +11,119 @@ wwu_ironforge_column_4 = {
 	}
 	has_country_shield = yes
 	
-	wwu_recover_dun_morogh = {
-		icon = mission_doomhammer
+	wwu_reestablishing_relations_a_a29 = {
+        icon = mission_wildhammer_tabard
+		required_missions = { wwu_securing_the_borders_a29 }
+		position = 4
+		
+	    trigger = {
+            A28 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 150
+                }
+            }
+		}
+		effect = {
+			add_dip_power = 120
+			add_prestige = 10
+			create_alliance = A32
+			add_country_modifier = {
+                name = mission_relations_wildhammer_a29
+                duration = -1
+            }
+	    }
+	}
+	wwu_reestablishing_relations_b_a29 = {
+        icon = mission_dark_iron_crest
+		required_missions = { wwu_reestablishing_relations_a_a29 }
+		position = 5
+		
+	    trigger = {
+            A30 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+		}
+		effect = {
+			add_dip_power = 120
+			add_prestige = 10
+			create_alliance = A32
+			add_country_modifier = {
+                name = mission_relations_dark_iron_a29
+                duration = -1
+            }
+			region_searing_gorge = {
+                add_permanent_claim = ROOT
+            }
+	    }
+	}
+}
+
+wwu_ironforge_column_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A29
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_strenghten_the_nobility_a29 = {
+		icon = mission_stratholme_emblem
 		required_missions = {  }
+		
 		ai_weight = {
 			factor = 3
 		}
 		ai_priority = {
 			factor = 3
 		}
+		
+		trigger = {
+			is_subject = no
+		    is_at_war = no
+			if = {
+				limit = {
+					has_estate = estate_nobility
+				}
+				estate_influence = {
+					estate = estate_nobility
+					influence = 50
+				}
+				estate_loyalty = {
+					estate = estate_nobility
+					loyalty = 60
+				}
+			}
+		}
+		effect = { 
+		    add_adm_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+                name = mission_organize_the_army_a29
+                duration = -1
+            }
+			area_kharanos = {
+                add_permanent_claim = ROOT
+            }
+			area_anvilmar = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+	wwu_dealing_with_the_frost_troll_threat_a29 = {
+	    icon = mission_troll_hexxer
+		required_missions = { wwu_strenghten_the_nobility_a29 }
+		position = 2
+		
 		provinces_to_highlight = {
 			OR = {
 				area = area_kharanos
                 area = area_anvilmar
-                area = area_gnomeregan_exterior
-				area = area_frostmane_hills
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -38,67 +136,414 @@ wwu_ironforge_column_4 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			area_gnomeregan_exterior = {
-			    type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			area_frostmane_hills = {
-			    type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
 		}
 		effect = {
 			add_adm_power = 100
 			add_prestige = 20
 			add_country_modifier = {
-                name = mission_consolidate_dun_morogh
+                name = mission_troll_war_a29
                 duration = -1
             }
-			region_loch_modan = {
-				add_permanent_claim = ROOT
-			}
-			area_brewstall = {
-				add_permanent_claim = ROOT
-			}
-			area_gnomeregan = {
+			area_gnomeregan_exterior = {
 				add_permanent_claim = ROOT
 			}	
-			area_new_tinkertown = {
+			area_frostmane_hills = {
 				add_permanent_claim = ROOT
 			}
 		}
 	}
-	
-	wwu_dwarvish_origins_a = {
-		icon = mission_titan_spirits
-		required_missions = { wwu_recover_dun_morogh }
-		position = 2
+	wwu_securing_the_borders_a29 = {
+	    icon = mission_force_shield
+		position = 3
+		required_missions = { wwu_dealing_with_the_frost_troll_threat_a29 }
+		
 		provinces_to_highlight = {
-			region = region_loch_modan
+			OR = {
+				province_id = 3053
+				province_id = 1747
+				province_id = 941
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				has_building = wow_fort_1
+				OR = {
+					province_id = 3053
+					province_id = 1747
+					province_id = 941
+				}
+			}
+			NOT = { exists = A75 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = mission_expand_fortifications_a29
+				duration = -1
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							province_id = 3053
+							province_id = 1747
+							province_id = 941
+						}
+						has_building = wow_fort_2
+					}
+				}
+				every_owned_province = {
+					limit = {
+						OR = {
+							province_id = 3053
+							province_id = 1747
+							province_id = 941
+						}
+					}
+					if = {
+						limit = { has_building = wow_fort_2 }
+						remove_building = wow_fort_2
+						add_building = wow_fort_3
+					}
+				}
+			}
+		}
+	}
+	wwu_meeting_the_gnomes_a29 = {
+        icon = mission_gnome_male
+		required_missions = { wwu_securing_the_borders_a29 }
+		position = 4
+		
+	    trigger = {
+            A32 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 150
+                }
+            }
+		}
+		effect = {
+			add_dip_power = 120
+			add_prestige = 10
+			create_alliance = A32
+			add_country_modifier = {
+                name = mission_relations_gnomes_a29
+                duration = -1
+            }
+			hidden_effect = {
+			    country_event = {
+				    id = wwu_setup_fall_of_gnomeragan.1
+			    }
+			}
+	    }
+	}
+	wwu_friends_in_need_a29 ={
+	    icon = mission_gnome_male
+		required_missions = { wwu_meeting_the_gnomes_a29 }
+		position = 5
+		
+	    trigger = {
+            NOT = { exists = P53 }
+		}
+		effect = {
+			add_dip_power = 120
+			add_prestige = 10
+			add_country_modifier = {
+                name = mission_free_gnomeragan_a29
+                duration = -1
+            }
+			add_accepted_culture = culture_gnome
+	    }
+	}
+	wwu_curse_of_magni_aftermath_a_a29 = {
+	    icon = mission_dwarf
+		position = 6
+		required_missions = { wwu_friends_in_need_a29 wwu_reestablishing_relations_b_a29}
+		
+		trigger = {
+			tag = THC
+			NOT = { tag = B74 }
+			NOT = { mission_completed = wwu_curse_of_magni_aftermath_b_a29 }
+			NOT = { mission_completed = wwu_restore_to_earthen_a29 }
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_council_a29
+                duration = -1
+            }
+		}
+	}	
+}
+
+wwu_ironforge_column_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A29
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	wwu_expand_on_loch_modan_a29 = {
+	    icon = mission_map_eastern_kingdoms
+		required_missions = { }
+		position = 1
+		
+		provinces_to_highlight = {
+		    area = area_valley_of_kings
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			region_loch_modan = {
+		    area_valley_of_kings = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-			add_adm_power = 200
-			add_prestige = 10
+			add_adm_power = 100
 			add_country_modifier = {
-                name = mission_titanic_origins_a
+                name = mission_troggs_war_a29
                 duration = -1
             }
-			region_badlands = {
+			area_thrallmar = {
 				add_permanent_claim = ROOT
 			}
 		}
 	}
+	wwu_axis_of_awful_a29 = {
+	    icon = mission_gnoll
+		required_missions = { wwu_expand_on_loch_modan_a29 }
+		position = 2
+		
+		provinces_to_highlight = {
+		    area = area_thrallmar
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		    area_thrallmar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = { exists = P53 }
+		}
+		effect = {
+			add_adm_power = 100
+			add_country_modifier = {
+                name = mission_kobolds_war_a29
+                duration = -1
+            }
+			area_dun_algaz = {
+				add_permanent_claim = ROOT
+			}
+			area_menethil = {
+				add_permanent_claim = ROOT
+			}
+			area_upper_wetlands = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_destoy_axis_of_awful_a29 = {
+	    icon = mission_gnoll_head
+		required_missions = { wwu_axis_of_awful_a29 }
+		position = 3
+		
+		provinces_to_highlight = {
+		    OR = {
+		        area = area_dun_algaz
+				area = area_menethil
+				area = area_upper_wetlands
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		trigger = {
+		    area_dun_algaz = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_menethil = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_upper_wetlands = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = { exists = B13 }
+			NOT = { exists = B26 }
+		}
+		effect = {
+			add_mil_power = 200
+			add_country_modifier = {
+                name = mission_axis_war_a29
+                duration = -1
+            }
+			area_dun_modr = {
+				add_permanent_claim = ROOT
+			}
+			area_lower_wetlands = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_secure_wetlands_a29 = {
+	    icon = mission_headquarters
+		required_missions = { wwu_destoy_axis_of_awful_a29 }
+		position = 4
+		
+		provinces_to_highlight = {
+		    OR = {
+		        area = area_dun_modr
+				area = area_lower_wetlands
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		trigger = {
+		    area_dun_modr = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_lower_wetlands = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 100
+			add_country_modifier = {
+                name = mission_secure_wetlands_a29
+                duration = -1
+            }
+			area_thundermar = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_control_the_wildhammer_clan_a29 = {
+	    icon = mission_wildhammer_tabard
+		required_missions = { wwu_secure_wetlands_a29 }
+		position = 5
+		
+		provinces_to_highlight = {
+		    OR = {
+		        area = area_thundermar
+				area = area_grim_batol
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		trigger = {
+		    area_thundermar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_grim_batol = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 100
+			add_dip_power = 200
+			add_prestige = 20
+			add_country_modifier = {
+                name = mission_control_wildhammer_a29
+                duration = -1
+            }
+			create_union = a28
+		}
+	}
+	wwu_curse_of_magni_aftermath_b_a29 = {
+	    icon = mission_dwarf_stone_avatar
+		position = 6
+		required_missions = { wwu_control_the_wildhammer_clan_a29 wwu_strike_the_iron_a29}
+		
+		trigger = {
+			tag = ANM
+			NOT = { tag = B74 }
+			NOT = { mission_completed = wwu_curse_of_magni_aftermath_a_a29 }
+			NOT = { mission_completed = wwu_restore_to_earthen_a29 }
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_anvilmar_a29
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_ironforge_column_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A29
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
 	
-	wwu_dwarvish_origins_b = {
+	wwu_expand_on_seering_gorge_a29 = {
+	    icon = mission_treasure_map
+		required_missions = { }
+		position = 1
+		
+		provinces_to_highlight = {
+		    area = area_thorium_point
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		    area_thorium_point = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_seering_gorge_a29
+                duration = -1
+            }
+			area_the_cauldron = {
+				add_permanent_claim = ROOT
+			}
+			area_iron_summit = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	wwu_integrating_thorium_production_line_a29 = {
+	    icon = mission_trading_outpost
+		required_missions = { wwu_expand_on_seering_gorge_a29 }
+		position = 2
+		
+		provinces_to_highlight = {
+		    OR = {
+		        area = area_the_cauldron
+				area = area_iron_summit
+			    NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		trigger = {
+		    area_the_cauldron = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_iron_summit = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_country_modifier = {
+                name = mission_thorium_mines_a29
+                duration = -1
+            }
+		}
+	}
+	wwu_dwarvish_origins_a29 = {
 		icon = mission_titan_spirits
-		required_missions = { wwu_dwarvish_origins_a }
+		required_missions = { wwu_integrating_thorium_production_line_a29 }
 		position = 3
 		provinces_to_highlight = {
 			area = area_uldaman
@@ -116,140 +561,202 @@ wwu_ironforge_column_4 = {
 			add_mil_power = 100
 			add_prestige = 20
 			add_country_modifier = {
-                name = mission_titanic_origins_b
+                name = mission_titanic_origins_a29
                 duration = -1
             }
 		}
 	}
-	
-	wwu_restore_relations_if = {
-	    icon = mission_dwarf
-		required_missions = { wwu_dwarvish_origins_b }
+	wwu_encyrcle_the_black_mountain_a29 = {
+		icon = mission_blackrock_mountain
+		required_missions = { wwu_dwarvish_origins_a29 }
 		position = 4
 		
-        trigger = {
-            A30 = {
-                has_opinion = {
-                    who = ROOT
-                    value = 100
-                }
-            }
+		provinces_to_highlight = {
+		    OR = {
+			    area = area_blackrock_valley
+				area = area_blackrock_exterior
+			    NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		trigger = {
+			area_blackrock_valley = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_blackrock_exterior = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
-			add_dip_power = 200
-			add_prestige = 20
+			add_dip_power = 100
+			add_mil_power = 100
 			add_country_modifier = {
-                name = mission_relations_dark_iron
+                name = mission_blackrock_invasion_a29
                 duration = -1
             }
-	    }
+		}
+	}
+	wwu_strike_the_iron_a29 = {
+		icon = mission_blackrock_mountain
+		required_missions = { wwu_encyrcle_the_black_mountain_a29 }
+		position = 5
+		
+		provinces_to_highlight = {
+			area = area_blackrock_mountain
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			area_blackrock_mountain = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = { exists = A30 }
+		}
+		effect = {
+			add_dip_power = 220
+			add_mil_power = 220
+			add_prestige = 20
+			add_country_modifier = {
+                name = mission_end_of_blackrock_a29
+                duration = -1
+            }
+		}
 	}
 }
 
 wwu_ironforge_column_5 = {
-    slot = 5
+	slot = 5
 	generic = no
 	ai = yes
-	
 	potential = {
-		NOT = { map_setup = map_setup_random }
 		tag = A29
+		NOT = { map_setup = map_setup_random }
 	}
-	
 	has_country_shield = yes
 	
-	wwu_unified_dwarves = {
-	    icon = mission_griffin_attack
+	wwu_thandol_span_a29 = {
+	    icon = mission_blueprint
 		required_missions = { }
-		position = 1
+		
+		provinces_to_highlight = {
+		    province_id = 1933
+		}
+		
 		trigger = {
-            has_country_flag = unified_dwarf
+			1933 = {
+				owned_by = ROOT
+			}
 		}
 		effect = {
-			add_adm_power = 300
-			add_dip_power = 300
-			add_mil_power = 300
+		    add_prestige = 40
+			add_great_project_tier = {
+                type = thandol_span
+                tier = 1
+            }
 			add_country_modifier = {
-                name = mission_dwarves_united_strong
+                name = mission_dwarven_engineering_a29
                 duration = -1
             }
-			region_searing_gorge = {
-				add_permanent_claim = ROOT
-			}
-			region_burning_steppes = {
-				add_permanent_claim = ROOT
-			}
-			region_twilight_highlands = {
-				add_permanent_claim = ROOT
-			}
-	    }
+		}
 	}
-	
-	wwu_gnomish_neighboors = {
-		icon = mission_gnome_male
-		required_missions = { wwu_recover_dun_morogh }
+    wwu_restore_the_facilities_of_uldaman_a29 = {
+	    icon = mission_volkhan
+		required_missions = { }
 		position = 2
-		provinces_to_highlight = {
-			OR = {
-                area = area_brewstall
-			    area = area_gnomeregan
-			    area = area_new_tinkertown
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
+		
 		trigger = {
-			area_brewstall = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			area_gnomeregan = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			area_new_tinkertown = {
-			    type = all
-			    country_or_non_sovereign_subject_holds = ROOT
-			}
+			1061 = { development = 30 }
 		}
 		effect = {
-		    add_country_modifier = {
-                name = mission_meeting_gnomes
+			add_prestige = 20
+			add_country_modifier = {
+                name = mission_glory_of_the_past_a29
                 duration = -1
             }
-			capital_scope = {
-				add_base_manpower = 2
-				add_base_tax = 2
-				add_base_production = 2
-			}
 		}
 	}
-	
-	wwu_recover_wetlands = {
-		icon = mission_treasure_map
-		required_missions = { wwu_dwarvish_origins_a }
+	wwu_descript_the_discs_of_norgannon_a29 = {
+  	    icon = mission_paladin_shield_of_the_templar
+		required_missions = { wwu_restore_the_facilities_of_uldaman_a29 }
 		position = 3
-		provinces_to_highlight = {
-			region = region_wetlands
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
+		
 		trigger = {
-			region_wetlands = {
+			adm_tech = 15
+			dip_tech = 15
+			mil_tech = 15
+			num_of_owned_and_controlled_institutions = 2
+		}
+		effect = {
+            add_prestige = 30
+			add_country_modifier = {
+                name = mission_earthen_heritage_a29
+                duration = -1
+            }
+		}
+	}
+	wwu_restore_to_earthen_a29 = {
+		icon = mission_volkhan
+		required_missions = { wwu_descript_the_discs_of_norgannon_a29 }
+		position = 4
+		
+		provinces_to_highlight = {
+		    OR = {
+			    region = region_vale_of_eternal_blossoms
+			    area = area_ulduar
+			    NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}	
+		trigger = {
+			culture_group = culture_group_earthen
+			NOT = { mission_completed = wwu_glory_of_dwarvendom_a29 }
+			NOT = { mission_completed = wwu_curse_of_magni_aftermath_a_a29 }
+			NOT = { mission_completed = wwu_curse_of_magni_aftermath_b_a29 }
+			NOT = { exists = B74 }
+			region_vale_of_eternal_blossoms = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			area_ulduar = {
+				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-		    add_country_modifier = {
-                name = mission_control_wetlands
+			add_dip_power = 200
+			add_mil_power = 200
+			add_prestige = 20
+			change_tag = B74
+			add_country_modifier = {
+                name = mission_heal_curse_of_flesh_a29
                 duration = -1
             }
-            capital_scope = {
-				add_base_manpower = 2
-				add_base_tax = 2
-				add_base_production = 2
+			set_capital = 1968
+		}
+	}
+	wwu_glory_of_dwarvendom_a29 = {
+	    icon = mission_dwarf
+		required_missions = { wwu_descript_the_discs_of_norgannon_a29 }
+		position = 5
+		
+		trigger = {
+		    accepted_culture = culture_wildhammer
+			accepted_culture = culture_dark_iron
+			NOT = { mission_completed = wwu_restore_to_earthen_a29 }
+			NOT = { tag = B74 }
+			stability = 2
+			OR = {
+			    mission_completed = wwu_curse_of_magni_aftermath_a_a29
+				mission_completed = wwu_curse_of_magni_aftermath_b_a29
 			}
-			region_wetlands = {
-				add_permanent_claim = ROOT
-			}
+		}
+		
+		effect = {
+		    add_stability = 1
+		    add_country_modifier = {
+                name = mission_embrace_our_dwarven_state_a29
+                duration = -1
+            }
 		}
 	}
 }
