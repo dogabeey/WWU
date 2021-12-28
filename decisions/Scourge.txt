@@ -35,7 +35,7 @@ country_decisions = {
 				NOT = { all_owned_province = { religion = cult_of_the_damned } }
 				NOT = { culture_group = culture_group_scourge }
 				NOT = { culture_group = culture_group_undead }
-				NOT = { culture = culture_cultist }
+				NOT = { primary_culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
 				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
@@ -49,7 +49,7 @@ country_decisions = {
 				NOT = { all_owned_province = { religion = cult_of_the_damned } }
 				NOT = { culture_group = culture_group_scourge }
 				NOT = { culture_group = culture_group_undead }
-				NOT = { culture = culture_cultist }
+				NOT = { primary_culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
 				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
@@ -62,7 +62,7 @@ country_decisions = {
 				limit = {
 					NOT = { culture_group = culture_group_scourge }
 					NOT = { culture_group = culture_group_undead }
-					NOT = { culture = culture_cultist }
+					NOT = { primary_culture = culture_cultist }
 					NOT = { culture_group = culture_group_nerubian }
 					NOT = { culture_group = culture_group_crypt_fiends }
 					NOT = { culture_group = culture_group_vrykul }
@@ -95,7 +95,7 @@ country_decisions = {
 				NOT = { all_owned_province = { religion = cult_of_the_damned } }
 				NOT = { culture_group = culture_group_scourge }
 				NOT = { culture_group = culture_group_undead }
-				NOT = { culture = culture_cultist }
+				NOT = { primary_culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
 				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
@@ -109,7 +109,7 @@ country_decisions = {
 				NOT = { all_owned_province = { religion = cult_of_the_damned } }
 				NOT = { culture_group = culture_group_scourge }
 				NOT = { culture_group = culture_group_undead }
-				NOT = { culture = culture_cultist }
+				NOT = { primary_culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
 				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
@@ -123,7 +123,7 @@ country_decisions = {
 				limit = {
 					NOT = { culture_group = culture_group_scourge }
 					NOT = { culture_group = culture_group_undead }
-					NOT = { culture = culture_cultist }
+					NOT = { primary_culture = culture_cultist }
 					NOT = { culture_group = culture_group_nerubian }
 					NOT = { culture_group = culture_group_crypt_fiends }
 					NOT = { culture_group = culture_group_vrykul }
@@ -198,7 +198,7 @@ country_decisions = {
 			any_subject_country = {
 				NOT = { culture_group = culture_group_scourge }
 				NOT = { culture_group = culture_group_undead }
-				NOT = { culture = culture_cultist }
+				NOT = { primary_culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
 				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
@@ -211,7 +211,7 @@ country_decisions = {
 			any_subject_country = { 
 				NOT = { culture_group = culture_group_scourge }
 				NOT = { culture_group = culture_group_undead }
-				NOT = { culture = culture_cultist }
+				NOT = { primary_culture = culture_cultist }
 				NOT = { culture_group = culture_group_nerubian }
 				NOT = { culture_group = culture_group_crypt_fiends }
 				NOT = { culture_group = culture_group_vrykul }
@@ -225,7 +225,7 @@ country_decisions = {
 				limit = {
 					NOT = { culture_group = culture_group_scourge }
 					NOT = { culture_group = culture_group_undead }
-					NOT = { culture = culture_cultist }
+					NOT = { primary_culture = culture_cultist }
 					NOT = { culture_group = culture_group_nerubian }
 					NOT = { culture_group = culture_group_crypt_fiends }
 					NOT = { culture_group = culture_group_vrykul }
@@ -255,7 +255,7 @@ country_decisions = {
 						add_base_production = -1
 						add_base_manpower = -2
 					}
-					random_owned_province= {
+					random_owned_province = {
 						limit = {
 							NOT = { culture = culture_cultist }
 						}
@@ -277,7 +277,7 @@ country_decisions = {
 						add_base_production = -1
 						add_base_manpower = -2
 					}
-					random_owned_province= {
+					random_owned_province = {
 						limit = {
 							NOT = { culture = culture_cultist }
 						}
@@ -301,11 +301,9 @@ country_decisions = {
 		
 		potential = {
 			stability = 1
-			OR = {
-				any_subject_country = {
-					NOT = { has_country_flag = deathknightsarise }
-					has_country_flag = scourgeinfection
-				}
+			any_subject_country = {
+				NOT = { has_country_flag = deathknightsarise }
+				has_country_flag = scourgeinfection
 			}
 		}
 		allow = {
@@ -350,20 +348,16 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			OR = {
-				any_subject_country = {
-					NOT = { has_country_flag = animatedthedead }
-					has_country_flag = deathknightsarise
-				}
+			any_subject_country = {
+				NOT = { has_country_flag = animatedthedead }
+				has_country_flag = deathknightsarise
 			}
 		}
 		allow = {
 			church_power = 25
-			OR = {
-				any_subject_country = {
-					NOT = { has_country_flag = animatedthedead }
-					has_country_flag = deathknightsarise
-				}
+			any_subject_country = {
+				NOT = { has_country_flag = animatedthedead }
+				has_country_flag = deathknightsarise
 			}
 		}
 		effect = {
@@ -402,20 +396,16 @@ country_decisions = {
 		major = yes
 		
 		potential = {
-			OR = {
-				any_subject_country = {
-					NOT = { has_country_flag = huntedremainder }
-					has_country_flag = animatedthedead
-				}
+			any_subject_country = {
+				NOT = { has_country_flag = huntedremainder }
+				has_country_flag = animatedthedead
 			}
 		}
 		allow = {
 			mil_power = 100
-			OR = {
-				any_subject_country = {
-					NOT = { has_country_flag = huntedremainder }
-					has_country_flag = animatedthedead
-				}
+			any_subject_country = {
+				NOT = { has_country_flag = huntedremainder }
+				has_country_flag = animatedthedead
 			}
 		}
 		effect = {

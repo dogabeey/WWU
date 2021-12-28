@@ -235,12 +235,12 @@ country_decisions = {
             }
             
             hidden_effect = {
-                create_general = {
+                define_general = {
                     name = "The Night Warrior"
-                    add_fire = 4
-                    add_shock = 4
-                    add_manuever = 4
-                    add_siege = 4
+                    fire = 4
+                    shock = 4
+                    manuever = 4
+                    siege = 4
                 }
                 
                 country_event = { id = wwu_elune.10 days = 1825 }
@@ -295,12 +295,12 @@ country_decisions = {
             }
             
             hidden_effect = {
-                create_general = {
+                define_general = {
                     name = "The Jade Serpent"
-                    add_fire = 2
-                    add_shock = 2
-                    add_manuever = 6
-                    add_siege = 2
+                    fire = 2
+                    shock = 2
+                    manuever = 6
+                    siege = 2
                 }
                 
                 country_event = { id = wwu_celestials.10 days = 1825 }
@@ -329,12 +329,12 @@ country_decisions = {
             }
 
             hidden_effect = {
-                create_general = {
+                define_general = {
                     name = "The Red Crane"
-                    add_fire = 6
-                    add_shock = 2
-                    add_manuever = 2
-                    add_siege = 2
+                    fire = 6
+                    shock = 2
+                    manuever = 2
+                    siege = 2
                 }
                 
                 country_event = { id = wwu_celestials.10 days = 1825 }
@@ -363,12 +363,12 @@ country_decisions = {
             }
             
             hidden_effect = {
-                create_general = {
+                define_general = {
                     name = "The Black Ox"
-                    add_fire = 2
-                    add_shock = 2
-                    add_manuever = 2
-                    add_siege = 6
+                    fire = 2
+                    shock = 2
+                    manuever = 2
+                    siege = 6
                 }
                 
                 country_event = { id = wwu_celestials.10 days = 1825 }
@@ -397,13 +397,12 @@ country_decisions = {
             }
                 
             hidden_effect = {
-                create_general = {
+                define_general = {
                     name = "The White Tiger"
-                    tradition = 100
-                    add_fire = 2
-                    add_shock = 6
-                    add_manuever = 2
-                    add_siege = 2
+                    fire = 2
+                    shock = 6
+                    manuever = 2
+                    siege = 2
                 }
 
                 country_event = { id = wwu_celestials.10 days = 1825 }
@@ -417,89 +416,89 @@ country_decisions = {
     #-----------------------------------------
     # Arrakoa
     #-----------------------------------------
-    call_upon_the_spirit_of_anzu = {
-        potential = {
-            NOT = { has_ruler_modifier = spirit_of_anzu } 
-            NOT = { has_ruler_modifier = spirit_of_sethe }
-            NOT = { has_ruler_modifier = spirit_of_rukhmar }
-            religion = arrakoa
-		}
-		allow = {
-            NOT = { has_ruler_modifier = spirit_of_anzu } 
-            NOT = { has_ruler_modifier = spirit_of_sethe }
-            NOT = { has_ruler_modifier = spirit_of_rukhmar }
-            ruler_religion = ROOT
-            adm = 3
-            scaled_adm_power_check = yes
-		}
-        effect = {
-            scaled_adm_power_effect = yes
-            
-            add_ruler_modifier = {
-                name = spirit_of_anzu
-                duration = -1
-            }
-        }
-		ai_will_do = {
-			factor = 1
-		}
-	}
-    
-    call_upon_the_spirit_of_sethe = {
-        potential = {
-            NOT = { has_ruler_modifier = spirit_of_anzu } 
-            NOT = { has_ruler_modifier = spirit_of_sethe }
-            NOT = { has_ruler_modifier = spirit_of_rukhmar }
-            religion = arrakoa
-		}
-		allow = {
-            NOT = { has_ruler_modifier = spirit_of_anzu } 
-            NOT = { has_ruler_modifier = spirit_of_sethe }
-            NOT = { has_ruler_modifier = spirit_of_rukhmar }
-            ruler_religion = ROOT
-            dip = 3
-            scaled_dip_power_check = yes
-		}
-        effect = {
-            scaled_dip_power_effect = yes
-            
-            add_ruler_modifier = {
-                name = spirit_of_sethe
-                duration = -1
-            }
-        }
-		ai_will_do = {
-			factor = 1
-		}
-	}
-    
-    call_upon_the_spirit_of_rukhmar = {
-        potential = {
-            NOT = { has_ruler_modifier = spirit_of_anzu } 
-            NOT = { has_ruler_modifier = spirit_of_sethe }
-            NOT = { has_ruler_modifier = spirit_of_rukhmar } 
-            religion = arrakoa
-		}
-		allow = {
-            NOT = { has_ruler_modifier = spirit_of_anzu } 
-            NOT = { has_ruler_modifier = spirit_of_sethe }
-            NOT = { has_ruler_modifier = spirit_of_rukhmar }
-            ruler_religion = ROOT
-            mil = 3
-            scaled_mil_power_check = yes
-		}
-        effect = {
-            scaled_mil_power_effect = yes
-            
-            add_ruler_modifier = {
-                name = spirit_of_rukhmar
-                duration = -1
-            }
-        }
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	#    call_upon_the_spirit_of_anzu = {
+	#        potential = {
+	#            NOT = { has_ruler_modifier = spirit_of_anzu } 
+	#            NOT = { has_ruler_modifier = spirit_of_sethe }
+	#            NOT = { has_ruler_modifier = spirit_of_rukhmar }
+	#            religion = arrakoa
+	#		}
+	#		allow = {
+	#            NOT = { has_ruler_modifier = spirit_of_anzu } 
+	#            NOT = { has_ruler_modifier = spirit_of_sethe }
+	#            NOT = { has_ruler_modifier = spirit_of_rukhmar }
+	#            ruler_religion = ROOT
+	#            adm = 3
+	#            scaled_adm_power_check = yes
+	#		}
+	#        effect = {
+	#            scaled_adm_power_effect = yes
+	#            
+	#            add_ruler_modifier = {
+	#                name = spirit_of_anzu
+	#                duration = -1
+	#            }
+	#        }
+	#		ai_will_do = {
+	#			factor = 1
+	#		}
+	#	}
+	#    
+	#    call_upon_the_spirit_of_sethe = {
+	#        potential = {
+	#            NOT = { has_ruler_modifier = spirit_of_anzu } 
+	#            NOT = { has_ruler_modifier = spirit_of_sethe }
+	#            NOT = { has_ruler_modifier = spirit_of_rukhmar }
+	#            religion = arrakoa
+	#		}
+	#		allow = {
+	#            NOT = { has_ruler_modifier = spirit_of_anzu } 
+	#            NOT = { has_ruler_modifier = spirit_of_sethe }
+	#            NOT = { has_ruler_modifier = spirit_of_rukhmar }
+	#            ruler_religion = ROOT
+	#            dip = 3
+	#            scaled_dip_power_check = yes
+	#		}
+	#        effect = {
+	#            scaled_dip_power_effect = yes
+	#            
+	#            add_ruler_modifier = {
+	#                name = spirit_of_sethe
+	#                duration = -1
+	#            }
+	#        }
+	#		ai_will_do = {
+	#			factor = 1
+	#		}
+	#	}
+	#    
+	#    call_upon_the_spirit_of_rukhmar = {
+	#        potential = {
+	#            NOT = { has_ruler_modifier = spirit_of_anzu } 
+	#            NOT = { has_ruler_modifier = spirit_of_sethe }
+	#            NOT = { has_ruler_modifier = spirit_of_rukhmar } 
+	#            religion = arrakoa
+	#		}
+	#		allow = {
+	#            NOT = { has_ruler_modifier = spirit_of_anzu } 
+	#            NOT = { has_ruler_modifier = spirit_of_sethe }
+	#            NOT = { has_ruler_modifier = spirit_of_rukhmar }
+	#            ruler_religion = ROOT
+	#            mil = 3
+	#            scaled_mil_power_check = yes
+	#		}
+	#        effect = {
+	#            scaled_mil_power_effect = yes
+	#            
+	#            add_ruler_modifier = {
+	#                name = spirit_of_rukhmar
+	#                duration = -1
+	#            }
+	#        }
+	#		ai_will_do = {
+	#			factor = 1
+	#		}
+	#	}
     
     #-----------------------------------------
     # Zangar
