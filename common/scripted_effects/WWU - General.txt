@@ -1192,3 +1192,92 @@ scaled_treasury_effect = {
         add_treasury = -600
     }
 }
+
+#The three effects below are used for setting a great project to exact the tier
+#I tried to combine the three effects into one single scripted effect, but I couldn't figure a way out to do the effect without having to do a lot of custom tooltip
+#Sets monument tier 1 (has no effect if the monument is tier 1 or higher)
+#Province scope
+set_great_project_tier_1 = {
+	if = {
+		limit = {
+			has_great_project = {	#Asks the EXACT tier unlike other triggers
+				type = $type$
+				tier = 0
+			}
+		}
+		add_great_project_tier = {
+			type = $type$
+			tier = 1
+		}
+	}
+}
+
+#Sets monument tier 2 (has no effect if the monument is tier 2 or higher)
+#Province scope
+set_great_project_tier_2 = {
+	if = {
+		limit = {
+			has_great_project = {	#Asks the EXACT tier unlike other triggers
+				type = $type$
+				tier = 0
+			}
+		}
+		add_great_project_tier = {
+			type = $type$
+			tier = 2
+		}
+	}
+	if = {
+		limit = {
+			has_great_project = {
+				type = $type$
+				tier = 1
+			}
+		}
+		add_great_project_tier = {
+			type = $type$
+			tier = 1
+		}
+	}
+}
+
+#Sets monument tier 3 (has no effect if the monument is tier 3 or higher)
+#Province scope
+set_great_project_tier_3 = {
+	if = {
+		limit = {
+			has_great_project = {	#Asks the EXACT tier unlike other triggers
+				type = $type$
+				tier = 0
+			}
+		}
+		add_great_project_tier = {
+			type = $type$
+			tier = 3
+		}
+	}
+	if = {
+		limit = {
+			has_great_project = {
+				type = $type$
+				tier = 1
+			}
+		}
+		add_great_project_tier = {
+			type = $type$
+			tier = 2
+		}
+	}
+	if = {
+		limit = {
+			has_great_project = {
+				type = $type$
+				tier = 2
+			}
+		}
+		add_great_project_tier = {
+			type = $type$
+			tier = 1
+		}
+	}
+}
