@@ -744,12 +744,12 @@ convert_nagrand = {
 }
 
 remove_ownership = {
-    cede_province = ---
-    change_controller = ---
-    remove_core = owner
+	remove_core = owner
     kill_units = { 
         who = owner
     }
+    cede_province = ---
+    change_controller = ---
     set_base_tax = 1
     set_base_production = 1
     set_base_manpower = 1
@@ -761,7 +761,8 @@ add_ownership = {
     change_culture = PREV
     change_religion = PREV
     
-    set_base_tax = PREVPREV
-    set_base_production = PREVPREV
-    set_base_manpower = PREVPREV
+	# PREVPREV does not exist in EU4
+    #set_base_tax = PREVPREV
+    #set_base_production = PREVPREV
+    #set_base_manpower = PREVPREV
 }
