@@ -217,6 +217,7 @@ estate_peasants_build_tavern_in_y = {
 		any_owned_province = {
 			is_state_core = root
 			NOT = { has_building = wow_tavern }
+            NOT = { has_building = wow_inn }
 			num_free_building_slots = 1
 		}
 	}
@@ -229,6 +230,7 @@ estate_peasants_build_tavern_in_y = {
 					is_state_core = root
 					base_tax = 10
 					NOT = { has_building = wow_tavern }
+                    NOT = { has_building = wow_inn }
                     num_free_building_slots = 1
 				}
 			}
@@ -239,6 +241,7 @@ estate_peasants_build_tavern_in_y = {
 				is_state_core = root
 				base_tax = 20
 				NOT = { has_building = wow_tavern }
+                NOT = { has_building = wow_inn }
                     
 			}
 		}
@@ -254,6 +257,7 @@ estate_peasants_build_tavern_in_y = {
 			limit = {
 				is_state_core = root
 				NOT = { has_building = wow_tavern }
+                NOT = { has_building = wow_inn }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -263,6 +267,7 @@ estate_peasants_build_tavern_in_y = {
 				is_state_core = root
 				base_tax = 10
 				NOT = { has_building = wow_tavern }
+                NOT = { has_building = wow_inn }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -272,6 +277,7 @@ estate_peasants_build_tavern_in_y = {
 				is_state_core = root
 				base_tax = 20
 				NOT = { has_building = wow_tavern }
+                NOT = { has_building = wow_inn }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -287,7 +293,10 @@ estate_peasants_build_tavern_in_y = {
 	}
     task_requirements = {
 		event_target:agenda_province = {
-            has_building = wow_tavern
+            OR = {
+                has_building = wow_tavern
+                has_building = wow_inn
+            }
         }
     }
     task_completed_effect = {
