@@ -368,13 +368,15 @@ wwu_administrative_missions = {
 		required_missions = { wwu_build_treasury }
         
 		trigger = {
-			custom_tooltip = build_manufactories_mission_tooltip
-			calc_true_if = {
-				all_owned_province = {
-					has_building = wow_manufactory
-				}
-				amount = 20
-			}
+			custom_trigger_tooltip = {
+                tooltip = build_manufactories_mission_tooltip
+                calc_true_if = {
+                    all_owned_province = {
+                        has_building = wow_manufactory
+                    }
+                    amount = 20
+                }
+            }
 		}
 		effect = {
 			add_country_modifier = {
