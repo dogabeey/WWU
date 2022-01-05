@@ -139,6 +139,7 @@ estate_nobility_build_a_barracks_in_y = {
 		any_owned_province = {
 			is_state_core = root
 			NOT = { has_building = wow_barracks }
+            NOT = { has_building = wow_grand_barracks }
 			num_free_building_slots = 1
 		}
 	}
@@ -151,6 +152,7 @@ estate_nobility_build_a_barracks_in_y = {
 					is_state_core = root
 					base_manpower = 3
 					NOT = { has_building = wow_barracks }
+                    NOT = { has_building = wow_grand_barracks }
                     num_free_building_slots = 1
 				}
 			}
@@ -161,6 +163,7 @@ estate_nobility_build_a_barracks_in_y = {
 				is_state_core = root
 				base_manpower = 6
 				NOT = { has_building = wow_barracks }
+                NOT = { has_building = wow_grand_barracks }
                 num_free_building_slots = 1
 			}
 		}
@@ -176,6 +179,7 @@ estate_nobility_build_a_barracks_in_y = {
 			limit = {
 				is_state_core = root
 				NOT = { has_building = wow_barracks }
+                NOT = { has_building = wow_grand_barracks }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -185,6 +189,7 @@ estate_nobility_build_a_barracks_in_y = {
 				is_state_core = root
 				base_manpower = 3
                 NOT = { has_building = wow_barracks }
+                NOT = { has_building = wow_grand_barracks }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -194,6 +199,7 @@ estate_nobility_build_a_barracks_in_y = {
 				is_state_core = root
 				base_manpower = 6
 				NOT = { has_building = wow_barracks }
+                NOT = { has_building = wow_grand_barracks }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -209,7 +215,10 @@ estate_nobility_build_a_barracks_in_y = {
 	}
     task_requirements = {
         event_target:agenda_province = {
-            has_building = wow_barracks
+            OR = {
+                has_building = wow_barracks
+                has_building = wow_grand_barracks
+            }
         }
     }
     task_completed_effect = {
@@ -260,6 +269,7 @@ estate_nobility_build_a_arsenal_in_y = {
 		any_owned_province = {
 			is_state_core = root
 			NOT = { has_building = wow_arsenal }
+            NOT = { has_building = wow_grand_arsenal }
 			num_free_building_slots = 1
 		}
 	}
@@ -272,6 +282,7 @@ estate_nobility_build_a_arsenal_in_y = {
 					is_state_core = root
 					base_manpower = 3
 					NOT = { has_building = wow_arsenal }
+                    NOT = { has_building = wow_grand_arsenal }
                     num_free_building_slots = 1
 				}
 			}
@@ -282,6 +293,7 @@ estate_nobility_build_a_arsenal_in_y = {
 				is_state_core = root
 				base_manpower = 6
 				NOT = { has_building = wow_arsenal }
+                NOT = { has_building = wow_grand_arsenal }
                 num_free_building_slots = 1
 			}
 		}
@@ -297,6 +309,7 @@ estate_nobility_build_a_arsenal_in_y = {
 			limit = {
 				is_state_core = root
 				NOT = { has_building = wow_arsenal }
+                NOT = { has_building = wow_grand_arsenal }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -306,6 +319,7 @@ estate_nobility_build_a_arsenal_in_y = {
 				is_state_core = root
 				base_manpower = 3
                 NOT = { has_building = wow_arsenal }
+                NOT = { has_building = wow_grand_arsenal }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -315,6 +329,7 @@ estate_nobility_build_a_arsenal_in_y = {
 				is_state_core = root
 				base_manpower = 6
 				NOT = { has_building = wow_arsenal }
+                NOT = { has_building = wow_grand_arsenal }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -330,7 +345,10 @@ estate_nobility_build_a_arsenal_in_y = {
 	}
     task_requirements = {
         event_target:agenda_province = {
-            has_building = wow_arsenal
+            OR = {
+                has_building = wow_arsenal
+                has_building = wow_grand_arsenal
+            }
         }
     }
     task_completed_effect = {
@@ -381,6 +399,9 @@ estate_nobility_build_basic_fort_in_y = {
 		any_owned_province = {
 			is_state_core = root
 			NOT = { has_building = wow_fort_1 }
+			NOT = { has_building = wow_fort_2 }
+			NOT = { has_building = wow_fort_3 }
+			NOT = { has_building = wow_fort_4 }
 			num_free_building_slots = 1
 		}
 	}
@@ -393,6 +414,9 @@ estate_nobility_build_basic_fort_in_y = {
 					is_state_core = root
 					base_manpower = 3
 					NOT = { has_building = wow_fort_1 }
+                    NOT = { has_building = wow_fort_2 }
+                    NOT = { has_building = wow_fort_3 }
+                    NOT = { has_building = wow_fort_4 }
                     num_free_building_slots = 1
 				}
 			}
@@ -403,6 +427,9 @@ estate_nobility_build_basic_fort_in_y = {
 				is_state_core = root
 				base_manpower = 6
 				NOT = { has_building = wow_fort_1 }
+                NOT = { has_building = wow_fort_2 }
+                NOT = { has_building = wow_fort_3 }
+                NOT = { has_building = wow_fort_4 }
                 num_free_building_slots = 1
 			}
 		}
@@ -418,6 +445,9 @@ estate_nobility_build_basic_fort_in_y = {
 			limit = {
 				is_state_core = root
 				NOT = { has_building = wow_fort_1 }
+                NOT = { has_building = wow_fort_2 }
+                NOT = { has_building = wow_fort_3 }
+                NOT = { has_building = wow_fort_4 }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -427,6 +457,9 @@ estate_nobility_build_basic_fort_in_y = {
 				is_state_core = root
 				base_manpower = 3
                 NOT = { has_building = wow_fort_1 }
+                NOT = { has_building = wow_fort_2 }
+                NOT = { has_building = wow_fort_3 }
+                NOT = { has_building = wow_fort_4 }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -436,6 +469,9 @@ estate_nobility_build_basic_fort_in_y = {
 				is_state_core = root
 				base_manpower = 6
 				NOT = { has_building = wow_fort_1 }
+                NOT = { has_building = wow_fort_2 }
+                NOT = { has_building = wow_fort_3 }
+                NOT = { has_building = wow_fort_4 }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -451,7 +487,12 @@ estate_nobility_build_basic_fort_in_y = {
 	}
     task_requirements = {
         event_target:agenda_province = {
-            has_building = wow_fort_1
+            OR = {
+                has_building = wow_fort_1
+                has_building = wow_fort_2
+                has_building = wow_fort_3
+                has_building = wow_fort_4
+            }
         }
     }
     task_completed_effect = {

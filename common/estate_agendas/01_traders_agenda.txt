@@ -139,6 +139,7 @@ estate_traders_build_a_marketplace_in_y = {
 		any_owned_province = {
 			is_state_core = root
 			NOT = { has_building = wow_marketplace }
+            NOT = { has_building = wow_grand_market }
 			num_free_building_slots = 1
 		}
 	}
@@ -154,6 +155,7 @@ estate_traders_build_a_marketplace_in_y = {
 						province_trade_power = 10
 					}
 					NOT = { has_building = wow_marketplace }
+                    NOT = { has_building = wow_grand_market }
                     num_free_building_slots = 1
 				}
 			}
@@ -167,6 +169,7 @@ estate_traders_build_a_marketplace_in_y = {
 					province_trade_power = 20
 				}
 				NOT = { has_building = wow_marketplace }
+                NOT = { has_building = wow_grand_market }
                     
 			}
 		}
@@ -182,6 +185,7 @@ estate_traders_build_a_marketplace_in_y = {
 			limit = {
 				is_state_core = root
 				NOT = { has_building = wow_marketplace }
+                NOT = { has_building = wow_grand_market }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -194,6 +198,7 @@ estate_traders_build_a_marketplace_in_y = {
 					province_trade_power = 10
 				}
 				NOT = { has_building = wow_marketplace }
+                NOT = { has_building = wow_grand_market }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -206,6 +211,7 @@ estate_traders_build_a_marketplace_in_y = {
 					province_trade_power = 20
 				}
 				NOT = { has_building = wow_marketplace }
+                NOT = { has_building = wow_grand_market }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -221,7 +227,10 @@ estate_traders_build_a_marketplace_in_y = {
 	}
     task_requirements = {
 		event_target:agenda_province = {
-            has_building = wow_marketplace
+            OR = {
+                has_building = wow_marketplace
+                has_building = wow_grand_market
+            }
         }
     }
     task_completed_effect = {
@@ -272,6 +281,7 @@ estate_traders_build_a_mine_in_y = {
 		any_owned_province = {
 			is_state_core = root
 			NOT = { has_building = wow_mine }
+            NOT = { has_building = wow_mine_complex }
 			num_free_building_slots = 1
 		}
 	}
@@ -284,6 +294,7 @@ estate_traders_build_a_mine_in_y = {
 					is_state_core = root
 					base_production = 10
 					NOT = { has_building = wow_mine }
+                    NOT = { has_building = wow_mine_complex }
                     num_free_building_slots = 1
 				}
 			}
@@ -294,6 +305,7 @@ estate_traders_build_a_mine_in_y = {
 				is_state_core = root
 				base_production = 20
 				NOT = { has_building = wow_mine }
+                NOT = { has_building = wow_mine_complex }
                     
 			}
 		}
@@ -309,6 +321,7 @@ estate_traders_build_a_mine_in_y = {
 			limit = {
 				is_state_core = root
 				NOT = { has_building = wow_mine }
+                NOT = { has_building = wow_mine_complex }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -318,6 +331,7 @@ estate_traders_build_a_mine_in_y = {
 				is_state_core = root
 				base_tax = 10
 				NOT = { has_building = wow_mine }
+                NOT = { has_building = wow_mine_complex }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -327,6 +341,7 @@ estate_traders_build_a_mine_in_y = {
 				is_state_core = root
 				base_tax = 20
 				NOT = { has_building = wow_mine }
+                NOT = { has_building = wow_mine_complex }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -342,7 +357,10 @@ estate_traders_build_a_mine_in_y = {
 	}
     task_requirements = {
 		event_target:agenda_province = {
-            has_building = wow_mine
+            OR = {
+                has_building = wow_mine
+                has_building = wow_mine_complex
+            }
         }
     }
     task_completed_effect = {
@@ -394,6 +412,7 @@ estate_traders_build_shipyard_in_y = {
             has_port = yes
 			is_state_core = root
             NOT = { has_building = wow_shipyard }
+            NOT = { has_building = wow_grand_shipyard }
 			num_free_building_slots = 1
 		}
 	}
@@ -410,6 +429,7 @@ estate_traders_build_shipyard_in_y = {
 						province_trade_power = 10
 					}
 					NOT = { has_building = wow_shipyard }
+                    NOT = { has_building = wow_grand_shipyard }
                     num_free_building_slots = 1
 				}
 			}
@@ -424,6 +444,7 @@ estate_traders_build_shipyard_in_y = {
 					province_trade_power = 20
 				}
 				NOT = { has_building = wow_shipyard }
+                NOT = { has_building = wow_grand_shipyard }
                 num_free_building_slots = 1
 			}
 		}
@@ -440,6 +461,7 @@ estate_traders_build_shipyard_in_y = {
                 has_port = yes
 				is_state_core = root
 				NOT = { has_building = wow_shipyard }
+                NOT = { has_building = wow_grand_shipyard }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -453,6 +475,7 @@ estate_traders_build_shipyard_in_y = {
 					province_trade_power = 10
 				}
 				NOT = { has_building = wow_shipyard }
+                NOT = { has_building = wow_grand_shipyard }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -466,6 +489,7 @@ estate_traders_build_shipyard_in_y = {
 					province_trade_power = 20
 				}
 				NOT = { has_building = wow_shipyard }
+                NOT = { has_building = wow_grand_shipyard }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -481,7 +505,10 @@ estate_traders_build_shipyard_in_y = {
 	}
     task_requirements = {
 		event_target:agenda_province = {
-            has_building = wow_shipyard
+            OR = {
+                has_building = wow_shipyard
+                has_building = wow_grand_shipyard
+            }
         }
     }
     task_completed_effect = {
@@ -533,6 +560,7 @@ estate_traders_build_dock_in_y = {
             has_port = yes
 			is_state_core = root
             NOT = { has_building = wow_dockyard }
+            NOT = { has_building = wow_grand_dockyard }
 			num_free_building_slots = 1
 		}
 	}
@@ -549,6 +577,7 @@ estate_traders_build_dock_in_y = {
 						province_trade_power = 10
 					}
 					NOT = { has_building = wow_dockyard }
+                    NOT = { has_building = wow_grand_dockyard }
                     num_free_building_slots = 1
 				}
 			}
@@ -563,6 +592,7 @@ estate_traders_build_dock_in_y = {
 					province_trade_power = 20
 				}
 				NOT = { has_building = wow_dockyard }
+                NOT = { has_building = wow_grand_dockyard }
                 num_free_building_slots = 1
 			}
 		}
@@ -579,6 +609,7 @@ estate_traders_build_dock_in_y = {
                 has_port = yes
 				is_state_core = root
 				NOT = { has_building = wow_dockyard }
+                NOT = { has_building = wow_grand_dockyard }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -592,6 +623,7 @@ estate_traders_build_dock_in_y = {
 					province_trade_power = 10
 				}
 				NOT = { has_building = wow_dockyard }
+                NOT = { has_building = wow_grand_dockyard }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -605,6 +637,7 @@ estate_traders_build_dock_in_y = {
 					province_trade_power = 20
 				}
 				NOT = { has_building = wow_dockyard }
+                NOT = { has_building = wow_grand_dockyard }
                 num_free_building_slots = 1
 			}
 			save_event_target_as = agenda_province
@@ -620,7 +653,10 @@ estate_traders_build_dock_in_y = {
 	}
     task_requirements = {
 		event_target:agenda_province = {
-            has_building = wow_dockyard
+            OR = {
+                has_building = wow_dockyard
+                has_building = wow_grand_dockyard
+            }
         }
     }
     task_completed_effect = {

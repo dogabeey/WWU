@@ -514,16 +514,18 @@ noble_rebels = {
 		add_local_autonomy = 10
 		owner = {
 			if = {
-				limit = { has_estate = estate_nobility }
+				limit = { 
+                    has_estate = estate_nobility 
+                    NOT = {
+                        estate_loyalty = {
+                            estate = estate_nobility
+                            loyalty = 30.0
+                        }
+                    }
+                }
 				change_estate_land_share = {
 					estate = estate_nobility
-					share = 10.0
-				}
-			}
-			else = { # Fallback
-				change_estate_land_share = {
-					estate = all
-					share = 10.0
+					share = 1.0
 				}
 			}
 		}
@@ -584,19 +586,6 @@ noble_rebels = {
 			set_country_flag = court_and_country_surrendered_to_rebels
 			hidden_effect = { country_event = { id = court_and_country_events.100 } }
 			end_disaster = court_and_country
-		}
-		if = {
-			limit = { has_estate = estate_nobility }
-			change_estate_land_share = {
-				estate = estate_nobility
-				share = 10.0
-			}
-		}
-		else = { # Fallback
-			change_estate_land_share = {
-				estate = all
-				share = 10.0
-			}
 		}
 	}
 }
