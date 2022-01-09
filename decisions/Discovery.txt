@@ -1,0 +1,19 @@
+country_decisions = {
+    # Allow new nations to reveal the world like those at game start
+	scry_the_world = {
+        potential = {
+			NOT = { has_discovered = 2141 }
+        }
+        allow = {
+            adm_power = 25
+        }
+        effect = {  
+            add_adm_power = -25
+            
+            discover_home_continent = yes
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+}

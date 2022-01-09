@@ -1,0 +1,689 @@
+country_decisions = {   
+    #----------------------------------
+    # Rise of the Horde
+    #----------------------------------
+    # Allow the Orc clans to jump into Azeroth
+	establish_foothold_at_azeroth = {
+		potential = {
+            # Contact with Medivh event has occured
+            has_global_flag = contact_with_medivh
+            
+            # Is Orc culture
+		    culture_group = culture_group_orc
+            
+            # Capital is in Draenor
+			capital_scope = {
+				continent = continent_draenor
+			}
+            
+            # Not moved capital already
+			NOT = { has_country_flag = moved_capital }
+		}
+		allow =  {
+            # Is Orc Culture
+            culture_group = culture_group_orc
+            
+            # Capital is in Draenor
+			capital_scope = {
+				continent = continent_draenor
+			}
+            
+            # Is Fel religion
+            religion = fel
+            
+            # Empty provinces in the Blasted Lands
+            region_blasted_lands = {
+                type = any
+                is_empty = yes
+            }
+            
+            # MIL Cost
+            mil_power = 200
+		}
+		effect = {
+			hidden_effect = { set_country_flag = moved_capital }
+            
+            # MIL Cost
+            add_mil_power = -200
+
+            # Bonus for moving to Azeroth
+			add_country_modifier = {
+				name = motivated_for_assault
+				duration = 3650
+			}
+            
+            # Default location if first
+            if = {
+                limit = {
+                    1035 = {
+                        is_empty = yes
+                    }
+                }
+                1035 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                    change_culture = ROOT
+                    change_religion = ROOT
+                    move_capital_effect = yes
+                    add_base_tax = 4
+                    add_base_production = 4
+                    add_base_manpower = 4
+                    add_building = wow_fort_1
+                }
+            }
+            # Otherwise select random province in Blasted Lands
+            else = {
+                if = {
+                    limit = {
+                        region_blasted_lands = {
+                            type = any
+                            is_empty = yes
+                        }
+                    }
+                    random_province = {
+                        limit = {
+                            region = region_blasted_lands 
+                            is_empty = yes
+                        }
+                        cede_province = ROOT
+                        add_core = ROOT
+                        change_culture = ROOT
+                        change_religion = ROOT
+                        move_capital_effect = yes
+                        add_base_tax = 4
+                        add_base_production = 4
+                        add_base_manpower = 4
+                        add_building = wow_fort_1
+                    }
+                }
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+    # Used to expand ownership in Blasted Lands
+    expand_foothold_in_azeroth = {
+		potential = {
+		    any_owned_province = {
+                OR = {
+                    region = region_blasted_lands
+                    region = region_swamp_of_sorrows
+                }
+                any_empty_neighbor_province = {
+                    is_empty = yes
+                }
+            }
+            religion = fel
+		}
+		allow =  {
+            adm_power = 100
+		}
+		effect = {
+            add_adm_power = -100
+            
+            random_owned_province = {
+                limit = {
+                    OR = {
+                        region = region_blasted_lands
+                        region = region_swamp_of_sorrows
+                    }
+                    any_empty_neighbor_province = {
+                        is_empty = yes
+                    }
+                }
+                random_empty_neighbor_province = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                    change_culture = ROOT
+                    change_religion = ROOT
+                }
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+    # Allow an enemy to take control of the non-Azeroth side of the Dark Portal in Draenor
+	secure_the_dark_portal_draenor = {
+		major = yes
+		potential = {
+            # Draenor exists
+            NOT = { has_global_flag = setup_outland }
+            
+            # Azeroth
+			controls = 1035
+			NOT = { owns = 1035 }
+            
+            # Draenor
+			NOT = { controls = 3792 } 
+		}
+		allow = {
+			# Azeroth
+			controls = 1035
+			NOT = { owns = 1035 }
+            
+            # Draenor
+			NOT = { controls = 3792 } 
+            
+            mil_power = 50
+		}
+		effect = {
+            add_mil_power = -50
+            
+			3792 = { change_controller = ROOT }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    # Allows the Dark Portal to be closed - Draenor
+	close_the_dark_portal_draenor = {
+		major = yes
+        
+		potential = {
+            # Draenor exists
+            NOT = { has_global_flag = setup_outland }
+            
+            # Dark Portal exists
+			has_global_flag = dark_portal_opened_flag
+            
+            # Is not Fel religion
+			NOT = { religion = fel }
+            
+            # Did not build it originally
+			NOT = { has_country_flag = dark_portal_builder }
+		}
+		allow =  {
+			NOT = {
+				religion = fel
+            }
+			controls = 3792 # Dark Portal: Draenor
+			controls = 1035 # Dark Portal: Azeroth
+		}
+		effect = {
+			3792 = {
+				remove_canal = gp_dark_portal_draenor
+			}
+            
+			clr_global_flag = dark_portal_opened_flag
+			set_global_flag = dark_portal_closed_flag
+            
+			hide_ambient_object = "dark_portal_ek"
+			hide_ambient_object = "dark_portal_draenor"
+            
+			if = {
+				limit = {
+					NOT = { has_global_flag = dark_portal_closed_firsttime }
+				}
+				custom_tooltip = dark_portal_closed_sons_tt 
+			}
+			hidden_effect = {			
+				if = {
+					limit = {
+						NOT = { exists = SOL }
+						NOT = { has_global_flag = sonsoflothar }
+						religion = holy_light
+					}
+					3790 = {
+						cede_province = SOL
+						set_base_tax = 7
+						set_base_production = 7
+						set_base_manpower = 11
+						add_building = wow_fort_3
+						change_religion = holy_light
+						change_culture = culture_stormwindian
+					}
+					3791 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						change_religion = holy_light
+						change_culture = culture_dalaran
+					}
+					3785 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						add_building = wow_fort_1
+						change_religion = holy_light
+						change_culture = culture_wildhammer
+					}
+					3789 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						change_religion = holy_light
+						change_culture = culture_high_elf
+					}
+					3788 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						add_building = wow_fort_1
+						change_religion = holy_light
+						change_culture = culture_arathi
+					}
+					set_global_flag = sonsoflothar
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = khadgar }
+				}
+				SOL = {
+					define_ruler = {
+						name = "Khadgar" 
+						dynasty = "of Kul Tiras" 
+						adm = 6
+						dip = 6
+						mil = 6 
+						age = 30
+						claim = 100
+					}
+					hidden_effect = { event_add_mage_personality = yes }
+                }
+                SOL = {
+                    add_country_modifier = {
+                        name = member_of_alliance
+                        duration = -1
+                    }
+                }
+				set_global_flag = khadgar
+			}
+			
+            every_country = {
+                limit = { has_country_flag = dark_portal_builder } 
+                
+                clr_country_flag = dark_portal_builder 
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    #----------------------------------
+    # First War (and onwards)
+    #----------------------------------
+    # Allow Alliance members to jump into Outland
+    establish_foothold_in_outland = {
+		major = yes
+		potential = {   
+            NOT = { current_age = age_rise_of_the_horde }
+            has_country_modifier = member_of_alliance
+		}
+		allow =  {
+			has_country_modifier = member_of_alliance
+            
+            # Dark Portal: Azeroth
+            1035 = { owned_by = ROOT }
+            
+            mil_power = 200
+		}
+		effect = {
+			add_mil_power = -200
+            
+			add_country_modifier = {
+				name = motivated_for_assault
+				duration = 3650
+			}
+            
+            if = {
+                limit = {
+                    has_global_flag = setup_outland
+                }
+                1586 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                    change_culture = ROOT
+                    change_religion = ROOT
+                }
+            }
+            else = {
+                3792 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                    change_culture = ROOT
+                    change_religion = ROOT
+                }
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    # Allow an enemy to take control of the non-Azeroth side of the Dark Portal in Draenor
+    secure_the_dark_portal_outland = {
+		major = yes
+		potential = {
+            # Outland Exists
+            has_global_flag = setup_outland
+            
+            #
+            has_global_flag = dark_portal_opened_flag
+            
+            # Azeroth
+			NOT = { owns = 1035 }
+			controls = 1035 
+            
+			# Outland
+			NOT = { controls = 1586 }
+		}
+		allow = {
+			# Azeroth
+			NOT = { owns = 1035 }
+			controls = 1035 
+            
+            # Outland
+			NOT = { controls = 1586 }
+		    mil_power = 50
+		}
+		effect = {
+            add_mil_power = -50
+            
+			1586 = { change_controller = ROOT }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    # Allows the Dark Portal to be closed - Outland
+	close_the_dark_portal_outland = {
+		major = yes
+        
+		potential = {
+            # Outland exists
+            has_global_flag = setup_outland
+            
+            # Dark Portal exists
+			has_global_flag = dark_portal_opened_flag
+            
+            # Is not Fel religion
+			NOT = { religion = fel }
+            
+            # Did not build it originally
+			NOT = { has_country_flag = dark_portal_builder }
+		}
+		allow =  {
+			NOT = {
+				religion = fel
+            }
+			controls = 1586 # Dark Portal: Outland
+			controls = 1035 # Dark Portal: Azeroth
+		}
+		effect = {
+			1586 = {
+				remove_canal = gp_dark_portal_outland
+			}
+            
+			clr_global_flag = dark_portal_opened_flag
+			set_global_flag = dark_portal_closed_flag
+            
+			hide_ambient_object = "dark_portal_ek"
+			hide_ambient_object = "dark_portal_outland"
+            
+			if = {
+				limit = {
+					NOT = { has_global_flag = dark_portal_closed_firsttime }
+				}
+				custom_tooltip = dark_portal_closed_sons_tt 
+			}
+			hidden_effect = {			
+				if = {
+					limit = {
+						NOT = { exists = SOL }
+						NOT = { has_global_flag = sonsoflothar }
+						religion = holy_light
+					}
+					1586 = {
+						cede_province = SOL
+						set_base_tax = 7
+						set_base_production = 7
+						set_base_manpower = 11
+						add_building = wow_fort_3
+						change_religion = holy_light
+						change_culture = culture_stormwindian
+					}
+					1587 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						change_religion = holy_light
+						change_culture = culture_dalaran
+					}
+					1589 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						add_building = wow_fort_1
+						change_religion = holy_light
+						change_culture = culture_wildhammer
+					}
+					1590 = {
+						cede_province = SOL
+						set_base_tax = 4
+						set_base_production = 4
+						set_base_manpower = 7
+						change_religion = holy_light
+						change_culture = culture_high_elf
+					}
+					set_global_flag = sonsoflothar
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = khadgar }
+				}
+				SOL = {
+					define_ruler = {
+						name = "Khadgar" 
+						dynasty = "of Kul Tiras" 
+						adm = 6
+						dip = 6
+						mil = 6 
+						age = 30
+						claim = 100
+					}
+					hidden_effect = { event_add_mage_personality = yes }
+                }
+                SOL = {
+                    add_country_modifier = {
+                        name = member_of_alliance
+                        duration = -1
+                    }
+                }
+				set_global_flag = khadgar
+			}
+			
+            every_country = {
+                limit = { has_country_flag = dark_portal_builder } 
+                
+                clr_country_flag = dark_portal_builder 
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    # Open the Dark Portal - Outland 
+	open_the_dark_portal_outland = {
+		major = yes
+        
+		potential = {
+            has_global_flag = setup_outland
+            
+			OR = {
+				had_global_flag = {
+					flag = dark_portal_closed_firsttime
+					days = -1
+				}
+				had_global_flag = {
+					flag = dark_portal_closed_flag
+					days = 18250
+				}
+			}
+			is_year = 600
+            religion = fel
+			NOT = { has_global_flag = dark_portal_opened_flag }
+		}
+		allow =  {
+			is_year = 600
+            
+			OR = {
+                owns = 1586 # Dark Portal: Outland
+                owns = 1035 # Dark Portal: Azeroth
+            }
+            
+            religion = fel
+            
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+		}
+		effect = {
+			1586 = {
+				add_canal = gp_dark_portal_outland 
+			}
+            
+			set_global_flag = dark_portal_opened_flag
+			set_country_flag = dark_portal_builder
+			show_ambient_object = "dark_portal_ek"
+			show_ambient_object = "dark_portal_outland"
+            
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+            
+			continent_outland = {
+				add_devastation = 25
+            }
+			region_blasted_lands = {
+				add_devastation = 25
+            }
+            
+			clr_global_flag = dark_portal_closed_flag
+			clr_global_flag = dark_portal_closed_firsttime
+            
+			1586 = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
+			1035 = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+    # Open the Dark Portal - Outland 
+	open_the_dark_portal_magic = {
+		major = yes
+        
+		potential = {
+            has_global_flag = setup_outland
+            
+			OR = {
+				had_global_flag = {
+					flag = dark_portal_closed_firsttime
+					days = -1
+				}
+				had_global_flag = {
+					flag = dark_portal_closed_flag
+					days = 18250
+				}
+			}
+			is_year = 600
+            
+            OR = {
+                religion = arcane
+                religion = light_of_the_naaru
+                religion_group = shadow_group
+            }
+            
+			NOT = { has_global_flag = dark_portal_opened_flag }
+		}
+		allow =  {
+			is_year = 600
+            
+			OR = {
+                owns = 1586 # Dark Portal: Outland
+                owns = 1035 # Dark Portal: Azeroth
+            }
+            
+            OR = {
+                AND = {
+                    religion = arcane
+                    patriarch_authority = 0.75
+                }	
+                AND = {
+                    religion = light_of_the_naaru
+                    harmony = 75
+                }
+                AND = {
+                    religion_group = shadow_group
+                    church_power = 75
+                }
+            }
+            
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+		}
+		effect = {
+			1586 = {
+				add_canal = gp_dark_portal_outland 
+			}
+            
+			set_global_flag = dark_portal_opened_flag
+			set_country_flag = dark_portal_builder
+			show_ambient_object = "dark_portal_ek"
+			show_ambient_object = "dark_portal_outland"
+            
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+            
+            add_harmony = -25
+			add_patriarch_authority = -0.25
+            
+			clr_global_flag = dark_portal_closed_flag
+			clr_global_flag = dark_portal_closed_firsttime
+            
+			1586 = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
+			1035 = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = ROOT
+                change_religion = ROOT
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
