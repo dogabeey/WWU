@@ -305,7 +305,7 @@ country_event = {
 	is_triggered_only = yes
     
     trigger = {
-        NOT = { ruler_has_personality = spellcaster_personality }
+        NOT = { has_ruler_modifier = spellcaster_capabilities }
         check_variable = {
             which = ruler_magic_training
             value = 5
@@ -315,7 +315,10 @@ country_event = {
     option = {
 		name = wwu_magic.11.option.a
 		
-        add_ruler_personality = spellcaster_personality
+        add_ruler_modifier = {
+            name = spellcaster_capabilities
+            duration = -1
+        }
         
         hidden_effect = {
             remove_country_modifier = magical_training
@@ -339,7 +342,7 @@ country_event = {
 	is_triggered_only = yes
     
     trigger = {
-        NOT = { ruler_has_personality = spellcaster_personality }
+        NOT = { has_ruler_modifier = spellcaster_capabilities }
     }
 	
     option = {
@@ -357,7 +360,7 @@ country_event = {
 	picture = BIG_BOOK_eventPicture
     
 	trigger = {
-        ruler_has_personality = spellcaster_personality
+        has_ruler_modifier = spellcaster_capabilities
         check_variable = {
             which = ruler_magic_aptitude
             value = 1
@@ -394,7 +397,7 @@ country_event = {
 	picture = BIG_BOOK_eventPicture
     
 	trigger = {
-        ruler_has_personality = spellcaster_personality
+        has_ruler_modifier = spellcaster_capabilities
         check_variable = {
             which = ruler_magic_finesse
             value = 1
@@ -431,7 +434,7 @@ country_event = {
 	picture = BIG_BOOK_eventPicture
     
 	trigger = {
-        ruler_has_personality = spellcaster_personality
+        has_ruler_modifier = spellcaster_capabilities
         check_variable = {
             which = ruler_magic_concentration
             value = 1
@@ -499,7 +502,7 @@ country_event = {
 	is_triggered_only = yes
     
     trigger = {
-        ruler_has_personality = spellcaster_personality
+        has_ruler_modifier = spellcaster_capabilities
     }
 
     #--------------------------------
