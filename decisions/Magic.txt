@@ -99,15 +99,66 @@ country_decisions = {
         potential = {
             has_ruler_modifier = spellcaster_capabilities
             NOT = { has_legendary_aptitude = yes }
+            NOT = { has_ruler_modifier = recently_trained_magic }
         }
         allow = {
             has_ruler_modifier = spellcaster_capabilities
             adm_power = 250
         }
         effect = {
-            add_adm_power = -250
+            # -> Legendary
+            if = {
+                limit = {
+                    check_variable = {
+                        which = ruler_magic_aptitude
+                        value = 3
+                    }
+                }
+                add_adm_power = -500
+            }
+            # -> Epic
+            else_if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = ruler_magic_aptitude
+                            value = 3
+                        }
+                    }
+                    check_variable = {
+                        which = ruler_magic_aptitude
+                        value = 2
+                    }
+                }
+                add_adm_power = -400
+            }
+            # -> Rare
+            else_if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = ruler_magic_aptitude
+                            value = 2
+                        }
+                    }
+                    check_variable = {
+                        which = ruler_magic_aptitude
+                        value = 1
+                    }
+                }
+                add_adm_power = -300
+            }
+            # -> Common
+            else = {
+                add_adm_power = -200
+            }
             
-            add_aptitude_point = yes
+            add_ruler_modifier = {
+                name = recently_trained_magic
+                duration = 1800
+            }
+            
+            country_event = { id = wwu_magic.40 }
         }		
         ai_will_do = {
             factor = 0
@@ -119,16 +170,67 @@ country_decisions = {
         potential = {
             has_ruler_modifier = spellcaster_capabilities
             NOT = { has_legendary_finesse = yes }
+            NOT = { has_ruler_modifier = recently_trained_magic }
         }
         allow = {
             has_ruler_modifier = spellcaster_capabilities
             mil_power = 250
         }
         effect = {
-            add_mil_power = -250
+            # -> Legendary
+            if = {
+                limit = {
+                    check_variable = {
+                        which = ruler_magic_finesse
+                        value = 3
+                    }
+                }
+                add_mil_power = -500
+            }
+            # -> Epic
+            else_if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = ruler_magic_finesse
+                            value = 3
+                        }
+                    }
+                    check_variable = {
+                        which = ruler_magic_finesse
+                        value = 2
+                    }
+                }
+                add_mil_power = -400
+            }
+            # -> Rare
+            else_if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = ruler_magic_finesse
+                            value = 2
+                        }
+                    }
+                    check_variable = {
+                        which = ruler_magic_finesse
+                        value = 1
+                    }
+                }
+                add_mil_power = -300
+            }
+            # -> Common
+            else = {
+                add_mil_power = -200
+            }
             
-            add_finesse_point = yes
-        }		
+            add_ruler_modifier = {
+                name = recently_trained_magic
+                duration = 1800
+            }
+            
+            country_event = { id = wwu_magic.41 }
+        }	
         ai_will_do = {
             factor = 0
         }
@@ -139,16 +241,67 @@ country_decisions = {
         potential = {
             has_ruler_modifier = spellcaster_capabilities
             NOT = { has_legendary_concentration = yes }
+            NOT = { has_ruler_modifier = recently_trained_magic }
         }
         allow = {
             has_ruler_modifier = spellcaster_capabilities
             dip_power = 250
         }
         effect = {
-            add_dip_power = -250
+            # -> Legendary
+            if = {
+                limit = {
+                    check_variable = {
+                        which = ruler_magic_concentration
+                        value = 3
+                    }
+                }
+                add_dip_power = -500
+            }
+            # -> Epic
+            else_if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = ruler_magic_concentration
+                            value = 3
+                        }
+                    }
+                    check_variable = {
+                        which = ruler_magic_concentration
+                        value = 2
+                    }
+                }
+                add_dip_power = -400
+            }
+            # -> Rare
+            else_if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = ruler_magic_concentration
+                            value = 2
+                        }
+                    }
+                    check_variable = {
+                        which = ruler_magic_concentration
+                        value = 1
+                    }
+                }
+                add_dip_power = -300
+            }
+            # -> Common
+            else = {
+                add_dip_power = -200
+            }
             
-            add_concentration_point = yes
-        }		
+            add_ruler_modifier = {
+                name = recently_trained_magic
+                duration = 1800
+            }
+            
+            country_event = { id = wwu_magic.42 }
+        }	
         ai_will_do = {
             factor = 0
         }
@@ -164,7 +317,6 @@ country_decisions = {
             has_ruler_modifier = spellcaster_capabilities
         }
         allow = {
-            has_mana_1 = yes
             has_ruler_modifier = spellcaster_capabilities
         }
         effect = {
