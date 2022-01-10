@@ -632,8 +632,8 @@ NCountry = {
 	CIRCUMNAVIGATION_PROVINCE_2 = 426,			-- Provinces for circumnavigation (magellan strait)
 	CIRCUMNAVIGATION_PROVINCE_3 = 159,			-- Provinces for circumnavigation (hawaii sea)
 	CIRCUMNAVIGATION_PROVINCE_4 = 50,			-- Provinces for circumnavigation (hawaii sea)
-	CIRCUMNAVIGATION_PROVINCE_5 = 99,			-- Provinces for circumnavigation (hawaii sea)
-	CIRCUMNAVIGATION_PROVINCE_6 = 2083,			-- Provinces for circumnavigation (cape of good hope)
+	CIRCUMNAVIGATION_PROVINCE_5 = 106,			-- Provinces for circumnavigation (hawaii sea)
+	CIRCUMNAVIGATION_PROVINCE_6 = 3964,			-- Provinces for circumnavigation (cape of good hope)
 
 	MIN_DEV_FOR_OLD_GREAT_POWER = 100,					-- Countries with less development than this cannot be considered Great Powers
 
