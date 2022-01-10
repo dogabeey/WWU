@@ -2247,12 +2247,17 @@ on_province_owner_change = {
 	#log = "[Root.GetName]: Triggered province_owner_change"
     on_province_owner_change_estate_privileges_effect = yes
     
+    events = {
+        inhospitable_terrain.1
+        inhospitable_terrain.2
+        inhospitable_terrain.3
+    }
+    
 	owner = {
 		change_variable = {
 			which = provinces_gained
 			value = 1
 		}
-		
 	}
     
 	if = {
