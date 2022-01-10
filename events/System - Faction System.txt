@@ -253,16 +253,15 @@ country_event = {
 	picture = ORCISH_INVASION_eventPicture
     
     major = yes
+    is_triggered_only = yes
     
     mean_time_to_happen = {
 		days = 1
 	}
     
-    trigger = {
+    trigger = { 
         tag = B88
         NOT = { has_global_flag = setup_the_old_horde }
-        current_age = age_rise_of_the_horde
-        has_global_flag = blood_of_mannoroth
     }
 	
     immediate = {
@@ -272,24 +271,22 @@ country_event = {
 	option = {
 		name = wwu_faction_system.10.option.a
 		
-        B88 = {
-            add_country_modifier = {
-                name = head_of_old_horde
-                duration = -1
-            }
-            add_country_modifier = {
-                name = member_of_old_horde
-                duration = -1
-            }
-            add_country_modifier = {
-                name = the_shadow_council
-                duration = -1
-            }
+        add_country_modifier = {
+            name = head_of_old_horde
+            duration = -1
+        }
+        add_country_modifier = {
+            name = member_of_old_horde
+            duration = -1
+        }
+        add_country_modifier = {
+            name = the_shadow_council
+            duration = -1
         }
         
         every_country = {
             limit = {
-                has_country_flag = accepted_the_demonsblood
+                has_country_flag = drank_the_demonsblood
             }
             
             add_country_modifier = {
@@ -403,6 +400,10 @@ country_event = {
                 modifier = omod_power_hungry
             }
         }
+        
+        ai_chance = {
+            factor = 50
+        }
 	}
     
     # Permit tribal vote
@@ -421,6 +422,16 @@ country_event = {
                     name = head_of_old_horde
                     duration = -1
                 }
+            }
+        }
+        
+        ai_chance = {
+            factor = 50
+            
+            modifier = {
+                factor = 0
+                
+                tag = B88
             }
         }
 	}

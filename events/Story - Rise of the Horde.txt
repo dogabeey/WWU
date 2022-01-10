@@ -25,11 +25,11 @@ country_event = {
 	}
     
     immediate = {
-        save_global_event_target_as = buring_legion_conduit_nation
+        save_global_event_target_as = old_horde_leader
     }
 	
     mean_time_to_happen = {
-		months = 12
+		days = 1
 	}
     
 	option = {
@@ -57,6 +57,8 @@ country_event = {
 
         add_stability = -1
         
+        custom_tooltip = ENDS_THE_RISE_OF_THE_HORDE
+        
         ai_chance = {
             factor = 0
         }
@@ -71,20 +73,18 @@ country_event = {
 	picture = ORCISH_INVASION_eventPicture
 
 	trigger = {
-        current_age = age_rise_of_the_horde
         has_global_flag = nerzhul_recruitment
         
-        NOT = { tag = event_target:buring_legion_conduit_nation }
-        
+        NOT = { tag = event_target:old_horde_leader }
         NOT = { has_country_flag = set_side_for_nerzhul_event }
         
         capital_scope = { continent = continent_draenor }
+        
         culture_group = culture_group_orc
-        government = tribal
 	}
     
     mean_time_to_happen = {
-		months = 12
+		days = 1
 	}
     
     immediate = {
@@ -97,16 +97,16 @@ country_event = {
 		
         if = {
             limit = {
-                exists = event_target:buring_legion_conduit_nation
+                exists = event_target:old_horde_leader
             }
-            event_target:buring_legion_conduit_nation = {
+            event_target:old_horde_leader = {
                 add_opinion = {
                     who = ROOT
                     modifier = allies_of_nerzhul
                 }
             }
             add_opinion = {
-                who = event_target:buring_legion_conduit_nation
+                who = event_target:old_horde_leader
                 modifier = allies_of_nerzhul
             }
         }
@@ -129,16 +129,16 @@ country_event = {
 		
         if = {
             limit = {
-                exists = event_target:buring_legion_conduit_nation
+                exists = event_target:old_horde_leader
             }
-            event_target:buring_legion_conduit_nation = {
+            event_target:old_horde_leader = {
                 add_opinion = {
                     who = ROOT
                     modifier = enemies_of_nerzhul
                 }
             }
             add_opinion = {
-                who = event_target:buring_legion_conduit_nation
+                who = event_target:old_horde_leader
                 modifier = enemies_of_nerzhul
             }
         }
@@ -168,13 +168,12 @@ country_event = {
     fire_only_once = yes
     
 	trigger = {
-        current_age = age_rise_of_the_horde
         has_global_flag = nerzhul_recruitment
-		tag = event_target:buring_legion_conduit_nation
+		tag = event_target:old_horde_leader
 	}
 	
     mean_time_to_happen = {
-		months = 24
+		months = 12
 	}
     
     immediate = {
@@ -185,23 +184,23 @@ country_event = {
                 }
                 if = {
                     limit = {
-                        exists = event_target:buring_legion_conduit_nation
+                        exists = event_target:old_horde_leader
                     }
                     remove_opinion = {
-                        who = event_target:buring_legion_conduit_nation
+                        who = event_target:old_horde_leader
                         modifier = allies_of_nerzhul
                     }
-                    event_target:buring_legion_conduit_nation = {
+                    event_target:old_horde_leader = {
                         remove_opinion = {
                             who = ROOT
                             modifier = allies_of_nerzhul
                         }
                     }
                     remove_opinion = {
-                        who = event_target:buring_legion_conduit_nation
+                        who = event_target:old_horde_leader
                         modifier = enemies_of_nerzhul
                     }
-                    event_target:buring_legion_conduit_nation = {
+                    event_target:old_horde_leader = {
                         remove_opinion = {
                             who = ROOT
                             modifier = enemies_of_nerzhul
@@ -243,32 +242,21 @@ country_event = {
 	picture = ORCISH_INVASION_eventPicture
 
 	trigger = {
-        current_age = age_rise_of_the_horde
         has_global_flag = guldan_recruitment
         
-        NOT = { tag = event_target:buring_legion_conduit_nation }
+        NOT = { tag = event_target:old_horde_leader }
         NOT = { has_country_flag = set_side_for_guldan_event }
         
         capital_scope = { continent = continent_draenor }
         culture_group = culture_group_orc
-        government = tribal
 	}
     
     mean_time_to_happen = {
-		months = 12
+		days = 1
 	}
     
     immediate = {
         set_country_flag = set_side_for_guldan_event
-        
-        if = {
-            limit = {
-                exists = event_target:buring_legion_conduit_nation
-            }
-            event_target:buring_legion_conduit_nation = {
-                set_country_flag = joined_guldan
-            }
-        }
     }
 	
     # Join
@@ -277,19 +265,20 @@ country_event = {
 		
         if = {
             limit = {
-                exists = event_target:buring_legion_conduit_nation
+                exists = event_target:old_horde_leader
             }
-            event_target:buring_legion_conduit_nation = {
+            event_target:old_horde_leader = {
                 add_opinion = {
                     who = ROOT
                     modifier = allies_of_guldan
                 }
             }
             add_opinion = {
-                who = event_target:buring_legion_conduit_nation
+                who = event_target:old_horde_leader
                 modifier = allies_of_guldan
             }
         }
+        
         add_ruler_modifier = {
             name = kiljaedens_favour
             duration = -1
@@ -299,10 +288,6 @@ country_event = {
         
         random_owned_province = {
             change_religion = fel
-        }
-        
-        ai_chance = {
-            factor = 100
         }
 		
 		every_country = {
@@ -314,6 +299,10 @@ country_event = {
 				add_permanent_claim = ROOT
 			}
 		}
+        
+        ai_chance = {
+            factor = 100
+        }
     }
     
     # Reject
@@ -322,19 +311,21 @@ country_event = {
 		
         if = {
             limit = {
-                exists = event_target:buring_legion_conduit_nation
+                exists = event_target:old_horde_leader
             }
-            event_target:buring_legion_conduit_nation = {
+            event_target:old_horde_leader = {
                 add_opinion = {
                     who = ROOT
                     modifier = enemies_of_guldan
                 }
             }
             add_opinion = {
-                who = event_target:buring_legion_conduit_nation
+                who = event_target:old_horde_leader
                 modifier = enemies_of_guldan
             }
         }
+        
+        add_prestige = 25
         
         set_country_flag = refused_guldan
         
@@ -344,31 +335,132 @@ country_event = {
     }
 }
 
-# The Shadow Council
+# Crush the Draenei
 country_event = {
 	id = rise_of_the_horde.5
 	title = rise_of_the_horde.5.title
 	desc = rise_of_the_horde.5.desc
 	picture = ORCISH_INVASION_eventPicture
     
+    fire_only_once = yes
+    
+	trigger = {
+        NOT = { has_global_flag = draenei_incentive }
+        has_country_flag = joined_guldan
+        
+        capital_scope = { continent = continent_draenor }
+        culture_group = culture_group_orc
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = draenei_incentive
+        }
+    }
+    
+	option = {
+		name = rise_of_the_horde.5.option.a
+		
+        3765 = { add_permanent_claim = ROOT }
+        3806 = { add_permanent_claim = ROOT }
+        3770 = { add_permanent_claim = ROOT }
+    }
+}
+
+# Fall of the Draenei
+country_event = {
+	id = rise_of_the_horde.6
+	title = rise_of_the_horde.6.title
+	desc = rise_of_the_horde.6.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    fire_only_once = yes
+    
+	trigger = {
+        NOT = { has_global_flag = blood_of_mannoroth }
+        
+        tag = event_target:old_horde_leader
+        
+        has_global_flag = guldan_recruitment
+        has_country_flag = joined_guldan
+        
+        capital_scope = { continent = continent_draenor }
+        culture_group = culture_group_orc
+        
+        # Draenei cities owned by any Gul'dan allied orc clan
+        OR = {
+            any_country = {
+                has_country_flag = joined_guldan
+                owns = 3765
+            }
+            AND = {
+                has_country_flag = joined_guldan
+                owns = 3765
+            }
+        }
+        OR = {
+            any_country = {
+                has_country_flag = joined_guldan
+                owns = 3806
+            }
+            AND = {
+                has_country_flag = joined_guldan
+                owns = 3806
+            }
+        }
+        OR = {
+            any_country = {
+                has_country_flag = joined_guldan
+                owns = 3770
+            }
+            AND = {
+                has_country_flag = joined_guldan
+                owns = 3770
+            }
+        }
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.6.option.a
+		
+        set_global_flag = blood_of_mannoroth
+    }
+}
+
+# The Shadow Council
+country_event = {
+	id = rise_of_the_horde.7
+	title = rise_of_the_horde.7.title
+	desc = rise_of_the_horde.7.desc
+	picture = ORCISH_INVASION_eventPicture
+    
     major = yes
     fire_only_once = yes
     
 	trigger = {
-        current_age = age_rise_of_the_horde
         has_global_flag = blood_of_mannoroth
-		tag = event_target:buring_legion_conduit_nation
+		tag = event_target:old_horde_leader
 	}
 
     mean_time_to_happen = {
-		months = 12
+		days = 1
     }
     
 	option = {
-		name = rise_of_the_horde.5.option.a#
+		name = rise_of_the_horde.7.option.a
 		
         set_country_flag = set_blood_of_mannoroth
         set_country_flag = drank_the_demonsblood
+        
+        set_global_flag = shadow_council_formed
         
         # Setup Shadow Council
 		3806 = {
@@ -384,12 +476,6 @@ country_event = {
 			add_base_manpower = 3
 		}
         
-        hidden_effect = {
-            B88 = {
-                country_event = { id = rise_of_the_horde.33 }
-            }
-        }
-        
         if = { 
             limit = { NOT = { religion = fel } }
             
@@ -400,61 +486,21 @@ country_event = {
             }
         }
     }
-    after = {
-        B88 = {
-            discover_home_continent = yes
-        }
-    }
 }
 
-# Collapse of the Draenei
+# Blood of Mannoroth - Clans
 country_event = {
-	id = rise_of_the_horde.6
-	title = rise_of_the_horde.6.title
-	desc = rise_of_the_horde.6.desc
+	id = rise_of_the_horde.8
+	title = rise_of_the_horde.8.title
+	desc = rise_of_the_horde.8.desc
 	picture = ORCISH_INVASION_eventPicture
     
-    #major = yes
-    fire_only_once = yes
-    is_triggered_only = yes
-    
 	trigger = {
-        has_global_flag = guldan_recruitment
-        capital_scope = { continent = continent_draenor }
-        culture_group = culture_group_draenei
-        FROM = {
-            capital_scope = { continent = continent_draenor }
-            culture_group = culture_group_orc
-            government = tribal
-        }
-	}
-	
-    mean_time_to_happen = {
-		days = 1
-    }
-    
-	option = {
-		name = rise_of_the_horde.6.option.a
-		
-        set_global_flag = blood_of_mannoroth
-    }
-}
-
-# Blood of Mannoroth
-country_event = {
-	id = rise_of_the_horde.7
-	title = rise_of_the_horde.7.title
-	desc = rise_of_the_horde.7.desc
-	picture = ORCISH_INVASION_eventPicture
-    
-    #major = yes
-
-	trigger = {
-        current_age = age_rise_of_the_horde
         has_global_flag = blood_of_mannoroth
         
         capital_scope = { continent = continent_draenor }
         culture_group = culture_group_orc
+        
         NOT = { has_country_flag = set_blood_of_mannoroth }
 	}
     
@@ -463,12 +509,12 @@ country_event = {
     }
 	
     mean_time_to_happen = {
-		months = 1
+		days = 1
     }
 
     # Join
 	option = {
-		name = rise_of_the_horde.7.option.a
+		name = rise_of_the_horde.8.option.a
 		
         if = {
             limit = {
@@ -506,7 +552,7 @@ country_event = {
     
     # Reject
     option = {
-		name = rise_of_the_horde.7.option.b
+		name = rise_of_the_horde.8.option.b
 		
         if = {
             limit = {
@@ -537,61 +583,22 @@ country_event = {
     }
 }
 
-
 # The Dying Time
-country_event = {
-	id = rise_of_the_horde.8
-	title = rise_of_the_horde.8.title
-	desc = rise_of_the_horde.8.desc
-	picture = ORCISH_INVASION_eventPicture
-    
-    #major = yes
-    fire_only_once = yes
-    
-	trigger = {
-        current_age = age_rise_of_the_horde
-        has_global_flag = blood_of_mannoroth
-        NOT = { exists = A54 }
-        NOT = { exists = A55 }
-        NOT = { exists = F49 }
-        NOT = { exists = TUU }
-        NOT = { exists = ELO }
-        NOT = { exists = EMB }
-        NOT = { exists = ORU }
-        NOT = { exists = TEL }
-	}
-	
-    mean_time_to_happen = {
-		months = 1
-    }
-    
-	option = {
-		name = rise_of_the_horde.8.option.a
-		
-        set_global_flag = the_dying_times
-    }
-}
-
-# "Contact with Medivh"
 country_event = {
 	id = rise_of_the_horde.9
 	title = rise_of_the_horde.9.title
 	desc = rise_of_the_horde.9.desc
 	picture = ORCISH_INVASION_eventPicture
     
-    #major = yes
     fire_only_once = yes
     
 	trigger = {
-		current_age = age_rise_of_the_horde
-		is_year = 591
+        has_global_flag = shadow_council_formed
         
-		OR = {
-            tag = event_target:buring_legion_conduit_nation
-			has_country_modifier = head_of_old_horde
-			tag = B88
-			tag = U03
-		} 
+        had_global_flag = {
+            flag = blood_of_mannoroth
+            days = 730
+        }
 	}
 	
     mean_time_to_happen = {
@@ -600,6 +607,40 @@ country_event = {
     
 	option = {
 		name = rise_of_the_horde.9.option.a
+		
+        set_global_flag = the_dying_times
+    }
+}
+
+# "Contact with Medivh"
+country_event = {
+	id = rise_of_the_horde.10
+	title = rise_of_the_horde.10.title
+	desc = rise_of_the_horde.10.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    fire_only_once = yes
+    
+	trigger = {
+		had_global_flag = {
+            flag = the_dying_times
+            days = 730
+        }
+        
+		OR = {
+            tag = event_target:old_horde_leader
+			has_country_modifier = head_of_old_horde
+			tag = B88
+			tag = U03
+		} 
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.10.option.a
 		
         hidden_effect = { 
 			set_global_flag = contact_with_medivh 
@@ -610,8 +651,11 @@ country_event = {
 			add_core = B88
 			change_culture = culture_orc
 			change_religion = fel
-            add_canal = gp_dark_portal_draenor
 		}
+        
+        B88 = {
+            country_event = { id = rise_of_the_horde.11 days = 30 }
+        }
 		
 		hidden_effect = {
 			set_global_flag = dark_portal_opened_flag
@@ -623,146 +667,18 @@ country_event = {
 				add_devastation = 25
             }
 		}
-    }	
-    option = {
-		name = rise_of_the_horde.9.option.b
-        
-        trigger = {
-            ai = no
-        }
-		
-        hidden_effect = { 
-			set_global_flag = contact_with_medivh 
-		}
-
-        custom_tooltip = DRAENOR_SHUT_TT
-    }	
-    after = {
-        B88 = {
-            discover_home_continent = yes
-        }
     }
 }
 
 # The Dark Portal
 country_event = {
-	id = rise_of_the_horde.10
-	title = rise_of_the_horde.10.title
-	desc = rise_of_the_horde.10.desc
+	id = rise_of_the_horde.11
+	title = rise_of_the_horde.11.title
+	desc = rise_of_the_horde.11.desc
 	picture = ORCISH_INVASION_eventPicture
     
     major = yes
-	fire_only_once = yes
-	
-    trigger = {
-		current_age = age_rise_of_the_horde
-		has_global_flag = contact_with_medivh 
-        
-		OR = {
-            tag = event_target:buring_legion_conduit_nation
-			has_country_modifier = head_of_old_horde
-			tag = B88
-			tag = U03
-		}
-	}
-	
-    mean_time_to_happen = {
-		months = 1
-    }
     
-	option = {
-		name = rise_of_the_horde.10.option.a
-        
-        clr_global_flag = the_dying_times
-        clr_global_flag = rise_of_the_horde
-        set_global_flag = the_first_war
-        set_global_flag = dark_portal_built
-    }
-}
-
-# Fallback: Collapse of the Draenei
-country_event = {
-	id = rise_of_the_horde.30
-	title = rise_of_the_horde.30.title
-	desc = rise_of_the_horde.30.desc
-	picture = ORCISH_INVASION_eventPicture
-    
-    fire_only_once = yes
-    
-	trigger = {
-        has_global_flag = guldan_recruitment
-        NOT = { has_global_flag = blood_of_mannoroth }
-        is_year = 580
-	}
-	
-    mean_time_to_happen = {
-		days = 1
-    }
-    
-	option = {
-		name = rise_of_the_horde.30.option.a
-		
-        set_global_flag = blood_of_mannoroth
-    }
-}
-
-# Fallback: The Dying Time
-country_event = {
-	id = rise_of_the_horde.31
-	title = rise_of_the_horde.31.title
-	desc = rise_of_the_horde.31.desc
-	picture = ORCISH_INVASION_eventPicture
-    
-    fire_only_once = yes
-    
-	trigger = {
-        has_global_flag = blood_of_mannoroth
-        NOT = { has_global_flag = the_dying_times }
-        is_year = 585
-	}
-	
-    mean_time_to_happen = {
-		days = 1
-    }
-    
-	option = {
-		name = rise_of_the_horde.31.option.a
-		
-        set_global_flag = the_dying_times
-    }
-}
-
-# Fallback: Burning Legion Conduit
-country_event = {
-	id = rise_of_the_horde.32
-	title = rise_of_the_horde.32.title
-	desc = rise_of_the_horde.32.desc
-	picture = ORCISH_INVASION_eventPicture
-    
-	trigger = {
-        has_global_flag = nerzhul_recruitment
-        NOT = { exists = event_target:buring_legion_conduit_nation }
-	}
-	
-    mean_time_to_happen = {
-		days = 1
-    }
-    
-	option = {
-		name = rise_of_the_horde.32.option.a
-		
-        save_global_event_target_as = buring_legion_conduit_nation
-    }
-}
-
-# Shadow Council - After Setup
-country_event = {
-	id = rise_of_the_horde.33
-	title = rise_of_the_horde.33.title
-	desc = rise_of_the_horde.33.desc
-	picture = ORCISH_INVASION_eventPicture
-    
-	hidden = yes
     is_triggered_only = yes
 	
     mean_time_to_happen = {
@@ -770,9 +686,75 @@ country_event = {
     }
     
 	option = {
-		name = rise_of_the_horde.33.option.a
+		name = rise_of_the_horde.11.option.a
+        
+        clr_global_flag = the_dying_times
+        clr_global_flag = rise_of_the_horde
+        
+        set_global_flag = the_first_war
+        set_global_flag = dark_portal_built
+        
+        3792 = {
+            add_canal = gp_dark_portal_draenor
+        }
+    }
+}
+
+# Fallback: Burning Legion Conduit
+country_event = {
+	id = rise_of_the_horde.20
+	title = rise_of_the_horde.20.title
+	desc = rise_of_the_horde.20.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+	trigger = {
+        has_global_flag = nerzhul_recruitment
+        NOT = { exists = event_target:old_horde_leader }
+	}
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.20.option.a
 		
-        discover_home_continent = yes
+        save_global_event_target_as = old_horde_leader
+    }
+}
+
+# Shadow Council - Setup
+country_event = {
+	id = rise_of_the_horde.21
+	title = rise_of_the_horde.21.title
+	desc = rise_of_the_horde.21.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    fire_only_once = yes
+    
+    trigger = {
+        has_global_flag = shadow_council_formed
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.21.option.a
+		        
+        hidden_effect = {
+            add_ruler_modifier = {
+                name = kiljaedens_favour
+                duration = -1
+            }
+        
+            set_country_flag = joined_nerzhul
+            set_country_flag = joined_guldan
+            set_country_flag = set_side_for_nerzhul_event
+            set_country_flag = set_side_for_guldan_event
+            set_country_flag = set_blood_of_mannorot
+        }
         
         capital_scope = {
             infantry = ROOT
@@ -785,5 +767,50 @@ country_event = {
             cavalry = ROOT
             cavalry = ROOT
         }
+    }
+    
+    after = {
+        every_country = {
+            limit = {
+                ai = no
+            }
+            country_event = { id = rise_of_the_horde.22 days = 30 }
+        }
+        B88 = {
+            country_event = { id = wwu_faction_system.10 days = 90 }
+        }
+    }
+}
+
+# Shadow Council - Player Choice
+country_event = {
+	id = rise_of_the_horde.22
+	title = rise_of_the_horde.22.title
+	desc = rise_of_the_horde.22.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    fire_only_once = yes
+    
+    trigger = {
+        ai = no
+        exists = B88
+        capital_scope = { continent = continent_draenor }
+        culture_group = culture_group_orc
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = rise_of_the_horde.22.option.a
+		
+        switch_tag = B88
+    }
+    
+    option = {
+		name = rise_of_the_horde.22.option.b
+		
+        
     }
 }

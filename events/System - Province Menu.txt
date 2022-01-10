@@ -1,0 +1,253 @@
+namespace = www_province_menu
+
+country_event = {
+	id = www_province_menu.1
+	title = www_province_menu.1.title
+	desc = www_province_menu.1.desc
+	picture = GNOME_eventPicture
+	
+    is_triggered_only = yes
+    
+    immediate = {
+        owner = {
+            save_event_target_as = owner_nation
+        }
+    }
+    
+    option = {
+		name = www_province_menu.1.option.draw_populace_from_capital
+        
+        trigger = {
+            is_capital = no
+            owner = {
+                NOT = { has_country_modifier = migration_action_cooldown }
+            }
+            capital_scope = {
+                base_tax = 2
+                base_production = 2
+                base_manpower = 2
+            }
+        }
+        
+        if = {
+            limit = {
+                owner = { 
+                    adm_power = 25
+                }
+            }
+            
+            add_adm_power = -25
+            
+            owner = {
+                capital_scope = {
+                    add_base_tax = -1
+                    add_base_production = -1
+                    add_base_manpower = -1
+                }
+            }
+            
+            add_base_tax = 1
+            add_base_production = 1
+            add_base_manpower = 1
+            
+            custom_tooltip = MIGRATION_ACTION_COOLDOWN
+            
+            hidden_effect = {
+                owner = {
+                    add_country_modifier = {
+                        name = migration_action_cooldown
+                        duration = 365
+                        hidden = yes
+                    }
+                }
+            }
+        }
+        else = {
+            owner = {
+                custom_tooltip = YOU_LACK_ADM_POWER
+            }
+        }
+    }
+    
+    option = {
+		name = www_province_menu.1.option.send_populace_to_capital
+        
+        trigger = {
+            is_capital = no
+            owner = {
+                NOT = { has_country_modifier = migration_action_cooldown }
+            }
+            base_tax = 2
+            base_production = 2
+            base_manpower = 2
+        }
+        
+        if = {
+            limit = {
+                owner = { 
+                    adm_power = 25
+                }
+            }
+            
+            add_adm_power = -25
+            
+            owner = {
+                capital_scope = {
+                    add_base_tax = 1
+                    add_base_production = 1
+                    add_base_manpower = 1
+                }
+            }
+            
+            add_base_tax = -1
+            add_base_production = -1
+            add_base_manpower = -1
+            
+            custom_tooltip = MIGRATION_ACTION_COOLDOWN
+            
+            hidden_effect = {
+                owner = {
+                    add_country_modifier = {
+                        name = migration_action_cooldown
+                        duration = 365
+                        hidden = yes
+                    }
+                }
+            }
+        }
+        else = {
+            owner = {
+                custom_tooltip = YOU_LACK_ADM_POWER
+            }
+        }
+    }
+    
+    option = {
+		name = www_province_menu.1.option.cultural_purge
+        
+        trigger = {
+            owner = {
+                NOT = { has_country_modifier = purged_race_nation }
+                
+                OR = {
+                    is_savage = yes
+                    is_pure_evil = yes
+                    mil = 5
+                }
+            }
+            
+            OR = {
+                NOT = { has_owner_culture = yes }
+                NOT = { has_owner_accepted_culture = yes }
+            }
+        }
+        
+        if = {
+            limit = {
+                owner = { 
+                    scaled_mil_power_check = yes
+                }
+            }
+            
+            custom_tooltip = ALL_COUNTRIES_OF_THIS_CULTURE_GROUP_WILL_HATE_US
+            hidden_effect = {
+                every_country = {
+					limit = {
+						culture_group = ROOT
+					}
+					add_opinion = {
+						who = event_target:owner_nation
+						modifier = purged_our_people
+					} 
+				}
+            }
+            
+            owner = {
+                scaled_mil_power_effect = yes
+                
+                add_country_modifier = {
+                    name = purged_race_nation
+                    duration = 3650
+                }
+            }
+              
+            add_province_modifier = {
+                name = purged_race_province
+                duration = 3650
+            }
+            
+            add_devastation = 10
+            
+            change_culture = event_target:owner_nation
+            change_religion = event_target:owner_nation
+        }
+        else = {
+            owner = {
+                custom_tooltip = YOU_LACK_MIL_POWER
+            }
+        }
+    }  
+
+    option = {
+		name = www_province_menu.1.option.force_emigration
+        
+        trigger = {
+            owner = {
+                NOT = { has_country_modifier = emigrated_race_nation }
+                
+                NOT = { is_pure_evil = yes }
+                NOT = { is_savage = yes }
+            }
+            
+            OR = {
+                NOT = { has_owner_culture = yes }
+                NOT = { has_owner_accepted_culture = yes }
+            }
+        }
+        
+        if = {
+            limit = {
+                owner = { 
+                    scaled_dip_power_check = yes
+                }
+            }
+            
+            custom_tooltip = ALL_COUNTRIES_OF_THIS_CULTURE_GROUP_WILL_HATE_US
+            
+            hidden_effect = {
+                every_country = {
+					limit = {
+						culture_group = ROOT
+					}
+					add_opinion = {
+						who = event_target:owner_nation
+						modifier = dishonorable_act
+					} 
+				}
+            }
+            
+            owner = {
+                scaled_dip_power_effect = yes
+                
+                add_country_modifier = {
+                    name = emigrated_race_nation
+                    duration = 3650
+                }
+            }
+            
+            add_devastation = 10
+            
+            change_culture = event_target:owner_nation
+            change_religion = event_target:owner_nation
+        }
+        else = {
+            owner = {
+                custom_tooltip = YOU_LACK_DIP_POWER
+            }
+        }
+    }
+    
+    option = {
+		name = www_province_menu.1.option.exit
+    }  
+}

@@ -1,0 +1,531 @@
+namespace = wwu_monument_research
+
+# Research Begins
+country_event = {
+	id = wwu_monument_research.1
+	title = wwu_monument_research.1.title
+	desc = wwu_monument_research.1.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        has_country_modifier = researching_monuments
+        NOT = { has_country_flag = monument_research_begun }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.1.option.a
+        
+        add_prestige = 5
+	}
+}
+
+# Adventurers Attacked!
+country_event = {
+	id = wwu_monument_research.2
+	title = wwu_monument_research.2.title
+	desc = wwu_monument_research.2.desc
+	picture = ORC_HUMAN_BATTLE_eventPicture
+
+    is_triggered_only = yes
+    
+	trigger = {
+        has_country_flag = monument_research_begun
+    }
+    
+	option = {
+		name = wwu_monument_research.2.option.a
+        
+        add_mil_power = -100
+	}
+    option = {
+		name = wwu_monument_research.2.option.b
+        
+        add_prestige = -10
+	}
+}
+
+# Further Research Required
+country_event = {
+	id = wwu_monument_research.3
+	title = wwu_monument_research.3.title
+	desc = wwu_monument_research.3.desc
+	picture = BIG_BOOK_eventPicture
+
+    is_triggered_only = yes
+    
+	trigger = {
+        has_country_flag = monument_research_begun
+    }
+    
+	option = {
+		name = wwu_monument_research.3.option.a
+        
+        add_adm_power = -100
+	}
+    option = {
+		name = wwu_monument_research.3.option.b
+        
+        add_years_of_income = -0.5
+	}
+}
+
+# Local Squabbles
+country_event = {
+	id = wwu_monument_research.4
+	title = wwu_monument_research.4.title
+	desc = wwu_monument_research.4.desc
+	picture = BIG_BOOK_eventPicture
+
+    is_triggered_only = yes
+    
+	trigger = {
+        has_country_flag = monument_research_begun
+    }
+    
+	option = {
+		name = wwu_monument_research.4.option.a
+        
+        add_dip_power = -100
+	}
+    option = {
+		name = wwu_monument_research.4.option.b
+        
+        add_corruption = 2
+	}
+}
+
+# Research Complete! (Broken Isles)
+country_event = {
+	id = wwu_monument_research.10
+	title = wwu_monument_research.10.title
+	desc = wwu_monument_research.10.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        NOT = { has_country_modifier = researching_monuments } # This means it has finished
+        has_country_flag = monument_research_begun
+        has_country_flag = monument_research_focus_broken_isles
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.10.option.a
+        
+        custom_tooltip = FINISHED_RESEARCH_BROKEN_ISLES
+        
+        hidden_effect = {
+            set_country_flag = monument_research_broken_isles
+        }
+	}
+    
+    after = {
+        clr_country_flag = monument_research_focus_broken_isles
+        clr_country_flag = monument_research_focus_draenor
+        clr_country_flag = monument_research_focus_eastern_kingdoms
+        clr_country_flag = monument_research_focus_kalimdor
+        clr_country_flag = monument_research_focus_kul_tiras
+        clr_country_flag = monument_research_focus_maelstrom
+        clr_country_flag = monument_research_focus_northrend
+        clr_country_flag = monument_research_focus_outland
+        clr_country_flag = monument_research_focus_pandaria
+        clr_country_flag = monument_research_focus_zandalar
+    }
+}
+
+# Research Complete! (Draenor)
+country_event = {
+	id = wwu_monument_research.11
+	title = wwu_monument_research.11.title
+	desc = wwu_monument_research.11.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        NOT = { has_country_modifier = researching_monuments } # This means it has finished
+        has_country_flag = monument_research_begun
+        has_country_flag = monument_research_focus_draenor
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.11.option.a
+        
+        custom_tooltip = FINISHED_RESEARCH_DRAENOR
+        
+        hidden_effect = {
+            set_country_flag = monument_research_draenor
+        }
+	}
+    
+    after = {
+        clr_country_flag = monument_research_focus_broken_isles
+        clr_country_flag = monument_research_focus_draenor
+        clr_country_flag = monument_research_focus_eastern_kingdoms
+        clr_country_flag = monument_research_focus_kalimdor
+        clr_country_flag = monument_research_focus_kul_tiras
+        clr_country_flag = monument_research_focus_maelstrom
+        clr_country_flag = monument_research_focus_northrend
+        clr_country_flag = monument_research_focus_outland
+        clr_country_flag = monument_research_focus_pandaria
+        clr_country_flag = monument_research_focus_zandalar
+    }
+}
+
+# Research Complete! (Eastern Kingdoms)
+country_event = {
+	id = wwu_monument_research.12
+	title = wwu_monument_research.12.title
+	desc = wwu_monument_research.12.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        NOT = { has_country_modifier = researching_monuments } # This means it has finished
+        has_country_flag = monument_research_begun
+        has_country_flag = monument_research_focus_eastern_kingdoms
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.12.option.a
+        
+        custom_tooltip = FINISHED_RESEARCH_EASTERN_KINGDOMS
+        
+        hidden_effect = {
+            set_country_flag = monument_research_eastern_kingdoms
+        }
+	}
+    
+    after = {
+        clr_country_flag = monument_research_focus_broken_isles
+        clr_country_flag = monument_research_focus_draenor
+        clr_country_flag = monument_research_focus_eastern_kingdoms
+        clr_country_flag = monument_research_focus_kalimdor
+        clr_country_flag = monument_research_focus_kul_tiras
+        clr_country_flag = monument_research_focus_maelstrom
+        clr_country_flag = monument_research_focus_northrend
+        clr_country_flag = monument_research_focus_outland
+        clr_country_flag = monument_research_focus_pandaria
+        clr_country_flag = monument_research_focus_zandalar
+    }
+}
+
+# Research Complete! (Kalimdor)
+country_event = {
+	id = wwu_monument_research.13
+	title = wwu_monument_research.13.title
+	desc = wwu_monument_research.13.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        NOT = { has_country_modifier = researching_monuments } # This means it has finished
+        has_country_flag = monument_research_begun
+        has_country_flag = monument_research_focus_kalimdor
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.13.option.a
+        
+        custom_tooltip = FINISHED_RESEARCH_KALIMDOR
+        
+        hidden_effect = {
+            set_country_flag = monument_research_kalimdor
+        }
+	}
+    
+    after = {
+        clr_country_flag = monument_research_focus_broken_isles
+        clr_country_flag = monument_research_focus_draenor
+        clr_country_flag = monument_research_focus_eastern_kingdoms
+        clr_country_flag = monument_research_focus_kalimdor
+        clr_country_flag = monument_research_focus_kul_tiras
+        clr_country_flag = monument_research_focus_maelstrom
+        clr_country_flag = monument_research_focus_northrend
+        clr_country_flag = monument_research_focus_outland
+        clr_country_flag = monument_research_focus_pandaria
+        clr_country_flag = monument_research_focus_zandalar
+    }
+}
+
+# Research Complete! (Kul Tiras)
+country_event = {
+	id = wwu_monument_research.14
+	title = wwu_monument_research.14.title
+	desc = wwu_monument_research.14.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        NOT = { has_country_modifier = researching_monuments } # This means it has finished
+        has_country_flag = monument_research_begun
+        has_country_flag = monument_research_focus_kul_tiras
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.14.option.a
+        
+        custom_tooltip = FINISHED_RESEARCH_KUL_TIRAS
+        
+        hidden_effect = {
+            set_country_flag = monument_research_kul_tiras
+        }
+	}
+    
+    after = {
+        clr_country_flag = monument_research_focus_broken_isles
+        clr_country_flag = monument_research_focus_draenor
+        clr_country_flag = monument_research_focus_eastern_kingdoms
+        clr_country_flag = monument_research_focus_kalimdor
+        clr_country_flag = monument_research_focus_kul_tiras
+        clr_country_flag = monument_research_focus_maelstrom
+        clr_country_flag = monument_research_focus_northrend
+        clr_country_flag = monument_research_focus_outland
+        clr_country_flag = monument_research_focus_pandaria
+        clr_country_flag = monument_research_focus_zandalar
+    }
+}
+
+# Research Complete! (Maelstrom)
+country_event = {
+	id = wwu_monument_research.15
+	title = wwu_monument_research.15.title
+	desc = wwu_monument_research.15.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        NOT = { has_country_modifier = researching_monuments } # This means it has finished
+        has_country_flag = monument_research_begun
+        has_country_flag = monument_research_focus_maelstrom
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.15.option.a
+        
+        custom_tooltip = FINISHED_RESEARCH_MAELSTROM
+        
+        hidden_effect = {
+            set_country_flag = monument_research_maelstrom
+        }
+	}
+    
+    after = {
+        clr_country_flag = monument_research_focus_broken_isles
+        clr_country_flag = monument_research_focus_draenor
+        clr_country_flag = monument_research_focus_eastern_kingdoms
+        clr_country_flag = monument_research_focus_kalimdor
+        clr_country_flag = monument_research_focus_kul_tiras
+        clr_country_flag = monument_research_focus_maelstrom
+        clr_country_flag = monument_research_focus_northrend
+        clr_country_flag = monument_research_focus_outland
+        clr_country_flag = monument_research_focus_pandaria
+        clr_country_flag = monument_research_focus_zandalar
+    }
+}
+
+# Research Complete! (Northrend)
+country_event = {
+	id = wwu_monument_research.16
+	title = wwu_monument_research.16.title
+	desc = wwu_monument_research.16.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        NOT = { has_country_modifier = researching_monuments } # This means it has finished
+        has_country_flag = monument_research_begun
+        has_country_flag = monument_research_focus_northrend
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.16.option.a
+        
+        custom_tooltip = FINISHED_RESEARCH_NORTHREND
+        
+        hidden_effect = {
+            set_country_flag = monument_research_northrend
+        }
+	}
+    
+    after = {
+        clr_country_flag = monument_research_focus_broken_isles
+        clr_country_flag = monument_research_focus_draenor
+        clr_country_flag = monument_research_focus_eastern_kingdoms
+        clr_country_flag = monument_research_focus_kalimdor
+        clr_country_flag = monument_research_focus_kul_tiras
+        clr_country_flag = monument_research_focus_maelstrom
+        clr_country_flag = monument_research_focus_northrend
+        clr_country_flag = monument_research_focus_outland
+        clr_country_flag = monument_research_focus_pandaria
+        clr_country_flag = monument_research_focus_zandalar
+    }
+}
+
+# Research Complete! (Outland)
+country_event = {
+	id = wwu_monument_research.17
+	title = wwu_monument_research.17.title
+	desc = wwu_monument_research.17.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        NOT = { has_country_modifier = researching_monuments } # This means it has finished
+        has_country_flag = monument_research_begun
+        has_country_flag = monument_research_focus_outland
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.17.option.a
+        
+        custom_tooltip = FINISHED_RESEARCH_OUTLAND
+        
+        hidden_effect = {
+            set_country_flag = monument_research_outland
+        }
+	}
+    
+    after = {
+        clr_country_flag = monument_research_focus_broken_isles
+        clr_country_flag = monument_research_focus_draenor
+        clr_country_flag = monument_research_focus_eastern_kingdoms
+        clr_country_flag = monument_research_focus_kalimdor
+        clr_country_flag = monument_research_focus_kul_tiras
+        clr_country_flag = monument_research_focus_maelstrom
+        clr_country_flag = monument_research_focus_northrend
+        clr_country_flag = monument_research_focus_outland
+        clr_country_flag = monument_research_focus_pandaria
+        clr_country_flag = monument_research_focus_zandalar
+    }
+}
+
+# Research Complete! (Pandaria)
+country_event = {
+	id = wwu_monument_research.18
+	title = wwu_monument_research.18.title
+	desc = wwu_monument_research.18.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        NOT = { has_country_modifier = researching_monuments } # This means it has finished
+        has_country_flag = monument_research_begun
+        has_country_flag = monument_research_focus_pandaria
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.18.option.a
+        
+        custom_tooltip = FINISHED_RESEARCH_PANDARIA
+        
+        hidden_effect = {
+            set_country_flag = monument_research_pandaria
+        }
+	}
+    
+    after = {
+        clr_country_flag = monument_research_focus_broken_isles
+        clr_country_flag = monument_research_focus_draenor
+        clr_country_flag = monument_research_focus_eastern_kingdoms
+        clr_country_flag = monument_research_focus_kalimdor
+        clr_country_flag = monument_research_focus_kul_tiras
+        clr_country_flag = monument_research_focus_maelstrom
+        clr_country_flag = monument_research_focus_northrend
+        clr_country_flag = monument_research_focus_outland
+        clr_country_flag = monument_research_focus_pandaria
+        clr_country_flag = monument_research_focus_zandalar
+    }
+}
+
+# Research Complete! (Zandalar)
+country_event = {
+	id = wwu_monument_research.19
+	title = wwu_monument_research.19.title
+	desc = wwu_monument_research.19.desc
+	picture = GNOME_eventPicture
+
+	trigger = {
+        NOT = { has_country_modifier = researching_monuments } # This means it has finished
+        has_country_flag = monument_research_begun
+        has_country_flag = monument_research_focus_zandalar
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = monument_research_begun
+        }
+    }
+	
+	option = {
+		name = wwu_monument_research.19.option.a
+        
+        custom_tooltip = FINISHED_RESEARCH_ZANDALAR
+        
+        hidden_effect = {
+            set_country_flag = monument_research_zandalar
+        }
+	}
+    
+    after = {
+        clr_country_flag = monument_research_focus_broken_isles
+        clr_country_flag = monument_research_focus_draenor
+        clr_country_flag = monument_research_focus_eastern_kingdoms
+        clr_country_flag = monument_research_focus_kalimdor
+        clr_country_flag = monument_research_focus_kul_tiras
+        clr_country_flag = monument_research_focus_maelstrom
+        clr_country_flag = monument_research_focus_northrend
+        clr_country_flag = monument_research_focus_outland
+        clr_country_flag = monument_research_focus_pandaria
+        clr_country_flag = monument_research_focus_zandalar
+    }
+}

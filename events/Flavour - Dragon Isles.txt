@@ -1,0 +1,101 @@
+namespace = wwu_dragon_isles
+
+# Dragon Shrines - Setup
+country_event = {
+	id = wwu_dragon_isles.1
+	title = wwu_dragon_isles.1.title
+	desc = wwu_dragon_isles.1.desc
+	picture = COASTLINE_MAP_eventPicture
+
+    hidden = yes
+	
+	trigger = {
+		ai = no
+        
+        NOT = { has_global_flag = setup_dragon_shrines }
+	}
+	
+	immediate = {
+		set_global_flag = setup_dragon_shrines
+	}
+	
+	option = {
+		name = wwu_dragon_isles.1.option.a
+        
+        # Glimmering Shrine
+		random_province = {
+            limit = {
+                is_empty = yes
+                region = region_glimmering_isles
+            }
+            
+            add_base_tax = 2
+            add_permanent_province_modifier = {
+                name = glimmering_shrine
+                duration = -1
+            }
+        }
+        
+        # Ruby Shrine
+        random_province = {
+            limit = {
+                is_empty = yes
+                region = region_ruby_isles
+            }
+            
+            add_base_tax = 2
+            add_permanent_province_modifier = {
+                name = ruby_shrine
+                duration = -1
+            }
+        }
+        
+        # Emerald Shrine
+        random_province = {
+            limit = {
+                is_empty = yes
+                region = region_emerald_isles
+            }
+            
+            add_base_tax = 2
+            add_permanent_province_modifier = {
+                name = emerald_shrine
+                duration = -1
+            }
+        }
+        
+        # Shattered Shrine
+        random_province = {
+            limit = {
+                is_empty = yes
+                region = region_shattered_isles
+            }
+            
+            add_base_tax = 2
+            add_permanent_province_modifier = {
+                name = shattered_shrine
+                duration = -1
+            }
+        }
+        
+        # Timeless Shrine
+        random_province = {
+            limit = {
+                is_empty = yes
+                OR = {
+                    region = region_glimmering_isles
+                    region = region_ruby_isles
+                    region = region_emerald_isles
+                    region = region_shattered_isles
+                }
+            }
+            
+            add_base_tax = 2
+            add_permanent_province_modifier = {
+                name = timeless_shrine
+                duration = -1
+            }
+        }
+	}
+}
+

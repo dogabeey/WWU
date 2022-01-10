@@ -1892,34 +1892,13 @@ moonwell = {
 	}
 }
 
-arcwine = {
-	color = { 0.86 0.35 0.90 }
-	modifier = {
-		stability_cost_modifier = -0.10
-	}
-    province = {
-		stability_cost_modifier = -0.01
-	}
-	chance = {
-		factor = 10
-        
-		modifier = {
-			factor = 0
-			
-            NOT = {
-                region = region_suramar
-            }
-		}
-	}
-}
-
 mana_source = {
 	color = { 0.86 0.35 0.90 }
 	modifier = {
 		stability_cost_modifier = -0.15
 	}
     province = {
-		global_unrest = -2
+		global_unrest = -1
 	}
 	chance = {
 		factor = 10
@@ -1936,5 +1915,39 @@ mana_source = {
 			
             has_terrain = arcanetouched
 		}
+	}
+}
+
+arcwine = {
+	color = { 0.86 0.35 0.90 }
+	modifier = {
+		stability_cost_modifier = -0.10
+	}
+    province = {
+		local_tax_modifier = 0.1
+	}
+	chance = {
+		factor = 10
+        
+		modifier = {
+			factor = 0
+			
+            NOT = {
+                region = region_suramar
+            }
+		}
+	}
+}
+
+banana = {
+	color = { 0.98 0.95 0.05 }
+	modifier = {
+		global_unrest = -1
+	}
+    province = {
+		local_production_efficiency = 0.1
+	}
+	chance = {
+		factor = 1
 	}
 }

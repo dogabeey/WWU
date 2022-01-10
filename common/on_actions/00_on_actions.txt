@@ -192,9 +192,6 @@ on_battle_lost_country = {
 	#log = "[Root.GetName]: Triggered battle_lost_country"
 	battle_cult_spreading_effect = yes
     
-	events = {
-        rise_of_the_horde.6
-    }
 	random_events = {
 		12 = 0
 		2 = friendship_events.1 #Historical Friendship Broken
@@ -385,7 +382,7 @@ on_new_monarch = {
                 has_reform = kingdom_of_magic_reform
             }
         }
-        add_ruler_personality = spellcaster_personality
+        add_ruler_spellcasting = yes
     
         random_list = {
             33 = {
@@ -2002,6 +1999,10 @@ on_five_year_pulse_3 = {
         100 = wwu_government.9 # Decadence
         100 = wwu_government.10 # Heir Apparent
         
+        100 = wwu_monument_research.2
+        100 = wwu_monument_research.3
+        100 = wwu_monument_research.4
+        
 		1000 = 0
 	}
 }
@@ -2041,7 +2042,22 @@ on_five_year_pulse_4 = {
 # El Dorado
 on_explore_coast = {
 	#log = "[Root.GetName]: Triggered explore_coast"
+    
+    random_events = {
+		10 = wwu_exploration.1
+		10 = wwu_exploration.2
+		10 = wwu_exploration.4
+		10 = wwu_exploration.6
+		10 = wwu_exploration.7
+		10 = wwu_exploration.9
+		10 = wwu_exploration.10
+		10 = wwu_exploration.11
+		10 = wwu_exploration.12
+		10 = wwu_exploration.14
+		10 = wwu_exploration.15
+	}
 }
+
 on_conquistador_empty = {
 	#log = "[Root.GetName]: Triggered conquistador_empty"
 }
@@ -2057,8 +2073,8 @@ on_buy_religious_reform = {
 on_circumnavigation = {
 	#log = "[Root.GetName]: Triggered circumnavigation"
     events = {
-		wwu_exploration.1 # Initial Circumnavigation
-        wwu_exploration.2 # Repeat Circumnavigation
+		wwu_exploration.100# Initial Circumnavigation
+        wwu_exploration.101 # Repeat Circumnavigation
     }
 }
 
@@ -2231,12 +2247,17 @@ on_province_owner_change = {
 	#log = "[Root.GetName]: Triggered province_owner_change"
     on_province_owner_change_estate_privileges_effect = yes
     
+    events = {
+        inhospitable_terrain.1
+        inhospitable_terrain.2
+        inhospitable_terrain.3
+    }
+    
 	owner = {
 		change_variable = {
 			which = provinces_gained
 			value = 1
 		}
-		
 	}
     
 	if = {
