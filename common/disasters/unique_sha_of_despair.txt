@@ -1,0 +1,62 @@
+sha_of_despair_disaster = {
+	potential = {
+		NOT = { has_country_flag = complete_stasis }
+		capital_scope = {
+			continent = continent_pandaria
+		}
+	}
+
+
+	can_start = {
+		NOT = { stability = -1 }
+		average_unrest = 2
+		num_of_loans = 2
+	}
+	
+	progress = {
+		modifier = {
+				factor = 1
+				NOT = { stability = -1 }
+		}
+		modifier = {
+				factor = 2
+				NOT = { stability = -2 }
+		}
+		modifier = {
+				factor = 2
+				average_unrest = 4
+		}
+		modifier = {
+				factor = 2
+				num_of_loans = 3
+		}
+	}
+	
+	can_stop = {
+		stability = 1
+		NOT = { num_of_loans = 2 }
+		NOT = { average_unrest = 2 }
+	}
+	
+	can_end = {
+		OR = {
+			stability = 2
+			NOT = { num_of_loans = 1 }
+			NOT = { average_unrest = 1 }
+		}
+	}
+	
+	modifier = {
+	
+	}
+
+	#on_start = 0
+	#on_end = 0
+	
+	on_monthly = {
+        random_events = { 
+                35 = 0
+                1 = sha.2	
+        }
+	}
+}

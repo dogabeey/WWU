@@ -1,0 +1,131 @@
+estate_coup = {
+	potential = {
+		OR = {
+            AND = {
+                has_estate = estate_clergy
+                estate_influence = { estate = estate_clergy influence = 70 }
+            }
+            AND = {
+                has_estate = estate_traders
+                estate_influence = { estate = estate_traders influence = 70 }
+            }
+            AND = {
+                has_estate = estate_nobility
+                estate_influence = { estate = estate_nobility influence = 70 }
+            }
+            AND = {
+                has_estate = estate_peasants
+                estate_influence = { estate = estate_peasants influence = 70 }
+            }
+            AND = {
+                has_estate = estate_slaves
+                estate_influence = { estate = estate_peasants influence = 70 }
+            }
+        }
+	}
+
+	can_start = {
+		OR = {
+            estate_influence = { estate = estate_clergy influence = 80 }
+            estate_influence = { estate = estate_traders influence = 80 }
+            estate_influence = { estate = estate_nobility influence = 80 }
+            estate_influence = { estate = estate_peasants influence = 80 }
+            estate_influence = { estate = estate_tribals influence = 80 }
+        }
+	}
+	
+	can_stop = {
+        NOT = {
+            OR = {
+                estate_influence = { estate = estate_clergy influence = 70 }
+                estate_influence = { estate = estate_traders influence = 70 }
+                estate_influence = { estate = estate_nobility influence = 70 }
+                estate_influence = { estate = estate_peasants influence = 70 }
+                estate_influence = { estate = estate_tribals influence = 70 }
+            }
+        }
+	}
+	
+	progress = {
+        # 80
+        modifier = {
+            factor = 1
+            
+            has_estate = estate_clergy
+            estate_influence = { estate = estate_clergy influence = 80 }
+		}
+        modifier = {
+            factor = 1
+            
+            has_estate = estate_traders
+            estate_influence = { estate = estate_traders influence = 80 }
+		}
+        modifier = {
+            factor = 1
+            
+            has_estate = estate_nobility
+            estate_influence = { estate = estate_nobility influence = 80 }
+		}
+        modifier = {
+            factor = 1
+            
+            has_estate = estate_peasants
+            estate_influence = { estate = estate_peasants influence = 80 }
+		}
+        modifier = {
+            factor = 1
+            
+            has_estate = estate_tribals
+            estate_influence = { estate = estate_tribals influence = 80 }
+		}
+        
+        # 90
+        modifier = {
+            factor = 1
+            
+            has_estate = estate_clergy
+            estate_influence = { estate = estate_clergy influence = 90 }
+		}
+        modifier = {
+            factor = 1
+            
+            has_estate = estate_traders
+            estate_influence = { estate = estate_traders influence = 90 }
+		}
+        modifier = {
+            factor = 1
+            
+            has_estate = estate_nobility
+            estate_influence = { estate = estate_nobility influence = 90 }
+		}
+        modifier = {
+            factor = 1
+            
+            has_estate = estate_peasants
+            estate_influence = { estate = estate_peasants influence = 90 }
+		}
+        modifier = {
+            factor = 1
+            
+            has_estate = estate_tribals
+            estate_influence = { estate = estate_tribals influence = 90 }
+		}
+	}
+	
+	can_end = {
+		NOT = { has_spawned_rebels = noble_rebels }
+	}
+	
+	modifier = {
+        min_autonomy = 25
+        global_unrest = 2
+	}
+
+	on_start = wwu_estate_coup.1
+	on_end = wwu_estate_coup.100
+	
+	on_monthly = {
+        
+	}
+}
+

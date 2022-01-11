@@ -1,0 +1,107 @@
+
+sha_of_hatred_disaster = {
+	potential = {
+		NOT = { has_country_flag = complete_stasis }
+		capital_scope = {
+			continent = continent_pandaria
+		}
+	}
+
+
+	can_start = {
+		any_neighbor_country = {
+			NOT = { has_opinion = {
+				who = ROOT
+				value = -180
+			} }
+			NOT = { reverse_has_opinion = {
+				who = ROOT
+				value = -180
+			} }
+		}
+	}
+	
+	progress = {
+		modifier = {
+			factor = 2
+			any_neighbor_country = {
+				NOT = { has_opinion = {
+					who = ROOT
+					value = -175
+				} }
+				NOT = { reverse_has_opinion = {
+					who = ROOT
+					value = -175
+				} }
+			}
+		}
+		modifier = {
+			factor = 2
+			any_neighbor_country = {
+				NOT = { has_opinion = {
+					who = ROOT
+					value = -199
+				} }
+				NOT = { reverse_has_opinion = {
+					who = ROOT
+					value = -199
+				} }
+			}
+		}
+		modifier = {
+			factor = 1
+			any_neighbor_country = {
+				NOT = { has_opinion = {
+					who = ROOT
+					value = -150
+				} }
+				NOT = { reverse_has_opinion = {
+					who = ROOT
+					value = -150
+				} }
+				war_with = ROOT
+			}
+		}
+	}
+	
+	can_stop = {
+		any_neighbor_country = {
+			has_opinion = {
+				who = ROOT
+				value = -140
+			}
+			reverse_has_opinion = {
+				who = ROOT
+				value = -140
+			}
+		}
+	}
+	
+	can_end = {
+		any_neighbor_country = {
+			has_opinion = {
+				who = ROOT
+				value = -100
+			}
+			reverse_has_opinion = {
+				who = ROOT
+				value = -100
+			}
+		}
+	}
+	
+	modifier = {
+	
+	}
+
+	#on_start = 0
+	#on_end = 0
+	
+	on_monthly = {
+        random_events = { 
+                35 = 0
+                1 = sha.5	
+        }
+	}
+}
+
