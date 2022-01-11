@@ -1,11 +1,13 @@
-namespace = wwu_estate_coup
+namespace = civil_war
 
-# Estate Coup
+# Civil war
 country_event = {
-	id = wwu_estate_coup.1
-	title = wwu_estate_coup.1.title
-	desc = wwu_estate_coup.1.desc
+	id = civil_war.1
+	title = "EVTNAMEHR91"
+	desc = "EVTDESHOR91"
 	picture = CIVIL_WAR_eventPicture
+	
+	major = yes
 	
 	is_triggered_only = yes
 	
@@ -14,79 +16,181 @@ country_event = {
 	}
 	
 	immediate = {
-        hidden_effect = {
-            capital_scope = {
-                spawn_rebels = {
-                    type = noble_rebels
-                    religion = ROOT
-                    size = 5
-                    win = yes
-                }
-                add_local_autonomy = 25
-            }
-        }
+		random_owned_province = {
+			limit = {
+				is_core = ROOT 
+				development = 10
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = 	pretender_rebels
+				religion = ROOT
+				size = 2
+				win = yes
+			}
+			add_local_autonomy = 25
+		}
+		set_country_flag = had_civil_war
 	}
 	
 	
 	option = {
-		name = wwu_estate_coup.1.option.a
+		name = "EVTOPTA3091"
 		
-		add_stability = -1
-        
-        if = {
-            limit = {
-                has_estate = estate_clergy
-            }
-        
-            give_estate_land_share_large = {
-                estate = estate_clergy
-            }
-        }
-        if = {
-            limit = {
-                has_estate = estate_traders
-            }
-        
-            give_estate_land_share_large = {
-                estate = estate_traders
-            }
-        }
-        if = {
-            limit = {
-                has_estate = estate_nobility
-            }
-        
-            give_estate_land_share_large = {
-                estate = estate_nobility
-            }
-        }
-        if = {
-            limit = {
-                has_estate = estate_peasants
-            }
-        
-            give_estate_land_share_large = {
-                estate = estate_peasants
-            }
-        }
-        if = {
-            limit = {
-                has_estate = estate_tribals
-            }
-        
-            give_estate_land_share_large = {
-                estate = estate_tribals
-            }
-        }
+		add_prestige = -10
 	}
 }
 
-# End of the Coup
+# End of Civil War
 country_event = {
-	id = wwu_estate_coup.100
-	title = wwu_estate_coup.100.title
-	desc = wwu_estate_coup.100.desc
+	id = civil_war.100
+	title = "EVTNAMEHR96"
+	desc = "EVTDESHOR96"
 	picture = ANGRY_MOB_eventPicture
+	
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {
+		name = "EVTOPTA3096"
+		
+		clr_country_flag = civilwar_on_capital
+		add_legitimacy = 10
+		add_horde_unity = 10
+		add_stability = 3
+	}
+}
+
+
+# A cry for help
+country_event = {
+	id = civil_war.2
+	title = "EVTNAMEHR92"
+	desc = "EVTDESHOR92"
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+		revolt_percentage = 0.05
+		num_of_allies = 1
+	}
+
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+
+	
+	option = {
+		name = "EVTOPTA3092"
+		
+		add_dip_power = -100
+	}
+	option = {
+		name = "EVTOPTB3092"
+		
+		ai_chance = { factor = 60 }
+		add_legitimacy = 5
+		add_horde_unity = 5
+		
+		random_owned_province = {
+			limit = { is_core = ROOT }
+			spawn_rebels = {
+				type = 	pretender_rebels
+				religion = ROOT
+				size = 1
+				win = yes
+			}
+		}	
+	}
+}
+
+# Unscrupulous in-laws
+country_event = {
+	id = civil_war.3
+	title = "EVTNAMEHR93"
+	desc = "EVTDESHOR93"
+	picture = CIVIL_WAR_eventPicture
+	
+	trigger = {
+		num_of_royal_marriages = 1
+	}
+
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA3093"
+		
+		ai_chance = { factor = 40 }
+		add_adm_power = -25		
+		random_owned_province = {
+			limit = { is_core = ROOT }
+			pretender_rebels = 1
+		}
+	}
+	option = {
+		name = "EVTOPTB3093"
+		
+		ai_chance = { factor = 60 }
+		add_prestige = -20
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				is_core = ROOT
+			}
+			add_local_autonomy = 20
+		}		
+	}
+}
+
+# Rebel forces take over
+province_event = {
+	id = civil_war.4
+	title = "EVTNAMEHR94"
+	desc = "EVTDESHOR94"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+		has_siege = yes
+		owner = {
+			is_at_war = no
+			has_disaster = civil_war
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "EVTOPTB3094"
+		
+		change_siege = 3
+	}
+}
+
+# Army deserters
+country_event = {
+	id = civil_war.5
+	title = "EVTNAMEHR95"
+	desc = "EVTDESHOR95"
+	picture = LAND_MILITARY_eventPicture
+	
+	trigger = {
+		NOT = { has_country_modifier = deserters }
+		NOT = { has_country_modifier = morale_boost }
+		manpower_percentage = 0.01
+	}
 	
 	is_triggered_only = yes
 	
@@ -95,90 +199,338 @@ country_event = {
 	}
 	
 	option = {
-		name = wwu_estate_coup.100.option.a
+		name = "EVTOPTA3095"
 		
-		add_stability = 1
-        
-        if = {
-            limit = {
-                has_estate = estate_clergy
-            }
-        
-            take_estate_land_share_massive = {
-                estate = estate_clergy
-            }
-            
-            add_estate_influence_modifier = {
-                estate = estate_clergy
-                desc = EST_VAL_CRUSHED_COUP
-                influence = -20
-                duration = 7300
-            }
-        }
-        if = {
-            limit = {
-                has_estate = estate_traders
-            }
-        
-            take_estate_land_share_massive = {
-                estate = estate_traders
-            }
-            
-            add_estate_influence_modifier = {
-                estate = estate_traders
-                desc = EST_VAL_CRUSHED_COUP
-                influence = -20
-                duration = 7300
-            }
-        }
-        if = {
-            limit = {
-                has_estate = estate_nobility
-            }
-        
-            take_estate_land_share_massive = {
-                estate = estate_nobility
-            }
-            
-            add_estate_influence_modifier = {
-                estate = estate_nobility
-                desc = EST_VAL_CRUSHED_COUP
-                influence = -20
-                duration = 7300
-            }
-        }
-        if = {
-            limit = {
-                has_estate = estate_peasants
-            }
-        
-            take_estate_land_share_massive = {
-                estate = estate_peasants
-            }
-            
-            add_estate_influence_modifier = {
-                estate = estate_peasants
-                desc = EST_VAL_CRUSHED_COUP
-                influence = -20
-                duration = 7300
-            }
-        }
-        if = {
-            limit = {
-                has_estate = estate_tribals
-            }
-        
-            take_estate_land_share_massive = {
-                estate = estate_tribals
-            }
-            
-            add_estate_influence_modifier = {
-                estate = estate_tribals
-                desc = EST_VAL_CRUSHED_COUP
-                influence = -20
-                duration = 7300
-            }
-        }
+		add_years_of_income = -0.50
+		add_legitimacy = 5		
+		add_horde_unity = 5		
+		add_country_modifier = {
+			name = "morale_boost"
+			duration = 1825
+		}		
+	}
+	option = {
+		name = "EVTOPTB3095"
+		
+		ai_chance = { factor = 0 }
+		add_country_modifier = {
+			name = "deserters"
+			duration = 1825
+		}		
+		add_yearly_manpower = -0.25
+	}
+}
+
+#Support in capital
+country_event = {
+	id = civil_war.6
+	title = civil_war.6.t
+	desc = civil_war.6.d
+	picture = LAND_MILITARY_eventPicture
+	
+	trigger = {
+		NOT = { 
+			has_country_flag = civilwar_on_capital
+		}
+		capital_scope = {
+			controlled_by = owner
+			has_siege = no		
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	immediate = {
+		set_country_flag = civilwar_on_capital
+	}
+	option = {
+		name = civil_war.6.a
+		
+		capital_scope = {
+			pretender_rebels = 2
+		}
+	
+	}	
+}
+
+
+
+# Civil war brings our nation to its knees
+country_event = {
+	id = civil_war.7
+	title = "EVTNAME6018"
+	desc = "EVTDESC6018"
+	picture = CIVIL_WAR_eventPicture
+	
+
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {
+		name = "EVTOPTA6018"
+		
+		every_owned_province = {
+			limit = {
+				is_capital = no
+				is_core = ROOT
+			}
+			add_local_autonomy = 15
+		}
+	}
+	option = {
+		name = "EVTOPTB6018"
+		
+		add_adm_power = -100
+		add_legitimacy = 10
+		add_horde_unity = 10
+	}
+	option = {
+		name = "EVTOPTC6018"
+		
+		add_years_of_income = -0.25
+		add_prestige = -25
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+}
+
+# Civil Disorder about to Devolve into Chaos
+country_event = {
+	id = civil_war.8
+	title = "EVTNAME6019"
+	desc = "EVTDESC6019"
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA6019"
+		
+		ai_chance = { factor = 20 }
+		add_stability = -1
+		random_owned_province = {
+			limit = { is_core = ROOT }
+			pretender_rebels = 1
+		}
+	}
+	option = {
+		name = "EVTOPTB6019"
+		
+		ai_chance = { factor = 80 }		
+		add_years_of_income = -0.25
+		add_prestige = -25
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+}
+
+# Factional powers emerge from the chaos
+country_event = {
+	id = civil_war.9
+	title = "EVTNAME6020"
+	desc = "EVTDESC6020"
+	picture = CONQUEST_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA6020"
+		
+		random_owned_province = {
+			limit = { is_core = ROOT }
+			pretender_rebels = 1
+		}
+		set_country_flag = favoured_faction
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+	option = {
+		name = "EVTOPTB6020"
+		
+		add_stability = -1
+	}
+}
+
+# Faction requests financial aid
+country_event = {
+	id = civil_war.10
+	title = "EVTNAME6021"
+	desc = "EVTDESC6021"
+	picture = CONQUEST_eventPicture
+	
+	trigger = {
+		has_country_flag = favoured_faction
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA6021"
+		
+		add_years_of_income = -0.5
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+	option = {
+		name = "EVTOPTB6021"
+		
+		add_prestige = -10
+		add_legitimacy = -5
+		add_horde_unity = -5
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Favoured faction threatens to splinter
+country_event = {
+	id = civil_war.11
+	title = "EVTNAME6022"
+	desc = "EVTDESC6022"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		has_country_flag = favoured_faction
+		any_owned_province = {
+			has_owner_culture = no
+			is_capital = no
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA6022"
+		
+		random_owned_province = {
+			limit = {
+				has_owner_culture = no
+				is_capital = no
+			}
+			add_local_autonomy = 50
+		}
+		add_legitimacy = 10
+		add_horde_unity = 10
+	}
+	option = {
+		name = "EVTOPTC6022"
+		
+		add_prestige = -50
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+}
+
+# Total war emerges internally
+country_event = {
+	id = civil_war.12
+	title = "EVTNAME6023"
+	desc = "EVTDESC6023"
+	picture = BATTLE_eventPicture
+		
+	trigger = {
+		NOT = { has_country_flag = total_war_peak }
+		revolt_percentage = 0.20
+	}
+	
+	immediate = {
+		set_country_flag = total_war_peak
+
+	}
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA6023"
+		
+		add_legitimacy = -5
+		add_horde_unity = -5
+		every_core_province = {
+			limit = {
+				is_capital = no
+				is_core = ROOT
+			}
+			add_local_autonomy = 15
+		}
+	}
+	option = {
+		name = "EVTOPTB6023"
+		
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+}
+
+# A Dominant factions emerge
+country_event = {
+	id = civil_war.13
+	title = "EVTNAME6026"
+	desc = "EVTDESC6026"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		has_country_flag = total_war_peak
+		has_country_flag = favoured_faction
+		NOT = { has_country_flag = dominant_faction }
+		
+	}
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {
+		name = "EVTOPTA6026"
+		
+		set_country_flag = dominant_faction
+		random_owned_province = {
+			limit = { is_core = ROOT }
+			pretender_rebels = 1
+		}
+		add_legitimacy = 1
+		add_horde_unity = 1
+	}
+	option = {
+		name = "EVTOPTB6026"
+		
+		add_years_of_income = -0.50
+		add_legitimacy = 5
+		add_horde_unity = 5
 	}
 }
 
