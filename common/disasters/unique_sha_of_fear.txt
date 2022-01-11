@@ -1,0 +1,77 @@
+sha_of_fear_disaster = {
+	potential = {
+		NOT = { has_country_flag = complete_stasis }
+		capital_scope = {
+			continent = continent_pandaria
+		}
+	}
+
+
+	can_start = {
+		any_neighbor_country = {
+			is_rival = ROOT
+			num_of_cities = ROOT
+			army_size = ROOT
+		}
+	}
+	
+	progress = {
+		modifier = {
+				factor = 1
+			any_neighbor_country = {
+				is_rival = ROOT
+				num_of_cities = ROOT
+				army_size = ROOT
+			}
+		}
+		modifier = {
+				factor = 1
+				any_neighbor_country = {
+					is_rival = ROOT
+					num_of_cities = ROOT
+					war_with = ROOT
+				}
+		}
+		modifier = {
+				factor = 1
+				NOT = { has_opinion = {
+					who = ROOT
+					value = -150
+				} }
+		}
+	}
+	
+	can_stop = {
+		any_neighbor_country = {
+			is_rival = ROOT
+			OR = {
+				NOT = { num_of_cities = ROOT }
+				NOT = { army_size = ROOT }
+			}
+		}
+	}
+	
+	can_end = {
+		any_neighbor_country = {
+			is_rival = ROOT
+			OR = {
+				NOT = { num_of_cities = ROOT }
+				NOT = { army_size = ROOT }
+			}
+		}
+	}
+	
+	modifier = {
+	
+	}
+
+	#on_start = 0
+	#on_end = 0
+	
+	on_monthly = {
+        random_events = { 
+                35 = 0
+                1 = sha.4	
+        }
+	}
+}
