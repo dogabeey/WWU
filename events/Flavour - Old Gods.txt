@@ -1,208 +1,401 @@
-namespace = old_gods
+namespace = wwu_old_gods
 
+# C'thun Rises!
 country_event = {
-	id = old_gods.1
-	title = old_gods.1.title
-	desc = old_gods.1.desc
+	id = wwu_old_gods.1
+	title = wwu_old_gods.1.title
+	desc = wwu_old_gods.1.desc
 	picture = KAELTHAS_CLOSE_eventPicture
     
-    fire_only_once = no
 	major = yes
     
 	trigger = {
-		has_country_flag = awakening_cthun
-		#has_global_flag = this_event_will_never_fire
-	}
-	
-	mean_time_to_happen = {
-		months = 96
-	}
-	
-	option = {
-		name = old_gods.1.opt1
-		
-		set_global_flag = cthun_alive
-		add_country_modifier = { 
-			name = summoned_oldgod
-			duration = -1  
-			desc = summoned_oldgod.desc
-		}
-		clr_country_flag = awakening_cthun
-		
-        add_country_modifier = {
-            name = is_evil
-            duration = -1
+        NOT = { has_country_modifier = awakening_cthun }
+		has_country_flag = awakening_cthun_timer
+        NOT = {
+            any_country = {
+                has_country_modifier = seat_of_cthun
+            }
         }
 	}
-}
-
-country_event = {
-	id = old_gods.2
-	title = old_gods.2.title
-	desc = old_gods.2.desc
-	picture = KAELTHAS_CLOSE_eventPicture
-    
-    fire_only_once = no
-	major = yes
-    
-	trigger = {
-		owns_core_province = 2495
-		NOT = { has_country_flag = guided_by_whispers }
-		#has_global_flag = this_event_will_never_fire
-	}
-	
-	mean_time_to_happen = {
-		months = 86
-	}
-	
-	option = {
-		name = old_gods.2.opt1
-		
-		set_country_flag = guided_by_whispers
-		add_adm_power  = 30
-	}
-	option = {
-		name = old_gods.2.opt2
-		
-		add_adm_power = -30
-	}
-}
-
-country_event = {
-	id = old_gods.3
-	title = old_gods.3.title
-	desc = old_gods.3.desc
-	picture = KAELTHAS_CLOSE_eventPicture
-    
-    fire_only_once = no
-	major = yes
-    
-	trigger = {
-		has_country_flag = awakening_yoggsaron
-		#has_global_flag = this_event_will_never_fire
-	}
-	
-	mean_time_to_happen = {
-		months = 96
-	}
-	
-	option = {
-		name = old_gods.3.opt1
-		
-		set_global_flag = yoggsaron_alive
-		add_country_modifier = { 
-			name = summoned_oldgod
-			duration = -1  
-			desc = summoned_oldgod.desc
-		}
-		clr_country_flag = awakening_yoggsaron
-	}
-}
-
-country_event = {
-	id = old_gods.4
-	title = old_gods.4.title
-	desc = old_gods.4.desc
-	picture = KAELTHAS_CLOSE_eventPicture
-    
-	trigger = {
-		has_country_flag = influenced_by_nzoth
-		
-		#has_global_flag = this_event_will_never_fire
-	}
-	
-	mean_time_to_happen = {
-		months = 70
-	}
-	
-	option = {
-		name = old_gods.4.opt1
-		
-		every_owned_province =
-		{
-			limit = {
-				NOT = { religion = nzoth }
-			}
-			change_religion = nzoth
-		}
-		change_religion = nzoth
-		clr_country_flag = influenced_by_nzoth
-	}
-	option = {
-		name = old_gods.4.opt2
-		
-		random_list = {
-			45 = {
-				add_stability = -1
-			}
-			45 = {
-				random_province =
-				{
-					limit = {
-						owned_by = ROOT
-					}
-					change_religion = nzoth
-				}
-				random_province =
-				{
-					limit = {
-						owned_by = ROOT
-					}
-					change_religion = nzoth
-				}
-			}
-			10 = {
-				clr_country_flag = influenced_by_nzoth
-				custom_tooltip = influenced_by_nzoth_clear
-			}
-		}
-	}
-}
-country_event = {
-	id = old_gods.6
-	title = old_gods.6.title
-	desc = old_gods.6.desc
-	picture = KAELTHAS_CLOSE_eventPicture
-    hidden = yes
 	
 	mean_time_to_happen = {
 		days = 1
 	}
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = awakening_cthun_timer
+        }
+    }
 	
+	option = {
+		name = wwu_old_gods.1.option.a
+		
+        add_country_modifier = {
+            name = seat_of_cthun
+            duration = -1
+        }
+        
+        add_country_modifier = {
+            name = corruptive_fervor
+            duration = 3650
+        }
+        
+        if = {
+            limit = {
+                NOT = { religion = cthun }
+            }
+            
+            change_religion = cthun
+            
+            capital_scope = {
+                change_religion = cthun
+            }
+        }
+	}
+}
+
+# Yogg-Saron Rises!
+country_event = {
+	id = wwu_old_gods.2
+	title = wwu_old_gods.2.title
+	desc = wwu_old_gods.2.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    
+	major = yes
+    
 	trigger = {
-		has_country_flag = nzoth_probability_set
+        NOT = { has_country_modifier = awakening_yogg_saron }
+		has_country_flag = awakening_yogg_saron_timer
+        NOT = {
+            any_country = {
+                has_country_modifier = seat_of_yogg_saron
+            }
+        }
 	}
 	
-	immediate = {
-		clr_country_flag = nzoth_probability_set
+	mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = awakening_yogg_saron_timer
+        }
+    }
+	
+	option = {
+		name = wwu_old_gods.2.option.a
+		
+        add_country_modifier = {
+            name = seat_of_yogg_saron
+            duration = -1
+        }
+        
+        add_country_modifier = {
+            name = corruptive_fervor
+            duration = 3650
+        }
+        
+        if = {
+            limit = {
+                NOT = { religion = yogg_saron }
+            }
+            
+            change_religion = yogg_saron
+            
+            capital_scope = {
+                change_religion = yogg_saron
+            }
+        }
+	}
+}
+
+# N'Zoth Rises!
+country_event = {
+	id = wwu_old_gods.3
+	title = wwu_old_gods.3.title
+	desc = wwu_old_gods.3.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    
+	major = yes
+    
+	trigger = {
+        NOT = { has_country_modifier = awakening_nzoth }
+		has_country_flag = awakening_nzoth_timer
+        NOT = {
+            any_country = {
+                has_country_modifier = seat_of_nzoth
+            }
+        }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = awakening_nzoth_timer
+        }
+    }
+	
+	option = {
+		name = wwu_old_gods.3.option.a
+		
+        add_country_modifier = {
+            name = seat_of_nzoth
+            duration = -1
+        }
+        
+        add_country_modifier = {
+            name = corruptive_fervor
+            duration = 3650
+        }
+        
+        if = {
+            limit = {
+                NOT = { religion = nzoth }
+            }
+            
+            change_religion = nzoth
+            
+            capital_scope = {
+                change_religion = nzoth
+            }
+        }
+	}
+}
+
+# Y'Shaarj Rises!
+country_event = {
+	id = wwu_old_gods.4
+	title = wwu_old_gods.4.title
+	desc = wwu_old_gods.4.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    
+	major = yes
+    
+	trigger = {
+        NOT = { has_country_modifier = awakening_yshaarj }
+		has_country_flag = awakening_yshaarj_timer
+        NOT = {
+            any_country = {
+                has_country_modifier = seat_of_yshaarj
+            }
+        }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = awakening_yshaarj_timer
+        }
+    }
+	
+	option = {
+		name = wwu_old_gods.4.option.a
+		
+        add_country_modifier = {
+            name = seat_of_yshaarj
+            duration = -1
+        }
+        
+        add_country_modifier = {
+            name = corruptive_fervor
+            duration = 3650
+        }
+        
+        if = {
+            limit = {
+                NOT = { religion = yshaarj }
+            }
+            
+            change_religion = yshaarj
+            
+            capital_scope = {
+                change_religion = yshaarj
+            }
+        }
+	}
+}
+
+# Cleanup Avatar of Corruption
+country_event = {
+	id = wwu_old_gods.5
+	title = "wwu_old_gods.5.title"
+	desc = "wwu_old_gods.5.desc"
+	picture = BIG_BOOK_eventPicture	
+
+	is_triggered_only = yes	
+    hidden = yes
+	
+	mean_time_to_happen = {
+		days = 1		
+	}
+
+	option = {
+		name = "wwu_old_gods.5.option.a"
+		
+        kill_leader = {
+            type = "Avatar of Corruption"
+        }
+	}
+}
+
+# Whispers from Ulduar
+country_event = {
+	id = wwu_old_gods.10
+	title = wwu_old_gods.10.title
+	desc = wwu_old_gods.10.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    
+	trigger = {
+		owns_core_province = 2495
+		NOT = { has_country_flag = guided_by_whispers }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
 	}
 	
 	option = {
-		name = old_gods.5.opt1
+		name = wwu_old_gods.10.option.a
+		
+		set_country_flag = guided_by_whispers
+        custom_tooltip = AWAKENING_REMOVED_STABILITY_HIT
+        
+		add_corruption = 2
+	}
+	option = {
+		name = wwu_old_gods.10.option.b
+		
+		add_corruption = -1
+	}
+}
+
+# Whispers from the Deep
+country_event = {
+	id = wwu_old_gods.11
+	title = wwu_old_gods.11.title
+	desc = wwu_old_gods.11.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+    
+	trigger = {
+		has_country_flag = influenced_by_nzoth
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = influenced_by_nzoth
+        }
+    }
+	
+	option = {
+		name = wwu_old_gods.11.option.a
+		
+		change_religion = nzoth
+        
+        capital_scope = {
+            change_religion = nzoth
+        }
+        
+        add_country_modifier = {
+            name = corruptive_fervor
+            duration = 3650
+        }
+	}
+	option = {
+		name = wwu_old_gods.11.option.b
 		
 		random_list = {
-			8 = {
-				add_country_modifier = { name = communed_tidemother duration = 3650 }
+			50 = {
+				add_stability = -1
 			}
-			2 = {
-				set_country_flag = influenced_by_nzoth
-				country_event = { id = old_gods.5 }
+			50 = {
+				random_owned_province = {
+                    limit = {
+                        NOT = { religion = nzoth }
+                    }
+                    change_religion = nzoth
+                }
 			}
 		}
 	}
 }
 
-## Uncomplete event
+# Tidemother answers
 country_event = {
-	id = old_gods.5
-	title = old_gods.5.title
-	desc = old_gods.5.desc
+	id = wwu_old_gods.12
+	title = wwu_old_gods.12.title
+	desc = wwu_old_gods.12.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+	
+	trigger = {
+		has_country_flag = tidemother_commune_event
+	}
+    
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+            clr_country_flag = tidemother_commune_event
+            clr_country_flag = tidemother_response
+            clr_country_flag = nzoth_response
+            
+            random_list = {
+                50 = { set_country_flag = tidemother_response }
+                50 = { set_country_flag = nzoth_response }
+            }
+        }
+	}
+	
+	option = {
+		name = wwu_old_gods.12.option.a
+        
+        trigger = {
+            has_country_flag = tidemother_response
+        }
+		
+		add_country_modifier = { 
+            name = communed_tidemother 
+            duration = 3650 
+        }
+	}
+    option = {
+		name = wwu_old_gods.12.option.b
+        
+        trigger = {
+            has_country_flag = nzoth_response
+        }
+		
+		hidden_effect = { set_country_flag = influenced_by_nzoth }
+        
+        country_event = { id = wwu_old_gods.13 }
+	}
+}
+
+# Tidemother - N'zoth answers
+country_event = {
+	id = wwu_old_gods.13
+	title = wwu_old_gods.13.title
+	desc = wwu_old_gods.13.desc
 	picture = SHA_eventPicture
     	
 	is_triggered_only = yes
 	
 	option = {
-		name = old_gods.5.opt1
+		name = wwu_old_gods.13.option.a
 		
 	}
 }
