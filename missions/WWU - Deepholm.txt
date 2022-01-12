@@ -1,0 +1,119 @@
+#--------------------------------------
+# Deepholm
+#--------------------------------------
+wwu_deepholm_column_4 = {
+	slot = 4
+	generic = yes 
+	ai = no 
+    has_country_shield = yes
+	
+	potential = {
+	    tag = P27
+	} 
+	
+	wwu_bolster_the_temple_of_earth = {
+		icon = mission_headquarters
+        
+		required_missions = { }
+		
+		trigger = {
+			2700 = {
+                owned_by = ROOT
+                development = 20
+            }
+		}
+        
+        provinces_to_highlight = {
+			province_id = 2700
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			country_event = { id = wwu_deepholm.1 }
+		}
+	}
+    
+	wwu_spread_therazane_beauty = {
+		icon = mission_earth_elemental
+		position = 2
+        
+		required_missions = { wwu_bolster_the_temple_of_earth }
+		
+		trigger = {
+			calc_true_if = {
+                all_owned_province = {
+                    religion = earth
+                }
+                amount = 30
+            }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_therazane_beauty
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_deepholm_column_5 = {
+	slot = 5
+	generic = yes 
+	ai = no 
+    has_country_shield = yes
+	
+	potential = {
+	    tag = P27
+	} 
+	
+	wwu_crush_the_fire_lord = {
+		icon = mission_ragnaros
+        
+		required_missions = { }
+		
+		trigger = {
+            owns_core_province = 3155
+            NOT = { exists = P26 }
+		}
+        
+        provinces_to_highlight = {
+			province_id = 3155
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_therazane_might
+                duration = -1
+            }
+		}
+	}
+    
+    wwu_crush_the_wind_lord = {
+		icon = mission_primal_air_elemental
+        
+		required_missions = { }
+		
+		trigger = {
+            owns_core_province = 1560
+            owns_core_province = 1561
+            NOT = { exists = P28 }
+		}
+        
+        provinces_to_highlight = {
+			OR = {
+                province_id = 1560
+                province_id = 1561
+            }
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_therazane_swiftness
+                duration = -1
+            }
+		}
+	}
+}
