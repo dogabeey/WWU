@@ -1,0 +1,132 @@
+#--------------------------------------
+# Bloodsail
+#--------------------------------------
+wwu_bloodsail_column_4 = {
+	slot = 4
+	generic = yes 
+	ai = no 
+    has_country_shield = yes
+	
+	potential = {
+	    tag = A15
+	} 
+	
+	wwu_crush_the_kunzen = {
+		icon = mission_rogue_male
+        
+		required_missions = { }
+		
+		trigger = {
+			NOT = { exists = KUN }
+            owns_core_province = 4132
+            owns_core_province = 4133
+		}
+        
+        provinces_to_highlight = {
+			OR = {
+				province_id = 4132
+				province_id = 4133
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_bloodsail_settlers
+                duration = -1
+            }
+		}
+	}
+    
+	wwu_establish_raiding_outposts = {
+		icon = mission_trading_outpost
+		position = 2
+        
+		required_missions = { wwu_crush_the_kunzen }
+		
+		trigger = {
+			owns_core_province = 4131
+            owns_core_province = 4130
+            owns_core_province = 3207
+            owns_core_province = 2472
+		}
+        
+        provinces_to_highlight = {
+			OR = {
+				province_id = 4131
+				province_id = 4130
+				province_id = 3207
+				province_id = 2472
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			area_booty_bay = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+	wwu_establish_pirate_bay = {
+		icon = mission_sparring_equipment
+		position = 3
+		required_missions = { wwu_establish_raiding_outposts }
+		
+		trigger = {
+			area_booty_bay = {
+                type = all
+                
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+		}
+        
+        provinces_to_highlight = {
+			area = area_booty_bay
+            
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_pirate_bay
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_bloodsail_column_5 = {
+	slot = 5
+	generic = yes 
+	ai = no 
+    has_country_shield = yes
+	
+	potential = {
+	    tag = A15
+        has_dlc = "Mare Nostrum"
+	} 
+	
+	wwu_terror_on_the_high_seas = {
+		icon = mission_ship_3
+        
+		required_missions = { }
+		
+		trigger = {
+            has_dlc = "Mare Nostrum"
+            
+			check_variable = {
+                which = raid_coast_counter
+                value = 100
+            }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_terror_on_the_high_seas
+                duration = -1
+            }
+		}
+	}
+    
+}

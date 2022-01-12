@@ -1,0 +1,138 @@
+#--------------------------------------
+# Kunzen
+#--------------------------------------
+wwu_kunzen_column_4 = {
+	slot = 4
+	generic = yes 
+	ai = no 
+    has_country_shield = yes
+	
+	potential = {
+	    tag = KUN
+	} 
+	
+	wwu_bolster_kunza_kunza = {
+		icon = mission_strand_of_the_ancients
+        
+		required_missions = { }
+		
+		trigger = {
+			4133 = {
+                owned_by = ROOT
+                development = 15
+            }
+		}
+        
+        provinces_to_highlight = {
+			province_id = 4133
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			region_plunder_isle = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+	wwu_control_northpoint = {
+		icon = mission_tools
+		position = 2
+        
+		required_missions = { wwu_bolster_kunza_kunza }
+		
+		trigger = {
+			controls = 4136
+		}
+        
+        provinces_to_highlight = {
+			province_id = 4136
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_hozen_fury
+                duration = 3650
+            }
+		}
+	}
+    
+	wwu_establish_hozen_isle = {
+		icon = mission_hunter_vs_wild
+		position = 3
+		required_missions = { wwu_control_northpoint }
+		
+		trigger = {
+			region_plunder_isle = {
+                type = all
+                
+                OR = {
+                    country_or_non_sovereign_subject_holds = ROOT
+                    is_empty = yes
+                }
+            }
+		}
+        
+        provinces_to_highlight = {
+			region = region_plunder_isle
+            is_empty = no
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_apes_together_strong
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_kunzen_column_5 = {
+	slot = 5
+	generic = yes 
+	ai = no 
+    has_country_shield = yes
+	
+	potential = {
+	    tag = KUN
+	} 
+	
+	wwu_create_hozen_strikeforce = {
+		icon = mission_monk_jab
+        
+		required_missions = { }
+		
+		trigger = {
+            num_of_infantry = 15
+			num_of_galley = 15
+		}
+        
+		effect = {
+			area_moonbrook = {
+                add_permanent_claim = ROOT
+            }
+            area_the_deadmines = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_establish_goblin_alliance = {
+		icon = mission_rocket
+        
+		required_missions = { }
+		
+		trigger = {
+			alliance_with = A83
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_goblin_equipment
+                duration = -1
+            }
+		}
+	}
+}

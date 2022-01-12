@@ -1,0 +1,124 @@
+#--------------------------------------
+# vashjir
+#--------------------------------------
+wwu_vashjir_column_4 = {
+	slot = 4
+	generic = yes 
+	ai = no 
+    has_country_shield = yes
+	
+	potential = {
+	    tag = VHJ
+	} 
+	
+	wwu_reclaim_kelpthar = {
+		icon = mission_thunderstrike
+        
+		required_missions = { }
+		
+		trigger = {
+			owns_core_province = 3171
+            owns_core_province = 3172
+            owns_core_province = 3175
+		}
+        
+        provinces_to_highlight = {
+			OR = {
+                province_id = 3171
+                province_id = 3172
+                province_id = 3175
+            }
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_vashjir_united
+                duration = -1
+            }
+		}
+	}
+    
+	wwu_establish_vashjiri_strength = {
+		icon = mission_axe_and_sword
+		position = 2
+        
+		required_missions = { wwu_reclaim_kelpthar }
+		
+		trigger = {
+			num_of_infantry = 20
+            num_of_galley = 20
+		}
+        
+		effect = {
+			area_xibala = {
+                add_permanent_claim = ROOT
+            }
+            area_anvilmar = {
+                add_permanent_claim = ROOT
+            }
+            area_westfall_shore = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+	wwu_connect_with_nazjatar = {
+		icon = mission_azshara
+		position = 3
+		required_missions = { wwu_establish_vashjiri_strength }
+		
+		trigger = {
+			has_discovered = 616
+            NJZ = {
+                has_opinion = {
+                    who = ROOT
+                    value = 100
+                }
+            }
+		}
+        
+        provinces_to_highlight = {
+			province_id = 616
+            
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_azsharas_wisdom
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_vashjir_column_5 = {
+	slot = 5
+	generic = yes 
+	ai = no 
+    has_country_shield = yes
+	
+	potential = {
+	    tag = VHJ
+	} 
+	
+	wwu_rebuild_the_palace = {
+		icon = mission_goblet
+        
+		required_missions = { }
+		
+		trigger = {
+            3174 = {
+                development = 30
+            }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_glory_of_vashjir
+                duration = -1
+            }
+		}
+	}
+}
