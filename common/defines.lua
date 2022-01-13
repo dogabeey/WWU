@@ -754,7 +754,7 @@ NCountry = {
 	PS_RAISE_WAR_TAXES = 2,	-- Monthly Cost
 	PS_WAR_TAXES_LIMIT_MIN = 0,	-- Minimum value for the cost of war taxes
 	PS_CREATE_TRADE_POST = 50,
-	PS_IMPROVE_PROVINCE_BASE = 250,
+	PS_IMPROVE_PROVINCE_BASE = 200,
 	PS_IMPROVE_PROVINCE_MUL = 0,
 	PS_IMPROVE_PROVINCE_CAPITAL_DISCOUNT = 0.0,
 	PS_SET_PRIMARY_CULTURE = 100,
@@ -1020,8 +1020,8 @@ NCountry = {
 	CAN_CONVERT_TERRITORY_CULTURE = 1, -- Defines if you are allowed to culture convert territory provinces
 	CAN_CONVERT_TERRITORY_RELIGION = 1, -- Defines if you are allowed to convert religion of territory provinces
 	SETTLEMENT_GROWTH_DEVELOPMENT_INCREASE = 1, -- How much development may increase per year if a colonist is working on Settlement Growth.
-	SETTLMENT_GROWTH_CHANCE_MULTIPLIER = 2.5, -- Affects chance of development increase per year if a colonist is working on Settlement Growth.
-	SETTLMENT_GROWTH_CHANCE_MIN = 0.05, -- Minimum chance of increasing development for colonists promoting Settlement Growth
+	SETTLMENT_GROWTH_CHANCE_MULTIPLIER = 0.0, -- Affects chance of development increase per year if a colonist is working on Settlement Growth.
+	SETTLMENT_GROWTH_CHANCE_MIN = 1.0, -- Minimum chance of increasing development for colonists promoting Settlement Growth
 	SETTLEMENT_GROWTH_CHECK_INTERVAL = 365, -- Interval in days between checks for random development increase when working in Settlement Growth.
 	FREE_POLICIES_PER_CATEGORY = 1, -- Available free policies per monarch power category
 	TREASURE_SHIP_PASSAGE_FLAG_DECAY_DAYS = 365, -- How long the has_recent_tradeship_passage trigger is true after ship passage (days)
@@ -1595,8 +1595,8 @@ NAI = {
 
 	DEBASE_THRESHOLD = 10000,-- AI will not debase if it has more gold than this.
 
-	DEVELOPMENT_CAP_BASE = 10,	-- AI will not develop provinces that have more development than this or DEVELOPMENT_CAP_MULT*original development (whichever is bigger)
-	DEVELOPMENT_CAP_MULT = 2,
+	DEVELOPMENT_CAP_BASE = 120,	-- AI will not develop provinces that have more development than this or DEVELOPMENT_CAP_MULT*original development (whichever is bigger)
+	DEVELOPMENT_CAP_MULT = 120,
 
 	PEACE_BASE_RELUCTANCE = 0, -- AI base stubbornness to refuse peace (always applied)
 	PEACE_BATTLE_RELUCTANCE = 60, -- Reluctance multiplied by fraction of support limit currently in an ongoing battle in this war (to encourage battle resolution before peacing).
