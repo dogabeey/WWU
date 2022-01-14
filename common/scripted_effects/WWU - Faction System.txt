@@ -4,9 +4,75 @@
 # alliance
 # horde
 # old_horde
+# trade_coalition
 
 setup_faction_system = {
+    #-------------------------
+    # Trade Coalition
+    #-------------------------
+    # Bilgewater
+    A79 = {
+        add_country_modifier = {
+            name = head_of_trade_coalition
+            duration = -1
+        }
+        add_country_modifier = {
+            name = member_of_trade_coalition
+            duration = -1
+        }
+    }
+    
+    # Steamwheedle
+    A80 = {
+        add_country_modifier = {
+            name = member_of_trade_coalition
+            duration = -1
+        }
+    }
+    
+    # Venture Company
+    A81 = {
+        add_country_modifier = {
+            name = member_of_trade_coalition
+            duration = -1
+        }
+    }
+    
+    # Blackwater
+    A83 = {
+        add_country_modifier = {
+            name = member_of_trade_coalition
+            duration = -1
+        }
+    }
+    
+    # Ratchet
+    if = {
+        limit = { is_year = 622 }
+        
+        RTC = {
+            add_country_modifier = {
+                name = member_of_trade_coalition
+                duration = -1
+            }
+        }
+    }
+    
+    # Gadgetzan
+    if = {
+        limit = { is_year = 631 }
+    
+        GDG = {
+            add_country_modifier = {
+                name = member_of_trade_coalition
+                duration = -1
+            }
+        }
+    }
+    
+    #-------------------------
     # Alliance
+    #-------------------------
     if = {
         limit = {
             current_age = age_rise_of_the_horde
@@ -362,7 +428,9 @@ setup_faction_system = {
         }
     }
     
+    #-------------------------
     # Old Horde
+    #-------------------------
     if = {
         limit = {
             current_age = age_rise_of_the_horde
@@ -508,7 +576,9 @@ setup_faction_system = {
         # Setup for the post Third War
     }
     
+    #-------------------------
     # Horde (Thrall's Horde)
+    #-------------------------
     if = {
         limit = {
             current_age = age_rise_of_the_horde
