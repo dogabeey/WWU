@@ -1041,6 +1041,39 @@ country_event = {
         }
 	}
     
+    # Enact Trade Tax
+    option = {
+		name = wwu_faction_system.103.option.e
+        
+        trigger = {
+            has_country_modifier = head_of_trade_coalition
+            any_country = {
+                has_country_modifier = member_of_trade_coalition
+                treasury = 100
+                has_opinion = {
+                    who = ROOT
+                    value = 0
+                }
+            }
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_trade_coalition
+                treasury = 100
+                has_opinion = {
+                    who = ROOT
+                    value = 0
+                }
+                NOT = { has_country_modifier = head_of_trade_coalition }
+            }
+            
+            add_treasury = -100
+            
+            ROOT = { add_treasury = 100 }
+        }
+	}
+    
 	option = {
 		name = wwu_faction_system.103.option.x
 	}
