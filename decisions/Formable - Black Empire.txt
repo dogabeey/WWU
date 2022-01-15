@@ -80,4 +80,54 @@ country_decisions = {
 			factor = 1
 		}
 	}
+    
+    restore_black_empire_mission = {
+		major = yes
+		ai_importance = 300
+        
+		potential = {
+            # Exclusions
+			NOT = { exists = BLE }
+            
+            mission_completed = wwu_conquest_of_kalimdor
+            
+            tag = A97
+            religion = cthun
+		}
+        
+		allow = {
+            mission_completed = wwu_conquest_of_kalimdor
+            
+            tag = A97
+            religion = cthun
+			
+			# General
+			is_at_war = no	
+			stability = 1
+			total_development = 1000
+            
+            # Cost
+            adm_power = 100
+			dip_power = 100
+			mil_power = 100
+		}
+		effect = {
+            # Cost
+			add_adm_power = -100
+			add_dip_power = -100
+            add_mil_power = -100
+            
+            # Switch
+			change_tag = BLE
+			change_government = theocracy
+			set_government_rank = 3
+            
+            # Bonus
+            add_formable_bonus = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }
