@@ -154,7 +154,7 @@ wwu_ahn_qiraj_column_2 = {
                 duration = -1
             }
             
-            continent_kalimdor = {
+            kalimdor_superregion = {
                 add_permanent_claim = ROOT
             }
 		}
@@ -285,11 +285,52 @@ wwu_ahn_qiraj_column_4 = {
     
 	has_country_shield = yes
 	
-	wwu_swarm_the_crater = {
-		icon = mission_scarab
+    wwu_bolster_the_silithid_hives = {
+		icon = mission_bones
         position = 2
         
 		required_missions = { wwu_awaken_the_qiraji }
+        
+		trigger = {
+			# Hive Regal
+            1518 = {
+                owned_by = ROOT
+                development = 20
+            }
+            
+            # Hive Zora
+            1516 = {
+                owned_by = ROOT
+                development = 20
+            }
+            
+            # Hive Ashi
+            1509 = {
+                owned_by = ROOT
+                development = 20
+            }
+		}
+		provinces_to_highlight = {
+            OR = {
+                province_id = 1518 # Hive Regal
+                province_id = 1516 # Hive Zora
+                province_id = 1509 # Hive Ashi
+            }
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+        
+		effect = {
+			region_feralas = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+	wwu_swarm_the_crater = {
+		icon = mission_scarab
+        position = 3
+        
+		required_missions = { wwu_bolster_the_silithid_hives }
         
 		trigger = {
 			owns_core_province = 1526 # Un'goro Ramp
@@ -319,31 +360,44 @@ wwu_ahn_qiraj_column_4 = {
 	}
 }
 
-# wwu_ahn_qiraj_column_5 = {
-	# slot = 5
-	# generic = no
-	# ai = no
+wwu_ahn_qiraj_column_5 = {
+	slot = 5
+	generic = no
+	ai = no
     
-	# potential = {
-		# tag = A97
-	# }
+	potential = {
+		tag = A97
+	}
     
-	# has_country_shield = yes
+	has_country_shield = yes
 	
-	# wwu_awaken_the_qiraji = {
-		# icon = mission_force_shield
+	wwu_plunder_night_elf_ruins = {
+		icon = mission_night_elf_female
+        position = 3
         
-		# required_missions = { }
+		required_missions = { wwu_bolster_the_silithid_hives }
         
-		# trigger = {
-			
-		# }
-		# provinces_to_highlight = {
-			# NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		# }
+		trigger = {
+            owns_core_province = 2504 # Shen'dralar Quarters
+            owns_core_province = 1492 # Ruins of Isildien
+            owns_core_province = 1246 # Temple of Isildien
+            owns_core_province = 1491 # Darkmist Ruins
+		}
+		provinces_to_highlight = {
+            OR = {
+                province_id = 2504 # Shen'dralar Quarters
+                province_id = 1492 # Ruins of Isildien
+                province_id = 1246 # Temple of Isildien
+                province_id = 1491 # Darkmist Ruins
+            }
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
         
-		# effect = {
-			
-		# }
-	# }
-# }
+		effect = {
+			add_country_modifier = {
+                name = mission_ancient_knowledge
+                duration = -1
+            }
+		}
+	}
+}
