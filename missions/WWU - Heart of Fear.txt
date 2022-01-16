@@ -214,11 +214,120 @@ wwu_mantid_empire_column_3 = {
 		}
 	}
     
-    wwu_secure_mantid_territory = {
-		icon = mission_mantid_symbol
-        position = 2
+    wwu_consolidate_swarm = {
+		icon = mission_azerite_essense
+        position = 1
         
 		required_missions = { wwu_the_mantid_swarm }
+        
+		trigger = {
+            stability = 1
+            
+            if = {
+                limit = {
+                    exists = SRA
+                    overlord_of = SRA
+                }
+                SRA = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 180
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    exists = KRT
+                    overlord_of = KRT
+                }
+                KRT = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 180
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    exists = SKT
+                    overlord_of = SKT
+                }
+                SKT = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 180
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    exists = KIT
+                    overlord_of = KIT
+                }
+                KIT = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 180
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    exists = ZNT
+                    overlord_of = ZNT
+                }
+                ZNT = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 180
+                    }
+                }
+            }
+		}
+		effect = {
+            if = {
+                limit = {
+                    exists = SRA
+                    overlord_of = SRA
+                }
+                inherit = SRA
+            }
+            if = {
+                limit = {
+                    exists = KRT
+                    overlord_of = KRT
+                }
+                inherit = KRT
+            }
+            if = {
+                limit = {
+                    exists = SKT
+                    overlord_of = SKT
+                }
+                inherit = SKT
+            }
+            if = {
+                limit = {
+                    exists = KIT
+                    overlord_of = KIT
+                }
+                inherit = KIT
+            }
+            if = {
+                limit = {
+                    exists = ZNT
+                    overlord_of = ZNT
+                }
+                inherit = ZNT
+            }
+		}
+	}
+    
+    wwu_secure_mantid_territory = {
+		icon = mission_mantid_symbol
+        position = 3
+        
+		required_missions = { wwu_consolidate_swarm }
         
 		trigger = {
             region_dread_wastes = {
