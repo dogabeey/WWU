@@ -1,0 +1,403 @@
+#--------------------------------------
+# Ahn'Qiraj
+#--------------------------------------
+wwu_ahn_qiraj_column_1 = {
+	slot = 1
+	generic = no
+	ai = no
+    
+	potential = {
+		tag = A97
+	}
+    
+	has_country_shield = yes
+	
+	wwu_titanic_corruption = {
+		icon = mission_titan_spirits
+        position = 3
+        
+		required_missions = { wwu_quell_the_tolvir_threat }
+        
+		trigger = {
+            # Halls of Origination
+			1558 = {
+                owned_by = ROOT
+                religion = cthun
+            }
+            # Khartut's Tomb
+            1571 = {
+                owned_by = ROOT
+                religion = cthun
+            }
+            # Orsis
+            1568 = {
+                owned_by = ROOT
+                religion = cthun
+            }
+            # Ramkahen
+            1569 = {
+                owned_by = ROOT
+                religion = cthun
+            }
+            # Neferset
+            1563 = {
+                owned_by = ROOT
+                religion = cthun
+            }
+		}
+		provinces_to_highlight = {
+            OR = {
+                province_id = 1558
+                province_id = 1571
+                province_id = 1568
+                province_id = 1569
+                province_id = 1563
+            }
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_corrupt_titanic_equipment
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_ahn_qiraj_column_2 = {
+	slot = 2
+	generic = no
+	ai = no
+    
+	potential = {
+		tag = A97
+	}
+    
+	has_country_shield = yes
+	
+	wwu_quell_the_tolvir_threat = {
+		icon = mission_tolvir_arena
+        position = 2
+        
+		required_missions = { wwu_awaken_the_qiraji }
+        
+		trigger = {
+			owns_core_province = 1568
+            owns_core_province = 1563
+            owns_core_province = 1569
+            owns_core_province = 1558
+		}
+		provinces_to_highlight = {
+            OR = {
+                province_id = 1568
+                province_id = 1563
+                province_id = 1569
+                province_id = 1558
+            }
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			region_uldum = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_breach_the_valley = {
+		icon = mission_strand_of_the_ancients
+        position = 3
+        
+		required_missions = { wwu_quell_the_tolvir_threat }
+        
+		trigger = {
+			owns_core_province = 2328 # Sands of the Watchers
+            owns_core_province = 1547 # Valley of the Watchers
+		}
+		provinces_to_highlight = {
+            OR = {
+                province_id = 2328 # Sands of the Watchers
+                province_id = 1547 # Valley of the Watchers
+            }
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			region_tanaris = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_corruption_of_the_caverns = {
+		icon = mission_blood_corruption
+        position = 4
+        
+		required_missions = { wwu_breach_the_valley }
+        
+		trigger = {
+            # Caverns of Time
+			1544 = {
+                owned_by = ROOT
+                religion = cthun
+            }
+		}
+		provinces_to_highlight = {
+            province_id = 1544 # Caverns of Time
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_corruption_of_time
+                duration = -1
+            }
+            
+            kalimdor_superregion = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+}
+
+
+wwu_ahn_qiraj_column_3 = {
+	slot = 3
+	generic = no
+	ai = no
+    
+	potential = {
+		tag = A97
+	}
+    
+	has_country_shield = yes
+	
+	wwu_awaken_the_qiraji = {
+		icon = mission_void_walker
+        position = 1
+        
+		required_missions = { }
+        
+		trigger = {
+			has_country_modifier = seat_of_cthun
+		}
+		effect = {
+			remove_country_modifier = slumber_of_the_qiraji
+            
+            add_stability = 1
+            add_yearly_manpower = 5.0
+		}
+	}
+    
+    wwu_reclaim_silithus = {
+		icon = mission_demonhunter_darkness
+        position = 2
+        
+		required_missions = { wwu_awaken_the_qiraji }
+        
+		trigger = {
+			OR = {
+                claim = H03
+                NOT = { exists = H03 }
+            }
+		}
+		effect = {
+			region_silithus = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_restoration_of_ahn_qiraj = {
+		icon = mission_shadow_twilight
+        position = 3
+        
+		required_missions = { wwu_reclaim_silithus }
+        
+		trigger = {
+			owns_core_province = 1518 # Hive Regal
+            owns_core_province = 1516 # Hive Zora
+            owns_core_province = 1509 # Hive Ash
+            owns_core_province = 1513 # Cenarion Hold
+            owns_core_province = 1511 # Valor's Rest
+		}
+        provinces_to_highlight = {
+            OR = {
+                province_id = 1518 # Hive Regal
+                province_id = 1516 # Hive Zora
+                province_id = 1509 # Hive Ash
+                province_id = 1513 # Cenarion Hold
+                province_id = 1511 # Valor's Rest
+            }
+			NOT = { owned_by = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_qiraj_restoration
+                duration = -1
+            }
+		}
+	}
+    
+    wwu_conquest_of_kalimdor = {
+		icon = mission_black_dragonflight
+        position = 5
+        
+		required_missions = { 
+            wwu_corruption_of_the_caverns 
+            wwu_restoration_of_ahn_qiraj
+        }
+        
+		trigger = {
+            calc_true_if = {
+                all_owned_province = {
+                    continent = continent_kalimdor
+                }
+                
+                amount = 300
+            }
+		}
+		provinces_to_highlight = {
+            continent = continent_kalimdor
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_domination_of_kalimdor
+                duration = -1
+            }
+            
+            custom_tooltip = MAY_FORM_THE_BLACK_EMPIRE
+		}
+	}
+}
+
+wwu_ahn_qiraj_column_4 = {
+	slot = 4
+	generic = no
+	ai = no
+    
+	potential = {
+		tag = A97
+	}
+    
+	has_country_shield = yes
+	
+    wwu_bolster_the_silithid_hives = {
+		icon = mission_bones
+        position = 2
+        
+		required_missions = { wwu_awaken_the_qiraji }
+        
+		trigger = {
+			# Hive Regal
+            1518 = {
+                owned_by = ROOT
+                development = 20
+            }
+            
+            # Hive Zora
+            1516 = {
+                owned_by = ROOT
+                development = 20
+            }
+            
+            # Hive Ashi
+            1509 = {
+                owned_by = ROOT
+                development = 20
+            }
+		}
+		provinces_to_highlight = {
+            OR = {
+                province_id = 1518 # Hive Regal
+                province_id = 1516 # Hive Zora
+                province_id = 1509 # Hive Ashi
+            }
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			region_feralas = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+	wwu_swarm_the_crater = {
+		icon = mission_scarab
+        position = 3
+        
+		required_missions = { wwu_bolster_the_silithid_hives }
+        
+		trigger = {
+			owns_core_province = 1526 # Un'goro Ramp
+            owns_core_province = 3215 # Southwind Passage
+            owns_core_province = 1538 # Thistleshrub Valley
+            owns_core_province = 416  # Roiling Rise
+		}
+		provinces_to_highlight = {
+            OR = {
+                province_id = 1526 # Un'goro Ramp
+                province_id = 3215 # Southwind Passage
+                province_id = 1538 # Thistleshrub Valley
+                province_id = 416  # Roiling Rise
+            }
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			region_ungoro_crater = {
+                limit = {
+                    is_empty = yes
+                }
+                cede_province = ROOT
+                add_core = ROOT
+            }
+		}
+	}
+}
+
+wwu_ahn_qiraj_column_5 = {
+	slot = 5
+	generic = no
+	ai = no
+    
+	potential = {
+		tag = A97
+	}
+    
+	has_country_shield = yes
+	
+	wwu_plunder_night_elf_ruins = {
+		icon = mission_night_elf_female
+        position = 3
+        
+		required_missions = { wwu_bolster_the_silithid_hives }
+        
+		trigger = {
+            owns_core_province = 2504 # Shen'dralar Quarters
+            owns_core_province = 1492 # Ruins of Isildien
+            owns_core_province = 1246 # Temple of Isildien
+            owns_core_province = 1491 # Darkmist Ruins
+		}
+		provinces_to_highlight = {
+            OR = {
+                province_id = 2504 # Shen'dralar Quarters
+                province_id = 1492 # Ruins of Isildien
+                province_id = 1246 # Temple of Isildien
+                province_id = 1491 # Darkmist Ruins
+            }
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_ancient_knowledge
+                duration = -1
+            }
+		}
+	}
+}

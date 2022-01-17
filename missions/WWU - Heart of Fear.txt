@@ -1,0 +1,533 @@
+#--------------------------------------
+# Heart of Fear
+#--------------------------------------
+wwu_mantid_empire_column_1 = {
+	slot = 1
+	generic = no
+	ai = no
+    
+	potential = {
+		tag = P34
+	}
+    
+	has_country_shield = yes
+	
+	wwu_quell_pandaren_hope = {
+		icon = mission_monk_flying_dragon_kick
+        position = 3
+        
+		required_missions = { wwu_crush_halfhill }
+        
+		trigger = {
+            NOT = { exists = P64 } # Order of Niuzao
+            NOT = { exists = P66 } # Order of Xu'en
+            NOT = { exists = P63 } # Order of Yu'lon
+            NOT = { exists = P65 } # Order of Chi'ji
+            owns_core_province = 1901 # Temple of the White Tiger
+            owns_core_province = 1867 # Niuzao Temple
+            owns_core_province = 1722 # Temple of the Jade Serpent
+            owns_core_province = 1779 # Temple of the Red Crane
+		}
+        
+		provinces_to_highlight = {
+            OR = {
+                owned_by = P64
+                owned_by = P66
+                owned_by = P63
+                owned_by = P65
+                province_id = 1901 # Temple of the White Tiger
+                province_id = 1867 # Niuzao Temple
+                province_id = 1722 # Temple of the Jade Serpent
+                province_id = 1779 # Temple of the Red Crane
+            }
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_pandaren_submission
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_mantid_empire_column_2 = {
+	slot = 2
+	generic = no
+	ai = no
+    
+	potential = {
+		tag = P34
+	}
+    
+	has_country_shield = yes
+	
+	wwu_reinforce_the_horrid_march = {
+		icon = mission_mantid_soldier
+        position = 1
+        
+		required_missions = { }
+        
+		trigger = {
+            # The Horrid March
+            1850 = {
+                owned_by = ROOT
+                OR = {
+                    has_building = wow_fort_1
+                    has_building = wow_fort_2
+                    has_building = wow_fort_3
+                    has_building = wow_fort_4
+                }
+            }
+		}
+        
+		provinces_to_highlight = {
+            province_id = 1850 # The Horrid March
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			area_stoneplow = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_crush_halfhill = {
+		icon = mission_monk_clashing_ox
+        position = 2
+        
+		required_missions = { wwu_reinforce_the_horrid_march }
+        
+		trigger = {
+            region_valley_of_the_four_winds = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        
+		provinces_to_highlight = {
+            region = region_valley_of_the_four_winds
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			region_krasarang_wilds = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_secure_krasarang_coast = {
+		icon = mission_monk_sparring
+        position = 3
+        
+		required_missions = { wwu_crush_halfhill }
+        
+		trigger = {
+            region_krasarang_wilds = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        
+		provinces_to_highlight = {
+            region = region_krasarang_wilds
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			region_jade_forest = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_infest_the_jade_forest = {
+		icon = mission_monk_jade_serpent_breath
+        position = 4
+        
+		required_missions = { wwu_secure_krasarang_coast }
+        
+		trigger = {
+            region_jade_forest = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        
+		provinces_to_highlight = {
+            region = region_jade_forest
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+            add_mil_power = 250
+            
+			add_country_modifier = {
+                name = mission_vast_kypari_hives
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_mantid_empire_column_3 = {
+	slot = 3
+	generic = no
+	ai = no
+    
+	potential = {
+		tag = P34
+	}
+    
+	has_country_shield = yes
+	
+	wwu_the_mantid_swarm = {
+		icon = mission_mantid_advisor
+        position = 1
+        
+		required_missions = { }
+        
+		trigger = {
+            army_size_percentage = 1.0
+		}
+		effect = {
+			add_mil_power = 100
+            
+            region_dread_wastes = {
+                add_permanent_claim = ROOT
+            }
+            area_dusklight_hollow = {
+                add_permanent_claim = ROOT
+            }
+            area_kri_vess = {
+                add_permanent_claim = ROOT
+            }
+            area_sik_vess = {
+                add_permanent_claim = ROOT
+            }
+            area_sra_vess = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_consolidate_swarm = {
+		icon = mission_azerite_essense
+        position = 1
+        
+		required_missions = { wwu_the_mantid_swarm }
+        
+		trigger = {
+            stability = 1
+            
+            if = {
+                limit = {
+                    exists = SRA
+                    overlord_of = SRA
+                }
+                SRA = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 180
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    exists = KRT
+                    overlord_of = KRT
+                }
+                KRT = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 180
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    exists = SKT
+                    overlord_of = SKT
+                }
+                SKT = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 180
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    exists = KIT
+                    overlord_of = KIT
+                }
+                KIT = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 180
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    exists = ZNT
+                    overlord_of = ZNT
+                }
+                ZNT = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 180
+                    }
+                }
+            }
+		}
+		effect = {
+            if = {
+                limit = {
+                    exists = SRA
+                    overlord_of = SRA
+                }
+                inherit = SRA
+            }
+            if = {
+                limit = {
+                    exists = KRT
+                    overlord_of = KRT
+                }
+                inherit = KRT
+            }
+            if = {
+                limit = {
+                    exists = SKT
+                    overlord_of = SKT
+                }
+                inherit = SKT
+            }
+            if = {
+                limit = {
+                    exists = KIT
+                    overlord_of = KIT
+                }
+                inherit = KIT
+            }
+            if = {
+                limit = {
+                    exists = ZNT
+                    overlord_of = ZNT
+                }
+                inherit = ZNT
+            }
+		}
+	}
+    
+    wwu_secure_mantid_territory = {
+		icon = mission_mantid_symbol
+        position = 3
+        
+		required_missions = { wwu_consolidate_swarm }
+        
+		trigger = {
+            region_dread_wastes = {
+                type = all
+                owned_by = ROOT
+            }
+            area_dusklight_hollow = {
+                type = all
+                owned_by = ROOT
+            }
+            area_kri_vess = {
+                type = all
+                owned_by = ROOT
+            }
+            area_sik_vess = {
+                type = all
+                owned_by = ROOT
+            }
+            area_sra_vess = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            OR = {
+                region = region_dread_wastes
+                area = area_dusklight_hollow
+                area = area_kri_vess
+                area = area_sik_vess
+                area = area_sra_vess
+            }
+			NOT = { owned_by = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_mantid_hegemony
+                duration = -1
+            }
+		}
+	}
+    
+    wwu_domination_of_pandaria = {
+		icon = mission_mantid_queen
+        position = 4
+        
+		required_missions = { wwu_secure_mantid_territory }
+        
+		trigger = {
+            pandaria_superregion = {
+                type = all
+                
+                owns_or_non_sovereign_subject_of = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            superregion = pandaria_superregion
+			NOT = { owned_by = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_domination_of_pandaria
+                duration = -1
+            }
+            
+            custom_tooltip = UNLOCK_MANTID_SUPREMACY_CB
+		}
+	}
+}
+
+wwu_mantid_empire_column_4 = {
+	slot = 4
+	generic = no
+	ai = no
+    
+	potential = {
+		tag = P34
+	}
+    
+	has_country_shield = yes
+	
+	wwu_bolster_the_terrace = {
+		icon = mission_mantid_armour
+        position = 1
+        
+		required_missions = { }
+        
+		trigger = {
+            # Terrace of Gurthani
+            1832 = {
+                owned_by = ROOT
+                OR = {
+                    has_building = wow_fort_1
+                    has_building = wow_fort_2
+                    has_building = wow_fort_3
+                    has_building = wow_fort_4
+                }
+            }
+		}
+		provinces_to_highlight = {
+            province_id = 1832 # Terrace of Gurthani
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			area_setting_sun_gate = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_breach_the_vale = {
+		icon = mission_mantid_knife
+        position = 2
+        
+		required_missions = { wwu_bolster_the_terrace }
+        
+		trigger = {
+            area_setting_sun_gate = {
+                type = all
+                
+                owned_by = ROOT
+            }
+		}
+		provinces_to_highlight = {
+            area = area_setting_sun_gate
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			region_vale_of_eternal_blossoms = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_jewels_of_the_vale = {
+		icon = mission_goblet
+        position = 3
+        
+		required_missions = { wwu_breach_the_vale }
+        
+		trigger = {
+            region_vale_of_eternal_blossoms = {
+                type = all
+                
+                owned_by = ROOT
+            }
+		}
+		provinces_to_highlight = {
+            region = region_vale_of_eternal_blossoms
+			NOT = { owned_by = ROOT }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_jewels_of_the_vale
+                duration = -1
+            }
+		}
+	}
+}
+
+wwu_mantid_empire_column_5 = {
+	slot = 5
+	generic = no
+	ai = no
+    
+	potential = {
+		tag = P34
+	}
+    
+	has_country_shield = yes
+	
+	wwu_spread_yshaarj_influence = {
+		icon = mission_curse
+        position = 3
+        
+		required_missions = { wwu_breach_the_vale }
+        
+		trigger = {
+            calc_true_if = {
+                all_owned_province = {
+                    region = region_vale_of_eternal_blossoms
+                    religion = yshaarj
+                }
+            
+                amount = 12
+            }
+		}
+		provinces_to_highlight = {
+            region = region_vale_of_eternal_blossoms
+			owned_by = ROOT
+            NOT = { religion = yshaarj }
+		}
+        
+		effect = {
+			add_country_modifier = {
+                name = mission_yshaarj_gift
+                duration = -1
+            }
+		}
+	}
+}

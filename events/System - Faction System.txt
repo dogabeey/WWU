@@ -928,3 +928,153 @@ country_event = {
 		name = wwu_faction_system.102.option.x
 	}
 }
+
+# Trade Coalition Roster
+country_event = {
+	id = wwu_faction_system.103
+	title = wwu_faction_system.103.title
+	desc = wwu_faction_system.103.desc
+	picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+
+    immediate = {
+        custom_tooltip = TRADE_COALITION_HEAD_TT
+        
+        every_country = {
+            limit = {
+                has_country_modifier = head_of_trade_coalition
+            }
+            custom_tooltip = EMPTY_TT
+        }
+        
+        custom_tooltip = TRADE_COALITION_MEMBER_TT
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_trade_coalition
+            }
+            custom_tooltip = EMPTY_TT
+        }
+    }
+    
+    # Distribute Gold
+    option = {
+		name = wwu_faction_system.103.option.a
+        
+        trigger = {
+            has_country_modifier = head_of_trade_coalition
+            years_of_income = 1
+        }
+        
+        add_years_of_income = -1
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_trade_coalition
+                NOT = { has_country_modifier = head_of_trade_coalition }
+            }
+            add_years_of_income = 0.25
+        }
+	}
+    
+    # Distribute Manpower
+    option = {
+		name = wwu_faction_system.103.option.b
+        
+        trigger = {
+            has_country_modifier = head_of_trade_coalition
+            manpower_percentage = 0.5
+        }
+        
+        add_yearly_manpower = -5
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_trade_coalition
+                NOT = { has_country_modifier = head_of_trade_coalition }
+            }
+            
+            add_yearly_manpower = 1
+        }
+	}
+    
+    # Distribute Sailors
+    option = {
+		name = wwu_faction_system.103.option.c
+        
+        trigger = {
+            has_country_modifier = head_of_trade_coalition
+            sailors_percentage = 0.5
+        }
+        
+        add_yearly_sailors = -5
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_trade_coalition
+                NOT = { has_country_modifier = head_of_trade_coalition }
+            }
+            
+            add_yearly_sailors = 1
+        }
+	}
+    
+    # Distribute Ideas
+    option = {
+		name = wwu_faction_system.103.option.d
+        
+        trigger = {
+            has_country_modifier = head_of_trade_coalition
+            government_reform_progress = 100 
+        }
+        
+        adopt_reform_progress = -100
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_trade_coalition
+                NOT = { has_country_modifier = head_of_trade_coalition }
+            }
+            
+            adopt_reform_progress = 25
+        }
+	}
+    
+    # Enact Trade Tax
+    option = {
+		name = wwu_faction_system.103.option.e
+        
+        trigger = {
+            has_country_modifier = head_of_trade_coalition
+            any_country = {
+                has_country_modifier = member_of_trade_coalition
+                treasury = 100
+                has_opinion = {
+                    who = ROOT
+                    value = 0
+                }
+            }
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_trade_coalition
+                treasury = 100
+                has_opinion = {
+                    who = ROOT
+                    value = 0
+                }
+                NOT = { has_country_modifier = head_of_trade_coalition }
+            }
+            
+            add_treasury = -100
+            
+            ROOT = { add_treasury = 100 }
+        }
+	}
+    
+	option = {
+		name = wwu_faction_system.103.option.x
+	}
+}

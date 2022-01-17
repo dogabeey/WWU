@@ -29,13 +29,16 @@ country_event = {
 		
         custom_tooltip = scourge_appears_tt
         hidden_effect = {
+            # The Scourge
 			P11 = {
 				add_stability = 1
 				add_treasury = 250
 			}
             if = {
                 limit = {
-                    NOT = { exists = P11 }
+                    NOT = { 
+                        exists = P11 # The Scourge 
+                    }
                 }
                 
                 # Icecrown Citadel
@@ -59,6 +62,7 @@ country_event = {
 					cavalry = P11
 					artillery = P11
                 }
+                # Corp'rethar
                 1267 = {
                     cede_province = P11
 					add_core = P11
@@ -71,6 +75,8 @@ country_event = {
 					add_core = P11
 					add_building = wow_fort_1
                 }
+                
+                # The Scourge
                 P11 = {
 					define_ruler = {
 						name = "Ner'zhul"
@@ -99,6 +105,8 @@ country_event = {
 					add_treasury = 1000
 					add_stability = 1
 				}
+                
+                # Jotunheim
 				P17 = {
 					change_religion = cult_of_the_damned
 					set_ruler_religion = cult_of_the_damned
@@ -107,6 +115,8 @@ country_event = {
 						change_religion = cult_of_the_damned
 					}
                 }
+                
+                # Dragonflayer
 				B08 = {
 					change_religion = cult_of_the_damned
 					set_ruler_religion = cult_of_the_damned
@@ -179,6 +189,8 @@ country_event = {
 					remove_core = P15
 					remove_core = B09
 				}				
+                
+                # Mord'rethar
 				998 = {
 					cede_province = P11
 					add_core = P11
@@ -187,26 +199,21 @@ country_event = {
 					remove_core = P15
 					remove_core = B09
 				}
+                
+                # The Scourge
 				P11 = {
-					create_march = P17
-					create_alliance = B08
+					create_march = P17 # Jotunheim
+					create_alliance = B08 # Dragonflayer
 				}
+                
 				complete_mission = wwu_infiltrate_jotunheim
 				complete_mission = wwu_bless_jotunheim
 				complete_mission = wwu_infiltrate_dragonflayer
 				complete_mission = wwu_bless_jotunheim
-				continent_eastern_kingdoms = {
-					discover_country = P11
-				}
-				continent_northrend = {
-					discover_country = P11
-				}
-				continent_broken_isles = {
-					discover_country = P11
-				}
-				continent_outland = {
-					discover_country = P11
-				}
+                
+                P11 = {
+                    country_event = { id = scourge_of_lordaeron_emerge_events.10 days = 30 } # Discovery
+                }
             }
 		}
 	}

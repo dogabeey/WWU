@@ -5,7 +5,7 @@ wwu_scourge_column_1 = {
     has_country_shield = yes
     
 	potential = {
-		tag = P11
+		tag = P11 # The Scourge
 	} 
     
 	wwu_stabilize_the_frozen_throne = { 
@@ -28,13 +28,28 @@ wwu_scourge_column_1 = {
 			is_at_war = no
 		}
 		provinces_to_highlight = {
-            owned_by = P11
+            owned_by = P11 # The Scourge
         }
-		effect = { 
+		effect = {
+            # General
 			add_adm_power = -100
 			add_dip_power = -150
 			add_mil_power = -150
 			add_prestige = 25
+            
+			add_country_modifier = {
+				name = frozen_throne
+				duration = -1
+			}
+            
+			add_historical_rival = P74 # Azjol'Nerub
+            
+            # Azjol'Nerub
+			P74 = {
+				add_historical_rival = P11
+			}
+            
+            # Icecrown Citadel
 			1268 = {
 				add_base_production = 2
 				add_base_manpower = 2
@@ -46,16 +61,9 @@ wwu_scourge_column_1 = {
 					desc = icecrown_province_tooltip
 				}
 			}
+            
 			area_icecrown_interior = {
-				add_core = P11
-			}
-			add_historical_rival = P74
-			P74 = {
-				add_historical_rival = P11
-			}
-			add_country_modifier = {
-				name = frozen_throne
-				duration = -1
+				add_core = P11 # The Scourge
 			}
 		}
 	}
@@ -77,18 +85,22 @@ wwu_scourge_column_1 = {
 			}
 		}
 		provinces_to_highlight = {
-            owned_by = P11
+            owned_by = P11 # The Scourge
         }
 		effect = { 
-			1268 = {
-				add_base_tax = 2
-				add_base_manpower = 2
-			}
+            # General
 			add_church_power = 50
 			add_prestige = 25
+            
 			add_country_modifier = {
 				name = temple_of_the_damned
 				duration = -1
+			}
+            
+            # Icecrown Citadel
+			1268 = {
+				add_base_tax = 2
+				add_base_manpower = 2
 			}
 		}
 	}
@@ -105,6 +117,7 @@ wwu_scourge_column_1 = {
 		}
 		
 		trigger = {
+            # Corp'rethar
             1267 = {
 				OR = {
 					has_building = wow_fort_1
@@ -117,11 +130,15 @@ wwu_scourge_column_1 = {
 			treasury = 200
 		}
 		provinces_to_highlight = {
-            province_id = 1267 
+            province_id = 1267 # Corp'rethar
         }
-		effect = {  
+		effect = { 
+            # Corp'rethar
 			1267 = {
-				owner = { add_mil_power = -200 add_treasury = -200 }
+				owner = { 
+                    add_mil_power = -200 
+                    add_treasury = -200
+                }
 				add_base_manpower = 4
 				add_building = wow_arsenal
 				add_building = wow_barracks
@@ -160,10 +177,10 @@ wwu_scourge_column_1 = {
         }
 		effect = {
 			area_the_conflagration = {
-				add_permanent_claim = P11
+				add_permanent_claim = P11 # The Scourge
 			}
 			area_aldurthar = {
-				add_permanent_claim = P11
+				add_permanent_claim = P11 # The Scourge
 			}
 			add_country_modifier = {
 				name = icecrown_citadel
@@ -184,20 +201,23 @@ wwu_scourge_column_1 = {
 		}
 		
 		trigger = {
+            # The Fleshwerks
 			726 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
 			adm_power = 50
 			dip_power = 50
 			mil_power = 100
 		}
 		provinces_to_highlight = {
-            province_id = 726
+            province_id = 726 # The Fleshwerks
         }
 		effect = {
 			add_adm_power = -50
 			add_dip_power = -50
 			add_mil_power = -100
+            
+            # The Fleshwerks
 			726 = {
 				add_base_production = 8
 				add_building = wow_manufactory
@@ -205,6 +225,7 @@ wwu_scourge_column_1 = {
 				change_trade_goods = warbeasts
 				change_culture = culture_scourge
 			}
+            
 			add_country_modifier = {
 				name = fleshwerks
 				duration = -1
@@ -224,22 +245,23 @@ wwu_scourge_column_1 = {
 		}
 		
 		trigger = {
+            # Aldur'thar Rampart
             2375 = {
 				owned_by = P11
 			}
 		}
 		provinces_to_highlight = {
-            province_id = 2375 
+            province_id = 2375 # Aldur'thar Rampart
         }
 		effect = {  
 			area_north_valley_of_lost_hope = {
-				add_permanent_claim = P11
+				add_permanent_claim = P11 # The Scourge
 			}
 			area_south_valley_of_lost_hope = {
-				add_permanent_claim = P11
+				add_permanent_claim = P11 # The Scourge
 			}
 			area_the_broken_front = {
-				add_permanent_claim = P11
+				add_permanent_claim = P11 # The Scourge
 			}
 		}
 	}
@@ -256,8 +278,9 @@ wwu_scourge_column_1 = {
 		}
 		
 		trigger = {
+            # The Shadow Vault
 			1269 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
 			adm_power = 100
 			dip_power = 100
@@ -272,6 +295,8 @@ wwu_scourge_column_1 = {
 			add_dip_power = -100
 			add_mil_power = -150
 			add_treasury = -100
+            
+            # The Shadow Vault
 			1269 = {
 				add_base_tax = 2
 				add_base_production = 2
@@ -302,6 +327,7 @@ wwu_scourge_column_1 = {
 		}
 		
 		trigger = {
+            # Aldur'thar Rampart
             2375 = {
 				OR = {
 					has_building = wow_fort_1
@@ -314,11 +340,13 @@ wwu_scourge_column_1 = {
 			treasury = 200
 		}
 		provinces_to_highlight = {
-            province_id = 2375 
+            province_id = 2375 # Aldur'thar Rampart
         }
 		effect = { 
 			add_mil_power = -200
 			add_treasury = -200
+            
+            # Aldur'thar Rampart
 			2375 = {
 				add_base_manpower = 4
 				add_building = wow_arsenal
@@ -351,47 +379,57 @@ wwu_scourge_column_1 = {
 		}
 		
 		trigger = {
+            # Sindragosa's Brood
 			SNB = {
 				exists = no
 			}
+            # Sindragosa's Fall
             777 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
+            # East Sindragosa's Peaks
 			895 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
+            # West Sindragosa's Peaks
 			3261 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
+            # Sindragosa's Fall Nest
 			3257 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
 			mil_power = 150
 		}
 		provinces_to_highlight = {
-			owned_by = SNB
+			owned_by = SNB # Sindragosa's Brood
         }
 		effect = { 
 			add_mil_power = -150
 			add_prestige = 25
+            
+            # Sindragosa's Fall
 			777 = {
 				add_base_manpower = 4
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
 				change_trade_goods = flying_mounts
 			}
+            # East Sindragosa's Peaks
 			895 = {
 				add_base_manpower = 2
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
 				change_trade_goods = flying_mounts
 			}
+            # West Sindragosa's Peaks
 			3261 = {
 				add_base_manpower = 2
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
 				change_trade_goods = flying_mounts
 			}
+            # Sindragosa's Fall Nest
 			3257 = {
 				add_base_manpower = 2
 				change_culture = culture_scourge
@@ -417,6 +455,7 @@ wwu_scourge_column_1 = {
 		}
 		
 		trigger = {
+            # Mord'rethar
             998 = {
 				OR = {
 					has_building = wow_fort_1
@@ -429,11 +468,13 @@ wwu_scourge_column_1 = {
 			treasury = 200
 		}
 		provinces_to_highlight = {
-            province_id = 998 
+            province_id = 998  # Mord'rethar
         }
 		effect = { 
 			add_mil_power = -200
 			add_treasury = -200
+            
+            # Mord'rethar
 			998 = {
 				add_base_manpower = 4
 				add_building = wow_arsenal
@@ -482,10 +523,11 @@ wwu_scourge_column_1 = {
 				name = angrathar
 				duration = -1
 			}
+            
+            # Angrathar the Wrath Gate Interior
 			3222 = {
-				cede_province = P11
-				add_colonysize = 1000
-				add_core = P11
+				cede_province = P11 # The Scourge
+				add_core = P11 # The Scourge
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 4
@@ -501,10 +543,10 @@ wwu_scourge_column_1 = {
 					desc = scourge_fortification_province_tooltip
 				}
 			}
+            # Angrathar the Wrath Gate
 			3221 = {
-				cede_province = P11
-				add_colonysize = 1000
-				add_core = P11
+				cede_province = P11 # The Scourge
+				add_core = P11 # The Scourge
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 4
@@ -520,10 +562,10 @@ wwu_scourge_column_1 = {
 					desc = scourge_fortification_province_tooltip
 				}
 			}
+            # Angrathar the Wrath Gate Courtyard
 			3220 = {
-				cede_province = P11
-				add_colonysize = 1000
-				add_core = P11
+				cede_province = P11 # The Scourge
+				add_core = P11 # The Scourge
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 4
@@ -539,9 +581,10 @@ wwu_scourge_column_1 = {
 					desc = scourge_fortification_province_tooltip
 				}
 			}
+            # Angrathar the Wrath Gate Fields
 			2407 = {
-				cede_province = P11
-				add_colonysize = 1000
+				cede_province = P11 # The Scourge
+				add_core = P11 # The Scourge
 				add_core = P11
 				add_base_tax = 1
 				add_base_production = 1
@@ -588,7 +631,7 @@ wwu_scourge_column_2 = {
 		trigger = {
 			OR = {
 				has_spy_network_in = {
-					who = P17
+					who = P17 # Jotunheim
 					value = 10
 				}
 				num_of_owned_provinces_with = {
@@ -598,12 +641,12 @@ wwu_scourge_column_2 = {
 			}
 		}
 		provinces_to_highlight = {
-            owned_by = P17
+            owned_by = P17 # Jotunheim
         }
 		effect = {  
 			every_known_country = {
 				limit = {
-					tag = P17
+					tag = P17 # Jotunheim
 				}
 				set_ruler_religion = cult_of_the_damned
 				set_heir_religion = cult_of_the_damned
@@ -628,13 +671,19 @@ wwu_scourge_column_2 = {
 		
 		trigger = {
 			OR = {
+                # Jotunheim
 				P17 = {
 					has_opinion = {
-						who = P11
+						who = P11 # The Scourge
 						value = 75
 					}
 				}
-				761 = { country_or_subject_holds = ROOT } 
+                
+                # Jotunheim
+				761 = { 
+                    country_or_subject_holds = ROOT 
+                } 
+                
 				num_of_owned_provinces_with = {
 					value = 8
 					culture = culture_vrykul
@@ -642,9 +691,10 @@ wwu_scourge_column_2 = {
 			}
 		}
 		provinces_to_highlight = {
-            owned_by = P17
+            owned_by = P17 # Jotunheim
         }
 		effect = {  
+            # Jotunheim
 			P17 = {
 				change_religion = cult_of_the_damned
 				random_owned_province = {
@@ -658,7 +708,7 @@ wwu_scourge_column_2 = {
 				}
 				add_stability = 1
 			}
-			create_alliance = P17
+			create_alliance = P17 # Jotunheim
 			add_prestige = 25
 		}
 	}
@@ -678,7 +728,7 @@ wwu_scourge_column_2 = {
 		trigger = {
 			OR = {
 				has_spy_network_in = {
-					who = B08
+					who = B08 # Dragonflayer
 					value = 10
 				}
 				num_of_owned_provinces_with = {
@@ -688,12 +738,12 @@ wwu_scourge_column_2 = {
 			}
 		}
 		provinces_to_highlight = {
-            owned_by = B08
+            owned_by = B08 # Dragonflayer
         }
 		effect = {  
 			every_known_country = {
 				limit = {
-					tag = B08
+					tag = B08 # Dragonflayer
 				}
 				set_ruler_religion = cult_of_the_damned
 				set_heir_religion = cult_of_the_damned
@@ -718,13 +768,17 @@ wwu_scourge_column_2 = {
 		
 		trigger = {
 			OR = {
+                # Dragonflayer
 				B08 = {
 					has_opinion = {
-						who = P11
+						who = P11 # The Scourge
 						value = 75
 					}
 				}
-				734 = { country_or_subject_holds = ROOT }
+                # Utgarde Keep
+				734 = { 
+                    country_or_subject_holds = ROOT 
+                }
 				num_of_owned_provinces_with = {
 					value = 8
 					culture = culture_vrykul
@@ -732,9 +786,10 @@ wwu_scourge_column_2 = {
 			}
 		}
 		provinces_to_highlight = {
-            owned_by = B08
+            owned_by = B08 # Dragonflayer
         }
-		effect = {  
+		effect = {
+            # Dragonflayer
 			B08 = {
 				change_religion = cult_of_the_damned
 				random_owned_province = {
@@ -773,36 +828,39 @@ wwu_scourge_column_2 = {
 				culture = culture_vrykul
 			}
 			OR = {
-				alliance_with = P17
+				alliance_with = P17 # Jotunheim
+                # Jotunheim
 				P17 = {
-					vassal_of = P11
+					vassal_of = P11 # The Scourge
 				}
 			}
+            # Jotunheim
 			P17 = {
 				has_opinion = {
-					who = P11
+					who = P11 # The Scourge
 					value = 150
 				}
 			}
 		}
 		provinces_to_highlight = {
-            owned_by = P17
+            owned_by = P17 # Jotunheim
         }
 		effect = {  
-			create_march = P17
+			create_march = P17 # Jotunheim
 			add_accepted_culture = culture_vrykul
 			add_accepted_culture = culture_vargul
 			area_ymirheim = {
-				add_permanent_claim = P11
+				add_permanent_claim = P11 # The Scourge
 			}
 			hidden_effect = {
+                # Jotunheim
 				P17 = {
 					every_owned_province = {
 						change_religion = cult_of_the_damned
 					}
 				}
-			}
-			hidden_effect = {
+
+                # Dragonflayer
 				B08 = {
 					every_owned_province = {
 						change_religion = cult_of_the_damned
@@ -817,10 +875,10 @@ wwu_scourge_column_2 = {
 			}
 			area_the_conflagration = {
 				limit = {
-					owned_by = P17
+					owned_by = P17 # Jotunheim
 				}
-				cede_province = P11
-				add_core = P11
+				cede_province = P11 # The Scourge
+				add_core = P11 # The Scourge
 			}
 			area_aldurthar = {
 				limit = {
@@ -830,10 +888,10 @@ wwu_scourge_column_2 = {
 			}
 			area_aldurthar = {
 				limit = {
-					owned_by = P17
+					owned_by = P17 # Jotunheim
 				}
-				cede_province = P11
-				add_core = P11
+				cede_province = P11 # The Scourge
+				add_core = P11 # The Scourge
 			}
 			area_north_valley_of_lost_hope = {
 				limit = {
@@ -843,10 +901,10 @@ wwu_scourge_column_2 = {
 			}
 			area_north_valley_of_lost_hope = {
 				limit = {
-					owned_by = P17
+					owned_by = P17 # Jotunheim
 				}
-				cede_province = P11
-				add_core = P11
+				cede_province = P11 # The Scourge
+				add_core = P11 # The Scourge
 			}
 			area_the_shadow_vault = {
 				limit = {
@@ -856,10 +914,10 @@ wwu_scourge_column_2 = {
 			}
 			area_the_shadow_vault = {
 				limit = {
-					owned_by = P17
+					owned_by = P17 # Jotunheim
 				}
-				cede_province = P11
-				add_core = P11
+				cede_province = P11 # The Scourge
+				add_core = P11 # The Scourge
 			}
 			area_argent_tournament = {
 				limit = {
@@ -869,10 +927,10 @@ wwu_scourge_column_2 = {
 			}
 			area_argent_tournament = {
 				limit = {
-					owned_by = P17
+					owned_by = P17 # Jotunheim
 				}
-				cede_province = P11
-				add_core = P11
+				cede_province = P11 # The Scourge
+				add_core = P11 # The Scourge
 			}
 			add_country_modifier = {
 				name = vrykul_ascension
@@ -892,9 +950,10 @@ wwu_scourge_column_2 = {
 			factor = 3
 		}
 		
-		trigger = {
+		trigger = { 
+            # Malvkriss
 			2369 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
 			adm_power = 100
 			dip_power = 100
@@ -902,13 +961,15 @@ wwu_scourge_column_2 = {
 			treasury = 150
 		}
 		provinces_to_highlight = {
-            province_id = 2369
+            province_id = 2369 # Malvkriss
         }
 		effect = {
 			add_adm_power = -100
 			add_dip_power = -100
 			add_mil_power = -150
 			add_treasury = -150
+            
+            # Malvkriss
 			2369 = {
 				add_base_tax = 2
 				add_base_production = 2
@@ -944,14 +1005,15 @@ wwu_scourge_column_2 = {
 		
 		trigger = {
 			is_in_war = {
-				attacker_leader = P11
-				defender_leader = P74
+				attacker_leader = P11 # The Scourge
+				defender_leader = P74 # Azjol'Nerub
 			}
 		}
 		provinces_to_highlight = {
-            owned_by = P74
+            owned_by = P74 # Azjol'Nerub
         }
 		effect = {
+            # Azjol Nerub
 			995 = {
 				add_permanent_claim = P11
 			}
@@ -975,10 +1037,14 @@ wwu_scourge_column_2 = {
 		
 		trigger = {
 			OR = {
+                # Azjol Nerub
 				995 = {
-					owned_by = P11
+					owned_by = P11 # The Scourge
 				}
-				NOT = { exists = P74 }
+                
+				NOT = { 
+                    exists = P74 # Azjol'Nerub
+                }
 			}
 			num_of_owned_provinces_with = {
 				value = 5
@@ -986,7 +1052,7 @@ wwu_scourge_column_2 = {
 			}
 		}
 		provinces_to_highlight = {
-            province_id = 995
+            province_id = 995 # Azjol Nerub
         }
 		effect = {
 			add_accepted_culture = culture_crypt_fiend
@@ -997,6 +1063,7 @@ wwu_scourge_column_2 = {
 				change_culture = culture_crypt_fiend
 				change_religion = cult_of_the_damned
 			}
+            # Azjol Nerub
 			995 = {
 				add_base_tax = 2
 				add_base_production = 2
@@ -1029,8 +1096,10 @@ wwu_scourge_column_2 = {
 		
 		trigger = {
             mission_completed = wwu_create_the_crypt_fiends
+            
+            # Naxxanar
 			2344 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
 			adm_power = 100
 			dip_power = 100
@@ -1038,13 +1107,15 @@ wwu_scourge_column_2 = {
 			treasury = 150
 		}
 		provinces_to_highlight = {
-            province_id = 2344
+            province_id = 2344 # Naxxanar
         }
 		effect = {
 			add_adm_power = -100
 			add_dip_power = -100
 			add_mil_power = -150
 			add_treasury = -150
+            
+            # Naxxanar
 			2344 = {
 				add_base_tax = 2
 				add_base_production = 2
@@ -1079,8 +1150,10 @@ wwu_scourge_column_2 = {
 		
 		trigger = {
             mission_completed = wwu_create_the_crypt_fiends
+            
+            # Talramas
 			2118 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
 			adm_power = 100
 			dip_power = 100
@@ -1088,13 +1161,15 @@ wwu_scourge_column_2 = {
 			treasury = 150
 		}
 		provinces_to_highlight = {
-            province_id = 2118
+            province_id = 2118 # Talramas
         }
 		effect = {
 			add_adm_power = -100
 			add_dip_power = -100
 			add_mil_power = -150
 			add_treasury = -150
+            
+            # Talramas
 			2118 = {
 				add_base_tax = 2
 				add_base_production = 2
@@ -1129,8 +1204,10 @@ wwu_scourge_column_2 = {
 		
 		trigger = {
             mission_completed = wwu_create_the_crypt_fiends
+            
+            # Naxxramas
 			599 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
 			adm_power = 200
 			dip_power = 200
@@ -1138,13 +1215,15 @@ wwu_scourge_column_2 = {
 			treasury = 150
 		}
 		provinces_to_highlight = {
-            province_id = 599
+            province_id = 599 # Naxxramas
         }
 		effect = {
 			add_adm_power = -200
 			add_dip_power = -200
 			add_mil_power = -300
 			add_treasury = -150
+            
+            # Naxxramas
 			599 = {
 				add_base_tax = 4
 				add_base_production = 4
@@ -1197,29 +1276,33 @@ wwu_scourge_column_3 = {
 			religious_unity = 0.90
 		}
 		provinces_to_highlight = {
-            province_id = 2413
+            province_id = 2413 # Frostmourne Cavern
         }
 		effect = {
 			add_prestige = 50
+            
+            # Frostmourne Cavern
 			2413 = {
 				cede_province = P11
+				add_core = P11
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
 				change_trade_goods = artifacts
 				add_base_manpower = 5
-				add_core = P11
 			}
+            # Drak'Tharon Keep
 			1284 = {
 				cede_province = P11
+				add_core = P11
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
-				add_core = P11
 			}
 			if = {
 				limit = {
-					exists = FNA
+					exists = FNA # Empire of Arathor
+                    # Empire of Arathor
 					FNA = {
-						owns = 543
+						owns = 543 # Capital City
 					}
 				}
 				define_ruler = {
@@ -1248,6 +1331,7 @@ wwu_scourge_column_3 = {
 				set_ruler_flag = is_immortal
 			}
 			else = {
+                # Lordaeron
 				A08 = {
 					define_ruler = {
 						name = "Terenas II"
@@ -1292,17 +1376,18 @@ wwu_scourge_column_3 = {
 		}
 		
 		trigger = {
+            # Dalaran
 			863 = {
 				owner = {
 					has_spy_network_from = {
-						who = P11
+						who = P11 # The Scourge
 						value = 15
 					}
 				}
 			}
 		}
 		provinces_to_highlight = {
-            owned_by = A18
+            owned_by = A18 # Dalaran
         }
 		effect = {
 			add_adm_power = 150
@@ -1329,39 +1414,51 @@ wwu_scourge_column_3 = {
 			dip_power = 150
 			mil_power = 250
 			treasury = 200
+            
+            # Capital City
 			543 = {
 				owner = {
 					has_spy_network_from = {
-						who = P11
+						who = P11 # The Scourge
 						value = 15
 					}
 				}
 			}
 		}
+        
 		provinces_to_highlight = {
-            province_id = 790
+            province_id = 543 # Capital City
         }
+        
 		effect = {
 			add_adm_power = -150
 			add_dip_power = -150
 			add_mil_power = -250
 			add_treasury = -200
+            
+            # Scholomance
 			790 = {
-				cede_province = P12
-				add_core = P12
+				cede_province = P12 # Cult of the Damned
+				add_core = P12 # Cult of the Damned
 				add_building = wow_temple
 				add_building = wow_arsenal
 				add_building = wow_barracks
 				add_building = wow_farm
 				add_building = wow_fort_2
 				change_trade_goods = fel
+				add_base_tax = 4
+				add_base_production = 4
+				add_base_manpower = 6
+				center_of_trade = 2
 			}
 			area_scholomance = {
-				cede_province = P12
-				add_core = P12
+				cede_province = P12 # Cult of the Damned
+				add_core = P12 # Cult of the Damned
 				change_religion = cult_of_the_damned
 				change_culture = culture_cultist
 			}
+            
+            # Cult of the Damned
 			P12 = {
 				set_capital = 790
 				define_ruler = {
@@ -1377,29 +1474,15 @@ wwu_scourge_column_3 = {
 				add_prestige = 25
 				add_stability = 3
 			}
-			790 = {
-				add_base_tax = 4
-				add_base_production = 4
-				add_base_manpower = 6
-				center_of_trade = 2
-			}
-			vassalize = P12
+			
+			vassalize = P12 # Cult of the Damned
+            
+            P11 = {
+                country_event = { id = scourge_of_lordaeron_emerge_events.10 days = 30 } # Discovery
+            }
 			P12 = {
 				add_government_reform = scourge_domain_reform
-			}
-			hidden_effect = {
-				continent_eastern_kingdoms = {
-					discover_country = P12
-				}
-				continent_northrend = {
-					discover_country = P12
-				}
-				continent_broken_isles = {
-					discover_country = P12
-				}
-				continent_outland = {
-					discover_country = P12
-				}
+                country_event = { id = scourge_of_lordaeron_emerge_events.10 days = 30 } # Discovery
 			}
 		}
 	}
@@ -1418,10 +1501,11 @@ wwu_scourge_column_3 = {
 		}
 		
 		trigger = {
+            # Andorhal
 			688 = {
 				owner = {
 					has_spy_network_from = {
-						who = P11
+						who = P11 # The Scourge
 						value = 15
 					}
 				}
@@ -1429,10 +1513,12 @@ wwu_scourge_column_3 = {
 			adm_power = 100
 		}
 		provinces_to_highlight = {
-            province_id = 688
+            province_id = 688 # Andorhal
         }
 		effect = {
 			add_adm_power = -100
+            
+            # Andorhal
 			688 = {
 				add_permanent_province_modifier = { 
 					name = strange_plague
@@ -1461,19 +1547,22 @@ wwu_scourge_column_3 = {
 		}
 		provinces_to_highlight = {
 			OR = {
-            region = region_western_plaguelands
-			region = region_eastern_plaguelands
+                region = region_western_plaguelands
+                region = region_eastern_plaguelands
 			}
         }
 		effect = {
+            # Cult of the Damned
 			P12 = {
 				kill_ruler = yes
 			}
+            
 			add_mil_power = -150
+            
 			region_western_plaguelands = {
 				limit = {
 					NOT = {
-						owned_by = P12
+						owned_by = P12 # Cult of the Damned
 					}
 				}
 				add_permanent_province_modifier = { 
@@ -1485,7 +1574,7 @@ wwu_scourge_column_3 = {
 			region_eastern_plaguelands = {
 				limit = {
 					NOT = {
-						owned_by = P12
+						owned_by = P12 # Cult of the Damned
 					}
 				}
 				add_permanent_province_modifier = { 
@@ -1530,17 +1619,18 @@ wwu_scourge_column_3 = {
 		}
 		provinces_to_highlight = {
 			OR = {
-			area = area_stratholme
-            area = area_the_marris_stead
-			area = area_andorhal_fields
-			area = area_eastwatch
-			area = area_eastwall_tower
+                area = area_stratholme
+                area = area_the_marris_stead
+                area = area_andorhal_fields
+                area = area_eastwatch
+                area = area_eastwall_tower
 			}
         }
 		effect = {
+            # Stratholme
 			642 = {
-				cede_province = P52
-				add_core = P52
+				cede_province = P52 # The Scourge of Lordaeron
+				add_core = P52 # The Scourge of Lordaeron
 				remove_province_modifier = strange_plague
 				add_devastation = -50
 				add_building = wow_temple
@@ -1551,6 +1641,8 @@ wwu_scourge_column_3 = {
 					desc = necropolis_province_tooltip
 				}
 			}
+            
+            # The Scourge of Lordaeron
 			P52 = {
 				set_capital = 642
 				define_ruler = {
@@ -1563,6 +1655,8 @@ wwu_scourge_column_3 = {
 				}
 				add_government_reform = scourge_domain_reform
 			}
+            
+            # The Scourge of Lordaeron
 			P52 = {
 				set_ruler_flag = is_immortal
 				event_add_mage_personality = yes
@@ -1570,45 +1664,51 @@ wwu_scourge_column_3 = {
 				set_ruler_culture = culture_dreadlord
 			}
 			area_stratholme = {
-				cede_province = P52
-				add_core = P52
+				cede_province = P52 # The Scourge of Lordaeron
+				add_core = P52 # The Scourge of Lordaeron
 				remove_province_modifier = strange_plague
 				add_devastation = -50
 			}
 			area_the_marris_stead = {
-				cede_province = P52
-				add_core = P52
+				cede_province = P52 # The Scourge of Lordaeron
+				add_core = P52 # The Scourge of Lordaeron
 				remove_province_modifier = strange_plague
 				add_devastation = -50
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
 			}
 			area_andorhal_fields = {
-				cede_province = P52
-				add_core = P52
+				cede_province = P52 # The Scourge of Lordaeron
+				add_core = P52 # The Scourge of Lordaeron
 				remove_province_modifier = strange_plague
 				add_devastation = -50
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
 			}
 			area_eastwatch = {
-				cede_province = P52
-				add_core = P52
+				cede_province = P52 # The Scourge of Lordaeron
+				add_core = P52 # The Scourge of Lordaeron
 				remove_province_modifier = strange_plague
 				add_devastation = -50
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
 			}
 			area_eastwall_tower = {
-				cede_province = P52
-				add_core = P52
+				cede_province = P52 # The Scourge of Lordaeron
+				add_core = P52 # The Scourge of Lordaeron
 				remove_province_modifier = strange_plague
 				add_devastation = -50
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
 			}
-			vassalize = P52
+            
+			vassalize = P52 # The Scourge of Lordaeron
+            
 			set_global_flag = scourge_of_lordaeron_flag
+            
+            P52 = {
+                country_event = { id = scourge_of_lordaeron_emerge_events.10 days = 30 } # Discovery
+            }
 		}
 	}
 	wwu_the_culling = { 
@@ -1628,42 +1728,53 @@ wwu_scourge_column_3 = {
 		trigger = {
 			if = {				
 				limit = {
-					exists = FNA
+					exists = FNA # Empire of Arathor
+                    
+                    # Empire of Arathor
 					FNA = {
-						owns = 543
+						owns = 543 # Capital City
 					}
 				}
-				war_with = FNA
+				war_with = FNA # Empire of Arathor
+                
+                # Empire of Arathor
 				FNA = {
-					controls = 775
-					controls = 642
+					controls = 775 # Hearthglen
+					controls = 642 # Stratholme
 				}
 			}
 			else = {
-				war_with = A08
+				war_with = A08 # Lordaeron
+                
+                # Lordaeron
 				A08 = {
-					controls = 775
-					controls = 642
+					controls = 775 # Hearthglen
+					controls = 642 # Stratholme
 				}  
 			}
 		}
 		provinces_to_highlight = {
 			OR = {
-			province_id = 775
-			province_id = 642
+                province_id = 775 # Hearthglen
+                province_id = 642 # Stratholme
 			}
         }
 		effect = {
+            # Drak'Tharon Keep
 			1284 = {
-				cede_province = P52
-				add_core = P52
+				cede_province = P52 # The Scourge of Lordaeron
+				add_core = P52 # The Scourge of Lordaeron
 				add_building = wow_temple
 				add_building = wow_fort_1
 				add_base_manpower = 4
 			}
+            
+            # The Scourge of Lordaeron
 			P52 = {
 				set_capital = 1284
 			}
+            
+            # Stratholme
 			642 = {
 				change_culture = culture_scourge
 				change_religion = cult_of_the_damned
@@ -1680,23 +1791,30 @@ wwu_scourge_column_3 = {
 			hidden_effect = {
 				if = {
 					limit = {
-						exists = FNA
+						exists = FNA # Empire of Arathor
+                        
+                        # Empire of Arathor
 						FNA = {
-							owns = 543
+							owns = 543 # Capital City
 						}
 					}
+                    
+                    # Empire of Arathor
 					FNA = {
 						remove_heir = { }
 					}
 				}
 				else = {
+                    # Lordaeron
 					A08 = {
 						remove_heir = { }
 					}
 				}
+                
+                # Valgarde
 				882 = {
-					cede_province = F38
-					add_core = F38
+					cede_province = F38 # Valgarde
+					add_core = F38 # Valgarde
 					change_culture = culture_lordaeron
 					change_religion = holy_light
 					add_base_tax = 2
@@ -1707,11 +1825,13 @@ wwu_scourge_column_3 = {
 					add_building = wow_arsenal
 				}
 				area_halvarde = {
-					cede_province = F38
-					add_core = F38
+					cede_province = F38 # Valgarde
+					add_core = F38 # Valgarde
 					change_culture = culture_lordaeron
 					change_religion = holy_light
 				}
+                
+                # Valgarde
 				F38 = {
 					add_accepted_culture = culture_ironforge
 					set_capital = 882
@@ -1734,25 +1854,34 @@ wwu_scourge_column_3 = {
 						manuever = 5
 						siege = 3
 					}
+                    
+                    country_event = { id = scourge_of_lordaeron_emerge_events.10 days = 30 } # Discovery
 				}
+                
+                # Explorers' League Outpost
 				749 = {
 					change_culture = culture_ironforge
 				}
+                
+                # Westguard Keep
 				635 = {
-					cede_province = F38
-					add_core = F38
+					cede_province = F38 # Valgarde
+					add_core = F38 # Valgarde
 					change_culture = culture_lordaeron
 					change_religion = holy_light
 				}
+                # The Forgotten Shore
 				583 = {
-					cede_province = F38
-					add_core = F38
+					cede_province = F38 # Valgarde
+					add_core = F38 # Valgarde
 					change_culture = culture_lordaeron
 					change_religion = holy_light
 				}
+                
+                # Valgarde
 				F38 = {
-					join_all_defensive_wars_of = A08
-					join_all_defensive_wars_of = FNA
+					join_all_defensive_wars_of = A08 # Lordaeron
+					join_all_defensive_wars_of = FNA # Empire of Arathor
 				}
 			}
 		}
@@ -1772,15 +1901,17 @@ wwu_scourge_column_3 = {
 		}
 		
 		trigger = {
-			war_with = F38
+			war_with = F38 # Valgarde
 		}
 		provinces_to_highlight = {
-            owned_by = F38
+            owned_by = F38 # Valgarde
         }
 		effect = {
+            # Frostmourne Cavern
 			2413 = {
-				change_controller = F38
+				change_controller = F38 # Valgarde
 			}
+            # Valgarde
 			F38 = {
 				set_ruler_religion = cult_of_the_damned
 				set_ruler_flag = is_immortal
@@ -1802,17 +1933,21 @@ wwu_scourge_column_3 = {
 		}
 		
 		trigger = {
+            # Valgarde
 			F38 = {
 				ruler_religion = cult_of_the_damned
 			}
 		}
 		provinces_to_highlight = {
-            province_id = 1284
+            province_id = 1284 # Drak'Tharon Keep
         }
 		effect = {
+            # Drak'Tharon Keep
 			1284 = {
 				change_controller = F38
 			}
+            
+            # Valgarde
 			F38 = {
 				kill_leader = {
 					type = "Muradin Bronzebeard"
@@ -1829,6 +1964,8 @@ wwu_scourge_column_3 = {
 				}
 				event_add_warrior_personality = yes
 			}
+            
+            # The Scourge of Lordaeron
 			P52 = {
 				kill_ruler = yes
 				define_ruler = {
@@ -1850,6 +1987,8 @@ wwu_scourge_column_3 = {
 					duration = -1
 				}
 			}
+            
+            # The Scourge
 			P11 = {
 				remove_country_modifier = nathrezim_jailors
 				add_country_modifier = {
@@ -1874,8 +2013,10 @@ wwu_scourge_column_3 = {
 		
 		trigger = {
             mission_completed = wwu_create_the_crypt_fiends
+            
+            # Zeramas
 			649 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
 			adm_power = 100
 			dip_power = 100
@@ -1883,13 +2024,15 @@ wwu_scourge_column_3 = {
 			treasury = 150
 		}
 		provinces_to_highlight = {
-            province_id = 649
+            province_id = 649 # Zeramas
         }
 		effect = {
 			add_adm_power = -100
 			add_dip_power = -100
 			add_mil_power = -150
 			add_treasury = -150
+            
+            # Zeramas
 			649 = {
 				add_base_tax = 2
 				add_base_production = 2
@@ -1925,8 +2068,10 @@ wwu_scourge_column_3 = {
 		
 		trigger = {
             mission_completed = wwu_create_the_crypt_fiends
+            
+            # Voltarus
 			598 = {
-				owned_by = P11
+				owned_by = P11 # The Scourge
 			}
 			adm_power = 100
 			dip_power = 100
@@ -1934,7 +2079,7 @@ wwu_scourge_column_3 = {
 			treasury = 150
 		}
 		provinces_to_highlight = {
-            province_id = 598
+            province_id = 598 # Voltarus
         }
 		effect = {
 			add_adm_power = -100
@@ -1942,6 +2087,8 @@ wwu_scourge_column_3 = {
 			add_mil_power = -150
 			add_treasury = -150
 			add_accepted_culture = culture_undead_troll
+            
+            # Voltarus
 			598 = {
 				add_base_tax = 2
 				add_base_production = 2
@@ -1996,6 +2143,8 @@ wwu_scourge_column_4 = {
 		trigger = {
             mission_completed = wwu_frostmourne_hungers
 			stability = 1
+            
+            # The Scourge of Lordaeron
 			P52 = {
 				ruler_culture = culture_death_knight
 			}
@@ -2004,45 +2153,49 @@ wwu_scourge_column_4 = {
             province_id = 543
         }
 		effect = {
-			white_peace = F38
+			white_peace = F38 # Valgarde
 			if = {
 				limit = {
-					exists = FNA
+					exists = FNA # Empire of Arathor
 					FNA = {
-						owns = 543
+						owns = 543 # Capital City
 					}
 				}
+                # Empire of Arathor
 				FNA = {
 					kill_ruler = yes
 					remove_heir = { }
 					release_all_subjects = yes
-					release = A17
-					release = A09
-					release = A27
-					release = F52
-					release = A11
+					release = A17 # Alterac
+					release = A09 # Hearthglen
+					release = A27 # Ravenholdt
+					release = F52 # Pyrewood
+					release = A11 # Hillsbrad
 					add_stability = -6
 					add_inflation = 50
 					add_war_exhaustion = 5
-					change_tag = A25
+					change_tag = A25 # Lordaeron Remnants
 				}
 			}
 			else = {
+                # Lordaeron
 				A08 = {
 					kill_ruler = yes
 					remove_heir = { }
 					release_all_subjects = yes
-					release = A17
-					release = A09
-					release = A27
-					release = F52
-					release = A11
+					release = A17 # Alterac
+					release = A09 # Hearthglen
+					release = A27 # Ravenholdt
+					release = F52 # Pyrewood
+					release = A11 # Hillsbrad
 					add_stability = -6
 					add_inflation = 50
 					add_war_exhaustion = 5
-					change_tag = A25
+					change_tag = A25 # Lordaeron Remnants
 				}
 			}
+            
+            # Lordaeron Remnants
 			A25 = {
 				define_ruler = {
 					name = "Othmar"
@@ -2059,17 +2212,22 @@ wwu_scourge_column_4 = {
 				event_add_midas_touched_personality = yes
 				add_government_reform = autocracy_reform
 			}
+            
+            # Capital City
 			543 = {
 				set_base_tax = 3
 				set_base_production = 3
 				set_base_manpower = 4
 				add_devastation = 50
 			}
+            
+            # Drak'Tharon Keep
 			1284 = {
-				cede_province = P11
-				add_core = P11
-				remove_core = P52			
+				cede_province = P11 # The Scourge
+				add_core = P11 # The Scourge
+				remove_core = P52 # The Scourge of Lordaeron
 			}
+            
 			custom_tooltip = plague_spreads_lordaeron_tt
 			hidden_effect = {
 				region_tirisfal_glades = {
@@ -2115,89 +2273,22 @@ wwu_scourge_column_4 = {
 					change_religion = cult_of_the_damned
 				}
 			}
+            
 			custom_tooltip = silver_hand_strengthens_tt
 			hidden_effect = {
-				557 = {
+                # Spawn the Silver Hand
+				silver_hand_provinces = {
 					cede_province = SVH
 					add_core = SVH
 					change_culture = culture_lordaeron
 					change_religion = holy_light
+				}
+                # The Cursed Landing
+				557 = {
 					add_base_tax = 2
 					add_base_production = 2
 					add_base_manpower = 4
 					center_of_trade = 1
-				}
-				2187 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				2975 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				2175 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				2172 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				979 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				964 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				2020 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				591 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				646 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				662 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				2018 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
-				}
-				2017 = {
-					cede_province = SVH
-					add_core = SVH
-					change_culture = culture_lordaeron
-					change_religion = holy_light
 				}
 				SVH = {
 					add_stability = 3
