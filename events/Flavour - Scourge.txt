@@ -218,3 +218,94 @@ country_event = {
 		}
 	}
 }
+
+# Fate of Lordaeron
+country_event = {
+	id = scourge_events.2
+	title = scourge_events.2.title
+	desc = scourge_events.2.desc
+	picture = BIG_BOOK_eventPicture
+
+    fire_only_once = yes
+
+	trigger = {
+		tag = A25
+        ai = no
+	}
+	
+	mean_time_to_happen = { 
+        days = 1
+    }
+    
+    # Remain as Lordaeron Remnants
+	option = {
+		name = scourge_events.2.option.a
+	
+	}
+    
+    # Become the Silver Hand
+	option = {
+		name = scourge_events.2.option.b
+	
+        trigger = {
+            exists = SVH
+        }
+        
+        switch_tag = SVH
+	}
+    
+    # Become Alterac
+	option = {
+		name = scourge_events.2.option.c
+	
+        trigger = {
+            exists = A17
+        }
+        
+        switch_tag = A17
+	}
+    
+    # Become Hearthglen
+	option = {
+		name = scourge_events.2.option.d
+	
+        trigger = {
+            exists = A09
+        }
+        
+        switch_tag = A09
+	}
+    
+    # Become Ravenholdt
+	option = {
+		name = scourge_events.2.option.e
+	
+        trigger = {
+            exists = A27
+        }
+        
+        switch_tag = A27
+	}
+    
+    # Become Pyrewood
+	option = {
+		name = scourge_events.2.option.f
+	
+        trigger = {
+            exists = F52
+        }
+        
+        switch_tag = F52
+	}
+    
+    # Become Hillsbrad
+	option = {
+		name = scourge_events.2.option.g
+	
+        trigger = {
+            exists = A11
+        }
+        
+        switch_tag = A11
+	}
+}
