@@ -134,6 +134,7 @@ allianceaction = {
         tooltip = DIP_INCOMP_EVIL
         
         potential = {
+            has_global_flag = historical_diplomacy_wwu
 			OR = {
 				AND = {
 					OR = {
@@ -191,15 +192,19 @@ allianceaction = {
         tooltip = DIP_INCOMP_SCOURGE
         
         potential = {
+            has_global_flag = historical_diplomacy_wwu
 			OR = {
 				AND = {
 					religion = cult_of_the_damned
 					FROM = {
 						NOT = { religion_group = shadow_group }
+                        NOT = { religion_group = death_group }
 					}
 				}
 				AND = {
-					NOT = { religion_group = shadow_group }
+                    NOT = { religion_group = shadow_group }
+                    NOT = { religion_group = death_group }
+                    
 					FROM = {
 						religion = cult_of_the_damned
 					}
@@ -214,6 +219,7 @@ allianceaction = {
         tooltip = DIP_INCOMP_LESSER
         
         potential = {
+            has_global_flag = historical_diplomacy_wwu
 			OR = {
 				AND = {
 					is_lesser = yes
@@ -242,6 +248,7 @@ allianceaction = {
         tooltip = DIP_INCOMP_FACTION
         
         potential = {
+            has_global_flag = historical_diplomacy_wwu
 			OR = {
 				AND = {
 					OR = {
@@ -281,6 +288,7 @@ allianceaction = {
         tooltip = DIP_INCOMP_HISTORICAL
         
         potential = {
+            has_global_flag = historical_diplomacy_wwu
 			OR = {
 				# Humans - Orcs
 				AND = {

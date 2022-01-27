@@ -247,3 +247,40 @@ country_event = {
 		name = wwu_setup.2.option.a
     }  
 }
+
+#---------------------------------------
+# Configuration
+#---------------------------------------
+country_event = {
+	id = wwu_setup.3
+	title = wwu_setup.3.title
+	desc = wwu_setup.3.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { has_global_flag = completed_wwu_configuration }
+        ai = no
+    }
+
+    immediate = {
+        hidden_effect = { set_global_flag = completed_wwu_configuration }
+    }
+
+    option = {
+		name = wwu_setup.3.option.a
+        
+        custom_tooltip = ENABLE_HISTORICAL_DIPLOMACY
+        
+        set_global_flag = historical_diplomacy_wwu
+    }  
+    
+    option = {
+		name = wwu_setup.3.option.b
+        
+        custom_tooltip = ENABLE_SANDBOX_DIPLOMACY
+        
+        set_global_flag = sandbox_diplomacy_wwu
+    }  
+}
