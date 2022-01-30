@@ -122,6 +122,6 @@ tags={
 	"Utilities"
 }
 picture="world_of_warcraft_universalis_logo.jpg"
-version="1.5.3"
+version="1.5.6"
 supported_version="1.32.*.*"
 remote_file_id="1796527319"
