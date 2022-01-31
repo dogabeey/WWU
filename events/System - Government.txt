@@ -590,22 +590,29 @@ country_event = {
             has_reform = ancient_theocracy_reform
             has_reform = ancient_clan_reform
         }
+        
 		months_of_ruling = 120
-		OR = {
-			NOT = { stability = 2 }
-			NOT = { legitimacy = 40 }
-			NOT = { 
+        
+        NOT = { legitimacy_equivalent = 50 }
+        NOT = { stability = 1 }
+        
+		if = {
+            limit = {
+                has_estate = estate_nobility
+            }
+            
+            NOT = { 
 				estate_loyalty = {
 					estate = estate_nobility
 					loyalty = 35
 				}
 			}
-			
-		}
+        }
 	}
 	
 	mean_time_to_happen = {
-		months = 200
+		months = 360
+        
 		# Stability
 		modifier = {
 			NOT = { stability = 0 }
@@ -619,22 +626,6 @@ country_event = {
 		}
 		modifier = {
 			NOT = { stability = -2 }
-			
-			factor = 0.9
-		}
-		# Legitimacy
-		modifier = {
-			NOT = { legitimacy_equivalent = 40 }
-			
-			factor = 0.9
-		}
-		modifier = {
-			NOT = { legitimacy_equivalent = 30 }
-			
-			factor = 0.9
-		}
-		modifier = {
-			NOT = { legitimacy_equivalent = 20 }
 			
 			factor = 0.9
 		}
