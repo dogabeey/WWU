@@ -185,7 +185,7 @@ mild_winter = {
 normal_winter = {
 	local_hostile_attrition = 2
 	supply_limit_modifier = -0.2
-	migration_cost = 0.1				 
+	migration_cost = 0.1
 
 	picture = "winter_normal"
 }
@@ -193,7 +193,7 @@ normal_winter = {
 severe_winter = {
 	local_hostile_attrition = 3
 	supply_limit_modifier = -0.3
-	migration_cost = 0.2				 
+	migration_cost = 0.2
 
 	picture = "winter_severe"
 }
@@ -289,7 +289,7 @@ capital_city = {
 	fort_level = 1
 }
 
-# # Strength of Will: Shrine
+# Strength of Will: Shrine
 patriarch_state = {
 	
 }
@@ -1285,6 +1285,16 @@ power_projection_25 = {
 	free_leader_pool = 1
 }
 
+#100 Land Forcelimit = 1
+land_forcelimit = {
+    free_land_leader_pool = 1.25 #80 Army forcelimit -> +1 free leader
+}
+
+#100 Naval Forcelimit = 1
+naval_forcelimit = {
+    free_navy_leader_pool = 1.25 #80 Naval Forcelimit -> +1 Free Leader
+}
+
 trade_company_strong = {
 	merchants = 1
 }
@@ -1770,13 +1780,31 @@ at_peace_revolutionary = { # Applied if at peace while reactionaries are borderi
 expanded_infrastructure = {
 	allowed_num_of_buildings = 1
 	allowed_num_of_manufactories = 1
-	local_governing_cost_increase = 10
-	local_governing_cost = 1.0
+	regiment_recruit_speed = -0.15
+	ship_recruit_speed = -0.15
+	local_defensiveness = 0.2
+	garrison_growth = 0.25
+	local_development_cost = -0.05
+	local_production_efficiency = 0.05
+	local_tax_modifier = 0.1
+	local_manpower_modifier = 0.05
+	local_sailors_modifier = 0.05
+	local_ship_repair = 0.05
+	local_autonomy = -0.001
+	local_build_cost = -0.05
+	local_build_time = -0.05
+	province_trade_power_modifier = 0.05
+	trade_goods_size_modifier = 0.05
+	local_governing_cost_increase = 50
+	local_governing_cost = 0.25
+	local_great_project_upgrade_cost = -0.05
 }
 
 centralize_state = {
-	state_governing_cost_increase = -20
-	picture = "centralize_state"						 
+	state_governing_cost = -0.1
+	local_prosperity_growth = 0.1
+	local_state_maintenance_modifier = -0.1
+	picture = "centralize_state"
 }
 
 # Applied once for each guru teaching
