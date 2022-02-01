@@ -189,12 +189,19 @@ age_orcish_horde = {
 	can_start = {
 		custom_trigger_tooltip = {
 			tooltip = age_orcish_horde_condition
-            current_age = age_rise_of_the_horde
-			any_country = {
-                technology_group = tech_orc
-                any_owned_province = {
-                    continent = continent_eastern_kingdoms
+            OR = {
+                AND = {
+                    current_age = age_rise_of_the_horde
+                    any_country = {
+                        technology_group = tech_orc
+                        any_owned_province = {
+                            continent = continent_eastern_kingdoms
+                        }
+                    }
                 }
+                
+                # Fallback
+                is_year = 617
             }
 		}
 	}
@@ -413,7 +420,8 @@ age_scourge = {
                         owns = 1035
                     }
                 }
-                # Fallback if the Orcs fail to invade
+                
+                # Fallback
                 is_year = 617
             }
 		}
@@ -623,12 +631,19 @@ age_burning_legion = {
 	can_start = {
 		custom_trigger_tooltip = {
 			tooltip = age_burning_legion_condition
-            current_age = age_scourge
-			has_global_flag = scourge_of_lordaeron_flag
-			OR = {
-				NOT = { exists = P52 }
-				has_global_flag = leader_of_legion_flag
-			}
+            OR = {
+                AND = {
+                    current_age = age_scourge
+                    has_global_flag = scourge_of_lordaeron_flag
+                    OR = {
+                        NOT = { exists = P52 }
+                        has_global_flag = leader_of_legion_flag
+                    }
+                }
+                
+                # Fallback
+                is_year = 700
+            }
 		}
 	}
 	

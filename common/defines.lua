@@ -9,7 +9,7 @@ NGame = {
 	GREAT_POWER_FRENZY_WARMUP_MONTHS = 1200,	-- How many months does it take for the Great Power Frenzy to reach full potency after starting.
 	GREAT_POWER_FRENZY_QUICKSTART = 1,		-- Can the Great Power Frenzy start early due to one alliance block becoming too powerful?
 
-	AGE_USHER_IN_TIME = 60,				-- how many months progress for a new age needs.
+	AGE_USHER_IN_TIME = 1,				-- how many months progress for a new age needs.
 
 	MAX_COLONIAL_NATIONS = 75,				-- Max is 100
 	MAX_CLIENT_STATES = 75,				    -- Max is 100 -- TODO: Lower this to 75 after 1.18 (used to start at K75 for some reason)
