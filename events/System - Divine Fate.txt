@@ -1,0 +1,517 @@
+namespace = wwu_divine_fate
+
+#---------------------------------------
+# Divine Fate
+#---------------------------------------
+# This is a replacement system for Lucky Nations
+# It is done this way to allow for easy alterations of the configuration of the system.
+
+# Eastern Kingdoms
+country_event = {
+	id = wwu_divine_fate.1
+	title = wwu_divine_fate.1.title
+	desc = wwu_divine_fate.1.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    hidden = yes
+
+    trigger = {
+        # Is a viable candidate present, other don't fire the event
+        any_country = {
+            ai = yes
+            NOT = { has_country_modifier = divine_fate }
+            is_subject = no
+            total_development = 50
+            
+            capital_scope = {
+                continent = continent_eastern_kingdoms
+            }
+        }
+            
+        NOT = {
+            calc_true_if = {
+                all_country = {
+                    ai = yes
+                    has_country_modifier = divine_fate
+                    capital_scope = {
+                        continent = continent_eastern_kingdoms
+                    }
+                }
+                amount = 2
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        random_country = {
+            limit = {
+                ai = yes
+                is_subject = no
+                total_development = 50
+                NOT = { has_country_modifier = divine_fate }
+                capital_scope = {
+                    continent = continent_eastern_kingdoms
+                }
+            }
+            add_country_modifier = {
+                name = divine_fate
+                duration = -1
+            }
+        }
+    }
+    
+    option = {
+		name = wwu_divine_fate.1.option.a
+    }  
+}
+
+# Kalimdor
+country_event = {
+	id = wwu_divine_fate.2
+	title = wwu_divine_fate.2.title
+	desc = wwu_divine_fate.2.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    hidden = yes
+
+    trigger = {
+        # Is a viable candidate present, other don't fire the event
+        any_country = {
+            ai = yes
+            NOT = { has_country_modifier = divine_fate }
+            is_subject = no
+            total_development = 50
+            
+            capital_scope = {
+                continent = continent_kalimdor
+            }
+        }
+        
+        NOT = {
+            calc_true_if = {
+                all_country = {
+                    ai = yes
+                    has_country_modifier = divine_fate
+                    capital_scope = {
+                        continent = continent_kalimdor
+                    }
+                }
+                amount = 2
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        random_country = {
+            limit = {
+                ai = yes
+                is_subject = no
+                total_development = 50
+                NOT = { has_country_modifier = divine_fate }
+                capital_scope = {
+                    continent = continent_kalimdor
+                }
+            }
+            add_country_modifier = {
+                name = divine_fate
+                duration = -1
+            }
+        }
+    }
+    
+    option = {
+		name = wwu_divine_fate.2.option.a
+    }  
+}
+
+# Northrend
+country_event = {
+	id = wwu_divine_fate.3
+	title = wwu_divine_fate.3.title
+	desc = wwu_divine_fate.3.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    hidden = yes
+
+    trigger = {
+        # Is a viable candidate present, other don't fire the event
+        any_country = {
+            ai = yes
+            NOT = { has_country_modifier = divine_fate }
+            is_subject = no
+            total_development = 50
+            
+            capital_scope = {
+                continent = continent_northrend
+            }
+        }
+        
+        NOT = {
+            calc_true_if = {
+                all_country = {
+                    ai = yes
+                    has_country_modifier = divine_fate
+                    capital_scope = {
+                        continent = continent_northrend
+                    }
+                }
+                amount = 2
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        random_country = {
+            limit = {
+                ai = yes
+                is_subject = no
+                total_development = 50
+                NOT = { has_country_modifier = divine_fate }
+                capital_scope = {
+                    continent = continent_northrend
+                }
+            }
+            add_country_modifier = {
+                name = divine_fate
+                duration = -1
+            }
+        }
+    }
+    
+    option = {
+		name = wwu_divine_fate.3.option.a
+    }  
+}
+
+# Pandaria
+country_event = {
+	id = wwu_divine_fate.4
+	title = wwu_divine_fate.4.title
+	desc = wwu_divine_fate.4.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    hidden = yes
+
+    trigger = {
+        # Is a viable candidate present, other don't fire the event
+        any_country = {
+            ai = yes
+            NOT = { has_country_modifier = divine_fate }
+            is_subject = no
+            total_development = 50
+            
+            capital_scope = {
+                continent = continent_pandaria
+            }
+        }
+        
+        NOT = {
+            calc_true_if = {
+                all_country = {
+                    ai = yes
+                    has_country_modifier = divine_fate
+                    capital_scope = {
+                        continent = continent_pandaria
+                    }
+                }
+                amount = 2
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        random_country = {
+            limit = {
+                ai = yes
+                is_subject = no
+                total_development = 50
+                NOT = { has_country_modifier = divine_fate }
+                capital_scope = {
+                    continent = continent_pandaria
+                }
+            }
+            add_country_modifier = {
+                name = divine_fate
+                duration = -1
+            }
+        }
+    }
+    
+    option = {
+		name = wwu_divine_fate.4.option.a
+    }  
+}
+
+# Outland
+country_event = {
+	id = wwu_divine_fate.5
+	title = wwu_divine_fate.5.title
+	desc = wwu_divine_fate.5.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    hidden = yes
+
+    trigger = {
+        # Is a viable candidate present, other don't fire the event
+        any_country = {
+            ai = yes
+            NOT = { has_country_modifier = divine_fate }
+            is_subject = no
+            total_development = 50
+            
+            capital_scope = {
+                continent = continent_outland
+            }
+        }
+        
+        NOT = {
+            calc_true_if = {
+                all_country = {
+                    ai = yes
+                    has_country_modifier = divine_fate
+                    capital_scope = {
+                        continent = continent_outland
+                    }
+                }
+                amount = 2
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        random_country = {
+            limit = {
+                ai = yes
+                is_subject = no
+                total_development = 50
+                NOT = { has_country_modifier = divine_fate }
+                capital_scope = {
+                    continent = continent_outland
+                }
+            }
+            add_country_modifier = {
+                name = divine_fate
+                duration = -1
+            }
+        }
+    }
+    
+    option = {
+		name = wwu_divine_fate.5.option.a
+    }  
+}
+
+# Draenor
+country_event = {
+	id = wwu_divine_fate.6
+	title = wwu_divine_fate.6.title
+	desc = wwu_divine_fate.6.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    hidden = yes
+
+    trigger = {
+        # Is a viable candidate present, other don't fire the event
+        any_country = {
+            ai = yes
+            NOT = { has_country_modifier = divine_fate }
+            is_subject = no
+            total_development = 50
+            
+            capital_scope = {
+                continent = continent_draenor
+            }
+        }
+        
+        NOT = {
+            calc_true_if = {
+                all_country = {
+                    ai = yes
+                    has_country_modifier = divine_fate
+                    capital_scope = {
+                        continent = continent_draenor
+                    }
+                }
+                amount = 2
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        random_country = {
+            limit = {
+                ai = yes
+                is_subject = no
+                total_development = 50
+                NOT = { has_country_modifier = divine_fate }
+                capital_scope = {
+                    continent = continent_draenor
+                }
+            }
+            add_country_modifier = {
+                name = divine_fate
+                duration = -1
+            }
+        }
+    }
+    
+    option = {
+		name = wwu_divine_fate.6.option.a
+    }  
+}
+
+
+# Misc
+country_event = {
+	id = wwu_divine_fate.7
+	title = wwu_divine_fate.7.title
+	desc = wwu_divine_fate.7.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    hidden = yes
+
+    trigger = {
+        # Is a viable candidate present, other don't fire the event
+        any_country = {
+            ai = yes
+            NOT = { has_country_modifier = divine_fate }
+            is_subject = no
+            total_development = 50
+            
+            capital_scope = {
+                OR = {
+                    continent = continent_broken_isles
+                    continent = continent_zandalar
+                    continent = continent_kul_tiras
+                    continent = continent_vashjir
+                    continent = continent_nazjatar
+                    continent = continent_south_seas
+                    continent = continent_kezan
+                    continent = continent_lost_isles
+                    continent = continent_plunder_isle
+                    continent = continent_deepholm
+                    continent = continent_paradise_isles
+                }
+            }
+        }
+        
+        NOT = {
+            calc_true_if = {
+                all_country = {
+                    ai = yes
+                    has_country_modifier = divine_fate
+                    capital_scope = {
+                        OR = {
+                            continent = continent_broken_isles
+                            continent = continent_zandalar
+                            continent = continent_kul_tiras
+                            continent = continent_vashjir
+                            continent = continent_nazjatar
+                            continent = continent_south_seas
+                            continent = continent_kezan
+                            continent = continent_lost_isles
+                            continent = continent_plunder_isle
+                            continent = continent_deepholm
+                            continent = continent_paradise_isles
+                        }
+                    }
+                }
+                amount = 2
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        random_country = {
+            limit = {
+                ai = yes
+                is_subject = no
+                total_development = 50
+                NOT = { has_country_modifier = divine_fate }
+                capital_scope = {
+                    OR = {
+                        continent = continent_broken_isles
+                        continent = continent_zandalar
+                        continent = continent_kul_tiras
+                        continent = continent_vashjir
+                        continent = continent_nazjatar
+                        continent = continent_south_seas
+                        continent = continent_kezan
+                        continent = continent_lost_isles
+                        continent = continent_plunder_isle
+                        continent = continent_deepholm
+                        continent = continent_paradise_isles
+                    }
+                }
+            }
+            add_country_modifier = {
+                name = divine_fate
+                duration = -1
+            }
+        }
+    }
+    
+    option = {
+		name = wwu_divine_fate.7.option.a
+    }  
+}
+
+# Remove Divine Fate if under player control
+country_event = {
+	id = wwu_divine_fate.100
+	title = wwu_divine_fate.100.title
+	desc = wwu_divine_fate.100100.desc
+	picture = ARCHIMONDE_eventPicture
+	
+    hidden = yes
+
+    trigger = {
+        has_country_modifier = divine_fate
+        OR = {
+            ai = no
+            overlord = {
+                ai = no
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        remove_country_modifier = divine_fate
+    }
+    
+    option = {
+		name = wwu_divine_fate.100.option.a
+    }  
+}

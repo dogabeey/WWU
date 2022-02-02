@@ -1,0 +1,466 @@
+#-----------------------------------
+# Divine Fate
+#-----------------------------------
+# Grant Divine Fated nations a bonus during war to allow them to blob easier and to become a threat to the player.
+# Bonus only applies in AI vs. AI wars.
+
+divine_fate_early_game = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+    }
+    trigger = {
+        ai = yes
+        has_country_modifier = divine_fate
+        
+        # Before 100 years has passed
+        NOT = {
+            had_global_flag = {
+                flag = game_duration_timer
+                days = 36500
+            }
+        }
+    }
+    
+    # Bonuses
+    core_creation = -0.1
+    governing_capacity_modifier = 0.1
+    max_absolutism = 10
+    
+    production_efficiency = 0.1
+    global_tax_modifier = 0.1
+    global_manpower_modifier = 0.1
+    global_sailors_modifier = 0.1
+    
+    build_cost = -0.1
+    build_time = -0.1
+    
+    idea_cost = -0.1
+    
+    ae_impact = -0.1
+    
+    legitimacy = 1
+    republican_tradition = 1
+    devotion = 1
+    horde_unity = 1
+    meritocracy = 1
+    
+    prestige = 1.0
+    
+    global_unrest = -2
+    stability_cost_modifier = -0.1
+    
+    global_colonial_growth = 10
+    
+    diplomats = 1
+    merchants = 1
+    
+    army_tradition = 0.5
+    navy_tradition = 0.5
+    
+    land_forcelimit_modifier = 0.1
+    naval_forcelimit_modifier = 0.1
+    
+    all_estate_loyalty_equilibrium = 0.05
+}
+
+divine_fate_mid_game = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+    }
+    trigger = {
+        ai = yes
+        has_country_modifier = divine_fate
+        
+        # 100 years has passed
+        had_global_flag = {
+            flag = game_duration_timer
+            days = 36500
+        }
+        
+        # Before 200 years has passed
+        NOT = {
+            had_global_flag = {
+                flag = game_duration_timer
+                days = 73000
+            }
+        }
+    }
+    
+    # Bonuses
+    core_creation = -0.25
+    governing_capacity_modifier = 0.25
+    max_absolutism = 20
+    
+    production_efficiency = 0.25
+    global_tax_modifier = 0.25
+    global_manpower_modifier = 0.25
+    global_sailors_modifier = 0.25
+    
+    build_cost = -0.25
+    build_time = -0.25
+    
+    idea_cost = -0.2
+    
+    ae_impact = -0.25
+    
+    legitimacy = 1
+    republican_tradition = 1
+    devotion = 1
+    horde_unity = 1
+    meritocracy = 1
+    
+    prestige = 1.0
+    
+    global_unrest = -3
+    stability_cost_modifier = -0.25
+    
+    global_colonial_growth = 20
+    
+    diplomats = 1
+    merchants = 1
+    
+    army_tradition = 1.0
+    navy_tradition = 1.0
+    
+    land_forcelimit_modifier = 0.25
+    naval_forcelimit_modifier = 0.25
+    
+    all_estate_loyalty_equilibrium = 0.1
+}
+
+divine_fate_late_game = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+    }
+    trigger = {
+        ai = yes
+        has_country_modifier = divine_fate
+        
+        # 200 years has passed
+        had_global_flag = {
+            flag = game_duration_timer
+            days = 73000
+        }
+    }
+    
+    # Bonuses
+    core_creation = -0.33
+    governing_capacity_modifier = 0.33
+    max_absolutism = 30
+    
+    production_efficiency = 0.33
+    global_tax_modifier = 0.33
+    global_manpower_modifier = 0.33
+    global_sailors_modifier = 0.33
+    
+    build_cost = -0.33
+    build_time = -0.33
+    
+    idea_cost = -0.25
+    
+    ae_impact = -0.33
+    
+    legitimacy = 1
+    republican_tradition = 1
+    devotion = 1
+    horde_unity = 1
+    meritocracy = 1
+    
+    prestige = 1.0
+    
+    global_unrest = -4
+    stability_cost_modifier = -0.33
+    
+    global_colonial_growth = 30
+    
+    diplomats = 1
+    merchants = 1
+    
+    army_tradition = 1.0
+    navy_tradition = 1.0
+    
+    land_forcelimit_modifier = 0.33
+    naval_forcelimit_modifier = 0.33
+    
+    all_estate_loyalty_equilibrium = 0.1
+}
+
+divine_fate_ai_war_early_game = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+    }
+    trigger = {
+        # Before 100 years has passed
+        NOT = {
+            had_global_flag = {
+                flag = game_duration_timer
+                days = 36500
+            }
+        }
+        
+        # Not involved in a war with the player
+        NOT = {
+            any_country = {
+                war_with = ROOT
+                ai = no
+            }
+        }
+        # Involved in a war with AI
+        any_country = {
+            war_with = ROOT
+            ai = yes
+        }
+    }
+    
+    land_morale = 0.1
+    discipline = 0.1
+    siege_ability = 0.1
+    movement_speed = 0.1
+    
+    reinforce_speed = 0.2
+    manpower_recovery_speed = 0.2
+    recover_army_morale_speed = 0.2
+    
+    land_attrition = -0.25
+    war_exhaustion = -0.05
+}
+
+divine_fate_ai_war_mid_game = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+    }
+    trigger = {
+        # 100 years has passed
+        had_global_flag = {
+            flag = game_duration_timer
+            days = 36500
+        }
+        
+        # Before 200 years has passed
+        NOT = {
+            had_global_flag = {
+                flag = game_duration_timer
+                days = 73000
+            }
+        }
+        
+        # Not involved in a war with the player
+        NOT = {
+            any_country = {
+                war_with = ROOT
+                ai = no
+            }
+        }
+        # Involved in a war with AI
+        any_country = {
+            war_with = ROOT
+            ai = yes
+        }
+    }
+    
+    land_morale = 0.2
+    discipline = 0.2
+    siege_ability = 0.2
+    movement_speed = 0.2
+    
+    reinforce_speed = 0.33
+    manpower_recovery_speed = 0.33
+    recover_army_morale_speed = 0.33
+    
+    land_attrition = -0.5
+    war_exhaustion = -0.1
+}
+
+divine_fate_ai_war_late_game = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+    }
+    trigger = {
+        # 200 years has passed
+        had_global_flag = {
+            flag = game_duration_timer
+            days = 73000
+        }
+        
+        # Not involved in a war with the player
+        NOT = {
+            any_country = {
+                war_with = ROOT
+                ai = no
+            }
+        }
+        # Involved in a war with AI
+        any_country = {
+            war_with = ROOT
+            ai = yes
+        }
+    }
+    
+    land_morale = 0.3
+    discipline = 0.3
+    siege_ability = 0.3
+    movement_speed = 0.3
+    
+    reinforce_speed = 0.5
+    manpower_recovery_speed = 0.5
+    recover_army_morale_speed = 0.5
+    
+    land_attrition = -0.75
+    war_exhaustion = -0.15
+}
+
+divine_fate_focus_eastern_kingdoms = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+        capital_scope = {
+            continent = continent_eastern_kingdoms
+        }
+    }
+    trigger = {
+        continent_eastern_kingdoms = {
+            type = all
+            owned_by = ROOT
+        }
+    }
+    
+    # No bonus, this is for AI aggression
+    
+    ai_weight = {
+		factor = 1000 # AI will aim to achieve this
+	}
+}
+
+divine_fate_focus_kalimdor = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+        capital_scope = {
+            continent = continent_kalimdor
+        }
+    }
+    trigger = {
+        continent_kalimdor = {
+            type = all
+            owned_by = ROOT
+        }
+    }
+    
+    # No bonus, this is for AI aggression
+    
+    ai_weight = {
+		factor = 1000 # AI will aim to achieve this
+	}
+}
+
+divine_fate_focus_northrend = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+        capital_scope = {
+            continent = continent_northrend
+        }
+    }
+    trigger = {
+        continent_northrend = {
+            type = all
+            owned_by = ROOT
+        }
+    }
+    
+    # No bonus, this is for AI aggression
+    
+    ai_weight = {
+		factor = 1000 # AI will aim to achieve this
+	}
+}
+
+divine_fate_focus_pandaria = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+        capital_scope = {
+            continent = continent_pandaria
+        }
+    }
+    trigger = {
+        continent_pandaria = {
+            type = all
+            owned_by = ROOT
+        }
+    }
+    
+    # No bonus, this is for AI aggression
+    
+    ai_weight = {
+		factor = 1000 # AI will aim to achieve this
+	}
+}
+
+divine_fate_focus_outland = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+        capital_scope = {
+            continent = continent_outland
+        }
+    }
+    trigger = {
+        continent_outland = {
+            type = all
+            owned_by = ROOT
+        }
+    }
+    
+    # No bonus, this is for AI aggression
+    
+    ai_weight = {
+		factor = 1000 # AI will aim to achieve this
+	}
+}
+
+divine_fate_focus_draenor = {
+	potential = {
+        ai = yes
+        has_country_modifier = divine_fate
+        capital_scope = {
+            continent = continent_draenor
+        }
+    }
+    trigger = {
+        continent_draenor = {
+            type = all
+            owned_by = ROOT
+        }
+    }
+    
+    # No bonus, this is for AI aggression
+    
+    ai_weight = {
+		factor = 1000 # AI will aim to achieve this
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
