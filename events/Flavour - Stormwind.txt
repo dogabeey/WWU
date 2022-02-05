@@ -1,0 +1,84 @@
+namespace = wwu_stormwind
+
+# Vassal Revolt
+country_event = {
+	id = wwu_stormwind.1
+	title = wwu_stormwind.1.title
+	desc = wwu_stormwind.1.desc
+	picture = BURNING_CASTLE_eventPicture
+	
+	is_triggered_only = yes
+    
+    desc = {
+		desc = wwu_stormwind.1.desc.westfall
+		trigger = {
+			has_country_flag = annexed_westfall
+		}
+	}
+    desc = {
+		desc = wwu_stormwind.1.desc.redridge
+		trigger = {
+			has_country_flag = annexed_redridge
+		}
+	}
+    desc = {
+		desc = wwu_stormwind.1.desc.darkshire
+		trigger = {
+			has_country_flag = annexed_darkshire
+		}
+	}
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = wwu_stormwind.1.option.a
+		
+        # Westfall
+		if = {
+            limit = {
+                exists = WST
+                overlord_of = WST
+            }
+            
+            WST = {
+                add_country_modifier = {
+                    name = mission_vassal_revolt
+                    duration = 7300
+                }
+            }
+        }
+        
+        # Redridge
+		if = {
+            limit = {
+                exists = RRG
+                overlord_of = RRG
+            }
+            
+            RRG = {
+                add_country_modifier = {
+                    name = mission_vassal_revolt
+                    duration = 7300
+                }
+            }
+        }
+        
+        # Darkshire
+		if = {
+            limit = {
+                exists = DKS
+                overlord_of = DKS
+            }
+            
+            DKS = {
+                add_country_modifier = {
+                    name = mission_vassal_revolt
+                    duration = 7300
+                }
+            }
+        }
+	}
+}
+

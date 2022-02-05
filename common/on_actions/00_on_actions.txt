@@ -631,6 +631,49 @@ on_diplomatic_annex = {
 		which = diplo_annexed_nation
 		value = 1
 	}
+    
+    # Stormwind - Vassal Revolt
+    if = {
+        limit = {
+            FROM = {
+                tag = STW
+            }
+            OR = {
+                tag = WST
+                tag = RRG
+                tag = DKS
+            }
+        }
+        
+        if = {
+            limit = {
+                tag = WST
+            }
+            FROM = {
+                set_country_flag = annexed_westfall
+            }
+        }
+        if = {
+            limit = {
+                tag = RRG
+            }
+            FROM = {
+                set_country_flag = annexed_redridge
+            }
+        }
+        if = {
+            limit = {
+                tag = DKS
+            }
+            FROM = {
+                set_country_flag = annexed_darkshire
+            }
+        }
+        
+        FROM = {
+            country_event = { id = wwu_stormwind.1 }
+        }
+    }
 }
 
 # country
