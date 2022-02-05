@@ -6,6 +6,7 @@ country_decisions = {
 		potential = { 
 		    # Exclusions
 			NOT = { exists = MAT }
+			NOT = { tag = A94 }
 			
             # Requisites
 			OR = {
@@ -49,6 +50,18 @@ country_decisions = {
 			change_tag = MAT
 			change_government = theocracy
 			set_capital = 1297
+			if = {
+			    limit = {
+			        primary_culture = culture_sentinel
+				}
+			    change_primary_culture = culture_night_elf
+			}
+			if = {
+			    limit = {
+			        primary_culture = culture_cenarion
+				}
+			    change_primary_culture = culture_night_elf
+			}
 
 			# Bonus
             add_formable_bonus = yes

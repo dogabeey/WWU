@@ -6,6 +6,7 @@ country_decisions = {
 		potential = { 
 		    # Exclusions
 			NOT = { exists = NAL }
+			NOT = { tag = A94 }
 			
             # Requisites
 			OR = {
@@ -50,6 +51,18 @@ country_decisions = {
 			change_tag = NAL
 			change_government = theocracy
 			set_capital = 3178
+			if = {
+			    limit = {
+			        primary_culture = culture_sentinel
+				}
+			    change_primary_culture = culture_night_elf
+			}
+			if = {
+			    limit = {
+			        primary_culture = culture_cenarion
+				}
+			    change_primary_culture = culture_night_elf
+			}
 
 			# Bonus
             add_formable_bonus = yes
