@@ -8,7 +8,10 @@ country_decisions = {
 			NOT = { exists = A94 }
             
             # Requisites
-			culture_group = culture_group_darnassian
+			OR = {
+			    tag = H01
+				tag = H02
+			}
 		}
         
         provinces_to_highlight = {
@@ -40,7 +43,34 @@ country_decisions = {
             
             # Switch
 			change_tag = A94
-
+            if = {
+			    limit = {
+			        primary_culture = culture_sentinel
+				}
+			    change_primary_culture = culture_night_elf
+			}
+			if = {
+			    limit = {
+			        primary_culture = culture_cenarion
+				}
+			    change_primary_culture = culture_night_elf
+			}
+			every_owned_province = { 
+                limit = {
+                    continent = continent_kalimdor
+                    culture = culture_sentinel
+                    NOT = { culture = culture_night_elf }
+                }
+                change_culture = culture_night_elf 
+            }
+            every_owned_province = { 
+                limit = {
+                    continent = continent_kalimdor
+                    culture = culture_cenarion
+                    NOT = { culture = culture_night_elf }
+                }
+                change_culture = culture_night_elf
+            }
             # Bonus
             add_formable_bonus = yes
 		}
