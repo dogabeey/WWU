@@ -399,14 +399,12 @@ royal_marriage = {
 	}
 }
 
-
-
 annexationaction = {
 	condition = {
 		tooltip = ANNEX_TOO_LOW
 		potential = {
 			FROM = {
-				vassal_of = ROOT
+				is_subject_of = ROOT
 			}
 		}
 		allow = {
@@ -416,6 +414,20 @@ annexationaction = {
 					value = 190
 				}
 			}
+		}
+	}
+    
+    # Block early annexation by AI nations
+    condition = {
+		tooltip = AI_BLOCK_ANNEXATION
+		potential = {
+            ai = yes
+			FROM = {
+				is_subject_of = ROOT
+			}
+		}
+		allow = {
+			is_year = 600.1.1
 		}
 	}
 }
@@ -433,6 +445,20 @@ integrationaction = {
 					value = 190
 				}
 			}
+		}
+	}
+    
+    # Block early annexation by AI nations
+    condition = {
+		tooltip = AI_BLOCK_ANNEXATION
+		potential = {
+            ai = yes
+			FROM = {
+				is_subject_of = ROOT
+			}
+		}
+		allow = {
+			is_year = 600.1.1
 		}
 	}
 }
