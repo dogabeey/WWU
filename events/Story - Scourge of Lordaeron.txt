@@ -1,10 +1,6 @@
 namespace = wwu_scourge_of_lordaeron
 
-#---------------------------------------------------
-# Scourge of Lordaeron
-#---------------------------------------------------
 # These events fire when the Scourge is AI controlled to simulate the mission-tree version.
-
 country_event = {
 	id = wwu_scourge_of_lordaeron.1
 	title = wwu_scourge_of_lordaeron.1.title
@@ -298,6 +294,98 @@ country_event = {
 		}
 	}
 }
+
+# Fate of Lordaeron
+country_event = {
+	id = wwu_scourge_of_lordaeron.2
+	title = wwu_scourge_of_lordaeron.2.title
+	desc = wwu_scourge_of_lordaeron.2.desc
+	picture = BIG_BOOK_eventPicture
+
+    fire_only_once = yes
+
+	trigger = {
+		tag = A25
+        ai = no
+	}
+	
+	mean_time_to_happen = { 
+        days = 1
+    }
+    
+    # Remain as Lordaeron Remnants
+	option = {
+		name = wwu_scourge_of_lordaeron.2.option.a
+	
+	}
+    
+    # Become the Silver Hand
+	option = {
+		name = wwu_scourge_of_lordaeron.2.option.b
+	
+        trigger = {
+            exists = SVH
+        }
+        
+        switch_tag = SVH
+	}
+    
+    # Become Alterac
+	option = {
+		name = wwu_scourge_of_lordaeron.2.option.c
+	
+        trigger = {
+            exists = A17
+        }
+        
+        switch_tag = A17
+	}
+    
+    # Become Hearthglen
+	option = {
+		name = wwu_scourge_of_lordaeron.2.option.d
+	
+        trigger = {
+            exists = A09
+        }
+        
+        switch_tag = A09
+	}
+    
+    # Become Ravenholdt
+	option = {
+		name = wwu_scourge_of_lordaeron.2.option.e
+	
+        trigger = {
+            exists = A27
+        }
+        
+        switch_tag = A27
+	}
+    
+    # Become Pyrewood
+	option = {
+		name = wwu_scourge_of_lordaeron.2.option.f
+	
+        trigger = {
+            exists = F52
+        }
+        
+        switch_tag = F52
+	}
+    
+    # Become Hillsbrad
+	option = {
+		name = wwu_scourge_of_lordaeron.2.option.g
+	
+        trigger = {
+            exists = A11
+        }
+        
+        switch_tag = A11
+	}
+}
+
 
 # Discovery
 country_event = {

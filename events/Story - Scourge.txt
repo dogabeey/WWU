@@ -1,10 +1,10 @@
-namespace = scourge_events
+namespace = wwu_scourge
 
 # "Nerzhul's Arrival to Icecrown Citadel"
 country_event = {
-	id = scourge_events.1
-	title = scourge_events.1.title
-	desc = scourge_events.1.desc
+	id = wwu_scourge.1
+	title = wwu_scourge.1.title
+	desc = wwu_scourge.1.desc
 	picture = FROZENTHRONE_eventPicture
 
     major = yes
@@ -25,7 +25,7 @@ country_event = {
     }
 	
 	option = {
-		name = scourge_events.1.option.a
+		name = wwu_scourge.1.option.a
 		
         custom_tooltip = scourge_appears_tt
         hidden_effect = {
@@ -208,100 +208,10 @@ country_event = {
 				complete_mission = wwu_infiltrate_dragonflayer
                 
                 P11 = {
-                    country_event = { id = scourge_of_lordaeron_emerge_events.10 days = 30 } # Discovery
+                    country_event = { id = wwu_scourge_of_lordaeron.10 days = 30 } # Discovery
                 }
             }
 		}
 	}
 }
 
-# Fate of Lordaeron
-country_event = {
-	id = scourge_events.2
-	title = scourge_events.2.title
-	desc = scourge_events.2.desc
-	picture = BIG_BOOK_eventPicture
-
-    fire_only_once = yes
-
-	trigger = {
-		tag = A25
-        ai = no
-	}
-	
-	mean_time_to_happen = { 
-        days = 1
-    }
-    
-    # Remain as Lordaeron Remnants
-	option = {
-		name = scourge_events.2.option.a
-	
-	}
-    
-    # Become the Silver Hand
-	option = {
-		name = scourge_events.2.option.b
-	
-        trigger = {
-            exists = SVH
-        }
-        
-        switch_tag = SVH
-	}
-    
-    # Become Alterac
-	option = {
-		name = scourge_events.2.option.c
-	
-        trigger = {
-            exists = A17
-        }
-        
-        switch_tag = A17
-	}
-    
-    # Become Hearthglen
-	option = {
-		name = scourge_events.2.option.d
-	
-        trigger = {
-            exists = A09
-        }
-        
-        switch_tag = A09
-	}
-    
-    # Become Ravenholdt
-	option = {
-		name = scourge_events.2.option.e
-	
-        trigger = {
-            exists = A27
-        }
-        
-        switch_tag = A27
-	}
-    
-    # Become Pyrewood
-	option = {
-		name = scourge_events.2.option.f
-	
-        trigger = {
-            exists = F52
-        }
-        
-        switch_tag = F52
-	}
-    
-    # Become Hillsbrad
-	option = {
-		name = scourge_events.2.option.g
-	
-        trigger = {
-            exists = A11
-        }
-        
-        switch_tag = A11
-	}
-}
