@@ -35,10 +35,16 @@ country_decisions = {
                 
                 NOT = { dominant_religion = fel }
             }
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { has_global_flag = guldan_recruitment }
+            }
 		}
     }
 
-    # Allow the player to open the Dark Portal themselves
+    # Allow construction of the Dark Portal
 	construct_the_dark_portal = {
 		potential = {
 			NOT = { has_global_flag = dark_portal_built }
@@ -65,22 +71,51 @@ country_decisions = {
             religion = fel
 
             # Cost
-            adm_power = 200
-            dip_power = 200
-            mil_power = 200
+            if = {
+                limit = {
+                    has_global_flag = contact_with_medivh 
+                }
+                adm_power = 50
+                dip_power = 50
+                mil_power = 50
+            }
+            else = {
+                adm_power = 250
+                dip_power = 250
+                mil_power = 250
+            }
 		}
 		effect = {
             # Cost
-            add_adm_power = -200
-            add_dip_power = -200
-            add_mil_power = -200
-
+            if = {
+                limit = {
+                    has_global_flag = contact_with_medivh 
+                }
+                add_adm_power = -50
+                add_dip_power = -50
+                add_mil_power = -50
+            }
+            else = {
+                add_adm_power = -250
+                add_dip_power = -250
+                add_mil_power = -250
+            }
+            
             hidden_effect = {
                 clr_global_flag = the_dying_times
                 clr_global_flag = rise_of_the_horde
             
                 set_global_flag = the_first_war
                 set_global_flag = dark_portal_built
+                
+                set_global_flag = dark_portal_opened_flag
+            }
+            
+            continent_draenor = {
+				add_devastation = 25
+            }
+			region_blasted_lands = {
+				add_devastation = 25
             }
             
             3792 = {
