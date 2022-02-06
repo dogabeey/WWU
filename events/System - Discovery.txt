@@ -1,0 +1,37 @@
+#---------------------------------------
+# Discovery
+#---------------------------------------
+namespace = wwu_discovery
+
+# Compendium of Azeroth
+country_event = {
+	id = wwu_discovery.1
+	title = wwu_discovery.1.title
+	desc = wwu_discovery.1.desc
+	picture = BIG_BOOK_eventPicture
+    
+    trigger = {
+        is_year = 700
+        NOT = { has_country_flag = automatic_discovery_completed }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_country_flag = automatic_discovery_completed
+        }
+    }
+	
+    mean_time_to_happen = {
+		months = 120
+    }
+    
+	option = {
+		name = wwu_discovery.1.option.a
+	
+        custom_tooltip = WORLD_DISCOVERED
+    
+        hidden_effect = {
+            reveal_all_discovery = yes
+        }
+	}
+}
