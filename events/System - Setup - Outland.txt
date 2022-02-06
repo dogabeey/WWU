@@ -11,12 +11,20 @@ country_event = {
 	fire_only_once = yes
     
 	trigger = {
-        ai = no
+        culture_group = culture_group_orc
+        capital_scope = {
+            continent = continent_draenor
+        }
+            
         NOT = { has_global_flag = setup_outland }
         NOT = { current_age = age_rise_of_the_horde }
-        any_country = {
-            has_country_modifier = member_of_alliance
-            owns = 3792
+        
+        OR = {
+            any_country = {
+                has_country_modifier = member_of_alliance
+                owns = 3792
+            }
+            has_global_flag = opened_dimensional_portals
         }
     }
     
@@ -28,6 +36,13 @@ country_event = {
     
     mean_time_to_happen = {
 		months = 12
+        
+        # Occur for the player first if they are one of the valid countries
+        modifier = {
+            factor = 0.1
+            
+            ai = no
+        }
 	}
     
     immediate = {

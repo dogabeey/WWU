@@ -46,4 +46,47 @@ country_decisions = {
 			factor = 1
 		}
 	}
+    
+    # Open Dimensional Portals
+    open_dimensional_portals = {
+		major = yes
+        
+		potential = {   
+            NOT = { has_global_flag = opened_dimensional_portals }
+            NOT = { current_age = age_rise_of_the_horde }
+
+		    culture_group = culture_group_orc
+			capital_scope = {
+				continent = continent_draenor
+			}
+		}
+		allow =  {
+            # Is at war with a member of the Alliance
+			any_country = {
+                has_country_modifier = member_of_alliance
+                war_with = ROOT
+            }
+            
+            mil_power = 250
+		}
+		effect = {
+			add_mil_power = -250
+            
+            custom_tooltip = WILL_SUNDER_DRAENOR
+            
+            hidden_effect = {
+                set_global_flag = opened_dimensional_portals
+            }
+		}
+		ai_will_do = {
+			factor = 1
+            
+            # Don't use this until AI starts to lose
+            modifier = {
+                factor = 0
+                
+                war_score = -25
+            }
+		}
+	}
 }
