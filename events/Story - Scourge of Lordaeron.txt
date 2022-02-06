@@ -10,6 +10,7 @@ country_event = {
     major = yes
     
 	trigger = {
+        always = no # Disabled for now, the Scourge mission tree should be the only source of this change
         ai = no
 		P11 = {
 			ai = yes
@@ -19,7 +20,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = { 
-        months = 1 
+        days = 1
     }
     
 	immediate = {
@@ -192,7 +193,7 @@ country_event = {
                 
 				declare_war = A08 # Lordaeron
                 
-                country_event = { id = wwu_scourge_of_lordaeron.10 days = 30 } # Discovery
+                country_event = { id = wwu_scourge.100 days = 30 } # Discovery
 			}
         
             # The Scourge of Lordaeron
@@ -217,7 +218,7 @@ country_event = {
                 
 				join_all_offensive_wars_of = P11
                 
-                country_event = { id = wwu_scourge_of_lordaeron.10 days = 30 } # Discovery
+                country_event = { id = wwu_scourge.100 days = 30 } # Discovery
 			}
 
             # Cult of the Damned
@@ -240,7 +241,7 @@ country_event = {
                 
 				join_all_offensive_wars_of = P11
                 
-                country_event = { id = wwu_scourge_of_lordaeron.10 days = 30 } # Discovery
+                country_event = { id = wwu_scourge.100 days = 30 } # Discovery
 			}
             
             # Lordaeron
@@ -260,7 +261,7 @@ country_event = {
 				event_add_warrior_personality = yes
 				set_ruler_flag = is_immortal
                 
-                country_event = { id = wwu_scourge_of_lordaeron.10 days = 30 } # Discovery
+                country_event = { id = wwu_scourge.100 days = 30 } # Discovery
 			}
             
             # Valgarde
@@ -289,7 +290,7 @@ country_event = {
                 
 				join_all_defensive_wars_of = A08
                 
-                country_event = { id = wwu_scourge_of_lordaeron.10 days = 30 } # Discovery
+                country_event = { id = wwu_scourge.100 days = 30 } # Discovery
 			}
 		}
 	}
@@ -387,27 +388,3 @@ country_event = {
 }
 
 
-# Discovery
-country_event = {
-	id = wwu_scourge_of_lordaeron.10
-	title = wwu_scourge_of_lordaeron.10.title
-	desc = wwu_scourge_of_lordaeron.10.desc
-	picture = UNDEAD_eventPicture
-
-    hidden = yes
-    is_triggered_only = yes
-    
-	mean_time_to_happen = { 
-        days = 1
-    }
-    
-	option = {
-		name = wwu_scourge_of_lordaeron.10.option.a
-		
-        discover_eastern_kingdoms = yes
-        discover_northrend = yes
-        discover_broken_isles = yes
-        discover_outland = yes
-        discover_draenor = yes
-	}
-}
