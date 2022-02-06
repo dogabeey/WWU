@@ -1,0 +1,49 @@
+country_decisions = {
+    # Allow Alliance members to jump into Outland
+    establish_foothold_in_outland = {
+		major = yes
+		potential = {   
+            NOT = { current_age = age_rise_of_the_horde }
+            has_country_modifier = member_of_alliance
+		}
+		allow =  {
+			has_country_modifier = member_of_alliance
+            
+            # Dark Portal: Azeroth
+            1035 = { owned_by = ROOT }
+            
+            mil_power = 200
+		}
+		effect = {
+			add_mil_power = -200
+            
+			add_country_modifier = {
+				name = motivated_for_assault
+				duration = 3650
+			}
+            
+            if = {
+                limit = {
+                    has_global_flag = setup_outland
+                }
+                1586 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                    change_culture = ROOT
+                    change_religion = ROOT
+                }
+            }
+            else = {
+                3792 = {
+                    cede_province = ROOT
+                    add_core = ROOT
+                    change_culture = ROOT
+                    change_religion = ROOT
+                }
+            }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
