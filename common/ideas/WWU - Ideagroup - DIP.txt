@@ -269,14 +269,22 @@ wwu_exploration_ideas = {
     ai_will_do = {
         factor = 1
         
+        # Countries
+        modifier = {
+            factor = 10
+            
+            OR = {
+                tag = A15 # Bloodsail
+                tag = A78 # Zandalar
+                tag = A78 # Bilgewater Cartel
+            }
+        }
+        
         modifier = {
 			factor = 0
 			OR = {
 				is_subject = yes
-				is_vassal = yes
 				is_colonial_nation = yes
-				is_tribal = yes
-				primitives = yes
 			}
 		}
         modifier = {
