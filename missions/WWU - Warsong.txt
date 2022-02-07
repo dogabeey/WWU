@@ -22,6 +22,10 @@ wwu_warsong_column_1 = {
 			owns_core_province = 3792
             is_year = 575
 		}
+        provinces_to_highlight = {
+            province_id = 3792
+            NOT = { owned_by = ROOT }
+        }
 		effect = {
 			add_yearly_manpower = -1.0
             
@@ -350,6 +354,7 @@ wwu_warsong_column_5 = {
 		}
         provinces_to_highlight = {
             province_id = 3755
+            NOT = { owned_by = ROOT }
         }
 		effect = {
 			region_nagrand_draenor = {
@@ -385,9 +390,10 @@ wwu_warsong_column_5 = {
 		}
         provinces_to_highlight = {
             OR = {
-                owned_by = SBM
-                owned_by = SRP
+                is_core = SBM
+                is_core = SRP
             }
+            NOT = { owned_by = ROOT }
         }
 		effect = {
 			add_country_modifier = {
@@ -406,7 +412,8 @@ wwu_warsong_column_5 = {
 			NOT = { exists = OGR }
 		}
         provinces_to_highlight = {
-            owned_by = OGR
+            is_core = OGR
+            NOT = { owned_by = ROOT }
         }
 		effect = {
 			add_country_modifier = {

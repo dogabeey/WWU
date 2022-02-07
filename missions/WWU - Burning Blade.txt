@@ -22,6 +22,10 @@ wwu_burning_blade_column_1 = {
 			owns_core_province = 3792
             is_year = 575
 		}
+        provinces_to_highlight = {
+            province_id = 3792
+            NOT = { owned_by = ROOT }
+        }
 		effect = {
 			add_yearly_manpower = -1.0
             
@@ -340,5 +344,121 @@ wwu_burning_blade_column_5 = {
 		tag = A44
 	}
 	
+    wwu_burning_blade_purge_the_draenei = {
+		icon = mission_drogbar_totem
+        position = 4
+		required_missions = {  }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			owns_core_province = 3765
+            owns_core_province = 3770
+            owns_core_province = 3755
+            owns_core_province = 3772
+		}
+        provinces_to_highlight = {
+            OR = {
+                province_id = 3765
+                province_id = 3770
+                province_id = 3755
+                province_id = 3772
+            }
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+            add_mil_power = 200
+            
+            add_country_modifier = {
+                name = mission_burning_bloodlust
+                duration = -1
+            }
+		}
+	}
     
+    wwu_burning_blade_dominance_of_talador = {
+		icon = mission_hunter_rapid_killing
+        position = 5
+		required_missions = { wwu_burning_blade_purge_the_draenei }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			region_talador = {
+                type = all
+                
+                owned_by = ROOT
+                is_core = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_talador
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+            add_mil_power = 200
+            
+            add_country_modifier = {
+                name = mission_glory_to_the_burning_blade
+                duration = -1
+            }
+		}
+	}
+    
+    wwu_burning_blade_befriend_shattered_hand = {
+		icon = mission_brush_it_off
+        position = 1
+		required_missions = { }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			alliance_with = A36
+		}
+		effect = {
+			add_country_modifier = {
+                name = mission_shattered_hand_tactics
+                duration = -1
+            }
+		}
+	}
+    
+    wwu_burning_blade_prepare_assault_on_the_arrakoa = {
+		icon = mission_azerite_essense
+        position = 2
+		required_missions = { wwu_burning_blade_befriend_shattered_hand }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			army_size_percentage = 1.0
+		}
+		effect = {
+            3819 = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_burning_blade_riches_of_skyreach = {
+		icon = mission_gold_pile
+        position = 3
+		required_missions = { wwu_burning_blade_prepare_assault_on_the_arrakoa }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			owns_core_province = 3819
+		}
+        provinces_to_highlight = {
+            province_id = 3819
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+            add_country_modifier = {
+                name = mission_riches_of_skyreach
+                duration = -1
+            }
+		}
+	}
 }

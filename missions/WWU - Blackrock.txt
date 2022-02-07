@@ -22,6 +22,10 @@ wwu_blackrock_column_1 = {
 			owns_core_province = 3792
             is_year = 575
 		}
+        provinces_to_highlight = {
+            province_id = 3792
+            NOT = { owned_by = ROOT }
+        }
 		effect = {
 			add_yearly_manpower = -1.0
             
@@ -340,5 +344,80 @@ wwu_blackrock_column_5 = {
 		tag = A41
 	}
 	
+    wwu_blackrock_secure_the_foundry = {
+		icon = mission_blacksmithing
+        position = 1
+		required_missions = { }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			area_blackrock_foundry = {
+                type = all
+                owned_by = ROOT
+            }
+            area_gronn_canyon = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            OR = {
+                area = area_blackrock_foundry
+                area = area_gronn_canyon
+            }
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			add_country_modifier = {
+                name = mission_blackrock_munitions
+                duration = -1
+            }
+		}
+	}
     
+    wwu_blackrock_expand_foundry_output = {
+		icon = mission_axe_and_sword
+        position = 2
+		required_missions = { wwu_blackrock_secure_the_foundry }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			3836 = {
+                base_production = 20
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            province_id = 3836
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+            add_country_modifier = {
+                name = mission_efficient_foundry
+                duration = -1
+            }
+		}
+	}
+    
+    wwu_blackrock_claim_mantle_of_warchief = {
+		icon = mission_icon_horde
+        position = 3
+		required_missions = { }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			A34 = {
+                mission_completed = wwu_establish_the_horde
+                has_country_modifier = head_of_old_horde
+            }
+            
+            total_development = 100
+		}
+		effect = {
+            country_event = { id = rise_of_the_horde.7 }
+		}
+	}
 }
