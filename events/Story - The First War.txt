@@ -9,37 +9,7 @@ country_event = {
     
 	trigger = {
 		current_age = age_orcish_horde
-        
-        # ROOT's capital is in Outland
-        capital_scope = { continent = continent_outland }
-        
-		# Any Horde own land is Swamp of Sorrows/Blasted Lands
-        any_country = {
-            has_country_modifier = member_of_old_horde
-            any_owned_province = {
-                OR = {
-                    region = region_swamp_of_sorrows
-                    region = region_blasted_lands
-                }
-            }
-        }
-        # Any land is empty in Swamp of Sorrows/Blasted Lands
-		any_province = {
-			OR = {
-				region = region_blasted_lands
-				region = region_swamp_of_sorrows
-			}
-			is_empty = yes
-		}
-        # ROOT doesn't own land in Swamp of Sorrows/Blasted Lands
-		NOT = {
-			any_owned_province = {
-				OR = {
-					region = region_blasted_lands
-					region = region_swamp_of_sorrows
-				}
-			}
-		}
+        tag = U03
 	}
 	
     mean_time_to_happen = {
@@ -49,21 +19,6 @@ country_event = {
 	option = {
 		name = first_war.1.option.a
 		
-        # Give ROOT land in Swamp of Sorrows/Blasted Lands
-        random_province = {
-            limit = {
-				OR = {
-					region = region_blasted_lands
-					region = region_swamp_of_sorrows
-				}
-                is_empty = yes
-            }
-
-            cede_province = ROOT
-            add_core = ROOT
-            change_culture = ROOT
-            change_religion = ROOT
-        }
 		region_elwynn_forest = {
 			add_permanent_claim = ROOT
 		}
@@ -84,7 +39,7 @@ country_event = {
         NOT = { has_global_flag = setup_twilight_hammer }
         NOT = { exists = A43 }
         
-        has_country_modifier = head_of_old_horde
+        tag = U03
         current_age = age_orcish_horde
         
         # Any land is empty in Swamp of Sorrows/Blasted Lands
@@ -119,17 +74,9 @@ country_event = {
                 is_empty = yes
             }
 
-            cede_province = A43
             add_core = A43
             change_culture = culture_twilight_cultist
             change_religion = void
-        }
-        
-        A43 = {
-            add_country_modifier = {
-                name = member_of_old_horde
-                duration = -1
-            }
         }
     }
 }

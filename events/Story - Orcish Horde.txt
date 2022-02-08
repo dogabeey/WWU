@@ -1,0 +1,177 @@
+namespace = wwu_orcish_horde
+
+#----------------------------------
+# The Orcish Horde
+#----------------------------------
+country_event = {
+	id = wwu_orcish_horde.1
+	title = wwu_orcish_horde.1.title
+	desc = wwu_orcish_horde.1.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    is_triggered_only = yes
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            discover_eastern_kingdoms = yes
+            discover_broken_isles = yes
+            discover_plunder_isle = yes
+            
+            discover_outland = yes
+            discover_draenor = yes
+        }
+    }
+    
+	option = {
+		name = wwu_orcish_horde.1.option.a
+        
+        define_ruler = {
+            name = "Blackhand" 
+            dynasty = "" 
+            adm = 4
+            dip = 3
+            mil = 6
+            age = 50
+        }
+        
+        set_head_of_old_horde = yes
+        
+        add_country_modifier = {
+            name = member_of_old_horde
+            duration = -1
+        }
+        
+        A41 = {
+            define_ruler = {
+                name = "Orgrim" 
+                dynasty = "Doomhammer" 
+                adm = 4
+                dip = 6
+                mil = 6
+                age = 30
+            }
+        }
+        
+        hidden_effect = {
+            add_country_modifier = {
+				name = motivated_for_assault
+				duration = 3650
+			}
+            
+            # Setup nation for strong conquest
+            add_treasury = 5000
+            add_manpower = 50
+            
+            add_adm_power = 500
+            add_dip_power = 500
+            add_mil_power = 500
+            
+            capital_scope = {
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                cavalry = ROOT
+                cavalry = ROOT
+                cavalry = ROOT
+                cavalry = ROOT
+                artillery = ROOT
+                artillery = ROOT
+                artillery = ROOT
+                artillery = ROOT
+                artillery = ROOT
+                artillery = ROOT
+            }
+        
+            # Add tech so they start on par with other nations
+            if = {
+                limit = {
+                    is_year = 550
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 559
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 572
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 585
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 598
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 611
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 624
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 637
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 650
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            
+            # Add military edge
+            add_mil_tech = 1
+        }
+    }
+}
+
