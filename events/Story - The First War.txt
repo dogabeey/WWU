@@ -8,12 +8,19 @@ country_event = {
 	picture = ORCISH_INVASION_eventPicture
     
 	trigger = {
+        NOT = { has_global_flag = first_war_claims }
 		current_age = age_orcish_horde
         tag = U03
 	}
 	
     mean_time_to_happen = {
 		months = 12
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = first_war_claims 
+        }
     }
     
 	option = {
