@@ -1,26 +1,22 @@
 #--------------------------------------
 # Stormwind
 #--------------------------------------
-# Local Threats
-wwu_stormwind_column_4 = { 
-	slot = 4
+wwu_stormwind_column_1 = {
+	slot = 1
 	generic = no
 	ai = yes
     has_country_shield = yes
     
 	potential = {
 		tag = STW
-		OR = {
-            current_age = age_rise_of_the_horde
-            current_age = age_orcish_horde
-        }
-	} 
+	}
     
-	wwu_reclaim_stonecairn = { 
+    wwu_stormwind_reclaim_stonecairn = { 
 		icon = mission_runestone
+        position = 2
         completed_by = 592.1.1 # First War
         
-		required_missions = {  } 
+		required_missions = { wwu_stormwind_calm_subjects } 
         
 		trigger = {
             area_stonecairn = {
@@ -50,54 +46,11 @@ wwu_stormwind_column_4 = {
 			}
 		}
 	}
-    wwu_centralize_elwynn = { 
-		icon = mission_lumbermill
-        completed_by = 592.1.1 # First War
-        
-		required_missions = { wwu_reclaim_stonecairn } 
-        
-		trigger = {
-            region_elwynn_forest = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-        provinces_to_highlight = {
-            region = region_elwynn_forest
-        }
-		effect = { 
-			add_country_modifier = {
-				name = "mission_centralized_elywnn"
-				duration = -1
-			}
-		}
-	}
-    wwu_secure_duskwood_banks = { 
-		icon = mission_secretive_plot
-        completed_by = 592.1.1 # First War
-        
-		required_missions = { wwu_centralize_elwynn } 
-        
-		trigger = {
-            area_the_darkened_banks = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-        provinces_to_highlight = {
-            area = area_the_darkened_banks
-        }
-		effect = { 
-			add_country_modifier = {
-				name = "mission_darkshire_trade"
-				duration = -1
-			}
-		}
-	}
-    wwu_secure_westfall_shore = { 
+    
+    wwu_stormwind_secure_westfall_shore = { 
 		icon = mission_storehouse
-        
-		required_missions = { wwu_secure_duskwood_banks } 
+        position = 4
+		required_missions = { wwu_stormwind_unite_azerothian_lands } 
         
 		trigger = {
             area_westfall_shore = {
@@ -115,10 +68,248 @@ wwu_stormwind_column_4 = {
 			}
 		}
 	}
-    wwu_root_out_kobolds = { 
-		icon = mission_mining
+}
+
+wwu_stormwind_column_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = STW
+	}
+    
+    wwu_stormwind_calm_subjects = { 
+		icon = mission_paladin_empowered_seals_righteous
+        position = 1
+		required_missions = {  } 
         
-		required_missions = { wwu_secure_westfall_shore } 
+		trigger = {
+            if = {
+                limit = {
+                    overlord_of = WST
+                }
+                WST = {
+                    NOT = { liberty_desire = 40 }
+                }
+            }
+            if = {
+                limit = {
+                    overlord_of = DKS
+                }
+                DKS = {
+                    NOT = { liberty_desire = 40 }
+                }
+            }
+            if = {
+                limit = {
+                    overlord_of = RRG
+                }
+                RRG = {
+                    NOT = { liberty_desire = 40 }
+                }
+            }
+            if = {
+                limit = {
+                    overlord_of = P59
+                }
+                P59 = {
+                    NOT = { liberty_desire = 40 }
+                }
+            }
+		}
+		effect = { 
+            if = {
+                limit = { overlord_of = WST }
+                
+                WST = {
+                    add_country_modifier = {
+                        name = mission_subject_support
+                        duration = 9125
+                    }
+                }
+            }
+            if = {
+                limit = { overlord_of = DKS }
+                
+                DKS = {
+                    add_country_modifier = {
+                        name = mission_subject_support
+                        duration = 9125
+                    }
+                }
+            }
+            if = {
+                limit = { overlord_of = RRG }
+                
+                RRG = {
+                    add_country_modifier = {
+                        name = mission_subject_support
+                        duration = 9125
+                    }
+                }
+            }
+            if = {
+                limit = { overlord_of = P59 }
+                
+                P59 = {
+                    add_country_modifier = {
+                        name = mission_subject_support
+                        duration = 9125
+                    }
+                }
+            }
+		}
+	}
+    
+    wwu_stormwind_centralize_elwynn = { 
+		icon = mission_lumbermill
+        position = 2
+        completed_by = 592.1.1 # First War
+        
+		required_missions = { wwu_stormwind_calm_subjects } 
+        
+		trigger = {
+            region_elwynn_forest = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            region = region_elwynn_forest
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_centralized_elywnn"
+				duration = -1
+			}
+		}
+	}
+    
+    wwu_stormwind_unite_azerothian_lands = { 
+		icon = mission_scroll
+        position = 3
+		required_missions = { wwu_stormwind_centralize_elwynn } 
+        
+		trigger = {
+            calc_true_if = {
+				region_westfall = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				region_duskwood = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				region_redridge_mountains = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				region_deadwind_pass = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 50
+			}
+		}
+        provinces_to_highlight = {
+            OR = {
+                region = region_westfall
+                region = region_duskwood
+                region = region_redridge_mountains
+                region = region_deadwind_pass
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_unity_of_stormwind"
+				duration = -1
+			}
+		}
+	}
+    
+    wwu_stormwind_crush_the_gnoll_threat = { 
+		icon = mission_sparring_equipment
+        position = 4
+		required_missions = { wwu_stormwind_unite_azerothian_lands } 
+        
+		trigger = {
+            area_lakeshire = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+                NOT = { culture_group = culture_group_gnoll }
+			}
+            area_lakeshire_highway = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+                NOT = { culture_group = culture_group_gnoll }
+			}
+            area_redridge_canyons = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+                NOT = { culture_group = culture_group_gnoll }
+			}
+		}
+        provinces_to_highlight = {
+            culture_group = culture_group_gnoll
+            OR = {
+                area = area_lakeshire
+                area = area_lakeshire_highway
+                area = area_redridge_canyons
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_gnoll_purge"
+				duration = -1
+			}
+		}
+	}
+}
+
+wwu_stormwind_column_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = STW
+	}
+    
+    wwu_stormwind_secure_duskwood_banks = { 
+		icon = mission_secretive_plot
+        position = 2
+        completed_by = 592.1.1 # First War
+        
+		required_missions = { wwu_stormwind_calm_subjects } 
+        
+		trigger = {
+            area_the_darkened_banks = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            area = area_the_darkened_banks
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_darkshire_trade"
+				duration = -1
+			}
+		}
+	}
+    
+    wwu_stormwind_root_out_kobolds = { 
+		icon = mission_mining
+        position = 4
+		required_missions = { wwu_stormwind_unite_azerothian_lands } 
         
 		trigger = {
             region_westfall = {
@@ -146,6 +337,7 @@ wwu_stormwind_column_4 = {
                 region = region_duskwood
                 region = region_redridge_mountains
             }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
         }
 		effect = { 
 			add_country_modifier = {
@@ -154,123 +346,29 @@ wwu_stormwind_column_4 = {
 			}
 		}
 	}
-    wwu_crush_the_gnoll_threat = { 
-		icon = mission_sparring_equipment
-        
-		required_missions = { wwu_root_out_kobolds } 
-        
-		trigger = {
-            area_lakeshire = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-                NOT = { culture_group = culture_group_gnoll }
-			}
-            area_lakeshire_highway = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-                NOT = { culture_group = culture_group_gnoll }
-			}
-            area_redridge_canyons = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-                NOT = { culture_group = culture_group_gnoll }
-			}
-		}
-        provinces_to_highlight = {
-            culture_group = culture_group_gnoll
-            OR = {
-                area = area_lakeshire
-                area = area_lakeshire_highway
-                area = area_redridge_canyons
-            }
-        }
-		effect = { 
-			add_country_modifier = {
-				name = "mission_gnoll_purge"
-				duration = -1
-			}
-		}
-	}
-    wwu_unite_azerothian_lands = { 
-		icon = mission_scroll
-        
-		required_missions = { wwu_crush_the_gnoll_threat } 
-        
-		trigger = {
-            calc_true_if = {
-				region_westfall = {
-					type = all
-					owned_by = ROOT
-				}
-				region_duskwood = {
-					type = all
-					owned_by = ROOT
-				}
-				region_redridge_mountains = {
-					type = all
-					owned_by = ROOT
-				}
-				region_deadwind_pass = {
-					type = all
-					owned_by = ROOT
-				}
-				amount = 2
-			}
-		}
-        provinces_to_highlight = {
-            OR = {
-                region = region_westfall
-                region = region_duskwood
-                region = region_redridge_mountains
-                region = region_deadwind_pass
-            }
-        }
-		effect = { 
-			add_country_modifier = {
-				name = "mission_unity_of_stormwind"
-				duration = -1
-			}
-		}
-	}
 }
 
-# Orcish Horde
-wwu_stormwind_column_5 = { 
-	slot = 5
+wwu_stormwind_column_4 = { 
+	slot = 4
 	generic = no
 	ai = yes
     has_country_shield = yes
     
 	potential = {
 		tag = STW
-		OR = {
-            current_age = age_rise_of_the_horde
-            current_age = age_orcish_horde
-        }
 	} 
     
-	wwu_prepare_for_invasion = { 
+    wwu_stormwind_prepare_for_invasion = { 
 		icon = mission_tools
+        position = 1
         completed_by = 592.1.1 # First War
         
 		required_missions = {  } 
         
 		trigger = {
-            current_age = age_orcish_horde
-            army_size_percentage = 1
-            any_owned_province = {
-				region = region_duskwood
-				OR = {
-					has_building = wow_fort_1
-					has_building = wow_fort_2
-					has_building = wow_fort_3
-					has_building = wow_fort_4
-				}
-			}
+            exists = U03
+            army_size_percentage = U03
 		}
-        provinces_to_highlight = {
-            region = region_duskwood
-        }
 		effect = { 
 			add_country_modifier = {
 				name = "mission_prepared_for_invasion"
@@ -278,58 +376,75 @@ wwu_stormwind_column_5 = {
 			}
 		}
 	}
-    wwu_establish_base_in_blasted_lands = { 
+    
+    wwu_stormwind_establish_forward_outpost = { 
 		icon = mission_headquarters
+        position = 2
         completed_by = 592.1.1 # First War
         
-		required_missions = { wwu_prepare_for_invasion } 
+		required_missions = { wwu_stormwind_prepare_for_invasion } 
         
 		trigger = {
-            owns_core_province = 884
+            owns_core_province = 864
 		}
         provinces_to_highlight = {
-            province_id = 884
+            province_id = 864
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
         }
 		effect = { 
 			add_country_modifier = {
-				name = "mission_blasted_lands_base"
+				name = "mission_swamp_base"
 				duration = -1
 			}
 		}
 	}
-    wwu_push_back_the_orcish_horde = { 
-		icon = mission_haymaker
+    
+     wwu_stormwind_push_back_the_orcish_horde = { 
+		icon = mission_paladin_empowered_seals_truth
+        position = 3
         completed_by = 592.1.1 # First War
         
 		required_missions = { 
-            wwu_establish_base_in_blasted_lands 
+            wwu_stormwind_establish_forward_outpost 
         } 
         
 		trigger = {
-            owns_core_province = 553
-			owns_core_province = 807
-			owns_core_province = 853
+            war_with = U03
+            1035 = {
+                controlled_by = ROOT
+            }
 		}
         provinces_to_highlight = {
-            OR = {
-				province_id = 553
-				province_id = 807
-				province_id = 853
-			}
+            province_id = 1035
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
         }
 		effect = { 
 			add_country_modifier = {
 				name = "mission_heroes_of_the_first_war"
 				duration = -1
 			}
+            
+            country_event = { id = first_war.6 }
 		}
 	}
+}
 
-    wwu_cut_down_the_gurubashi = { 
+wwu_stormwind_column_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = STW
+	} 
+    
+    wwu_stormwind_cut_down_the_gurubashi = { 
 		icon = mission_troll_male
+        position = 2
         completed_by = 592.1.1 # First War
         
-		required_missions = { } 
+		required_missions = { wwu_stormwind_prepare_for_invasion } 
         
 		trigger = {
             owns_core_province = 601
@@ -340,6 +455,7 @@ wwu_stormwind_column_5 = {
                 province_id = 601
                 province_id = 1997
 			}
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
         }
 		effect = { 
 			add_country_modifier = {
@@ -348,11 +464,13 @@ wwu_stormwind_column_5 = {
 			}
 		}
 	}
-    wwu_secure_the_swamp = { 
+    
+    wwu_stormwind_secure_the_swamp = { 
 		icon = mission_camp_flag
+        position = 3
         completed_by = 592.1.1 # First War
         
-		required_missions = { wwu_cut_down_the_gurubashi } 
+		required_missions = { wwu_stormwind_establish_forward_outpost } 
         
 		trigger = {
             area_crackling_banks = {
@@ -369,6 +487,7 @@ wwu_stormwind_column_5 = {
 				area = area_crackling_banks
 				area = area_stagalbog
 			}
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
         }
 		effect = { 
 			add_country_modifier = {

@@ -14,3 +14,24 @@ fel_empowerment = {
     # Non-Disorder nations should dislike them
     relation_with_heathens = -100
 }
+
+the_power_of_fel = {
+    potential = {
+		OR = {
+            current_age = age_rise_of_the_horde
+            current_age = age_orcish_horde
+        }
+        culture_group = culture_group_orc
+        religion = fel
+    }
+	trigger = {
+		NOT = { the_second_war_or_later = yes }
+        culture_group = culture_group_orc
+        religion = fel
+	}
+	
+    discipline = 0.05
+    land_morale = 0.05
+	infantry_cost = -0.2
+    province_warscore_cost = -0.25
+}

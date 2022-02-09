@@ -11,6 +11,28 @@ wwu_orcish_horde_column_1 = {
 		tag = U03
 	}
     
+    wwu_orcish_horde_oust_the_murlocs = {
+		icon = mission_hunter_kill_command
+        position = 3
+		required_missions = { wwu_orcish_horde_enter_the_jungle }
+        
+		trigger = {
+            OR = {
+                overlord_of = P60
+                NOT = { exists = A66 }
+            }
+		}
+        provinces_to_highlight = {
+            owned_by = P60
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			add_country_modifier = {
+                name = mission_murloc_meat
+                duration = -1
+            }
+		}
+	}
 }
 
 wwu_orcish_horde_column_2 = {
@@ -23,6 +45,72 @@ wwu_orcish_horde_column_2 = {
 		tag = U03
 	}
     
+    wwu_orcish_horde_enter_the_jungle = {
+		icon = mission_demonhunter_felblade
+        position = 2
+		required_missions = { wwu_orcish_horde_prepare_assault }
+        
+		trigger = {
+			owns_core_province = 3078
+		}
+        provinces_to_highlight = {
+            province_id = 3078
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			region_stranglethorn_vale = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_orcish_horde_the_troll_conundrum = {
+		icon = mission_troll_hexxer
+        position = 3
+		required_missions = { wwu_orcish_horde_enter_the_jungle }
+        
+		trigger = {
+			OR = {
+                alliance_with = A66
+                overlord_of = A66
+                NOT = { exists = A66 }
+            }
+		}
+        provinces_to_highlight = {
+            owned_by = A66
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			add_country_modifier = {
+                name = mission_gurubashi_witch_doctors
+                duration = -1
+            }
+		}
+	}
+    
+    wwu_orcish_horde_plunder_brightwood = {
+		icon = mission_gold_pile
+        position = 5
+		required_missions = { wwu_orcish_horde_make_them_tremble }
+        
+		trigger = {
+			owns_core_province = 1021
+            owns_core_province = 637
+		}
+        provinces_to_highlight = {
+            OR = {
+                province_id = 1021
+                province_id = 637
+            }
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			add_country_modifier = {
+                name = mission_orc_raiders
+                duration = -1
+            }
+		}
+	}
 }
 
 wwu_orcish_horde_column_3 = {
@@ -35,18 +123,103 @@ wwu_orcish_horde_column_3 = {
 		tag = U03
 	}
     
-    wwu_counter_measures = {
-		icon = mission_force_shield
+    wwu_orcish_horde_prepare_assault = {
+		icon = mission_axe_and_sword
+        position = 1
 		required_missions = { }
         
 		trigger = {
-			
+			army_size_percentage = 1.0
 		}
 		effect = {
-			
+			region_swamp_of_sorrows = {
+                add_permanent_claim = ROOT
+            }
 		}
 	}
     
+    wwu_orcish_horde_strike_the_humans = {
+		icon = mission_fel_immolation
+        position = 2
+		required_missions = { wwu_orcish_horde_prepare_assault }
+        
+		trigger = {
+			OR = {
+                war_with = P59
+                war_with = DKS
+                war_with = WST
+                war_with = STW
+            }
+		}
+		effect = {
+			1022 = {
+                add_permanent_claim = ROOT
+            }
+            
+            add_mil_power = 200
+		}
+	}
+    
+    wwu_orcish_horde_make_them_tremble = {
+		icon = mission_dark_shaman
+        position = 4
+		required_missions = { wwu_orcish_horde_strike_the_humans }
+        
+		trigger = {
+			army_size = STW
+		}
+		effect = {
+			add_prestige = 25
+            add_horde_unity = 25
+		}
+	}
+    
+    wwu_orcish_horde_secure_the_pass = {
+		icon = mission_defend
+        position = 5
+		required_missions = { wwu_orcish_horde_make_them_tremble }
+        
+		trigger = {
+			region_deadwind_pass = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_deadwind_pass
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			add_country_modifier = {
+                name = mission_karazhan_artifacts
+                duration = -1
+            }
+		}
+	}
+    
+    wwu_orcish_horde_take_stormwind = {
+		icon = mission_pvp_3
+        position = 6
+		required_missions = { 
+            wwu_orcish_horde_secure_the_pass 
+            wwu_orcish_horde_plunder_brightwood
+            wwu_orcish_horde_secure_lakeshire
+        }
+        
+		trigger = {
+            war_with = STW
+			1022 = {
+                controlled_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            province_id = 1022
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			country_event = { id = first_war.5 }
+		}
+	}
 }
 
 wwu_orcish_horde_column_4 = {
@@ -59,6 +232,87 @@ wwu_orcish_horde_column_4 = {
 		tag = U03
 	}
     
+    wwu_orcish_horde_secure_the_swamp = {
+		icon = mission_fel_offering
+        position = 2
+		required_missions = { wwu_orcish_horde_prepare_assault }
+        
+		trigger = {
+			region_swamp_of_sorrows = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_swamp_of_sorrows
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			add_country_modifier = {
+                name = mission_secrets_of_hakkar
+                duration = -1
+            }
+		}
+	}
+    
+    wwu_orcish_horde_hills_of_redridge = {
+		icon = mission_hunter_beast_taming
+        position = 3
+		required_missions = { wwu_orcish_horde_secure_the_swamp }
+        
+		trigger = {
+			any_owned_province = {
+                OR = {
+                    area = area_redridge_trail
+                    area = area_shalewind_bluffs
+                    area = area_redridge_heights
+                }
+            }
+		}
+        provinces_to_highlight = {
+            OR = {
+                area = area_redridge_trail
+                area = area_shalewind_bluffs
+                area = area_redridge_heights
+            }
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			add_country_modifier = {
+                name = mission_enslaved_gnolls
+                duration = -1
+            }
+            region_redridge_mountains = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    
+    wwu_orcish_horde_secure_lakeshire = {
+		icon = mission_paladin_empowered_seals_justice
+        position = 5
+		required_missions = { wwu_orcish_horde_make_them_tremble }
+        
+		trigger = {
+			owns_core_province = 737
+            owns_core_province = 717
+            owns_core_province = 800
+		}
+        provinces_to_highlight = {
+            OR = {
+                province_id = 737
+                province_id = 717
+                province_id = 800
+            }
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			add_country_modifier = {
+                name = mission_enslaved_humans
+                duration = -1
+            }
+		}
+	}
 }
 
 wwu_orcish_horde_column_5 = {
@@ -70,5 +324,4 @@ wwu_orcish_horde_column_5 = {
 	potential = {
 		tag = U03
 	}
-    
 }
