@@ -1,42 +1,86 @@
 ﻿#--------------------------------------
 # Changelog
 #--------------------------------------
+#-------------
 # Additions
+#-------------
+# General
 - Added ruler history for nations missing default rulers during the bookmark dates.
 - Added "Pass the Mantle of Leadership" decision that allows players to exile their immortal ruler if their country has one.
-- Added colonial regions to the Dragon Isles (therefore removing trade companies there).
+- Added a few events that allow isolated nations like Deepholm to get free claims occasionally if they haven't expanded beyond their starting position.
+
+# Religion
 - Added 6 'deities' for the Bananas religion.
 - Added 6 'deities' for the Zangar/Sporemounds religion.
 
+# Map
+- Overhauled the terrain, color and tree map to give the world map a more Warcraftesque feel. Terrain now uses textures from World of Warcraft to achieve this.
+
+- Added colonial regions to the Dragon Isles (therefore removing trade companies there).
+
+- Added an automatic discovery of the world (excluding the Dragon Isles) after the year 700. This is so countries don't need to get exploration/expansion just to uncover the TI.
+
+# Subjects
+- Added new subject types: 
+ - Feudal Vassal: used by Westfall, Redridge and Darkshire, permits them to act like tributaries.
+ - Protected Vassal: used by Karazhan.
+ - Troll Tributary: used by the Troll subjects, permits them to act like tributaries.
+ - Dragonflight Spinter: used by the minor Dragonflight nations, permits them to act like tributaries.
+
+- Added "Vassal Revolt" event for Stormwind when they annex Westfall, Redridge or Darkshire. Makes the remaining vassals much more disloyal.
+
+# Divine Fate
 - Replaced Lucky Nations mechanic with Divine Fate system:
  - This adds bonuses to AI similar to Lucky Nations, but also provides bonuses during AI vs. AI wars specifically.
   - The bonuses scale based on the stage of the game, ramping up into the late-game.
  - This change is to allow the lucky AI to expand and become a threat to the player without giving them massive bonuses in a war vs. the player.
- 
-- Added "Succumb to Fel" decision, allowing Orc clans to convert to Fel outside of the Rise of the Horde event chain.
-- Added "Construct the Dark Portal" decision. This replaces the event chain version, and is now how you build the Dark Portal. It is available without reaching the end of the Rise of the Horde event chain, but costs more if built before then.
 
+# Rise of the Horde
 - Redesigned the "Rise of the Horde" event chain. It is now integrated into mission trees for Shadowmoon and the other orc clans.
+
+- Added mission trees for Shadowmoon, Warsong, Bleeding Hollow, Burning Blade, Blackrock.
+
 - Changed the orc clan settlement in Azeroth: passing through the Dark Portal now spawns a new nation called the Orcish Horde that represents the unified clans working together. This is to allow the AI to pose an actual threat as the individual clans were too small to threaten Stormwind and co.
+
 - Added "Control Orcish Horde" diplomatic action that allows the player to switch to them if they are an Orc Clan nation.
+
 - Added "Return to Clan" diplomatic action that allows the player to switch back to their original clan if they switched to the Orcish Horde.
+
 - Added "Settle Clan in Azeroth" diplomatic action for clans towards the Orcish Horde, allowing them to claim specific areas if the Orcish Horde controls them, ceding the chosen area to the clan. This is player-only.
- 
-- Overhauled the terrain, color and tree map to give the world map a more Warcraftesque feel. Terrain now uses textures from World of Warcraft to achieve this.
- 
+
+- Redesigned Stormwind's mission tree to account for the new Rise of the Horde design.
+
+# First/Second War
+- Adjusted the First and Second War events to account for the Orcish Horde nation and design intent.
+- Added "Open Dimensional Portals" decision that allows an Orc clan during the First War era or beyond to trigger the Outlandification event if they are in a war with a member of the Alliance.
+
+# Scourge
+- Tweaked the structure of the Scourge mission tree so it looks a bit nicer and added a few minor missions to it.
+- Disabled the Scourge of Lordaeron event that emulated the outcome of the Scourge mission tree. It was unfun for the player when playing Lordaeron.
+
+# Multiplayer
+- Added host_player flag that tags the first non-AI nation as the host player. This is only relevant in multiplayer. It is used so player-only events first for the same player while in multiplayer, rather than randomly picking from available players.
+- Added "Transfer Host Player Status" diplomatic action so players can choose who is the host.
+
+#-------------
 # Balance
+#-------------
 - Reduced the effectiveness of Concentrate Development.
 - Added a "Has X Years Passed" requirement for most inventions so they appear in a more linear fashion throughout the game, no matter the start date.
 - Added some new modifiers into the Ideagroup sets.
 - AI will no longer immediately use the Awaken X Old God decisions whenever possible, instead they will do them after a certain date.
 - Decreased Settlement Growth chance to add development to 20% (was 100%).
 - Increased base development cost to 250 (was 200).
- 
+- AI will wait until year 600 before annexing subjects.
+
+ #-------------
 # Bugfixes
+#-------------
 - Added landmass for the Skywall provinces so they don't look like weird sea provinces.
 - Restricted AI development action to 30 or *2 base so small AI nations don't super-develop their capitals.
 - Fixed the high lake terrain.
-
+- Fixed the Orc clans from randomly going back to shamanism if the Orcish Horde loses a war. They will now only do so if the Orcish Horde has been completed removed and if they are less than 8 provinces.
+- Faction members will now accept the Call to War diplomatic action much more often.
 
 #--------------------------------------
 # TODO
