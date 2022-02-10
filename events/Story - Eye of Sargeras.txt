@@ -12,7 +12,10 @@ country_event = {
 	fire_only_once = yes
     
 	trigger = {		
-		ai = no
+		AND = {
+            ai = no
+            has_country_flag = host_player
+        }
 		has_global_flag = archimonde_dead
 		NOT = { has_global_flag = eye_of_sargeras }
 	}

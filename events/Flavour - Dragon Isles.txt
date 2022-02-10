@@ -10,7 +10,10 @@ country_event = {
     hidden = yes
 	
 	trigger = {
-		ai = no
+		AND = {
+            ai = no
+            has_country_flag = host_player
+        }
         
         NOT = { has_global_flag = setup_dragon_shrines }
 	}

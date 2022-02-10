@@ -10,7 +10,10 @@ country_event = {
     major = yes
     
 	trigger = {
-        ai = no
+        AND = {
+            ai = no
+            has_country_flag = host_player
+        }
 		current_age = age_scourge
         NOT = { is_year = 618 } # Stops it occuring if the game was started from the Frozen Throne bookmark forward
 		NOT = { has_global_flag = nerzhul_arrived }

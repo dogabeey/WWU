@@ -18,6 +18,17 @@ on_startup = {
 		save_global_event_target_as = celestial_emperor
 	}
     
+    # Set the first player nation as the Host Player, which will receive the single-fire player only events in multiplayer.
+    if = {
+        limit = {
+            ai = no
+            NOT = { has_global_flag = set_host_player }
+        }
+        
+        set_global_flag = set_host_player
+        set_country_flag = host_player
+    }
+    
     unlock_initial_cults = yes
     
     events = {

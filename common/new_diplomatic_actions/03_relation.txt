@@ -278,3 +278,89 @@ return_to_clan = {
         always = no
 	}
 }
+establish_azeroth_clan = {
+	category = relation
+	alert_index = 3
+	alert_tooltip = establish_azeroth_clan_tooltip
+	
+	require_acceptance = no
+	
+	is_visible = {
+        NOT = { has_country_flag = established_azeroth_clan }
+        ai = no
+        has_reform = orc_clan_reform
+        FROM = {
+            tag = U03
+        }
+	}
+    
+	is_allowed = {
+        ai = no
+        has_reform = orc_clan_reform
+        FROM = {
+            tag = U03
+        }
+        U03 = {
+            OR = {
+                area_serpents_coil = {
+                    owned_by = U03
+                }
+                area_the_blasted_land = {
+                    owned_by = U03
+                }
+                area_the_tainted_land = {
+                    owned_by = U03
+                }
+                area_the_red_reaches = {
+                    owned_by = U03
+                }
+                area_the_shattered_landing = {
+                    owned_by = U03
+                }
+                area_stonard = {
+                    owned_by = U03
+                }
+                area_splinterspear_bog = {
+                    owned_by = U03
+                }
+                area_swamps_of_sorrow = {
+                    owned_by = U03
+                }
+                area_sorrowmurk = {
+                    owned_by = U03
+                }
+                area_crackling_banks = {
+                    owned_by = U03
+                }
+                area_stagalbog = {
+                    owned_by = U03
+                }
+                area_misty_reed = {
+                    owned_by = U03
+                }
+                area_deadwind_pass = {
+                    owned_by = U03
+                }
+            }
+        }
+	}
+	on_accept = {
+        country_event = { id = wwu_orcish_horde.2 days = 7 }
+	}
+	on_decline = {
+        country_event = { id = wwu_orcish_horde.2 days = 7 }
+	}
+	
+	ai_acceptance = {
+        add_entry = {
+			name = BASE
+			export_to_variable = {
+				which = ai_value
+				value = -1000
+			}
+		}
+	}
+	ai_will_do = {
+        always = no
+	}
+}

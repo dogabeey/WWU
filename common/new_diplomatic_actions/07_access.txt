@@ -1,0 +1,50 @@
+transfer_host_player_status = {
+	category = access
+	alert_index = 3
+	alert_tooltip = transfer_host_player_status_tooltip
+	
+	require_acceptance = no
+	
+	is_visible = {
+        ai = no
+        has_country_flag = host_player
+        FROM = {
+            ai = no
+            NOT = { has_country_flag = host_player }
+        }
+	}
+    
+	is_allowed = {
+        ai = no
+        has_country_flag = host_player
+        FROM = {
+            ai = no
+            NOT = { has_country_flag = host_player }
+        }
+	}
+	on_accept = {
+        clr_country_flag = host_player
+        FROM = {
+            set_country_flag = host_player
+        }
+	}
+	on_decline = {
+        clr_country_flag = host_player
+        FROM = {
+            set_country_flag = host_player
+        }
+	}
+	
+	ai_acceptance = {
+        add_entry = {
+			name = BASE
+			export_to_variable = {
+				which = ai_value
+				value = -1000
+			}
+		}
+	}
+	ai_will_do = {
+        always = no
+	}
+}
