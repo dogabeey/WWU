@@ -1,0 +1,119 @@
+##-------------------------------
+## Peace Terms
+##-------------------------------
+# ROOT is self
+# FROM is the target
+
+##----------------------------
+## category = <enum>
+##----------------------------
+# Peace term category the peace term appears in.
+ # 0 - Cede Provinces
+ # 1 - Revoke Cores
+ # 2 - Return Cores
+ # 3 - Cancel Subjects
+ # 4 - Release Nations
+ # 5 - Annul Treaties
+ # 6 - Treaties
+ 
+##----------------------------
+## power_projection = <power projection string>
+##----------------------------
+# Only applied if FROM is considered a rival
+ 
+##----------------------------
+## power_cost_base = <float>
+##----------------------------
+# Base factor for diplomatic power cost when treaty is not allowed by casus belli. Scales with war score cost.
+# 300 * <factor> = <DIP cost>
+
+##----------------------------
+## prestige_base = <float>
+##----------------------------
+# Base factor for prestige gain and loss. Scales with war score cost.
+# 100 * <factor> = <prestige>
+
+##----------------------------
+## ae_base = <float>
+##----------------------------
+# Base factor for aggressive expansion. Scales with war score cost.
+# 200 * <factor> = <AE>
+
+##----------------------------
+## warscore_cost = { <entries> }
+##----------------------------
+# Which of the giver's provinces' war score costs are included and by how much. All entries default to 0. Any combination of entries can be used. Try negative values at your own risk.
+
+ # all_provinces = <float>    
+ # - All the giver's provinces
+ 
+ # no_provinces = <float>     
+ # - This is just a constant. Equivalent to a single province with with war score cost 1
+ 
+ # owner_keeps = <float>
+ # - The provinces that are not of any of the types below
+
+ # conquered = <float>
+ # - Provinces that are selected by a Demand Province treaty
+
+ # returned_core = <float>
+ # - Provinces that are selected by a Return Core treaty
+
+ # released_nation = <float>
+ # - Provinces that will become a part of a selected released-to-be nation
+
+ # cancelled_subject = <float>
+ # - This one should not be relevant here since Giver can't be a cancelled subject. Including anyway for completeness
+ 
+ # concede_colonial_region = <float>
+ # - Ditto
+ 
+##----------------------------
+## warscore_cap = -1 
+##----------------------------
+# Warscore cost will never go above this value. Only enabled if non-negative. This value defaults to -1.
+
+##----------------------------
+## requires_demand_independence = yes 
+##----------------------------
+# Whether this can be demanded by the former subject in an independence war without also demanding independence.
+
+##----------------------------
+## is_make_subject = yes 
+##----------------------------
+# This will make the treaty mutually exclusive with other treaties that makes the giver a subject, or that explicitly frees the giver from their current overlord.
+
+##----------------------------
+## requires_is_allowed = yes 
+##----------------------------
+# If set to "yes", treaty will only be visible when explicitly allowed by casus belli. If not, it will be available but cost diplomatic power.
+	
+##----------------------------
+## is_visible = { }
+##----------------------------
+# When the peace term is shown in the menu.
+
+##----------------------------
+## is_allowed = { }
+##----------------------------
+# When the peace term can be selected in the menu.
+
+##----------------------------
+## effect = { }
+##----------------------------
+# The effects to apply when the peace term is used.
+
+##----------------------------
+## ai_weight = { }
+##----------------------------
+# AI weighting towards using this peace term.
+
+# export_to_variable = {
+    # variable_name = ai_value
+    # value = 100
+# }
+
+# limit = {
+    # <triggers>
+# }
+

@@ -108,3 +108,60 @@ country_event = {
 	}
 }
 
+# Blood Knights Arise!
+country_event = {
+	id = wwu_silvermoon.2
+	title = wwu_silvermoon.2.title
+	desc = wwu_silvermoon.2.desc
+	picture = BLIND_PALADIN_eventPicture
+	
+	fires_only_once = yes
+    
+	trigger = {
+        tag = A91
+        has_country_modifier = loss_of_the_sunwell
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_silvermoon.2.option.a
+		
+        add_faction = faction_blood_knights
+	}
+}
+
+# Sunwell Restored
+country_event = {
+	id = wwu_silvermoon.3
+	title = wwu_silvermoon.3.title
+	desc = wwu_silvermoon.3.desc
+	picture = BLIND_PALADIN_eventPicture
+	
+	fires_only_once = yes
+    
+	trigger = {
+        has_faction = faction_blood_knights
+        has_country_modifier = power_of_the_sunwell
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_silvermoon.3.option.a
+		
+        add_stability = 1
+	}
+    option = {
+		name = wwu_silvermoon.3.option.b
+		
+        remove_faction = faction_blood_knights
+	}
+}
+
+
+
