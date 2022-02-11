@@ -11,7 +11,13 @@ country_event = {
 	picture = BIG_BOOK_eventPicture
     
     trigger = {
-        is_year = 700
+        OR = {
+            is_year = 700
+            AND = {
+                ai = yes
+                is_year = 600
+            }
+        }
         NOT = { has_country_flag = automatic_discovery_completed }
     }
     
@@ -22,7 +28,7 @@ country_event = {
     }
 	
     mean_time_to_happen = {
-		months = 120
+		days = 1
     }
     
 	option = {

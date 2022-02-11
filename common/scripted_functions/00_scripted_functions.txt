@@ -180,7 +180,17 @@ can_expel_minority_from = {
 		tooltip = "WOW_UNCOLONIZABLE_TELDRASSIL"
 		potential = {
 			region = region_teldrassil
-			FROM = { NOT = { the_third_war_or_later = yes } }
+			NOT = { has_global_flag = seeds_of_teldrassil }
+		}
+		allow = {
+			always = no
+		}
+	}
+    condition = {
+		tooltip = "WOW_UNCOLONIZABLE_TELDRASSIL"
+		potential = {
+			region = region_teldrassil
+            has_global_flag = teldrassil_burned
 		}
 		allow = {
 			always = no

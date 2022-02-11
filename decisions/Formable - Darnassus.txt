@@ -1,4 +1,38 @@
 country_decisions = {
+	create_world_tree = {
+		major = yes
+        
+		potential = {
+            has_global_flag = nordrassil_burned
+			NOT = { has_global_flag = seeds_of_teldrassil }
+            
+			religion = druidism
+		}
+		allow = {
+			scaled_treasury_check = yes
+            
+			adm_power = 100
+		}
+		effect = {
+			scaled_treasury_effect = yes
+            
+			add_adm_power = -100
+            
+            if = {
+                limit = {
+                    has_country_modifier = long_slumber_sickness
+                }
+                remove_country_modifier = long_slumber_sickness
+            }
+            
+			custom_tooltip = create_world_tree_tooltip
+			set_global_flag = seeds_of_teldrassil
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
     form_darnassus = {
 		major = yes
         ai_importance = 300
@@ -13,7 +47,7 @@ country_decisions = {
 				tag = H02
 			}
             
-            the_third_war_or_later = yes
+            has_global_flag = seeds_of_teldrassil
 		}
         
         provinces_to_highlight = {
@@ -76,6 +110,7 @@ country_decisions = {
             region_teldrassil = {
                 cede_province = ROOT
                 add_core = ROOT
+                change_culture = culture_night_elf
             }
             
             set_capital = 1073
