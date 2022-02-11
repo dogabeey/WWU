@@ -12,18 +12,18 @@ country_decisions = {
 			    tag = H01
 				tag = H02
 			}
+            
+            the_third_war_or_later = yes
 		}
         
         provinces_to_highlight = {
             NOT = { owned_by = ROOT }
-			region = region_teldrassil
+			province_id = 1065
 		}
         
 		allow = {
             # Ownership
-			region_teldrassil = {
-				owned_by = ROOT
-			}
+			owns_core_province = 1065
             
             # General
 			is_at_war = no	
@@ -43,6 +43,7 @@ country_decisions = {
             
             # Switch
 			change_tag = A94
+            
             if = {
 			    limit = {
 			        primary_culture = culture_sentinel
@@ -71,6 +72,14 @@ country_decisions = {
                 }
                 change_culture = culture_night_elf
             }
+            
+            region_teldrassil = {
+                cede_province = ROOT
+                add_core = ROOT
+            }
+            
+            set_capital = 1073
+            
             # Bonus
             add_formable_bonus = yes
 		}
