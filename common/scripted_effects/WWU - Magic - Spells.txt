@@ -1,438 +1,4 @@
 #------------------------
-# Skills
-#------------------------
-add_ruler_spellcasting = {
-    add_ruler_modifier = {
-        name = spellcaster_capabilities
-        duration = -1
-    }
-}
-
-add_magical_training_point = {
-    custom_tooltip = MAGIC_TRAINING_GAIN
-    
-    hidden_effect = {
-        change_variable = {
-            which = ruler_magic_training
-            value = 1
-        }
-    }
-}
-remove_magical_training_point = {
-    custom_tooltip = MAGIC_TRAINING_LOSS
-    
-    hidden_effect = {
-        change_variable = {
-            which = ruler_magic_training
-            value = -1
-        }
-    }
-}
-
-add_aptitude_point = {
-    custom_tooltip = MAGIC_APTITUDE_GAIN
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                NOT = {
-                    check_variable = {
-                         which = ruler_magic_aptitude
-                         value = 5
-                    }
-                }
-            }
-            change_variable = {
-                which = ruler_magic_aptitude
-                value = 1
-            }   
-        }
-    }
-}
-remove_aptitude_point = {
-    custom_tooltip = MAGIC_APTITUDE_LOSS
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                check_variable = {
-                     which = ruler_magic_aptitude
-                     value = 0
-                }
-            }
-            change_variable = {
-                which = ruler_magic_aptitude
-                value = -1
-            }   
-        }
-    }
-}
-
-add_finesse_point = {
-    custom_tooltip = MAGIC_FINESSE_GAIN
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                NOT = {
-                    check_variable = {
-                         which = ruler_magic_finesse
-                         value = 5
-                    }
-                }
-            }
-            change_variable = {
-                which = ruler_magic_finesse
-                value = 1
-            }   
-        }
-    }
-}
-remove_finesse_point = {
-    custom_tooltip = MAGIC_FINESSE_LOSS
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                check_variable = {
-                     which = ruler_magic_finesse
-                     value = 0
-                }
-            }
-            change_variable = {
-                which = ruler_magic_finesse
-                value = -1
-            }   
-        }
-    }
-}
-
-add_concentration_point = {
-    custom_tooltip = MAGIC_CONCENTRATION_GAIN
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                NOT = {
-                    check_variable = {
-                         which = ruler_magic_concentration
-                         value = 5
-                    }
-                }
-            }
-            change_variable = {
-                which = ruler_magic_concentration
-                value = 1
-            }   
-        }
-    }
-}
-remove_concentration_point = {
-    custom_tooltip = MAGIC_CONCENTRATION_LOSS
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                check_variable = {
-                     which = ruler_magic_concentration
-                     value = 0
-                }
-            }
-            change_variable = {
-                which = ruler_magic_concentration
-                value = -1
-            }   
-        }
-    }
-}
-
-reset_spellcaster_skills = {
-    set_variable = {
-        which = ruler_magic_aptitude
-        value = 0
-    }
-    set_variable = {
-        which = ruler_magic_finesse
-        value = 0
-    }
-    set_variable = {
-        which = ruler_magic_concentration
-        value = 0
-    }
-    set_variable = {
-        which = ruler_magic_mana
-        value = 0
-    }
-}
-
-add_mana_1 = {
-    custom_tooltip = MANA_GAIN_1
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                NOT = {
-                    check_variable = {
-                         which = ruler_magic_mana
-                         value = 5
-                    }
-                }
-            }
-            change_variable = {
-                which = ruler_magic_mana
-                value = 1
-            }   
-        }
-    }
-}
-add_mana_2 = {
-    custom_tooltip = MANA_GAIN_2
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                NOT = {
-                    check_variable = {
-                         which = ruler_magic_mana
-                         value = 5
-                    }
-                }
-            }
-            change_variable = {
-                which = ruler_magic_mana
-                value = 2
-            }   
-        }
-    }
-}
-add_mana_3 = {
-    custom_tooltip = MANA_GAIN_3
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                NOT = {
-                    check_variable = {
-                         which = ruler_magic_mana
-                         value = 5
-                    }
-                }
-            }
-            change_variable = {
-                which = ruler_magic_mana
-                value = 3
-            }   
-        }
-    }
-}
-add_mana_4 = {
-    custom_tooltip = MANA_GAIN_4
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                NOT = {
-                    check_variable = {
-                         which = ruler_magic_mana
-                         value = 5
-                    }
-                }
-            }
-            change_variable = {
-                which = ruler_magic_mana
-                value = 4
-            }   
-        }
-    }
-}
-add_mana_5 = {
-    custom_tooltip = MANA_GAIN_5
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                NOT = {
-                    check_variable = {
-                         which = ruler_magic_mana
-                         value = 5
-                    }
-                }
-            }
-            change_variable = {
-                which = ruler_magic_mana
-                value = 5
-            }   
-        }
-    }
-}
-
-lose_mana_1 = {
-    custom_tooltip = MANA_LOSS_1
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                check_variable = {
-                     which = ruler_magic_mana
-                     value = 0
-                }
-            }
-            change_variable = {
-                which = ruler_magic_mana
-                value = -1
-            }   
-        }
-    }
-}
-lose_mana_2 = {
-    custom_tooltip = MANA_LOSS_2
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                check_variable = {
-                     which = ruler_magic_mana
-                     value = 0
-                }
-            }
-            change_variable = {
-                which = ruler_magic_mana
-                value = -2
-            }   
-        }
-    }
-}
-lose_mana_3 = {
-    custom_tooltip = MANA_LOSS_3
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                check_variable = {
-                     which = ruler_magic_mana
-                     value = 0
-                }
-            }
-            change_variable = {
-                which = ruler_magic_mana
-                value = -3
-            }   
-        }
-    }
-}
-lose_mana_4 = {
-    custom_tooltip = MANA_LOSS_4
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                check_variable = {
-                     which = ruler_magic_mana
-                     value = 0
-                }
-            }
-            change_variable = {
-                which = ruler_magic_mana
-                value = -4
-            }   
-        }
-    }
-}
-lose_mana_5 = {
-    custom_tooltip = MANA_LOSS_5
-    
-    hidden_effect = {
-        if = {
-            limit = {
-                check_variable = {
-                     which = ruler_magic_mana
-                     value = 0
-                }
-            }
-            change_variable = {
-                which = ruler_magic_mana
-                value = -5
-            }   
-        }
-    }
-}
-
-cataclysmic_effect = {
-    custom_tooltip = CATACLYSMIC_EFFECT_TT
-    
-    hidden_effect = {
-        random_list = {
-            20 = {
-                change_variable = {
-                    which = ruler_magic_aptitude
-                    value = -5
-                }
-                if = {
-                    limit = {
-                        NOT = {
-                            check_variable = {
-                                which = ruler_magic_aptitude
-                                value = 0
-                            }
-                        }
-                    }
-                    set_variable = {
-                        which = ruler_magic_aptitude
-                        value = 0
-                    }
-                }
-            }
-            20 = {
-                change_variable = {
-                    which = ruler_magic_finesse
-                    value = -5
-                }
-                if = {
-                    limit = {
-                        NOT = {
-                            check_variable = {
-                                which = ruler_magic_finesse
-                                value = 0
-                            }
-                        }
-                    }
-                    set_variable = {
-                        which = ruler_magic_finesse
-                        value = 0
-                    }
-                }
-            }
-            20 = {
-                change_variable = {
-                    which = ruler_magic_concentration
-                    value = -5
-                }
-                if = {
-                    limit = {
-                        NOT = {
-                            check_variable = {
-                                which = ruler_magic_concentration
-                                value = 0
-                            }
-                        }
-                    }
-                    set_variable = {
-                        which = ruler_magic_concentration
-                        value = 0
-                    }
-                }
-            }
-            10 = {
-                kill_ruler = yes
-            }
-            30 = {
-                
-            }
-        }
-    }
-}
-
-#------------------------
 # Spells
 #------------------------
 scaled_magic_modifier_effect = {
@@ -698,6 +264,9 @@ scaled_magic_modifier_effect = {
     }
 }
 
+#-----------------------------
+# Spells - Order
+#-----------------------------
 conjure_feast_effect = {    
     scaled_magic_modifier_effect = {
         MODIFIER_POOR       = conjure_feast_poor
@@ -745,16 +314,6 @@ touch_of_the_magi_effect = {
         MODIFIER_RARE       = touch_of_the_magi_rare
         MODIFIER_EPIC       = touch_of_the_magi_epic
         MODIFIER_LEGENDARY  = touch_of_the_magi_legendary
-    }
-}
-
-demonic_touch_effect = {
-    scaled_magic_modifier_effect = {
-        MODIFIER_POOR       = demonic_touch_poor
-        MODIFIER_COMMON     = demonic_touch_common
-        MODIFIER_RARE       = demonic_touch_rare
-        MODIFIER_EPIC       = demonic_touch_epic
-        MODIFIER_LEGENDARY  = demonic_touch_legendary
     }
 }
 
@@ -1165,8 +724,53 @@ polymorph_effect = {
     }
 }
 
+#-----------------------------
+# Spells - Disorder
+#-----------------------------
+demonic_touch_effect = {
+    scaled_magic_modifier_effect = {
+        MODIFIER_POOR       = demonic_touch_poor
+        MODIFIER_COMMON     = demonic_touch_common
+        MODIFIER_RARE       = demonic_touch_rare
+        MODIFIER_EPIC       = demonic_touch_epic
+        MODIFIER_LEGENDARY  = demonic_touch_legendary
+    }
+}
+
+#-----------------------------
+# Spells - Life
+#-----------------------------
+
+#-----------------------------
+# Spells - Death
+#-----------------------------
+
+#-----------------------------
+# Spells - Light
+#-----------------------------
+
+#-----------------------------
+# Spells - Shadow
+#-----------------------------
+
+#-----------------------------
+# Spells - Elemental
+#-----------------------------
+
+#-----------------------------
+# Spells - Generic
+#-----------------------------
 ascendance_effect = {
-    custom_tooltip = ASCENDANCE_AFTEREFFECT
+    if = {
+        limit = {
+            is_immortal_lifespan = yes
+        }
+        custom_tooltip = ASCENDANCE_AFTEREFFECT_IMMORTAL_TT
+    }
+    else = {
+        custom_tooltip = ASCENDANCE_AFTEREFFECT_TT
+    }
+    
     
     hidden_effect = {
         add_ruler_modifier = {
@@ -1174,7 +778,16 @@ ascendance_effect = {
             duration = -1
         }
         # Give 1 year free, will die within the next 2 years
-        country_event = { id = wwu_magic.21 days = 365 random = 730 }
+        
+        if = {
+            limit = {
+                is_immortal_lifespan = yes
+            }
+            country_event = { id = wwu_magic.22 days = 365 random = 730 }
+        }
+        else = {
+            country_event = { id = wwu_magic.21 days = 365 random = 730 }
+        }
     }
     
     define_ruler_to_general = {
@@ -1184,3 +797,4 @@ ascendance_effect = {
         siege = 10
     }
 }
+

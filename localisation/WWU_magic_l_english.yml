@@ -37,6 +37,10 @@
  recently_trained_magic: "Recently Trained Magic"
  desc_recently_trained_magic: ""
  
+ ai_spell_cooldown: "AI Recently Used Magic"
+ desc_ai_spell_cooldown: ""
+ 
+ # Spells
  conjure_feast_poor: "Conjured Feast: Poor"
  desc_conjure_feast_poor: ""
  conjure_feast_common: "Conjured Feast: Common"
@@ -164,8 +168,10 @@
  SKILL_MANA_5: "£full_mana£ £full_mana£ £full_mana£ £full_mana£ £full_mana£"
  
  CATACLYSMIC_EFFECT_TT: "This spell is §Rrisky§! to §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName]§!'s life, and as such may harm their abilities or even kill them. Perform at your own risk."
+ CATACLYSMIC_EFFECT_IMMORTAL_TT: "This spell is §Rdetrimental§! to §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName]§!'s life, and as such may harm their abilities or force them to recover, exiling them for several years. Perform at your own risk."
  
- ASCENDANCE_AFTEREFFECT: "Once ascended, §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName] power begin to kill them, resulting in a severely reduced lifespan."
+ ASCENDANCE_AFTEREFFECT_TT: "Once ascended, §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName] power begin to kill them, resulting in a severely reduced lifespan."
+ ASCENDANCE_AFTEREFFECT_IMMORTAL_TT: "Once ascended, §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName] power begin to harm them, resulting in a forced slumber, exiling them for several years."
  
  #-----------------------------------------------
  # Events
@@ -244,25 +250,13 @@
  wwu_magic.21.desc: "Having ascended, imbuing themselves with unbelievable power, [Root.Monarch.GetTitle] [Root.Monarch.GetName] physical form has decayed, as the magical energies seep throughout their entire being. This process has finally finished, killing them."
  wwu_magic.21.option.a: "Farewell, [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
  
- wwu_magic.20.title: "Domain Magic"
- wwu_magic.20.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
- wwu_magic.20.option.exit: "Exit"
+ wwu_magic.22.title: "Slumber of [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
+ wwu_magic.22.desc: "Having ascended, imbuing themselves with unbelievable power, [Root.Monarch.GetTitle] [Root.Monarch.GetName] physical form has decayed, as the magical energies seep throughout their entire being. This process has finally finished, forcing them to slumber for several years."
+ wwu_magic.22.option.a: "Farewell for now, [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
  
- wwu_magic.20.option.conjure_feast: "Conjure Feast"
- wwu_magic.20.option.apply_mass_invisibility: "Mass Invisibility"
- wwu_magic.20.option.summon_portals: "Summon Portals"
- wwu_magic.20.option.transmute_gold: "Transmute Gold"
- wwu_magic.20.option.alter_time: "Alter Time"
- wwu_magic.20.option.presence_of_mind: "Presence of Mind"
- wwu_magic.20.option.touch_of_the_magi: "Touch of the Magi"
- wwu_magic.20.option.demonic_touch: "Demonic Touch"
- wwu_magic.20.option.mind_surge: "Mind Surge"
- wwu_magic.20.option.temporal_sight: "Temporal Sight"
- wwu_magic.20.option.display_prowess: "Diplay Prowess"
- wwu_magic.20.option.soothe_minds: "Soothe Minds"
- wwu_magic.20.option.focus_magic: "Focus Magic"
- wwu_magic.20.option.polymorph: "Polymorph"
- wwu_magic.20.option.ascendance: "Ascendance"
+ wwu_magic.23.title: "Return of [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
+ wwu_magic.23.desc: "Having slumbered, [Root.Monarch.GetTitle] [Root.Monarch.GetName] physical form has now recovered."
+ wwu_magic.23.option.a: "Welcome back, [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
  
  wwu_magic.40.title: "Improvement in Aptitude"
  wwu_magic.40.desc: "[Root.Monarch.GetTitle] [Root.Monarch.GetName] has invested considerable time and energy into improving their aptitude. The results speak for themselves."
@@ -275,3 +269,207 @@
  wwu_magic.42.title: "Improvement in Concentration"
  wwu_magic.42.desc: "[Root.Monarch.GetTitle] [Root.Monarch.GetName] has invested considerable time and energy into improving their concentration. The results speak for themselves."
  wwu_magic.42.option.a: "None shall interrupt me!"
+ 
+ #-----------------------------------------------
+ # Magic Menu - Order
+ #-----------------------------------------------
+ wwu_magic_menu.1.title: "Domain Magic"
+ wwu_magic_menu.1.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
+ wwu_magic_menu.1.option.exit: "Exit"
+ 
+ wwu_magic_menu.1.option.conjure_feast: "Conjure Feast"
+ wwu_magic_menu.1.option.apply_mass_invisibility: "Mass Invisibility"
+ wwu_magic_menu.1.option.summon_portals: "Summon Portals"
+ wwu_magic_menu.1.option.transmute_gold: "Transmute Gold"
+ wwu_magic_menu.1.option.alter_time: "Alter Time"
+ wwu_magic_menu.1.option.presence_of_mind: "Presence of Mind"
+ wwu_magic_menu.1.option.touch_of_the_magi: "Touch of the Magi"
+ wwu_magic_menu.1.option.mind_surge: "Mind Surge"
+ wwu_magic_menu.1.option.temporal_sight: "Temporal Sight"
+ wwu_magic_menu.1.option.display_prowess: "Diplay Prowess"
+ wwu_magic_menu.1.option.soothe_minds: "Soothe Minds"
+ wwu_magic_menu.1.option.focus_magic: "Focus Magic"
+ wwu_magic_menu.1.option.polymorph: "Polymorph"
+ wwu_magic_menu.1.option.ascendance: "Ascendance"
+ 
+ #-----------------------------------------------
+ # Magic Menu - Disorder
+ #-----------------------------------------------
+ wwu_magic_menu.2.title: "Domain Magic"
+ wwu_magic_menu.2.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
+ wwu_magic_menu.2.option.exit: "Exit"
+ 
+ wwu_magic_menu.2.option.xxx: ""
+ wwu_magic_menu.2.option.xxx: ""
+ wwu_magic_menu.2.option.xxx: ""
+ wwu_magic_menu.2.option.xxx: ""
+ wwu_magic_menu.2.option.xxx: ""
+ wwu_magic_menu.2.option.xxx: ""
+ wwu_magic_menu.2.option.xxx: ""
+ wwu_magic_menu.2.option.demonic_touch: "Demonic Touch"
+ wwu_magic_menu.2.option.xxx: ""
+ wwu_magic_menu.2.option.xxx: ""
+ wwu_magic_menu.2.option.xxx: ""
+ wwu_magic_menu.2.option.xxx: ""
+ 
+ #-----------------------------------------------
+ # Magic Menu - Life
+ #-----------------------------------------------
+ wwu_magic_menu.3.title: "Domain Magic"
+ wwu_magic_menu.3.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
+ wwu_magic_menu.3.option.exit: "Exit"
+ 
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ wwu_magic_menu.3.option.xxx: ""
+ 
+ #-----------------------------------------------
+ # Magic Menu - Death
+ #-----------------------------------------------
+ wwu_magic_menu.4.title: "Domain Magic"
+ wwu_magic_menu.4.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
+ wwu_magic_menu.4.option.exit: "Exit"
+ 
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ wwu_magic_menu.4.option.xxx: ""
+ 
+ #-----------------------------------------------
+ # Magic Menu - Light
+ #-----------------------------------------------
+ wwu_magic_menu.5.title: "Domain Magic"
+ wwu_magic_menu.5.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
+ wwu_magic_menu.5.option.exit: "Exit"
+ 
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ wwu_magic_menu.5.option.xxx: ""
+ 
+ #-----------------------------------------------
+ # Magic Menu - Shadow
+ #-----------------------------------------------
+ wwu_magic_menu.6.title: "Domain Magic"
+ wwu_magic_menu.6.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
+ wwu_magic_menu.6.option.exit: "Exit"
+ 
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ wwu_magic_menu.6.option.xxx: ""
+ 
+ #-----------------------------------------------
+ # Magic Menu - Elemental
+ #-----------------------------------------------
+ wwu_magic_menu.7.title: "Domain Magic"
+ wwu_magic_menu.7.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
+ wwu_magic_menu.7.option.exit: "Exit"
+ 
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ wwu_magic_menu.7.option.xxx: ""
+ 
+ #-----------------------------------------------
+ # Magic Menu - Blood
+ #-----------------------------------------------
+ wwu_magic_menu.8.title: "Domain Magic"
+ wwu_magic_menu.8.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
+ wwu_magic_menu.8.option.exit: "Exit"
+ 
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ wwu_magic_menu.8.option.xxx: ""
+ 
+ #-----------------------------------------------
+ # Magic Menu - Voodoo
+ #-----------------------------------------------
+ wwu_magic_menu.9.title: "Domain Magic"
+ wwu_magic_menu.9.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
+ wwu_magic_menu.9.option.exit: "Exit"
+ 
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ wwu_magic_menu.9.option.xxx: ""
+ 
+ #-----------------------------------------------
+ # Magic Menu - Corruption
+ #-----------------------------------------------
+ wwu_magic_menu.10.title: "Domain Magic"
+ wwu_magic_menu.10.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
+ wwu_magic_menu.10.option.exit: "Exit"
+ 
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ wwu_magic_menu.10.option.xxx: ""
+ 
+ 
