@@ -383,3 +383,32 @@ estate_peasants_serfdom_enforced = {
 		factor = 0
 	}
 }
+
+estate_peasants_mercenary_recruitment = {
+	icon = privilege_challenge
+	
+    # Costs
+    max_absolutism = -5
+	land_share = 0
+	loyalty = 0.1
+	influence = 0.05
+    
+	is_valid = {
+		monthly_income = 30
+	}
+	can_select = {
+		monthly_income = 30
+	}
+	penalties = {
+		merc_maintenance_modifier = 5.0
+	}
+	benefits = {
+        mercenary_cost = -0.25
+        mercenary_manpower = 1.0
+        mercenary_discipline = 0.1
+	}
+    
+	ai_will_do = {
+		factor = 0
+	}
+}
