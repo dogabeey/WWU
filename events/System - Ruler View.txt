@@ -1,0 +1,56 @@
+namespace = wwu_ruler_view
+
+country_event = {
+	id = wwu_ruler_view.1
+	title = wwu_ruler_view.1.title
+	desc = wwu_ruler_view.1.desc
+	picture = RULER_VIEW_eventPicture
+	
+	is_triggered_only = yes
+    
+	option = {
+		name = wwu_ruler_view.1.option.class_abilities
+        
+        trigger = {
+            has_assigned_ruler_class = yes
+        }
+	}
+    
+    option = {
+		name = wwu_ruler_view.1.option.artifacts
+        
+	}
+    
+    option = {
+		name = wwu_ruler_view.1.option.learn_class
+        
+        trigger = {
+            treasury = 100
+            NOT = { has_ruler_flag = ruler_is_training }
+            NOT = { 
+                has_assigned_ruler_class = yes
+            }
+        }
+        
+        country_event = { id = wwu_ruler_training.1 }
+	}
+    
+    option = {
+		name = wwu_ruler_view.1.option.learn_class.lack_cost
+        
+        trigger = {
+            NOT = { treasury = 100 }
+            NOT = { has_ruler_flag = ruler_is_training }
+            NOT = { 
+                has_assigned_ruler_class = yes
+            }
+        }
+        
+        custom_tooltip = YOU_NEED_LEARN_CLASS_COST
+	}
+    
+    option = {
+		name = wwu_ruler_view.1.option.exit
+        
+	}
+}
