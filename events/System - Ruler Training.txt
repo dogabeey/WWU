@@ -18,73 +18,102 @@ country_event = {
 		name = wwu_ruler_training.1.option.warrior
 		
 		trigger = { can_be_warrior = yes }
-		country_event = { id = wwu_ruler_training.2 days = 365 tooltip = wwu_ruler_training.1.option.warrior.tt }
+        
+        add_treasury = -100
+        train_as_warrior = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.paladin
 		
 		trigger = { can_be_paladin = yes }
-		country_event = { id = wwu_ruler_training.3 days = 365 tooltip = wwu_ruler_training.1.option.paladin.tt }
+        
+        add_treasury = -100
+        train_as_paladin = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.priest
 		
 		trigger = { can_be_priest = yes }
-		country_event = { id = wwu_ruler_training.4 days = 365 tooltip = wwu_ruler_training.1.priest.tt }
+        
+        add_treasury = -100
+        train_as_priest = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.rogue
 		
 		trigger = { can_be_rogue = yes }
-		country_event = { id = wwu_ruler_training.5 days = 365 tooltip = wwu_ruler_training.1.rogue.tt }
+        
+        add_treasury = -100
+        train_as_rogue = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.mage
 		
 		trigger = { can_be_mage = yes }
-		country_event = { id = wwu_ruler_training.6 days = 365 tooltip = wwu_ruler_training.1.mage.tt }
+        
+        add_treasury = -100
+        train_as_mage = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.warlock
 		
 		trigger = { can_be_warlock = yes }
-		country_event = { id = wwu_ruler_training.7 days = 365 tooltip = wwu_ruler_training.1.warlock.tt }
+        
+        add_treasury = -100
+        train_as_warlock = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.druid
 		
 		trigger = { can_be_druid = yes }
-		country_event = { id = wwu_ruler_training.8 days = 365 tooltip = wwu_ruler_training.1.druid.tt }
+        
+        add_treasury = -100
+        train_as_druid = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.hunter
 		
 		trigger = { can_be_hunter = yes }
-		country_event = { id = wwu_ruler_training.9 days = 365 tooltip = wwu_ruler_training.1.hunter.tt }
+        
+        add_treasury = -100
+        train_as_hunter = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.shaman
 		
 		trigger = { can_be_shaman = yes }
-		country_event = { id = wwu_ruler_training.10 days = 365 tooltip = wwu_ruler_training.1.shaman.tt }
+        
+        add_treasury = -100
+        train_as_shaman = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.death_knight
 		
 		trigger = { can_be_death_knight = yes }
-		country_event = { id = wwu_ruler_training.11 days = 365 tooltip = wwu_ruler_training.1.option.death_knight.tt }
+        
+        add_treasury = -100
+        train_as_death_knight = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.monk
 		
 		trigger = { can_be_monk = yes }
-		country_event = { id = wwu_ruler_training.12 days = 365 tooltip = wwu_ruler_training.1.option.monk.tt }
+        
+        add_treasury = -100
+        train_as_monk = yes
 	}
 	option = {
 		name = wwu_ruler_training.1.option.demon_hunter
 		
 		trigger = { can_be_demon_hunter = yes }
-		country_event = { id = wwu_ruler_training.13 days = 365 tooltip = wwu_ruler_training.1.option.demon_hunter.tt }
+        
+        add_treasury = -100
+        train_as_demon_hunter = yes
+	}
+    option = {
+		name = wwu_ruler_training.1.option.return
+		
+		country_event = { id = wwu_ruler_view.1 }
 	}
 }
 
@@ -95,12 +124,31 @@ country_event = {
 	desc = wwu_ruler_training.2.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_warrior
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.2.option.a
 		
-		set_ruler_flag = warrior_personality
+		trained_as_warrior = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_warrior
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -111,12 +159,31 @@ country_event = {
 	desc = wwu_ruler_training.3.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_paladin
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.3.option.a
 		
-		set_ruler_flag = paladin_personality
+		trained_as_paladin = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_paladin
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -127,12 +194,31 @@ country_event = {
 	desc = wwu_ruler_training.4.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_priest
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.4.option.a
 		
-		set_ruler_flag = priest_personality
+		trained_as_priest = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_priest
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -143,12 +229,31 @@ country_event = {
 	desc = wwu_ruler_training.5.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_rogue
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.5.option.a
 		
-		set_ruler_flag = rogue_personality
+		trained_as_rogue = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_rogue
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -159,12 +264,31 @@ country_event = {
 	desc = wwu_ruler_training.6.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_mage
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.6.option.a
 		
-		set_ruler_flag = mage_personality
+		trained_as_mage = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_mage
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -175,12 +299,31 @@ country_event = {
 	desc = wwu_ruler_training.7.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_warlock
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.7.option.a
 		
-		set_ruler_flag = warlock_personality
+		trained_as_warlock = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_warlock
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -191,12 +334,31 @@ country_event = {
 	desc = wwu_ruler_training.8.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_druid
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.8.option.a
 		
-		set_ruler_flag = druid_personality
+		trained_as_druid = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_druid
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -207,13 +369,31 @@ country_event = {
 	desc = wwu_ruler_training.9.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_shaman
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.9.option.a
 		
-		#
-		set_ruler_flag = shaman_personality
+		trained_as_shaman = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_shaman
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -224,12 +404,31 @@ country_event = {
 	desc = wwu_ruler_training.10.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_hunter
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.10.option.a
 		
-		set_ruler_flag = hunter_personality
+		trained_as_hunter = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_hunter
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -240,12 +439,31 @@ country_event = {
 	desc = wwu_ruler_training.11.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_death_knight
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.11.option.a
 		
-		set_ruler_flag = death_knight_personality
+		trained_as_death_knight = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_death_knight
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -256,12 +474,31 @@ country_event = {
 	desc = wwu_ruler_training.12.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_monk
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.12.option.a
 		
-		set_ruler_flag = monk_personality
+		trained_as_warrior = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_monk
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
 	}
 }
 
@@ -272,11 +509,373 @@ country_event = {
 	desc = wwu_ruler_training.13.desc
 	picture = ADVISOR_eventPicture
 	
-	is_triggered_only = yes 
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+        has_ruler_flag = training_as_demon_hunter
+        check_variable = {
+            which = ruler_training_progress
+            value = 5
+        }
+    }
 	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
 	option = {
 		name = wwu_ruler_training.13.option.a
 		
-		set_ruler_flag = demon_hunter_personality
+		trained_as_demon_hunter = yes
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_demon_hunter
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
+	}
+}
+
+# Failure to Learn
+country_event = {
+	id = wwu_ruler_training.15
+	title = wwu_ruler_training.15.title
+	desc = wwu_ruler_training.15.desc
+	picture = ADVISOR_eventPicture
+	
+	trigger = { 
+        had_ruler_flag = {
+            flag = ruler_is_training
+            days = 3650
+        }
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_ruler_training.15.option.a
+		
+		custom_tooltip = FAILURE_TO_LEARN
+        
+        hidden_effect = {
+            clr_ruler_flag = ruler_is_training
+            clr_ruler_flag = training_as_warrior
+            clr_ruler_flag = training_as_paladin
+            clr_ruler_flag = training_as_priest
+            clr_ruler_flag = training_as_rogue
+            clr_ruler_flag = training_as_mage
+            clr_ruler_flag = training_as_warlock
+            clr_ruler_flag = training_as_druid
+            clr_ruler_flag = training_as_hunter
+            clr_ruler_flag = training_as_shaman
+            clr_ruler_flag = training_as_death_knight
+            clr_ruler_flag = training_as_monk
+            clr_ruler_flag = training_as_demon_hunter
+            set_variable = {
+                which = ruler_training_progress
+                value = 0
+            }
+        }
+	}
+}
+
+# Lack of Understanding
+country_event = {
+	id = wwu_ruler_training.20
+	title = wwu_ruler_training.20.title
+	desc = wwu_ruler_training.20.desc
+	picture = BANKRUPTCY_eventPicture
+	
+    is_triggered_only = yes 
+    
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_ruler_training.20.option.a
+		
+		increment_training = yes
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+    option = {
+		name = wwu_ruler_training.20.option.b
+		
+		add_adm_power = 25
+        add_dip_power = 25
+        add_mil_power = 25
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Practical Demonstrations
+country_event = {
+	id = wwu_ruler_training.21
+	title = wwu_ruler_training.21.title
+	desc = wwu_ruler_training.21.desc
+	picture = ECONOMY_eventPicture
+	
+    is_triggered_only = yes 
+    
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_ruler_training.21.option.a
+		
+		increment_training = yes
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+    option = {
+		name = wwu_ruler_training.21.option.b
+		
+        add_adm_power = 50
+        
+		ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Putting in the Time
+country_event = {
+	id = wwu_ruler_training.22
+	title = wwu_ruler_training.22.title
+	desc = wwu_ruler_training.22.desc
+	picture = DIPLOMACY_eventPicture
+	
+    is_triggered_only = yes 
+    
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_ruler_training.22.option.a
+		
+		increment_training = yes
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+    option = {
+		name = wwu_ruler_training.22.option.b
+		
+        add_prestige = 10
+        
+		ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Productive Focus
+country_event = {
+	id = wwu_ruler_training.23
+	title = wwu_ruler_training.23.title
+	desc = wwu_ruler_training.23.desc
+	picture = INVENTION_eventPicture
+	
+    is_triggered_only = yes 
+    
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_ruler_training.23.option.a
+		
+		increment_training = yes
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+    option = {
+		name = wwu_ruler_training.23.option.b
+		
+        add_mil_power = 50
+        
+		ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Requirements for Success
+country_event = {
+	id = wwu_ruler_training.24
+	title = wwu_ruler_training.24.title
+	desc = wwu_ruler_training.24.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+    is_triggered_only = yes 
+    
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_ruler_training.24.option.a
+		
+		increment_training = yes
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+    option = {
+		name = wwu_ruler_training.24.option.b
+		
+        add_dip_power = 50
+        
+		ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# [Root.GetRulerClassInTraining] Trainer Frustrated
+country_event = {
+	id = wwu_ruler_training.25
+	title = wwu_ruler_training.25.title
+	desc = wwu_ruler_training.25.desc
+	picture = OVEREXTENSION_eventPicture
+	
+    is_triggered_only = yes 
+    
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_ruler_training.25.option.a
+		
+		increment_training = yes
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+    option = {
+		name = wwu_ruler_training.25.option.b
+		
+        add_prestige = 10
+        
+		ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Assessment by Peers
+country_event = {
+	id = wwu_ruler_training.26
+	title = wwu_ruler_training.26.title
+	desc = wwu_ruler_training.26.desc
+	picture = REFORM_eventPicture
+	
+    is_triggered_only = yes 
+    
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_ruler_training.26.option.a
+		
+		increment_training = yes
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+    option = {
+		name = wwu_ruler_training.26.option.b
+		
+        add_mil_power = 50
+        
+		ai_chance = {
+            factor = 0
+        }
+	}
+}
+
+# Demanding Special Concessions
+country_event = {
+	id = wwu_ruler_training.27
+	title = wwu_ruler_training.27.title
+	desc = wwu_ruler_training.27.desc
+	picture = WESTERNISATION_eventPicture
+	
+    is_triggered_only = yes 
+    
+	trigger = { 
+        has_ruler_flag = ruler_is_training
+    }
+	
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_ruler_training.27.option.a
+		
+		increment_training = yes
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+    option = {
+		name = wwu_ruler_training.27.option.b
+		
+        add_prestige = 10
+        
+		ai_chance = {
+            factor = 0
+        }
 	}
 }
