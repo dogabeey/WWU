@@ -1261,12 +1261,45 @@ wwu_innovation_leaders_of_legend = {
 #-----------------------------------------
 # Time for Change? 
 #-----------------------------------------
+# Generic 
+wwu_switch_consolidate_power = {
+	icon = "orb_1"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        yearly_absolutism = 0.5
+        max_absolutism = 10
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+wwu_switch_delegate_power = {
+	icon = "ancient_text"
+	allow_normal_conversion = yes
+
+	modifiers = {
+        reform_progress_growth = 0.1
+        governing_capacity_modifier = 0.1
+	}
+    
+    ai = {
+		factor = 1
+	}
+}
+
+# Base switch options
 wwu_switch_become_a_monarchy = {
 	icon = "control_is_king"
 	allow_normal_conversion = yes
 
+    potential = {
+        NOT = { has_unique_government_switch_reform = yes }
+    }
+    
 	trigger = {
-
 		OR = {
             AND = {
                 NOT = { has_reform = dwarven_clan_reform }
@@ -1293,6 +1326,10 @@ wwu_switch_become_a_republic = {
 	icon = "book_3"
 	allow_normal_conversion = yes
 
+    potential = {
+        NOT = { has_unique_government_switch_reform = yes }
+    }
+    
 	trigger = {
 		NOT = { has_government_attribute = locked_government_type }
 		is_emperor = no
@@ -1312,7 +1349,11 @@ wwu_switch_become_a_republic = {
 wwu_switch_become_a_theocracy = {
 	icon = "clarity_of_purpose"
 	allow_normal_conversion = yes
-
+    
+    potential = {
+        NOT = { has_unique_government_switch_reform = yes }
+    }
+    
 	trigger = {
 		NOT = { has_government_attribute = locked_government_type }
 		is_emperor = no
@@ -1330,26 +1371,22 @@ wwu_switch_become_a_theocracy = {
 	}
 }
 
-wwu_switch_consolidate_power = {
-	icon = "orb_1"
+# Unique Government Switch options
+wwu_switch_troll_kingdom_centralize_kingdom = {
+	icon = "ancient_history"
 	allow_normal_conversion = yes
 
-	modifiers = {
-        yearly_absolutism = 0.5
-        max_absolutism = 10
-	}
-    
-    ai = {
-		factor = 1
-	}
-}
+    trigger = {
+        has_reform = troll_kingdom_reform
+    }
 
-wwu_switch_delegate_power = {
-	icon = "ancient_text"
-	allow_normal_conversion = yes
+    nomad = no
+    generals_become_rulers = no
+    heir = yes
+    queen = yes
+    republican_name = no
 
 	modifiers = {
-        reform_progress_growth = 0.1
         governing_capacity_modifier = 0.1
 	}
     
