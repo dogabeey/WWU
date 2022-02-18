@@ -1,450 +1,292 @@
 namespace = wwu_archaeology
 
-# "Archaeological Dig"
+# Excavation Begins
 country_event = {
 	id = wwu_archaeology.1
 	title = wwu_archaeology.1.title
 	desc = wwu_archaeology.1.desc
 	picture = DWARF_eventPicture
-    hidden = yes
     
-	trigger = {
-		has_country_flag = archaeological_project_started
-	}
+	is_triggered_only = yes
 	
 	mean_time_to_happen = {
-		months = 6
+		days = 1
 	}
 	
 	immediate = {
-		clr_country_flag = archaeological_project_started
-		
-			hidden_effect = {
-				random_list = {
-					10 = {
-							country_event = { id = wwu_archaeology.2 }
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_apocalypse }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.3 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_apocalypse }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_twinblades_of_deceiver }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.4 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_twinblades_of_deceiver }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_thasdorah }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.5 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_thasdorah }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_aluneth }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.6 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_aluneth }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_sheilun }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.7 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_sheilun }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_ashbringer }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.8 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_ashbringer }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_xalatath }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.9 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_xalatath }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_doomhammer }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.10 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_doomhammer }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_the_dreadblades }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.11 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_the_dreadblades }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_skull_of_manari }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.12 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_skull_of_manari }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_warswords_of_valarjar }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.13 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_warswords_of_valarjar }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-					1 = {
-						if = {
-							limit = {
-								NOT = {
-									any_country = { has_country_flag = artifact_scythe_of_elune }
-								}
-							}
-							
-							country_event = { id = wwu_archaeology.14 }
-						}
-						if = {
-							limit = {
-								any_country = { has_country_flag = artifact_scythe_of_elune }
-							}
-							add_country_modifier = { 
-								name = archaeology_fragment
-								duration = 7300
-							}
-							
-							country_event = { id = wwu_archaeology.15 }
-						}
-					}
-				}
-			}
+		hidden_effect = {
+            set_country_flag = dig_begins
+            set_variable = {
+                which = excavation_progress
+                value = 0
+            }
+            
+            random_owned_province = {   
+                add_province_modifier = {
+                    name = dig_in_progress
+                    duration = -1
+                }
+                save_event_target_as = excavation_province
+            }
+        }
 	}
 	
 	option = {
 		name = wwu_archaeology.1.option.a
 		
-		
+		custom_tooltip = CURRENT_EXCAVATION_PROGRESS
 	}
 }
 
-# "Excavation Failure"
+# Dig in Jeopardy
 country_event = {
 	id = wwu_archaeology.2
 	title = wwu_archaeology.2.title
 	desc = wwu_archaeology.2.desc
-	picture = SWORD_SHIELD_eventPicture
-	
-	is_triggered_only = yes
+	picture = DWARF_eventPicture
+    
+    trigger = {
+        has_country_flag = dig_begins
+        NOT = { has_country_modifier = archaeology_dig_event_cooldown }
+    }
 
+	mean_time_to_happen = {
+		months = 32
+	}
+	
+	immediate = {
+		hidden_effect = {
+            add_country_modifier = {
+                name = archaeology_dig_event_cooldown
+                duration = 90
+                hidden = yes
+            }
+            every_owned_province = {
+                limit = {
+                    has_province_modifier = dig_in_progress
+                }
+                
+                save_event_target_as = excavation_province
+            }
+        }
+	}
+	
 	option = {
 		name = wwu_archaeology.2.option.a
+		
+		increment_dig = yes
+        
+        every_owned_province = {
+            limit = {
+                has_province_modifier = dig_in_progress
+            }
+            
+            add_scaled_local_adm_power = -5
+        }
+	}
+    option = {
+		name = wwu_archaeology.2.option.b
+		
+		decrement_dig = yes
 	}
 }
 
-# "Found Apocalypse!"
+# Archaeologist Fumbles
 country_event = {
 	id = wwu_archaeology.3
 	title = wwu_archaeology.3.title
 	desc = wwu_archaeology.3.desc
-	picture = SWORD_SHIELD_eventPicture
-	
-	is_triggered_only = yes
+	picture = DWARF_eventPicture
+    
+    trigger = {
+        has_country_flag = dig_begins
+        NOT = { has_country_modifier = archaeology_dig_event_cooldown }
+    }
 
+	mean_time_to_happen = {
+		months = 32
+	}
+	
+	immediate = {
+		hidden_effect = {
+            add_country_modifier = {
+                name = archaeology_dig_event_cooldown
+                duration = 90
+                hidden = yes
+            }
+            every_owned_province = {
+                limit = {
+                    has_province_modifier = dig_in_progress
+                }
+                
+                save_event_target_as = excavation_province
+            }
+        }
+	}
+	
 	option = {
 		name = wwu_archaeology.3.option.a
 		
-        unlock_artifact = {
-            artifact = apocalypse
+		increment_dig = yes
+        
+        every_owned_province = {
+            limit = {
+                has_province_modifier = dig_in_progress
+            }
+            
+            add_devastation = 10
         }
+	}
+    option = {
+		name = wwu_archaeology.3.option.b
+		
+		decrement_dig = yes
 	}
 }
 
-# "Found Twinblades of Deceiver!"
+# Local Complaints
 country_event = {
 	id = wwu_archaeology.4
 	title = wwu_archaeology.4.title
 	desc = wwu_archaeology.4.desc
-	picture = SWORD_SHIELD_eventPicture
-	
-	is_triggered_only = yes
+	picture = DWARF_eventPicture
+    
+    trigger = {
+        has_country_flag = dig_begins
+        NOT = { has_country_modifier = archaeology_dig_event_cooldown }
+    }
 
+	mean_time_to_happen = {
+		months = 32
+	}
+	
+	immediate = {
+		hidden_effect = {
+            add_country_modifier = {
+                name = archaeology_dig_event_cooldown
+                duration = 90
+                hidden = yes
+            }
+            every_owned_province = {
+                limit = {
+                    has_province_modifier = dig_in_progress
+                }
+                
+                save_event_target_as = excavation_province
+            }
+        }
+	}
+	
 	option = {
 		name = wwu_archaeology.4.option.a
 		
-        unlock_artifact = {
-            artifact = twinblades_of_deceiver
+		increment_dig = yes
+        
+        every_owned_province = {
+            limit = {
+                has_province_modifier = dig_in_progress
+            }
+            
+            add_local_autonomy = 10
         }
+	}
+    option = {
+		name = wwu_archaeology.4.option.b
+		
+		decrement_dig = yes
 	}
 }
 
-# "Found Thas'dorah, Legacy of the Windrunners!"
+# Dig Breakthrough
 country_event = {
 	id = wwu_archaeology.5
 	title = wwu_archaeology.5.title
 	desc = wwu_archaeology.5.desc
-	picture = SWORD_SHIELD_eventPicture
-	
-	is_triggered_only = yes
+	picture = DWARF_eventPicture
+    
+    trigger = {
+        has_country_flag = dig_begins
+        NOT = { has_country_modifier = archaeology_dig_event_cooldown }
+    }
 
+	mean_time_to_happen = {
+		months = 32
+	}
+	
+	immediate = {
+		hidden_effect = {
+            add_country_modifier = {
+                name = archaeology_dig_event_cooldown
+                duration = 90
+                hidden = yes
+            }
+            every_owned_province = {
+                limit = {
+                    has_province_modifier = dig_in_progress
+                }
+                
+                save_event_target_as = excavation_province
+            }
+        }
+	}
+	
 	option = {
 		name = wwu_archaeology.5.option.a
 		
-        unlock_artifact = {
-            artifact = thasdorah
-        }
+		increment_dig = yes
+        
 	}
 }
 
-# "Found Aluneth!"
+# Dig Success!
 country_event = {
 	id = wwu_archaeology.6
 	title = wwu_archaeology.6.title
 	desc = wwu_archaeology.6.desc
-	picture = SWORD_SHIELD_eventPicture
-	
-	is_triggered_only = yes
+	picture = DWARF_eventPicture
+    
+    trigger = {
+        has_country_flag = dig_begins
+        NOT = { has_country_modifier = archaeology_dig_event_cooldown }
+    }
 
-	option = {
-		name = wwu_archaeology.6.option.a
-		
-        unlock_artifact = {
-            artifact = aluneth
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		hidden_effect = {
+            add_country_modifier = {
+                name = archaeology_dig_event_cooldown
+                duration = 90
+                hidden = yes
+            }
+            every_owned_province = {
+                limit = {
+                    has_province_modifier = dig_in_progress
+                }
+                
+                save_event_target_as = excavation_province
+            }
         }
+	}
+	
+	option = {
+		name = wwu_archaeology.5.option.a
+		
+		increment_dig_massively = yes 
 	}
 }
 
-# "Found Sheilun, Staff of The Mists!"
-country_event = {
-	id = wwu_archaeology.7
-	title = wwu_archaeology.7.title
-	desc = wwu_archaeology.7.desc
-	picture = SWORD_SHIELD_eventPicture
-	
-	is_triggered_only = yes
-
-	option = {
-		name = wwu_archaeology.7.option.a
-		
-        unlock_artifact = {
-            artifact = sheilun
-        }
-	}
-}
-
-# "Found The Ashbringer!"
-country_event = {
-	id = wwu_archaeology.8
-	title = wwu_archaeology.8.title
-	desc = wwu_archaeology.8.desc
-	picture = SWORD_SHIELD_eventPicture
-	
-	is_triggered_only = yes
-
-	option = {
-		name = wwu_archaeology.8.option.a
-		
-        unlock_artifact = {
-            artifact = ashbringer
-        }
-	}
-}
-
-# "Found Xalatath, Blade of The Black Empire!"
-country_event = {
-	id = wwu_archaeology.9
-	title = wwu_archaeology.9.title
-	desc = wwu_archaeology.9.desc
-	picture = SWORD_SHIELD_eventPicture
-	
-	is_triggered_only = yes
-
-	option = {
-		name = wwu_archaeology.9.option.a
-		
-        unlock_artifact = {
-            artifact = xalatath
-        }
-	}
-}
-
-# "Found Doomhammer"
+#---------------------------
+# Artifacts
+#---------------------------
+# Apocalypse
 country_event = {
 	id = wwu_archaeology.10
 	title = wwu_archaeology.10.title
 	desc = wwu_archaeology.10.desc
-	picture = SWORD_SHIELD_eventPicture
+	picture = BIG_BOOK_eventPicture
 	
 	is_triggered_only = yes
 
@@ -452,17 +294,17 @@ country_event = {
 		name = wwu_archaeology.10.option.a
 		
         unlock_artifact = {
-            artifact = doomhammer
+            artifact = apocalypse
         }
 	}
 }
 
-# "Found The Dreadblades!"
+# Twinblades of the Deceiver
 country_event = {
 	id = wwu_archaeology.11
 	title = wwu_archaeology.11.title
 	desc = wwu_archaeology.11.desc
-	picture = SWORD_SHIELD_eventPicture
+	picture = BIG_BOOK_eventPicture
 	
 	is_triggered_only = yes
 
@@ -470,35 +312,35 @@ country_event = {
 		name = wwu_archaeology.11.option.a
 		
         unlock_artifact = {
-            artifact = dreadblades
+            artifact = twinblades_of_deceiver
         }
 	}
 }
 
-# "Found Skull of Man'ari!"
+# Thas'dorah
 country_event = {
 	id = wwu_archaeology.12
 	title = wwu_archaeology.12.title
 	desc = wwu_archaeology.12.desc
-	picture = SWORD_SHIELD_eventPicture
+	picture = BIG_BOOK_eventPicture
 	
 	is_triggered_only = yes
- 
+
 	option = {
 		name = wwu_archaeology.12.option.a
-        
+		
         unlock_artifact = {
-            artifact = skull_of_manari
+            artifact = thasdorah
         }
 	}
 }
 
-# "Found Warswords of Valarjar!"
+# Aluneth
 country_event = {
 	id = wwu_archaeology.13
 	title = wwu_archaeology.13.title
 	desc = wwu_archaeology.13.desc
-	picture = SWORD_SHIELD_eventPicture
+	picture = BIG_BOOK_eventPicture
 	
 	is_triggered_only = yes
 
@@ -506,17 +348,17 @@ country_event = {
 		name = wwu_archaeology.13.option.a
 		
         unlock_artifact = {
-            artifact = warswords_of_valarjar
+            artifact = aluneth
         }
 	}
 }
 
-# "Found the Scythe of Elune!"
+# Sheilun
 country_event = {
 	id = wwu_archaeology.14
 	title = wwu_archaeology.14.title
 	desc = wwu_archaeology.14.desc
-	picture = SWORD_SHIELD_eventPicture
+	picture = BIG_BOOK_eventPicture
 	
 	is_triggered_only = yes
 
@@ -524,27 +366,766 @@ country_event = {
 		name = wwu_archaeology.14.option.a
 		
         unlock_artifact = {
-            artifact = scythe_of_elune
+            artifact = sheilun
         }
 	}
 }
 
-# "Found Archaeology Fragments"
+# Ashbringer
 country_event = {
 	id = wwu_archaeology.15
 	title = wwu_archaeology.15.title
 	desc = wwu_archaeology.15.desc
-	picture = SWORD_SHIELD_eventPicture
+	picture = BIG_BOOK_eventPicture
 	
 	is_triggered_only = yes
 
 	option = {
 		name = wwu_archaeology.15.option.a
 		
-		add_country_modifier = { 
-			name = archaeology_fragment
-			duration = 7300
-			
-		}
+        unlock_artifact = {
+            artifact = ashbringer
+        }
+	}
+}
+
+# Xalatath
+country_event = {
+	id = wwu_archaeology.16
+	title = wwu_archaeology.16.title
+	desc = wwu_archaeology.16.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.16.option.a
+		
+        unlock_artifact = {
+            artifact = xalatath
+        }
+	}
+}
+
+# Doomhammer
+country_event = {
+	id = wwu_archaeology.17
+	title = wwu_archaeology.17.title
+	desc = wwu_archaeology.17.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.17.option.a
+		
+        unlock_artifact = {
+            artifact = doomhammer
+        }
+	}
+}
+
+# Dreadblades
+country_event = {
+	id = wwu_archaeology.18
+	title = wwu_archaeology.18.title
+	desc = wwu_archaeology.18.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.18.option.a
+		
+        unlock_artifact = {
+            artifact = dreadblades
+        }
+	}
+}
+
+# Skull of Man'ari
+country_event = {
+	id = wwu_archaeology.19
+	title = wwu_archaeology.19.title
+	desc = wwu_archaeology.19.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+ 
+	option = {
+		name = wwu_archaeology.19.option.a
+        
+        unlock_artifact = {
+            artifact = skull_of_manari
+        }
+	}
+}
+
+# Warswords of Valajar
+country_event = {
+	id = wwu_archaeology.20
+	title = wwu_archaeology.20.title
+	desc = wwu_archaeology.20.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.20.option.a
+		
+        unlock_artifact = {
+            artifact = warswords_of_valarjar
+        }
+	}
+}
+
+# Scythe of Elune
+country_event = {
+	id = wwu_archaeology.21
+	title = wwu_archaeology.21.title
+	desc = wwu_archaeology.21.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.21.option.a
+		
+        unlock_artifact = {
+            artifact = scythe_of_elune
+        }
+	}
+}
+
+# Maw of the Damned
+country_event = {
+	id = wwu_archaeology.22
+	title = wwu_archaeology.22.title
+	desc = wwu_archaeology.22.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.22.option.a
+		
+        unlock_artifact = {
+            artifact = maw_of_the_damned
+        }
+	}
+}
+
+# Blades of the Fallen Prince
+country_event = {
+	id = wwu_archaeology.23
+	title = wwu_archaeology.23.title
+	desc = wwu_archaeology.23.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.23.option.a
+		
+        unlock_artifact = {
+            artifact = blades_of_the_fallen_prince
+        }
+	}
+}
+
+# Aldrachi Warblades
+country_event = {
+	id = wwu_archaeology.24
+	title = wwu_archaeology.24.title
+	desc = wwu_archaeology.24.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.24.option.a
+		
+        unlock_artifact = {
+            artifact = aldrachi_warblades
+        }
+	}
+}
+
+# Fangs of Ashamane
+country_event = {
+	id = wwu_archaeology.25
+	title = wwu_archaeology.25.title
+	desc = wwu_archaeology.25.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.25.option.a
+		
+        unlock_artifact = {
+            artifact = fangs_of_ashamane
+        }
+	}
+}
+
+# Claws of Ursoc
+country_event = {
+	id = wwu_archaeology.26
+	title = wwu_archaeology.26.title
+	desc = wwu_archaeology.26.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.26.option.a
+		
+        unlock_artifact = {
+            artifact = claws_of_ursoc
+        }
+	}
+}
+
+# G'Hanir
+country_event = {
+	id = wwu_archaeology.27
+	title = wwu_archaeology.27.title
+	desc = wwu_archaeology.27.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.27.option.a
+		
+        unlock_artifact = {
+            artifact = ghanir
+        }
+	}
+}
+
+# Titanstrike
+country_event = {
+	id = wwu_archaeology.28
+	title = wwu_archaeology.28.title
+	desc = wwu_archaeology.28.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.28.option.a
+		
+        unlock_artifact = {
+            artifact = titanstrike
+        }
+	}
+}
+
+# Talonclaw
+country_event = {
+	id = wwu_archaeology.29
+	title = wwu_archaeology.29.title
+	desc = wwu_archaeology.29.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.29.option.a
+		
+        unlock_artifact = {
+            artifact = talonclaw
+        }
+	}
+}
+
+# Felo'melorn
+country_event = {
+	id = wwu_archaeology.30
+	title = wwu_archaeology.30.title
+	desc = wwu_archaeology.30.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.30.option.a
+		
+        unlock_artifact = {
+            artifact = felomelorn
+        }
+	}
+}
+
+# Ebonchill
+country_event = {
+	id = wwu_archaeology.31
+	title = wwu_archaeology.31.title
+	desc = wwu_archaeology.31.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.31.option.a
+		
+        unlock_artifact = {
+            artifact = ebonchill
+        }
+	}
+}
+
+# Fu Zan
+country_event = {
+	id = wwu_archaeology.32
+	title = wwu_archaeology.32.title
+	desc = wwu_archaeology.32.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.32.option.a
+		
+        unlock_artifact = {
+            artifact = fu_zan
+        }
+	}
+}
+
+# Fists of the Heavens
+country_event = {
+	id = wwu_archaeology.33
+	title = wwu_archaeology.33.title
+	desc = wwu_archaeology.33.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.33.option.a
+		
+        unlock_artifact = {
+            artifact = fists_of_the_heavens
+        }
+	}
+}
+
+# The Silver Hand
+country_event = {
+	id = wwu_archaeology.34
+	title = wwu_archaeology.34.title
+	desc = wwu_archaeology.34.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.34.option.a
+		
+        unlock_artifact = {
+            artifact = silver_hand
+        }
+	}
+}
+
+# Truthguard
+country_event = {
+	id = wwu_archaeology.35
+	title = wwu_archaeology.35.title
+	desc = wwu_archaeology.35.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.35.option.a
+		
+        unlock_artifact = {
+            artifact = truthguard
+        }
+	}
+}
+
+# Light's Wrath
+country_event = {
+	id = wwu_archaeology.36
+	title = wwu_archaeology.36.title
+	desc = wwu_archaeology.36.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.36.option.a
+		
+        unlock_artifact = {
+            artifact = lights_wrath
+        }
+	}
+}
+
+# T'uure
+country_event = {
+	id = wwu_archaeology.37
+	title = wwu_archaeology.37.title
+	desc = wwu_archaeology.37.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.37.option.a
+		
+        unlock_artifact = {
+            artifact = tuure
+        }
+	}
+}
+
+# Kingslayers
+country_event = {
+	id = wwu_archaeology.38
+	title = wwu_archaeology.38.title
+	desc = wwu_archaeology.38.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.38.option.a
+		
+        unlock_artifact = {
+            artifact = kingslayers
+        }
+	}
+}
+
+# Fangs of the Devourer
+country_event = {
+	id = wwu_archaeology.39
+	title = wwu_archaeology.39.title
+	desc = wwu_archaeology.39.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.39.option.a
+		
+        unlock_artifact = {
+            artifact = fangs_of_the_devourer
+        }
+	}
+}
+
+# Fist of Ra-den
+country_event = {
+	id = wwu_archaeology.40
+	title = wwu_archaeology.40.title
+	desc = wwu_archaeology.40.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.40.option.a
+		
+        unlock_artifact = {
+            artifact = fist_of_raden
+        }
+	}
+}
+
+# Sharas'dal
+country_event = {
+	id = wwu_archaeology.41
+	title = wwu_archaeology.41.title
+	desc = wwu_archaeology.41.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.41.option.a
+		
+        unlock_artifact = {
+            artifact = sharasdal
+        }
+	}
+}
+
+# Ulthalesh
+country_event = {
+	id = wwu_archaeology.42
+	title = wwu_archaeology.42.title
+	desc = wwu_archaeology.42.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.42.option.a
+		
+        unlock_artifact = {
+            artifact = ulthalesh
+        }
+	}
+}
+
+# Scepter of Sargeras
+country_event = {
+	id = wwu_archaeology.43
+	title = wwu_archaeology.43.title
+	desc = wwu_archaeology.43.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.43.option.a
+		
+        unlock_artifact = {
+            artifact = scepter_of_sargeras
+        }
+	}
+}
+
+# Strom'kar
+country_event = {
+	id = wwu_archaeology.44
+	title = wwu_archaeology.44.title
+	desc = wwu_archaeology.44.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.44.option.a
+		
+        unlock_artifact = {
+            artifact = stromkar
+        }
+	}
+}
+
+# Scale of the Earth-warder
+country_event = {
+	id = wwu_archaeology.45
+	title = wwu_archaeology.45.title
+	desc = wwu_archaeology.45.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.45.option.a
+		
+        unlock_artifact = {
+            artifact = scale_of_the_earthwarder
+        }
+	}
+}
+
+# Underlight Angler
+country_event = {
+	id = wwu_archaeology.46
+	title = wwu_archaeology.46.title
+	desc = wwu_archaeology.46.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.46.option.a
+		
+        unlock_artifact = {
+            artifact = underlight_angler
+        }
+	}
+}
+
+# Minor Discovery: Ancient Crown
+country_event = {
+	id = wwu_archaeology.90
+	title = wwu_archaeology.90.title
+	desc = wwu_archaeology.90.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.90.option.a
+		
+        add_treasury = 600
+	}
+}
+
+# Minor Discovery: Carved Figurine
+country_event = {
+	id = wwu_archaeology.91
+	title = wwu_archaeology.91.title
+	desc = wwu_archaeology.91.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.91.option.a
+		
+        add_treasury = 100
+	}
+}
+
+# Minor Discovery: Golden Tankard
+country_event = {
+	id = wwu_archaeology.92
+	title = wwu_archaeology.92.title
+	desc = wwu_archaeology.92.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.92.option.a
+		
+        add_treasury = 250
+	}
+}
+
+# Minor Discovery: Treasure Chest
+country_event = {
+	id = wwu_archaeology.93
+	title = wwu_archaeology.93.title
+	desc = wwu_archaeology.93.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.93.option.a
+		
+        add_treasury = 1000
+	}
+}
+
+# Minor Discovery: Music Box
+country_event = {
+	id = wwu_archaeology.94
+	title = wwu_archaeology.94.title
+	desc = wwu_archaeology.94.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.94.option.a
+		
+        add_treasury = 500
+	}
+}
+
+# Minor Discovery: Notched Sword
+country_event = {
+	id = wwu_archaeology.95
+	title = wwu_archaeology.95.title
+	desc = wwu_archaeology.95.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = wwu_archaeology.95.option.a
+		
+        add_treasury = 300
+	}
+}
+
+# Dig Reward
+country_event = {
+	id = wwu_archaeology.100
+	title = wwu_archaeology.100.title
+	desc = wwu_archaeology.100.desc
+	picture = DWARF_eventPicture
+    
+    hidden = yes
+    
+    trigger = {
+        has_country_flag = dig_begins
+        check_variable = {
+            which = excavation_progress
+            value = 5
+        }
+    }
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+            clr_country_flag = dig_begins
+            set_variable = {
+                which = excavation_progress
+                value = 0
+            }
+            every_owned_province = {
+                limit = {
+                    has_province_modifier = dig_in_progress
+                }
+                
+                remove_province_modifier = dig_in_progress
+            }
+        }
+	}
+	
+	option = {
+		name = wwu_archaeology.100.option.a
+		
+        reward_artifact = yes
+	}
+}
+
+# Cleanup - If Dig country loses the dig province
+country_event = {
+	id = wwu_archaeology.101
+	title = wwu_archaeology.101.title
+	desc = wwu_archaeology.101.desc
+	picture = DWARF_eventPicture
+    
+    hidden = yes
+    
+    trigger = {
+        has_country_flag = dig_begins
+        NOT = {
+            any_owned_province = {
+                has_province_modifier = dig_in_progress
+            }
+        }
+    }
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+            clr_country_flag = dig_begins
+            
+            every_province = {
+                limit = {
+                    has_province_modifier = dig_in_progress
+                }
+                
+                remove_province_modifier = dig_in_progress
+            }
+        }
+	}
+	
+	option = {
+		name = wwu_archaeology.101.option.a
+
 	}
 }

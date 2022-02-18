@@ -1,61 +1,53 @@
 country_decisions = {
     start_archeological_project = {
         potential = {
-			NOT = { has_country_flag = archaeological_project_started }
-			NOT = { 
-                OR = {
-                    any_country = { has_country_flag = artifact_apocalypse }
-                    any_country = { has_country_flag = artifact_twinblades_of_deceiver }
-                    any_country = { has_country_flag = artifact_scythe_of_elune }
-                    any_country = { has_country_flag = artifact_thasdorah }
-                    any_country = { has_country_flag = artifact_aluneth }
-                    any_country = { has_country_flag = artifact_sheilun }
-                    any_country = { has_country_flag = artifact_ashbringer }
-                    any_country = { has_country_flag = artifact_xalatath }
-                    any_country = { has_country_flag = artifact_dreadblades }
-                    any_country = { has_country_flag = artifact_doomhammer }
-                    any_country = { has_country_flag = artifact_skull_of_manari }
-                    any_country = { has_country_flag = artifact_warswords_of_valarjar }
-                } 
-            }
+			NOT = { has_country_flag = dig_begins }
         }
         allow = {
-			OR = {
-				AND = {
-					has_country_modifier = archaeology_fragment
-					adm_power = 15
-					treasury = 500
-				}
-				AND = {
-					NOT = { has_country_modifier = archaeology_fragment }
-					adm_power = 30
-					treasury = 1000
-				}
-			}
+			custom_trigger_tooltip = {
+                tooltip = HAS_NOT_STARTED_ARCHAEOLOGICAL_DIG
+                NOT = { has_country_flag = dig_begins }
+            }
+            
+            adm_power = 50
+            dip_power = 50
+            mil_power = 50
         }
         effect = {
-			add_adm_power = -30
-			add_treasury = -100
-			random_owned_province = {
-				limit = {
-					NOT = { devastation = 30 }
-				}
-				add_devastation = 30
-			}
-			custom_tooltip = start_archeological_project_tooltip
-			set_country_flag = archaeological_project_started
+			add_adm_power = -50
+            add_dip_power = -50
+            add_mil_power = -50
+            
+            country_event { id = wwu_archaeology.1 }
         }
         ai_will_do = {
             factor = 1
             
-			modifier = {
-				factor = 0
-				has_artifact = yes
-			}
+            modifier = {
+                factor = 0
+                
+                # Stop after 3 artifacts
+                calc_true_if = {
+                    amount = 3
+                    
+                    has_any_artifact = yes
+                }
+            }
             
 			modifier = {
 				factor = 0
-				NOT = { treasury = 2500 }
+				
+                NOT = { adm_power = 200 }
+			}
+            modifier = {
+				factor = 0
+				
+                NOT = { dip_power = 200 }
+			}
+            modifier = {
+				factor = 0
+				
+                NOT = { mil_power = 200 }
 			}
         }
     }
