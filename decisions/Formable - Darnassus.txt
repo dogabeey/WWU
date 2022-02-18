@@ -1,4 +1,38 @@
 country_decisions = {
+	create_world_tree = {
+		major = yes
+        
+		potential = {
+            has_global_flag = nordrassil_burned
+			NOT = { has_global_flag = seeds_of_teldrassil }
+            
+			religion = druidism
+		}
+		allow = {
+			scaled_treasury_check = yes
+            
+			adm_power = 100
+		}
+		effect = {
+			scaled_treasury_effect = yes
+            
+			add_adm_power = -100
+            
+            if = {
+                limit = {
+                    has_country_modifier = long_slumber_sickness
+                }
+                remove_country_modifier = long_slumber_sickness
+            }
+            
+			custom_tooltip = create_world_tree_tooltip
+			set_global_flag = seeds_of_teldrassil
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
     form_darnassus = {
 		major = yes
         ai_importance = 300
@@ -12,18 +46,18 @@ country_decisions = {
 			    tag = H01
 				tag = H02
 			}
+            
+            has_global_flag = seeds_of_teldrassil
 		}
         
         provinces_to_highlight = {
             NOT = { owned_by = ROOT }
-			region = region_teldrassil
+			province_id = 1065
 		}
         
 		allow = {
             # Ownership
-			region_teldrassil = {
-				owned_by = ROOT
-			}
+			owns_core_province = 1065
             
             # General
 			is_at_war = no	
@@ -43,6 +77,7 @@ country_decisions = {
             
             # Switch
 			change_tag = A94
+            
             if = {
 			    limit = {
 			        primary_culture = culture_sentinel
@@ -71,8 +106,19 @@ country_decisions = {
                 }
                 change_culture = culture_night_elf
             }
+            
+            region_teldrassil = {
+                cede_province = ROOT
+                add_core = ROOT
+                change_culture = culture_night_elf
+            }
+            
+            set_capital = 1073
+            
             # Bonus
             add_formable_bonus = yes
+            trigger_ni_switch = yes
+            #trigger_mission_switch = yes
 		}
 		
 		ai_will_do = {

@@ -1,49 +1,153 @@
 namespace = world_tree
 
+# Burning of Nordrassil
 country_event = {
 	id = world_tree.1
 	title = world_tree.1.title
 	desc = world_tree.1.desc
-	picture = NORDRASSILBURNING_eventPicture
+	picture = MANNOROTH_eventPicture
     
-	is_triggered_only = yes
+	major = yes
+    
+	trigger = {
+        NOT = { has_country_modifier = burning_nordrassil }
+		has_country_flag = burning_nordrassil_timer
+        NOT = {
+            any_country = {
+                has_country_modifier = destroyer_of_nordrassil
+            }
+        }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = burning_nordrassil_timer
+        }
+    }
 	
 	option = {
 		name = world_tree.1.option.a
-		trigger = {
-			is_pure_evil = yes
-		}
-	}
-	option = {
-		name = world_tree.1.option.b
-		trigger = {
-			NOT = {
-				is_pure_evil = yes
-			}
-		}
+		
+        add_country_modifier = {
+            name = destroyer_of_nordrassil
+            duration = -1
+        }
+        
+        custom_tooltip = burn_nordrassil_tt
+        hidden_effect = {
+            every_country = {
+                limit = { religion = druidism }
+                add_opinion = {
+                    who = ROOT
+                    modifier = burned_world_tree_opinion
+                }
+            }
+            every_province = {
+                limit = { 
+                    continent = continent_kalimdor
+                }
+                owner = {
+                    add_opinion = {
+                        who = ROOT
+                        modifier = burned_world_tree_province_opinion
+                    }
+                }
+            }
+            
+            hide_ambient_object = nordrassil_01
+            set_global_flag = nordrassil_burned
+        }
+        
+        region_mount_hyjal = {
+            add_devastation = 50
+            add_permanent_province_modifier = {
+                name = world_tree_destruction
+                duration = -1
+            }
+        }
+        
+        area_nordrassil = {
+            add_devastation = 100
+            set_base_tax = 1
+            set_base_production = 1
+            set_base_manpower = 1
+        }
 	}
 }
 
+# Burning of Teldrassil
 country_event = {
 	id = world_tree.2
 	title = world_tree.2.title
 	desc = world_tree.2.desc
-	picture = NORDRASSILBURNING_eventPicture
+	picture = MANNOROTH_eventPicture
     
-	is_triggered_only = yes
+	major = yes
+    
+	trigger = {
+        NOT = { has_country_modifier = burning_teldrassil }
+		has_country_flag = burning_teldrassil_timer
+        NOT = {
+            any_country = {
+                has_country_modifier = destroyer_of_nordrassil
+            }
+        }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = burning_teldrassil_timer
+        }
+    }
 	
 	option = {
 		name = world_tree.2.option.a
-		trigger = {
-			is_pure_evil = yes
-		}
-	}
-	option = {
-		name = world_tree.2.option.b
-		trigger = {
-			NOT = {
-				is_pure_evil = yes
-			}
-		}
+		
+        add_country_modifier = {
+            name = destroyer_of_teldrassil
+            duration = -1
+        }
+        
+        custom_tooltip = burn_teldrassil_tt
+        
+        hidden_effect = {
+            every_country = {
+                limit = { religion = druidism }
+                add_opinion = {
+                    who = ROOT
+                    modifier = burned_world_tree_opinion
+                }
+            }
+            every_province = {
+                limit = { 
+                    continent = continent_kalimdor
+                }
+                owner = {
+                    add_opinion = {
+                        who = ROOT
+                        modifier = burned_world_tree_province_opinion
+                    }
+                }
+            }
+            
+            set_global_flag = teldrassil_burned
+        }
+        
+        region_teldrassil = {
+            cede_province = ---
+            
+            add_permanent_province_modifier = {
+                name = world_tree_destruction
+                duration = -1
+            }
+        }
 	}
 }

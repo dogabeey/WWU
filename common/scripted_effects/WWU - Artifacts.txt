@@ -1,0 +1,563 @@
+# List of artifacts:
+# apocalypse
+# twinblades_of_the_deceiver
+# thasdorah
+# aluneth
+# sheilun
+# ashbringer
+# xalatath
+# doomhammer
+# dreadblades
+# skull_of_manari
+# warswords_of_valajar
+# scythe_of_elune
+# maw_of_the_damned
+# blades_of_the_fallen_prince
+# aldrachi_warblades
+# fangs_of_ashamane
+# claws_of_ursoc
+# ghanir
+# titanstrike
+# talonclaw
+# felomelorn
+# ebonchill
+# fu_zan
+# fists_of_the_heavens
+# silver_hand
+# truthguard
+# lights_wrath
+# tuure
+# kingslayers
+# fangs_of_the_devourer
+# fist_of_raden
+# sharasdal
+# ulthalesh
+# scepter_of_sargeras
+# stromkar
+# scale_of_the_earthwarder
+# underlight_angler
+
+increment_dig = {
+    custom_tooltip = INCREMENT_DIG_TT
+    
+    hidden_effect = {
+        change_variable = {
+            which = excavation_progress
+            value = 1
+        }
+        
+        if = {
+            limit = {
+                check_variable = {
+                    which = excavation_progress
+                    value = 5
+                }
+            }
+            set_variable = {
+                which = excavation_progress
+                value = 5
+            }
+        }
+    }
+}
+
+increment_dig_massively = {
+    custom_tooltip = INCREMENT_DIG_MASSIVELY_TT
+    
+    hidden_effect = {
+        change_variable = {
+            which = excavation_progress
+            value = 3
+        }
+        
+        if = {
+            limit = {
+                check_variable = {
+                    which = excavation_progress
+                    value = 5
+                }
+            }
+            set_variable = {
+                which = excavation_progress
+                value = 5
+            }
+        }
+    }
+}
+
+decrement_dig = {
+    custom_tooltip = DECREMENT_DIG_TT
+    
+    hidden_effect = {
+        subtract_variable = {
+            which = excavation_progress
+            value = 1
+        }
+        
+        if = {
+            limit = {
+                NOT = { 
+                    check_variable = {
+                        which = excavation_progress
+                        value = 0
+                    }
+                }
+            }
+            set_variable = {
+                which = excavation_progress
+                value = 0
+            }
+        }
+    }
+}
+
+reward_artifact = {
+    random_list = {
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_apocalypse
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.10 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_twinblades_of_deceiver
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.11 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_thasdorah
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.12 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_aluneth
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.13 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_sheilun
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.14 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_ashbringer
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.15 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_xalatath
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.16 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_doomhammer
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.17 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_dreadblades
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.18 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_skull_of_manari
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.19 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_warswords_of_valarjar
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.20 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_scythe_of_elune
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.21 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_maw_of_the_damned
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.22 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_blades_of_the_fallen_prince
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.23 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_aldrachi_warblades
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.24 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_fangs_of_ashamane
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.25 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_claws_of_ursoc
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.26 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_ghanir
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.27 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_titanstrike
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.28 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_talonclaw
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.29 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_felomelorn
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.30 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_ebonchill
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.31 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_fu_zan
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.32 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_fists_of_the_heavens
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.33 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_silver_hand
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.34 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_truthguard
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.35 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_lights_wrath
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.36 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_tuure
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.37 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_kingslayers
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.38 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_fangs_of_the_devourer
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.39 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_fist_of_raden
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.40 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_sharasdal
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.41 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_ulthalesh
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.42 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_scepter_of_sargeras
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.43 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_stromkar
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.44 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_scale_of_the_earthwarder
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.45 }
+        }
+        1 = {
+            trigger = {
+                NOT = {
+                    any_country = {
+                        has_country_flag = artifact_underlight_angler
+                    }
+                }
+            }
+            country_event = { id = wwu_archaeology.46 }
+        }
+        # Minor Reward
+        10 = {
+            country_event = { id = wwu_archaeology.90 }
+        }
+        17 = {
+            country_event = { id = wwu_archaeology.91 }
+        }
+        10 = {
+            country_event = { id = wwu_archaeology.92 }
+        }
+        5 = {
+            country_event = { id = wwu_archaeology.93 }
+        }
+        5 = {
+            country_event = { id = wwu_archaeology.94 }
+        }
+        10 = {
+            country_event = { id = wwu_archaeology.95 }
+        }
+    }
+}
+
+unlock_artifact = {
+    custom_tooltip = UNLOCK_ARTIFACT_$artifact$
+    
+    hidden_effect = {
+        set_country_flag = artifact_$artifact$
+    }
+}
+
+make_primary_artifact = {
+    custom_tooltip = MAKE_PRIMARY_ARTIFACT_$artifact$
+    
+    hidden_effect = {
+        clear_current_primary_artifact = yes
+        set_country_flag = primary_artifact_$artifact$
+    }
+}
+
+clear_current_primary_artifact = {
+    clr_country_flag = primary_artifact_apocalypse
+    clr_country_flag = primary_artifact_twinblades_of_the_deceiver
+    clr_country_flag = primary_artifact_thasdorah
+    clr_country_flag = primary_artifact_aluneth
+    clr_country_flag = primary_artifact_sheilun
+    clr_country_flag = primary_artifact_ashbringer
+    clr_country_flag = primary_artifact_xalatath
+    clr_country_flag = primary_artifact_doomhammer
+    clr_country_flag = primary_artifact_dreadblades
+    clr_country_flag = primary_artifact_skull_of_manari
+    clr_country_flag = primary_artifact_warswords_of_valajar
+    clr_country_flag = primary_artifact_scythe_of_elune
+    clr_country_flag = primary_artifact_maw_of_the_damned
+    clr_country_flag = primary_artifact_blades_of_the_fallen_prince
+    clr_country_flag = primary_artifact_aldrachi_warblades
+    clr_country_flag = primary_artifact_fangs_of_ashamane
+    clr_country_flag = primary_artifact_claws_of_ursoc
+    clr_country_flag = primary_artifact_ghanir
+    clr_country_flag = primary_artifact_titanstrike
+    clr_country_flag = primary_artifact_talonclaw
+    clr_country_flag = primary_artifact_felomelorn
+    clr_country_flag = primary_artifact_ebonchill
+    clr_country_flag = primary_artifact_fu_zan
+    clr_country_flag = primary_artifact_fists_of_the_heavens
+    clr_country_flag = primary_artifact_silver_hand
+    clr_country_flag = primary_artifact_truthguard
+    clr_country_flag = primary_artifact_lights_wrath
+    clr_country_flag = primary_artifact_tuure
+    clr_country_flag = primary_artifact_kingslayers
+    clr_country_flag = primary_artifact_fangs_of_the_devourer
+    clr_country_flag = primary_artifact_fist_of_raden
+    clr_country_flag = primary_artifact_sharasdal
+    clr_country_flag = primary_artifact_ulthalesh
+    clr_country_flag = primary_artifact_scepter_of_sargeras
+    clr_country_flag = primary_artifact_stromkar
+    clr_country_flag = primary_artifact_scale_of_the_earthwarder
+    clr_country_flag = primary_artifact_underlight_angler
+}

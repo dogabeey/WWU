@@ -1,0 +1,167 @@
+country_decisions = {
+    # Form Draenor
+	form_draenor_nation = {
+		major = yes
+        
+		potential = {
+			NOT = { has_country_flag = is_draenor_flag }
+            
+			culture_group = culture_group_orc
+            
+			capital_scope = {
+                continent = continent_draenor
+            }
+		}
+        provinces_to_highlight = {
+			OR = {			
+                region = region_frostfire_ridge  
+                region = region_gorgrond
+                region = region_talador  
+                region = region_tanaan_jungle
+                region = region_nagrand_draenor  
+                region = region_spires_of_arak
+                region = region_shadowmoon_valley_draenor
+			}
+			NOT = { owned_by = ROOT }
+		}
+        
+		allow = {
+			is_free_or_tributary_trigger = yes
+            
+            culture_group = culture_group_orc
+
+            region_frostfire_ridge = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_gorgrond = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_talador = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_tanaan_jungle = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_nagrand_draenor = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_spires_of_arak = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_shadowmoon_valley_draenor = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            
+			is_at_war = no
+			stability = 0
+            
+            adm_power = 100
+		}
+		effect = {
+            add_adm_power = -100
+            
+            hidden_effect = {
+                set_country_flag = is_draenor_flag
+            }
+            
+			override_country_name = DRAENOR
+            
+            add_formable_bonus = yes
+            trigger_ni_switch = yes
+            #trigger_mission_switch = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    # Form Draenor
+	form_draenor_nation_outland = {
+		major = yes
+        
+		potential = {
+			NOT = { has_country_flag = is_draenor_flag }
+            
+			culture_group = culture_group_orc
+            
+			capital_scope = {
+                continent = continent_outland
+            }
+		}
+        provinces_to_highlight = {
+			OR = {			
+                region = region_hellfire_peninsula  
+                region = region_zangarmarsh
+                region = region_terokkar_forest  
+                region = region_nagrand
+                region = region_shadowmoon_valley  
+                region = region_blades_edge_mountains
+                region = region_netherstorm
+			}
+			NOT = { owned_by = ROOT }
+		}
+        
+		allow = {
+			is_free_or_tributary_trigger = yes
+            
+            culture_group = culture_group_orc
+            
+            region_hellfire_peninsula = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_zangarmarsh = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_terokkar_forest = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_nagrand = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_shadowmoon_valley = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_blades_edge_mountains = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            region_netherstorm = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        
+			is_at_war = no
+			stability = 0
+            
+            adm_power = 100
+		}
+		effect = {
+            add_adm_power = -100
+            
+            hidden_effect = {
+                set_country_flag = is_draenor_flag
+            }
+            
+			override_country_name = DRAENOR
+            
+            add_formable_bonus = yes
+            trigger_ni_switch = yes
+            #trigger_mission_switch = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

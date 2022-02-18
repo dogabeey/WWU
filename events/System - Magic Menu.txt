@@ -1,0 +1,607 @@
+namespace = wwu_magic_menu
+
+#-----------------------------
+# Spell Menu - Order
+#-----------------------------
+country_event = {
+	id = wwu_magic_menu.1
+	title = wwu_magic_menu.1.title
+	desc = wwu_magic_menu.1.desc
+	picture = BIG_BOOK_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
+    # Poor - Conjure Feast
+    option = {
+		name = wwu_magic_menu.1.option.conjure_feast
+        
+        trigger = {
+            has_mana_1 = yes
+        }
+		
+        lose_mana_1 = yes
+        
+        conjure_feast_effect = yes
+	}
+    
+    # Poor - Soothe Minds
+    option = {
+		name = wwu_magic_menu.1.option.soothe_minds
+        
+        trigger = {
+            has_mana_2 = yes
+        }
+		
+        lose_mana_2 = yes
+        
+        soothe_minds_effect = yes
+	}
+    
+    # Poor - Polymorph
+    option = {
+		name = wwu_magic_menu.1.option.polymorph
+        
+        trigger = {
+            has_mana_2 = yes
+            any_owned_province = {
+                NOT = { culture = ROOT }
+            }
+        }
+		
+        lose_mana_2 = yes
+        
+        polymorph_effect = yes
+	}
+    
+    # Common - Apply Mass Invisibility
+    option = {
+		name = wwu_magic_menu.1.option.apply_mass_invisibility
+        
+        trigger = {
+            has_common_aptitude = yes
+            has_mana_1 = yes
+        }
+		
+        lose_mana_1 = yes
+        
+        apply_mass_invisibility_effect = yes
+	}
+    
+    # Common - Focus Magic
+    option = {
+		name = wwu_magic_menu.1.option.focus_magic
+        
+        trigger = {
+            has_common_aptitude = yes
+            has_mana_2 = yes
+        }
+		
+        lose_mana_2 = yes
+        
+        focus_magic_effect = yes
+	}
+    
+    # Rare - Summon Portals
+    option = {
+		name = wwu_magic_menu.1.option.summon_portals
+        
+        trigger = {
+            has_rare_aptitude = yes
+            has_mana_1 = yes
+        }
+		
+        lose_mana_1 = yes
+        
+        summon_portals_effect = yes
+	}
+    
+    # Rare - Display Prowess
+    option = {
+		name = wwu_magic_menu.1.option.display_prowess
+        
+        trigger = {
+            has_dlc = "Mandate of Heaven"
+            has_rare_aptitude = yes
+            has_mana_2 = yes
+        }
+		
+        lose_mana_2 = yes
+        
+        display_prowess_effect = yes
+	}
+    
+    # Epic - Transmute Gold
+    option = {
+		name = wwu_magic_menu.1.option.transmute_gold
+        
+        trigger = {
+            has_epic_aptitude = yes
+            has_mana_3 = yes
+        }
+		
+        lose_mana_3 = yes
+        
+        transmute_gold_effect = yes
+	}
+    
+    # Epic - Temporal Sight
+    option = {
+		name = wwu_magic_menu.1.option.temporal_sight
+        
+        trigger = {
+            has_epic_aptitude = yes
+            has_mana_3 = yes
+        }
+
+        lose_mana_3 = yes
+        
+        temporal_sight_effect = yes
+	}
+    
+    # Epic - Touch of the Magi
+    option = {
+		name = wwu_magic_menu.1.option.touch_of_the_magi
+        
+        trigger = {
+            has_epic_aptitude = yes
+            has_mana_3 = yes
+        }
+
+        lose_mana_3 = yes
+        
+        touch_of_the_magi_effect = yes
+	}
+    
+    # Legendary - Alter Time
+    option = {
+		name = wwu_magic_menu.1.option.alter_time
+        
+        trigger = {
+            has_legendary_aptitude = yes
+            has_mana_4 = yes
+        }
+
+        lose_mana_4 = yes
+        
+        alter_time_effect = yes
+	}
+    
+    # Legendary - Presence of Mind
+    option = {
+		name = wwu_magic_menu.1.option.presence_of_mind
+        
+        trigger = {
+            has_legendary_aptitude = yes
+            has_mana_4 = yes
+        }
+		
+        lose_mana_4 = yes
+        
+        presence_of_mind_effect = yes
+	}
+    
+    # Cataclysmic - Mind Surge
+    option = {
+		name = wwu_magic_menu.1.option.mind_surge
+        
+        trigger = {
+            has_legendary_aptitude = yes
+            has_mana_5 = yes
+            NOT = { adm_tech = 39 }
+            NOT = { dip_tech = 39 }
+            NOT = { mil_tech = 39 }
+        }
+		
+        lose_mana_5 = yes
+        cataclysmic_effect = yes
+        
+        mind_surge_effect = yes
+	}
+    
+    # Cataclysmic - Ascendance
+    option = {
+		name = wwu_magic_menu.1.option.ascendance
+        
+        trigger = {
+            has_legendary_aptitude = yes
+            has_mana_5 = yes
+            NOT = { is_monarch_leader = yes }
+        }
+		
+        lose_mana_5 = yes
+        cataclysmic_effect = yes
+        
+        ascendance_effect = yes
+	}
+    
+    # Exit
+    option = {
+		name = wwu_magic_menu.1.option.exit
+		
+	}
+}
+
+#-----------------------------
+# Spell Menu - Disorder
+#-----------------------------
+country_event = {
+	id = wwu_magic_menu.2
+	title = wwu_magic_menu.2.title
+	desc = wwu_magic_menu.2.desc
+	picture = BIG_BOOK_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
+    # Poor - Fire and Brimstone
+    
+    # Poor - Soul Siphon
+    
+    # Common - Howl of Terror
+    
+    # Common - Demonic Power
+    
+    # Rare - Essence Leech
+    
+    # Rare - Dark Regeneration
+    
+    # Epic - Forge Bloodstone
+    
+    # Epic - Demonic Touch
+    option = {
+		name = wwu_magic_menu.1.option.demonic_touch
+        
+        trigger = {
+            has_epic_aptitude = yes
+            has_mana_3 = yes
+        }
+		
+        lose_mana_3 = yes
+        
+        demonic_touch_effect = yes
+	}
+    
+    # Legendary - Everlasting Affliction
+    
+    # Legendary - Grimoire of Demons
+    
+    # Cataclysmic - Soulburn
+    
+    # Cataclysmic - Demonic Empowerment
+    
+    # Exit
+    option = {
+		name = wwu_magic_menu.2.option.exit
+		
+	}
+}
+
+#-----------------------------
+# Spell Menu - Life
+#-----------------------------
+country_event = {
+	id = wwu_magic_menu.3
+	title = wwu_magic_menu.3.title
+	desc = wwu_magic_menu.3.desc
+	picture = BIG_BOOK_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
+    # Poor - Flourish
+    
+    # Poor - Primal Tenacity
+    
+    # Common - Gift of the Moon
+    
+    # Common - Gift of the Sun
+    
+    # Rare - Rejuvination
+    
+    # Rare - Focused Growth
+    
+    # Epic - Astral Storm
+    
+    # Epic - Mark of Ursol
+    
+    # Legendary - Force of Nature
+    
+    # Legendary - Eclipse
+    
+    # Cataclysmic - Primal Aggression
+    
+    # Cataclysmic - Twilight's Wrath
+    
+    # Exit
+    option = {
+		name = wwu_magic_menu.3.option.exit
+		
+	}
+}
+
+#-----------------------------
+# Spell Menu - Death
+#-----------------------------
+country_event = {
+	id = wwu_magic_menu.4
+	title = wwu_magic_menu.4.title
+	desc = wwu_magic_menu.4.desc
+	picture = BIG_BOOK_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
+    # Poor - Raise Undead
+    
+    # Poor - Rune of Spellwarding
+    
+    # Common - Chains of Ice
+    
+    # Common - Rune of Hysteria
+    
+    # Rare - Undying Plague
+    
+    # Rare - Rune of Sanguination
+    
+    # Epic - Anti-Magic Shell
+    
+    # Epic - Rune of Unending Thirst
+    
+    # Legendary - Dark Command
+    
+    # Legendary - Rune of the Apocalypse
+    
+    # Cataclysmic - Lichdom
+    
+    # Cataclysmic - Army of the Dead
+    
+    # Exit
+    option = {
+		name = wwu_magic_menu.4.option.exit
+		
+	}
+}
+
+#-----------------------------
+# Spell Menu - Light
+#-----------------------------
+country_event = {
+	id = wwu_magic_menu.5
+	title = wwu_magic_menu.5.title
+	desc = wwu_magic_menu.5.desc
+	picture = BIG_BOOK_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
+    # Poor - Binding Prayers
+    
+    # Poor - Hand of Light
+    
+    # Common - Angelic Bulwark
+    
+    # Common - Judgement
+    
+    # Rare - Heavenly Voice
+    
+    # Rare - Sacred Cleansing
+    
+    # Epic - Cascade
+    
+    # Epic - Sanctified Wrath
+    
+    # Legendary - Clarity of Will
+    
+    # Legendary - Blade of Justice
+    
+    # Cataclysmic - Ascension
+    
+    # Cataclysmic - Final Verdict
+    
+    # Exit
+    option = {
+		name = wwu_magic_menu.5.option.exit
+		
+	}
+}
+
+#-----------------------------
+# Spell Menu - Shadow
+#-----------------------------
+country_event = {
+	id = wwu_magic_menu.6
+	title = wwu_magic_menu.6.title
+	desc = wwu_magic_menu.6.desc
+	picture = BIG_BOOK_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
+    # Poor - Void Bolt
+    
+    # Poor - Void Lash
+    
+    # Common - Looming Darkness
+    
+    # Common - Surging Darkness
+    
+    # Rare - Dispersion
+    
+    # Rare - Psychic Torment
+    
+    # Epic - Aura of Despair
+    
+    # Epic - Shadow Crash
+    
+    # Legendary - Lunatic Gaze
+    
+    # Legendary - Will of the Corruptor
+    
+    # Cataclysmic - Extinguish All Life
+    
+    # Cataclysmic - Corruptor's Pact
+    
+    # Exit
+    option = {
+		name = wwu_magic_menu.6.option.exit
+		
+	}
+}
+
+#-----------------------------
+# Spell Menu - Elemental
+#-----------------------------
+country_event = {
+	id = wwu_magic_menu.7
+	title = wwu_magic_menu.7.title
+	desc = wwu_magic_menu.7.desc
+	picture = BIG_BOOK_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
+    # Poor - Bind Elemental
+    
+    # Poor - Healing Tide
+    
+    # Common - Stone Bulwark
+    
+    # Common - Windwalk
+    
+    # Rare - Earthquake
+    
+    # Rare - Skyfury
+    
+    # Epic - Lightning Lasso
+    
+    # Epic - Fire Nova
+    
+    # Legendary - Echo of the Elements
+    
+    # Legendary - Ancestral Guidance
+    
+    # Cataclysmic - Storm, Earth, Fire
+    
+    # Cataclysmic - Unleashed Fury
+    
+    
+    # Exit
+    option = {
+		name = wwu_magic_menu.7.option.exit
+		
+	}
+}
+
+#-----------------------------
+# Spell Menu - Blood
+#-----------------------------
+country_event = {
+	id = wwu_magic_menu.8
+	title = wwu_magic_menu.8.title
+	desc = wwu_magic_menu.8.desc
+	picture = BIG_BOOK_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
+    # Poor - Blood Siphon
+    
+    # Poor - Hex of Weakness
+    
+    # Common - Blood Bolt
+    
+    # Common - Leeching Boil
+    
+    # Rare - Blood Feast
+    
+    # Rare - Fetid Frenzy
+    
+    # Epic - Blood Shield
+    
+    # Epic - Shattered Psyche
+    
+    # Legendary - Rupture
+    
+    # Legendary - Mark of the Blood God
+    
+    # Cataclysmic - Transfusion
+    
+    # Cataclysmic - Gaze of G'huun
+    
+    # Exit
+    option = {
+		name = wwu_magic_menu.8.option.exit
+		
+	}
+}
+
+#-----------------------------
+# Spell Menu - Voodoo
+#-----------------------------
+country_event = {
+	id = wwu_magic_menu.9
+	title = wwu_magic_menu.9.title
+	desc = wwu_magic_menu.9.desc
+	picture = BIG_BOOK_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
+    # Poor - Lightning Bolt
+    
+    # Poor - Hex
+    
+    # Common - Rain of Fire
+    
+    # Common - Flame Whirl
+    
+    # Rare - Static Disruption
+    
+    # Rare - Protective Ward
+    
+    # Epic - Creeping Paralysis
+    
+    # Epic - Siphon Soul
+    
+    # Legendary - Shapeshift
+    
+    # Legendary - Drain Power
+    
+    # Cataclysmic - Frenzy
+    
+    # Cataclysmic - Big Bad Voodoo
+    
+    # Exit
+    option = {
+		name = wwu_magic_menu.9.option.exit
+		
+	}
+}

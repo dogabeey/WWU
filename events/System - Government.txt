@@ -1629,6 +1629,220 @@ country_event = {
     }
 }
 
+# Scourge Government
+country_event = {
+	id = wwu_government.19
+	title = wwu_government.19.title
+	desc = wwu_government.19.desc
+	picture = UNDEAD_eventPicture
+	
+	trigger = {
+		OR = {
+            has_reform = scourge_reform
+            has_reform = scourge_domain_reform
+        }
+		has_heir = no
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	#Generic
+	option = {
+		name = wwu_government.19.option.a
+		
+		define_heir = {
+			age = 30
+			max_random_adm = 4
+			max_random_dip = 4
+			max_random_mil = 4
+		}
+	}
+	
+	# Vassals
+	option = {
+		name = wwu_government.19.option.b
+		
+		trigger = {
+			num_of_subjects = 1
+			NOT = { num_of_subjects = 2 }
+		}
+		define_heir = {
+			age = 30
+			adm = 1
+			dip = 1
+		}
+		every_subject_country = {
+			add_yearly_manpower = 0.5
+		}
+	}
+	
+	option = {
+		name = wwu_government.19.option.c
+		
+		trigger = {
+			num_of_subjects = 2
+			NOT = { num_of_subjects = 3 }
+		}
+		define_heir = {
+			age = 30
+			adm = 2
+			dip = 2
+		}
+		every_subject_country = {
+			add_yearly_manpower = 0.5
+		}
+	}
+	
+	option = {
+		name = wwu_government.19.option.d
+		
+		trigger = {
+			num_of_subjects = 3
+			NOT = { num_of_subjects = 4 }
+		}
+		define_heir = {
+			age = 30
+			adm = 3
+			dip = 3
+		}
+		every_subject_country = {
+			add_yearly_manpower = 0.5
+		}
+	}
+	
+	option = {
+		name = wwu_government.19.option.e
+		
+		trigger = {
+			num_of_subjects = 4
+		}
+		define_heir = {
+			age = 30
+			adm = 4
+			dip = 4
+		}
+		every_subject_country = {
+			add_yearly_manpower = 0.5
+		}
+	}
+	# Num. of Cultures
+	option = {
+		name = wwu_government.19.option.f
+		
+		trigger = {
+			num_accepted_cultures = 1
+			NOT = { num_accepted_cultures = 3 }
+		}
+		define_heir = {
+			age = 30
+			adm = 1
+			mil = 1
+		}
+		add_legitimacy = 15
+	}
+	
+	option = {
+		name = wwu_government.19.option.g
+		
+		trigger = {
+			num_accepted_cultures = 3
+			NOT = { num_accepted_cultures = 5 }
+		}
+		define_heir = {
+			age = 30
+			adm = 2
+			mil = 2
+		}
+		add_legitimacy = 15
+	}
+	
+	option = {
+		name = wwu_government.19.option.h
+		
+		trigger = {
+			num_accepted_cultures = 5
+			NOT = { num_accepted_cultures = 7 }
+		}
+		define_heir = {
+			age = 30
+			adm = 3
+			mil = 3
+		}
+		add_legitimacy = 15
+	}
+	
+	option = {
+		name = wwu_government.19.option.i
+		
+		trigger = {
+			num_accepted_cultures = 7
+		}
+		define_heir = {
+			age = 30
+			adm = 4
+			mil = 4
+		}
+		add_legitimacy = 15
+	}
+	# num of Allies
+	option = {
+		name = wwu_government.19.option.j
+		
+		trigger = {
+			num_of_allies = 1
+			NOT = { num_of_allies = 2 }
+		}
+		define_heir = {
+			age = 30
+			dip = 1
+			mil = 1
+		}
+	}
+	
+	option = {
+		name = wwu_government.19.option.k
+		
+		trigger = {
+			num_of_allies = 2
+			NOT = { num_of_allies = 3 }
+		}
+		define_heir = {
+			age = 30
+			dip = 2
+			mil = 2
+		}
+	}
+	
+	option = {
+		name = wwu_government.19.option.l
+		
+		trigger = {
+			num_of_allies = 3
+			NOT = { num_of_allies = 4 }
+		}
+		define_heir = {
+			age = 30
+			dip = 3
+			mil = 3
+		}
+	}
+	
+	option = {
+		name = wwu_government.19.option.m
+		
+		trigger = {
+			num_of_allies = 4
+		}
+		define_heir = {
+			age = 30
+			dip = 4
+			mil = 4
+		}
+	}
+}
+
 # Update Event - Liege and Nobles
 country_event = {
 	id = wwu_government.100
@@ -1725,10 +1939,10 @@ country_event = {
 		if = {
             limit = {
                 OR = {
-                    ruler_has_personality = priest_personality
-                    ruler_has_personality = mage_personality
-                    ruler_has_personality = warlock_personality
-                    ruler_has_personality = shaman_personality
+                    has_ruler_flag = priest_personality
+                    has_ruler_flag = mage_personality
+                    has_ruler_flag = warlock_personality
+                    has_ruler_flag = shaman_personality
                     has_ruler_modifier = spellcaster_capabilities
                 }
             }
@@ -1738,14 +1952,14 @@ country_event = {
         if = {
             limit = {
                 OR = {
-                    ruler_has_personality = warrior_personality
-                    ruler_has_personality = paladin_personality
-                    ruler_has_personality = rogue_personality
-                    ruler_has_personality = druid_personality
-                    ruler_has_personality = hunter_personality
-                    ruler_has_personality = death_knight_personality
-                    ruler_has_personality = monk_personality
-                    ruler_has_personality = demon_hunter_personality
+                    has_ruler_flag = warrior_personality
+                    has_ruler_flag = paladin_personality
+                    has_ruler_flag = rogue_personality
+                    has_ruler_flag = druid_personality
+                    has_ruler_flag = hunter_personality
+                    has_ruler_flag = death_knight_personality
+                    has_ruler_flag = monk_personality
+                    has_ruler_flag = demon_hunter_personality
                 }
             }
             change_statists_vs_monarchists = -0.03

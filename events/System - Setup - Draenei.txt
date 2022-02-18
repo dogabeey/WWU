@@ -12,7 +12,10 @@ country_event = {
     
 	trigger = {
         OR = {
-            ai = no
+            AND = {
+                ai = no
+                has_country_flag = host_player
+            }
             is_great_power = yes
         }
         NOT = { exists = F65 }

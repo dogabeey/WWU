@@ -38,16 +38,10 @@ country_event = {
         setup_faction_system = yes
     
         # Invention Timer
-        set_global_flag = invention_timer
+        set_global_flag = game_duration_timer
     
         # Game flags
         #  Used to detect which bookmark the flag starts in, accounting for time adjustments
-        if = {
-            limit = {
-                is_year = 592
-            }
-            set_global_flag = dark_portal_built
-        }
         
         # Rise of the Horde
         if = { 
@@ -56,17 +50,19 @@ country_event = {
             }
             set_global_flag = rise_of_the_horde
         }
-
+        
         # The First War
-        if = { 
+        if = {
             limit = {
                 is_year = 592
             }
             set_global_flag = the_first_war
             set_global_flag = dark_portal_opened_flag
-            set_global_flag = setup_outland
+            set_global_flag = dark_portal_built
             
-            1586 = { add_canal = gp_dark_portal_outland }
+            3792 = {
+                add_canal = gp_dark_portal_draenor
+            }
             
             reveal_first_war_discovery = yes
         }
@@ -77,6 +73,9 @@ country_event = {
                 is_year = 598
             }
             set_global_flag = the_second_war
+            set_global_flag = setup_outland
+            
+            1586 = { add_canal = gp_dark_portal_outland }
             
             reveal_second_war_discovery = yes
         }
@@ -264,6 +263,7 @@ country_event = {
 
     trigger = {
         NOT = { has_global_flag = completed_wwu_configuration }
+        has_country_flag = host_player
         ai = no
     }
 

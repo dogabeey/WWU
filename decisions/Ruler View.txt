@@ -1,0 +1,36 @@
+country_decisions = {
+    visit_personal_chambers = {
+        major = yes
+        
+        potential = {
+            always = yes
+		}
+		allow = {
+            always = yes
+		}
+        effect = {
+            country_event = { id = wwu_ruler_view.1 }
+            
+            hidden_effect = {
+                if = {
+                    limit = {
+                        ai = yes
+                    }
+                    add_country_modifier = {
+                        name = ai_personal_chamber_cooldown
+                        duration = 3650
+                    }
+                }
+            }
+        }
+		ai_will_do = {
+			factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                has_country_modifier = ai_personal_chamber_cooldown
+            }
+		}
+	}
+}

@@ -260,7 +260,6 @@ country_event = {
 	}
     
     trigger = { 
-        tag = B88
         NOT = { has_global_flag = setup_the_old_horde }
     }
 	
@@ -279,14 +278,10 @@ country_event = {
             name = member_of_old_horde
             duration = -1
         }
-        add_country_modifier = {
-            name = the_shadow_council
-            duration = -1
-        }
         
         every_country = {
             limit = {
-                has_country_flag = drank_the_demonsblood
+                has_country_modifier = mission_acceptance_of_warlocks
             }
             
             add_country_modifier = {
@@ -607,91 +602,243 @@ country_event = {
         }
     }
     
-    # Distribute Gold
+    # Demand Gold
     option = {
 		name = wwu_faction_system.100.option.a
         
         trigger = {
             has_country_modifier = head_of_alliance
-            years_of_income = 1
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_years_of_income = -1
         
         every_country = {
             limit = {
-                NOT = { has_country_modifier = head_of_alliance }
                 has_country_modifier = member_of_alliance
+                NOT = { has_country_modifier = head_of_alliance }
             }
-            add_years_of_income = 0.25
+            
+            add_years_of_income = -1
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_alliance
+                NOT = { has_country_modifier = head_of_alliance }
+            }
+            
+            ROOT = { 
+                add_years_of_income = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                treasury = 5000
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Manpower
+    # Demand Manpower
     option = {
 		name = wwu_faction_system.100.option.b
         
         trigger = {
             has_country_modifier = head_of_alliance
-            manpower_percentage = 0.5
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_yearly_manpower = -5
         
         every_country = {
             limit = {
-                NOT = { has_country_modifier = head_of_alliance }
                 has_country_modifier = member_of_alliance
+                NOT = { has_country_modifier = head_of_alliance }
             }
             
-            add_yearly_manpower = 1
+            add_yearly_manpower = -1
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_alliance
+                NOT = { has_country_modifier = head_of_alliance }
+            }
+            
+            ROOT = { 
+                add_yearly_manpower = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                manpower_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Sailors
+    # Demand Sailors
     option = {
 		name = wwu_faction_system.100.option.c
         
         trigger = {
             has_country_modifier = head_of_alliance
-            sailors_percentage = 0.5
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_yearly_sailors = -5
+         
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_alliance
+                NOT = { has_country_modifier = head_of_alliance }
+            }
+            
+            add_yearly_sailors = -1
+        }
         
         every_country = {
             limit = {
-                NOT = { has_country_modifier = head_of_alliance }
                 has_country_modifier = member_of_alliance
+                NOT = { has_country_modifier = head_of_alliance }
             }
             
-            add_yearly_sailors = 1
+            ROOT = {
+                add_yearly_sailors = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 50
+            
+            modifier = {
+                factor = 0
+                
+                sailors_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Ideas
+    # Demand Troops
     option = {
 		name = wwu_faction_system.100.option.d
         
         trigger = {
             has_country_modifier = head_of_alliance
-            government_reform_progress = 100 
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        adopt_reform_progress = -100
         
         every_country = {
             limit = {
-                NOT = { has_country_modifier = head_of_alliance }
                 has_country_modifier = member_of_alliance
+                NOT = { has_country_modifier = head_of_alliance }
             }
             
-            adopt_reform_progress = 25
+            ROOT = {
+                capital_scope = {
+                    infantry = ROOT
+                }
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                army_size_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
-
+    
+    # Enforce War Participation
+    option = {
+		name = wwu_faction_system.100.option.e
+        
+        trigger = {
+            has_country_modifier = head_of_alliance
+            is_at_war = yes
+            any_country = {
+                has_country_modifier = member_of_alliance
+                NOT = { is_at_war = yes }
+            }
+        }
+        
+        add_prestige = -10
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_alliance
+                NOT = { has_country_modifier = head_of_alliance }
+            }
+            
+            join_all_offensive_wars_of = ROOT
+            join_all_defensive_wars_of = ROOT
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+    
 	option = {
 		name = wwu_faction_system.100.option.x
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
 }
 
@@ -724,36 +871,66 @@ country_event = {
         }
     }
     
-    # Distribute Gold
+    # Demand Gold
     option = {
 		name = wwu_faction_system.101.option.a
         
         trigger = {
             has_country_modifier = head_of_horde
-            years_of_income = 1
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_years_of_income = -1
         
         every_country = {
             limit = {
                 has_country_modifier = member_of_horde
                 NOT = { has_country_modifier = head_of_horde }
             }
-            add_years_of_income = 0.25
+            
+            add_years_of_income = -1
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+                NOT = { has_country_modifier = head_of_horde }
+            }
+            
+            ROOT = { 
+                add_years_of_income = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                treasury = 5000
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Manpower
+    # Demand Manpower
     option = {
 		name = wwu_faction_system.101.option.b
         
         trigger = {
             has_country_modifier = head_of_horde
-            manpower_percentage = 0.5
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_yearly_manpower = -5
         
         every_country = {
             limit = {
@@ -761,20 +938,60 @@ country_event = {
                 NOT = { has_country_modifier = head_of_horde }
             }
             
-            add_yearly_manpower = 1
+            add_yearly_manpower = -1
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+                NOT = { has_country_modifier = head_of_horde }
+            }
+            
+            ROOT = { 
+                add_yearly_manpower = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                manpower_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Sailors
+    # Demand Sailors
     option = {
 		name = wwu_faction_system.101.option.c
         
         trigger = {
             has_country_modifier = head_of_horde
-            sailors_percentage = 0.5
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_yearly_sailors = -5
+         
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+                NOT = { has_country_modifier = head_of_horde }
+            }
+            
+            add_yearly_sailors = -1
+        }
         
         every_country = {
             limit = {
@@ -782,20 +999,42 @@ country_event = {
                 NOT = { has_country_modifier = head_of_horde }
             }
             
-            add_yearly_sailors = 1
+            ROOT = {
+                add_yearly_sailors = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 50
+            
+            modifier = {
+                factor = 0
+                
+                sailors_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Ideas
+    # Demand Troops
     option = {
 		name = wwu_faction_system.101.option.d
         
         trigger = {
             has_country_modifier = head_of_horde
-            government_reform_progress = 100 
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        adopt_reform_progress = -100
         
         every_country = {
             limit = {
@@ -803,12 +1042,72 @@ country_event = {
                 NOT = { has_country_modifier = head_of_horde }
             }
             
-            adopt_reform_progress = 25
+            ROOT = {
+                capital_scope = {
+                    infantry = ROOT
+                }
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                army_size_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
+        }
+	}
+    
+    # Enforce War Participation
+    option = {
+		name = wwu_faction_system.101.option.e
+        
+        trigger = {
+            has_country_modifier = head_of_horde
+            is_at_war = yes
+            any_country = {
+                has_country_modifier = member_of_horde
+                NOT = { is_at_war = yes }
+            }
+        }
+        
+        add_prestige = -10
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_horde
+                NOT = { has_country_modifier = head_of_horde }
+            }
+            
+            join_all_offensive_wars_of = ROOT
+            join_all_defensive_wars_of = ROOT
+        }
+        
+        ai_chance = {
+            factor = 100
         }
 	}
     
 	option = {
 		name = wwu_faction_system.101.option.x
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
 }
 
@@ -841,36 +1140,66 @@ country_event = {
         }
     }
     
-    # Distribute Gold
+    # Demand Gold
     option = {
 		name = wwu_faction_system.102.option.a
         
         trigger = {
             has_country_modifier = head_of_old_horde
-            years_of_income = 1
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_years_of_income = -1
         
         every_country = {
             limit = {
                 has_country_modifier = member_of_old_horde
                 NOT = { has_country_modifier = head_of_old_horde }
             }
-            add_years_of_income = 0.25
+            
+            add_years_of_income = -1
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+                NOT = { has_country_modifier = head_of_old_horde }
+            }
+            
+            ROOT = { 
+                add_years_of_income = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                treasury = 5000
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Manpower
+    # Demand Manpower
     option = {
 		name = wwu_faction_system.102.option.b
         
         trigger = {
             has_country_modifier = head_of_old_horde
-            manpower_percentage = 0.5
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_yearly_manpower = -5
         
         every_country = {
             limit = {
@@ -878,20 +1207,60 @@ country_event = {
                 NOT = { has_country_modifier = head_of_old_horde }
             }
             
-            add_yearly_manpower = 1
+            add_yearly_manpower = -1
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+                NOT = { has_country_modifier = head_of_old_horde }
+            }
+            
+            ROOT = { 
+                add_yearly_manpower = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                manpower_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Sailors
+    # Demand Sailors
     option = {
 		name = wwu_faction_system.102.option.c
         
         trigger = {
             has_country_modifier = head_of_old_horde
-            sailors_percentage = 0.5
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_yearly_sailors = -5
+         
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+                NOT = { has_country_modifier = head_of_old_horde }
+            }
+            
+            add_yearly_sailors = -1
+        }
         
         every_country = {
             limit = {
@@ -899,20 +1268,42 @@ country_event = {
                 NOT = { has_country_modifier = head_of_old_horde }
             }
             
-            add_yearly_sailors = 1
+            ROOT = {
+                add_yearly_sailors = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 50
+            
+            modifier = {
+                factor = 0
+                
+                sailors_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Ideas
+    # Demand Troops
     option = {
 		name = wwu_faction_system.102.option.d
         
         trigger = {
             has_country_modifier = head_of_old_horde
-            government_reform_progress = 100 
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        adopt_reform_progress = -100
         
         every_country = {
             limit = {
@@ -920,12 +1311,72 @@ country_event = {
                 NOT = { has_country_modifier = head_of_old_horde }
             }
             
-            adopt_reform_progress = 25
+            ROOT = {
+                capital_scope = {
+                    infantry = ROOT
+                }
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                army_size_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
+        }
+	}
+    
+    # Enforce War Participation
+    option = {
+		name = wwu_faction_system.102.option.e
+        
+        trigger = {
+            has_country_modifier = head_of_old_horde
+            is_at_war = yes
+            any_country = {
+                has_country_modifier = member_of_old_horde
+                NOT = { is_at_war = yes }
+            }
+        }
+        
+        add_prestige = -10
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_old_horde
+                NOT = { has_country_modifier = head_of_old_horde }
+            }
+            
+            join_all_offensive_wars_of = ROOT
+            join_all_defensive_wars_of = ROOT
+        }
+        
+        ai_chance = {
+            factor = 100
         }
 	}
     
 	option = {
 		name = wwu_faction_system.102.option.x
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
 }
 
@@ -958,36 +1409,66 @@ country_event = {
         }
     }
     
-    # Distribute Gold
+    # Demand Gold
     option = {
 		name = wwu_faction_system.103.option.a
         
         trigger = {
             has_country_modifier = head_of_trade_coalition
-            years_of_income = 1
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_years_of_income = -1
         
         every_country = {
             limit = {
                 has_country_modifier = member_of_trade_coalition
                 NOT = { has_country_modifier = head_of_trade_coalition }
             }
-            add_years_of_income = 0.25
+            
+            add_years_of_income = -1
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_trade_coalition
+                NOT = { has_country_modifier = head_of_trade_coalition }
+            }
+            
+            ROOT = { 
+                add_years_of_income = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                treasury = 5000
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Manpower
+    # Demand Manpower
     option = {
 		name = wwu_faction_system.103.option.b
         
         trigger = {
             has_country_modifier = head_of_trade_coalition
-            manpower_percentage = 0.5
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_yearly_manpower = -5
         
         every_country = {
             limit = {
@@ -995,20 +1476,60 @@ country_event = {
                 NOT = { has_country_modifier = head_of_trade_coalition }
             }
             
-            add_yearly_manpower = 1
+            add_yearly_manpower = -1
+        }
+        
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_trade_coalition
+                NOT = { has_country_modifier = head_of_trade_coalition }
+            }
+            
+            ROOT = { 
+                add_yearly_manpower = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                manpower_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Sailors
+    # Demand Sailors
     option = {
 		name = wwu_faction_system.103.option.c
         
         trigger = {
             has_country_modifier = head_of_trade_coalition
-            sailors_percentage = 0.5
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        add_yearly_sailors = -5
+         
+        every_country = {
+            limit = {
+                has_country_modifier = member_of_trade_coalition
+                NOT = { has_country_modifier = head_of_trade_coalition }
+            }
+            
+            add_yearly_sailors = -1
+        }
         
         every_country = {
             limit = {
@@ -1016,20 +1537,42 @@ country_event = {
                 NOT = { has_country_modifier = head_of_trade_coalition }
             }
             
-            add_yearly_sailors = 1
+            ROOT = {
+                add_yearly_sailors = 1
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 50
+            
+            modifier = {
+                factor = 0
+                
+                sailors_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Distribute Ideas
+    # Demand Troops
     option = {
 		name = wwu_faction_system.103.option.d
         
         trigger = {
             has_country_modifier = head_of_trade_coalition
-            government_reform_progress = 100 
+            NOT = { has_country_modifier = recent_faction_demand }
         }
-        
-        adopt_reform_progress = -100
         
         every_country = {
             limit = {
@@ -1037,40 +1580,71 @@ country_event = {
                 NOT = { has_country_modifier = head_of_trade_coalition }
             }
             
-            adopt_reform_progress = 25
+            ROOT = {
+                capital_scope = {
+                    infantry = ROOT
+                }
+                
+                add_country_modifier = {
+                    name = recent_faction_demand
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+        
+        ai_chance = {
+            factor = 100
+            
+            modifier = {
+                factor = 0
+                
+                army_size_percentage = 0.5
+            }
+            
+            modifier = {
+                factor = 0
+                
+                is_at_war = yes
+            }
         }
 	}
     
-    # Enact Trade Tax
+    # Enforce War Participation
     option = {
 		name = wwu_faction_system.103.option.e
         
         trigger = {
             has_country_modifier = head_of_trade_coalition
+            is_at_war = yes
             any_country = {
                 has_country_modifier = member_of_trade_coalition
-                treasury = 100
-                has_opinion = {
-                    who = ROOT
-                    value = 0
-                }
+                NOT = { is_at_war = yes }
             }
         }
+        
+        add_prestige = -10
         
         every_country = {
             limit = {
                 has_country_modifier = member_of_trade_coalition
-                treasury = 100
-                has_opinion = {
-                    who = ROOT
-                    value = 0
-                }
                 NOT = { has_country_modifier = head_of_trade_coalition }
             }
             
-            add_treasury = -100
-            
-            ROOT = { add_treasury = 100 }
+            join_all_offensive_wars_of = ROOT
+            join_all_defensive_wars_of = ROOT
+        }
+        
+        ai_chance = {
+            factor = 100
+        }
+	}
+    
+	option = {
+		name = wwu_faction_system.103.option.x
+        
+        ai_chance = {
+            factor = 1
         }
 	}
     

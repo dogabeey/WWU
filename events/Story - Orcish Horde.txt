@@ -1,0 +1,432 @@
+namespace = wwu_orcish_horde
+
+#----------------------------------
+# The Orcish Horde
+#----------------------------------
+country_event = {
+	id = wwu_orcish_horde.1
+	title = wwu_orcish_horde.1.title
+	desc = wwu_orcish_horde.1.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    is_triggered_only = yes
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            discover_eastern_kingdoms = yes
+            discover_broken_isles = yes
+            discover_plunder_isle = yes
+            
+            discover_outland = yes
+            discover_draenor = yes
+        }
+    }
+    
+	option = {
+		name = wwu_orcish_horde.1.option.a
+        
+        define_ruler = {
+            name = "Blackhand" 
+            dynasty = "the Destroyer"
+            adm = 4
+            dip = 3
+            mil = 6
+            age = 50
+            claim = 100
+        }
+        
+        set_head_of_old_horde = yes
+        
+        add_country_modifier = {
+            name = member_of_old_horde
+            duration = -1
+        }
+        
+        A41 = {
+            define_ruler = {
+                name = "Orgrim" 
+                dynasty = "Doomhammer" 
+                adm = 4
+                dip = 6
+                mil = 6
+                age = 30
+            claim = 100
+            }
+        }
+        
+        hidden_effect = {
+            add_country_modifier = {
+				name = motivated_for_assault
+				duration = 3650
+			}
+            
+            # Setup nation for strong conquest
+            add_treasury = 5000
+            add_manpower = 50
+            
+            add_adm_power = 500
+            add_dip_power = 500
+            add_mil_power = 500
+            
+            capital_scope = {
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                infantry = ROOT
+                cavalry = ROOT
+                cavalry = ROOT
+                cavalry = ROOT
+                cavalry = ROOT
+                artillery = ROOT
+                artillery = ROOT
+                artillery = ROOT
+                artillery = ROOT
+                artillery = ROOT
+                artillery = ROOT
+            }
+        
+            # Add tech so they start on par with other nations
+            if = {
+                limit = {
+                    is_year = 550
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 559
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 572
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 585
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 598
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 611
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 624
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 637
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            if = {
+                limit = {
+                    is_year = 650
+                }
+                add_adm_tech = 1
+                add_dip_tech = 1
+                add_mil_tech = 1
+            }
+            
+            # Add military edge
+            add_mil_tech = 1
+        }
+    }
+}
+
+#----------------------------------
+# Settle Clan in Azeroth
+#----------------------------------
+country_event = {
+	id = wwu_orcish_horde.2
+	title = wwu_orcish_horde.2.title
+	desc = wwu_orcish_horde.2.desc
+	picture = ORCISH_INVASION_eventPicture
+    
+    is_triggered_only = yes
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = { set_country_flag = established_azeroth_clan }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.a
+        
+        trigger = {
+            area_serpents_coil = {
+                owned_by = U03
+            }
+        }
+        
+        area_serpents_coil = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.b
+        
+        trigger = {
+            area_the_blasted_land = {
+                owned_by = U03
+            }
+        }
+        
+        area_the_blasted_land = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.c
+        
+        trigger = {
+            area_the_tainted_land = {
+                owned_by = U03
+            }
+        }
+        
+        area_the_tainted_land = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.d
+        
+        trigger = {
+            area_the_red_reaches = {
+                owned_by = U03
+            }
+        }
+        
+        area_the_red_reaches = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.e
+        
+        trigger = {
+            area_the_shattered_landing = {
+                owned_by = U03
+            }
+        }
+        
+        area_the_shattered_landing = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.f
+        
+        trigger = {
+            area_stonard = {
+                owned_by = U03
+            }
+        }
+        
+        area_stonard = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.g
+        
+        trigger = {
+            area_splinterspear_bog = {
+                owned_by = U03
+            }
+        }
+        
+        area_splinterspear_bog = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.h
+        
+        trigger = {
+            area_swamps_of_sorrow = {
+                owned_by = U03
+            }
+        }
+        
+        area_swamps_of_sorrow = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.i
+        
+        trigger = {
+            area_sorrowmurk = {
+                owned_by = U03
+            }
+        }
+        
+        area_sorrowmurk = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.j
+        
+        trigger = {
+            area_crackling_banks = {
+                owned_by = U03
+            }
+        }
+        
+        area_crackling_banks = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.k
+        
+        trigger = {
+            area_stagalbog = {
+                owned_by = U03
+            }
+        }
+        
+        area_stagalbog = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.l
+        
+        trigger = {
+            area_misty_reed = {
+                owned_by = U03
+            }
+        }
+        
+        area_misty_reed = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+    
+    option = {
+		name = wwu_orcish_horde.2.option.m
+        
+        trigger = {
+            area_deadwind_pass = {
+                owned_by = U03
+            }
+        }
+        
+        area_deadwind_pass = {
+            limit = { owned_by = U03 }
+            cede_province = ROOT
+            add_core = ROOT
+            change_religion = ROOT
+            change_culture = ROOT
+        }
+    }
+}

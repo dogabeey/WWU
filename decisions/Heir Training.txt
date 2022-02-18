@@ -1,0 +1,40 @@
+country_decisions = {
+	heir_training = {
+		potential = {
+            always = no # Disabled for now
+			has_heir = yes
+			NOT = { has_heir_flag = heir_is_training }
+			NOT = { has_heir_flag = warrior_personality }
+			NOT = { has_heir_flag = paladin_personality }
+			NOT = { has_heir_flag = priest_personality }
+			NOT = { has_heir_flag = rogue_personality }
+			NOT = { has_heir_flag = mage_personality }
+			NOT = { has_heir_flag = warlock_personality }
+			NOT = { has_heir_flag = druid_personality }
+			NOT = { has_heir_flag = hunter_personality }
+			NOT = { has_heir_flag = shaman_personality }
+            
+			OR = {
+				can_be_warrior = yes
+				can_be_paladin = yes
+				can_be_priest = yes
+				can_be_rogue = yes
+				can_be_mage = yes
+				can_be_warlock = yes
+				can_be_druid = yes
+				can_be_hunter = yes
+				can_be_shaman = yes
+			}
+		}
+		allow = {
+			NOT = { heir_age = 30 }
+			scaled_treasury_check = yes
+		}
+		effect = {
+			scaled_treasury_effect = yes
+            
+			add_dip_power = -50
+			country_event = { id = training.1 }
+		}
+	}
+}

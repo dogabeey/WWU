@@ -12,7 +12,10 @@ country_event = {
 	trigger = {
         NOT = { has_global_flag = aldor_scryer_flag }
         has_global_flag = setup_outland
-        ai = no
+        AND = {
+            ai = no
+            has_country_flag = host_player
+        }
 		is_year = 618
 		OR = {
 			1641 = {

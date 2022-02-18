@@ -1,7 +1,6 @@
 country_decisions = {
     form_apexis_empire = {
 		major = yes
-        ai_importance = 300
         
 		potential = {
             # Exclusions
@@ -9,16 +8,20 @@ country_decisions = {
             
             # Requisites
 			culture_group = culture_group_arrakoa
+            
+            capital_scope = {
+                continent = continent_draenor
+            }
 		}
         
         provinces_to_highlight = {
             NOT = { owned_by = ROOT }
-			region = region_terokkar_forest
+			region = region_spires_of_arak
 		}
         
 		allow = {
             # Ownership	
-			region_terokkar_forest = {
+			region_spires_of_arak = {
 				type = all
 				owned_by = ROOT
 			}
@@ -43,6 +46,60 @@ country_decisions = {
             
             # Bonus
             add_formable_bonus = yes
+            trigger_ni_switch = yes
+            #trigger_mission_switch = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    
+    form_apexis_empire_outland = {
+		major = yes
+        
+		potential = {
+            # Exclusions
+			NOT = { exists = APX }
+            
+            # Requisites
+			culture_group = culture_group_arrakoa
+            
+            capital_scope = {
+                continent = continent_outland
+            }
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+			region = region_terokkar_forest
+		}
+        
+		allow = {
+            # Ownership	
+			region_terokkar_forest = {
+				type = all
+				owned_by = ROOT
+			}
+            
+            # General
+			is_at_war = no	
+			stability = 1
+            
+			# Cost
+            adm_power = 100
+		}
+		effect = {
+            # Cost
+			add_adm_power = -100
+            
+            # Switch
+			change_tag = APX
+            
+            # Bonus
+            add_formable_bonus = yes
+            trigger_ni_switch = yes
+            #trigger_mission_switch = yes
 		}
 		
 		ai_will_do = {

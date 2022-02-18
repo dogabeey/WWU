@@ -1,0 +1,246 @@
+#--------------------------------------
+# shattered_hand
+#--------------------------------------
+wwu_shattered_hand_column_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A36
+	}
+    
+    wwu_shattered_hand_succumb_to_fel = {
+		icon = mission_demonhunter_consume_magic
+        position = 1
+		required_missions = { }
+        
+		trigger = {
+            NOT = { religion = fel }
+            
+            any_owned_province = {
+                religion = fel
+            }
+            
+            if = {
+                limit = {
+                    ai = yes
+                }
+                
+                dominant_religion = fel
+            }
+		}
+		effect = {
+            add_stability = -3
+        
+            change_religion = fel
+            
+            every_owned_province = {
+                change_religion = fel
+            }
+		}
+	}
+    
+    
+    wwu_shattered_hand_construct_the_dark_portal = {
+		icon = mission_dark_portal_blue
+        position = 2
+		required_missions = { }
+        
+		trigger = {
+            NOT = { has_global_flag = dark_portal_built }
+            religion = fel
+			owns_core_province = 3792
+            is_year = 575
+		}
+        provinces_to_highlight = {
+            province_id = 3792
+            NOT = { owned_by = ROOT }
+        }
+		effect = {
+			add_yearly_manpower = -1.0
+            
+            continent_draenor = {
+				add_devastation = 25
+            }
+			region_blasted_lands = {
+				add_devastation = 25
+            }
+            
+            3792 = {
+                add_canal = gp_dark_portal_draenor
+            }
+            
+            hidden_effect = {
+                set_global_flag = the_first_war
+                set_global_flag = dark_portal_built
+                set_global_flag = dark_portal_opened_flag
+            }
+		}
+	}
+    
+    wwu_shattered_hand_establish_foothold = {
+		icon = mission_defend_towers
+        position = 3
+		required_missions = { }
+        
+		trigger = {
+            NOT = { exists = U03 }
+            has_global_flag = dark_portal_built
+            religion = fel
+            
+            region_blasted_lands = {
+                type = any
+                is_empty = yes
+            }
+		}
+		effect = {
+			add_country_modifier = {
+				name = motivated_for_assault
+				duration = 3650
+			}
+            
+            spawn_orcish_horde = yes
+        }
+	}
+}
+
+wwu_shattered_hand_column_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A36
+	}
+    
+    wwu_shattered_hand_crush_the_draenei = {
+		icon = mission_fel_immolation
+        position = 3
+		required_missions = { wwu_shattered_hand_acceptance_of_warlocks }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			has_country_modifier = mission_acceptance_of_warlocks
+		}
+		effect = {
+			3765 = { add_permanent_claim = ROOT }
+            3806 = { add_permanent_claim = ROOT }
+            3770 = { add_permanent_claim = ROOT }
+		}
+	}
+}
+
+wwu_shattered_hand_column_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A36
+	}
+	
+	wwu_shattered_hand_messenger_from_nerzhul = {
+		icon = mission_demonhunter_fel_rush
+        position = 1
+		required_missions = { }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			A34 = {
+                mission_completed = wwu_beckon_kiljaeden 
+            }
+		}
+		effect = {
+			country_event = { id = rise_of_the_horde.2 days = 30 }
+		}
+	}
+    
+    wwu_shattered_hand_acceptance_of_warlocks = {
+		icon = mission_fel_pyroblast
+        position = 2
+		required_missions = { wwu_shattered_hand_messenger_from_nerzhul }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			A34 = {
+                mission_completed = wwu_the_first_warlocks 
+            }
+		}
+		effect = {
+			country_event = { id = rise_of_the_horde.4 days = 30 }
+		}
+	}
+    
+    wwu_shattered_hand_consume_blood_of_mannoroth = {
+		icon = mission_fel_orc
+        position = 4
+		required_missions = { wwu_shattered_hand_acceptance_of_warlocks }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			A34 = {
+                mission_completed = wwu_blood_of_mannoroth 
+            }
+		}
+		effect = {
+			country_event = { id = rise_of_the_horde.5 days = 30 }
+		}
+	}
+    
+    
+}
+
+wwu_shattered_hand_column_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A36
+	}
+	
+    wwu_shattered_hand_oust_the_warlocks = {
+		icon = mission_demonhunter_eye_of_leotheras
+        position = 3
+		required_missions = { wwu_shattered_hand_acceptance_of_warlocks }
+        
+        completed_by = 592.1.1
+        
+		trigger = {
+			has_country_modifier = mission_rejection_of_warlocks
+		}
+		effect = {
+			every_country = {
+                limit = {
+                    has_country_modifier = mission_acceptance_of_warlocks
+                }
+                
+                capital_scope = {
+                    add_permanent_claim = ROOT
+                }
+            }
+		}
+	}
+}
+
+wwu_shattered_hand_column_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A36
+	}
+	
+    
+}

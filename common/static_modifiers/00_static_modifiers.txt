@@ -185,7 +185,7 @@ mild_winter = {
 normal_winter = {
 	local_hostile_attrition = 2
 	supply_limit_modifier = -0.2
-	migration_cost = 0.1				 
+	migration_cost = 0.1
 
 	picture = "winter_normal"
 }
@@ -193,7 +193,7 @@ normal_winter = {
 severe_winter = {
 	local_hostile_attrition = 3
 	supply_limit_modifier = -0.3
-	migration_cost = 0.2				 
+	migration_cost = 0.2
 
 	picture = "winter_severe"
 }
@@ -289,7 +289,7 @@ capital_city = {
 	fort_level = 1
 }
 
-# # Strength of Will: Shrine
+# Strength of Will: Shrine
 patriarch_state = {
 	
 }
@@ -564,7 +564,7 @@ base_values = {
 	artillery_bonus_vs_fort = 5
 	cav_to_inf_ratio = 0.5
 	merc_maintenance_modifier = 0.5
-	monthly_heir_claim_increase = 0.1
+	monthly_heir_claim_increase = 0.208
     
 	global_tax_income = 12
     
@@ -602,6 +602,8 @@ ai_nation = {
 	peasants_loyalty_modifier = 0.15
 	tribals_loyalty_modifier = 0.15
 }
+
+
 
 war_taxes = {
 	land_maintenance_modifier = -0.25
@@ -745,7 +747,8 @@ bankruptcy = {
 	technology_cost = 0.5
 	idea_cost = 0.5
 	imperial_mandate = -0.1
-    
+    great_project_upgrade_cost = 0.5
+
     # Factions
 	mr_guilds_influence = 0.25
 }
@@ -1054,35 +1057,9 @@ militarized_society = {
     global_unrest = -3
 }
 
+# No longer used
 luck = {
-	#core
-	global_missionary_strength = 0.01
-	stability_cost_modifier = -0.10
-	global_institution_spread = 0.1
-	monthly_splendor = 1
-
-	#economy
-	mercenary_cost = -0.2
-	embracement_cost = -0.2
-	advisor_cost = -0.2
-	interest = -1
-	missionary_maintenance_cost = -0.1
-
-	#military
-	manpower_recovery_speed = 0.25
-	defensiveness = 0.1
-	siege_ability = 0.05
-
-	#diplomacy
-	spy_offence = 0.1
-	improve_relation_modifier = 0.25
-
-	#government
-	global_unrest = -1
-	republican_tradition = 0.5
-	legitimacy = 1
-	ae_impact = -0.25
-
+	
 }
 
 over_extension = {
@@ -1135,8 +1112,8 @@ republican_tradition = {
 	tolerance_own = 1
 	tolerance_heathen = 1
 	tolerance_heretic = 1
-	diplomatic_reputation = 1
-	vassal_income = 0.25
+	diplomatic_reputation = 2
+	diplomatic_annexation_cost = -0.25
 }
 
 inverse_republican_tradition = {
@@ -1357,6 +1334,42 @@ primitive_nation = {
 	development_cost = 0.2
 }
 
+# Feudal Vassal
+feudal_vassal_subject = {
+    global_unrest = -2
+}
+
+feudal_vassal_overlord = {
+    diplomatic_reputation = 1
+}
+
+# Protected Vassal
+protected_vassal_subject = {
+    defensiveness = 0.25
+}
+
+protected_vassal_overlord = {
+    prestige = 0.25
+}
+
+# Troll Tributary
+troll_tributary_subject = {
+	land_forcelimit_modifier = 0.1
+}
+
+troll_tributary_overlord = {
+	land_forcelimit = 5
+}
+
+# Dragonflight Splinter
+dragonflight_splinter_subject = {
+    global_manpower_modifier = 0.1
+}
+
+dragonflight_splinter_overlord = {
+    land_forcelimit = 5
+}
+
 #scales to amount of up-to-date forts compared to total development
 maintained_forts = {
 	army_tradition = 1
@@ -1551,7 +1564,7 @@ invasion_nation = {
 ########################################
 
 native_policy_coexist = {
-	native_uprising_chance = -1
+	native_uprising_chance = -1.0
 }
 
 native_policy_trade = {
@@ -1751,12 +1764,11 @@ expand_administation_modifier = {
 
 # At 100% over capacity, this modifier will be fully used
 over_governing_capacity_modifier = {
-	stability_cost_modifier = 5.0
-	ae_impact = 5.0
-	improve_relation_modifier = -5.0
-	core_creation = 5.0
-	advisor_cost = 5.0
-	global_unrest = 5.0
+	stability_cost_modifier = 1.0
+	ae_impact = 1.0
+	improve_relation_modifier = -1.0
+	core_creation = 1.0
+	advisor_cost = 1.0
 }
 
 lost_hegemony = {
@@ -1770,13 +1782,31 @@ at_peace_revolutionary = { # Applied if at peace while reactionaries are borderi
 expanded_infrastructure = {
 	allowed_num_of_buildings = 1
 	allowed_num_of_manufactories = 1
-	local_governing_cost_increase = 10
-	local_governing_cost = 1.0
+	regiment_recruit_speed = -0.15
+	ship_recruit_speed = -0.15
+	local_defensiveness = 0.05
+	garrison_growth = 0.05
+	local_development_cost = -0.05
+	local_production_efficiency = 0.05
+	local_tax_modifier = 0.1
+	local_manpower_modifier = 0.05
+	local_sailors_modifier = 0.05
+	local_ship_repair = 0.05
+	local_autonomy = -0.005
+	local_build_cost = -0.05
+	local_build_time = -0.05
+	province_trade_power_modifier = 0.05
+	trade_goods_size_modifier = 0.05
+	local_governing_cost_increase = 15
+	local_governing_cost = 0.1
+	local_great_project_upgrade_cost = -0.05
 }
 
 centralize_state = {
-	state_governing_cost_increase = -20
-	picture = "centralize_state"						 
+	statewide_governing_cost = -0.25
+	local_prosperity_growth = 0.1
+	local_state_maintenance_modifier = -0.2
+	picture = "centralize_state"
 }
 
 # Applied once for each guru teaching

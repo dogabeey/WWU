@@ -1,0 +1,88 @@
+namespace = wwu_shadow_council
+
+# The Shadow Council
+country_event = {
+	id = wwu_shadow_council.1
+	title = wwu_shadow_council.1.title
+	desc = wwu_shadow_council.1.desc
+	picture = GULDAN_CLOSE_eventPicture
+    
+	major = yes
+    fire_only_once = yes
+    
+	trigger = {
+        tag = B88
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_shadow_council.1.option.a
+		
+        define_ruler = { 
+            name = "Gul'dan" 
+            dynasty = "Shadowmoon" 
+            adm = 5
+            dip = 5
+            mil = 3
+            age = 80
+        }
+        set_ruler_flag = is_immortal
+
+        setup_spellcaster_history = {
+            APTITUDE = 4
+            FINESSE = 4
+            CONCENTRATION = 4
+            MANA = 5
+        }
+        
+        add_country_modifier = {
+            name = the_shadow_council
+            duration = -1
+        }	
+        
+        if = {
+            limit = {
+                any_country = {
+                    has_country_modifier = head_of_old_horde
+                }
+            }
+            
+            add_member_of_old_horde = yes
+        }
+	}
+}
+
+# Mantle of the Horde
+country_event = {
+	id = wwu_shadow_council.2
+	title = wwu_shadow_council.2.title
+	desc = wwu_shadow_council.2.desc
+	picture = ORC_CLOSE_eventPicture
+    
+	trigger = {
+        ai = no
+        tag = B88
+        any_country = {
+            has_country_modifier = head_of_old_horde
+        }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_shadow_council.2.option.a
+		
+        set_head_of_old_horde = yes
+	}
+    
+    option = {
+		name = wwu_shadow_council.2.option.b
+		
+        add_stability = 1
+	}
+}

@@ -11,35 +11,35 @@
 # The one for which x = NUM_OF_GREAT_POWERS will also be applied to all Great Powers that have recently left the top.
 
 great_power_1 = {
-	power = 8
+	power = 25
 }
 
 great_power_2 = {
-	power = 7
+	power = 22
 }
 
 great_power_3 = {
-	power = 6
+	power = 20
 }
 
 great_power_4 = {
-	power = 5
+	power = 18
 }
 
 great_power_5 = {
-	power = 4
+	power = 16
 }
 
 great_power_6 = {
-	power = 3
+	power = 14
 }
 
 great_power_7 = {
-	power = 2
+	power = 12
 }
 
 great_power_8 = {
-	power = 1
+	power = 10
 }
 
 subsidies_to_enemy_of_rival = {
@@ -93,55 +93,56 @@ last_age_power_projection = {
 	max = 21
 }
 
+
 insulted_rival = {
 	power = 5
-	yearly_decay = 1
-	max = 5
-}
-
-scornfully_insulted_rival = {
-	power = 10
 	yearly_decay = 1
 	max = 10
 }
 
 humiliated_rival = {
-	power = 50
+	power = 30
 	yearly_decay = 1
-	max = 50
+	max = 30
 }
 
 humiliated_by_rival = {
-	power = -50
+	power = -30
 	yearly_decay = 1
-	min = -50
+	min = -30
 }
 
 eclipsed_rival = {
 	power = 10
 	yearly_decay = 1
-	max = 50
+	max = 30
 }
 
 declared_war_at_rival = {
 	power = 10
 	yearly_decay = 1
-	max = 25
+	max = 20
 }
 
 joined_war_against_rival = {
 	power = 10
 	yearly_decay = 1
-	max = 25
+	max = 20
 }
 
 refused_war_against_rival = {
 	power = -20
 	yearly_decay = 1
-	min = -50
+	min = -20
 }
 
 vassalized_rival = {
+	power = 0.5			# multiplied with basetax
+	yearly_decay = 1
+	max = 100
+}
+
+forced_rival_into_union = {
 	power = 0.5			# multiplied with basetax
 	yearly_decay = 1
 	max = 100
@@ -196,27 +197,36 @@ mission_rewards_power_projection = {
 	yearly_decay = 1
 }
 
-# Use with 'add_power_projection'
-effect_power_projection_no_decay = {
-	max = 100
-	power = 1
-}
-
 effect_power_projection_decay = {
 	max = 100
 	power = 1
 	yearly_decay = 1
 }
 
+effect_power_projection_no_decay = {
+    max = 100
+	power = 1
+}
+
 ##################################
 # TICKING EVERY MONTH IF TRUE
 ##################################
+
 lacking_rival = {
 	power = -1
-	min = -25
+	min = -60
 }
 
 has_rival = {
 	power = 1
-	max = 10
+	max = 15
+}
+
+##################################
+# CUSTOM PERMANENT PP
+##################################
+
+zim_african_great_power = {
+	min = 25
+	power = 1
 }

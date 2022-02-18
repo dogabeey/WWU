@@ -1869,7 +1869,7 @@ call_to_war_alliance = {
 			}
 			export_to_variable = {
 				variable_name = ai_value
-				value = 10
+				value = 100
 			}
 		}
 		add_entry = {
@@ -1895,7 +1895,6 @@ call_to_war_alliance = {
 				who = FROM
 				with = ROOT
 			}
-			subtract_variable = { which = ai_value value = 100 }
 		}
         add_entry = {
 			name = INV_FACTION_LOSING
@@ -1974,7 +1973,7 @@ call_to_war_horde = {
 			}
 			export_to_variable = {
 				variable_name = ai_value
-				value = 10
+				value = 100
 			}
 		}
 		add_entry = {
@@ -2000,7 +1999,6 @@ call_to_war_horde = {
 				who = FROM
 				with = ROOT
 			}
-			subtract_variable = { which = ai_value value = 100 }
 		}
         add_entry = {
 			name = INV_FACTION_LOSING
@@ -2079,7 +2077,7 @@ call_to_war_old_horde = {
 			}
 			export_to_variable = {
 				variable_name = ai_value
-				value = 10
+				value = 100
 			}
 		}
 		add_entry = {
@@ -2105,7 +2103,6 @@ call_to_war_old_horde = {
 				who = FROM
 				with = ROOT
 			}
-			subtract_variable = { which = ai_value value = 100 }
 		}
         add_entry = {
 			name = INV_FACTION_LOSING
@@ -2120,12 +2117,7 @@ call_to_war_old_horde = {
 	}
 
 	ai_will_do = {
-        # These AI will call in members, or any if they are losing badly
-        OR = {
-            personality = ai_militarist
-            personality = ai_balanced
-            NOT = { war_score = -50 }
-        }
+        always = yes
 	}
 }
 
@@ -2184,7 +2176,7 @@ call_to_war_trade_coalition = {
 			}
 			export_to_variable = {
 				variable_name = ai_value
-				value = 10
+				value = 100
 			}
 		}
 		add_entry = {
@@ -2210,7 +2202,6 @@ call_to_war_trade_coalition = {
 				who = FROM
 				with = ROOT
 			}
-			subtract_variable = { which = ai_value value = 100 }
 		}
         add_entry = {
 			name = INV_FACTION_LOSING
@@ -2522,7 +2513,7 @@ request_aid_old_horde = {
 			}
 			export_to_variable = {
 				variable_name = ai_value
-				value = -30
+				value = 30
 			}
 		}
 		add_entry = {
@@ -2570,15 +2561,20 @@ request_aid_old_horde = {
 				value = 100
 			}
 		}
+        add_entry = {
+			name = INV_ORCISH_HORDE
+			limit = {
+				tag = U03
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = 1000
+			}
+		}
 	}
 
 	ai_will_do = {
-        # These AI will call in members, or any if they are losing badly
-        OR = {
-            personality = ai_militarist
-            personality = ai_balanced
-            NOT = { war_score = -50 }
-        }
+        always = yes
 	}
 }
 
@@ -3028,8 +3024,8 @@ assist_alliance = {
 	}
 
 	ai_will_do = {
-        # AI members will never assist 
-        always = no
+        # AI members will always assist Head
+        always = yes
 	}
 }
 
@@ -3095,8 +3091,8 @@ assist_horde = {
 	}
 
 	ai_will_do = {
-        # AI members will never assist 
-        always = no
+        # AI members will always assist Head
+        always = yes
 	}
 }
 
@@ -3162,8 +3158,8 @@ assist_old_horde = {
 	}
 
 	ai_will_do = {
-        # AI members will never assist 
-        always = no
+        # AI members will always assist Head
+        always = yes
 	}
 }
 
@@ -3229,7 +3225,7 @@ assist_trade_coalition = {
 	}
 
 	ai_will_do = {
-        # AI members will never assist 
-        always = no
+        # AI members will always assist Head
+        always = yes
 	}
 }

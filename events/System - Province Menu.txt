@@ -248,6 +248,53 @@ province_event = {
     }
     
     option = {
+		name = www_province_menu.1.option.advance_dig
+        
+        trigger = {
+            owner = {
+                NOT = { has_country_modifier = archaeology_dig_province_menu_cooldown }
+                has_country_flag = dig_begins
+                treasury = 100
+            }
+            
+            has_province_modifier = dig_in_progress
+        }
+        
+        owner = { 
+            add_treasury = -100
+            increment_dig = yes
+        }
+        
+        custom_tooltip = ADVANCE_DIG_ACTION_COOLDOWN
+        
+        hidden_effect = {
+            owner = {
+                add_country_modifier = {
+                    name = archaeology_dig_province_menu_cooldown
+                    duration = 365
+                    hidden = yes
+                }
+            }
+        }
+    }
+    
+    option = {
+		name = www_province_menu.1.option.advance_dig.lack_cost
+        
+        trigger = {
+            owner = {   
+                NOT = { has_country_modifier = archaeology_dig_province_menu_cooldown }
+                has_country_flag = dig_begins
+                NOT = { treasury = 100 }
+            }
+            
+            has_province_modifier = dig_in_progress
+        }
+        
+        custom_tooltip = YOU_NEED_ADVANCE_DIG_COST
+    }
+    
+    option = {
 		name = www_province_menu.1.option.exit
     }  
 }

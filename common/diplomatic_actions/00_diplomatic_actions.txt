@@ -42,6 +42,7 @@
 # warsubsidy
 # sellprov
 # imperial_relations_action
+# imperial_realm_war_action
 # religious_unity_action
 # grant_electorate
 # remove_electorate
@@ -59,7 +60,6 @@
 # sabotage_reputation
 # support_rebels
 # sow_discontent
-# study_technology
 # agitate_for_liberty
 # form_coalition
 # request_to_join_federation
@@ -69,8 +69,7 @@
 # designate_march
 # ask_for_march
 # sell_ships_action
-# counterespionage
-# abandon_union_action
+# abandon_union
 # takeondebt
 # influence_nation
 # claim_states
@@ -400,14 +399,12 @@ royal_marriage = {
 	}
 }
 
-
-
 annexationaction = {
 	condition = {
 		tooltip = ANNEX_TOO_LOW
 		potential = {
 			FROM = {
-				vassal_of = ROOT
+				is_subject_of = ROOT
 			}
 		}
 		allow = {
@@ -417,6 +414,20 @@ annexationaction = {
 					value = 190
 				}
 			}
+		}
+	}
+    
+    # Block early annexation by AI nations
+    condition = {
+		tooltip = AI_BLOCK_ANNEXATION
+		potential = {
+            ai = yes
+			FROM = {
+				is_subject_of = ROOT
+			}
+		}
+		allow = {
+			is_year = 600.1.1
 		}
 	}
 }
@@ -434,6 +445,20 @@ integrationaction = {
 					value = 190
 				}
 			}
+		}
+	}
+    
+    # Block early annexation by AI nations
+    condition = {
+		tooltip = AI_BLOCK_ANNEXATION
+		potential = {
+            ai = yes
+			FROM = {
+				is_subject_of = ROOT
+			}
+		}
+		allow = {
+			is_year = 600.1.1
 		}
 	}
 }

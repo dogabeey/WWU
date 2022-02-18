@@ -31,6 +31,7 @@ wwu_espionage_ideas = {
     # Loyalist Recruitment
     wwu_espionage_ideas_4 = {
         reduced_liberty_desire = 10
+        global_rebel_suppression_efficiency = 0.1
     }
     # Local Intergration
     wwu_espionage_ideas_5 = {
@@ -84,6 +85,7 @@ wwu_dynastic_ideas = {
     # Royal Council
     wwu_dynastic_ideas_3 = {
         diplomatic_upkeep = 1
+        monthly_favor_modifier = 0.1
     }
     # Diplomatic Corps
     wwu_dynastic_ideas_4 = {
@@ -123,6 +125,7 @@ wwu_influence_ideas = {
     # Loyal Subjects
     wwu_influence_ideas_1 = {
         vassal_income = 0.25
+        monthly_favor_modifier = 0.1
     }
     # Flexible Negotiation
     wwu_influence_ideas_2 = {
@@ -266,14 +269,23 @@ wwu_exploration_ideas = {
     ai_will_do = {
         factor = 1
         
+        # Countries
+        modifier = {
+            factor = 10
+            
+            OR = {
+                tag = A15 # Bloodsail
+                tag = A78 # Zandalar
+                tag = A78 # Bilgewater Cartel
+                tag = OGR # Gorian Empire
+            }
+        }
+        
         modifier = {
 			factor = 0
 			OR = {
 				is_subject = yes
-				is_vassal = yes
 				is_colonial_nation = yes
-				is_tribal = yes
-				primitives = yes
 			}
 		}
         modifier = {
@@ -400,6 +412,7 @@ wwu_assimilation_ideas = {
     # Mixed Courts
     wwu_assimilation_ideas_2 = {
         diplomatic_annexation_cost = -0.1
+        #relation_with_same_culture_group = 10
     }
     # Brothers in Arms
     wwu_assimilation_ideas_3 = {
@@ -408,10 +421,12 @@ wwu_assimilation_ideas = {
     # Religious Unity
     wwu_assimilation_ideas_4 = {
         religious_unity = 0.15
+        #relation_with_same_religion = 10
     }
     # Local Concessions
     wwu_assimilation_ideas_5 = {
         years_of_nationalism = -5
+        #relation_with_accepted_culture = 10
     }
     # Cultural Heritage
     wwu_assimilation_ideas_6 = {

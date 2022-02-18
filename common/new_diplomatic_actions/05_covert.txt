@@ -13,7 +13,7 @@ bribe_adminstration = {
 		has_estate = estate_mercantile_guild
 	}
 	is_allowed = {
-		years_of_income = 3
+		years_of_income = 1
 		FROM = { NOT = { has_country_modifier = bribed } }
         FROM = { 
             custom_trigger_tooltip = {
@@ -23,10 +23,10 @@ bribe_adminstration = {
         }
 	}
 	on_accept = {
-		add_years_of_income = -3
-		add_spy_network_from = {
+		add_years_of_income = -1
+		add_spy_network_in = {
 			who = FROM
-			value = 20
+			value = 25
 		}
 		add_country_modifier = { 
 			name = bribed
@@ -67,12 +67,22 @@ form_raid = {
 	
 	is_visible = {
 		has_estate = estate_adventuring_guild
+        NOT = { has_country_modifier = is_evil }
+        FROM = {
+            has_country_modifier = is_evil
+        }
 	}
 	is_allowed = {
 		has_spy_network_in = {
 			who = FROM
 			value = 50
 		}
+        custom_trigger_tooltip = {
+            tooltip = NO_ACTIVE_RAID
+            NOT = {
+                has_global_flag = active_raid
+            }
+        }
 		FROM = { 
             custom_trigger_tooltip = {
                 tooltip = RECENTLY_TARGET_OF_CONDUCT_RAID
@@ -81,6 +91,14 @@ form_raid = {
         }
 	}
 	on_accept = {
+        hidden_effect = {
+            set_global_flag = active_raid
+            set_country_flag = raid_owner
+            
+            FROM = {
+                set_country_flag = raid_target
+            }
+        }
 		add_spy_network_in = {
 			who = FROM
 			value = -50
@@ -91,6 +109,7 @@ form_raid = {
 					type = adventurer_rebels
 					size = 3
 					friend = ROOT
+                    win = yes
 				}
 			}
             hidden_effect = {
@@ -180,7 +199,7 @@ assasinate_ruler = {
                             NOT = {
                                 OR = {
                                     culture_group = culture_group_darnassian
-                                    ruler_has_personality = druid_personality
+                                    has_ruler_flag = druid_personality
                                 }
                             }
                         }

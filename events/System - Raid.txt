@@ -1,0 +1,420 @@
+namespace = wwu_raid
+
+# Victory over Evil
+country_event = {
+	id = wwu_raid.1
+	title = wwu_raid.1.title
+	desc = wwu_raid.1.desc
+	picture = LOTHAR_FIRE_eventPicture
+
+    is_triggered_only = yes
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_raid.1.option.a
+		
+        add_prestige = 50
+        add_adm_power = 100
+        add_dip_power = 100
+        add_mil_power = 100
+	}
+}
+
+# Raid Loot
+country_event = {
+	id = wwu_raid.2
+	title = wwu_raid.2.title
+	desc = wwu_raid.2.desc
+	picture = KAELTHAS_CLOSE_eventPicture
+
+    is_triggered_only = yes
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+    immediate = {
+        hidden_effect = {
+            every_province = {
+                limit = {
+                    has_province_flag = raid_loot_province
+                }
+                
+                clr_province_flag = raid_loot_province
+                
+                save_event_target_as = raid_loot_province
+            }
+        }
+    }
+    
+	option = {
+		name = wwu_raid.2.option.a
+		
+        if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 30
+                }
+            }
+            add_treasury = 300
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 29
+                }
+            }
+            add_treasury = 290
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 28
+                }
+            }
+            add_treasury = 280
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 27
+                }
+            }
+            add_treasury = 270
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 26
+                }
+            }
+            add_treasury = 260
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 25
+                }
+            }
+            add_treasury = 250
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 24
+                }
+            }
+            add_treasury = 240
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 23
+                }
+            }
+            add_treasury = 230
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 22
+                }
+            }
+            add_treasury = 220
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 21
+                }
+            }
+            add_treasury = 210
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 20
+                }
+            }
+            add_treasury = 200
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 19
+                }
+            }
+            add_treasury = 190
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 18
+                }
+            }
+            add_treasury = 180
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 17
+                }
+            }
+            add_treasury = 170
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 16
+                }
+            }
+            add_treasury = 160
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 15
+                }
+            }
+            add_treasury = 150
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 14
+                }
+            }
+            add_treasury = 140
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 13
+                }
+            }
+            add_treasury = 130
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 12
+                }
+            }
+            add_treasury = 120
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 11
+                }
+            }
+            add_treasury = 110
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 10
+                }
+            }
+            add_treasury = 100
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 9
+                }
+            }
+            add_treasury = 90
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 8
+                }
+            }
+            add_treasury = 80
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 7
+                }
+            }
+            add_treasury = 70
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 6
+                }
+            }
+            add_treasury = 60
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 5
+                }
+            }
+            add_treasury = 50
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 4
+                }
+            }
+            add_treasury = 40
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 3
+                }
+            }
+            add_treasury = 30
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 2
+                }
+            }
+            add_treasury = 20
+        }
+        else_if = {
+            limit = {
+                event_target:raid_loot_province = {
+                    base_tax = 1
+                }
+            }
+            add_treasury = 10
+        }
+	}
+}
+
+# Bolster Raid
+country_event = {
+	id = wwu_raid.3
+	title = wwu_raid.3.title
+	desc = wwu_raid.3.desc
+	picture = DWARVENARMY_eventPicture
+
+	trigger = {
+        has_global_flag = active_raid
+        has_country_flag = raid_owner
+    }
+
+    mean_time_to_happen = {
+		months = 120
+	}
+    
+	option = {
+		name = wwu_raid.3.option.a
+		
+        add_yearly_manpower = -0.5
+        
+        every_country = {
+            limit = {
+                has_country_flag = raid_target
+            }
+            random_owned_province = {
+				spawn_rebels = {
+					type = adventurer_rebels
+					size = 3
+					friend = ROOT
+                    win = yes
+				}
+			}
+        }
+	}
+    option = {
+		name = wwu_raid.10.option.b
+		
+        add_prestige = -5
+	}
+}
+
+# Raid Failure
+country_event = {
+	id = wwu_raid.4
+	title = wwu_raid.4.title
+	desc = wwu_raid.4.desc
+	picture = MAGI_eventPicture
+
+	trigger = {
+        has_country_flag = raid_owner
+        
+        # Adventurers dead
+        any_country = {
+            has_country_flag = raid_target
+            NOT = { num_of_rebel_armies = 1 }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_raid.4.option.a
+		
+        # Reset raid status
+        clr_global_flag = active_raid
+        
+        clr_country_flag = raid_owner
+        
+        every_country = {
+            limit = {
+                has_country_flag = raid_target
+            }
+            
+            clr_country_flag = raid_target
+        }
+	}
+}
+
+# Cleanup - If raid owner is annexed
+country_event = {
+	id = wwu_raid.5
+	title = wwu_raid.5.title
+	desc = wwu_raid.5.desc
+	picture = MAGI_eventPicture
+    
+    hidden = yes
+    
+	trigger = {
+        ai = yes
+        has_global_flag = active_raid
+        NOT = {
+            any_country = {
+                has_country_flag = raid_owner
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 1
+	}
+    
+	option = {
+		name = wwu_raid.5.option.a
+		
+        # Reset raid status
+        clr_global_flag = active_raid
+        
+        clr_country_flag = raid_owner
+        
+        every_country = {
+            limit = {
+                has_country_flag = raid_target
+            }
+            
+            clr_country_flag = raid_target
+            disband_rebels = adventurer_rebels
+        }
+	}
+}
