@@ -248,7 +248,15 @@ cb_independence_war = {
 	prerequisites = {
 		is_subject_other_than_tributary_trigger = yes
 		is_subject_of = FROM
-		liberty_desire = 50
+        
+        # Let player always use this
+        if = {
+            limit = {
+                ai = yes
+            }
+            liberty_desire = 50
+        }
+        
 		is_revolution_target = no
 	}
 
