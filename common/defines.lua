@@ -624,7 +624,7 @@ NCountry = {
 	PARLIAMENT_CHANCE_OF_DECISION = 10,			-- % Chance debate is ended after PARLIAMENT_DEBATE_DURATION
 
 	ALLOW_FEMALE_GENERALS = 1,
-	FEMALE_ADVISOR_CHANCE = 0.3,
+	FEMALE_ADVISOR_CHANCE = 0.5,
 	MAX_IDEA_GROUPS_FROM_SAME_CATEGORY = 1.0,   -- Allow any type at any time
 
 	RANDOM_LUCKY_BASE_WEIGHT = 100,					-- Base weight given to each nation when rolling for random lucky
