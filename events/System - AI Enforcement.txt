@@ -1,0 +1,35 @@
+namespace = wwu_ai_enforcement
+# These events are used to force important AI nations back into the correct state for lore-relevant events/decisions/missions.
+
+# Shadowmoon: Enforce Fel religion
+country_event = {
+	id = wwu_ai_enforcement.1
+	title = wwu_ai_enforcement.1.title
+	desc = wwu_ai_enforcement.1.desc
+	picture = BURNING_CASTLE_eventPicture
+	
+	hidden = yes
+    
+    trigger = {
+        ai = yes
+        tag = A34
+        is_year = 570
+        NOT = { religion = fel }
+    }
+    
+    mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = wwu_ai_enforcement.1.option.a
+		
+        change_religion = fel
+        capital_scope = {
+            change_religion = fel
+        }
+	}
+}
+
+
+
