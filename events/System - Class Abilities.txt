@@ -1,0 +1,34 @@
+namespace = wwu_class_abilities
+
+# Class Abilities
+country_event = {
+	id = wwu_class_abilities.1
+	title = wwu_class_abilities.1.title
+	desc = wwu_class_abilities.1.desc
+	picture = MAGI_eventPicture
+	
+	is_triggered_only = yes
+    
+    option = {
+		name = wwu_class_abilities.1.option.warrior.ability_1
+        
+        trigger = {
+            has_ruler_flag = warrior_personality
+        }
+        
+        hidden_effect = {
+            add_country_modifier = {
+                name = class_ability_cooldown
+                duration = 1825
+                hidden = yes
+            }
+        }
+        
+        
+	}
+    
+    option = {
+		name = wwu_class_abilities.1.option.exit
+        
+	}
+}
