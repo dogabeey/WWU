@@ -117,12 +117,28 @@ country_decisions = {
                 limit = {
                     check_variable = {
                         which = ruler_magic_aptitude
-                        value = 3
+                        value = 4
                     }
                 }
                 add_adm_power = -500
             }
             # -> Epic
+            else_if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = ruler_magic_aptitude
+                            value = 4
+                        }
+                    }
+                    check_variable = {
+                        which = ruler_magic_aptitude
+                        value = 3
+                    }
+                }
+                add_adm_power = -400
+            }
+            # -> Rare
             else_if = {
                 limit = {
                     NOT = {
@@ -136,9 +152,9 @@ country_decisions = {
                         value = 2
                     }
                 }
-                add_adm_power = -400
+                add_adm_power = -300
             }
-            # -> Rare
+            # -> Common
             else_if = {
                 limit = {
                     NOT = {
@@ -152,11 +168,11 @@ country_decisions = {
                         value = 1
                     }
                 }
-                add_adm_power = -300
-            }
-            # -> Common
-            else = {
                 add_adm_power = -200
+            }
+            # -> Poor
+            else = {
+                add_adm_power = -100
             }
             
             add_ruler_modifier = {
@@ -194,12 +210,28 @@ country_decisions = {
                 limit = {
                     check_variable = {
                         which = ruler_magic_finesse
-                        value = 3
+                        value = 4
                     }
                 }
                 add_mil_power = -500
             }
             # -> Epic
+            else_if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = ruler_magic_finesse
+                            value = 4
+                        }
+                    }
+                    check_variable = {
+                        which = ruler_magic_finesse
+                        value = 3
+                    }
+                }
+                add_mil_power = -400
+            }
+            # -> Rare
             else_if = {
                 limit = {
                     NOT = {
@@ -213,9 +245,9 @@ country_decisions = {
                         value = 2
                     }
                 }
-                add_mil_power = -400
+                add_mil_power = -300
             }
-            # -> Rare
+            # -> Common
             else_if = {
                 limit = {
                     NOT = {
@@ -229,11 +261,11 @@ country_decisions = {
                         value = 1
                     }
                 }
-                add_mil_power = -300
-            }
-            # -> Common
-            else = {
                 add_mil_power = -200
+            }
+            # -> Poor
+            else = {
+                add_mil_power = -100
             }
             
             add_ruler_modifier = {
@@ -271,12 +303,28 @@ country_decisions = {
                 limit = {
                     check_variable = {
                         which = ruler_magic_concentration
-                        value = 3
+                        value = 4
                     }
                 }
                 add_dip_power = -500
             }
             # -> Epic
+            else_if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = ruler_magic_concentration
+                            value = 4
+                        }
+                    }
+                    check_variable = {
+                        which = ruler_magic_concentration
+                        value = 3
+                    }
+                }
+                add_dip_power = -400
+            }
+            # -> Rare
             else_if = {
                 limit = {
                     NOT = {
@@ -290,9 +338,9 @@ country_decisions = {
                         value = 2
                     }
                 }
-                add_dip_power = -400
+                add_dip_power = -300
             }
-            # -> Rare
+            # -> Common
             else_if = {
                 limit = {
                     NOT = {
@@ -306,11 +354,11 @@ country_decisions = {
                         value = 1
                     }
                 }
-                add_dip_power = -300
-            }
-            # -> Common
-            else = {
                 add_dip_power = -200
+            }
+            # -> Poor
+            else = {
+                add_dip_power = -100
             }
             
             add_ruler_modifier = {

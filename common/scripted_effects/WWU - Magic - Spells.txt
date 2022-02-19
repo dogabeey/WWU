@@ -761,40 +761,14 @@ demonic_touch_effect = {
 # Spells - Generic
 #-----------------------------
 ascendance_effect = {
-    if = {
-        limit = {
-            is_immortal_lifespan = yes
-        }
-        custom_tooltip = ASCENDANCE_AFTEREFFECT_IMMORTAL_TT
-    }
-    else = {
-        custom_tooltip = ASCENDANCE_AFTEREFFECT_TT
-    }
-    
-    
-    hidden_effect = {
-        add_ruler_modifier = {
-            name = ruler_ascendance
-            duration = -1
-        }
-        # Give 1 year free, will die within the next 2 years
-        
-        if = {
-            limit = {
-                is_immortal_lifespan = yes
-            }
-            country_event = { id = wwu_magic.22 days = 365 random = 730 }
-        }
-        else = {
-            country_event = { id = wwu_magic.21 days = 365 random = 730 }
-        }
-    }
-    
-    define_ruler_to_general = {
+    define_general = {
+        name = "Ascended Commander"
         fire = 10
         shock = 10
         manuever = 10
         siege = 10
     }
+    
+    country_event = { id = wwu_magic.20 days = 3650 }
 }
 

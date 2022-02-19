@@ -67,6 +67,16 @@ remove_aptitude_point = {
         }
     }
 }
+remove_all_aptitude_points = {
+    custom_tooltip = MAGIC_APTITUDE_TOTAL_LOSS
+    
+    hidden_effect = {
+        set_variable = {
+            which = ruler_magic_aptitude
+            value = 0
+        } 
+    }
+}
 
 add_finesse_point = {
     custom_tooltip = MAGIC_FINESSE_GAIN
@@ -106,6 +116,16 @@ remove_finesse_point = {
         }
     }
 }
+remove_all_finesse_points = {
+    custom_tooltip = MAGIC_FINESSE_TOTAL_LOSS
+    
+    hidden_effect = {
+        set_variable = {
+            which = ruler_magic_finesse
+            value = 0
+        } 
+    }
+}
 
 add_concentration_point = {
     custom_tooltip = MAGIC_CONCENTRATION_GAIN
@@ -143,6 +163,16 @@ remove_concentration_point = {
                 value = -1
             }   
         }
+    }
+}
+remove_all_concentration_points = {
+    custom_tooltip = MAGIC_CONCENTRATION_TOTAL_LOSS
+    
+    hidden_effect = {
+        set_variable = {
+            which = ruler_magic_concentration
+            value = 0
+        } 
     }
 }
 
@@ -433,93 +463,21 @@ lose_mana_5 = {
 }
 
 cataclysmic_effect = {
-    if = {
-        limit = {
-            is_immortal_lifespan = yes
-        }
-        custom_tooltip = CATACLYSMIC_EFFECT_IMMORTAL_TT
-    }
-    else = {
-        custom_tooltip = CATACLYSMIC_EFFECT_TT
-    }
-    
+    custom_tooltip = RISKY_EFFECT_TT
     
     hidden_effect = {
         random_list = {
-            20 = {
-                change_variable = {
-                    which = ruler_magic_aptitude
-                    value = -5
-                }
-                if = {
-                    limit = {
-                        NOT = {
-                            check_variable = {
-                                which = ruler_magic_aptitude
-                                value = 0
-                            }
-                        }
-                    }
-                    set_variable = {
-                        which = ruler_magic_aptitude
-                        value = 0
-                    }
-                }
+            30 = { }
+            30 = { 
+                country_event = { id = wwu_magic.50 }
             }
-            20 = {
-                change_variable = {
-                    which = ruler_magic_finesse
-                    value = -5
-                }
-                if = {
-                    limit = {
-                        NOT = {
-                            check_variable = {
-                                which = ruler_magic_finesse
-                                value = 0
-                            }
-                        }
-                    }
-                    set_variable = {
-                        which = ruler_magic_finesse
-                        value = 0
-                    }
-                }
+            30 = { 
+                country_event = { id = wwu_magic.51 }
             }
-            20 = {
-                change_variable = {
-                    which = ruler_magic_concentration
-                    value = -5
-                }
-                if = {
-                    limit = {
-                        NOT = {
-                            check_variable = {
-                                which = ruler_magic_concentration
-                                value = 0
-                            }
-                        }
-                    }
-                    set_variable = {
-                        which = ruler_magic_concentration
-                        value = 0
-                    }
-                }
-            }
-            10 = {
-                if = {
-                    limit = {
-                        is_immortal_lifespan = yes
-                    }
-                    country_event = { id = wwu_magic.22 }
-                }
-                else = {
-                    country_event = { id = wwu_magic.21 }
-                }
-            }
-            30 = {
-                
+            30 = { 
+                country_event = { id = wwu_magic.52 }
             }
         }
     }
 }
+

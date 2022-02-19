@@ -463,73 +463,21 @@ country_event = {
 	}
 }
 
-# Destruction of [Root.Monarch.GetTitle] [Root.Monarch.GetName]
+# Ascended Commander Dies
 country_event = {
-	id = wwu_magic.21
-	title = wwu_magic.21.title
-	desc = wwu_magic.21.desc
-	picture = BIG_BOOK_eventPicture
+	id = wwu_magic.20
+	title = wwu_magic.20.title
+	desc = wwu_magic.20.desc
+	picture = MAGI_eventPicture
     
 	is_triggered_only = yes
-    
-    mean_time_to_happen = {
-		days = 1
-    }
-    
-    trigger = {
-        has_ruler_modifier = ruler_ascendance
-    }
 	
-    option = {
-		name = wwu_magic.21.option.a
+	option = {
+		name = wwu_magic.20.option.a
 		
-        kill_ruler = yes
-	}
-}
-
-# Slumber of [Root.Monarch.GetTitle] [Root.Monarch.GetName]
-country_event = {
-	id = wwu_magic.22
-	title = wwu_magic.22.title
-	desc = wwu_magic.22.desc
-	picture = BIG_BOOK_eventPicture
-    
-	is_triggered_only = yes
-    
-    mean_time_to_happen = {
-		days = 1
-    }
-    
-    trigger = {
-        has_ruler_modifier = ruler_ascendance
-    }
-	
-    option = {
-		name = wwu_magic.22.option.a
-		
-        exile_ruler_as = slumbering_ruler
-        
-        country_event = { id = wwu_magic.23 days = 3650 random = 3650 }
-	}
-}
-
-# Return of [Root.Monarch.GetTitle] [Root.Monarch.GetName]
-country_event = {
-	id = wwu_magic.23
-	title = wwu_magic.23.title
-	desc = wwu_magic.23.desc
-	picture = BIG_BOOK_eventPicture
-    
-	is_triggered_only = yes
-    
-    mean_time_to_happen = {
-		days = 1
-    }
-	
-    option = {
-		name = wwu_magic.23.option.a
-		
-        set_ruler = slumbering_ruler
+        kill_leader = {
+            name = "Ascended Commander"
+        }
 	}
 }
 
@@ -581,3 +529,50 @@ country_event = {
 	}
 }
 
+# Diminishment in Aptitude 
+country_event = {
+	id = wwu_magic.50
+	title = wwu_magic.50.title
+	desc = wwu_magic.50.desc
+	picture = MAGI_eventPicture
+    
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_magic.50.option.a
+		
+        remove_aptitude_point = yes
+	}
+}
+
+# Diminishment in Finesse 
+country_event = {
+	id = wwu_magic.51
+	title = wwu_magic.51.title
+	desc = wwu_magic.51.desc
+	picture = MAGI_eventPicture
+    
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_magic.51.option.a
+		
+        remove_finesse_point = yes
+	}
+}
+
+# Diminishment in Concentration 
+country_event = {
+	id = wwu_magic.52
+	title = wwu_magic.52.title
+	desc = wwu_magic.52.desc
+	picture = MAGI_eventPicture
+    
+	is_triggered_only = yes
+	
+	option = {
+		name = wwu_magic.52.option.a
+		
+        remove_concentration_point = yes
+	}
+}

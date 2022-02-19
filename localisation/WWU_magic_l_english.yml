@@ -135,6 +135,9 @@
  MAGIC_FINESSE_LOSS: "[Root.Monarch.GetName] will lose a point of §YFinesse§!."
  MAGIC_CONCENTRATION_GAIN: "[Root.Monarch.GetName] will gain a point of §YConcentration§!."
  MAGIC_CONCENTRATION_LOSS: "[Root.Monarch.GetName] will lose a point of §YConcentration§!."
+ MAGIC_APTITUDE_TOTAL_LOSS: "[Root.Monarch.GetName] will lose all points of §YAptitude§!."
+ MAGIC_FINESSE_TOTAL_LOSS: "[Root.Monarch.GetName] will lose all points of §YFinesse§!."
+ MAGIC_CONCENTRATION_TOTAL_LOSS: "[Root.Monarch.GetName] will lose all points of §YConcentration§!."
  
  MANA_GAIN_1: "[Root.Monarch.GetName] will gain one point of §YMana§!."
  MANA_GAIN_2: "[Root.Monarch.GetName] will gain two points of §YMana§!."
@@ -159,6 +162,7 @@
  SKILL_RANK_RARE: "§rRare§!"
  SKILL_RANK_COMMON: "§cCommon§!"
  SKILL_RANK_POOR: "§hPoor§!"
+ SKILL_RANK_UNTRAINED: "§gUntrained§!"
  
  SKILL_MANA_0: "£empty_mana£ £empty_mana£ £empty_mana£ £empty_mana£ £empty_mana£"
  SKILL_MANA_1: "£full_mana£ £empty_mana£ £empty_mana£ £empty_mana£ £empty_mana£"
@@ -167,11 +171,7 @@
  SKILL_MANA_4: "£full_mana£ £full_mana£ £full_mana£ £full_mana£ £empty_mana£"
  SKILL_MANA_5: "£full_mana£ £full_mana£ £full_mana£ £full_mana£ £full_mana£"
  
- CATACLYSMIC_EFFECT_TT: "This spell is §Rrisky§! to §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName]§!'s life, and as such may harm their abilities or even kill them. Perform at your own risk."
- CATACLYSMIC_EFFECT_IMMORTAL_TT: "This spell is §Rdetrimental§! to §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName]§!'s life, and as such may harm their abilities or force them to recover, exiling them for several years. Perform at your own risk."
- 
- ASCENDANCE_AFTEREFFECT_TT: "Once ascended, §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName] power begin to kill them, resulting in a severely reduced lifespan."
- ASCENDANCE_AFTEREFFECT_IMMORTAL_TT: "Once ascended, §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName] power begin to harm them, resulting in a forced slumber, exiling them for several years."
+ RISKY_EFFECT_TT: "This spell is §Rrisky§! to §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName]§!'s skill, and as such may diminish their aptitude, finesse or concentration. Perform at your own risk."
  
  #-----------------------------------------------
  # Events
@@ -246,17 +246,9 @@
  wwu_magic.15.option.a: "Alas, I must focus on other things"
  wwu_magic.15.option.b: "I must study at once!"
  
- wwu_magic.21.title: "Destruction of [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
- wwu_magic.21.desc: "Having ascended, imbuing themselves with unbelievable power, [Root.Monarch.GetTitle] [Root.Monarch.GetName] physical form has decayed, as the magical energies seep throughout their entire being. This process has finally finished, killing them."
- wwu_magic.21.option.a: "Farewell, [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
- 
- wwu_magic.22.title: "Slumber of [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
- wwu_magic.22.desc: "Having ascended, imbuing themselves with unbelievable power, [Root.Monarch.GetTitle] [Root.Monarch.GetName] physical form has decayed, as the magical energies seep throughout their entire being. This process has finally finished, forcing them to slumber for several years."
- wwu_magic.22.option.a: "Farewell for now, [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
- 
- wwu_magic.23.title: "Return of [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
- wwu_magic.23.desc: "Having slumbered, [Root.Monarch.GetTitle] [Root.Monarch.GetName] physical form has now recovered."
- wwu_magic.23.option.a: "Welcome back, [Root.Monarch.GetTitle] [Root.Monarch.GetName]"
+ wwu_magic.20.title: "Ascended Commander Dies"
+ wwu_magic.20.desc: "The raw power of ascension has caused our commander's body to wither and die. Unfortunate, but a worthy sacrifice to our cause."
+ wwu_magic.20.option.a: "Farewell"
  
  wwu_magic.40.title: "Improvement in Aptitude"
  wwu_magic.40.desc: "[Root.Monarch.GetTitle] [Root.Monarch.GetName] has invested considerable time and energy into improving their aptitude. The results speak for themselves."
@@ -269,6 +261,18 @@
  wwu_magic.42.title: "Improvement in Concentration"
  wwu_magic.42.desc: "[Root.Monarch.GetTitle] [Root.Monarch.GetName] has invested considerable time and energy into improving their concentration. The results speak for themselves."
  wwu_magic.42.option.a: "None shall interrupt me!"
+ 
+ wwu_magic.50.title: "Diminishment in Aptitude"
+ wwu_magic.50.desc: "[Root.Monarch.GetTitle] [Root.Monarch.GetName] has suffered greatly, and as such their aptitude has been diminished. With rest and recovery they may begin the process of building their aptitute up once more."
+ wwu_magic.50.option.a: "Alas..."
+ 
+ wwu_magic.51.title: "Diminishment in Finesse"
+ wwu_magic.51.desc: "[Root.Monarch.GetTitle] [Root.Monarch.GetName] has suffered greatly, and as such their finesse has been diminished. With rest and recovery they may begin the process of building their finesse up once more."
+ wwu_magic.51.option.a: "Alas..."
+ 
+ wwu_magic.52.title: "Diminishment in Concentration"
+ wwu_magic.52.desc: "[Root.Monarch.GetTitle] [Root.Monarch.GetName] has suffered greatly, and as such their concentration has been diminished. With rest and recovery they may begin the process of building their concentration up once more."
+ wwu_magic.52.option.a: "Alas..."
  
  #-----------------------------------------------
  # Magic Menu - Order
