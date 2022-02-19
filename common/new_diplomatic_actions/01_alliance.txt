@@ -1276,11 +1276,22 @@ kick_from_alliance = {
 	}
 
 	ai_will_do = {
-        # AI will kick if the leader's opinion of them is very low
-        NOT = {
-            has_opinion = {
-                who = FROM
-                value = -150
+        OR = {
+            # AI will kick if the leader's opinion of them is very low
+            NOT = {
+                has_opinion = {
+                    who = FROM
+                    value = -150
+                }
+            }
+            # Target is a subject to a non-member overlord
+            AND = {
+                FROM = {
+                    is_subject = yes
+                    overlord = {
+                        NOT = { has_country_modifier = member_of_alliance }
+                    }
+                }
             }
         }
 	}
@@ -1334,11 +1345,22 @@ kick_from_horde = {
 	}
 
 	ai_will_do = {
-        # AI will kick if the leader's opinion of them is very low
-        NOT = {
-            has_opinion = {
-                who = FROM
-                value = -150
+        OR = {
+            # AI will kick if the leader's opinion of them is very low
+            NOT = {
+                has_opinion = {
+                    who = FROM
+                    value = -150
+                }
+            }
+            # Target is a subject to a non-member overlord
+            AND = {
+                FROM = {
+                    is_subject = yes
+                    overlord = {
+                        NOT = { has_country_modifier = member_of_horde }
+                    }
+                }
             }
         }
 	}
@@ -1392,11 +1414,22 @@ kick_from_old_horde = {
 	}
 
 	ai_will_do = {
-        # AI will kick if the leader's opinion of them is very low
-        NOT = {
-            has_opinion = {
-                who = FROM
-                value = -150
+        OR = {
+            # AI will kick if the leader's opinion of them is very low
+            NOT = {
+                has_opinion = {
+                    who = FROM
+                    value = -150
+                }
+            }
+            # Target is a subject to a non-member overlord
+            AND = {
+                FROM = {
+                    is_subject = yes
+                    overlord = {
+                        NOT = { has_country_modifier = member_of_old_horde }
+                    }
+                }
             }
         }
 	}
@@ -1450,11 +1483,22 @@ kick_from_trade_coalition = {
 	}
 
 	ai_will_do = {
-        # AI will kick if the leader's opinion of them is very low
-        NOT = {
-            has_opinion = {
-                who = FROM
-                value = -150
+        OR = {
+            # AI will kick if the leader's opinion of them is very low
+            NOT = {
+                has_opinion = {
+                    who = FROM
+                    value = -150
+                }
+            }
+            # Target is a subject to a non-member overlord
+            AND = {
+                FROM = {
+                    is_subject = yes
+                    overlord = {
+                        NOT = { has_country_modifier = member_of_trade_coalition }
+                    }
+                }
             }
         }
 	}
@@ -1504,11 +1548,20 @@ leave_the_alliance = {
 	}
 
 	ai_will_do = {
-		# AI will leave if opinion of leader is very low
-        NOT = {
-            has_opinion = {
-                who = FROM
-                value = -180
+        OR = {
+            # AI will leave if opinion of leader is very low
+            NOT = {
+                has_opinion = {
+                    who = FROM
+                    value = -180
+                }
+            }
+            # AI is a subject to a non-member overlord
+            AND = {
+                is_subject = yes
+                overlord = {
+                    NOT = { has_country_modifier = member_of_alliance }
+                }
             }
         }
 	}
@@ -1558,11 +1611,20 @@ leave_the_horde = {
 	}
 
 	ai_will_do = {
-		# AI will leave if opinion of leader is very low
-        NOT = {
-            has_opinion = {
-                who = FROM
-                value = -180
+		OR = {
+            # AI will leave if opinion of leader is very low
+            NOT = {
+                has_opinion = {
+                    who = FROM
+                    value = -180
+                }
+            }
+            # AI is a subject to a non-member overlord
+            AND = {
+                is_subject = yes
+                overlord = {
+                    NOT = { has_country_modifier = member_of_horde }
+                }
             }
         }
 	}
@@ -1612,11 +1674,20 @@ leave_the_old_horde = {
 	}
 
 	ai_will_do = {
-		# AI will leave if opinion of leader is very low
-        NOT = {
-            has_opinion = {
-                who = FROM
-                value = -180
+		OR = {
+            # AI will leave if opinion of leader is very low
+            NOT = {
+                has_opinion = {
+                    who = FROM
+                    value = -180
+                }
+            }
+            # AI is a subject to a non-member overlord
+            AND = {
+                is_subject = yes
+                overlord = {
+                    NOT = { has_country_modifier = member_of_old_horde }
+                }
             }
         }
 	}
@@ -1666,11 +1737,20 @@ leave_the_trade_coalition = {
 	}
 
 	ai_will_do = {
-		# AI will leave if opinion of leader is very low
-        NOT = {
-            has_opinion = {
-                who = FROM
-                value = -180
+		OR = {
+            # AI will leave if opinion of leader is very low
+            NOT = {
+                has_opinion = {
+                    who = FROM
+                    value = -180
+                }
+            }
+            # AI is a subject to a non-member overlord
+            AND = {
+                is_subject = yes
+                overlord = {
+                    NOT = { has_country_modifier = member_of_trade_coalition }
+                }
             }
         }
 	}
