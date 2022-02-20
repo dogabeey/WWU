@@ -1,0 +1,56 @@
+#-------------------------------
+# Steam Artifact
+#-------------------------------
+po_steal_artifact = {
+	category = 6
+	power_projection = vassalized_rival 
+	power_cost_base = 0.2
+	prestige_base = 0.25
+	ae_base = 0.2
+    
+	warscore_cost = {
+		all_provinces = 0.0
+		no_provinces = 80.0
+		owner_keeps = 0.0
+		conquered = 1.0
+		returned_core = 0.0
+		released_nation = 0.0
+		cancelled_subject = 0.0
+		concede_colonial_region = 0.0
+	}
+	warscore_cap = 80.0
+	requires_demand_independence = no
+	is_make_subject = no
+	requires_is_allowed = no
+	
+	is_visible = {
+		FROM = {
+            has_any_artifact = yes
+        }
+	}
+	is_allowed = {
+        FROM = {
+            has_any_artifact = yes
+        }
+	}
+	effect = {
+        custom_tooltip = STEAL_ARTIFACT_TT
+        
+        hidden_effect = {
+            set_country_flag = artifact_heist_active
+            FROM = {
+                set_country_flag = artifact_heist_target
+            }
+        }
+	}
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value
+			value = 50
+		}
+		limit = {
+			always = yes
+		}
+	}
+}
+

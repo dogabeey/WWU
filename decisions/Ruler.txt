@@ -25,4 +25,24 @@ country_decisions = {
 			factor = 0 # AI should never use this
 		}
 	}
+    
+    undertake_class_training = {
+        potential = {
+            
+            NOT = { has_assigned_ruler_class = yes }
+        }
+        allow = {
+            NOT = { has_assigned_ruler_class = yes }
+            NOT = { has_ruler_flag = ruler_is_training }
+            treasury = 100
+        }
+        effect = {
+            add_treasury = -100
+            
+            country_event = { id = wwu_ruler_training.1 }
+        }
+        ai_will_do = {
+			factor = 1
+		}
+    }
 }

@@ -10,60 +10,7 @@ country_event = {
 	is_triggered_only = yes
     
     option = {
-		name = wwu_ruler_view.1.option.learn_class
-        
-        trigger = {
-            treasury = 100
-            NOT = { has_ruler_flag = ruler_is_training }
-            NOT = { 
-                has_assigned_ruler_class = yes
-            }
-        }
-        
-        country_event = { id = wwu_ruler_training.1 }
-	}
-    
-    option = {
-		name = wwu_ruler_view.1.option.learn_class.lack_cost
-        
-        trigger = {
-            NOT = { treasury = 100 }
-            NOT = { has_ruler_flag = ruler_is_training }
-            NOT = { 
-                has_assigned_ruler_class = yes
-            }
-        }
-        
-        custom_tooltip = YOU_NEED_LEARN_CLASS_COST
-	}
-    
-	option = {
-		name = wwu_ruler_view.1.option.class_abilities
-        
-        trigger = {
-            has_assigned_ruler_class = yes
-            NOT = { has_country_modifier = class_ability_cooldown }
-        }
-        
-        country_event = { id = wwu_class_abilities.1 }
-	}
-    option = {
-		name = wwu_ruler_view.1.option.class_abilities.recently_used
-        
-        trigger = {
-            has_assigned_ruler_class = yes
-            has_country_modifier = class_ability_cooldown
-        }
-        
-        custom_tooltip = YOU_RECENTLY_USED_CLASS_ABILITY
-	}
-    
-    option = {
 		name = wwu_ruler_view.1.option.artifacts
-        
-        trigger = {
-            has_any_artifact = yes
-        }
         
         country_event = { id = wwu_artifact_repository.1 }
 	}

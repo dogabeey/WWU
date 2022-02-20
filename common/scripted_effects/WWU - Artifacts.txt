@@ -9,7 +9,7 @@
 # doomhammer
 # dreadblades
 # skull_of_manari
-# warswords_of_valajar
+# warswords_of_valarjar
 # scythe_of_elune
 # maw_of_the_damned
 # blades_of_the_fallen_prince
@@ -127,7 +127,7 @@ reward_artifact = {
             trigger = {
                 NOT = {
                     any_country = {
-                        has_country_flag = artifact_twinblades_of_deceiver
+                        has_country_flag = artifact_twinblades_of_the_deceiver
                     }
                 }
             }
@@ -522,6 +522,55 @@ make_primary_artifact = {
     }
 }
 
+steal_artifact = {
+    custom_tooltip = STEAL_ARTIFACT_$artifact$
+    
+    hidden_effect = {
+        set_country_flag = artifact_$artifact$
+        
+        event_target:artifact_heist_target = {
+            clr_country_flag = artifact_$artifact$
+            clr_country_flag = primary_artifact_$artifact$
+        }
+    }
+}
+
+display_artifact_status = {
+    if = {
+        limit = {
+            any_country = {
+                has_country_flag = artifact_$artifact$
+            }
+        }
+        custom_tooltip = LOCATION_OF_$artifact$
+    }
+    else = {
+        custom_tooltip = NOT_DISCOVERED_$artifact$
+    }
+}
+
+save_artifact_location = {
+    if = {
+        limit = {
+            any_country = {
+                has_country_flag = artifact_$artifact$
+            }
+        }
+        every_country = {
+            limit = {
+                 has_country_flag = artifact_$artifact$
+            }
+            save_event_target_as = owner_$artifact$
+        }
+    }
+    else = {
+        # Fill the event target with REB for error prevention. However this should never be displayed.
+        REB = {
+            save_event_target_as = owner_$artifact$
+        }
+    }
+}
+ 
 clear_current_primary_artifact = {
     clr_country_flag = primary_artifact_apocalypse
     clr_country_flag = primary_artifact_twinblades_of_the_deceiver
@@ -533,7 +582,7 @@ clear_current_primary_artifact = {
     clr_country_flag = primary_artifact_doomhammer
     clr_country_flag = primary_artifact_dreadblades
     clr_country_flag = primary_artifact_skull_of_manari
-    clr_country_flag = primary_artifact_warswords_of_valajar
+    clr_country_flag = primary_artifact_warswords_of_valarjar
     clr_country_flag = primary_artifact_scythe_of_elune
     clr_country_flag = primary_artifact_maw_of_the_damned
     clr_country_flag = primary_artifact_blades_of_the_fallen_prince
