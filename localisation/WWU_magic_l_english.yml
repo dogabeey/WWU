@@ -40,6 +40,9 @@
  ai_spell_cooldown: "AI Recently Used Magic"
  desc_ai_spell_cooldown: ""
  
+ evocation_cooldown: "Recently Used Evocation"
+ desc_evocation_cooldown: ""
+ 
  # Spells
  conjure_feast_poor: "Conjured Feast: Poor"
  desc_conjure_feast_poor: ""
@@ -151,6 +154,7 @@
  MANA_LOSS_4: "[Root.Monarch.GetName] will lose four points of §YMana§!."
  MANA_LOSS_5: "[Root.Monarch.GetName] will lose five points of §YMana§!."
  
+ HAS_MANA_0: "[Root.Monarch.GetName] has zero points of §YMana§!."
  HAS_MANA_1: "[Root.Monarch.GetName] has one point of §YMana§!."
  HAS_MANA_2: "[Root.Monarch.GetName] has two points of §YMana§!."
  HAS_MANA_3: "[Root.Monarch.GetName] has three points of §YMana§!."
@@ -174,6 +178,27 @@
  RISKY_EFFECT_TT: "This spell is §Rrisky§! to §Y[Root.Monarch.GetTitle] [Root.Monarch.GetName]§!'s skill, and as such may diminish their aptitude, finesse or concentration. Perform at your own risk."
  
  POLYMORPH_EFFECT: "This spell will convert the culture of §Y[Root.polymorph_count.GetValue]§! wrong culture province to our culture."
+ POLYMORPH_FAKE_EFFECT: "This spell will convert the culture of wrong culture provinces to our culture."
+ 
+ EVOCATION_TT: "[Root.GetEvocationCooldown]"
+ 
+ EVOCATION_5_TT: "This spell will go on cooldown for §Y5§! years."
+ EVOCATION_4_TT: "This spell will go on cooldown for §Y4§! years."
+ EVOCATION_3_TT: "This spell will go on cooldown for §Y3§! years."
+ EVOCATION_2_TT: "This spell will go on cooldown for §Y2§! years."
+ EVOCATION_1_TT: "This spell will go on cooldown for §Y1§! years."
+ 
+ YOU_CANNOT_USE_THIS_SPELL_CURRENTLY: "This spell is not currently usable."
+ PREVIEW_SPELL: "\nThe following effect is a preview of the spell effect:"
+ 
+ CORRUPTION_IS_TOO_HIGH: "Corruption is too high."
+ SPELL_IS_ON_COOLDOWN: "Spell is on cooldown."
+ MANA_IS_TOO_LOW: "Mana is too low."
+ STABILITY_IS_AT_MAX: "Stability is at max."
+ NO_WRONG_CULTURE_PROVINCES: "No wrong culture provinces present."
+ APTITUDE_IS_TOO_LOW: "Aptitude is too low."
+ TECH_IS_AT_MAX: "Technology is at max."
+ ASCENDED_COMMANDER_ALREADY_PRESENT: "Ascended Commander is already present."
  
  #-----------------------------------------------
  # Events
@@ -298,18 +323,27 @@
  wwu_magic_menu.10.option.soothe_minds: "Soothe Minds"
  wwu_magic_menu.10.option.polymorph: "Polymorph"
  wwu_magic_menu.10.option.evocation: "Evocation"
+ wwu_magic_menu.10.option.conjure_feast.invalid: "§gConjure Feast§!"
+ wwu_magic_menu.10.option.soothe_minds.invalid: "§gSoothe Minds§!"
+ wwu_magic_menu.10.option.polymorph.invalid: "§gPolymorph§!"
+ wwu_magic_menu.10.option.evocation.invalid: "§gEvocation§!"
+ 
  wwu_magic_menu.10.option.exit: "Exit"
  
  wwu_magic_menu.11.title: "Intermediate Spells"
  wwu_magic_menu.11.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
  wwu_magic_menu.11.option.focus_magic: "Focus Magic"
  wwu_magic_menu.11.option.apply_mass_invisibility: "Mass Invisibility"
+ wwu_magic_menu.11.option.focus_magic.invalid: "§gFocus Magic§!"
+ wwu_magic_menu.11.option.apply_mass_invisibility.invalid: "§gMass Invisibility§!"
  wwu_magic_menu.11.option.exit: "Exit"
  
  wwu_magic_menu.12.title: "Advanced Spells"
  wwu_magic_menu.12.desc: "Rack the mind of [Root.Monarch.GetTitle] [Root.Monarch.GetName] for possible spells to cast upon the realm.\n\nAptitude: [Root.GetAptitudeRank]\nExpands the list of possible spells that can be used.\n\nFinesse: [Root.GetFinesseRank]\nIncreases the potency of spells.\n\nConcentration: [Root.GetConcentrationRank]\nIncreases the duration of spells.\n\nMana: [Root.GetCurrentMana]\nUsed during the casting of spells. \nOne mana is regenerated every four years."
  wwu_magic_menu.12.option.summon_portals: "Summon Portals"
  wwu_magic_menu.12.option.display_prowess: "Diplay Prowess"
+ wwu_magic_menu.12.option.summon_portals.invalid: "§gSummon Portals§!"
+ wwu_magic_menu.12.option.display_prowess.invalid: "§gDiplay Prowess§!"
  wwu_magic_menu.12.option.exit: "Exit"
  
  wwu_magic_menu.13.title: "Powerful Spells"
@@ -317,6 +351,9 @@
  wwu_magic_menu.13.option.transmute_gold: "Transmute Gold"
  wwu_magic_menu.13.option.temporal_sight: "Temporal Sight"
  wwu_magic_menu.13.option.touch_of_the_magi: "Touch of the Magi"
+ wwu_magic_menu.13.option.transmute_gold.invalid: "§gTransmute Gold§!"
+ wwu_magic_menu.13.option.temporal_sight.invalid: "§gTemporal Sight§!"
+ wwu_magic_menu.13.option.touch_of_the_magi.invalid: "§gTouch of the Magi§!"
  wwu_magic_menu.13.option.exit: "Exit"
  
  wwu_magic_menu.14.title: "Legendary Spells"
@@ -325,4 +362,8 @@
  wwu_magic_menu.14.option.presence_of_mind: "Presence of Mind"
  wwu_magic_menu.14.option.mind_surge: "Mind Surge"
  wwu_magic_menu.14.option.ascendance: "Ascendance"
+ wwu_magic_menu.14.option.alter_time.invalid: "§gAlter Time§!"
+ wwu_magic_menu.14.option.presence_of_mind.invalid: "§gPresence of Mind§!"
+ wwu_magic_menu.14.option.mind_surge.invalid: "§gMind Surge§!"
+ wwu_magic_menu.14.option.ascendance.invalid: "§gAscendance§!"
  wwu_magic_menu.14.option.exit: "Exit"

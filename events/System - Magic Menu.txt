@@ -30,10 +30,6 @@ country_event = {
     option = {
 		name = wwu_magic_menu.1.option.intermediate
 		
-        trigger = {
-            has_common_aptitude = yes
-        }
-        
         country_event = { id = wwu_magic_menu.11 }
         
         ai_chance = {
@@ -45,10 +41,6 @@ country_event = {
     option = {
 		name = wwu_magic_menu.1.option.advanced
 		
-        trigger = {
-            has_rare_aptitude = yes
-        }
-        
         country_event = { id = wwu_magic_menu.12 }
         
         ai_chance = {
@@ -60,10 +52,6 @@ country_event = {
     option = {
 		name = wwu_magic_menu.1.option.powerful
 		
-        trigger = {
-            has_epic_aptitude = yes
-        }
-        
         country_event = { id = wwu_magic_menu.13 }
         
         ai_chance = {
@@ -75,10 +63,6 @@ country_event = {
     option = {
 		name = wwu_magic_menu.1.option.legendary
 		
-        trigger = {
-            has_legendary_aptitude = yes
-        }
-        
         country_event = { id = wwu_magic_menu.14 }
         
         ai_chance = {
@@ -106,32 +90,84 @@ country_event = {
         has_ruler_modifier = spellcaster_capabilities
     }
     
+    #-------------------------
     # Basic - Evocation
+    #-------------------------
     option = {
 		name = wwu_magic_menu.10.option.evocation
         
         trigger = {
+            has_poor_aptitude = yes
             NOT = { corruption = 99 }
+            NOT = { has_country_modifier = evocation_cooldown }
         }
 		
-        add_corruption = 2
-        gaub_mana_1 = yes
+        evocation_effect = yes
+        add_mana_1 = yes
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+    option = {
+		name = wwu_magic_menu.10.option.evocation.invalid
+        
+        trigger = {
+            OR = {
+                corruption = 99
+                has_country_modifier = evocation_cooldown
+                NOT  = { has_poor_aptitude = yes }
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                corruption = 99
+            }
+            custom_tooltip = CORRUPTION_IS_TOO_HIGH
+        }
+        else_if = {
+            limit = {
+                has_country_modifier = evocation_cooldown
+            }
+            custom_tooltip = SPELL_IS_ON_COOLDOWN
+        }
+        else_if = {
+            limit = {
+                NOT = { has_poor_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            evocation_effect = yes
+            add_mana_1 = yes
+        }
         
         ai_chance = {
             factor = 0
         }
 	}
     
+    #-------------------------
     # Basic - Conjure Feast
+    #-------------------------
     option = {
 		name = wwu_magic_menu.10.option.conjure_feast
         
         trigger = {
+            has_poor_aptitude = yes
             has_mana_1 = yes
+            NOT = { has_conjure_feast_effect = yes }
         }
 		
         lose_mana_1 = yes
-        
         conjure_feast_effect = yes
         
         ai_chance = {
@@ -144,44 +180,187 @@ country_event = {
             }
         }
 	}
+    option = {
+		name = wwu_magic_menu.10.option.conjure_feast.invalid
+        
+        trigger = {
+            OR = {
+                has_less_than_1_mana = yes
+                has_conjure_feast_effect = yes
+                NOT = { has_poor_aptitude = yes }
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_1_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                has_conjure_feast_effect = yes
+            }
+            custom_tooltip = SPELL_IS_ON_COOLDOWN
+        }
+        else_if = {
+            limit = {
+                NOT = { has_poor_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_1 = yes
+            conjure_feast_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
     
+    #-------------------------
     # Basic - Soothe Minds
+    #-------------------------
     option = {
 		name = wwu_magic_menu.10.option.soothe_minds
         
         trigger = {
             has_mana_2 = yes
+            NOT = { stability = 3 }
+            has_poor_aptitude = yes
         }
 		
         lose_mana_2 = yes
-        
         soothe_minds_effect = yes
         
         ai_chance = {
             factor = 1
-            
-            modifier = {
-                factor = 0
-                
+        }
+	}
+    option = {
+		name = wwu_magic_menu.10.option.soothe_minds.invalid
+        
+        trigger = {
+            OR = {
+                has_less_than_2_mana = yes
+                stability = 3
+                NOT = { has_poor_aptitude = yes }
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_2_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
                 stability = 3
             }
+            custom_tooltip = STABILITY_IS_AT_MAX
+        }
+        else_if = {
+            limit = {
+                NOT = { has_poor_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_2 = yes
+            soothe_minds_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
         }
 	}
     
+    #-------------------------
     # Basic - Polymorph
+    #-------------------------
     option = {
 		name = wwu_magic_menu.10.option.polymorph
         
         trigger = {
             has_mana_2 = yes
+            has_poor_aptitude = yes
             any_owned_province = {
                 NOT = { culture = ROOT }
             }
         }
 		
         lose_mana_2 = yes
-        
         polymorph_effect = yes
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
+    option = {
+		name = wwu_magic_menu.10.option.polymorph.invalid
+        
+        trigger = {
+            OR = {
+                has_less_than_2_mana = yes  
+                NOT = { has_poor_aptitude = yes }
+                NOT = {
+                    any_owned_province = {
+                        NOT = { culture = ROOT }
+                    }
+                }
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_2_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = {
+                    any_owned_province = {
+                        NOT = { culture = ROOT }
+                    }
+                }
+            }
+            custom_tooltip = NO_WRONG_CULTURE_PROVINCES
+        }
+        else_if = {
+            limit = {
+                NOT = { has_poor_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        
+        tooltip = {
+            lose_mana_2 = yes
+            custom_tooltip = POLYMORPH_FAKE_EFFECT
+        }
         
         ai_chance = {
             factor = 1
@@ -191,9 +370,11 @@ country_event = {
     # Exit
     option = {
 		name = wwu_magic_menu.10.option.exit
-		
-        country_event = { id = wwu_magic_menu.1 }
 	}
+    
+    after = { 
+        country_event = { id = wwu_magic_menu.1 }
+    }
 }
 
 # Intermediate
@@ -209,17 +390,19 @@ country_event = {
         has_ruler_modifier = spellcaster_capabilities
     }
 
+    #-------------------------
     # Common - Apply Mass Invisibility
+    #-------------------------
     option = {
 		name = wwu_magic_menu.11.option.apply_mass_invisibility
         
         trigger = {
             has_common_aptitude = yes
             has_mana_1 = yes
+            NOT = { has_apply_mass_invisibility_effect = yes }
         }
 		
         lose_mana_1 = yes
-        
         apply_mass_invisibility_effect = yes
         
         ai_chance = {
@@ -232,8 +415,55 @@ country_event = {
             }
         }
 	}
+    option = {
+		name = wwu_magic_menu.11.option.apply_mass_invisibility.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_common_aptitude = yes }
+                has_less_than_1_mana = yes
+                has_apply_mass_invisibility_effect = yes
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_1_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_common_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                has_apply_mass_invisibility_effect = yes
+            }
+            custom_tooltip = SPELL_IS_ON_COOLDOWN
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_1 = yes
+            apply_mass_invisibility_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
     
+    #-------------------------
     # Common - Focus Magic
+    #-------------------------
     option = {
 		name = wwu_magic_menu.11.option.focus_magic
         
@@ -243,20 +473,59 @@ country_event = {
         }
 		
         lose_mana_2 = yes
-        
         focus_magic_effect = yes
         
         ai_chance = {
             factor = 1
         }
 	}
-
+    option = {
+		name = wwu_magic_menu.11.option.focus_magic.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_common_aptitude = yes }
+                has_less_than_2_mana = yes
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_2_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_common_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_2 = yes
+            focus_magic_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
+    
     # Exit
     option = {
 		name = wwu_magic_menu.11.option.exit
-		
-        country_event = { id = wwu_magic_menu.1 }
 	}
+    
+    after = { 
+        country_event = { id = wwu_magic_menu.1 }
+    }
 }
 
 # Advanced (Rare)
@@ -272,25 +541,74 @@ country_event = {
         has_ruler_modifier = spellcaster_capabilities
     }
 
+    #-------------------------
     # Rare - Summon Portals
+    #-------------------------
     option = {
 		name = wwu_magic_menu.12.option.summon_portals
         
         trigger = {
             has_rare_aptitude = yes
             has_mana_1 = yes
+            NOT = { has_summon_portals_effect = yes }
         }
 		
         lose_mana_1 = yes
-        
         summon_portals_effect = yes
         
         ai_chance = {
             factor = 1
         }
 	}
+    option = {
+		name = wwu_magic_menu.12.option.summon_portals.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_rare_aptitude = yes }
+                has_less_than_1_mana = yes
+                has_summon_portals_effect = yes
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_1_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_rare_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                has_summon_portals_effect = yes
+            }
+            custom_tooltip = SPELL_IS_ON_COOLDOWN
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_1 = yes
+            summon_portals_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
     
+    #-------------------------
     # Rare - Display Prowess
+    #-------------------------
     option = {
 		name = wwu_magic_menu.12.option.display_prowess
         
@@ -301,20 +619,59 @@ country_event = {
         }
 		
         lose_mana_2 = yes
-        
         display_prowess_effect = yes
         
         ai_chance = {
             factor = 1
         }
 	}
-
+    option = {
+		name = wwu_magic_menu.12.option.display_prowess.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_rare_aptitude = yes }
+                has_less_than_2_mana = yes
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_2_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_rare_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_2 = yes
+            display_prowess_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
+    
     # Exit
     option = {
 		name = wwu_magic_menu.12.option.exit
-		
-        country_event = { id = wwu_magic_menu.1 }
 	}
+    
+    after = { 
+        country_event = { id = wwu_magic_menu.1 }
+    }
 }
 
 # Powerful (Epic)
@@ -330,7 +687,9 @@ country_event = {
         has_ruler_modifier = spellcaster_capabilities
     }
 
+    #-------------------------
     # Epic - Transmute Gold
+    #-------------------------
     option = {
 		name = wwu_magic_menu.13.option.transmute_gold
         
@@ -340,25 +699,64 @@ country_event = {
         }
 		
         lose_mana_3 = yes
-        
         transmute_gold_effect = yes
         
         ai_chance = {
             factor = 1
         }
 	}
+    option = {
+		name = wwu_magic_menu.13.option.transmute_gold.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_epic_aptitude = yes }
+                has_less_than_3_mana = yes
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_3_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_epic_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_3 = yes
+            transmute_gold_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
     
+    #-------------------------
     # Epic - Temporal Sight
+    #-------------------------
     option = {
 		name = wwu_magic_menu.13.option.temporal_sight
         
         trigger = {
             has_epic_aptitude = yes
             has_mana_3 = yes
+            NOT = { has_temporal_sight_effect = yes }
         }
 
         lose_mana_3 = yes
-        
         temporal_sight_effect = yes
         
         ai_chance = {
@@ -371,18 +769,65 @@ country_event = {
             }
         }
 	}
+    option = {
+		name = wwu_magic_menu.13.option.temporal_sight.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_epic_aptitude = yes }
+                has_less_than_3_mana = yes
+                has_temporal_sight_effect = yes
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_3_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_epic_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                has_temporal_sight_effect = yes
+            }
+            custom_tooltip = SPELL_IS_ON_COOLDOWN
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_3 = yes
+            temporal_sight_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
     
+    #-------------------------
     # Epic - Touch of the Magi
+    #-------------------------
     option = {
 		name = wwu_magic_menu.13.option.touch_of_the_magi
         
         trigger = {
             has_epic_aptitude = yes
             has_mana_3 = yes
+            NOT = { has_touch_of_the_magi_effect = yes }
         }
 
         lose_mana_3 = yes
-        
         touch_of_the_magi_effect = yes
         
         ai_chance = {
@@ -395,13 +840,60 @@ country_event = {
             }
         }
 	}
+    option = {
+		name = wwu_magic_menu.13.option.touch_of_the_magi.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_epic_aptitude = yes }
+                has_less_than_3_mana = yes
+                has_touch_of_the_magi_effect = yes
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_3_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_epic_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                has_touch_of_the_magi_effect = yes
+            }
+            custom_tooltip = SPELL_IS_ON_COOLDOWN
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_3 = yes
+            touch_of_the_magi_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
     
     # Exit
     option = {
 		name = wwu_magic_menu.13.option.exit
-		
-        country_event = { id = wwu_magic_menu.1 }
 	}
+    
+    after = { 
+        country_event = { id = wwu_magic_menu.1 }
+    }
 }
 
 # Legendary
@@ -417,25 +909,74 @@ country_event = {
         has_ruler_modifier = spellcaster_capabilities
     }
 
+    #-------------------------
     # Legendary - Alter Time
+    #-------------------------
     option = {
 		name = wwu_magic_menu.14.option.alter_time
         
         trigger = {
             has_legendary_aptitude = yes
             has_mana_4 = yes
+            NOT = { has_alter_time_effect = yes }
         }
 
         lose_mana_4 = yes
-        
         alter_time_effect = yes
         
         ai_chance = {
             factor = 1
         }
 	}
+    option = {
+		name = wwu_magic_menu.14.option.alter_time.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_legendary_aptitude = yes }
+                has_less_than_4_mana = yes
+                has_alter_time_effect = yes
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_4_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_legendary_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                has_alter_time_effect = yes
+            }
+            custom_tooltip = SPELL_IS_ON_COOLDOWN
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_4 = yes
+            alter_time_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
     
+    #-------------------------
     # Legendary - Presence of Mind
+    #-------------------------
     option = {
 		name = wwu_magic_menu.14.option.presence_of_mind
         
@@ -445,15 +986,54 @@ country_event = {
         }
 		
         lose_mana_4 = yes
-        
         presence_of_mind_effect = yes
         
         ai_chance = {
             factor = 1
         }
 	}
+    option = {
+		name = wwu_magic_menu.14.option.presence_of_mind.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_legendary_aptitude = yes }
+                has_less_than_4_mana = yes
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_4_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_legendary_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_4 = yes
+            presence_of_mind_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
     
+    #-------------------------
     # Cataclysmic - Mind Surge
+    #-------------------------
     option = {
 		name = wwu_magic_menu.14.option.mind_surge
         
@@ -467,15 +1047,70 @@ country_event = {
 		
         lose_mana_5 = yes
         cataclysmic_effect = yes
-        
         mind_surge_effect = yes
         
         ai_chance = {
             factor = 1
         }
 	}
+    option = {
+		name = wwu_magic_menu.14.option.mind_surge.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_legendary_aptitude = yes }
+                has_less_than_5_mana = yes
+                AND = {
+                    adm_tech = 39
+                    dip_tech = 39
+                    mil_tech = 39
+                }
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_5_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_legendary_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                AND = {
+                    adm_tech = 39
+                    dip_tech = 39
+                    mil_tech = 39
+                }
+            }
+            custom_tooltip = TECH_IS_AT_MAX
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_5 = yes
+            cataclysmic_effect = yes
+            mind_surge_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
     
+    #-------------------------
     # Cataclysmic - Ascendance
+    #-------------------------
     option = {
 		name = wwu_magic_menu.14.option.ascendance
         
@@ -487,7 +1122,6 @@ country_event = {
 		
         lose_mana_5 = yes
         cataclysmic_effect = yes
-        
         ascendance_effect = yes
         
         ai_chance = {
@@ -500,11 +1134,59 @@ country_event = {
             }
         }
 	}
+    option = {
+		name = wwu_magic_menu.14.option.ascendance.invalid
+        
+        trigger = {
+            OR = {
+                NOT = { has_legendary_aptitude = yes }
+                has_less_than_5_mana = yes
+                has_leader = "Ascended Commander"
+            }
+        }
+		
+        # Invalid Message
+        if = {
+            limit = {
+                has_less_than_5_mana = yes
+            }
+            custom_tooltip = MANA_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                NOT = { has_legendary_aptitude = yes }
+            }
+            custom_tooltip = APTITUDE_IS_TOO_LOW
+        }
+        else_if = {
+            limit = {
+                has_leader = "Ascended Commander"
+            }
+            custom_tooltip = ASCENDED_COMMANDER_ALREADY_PRESENT
+        }
+        else = {
+            custom_tooltip = YOU_CANNOT_USE_THIS_SPELL_CURRENTLY
+        }
+        
+        # Preview
+        custom_tooltip = PREVIEW_SPELL
+        tooltip = {
+            lose_mana_5 = yes
+            cataclysmic_effect = yes
+            ascendance_effect = yes
+        }
+        
+        ai_chance = {
+            factor = 1
+        }
+	}
     
     # Exit
     option = {
 		name = wwu_magic_menu.14.option.exit
-		
-        country_event = { id = wwu_magic_menu.1 }
 	}
+    
+    after = { 
+        country_event = { id = wwu_magic_menu.1 }
+    }
 }

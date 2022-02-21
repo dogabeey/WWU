@@ -2,37 +2,19 @@
 # Spells
 #------------------------
 scaled_magic_modifier_effect = {
-    # Poor
+    # Legendary
     if = {
         limit = {
-            has_poor_finesse = yes
+            has_legendary_finesse = yes
         }
         
         if = {
             limit = {
-                has_poor_concentration = yes
+                has_legendary_concentration = yes
             }
             add_ruler_modifier = {
-                name = $MODIFIER_POOR$
-                duration = 730
-            }
-        }
-        else_if = {
-            limit = {
-                has_common_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_POOR$
-                duration = 1460
-            }
-        }
-        else_if = {
-            limit = {
-                has_rare_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_POOR$
-                duration = 2190
+                name = $MODIFIER_LEGENDARY$
+                duration = 3650
             }
         }
         else_if = {
@@ -40,42 +22,8 @@ scaled_magic_modifier_effect = {
                 has_epic_concentration = yes
             }
             add_ruler_modifier = {
-                name = $MODIFIER_POOR$
+                name = $MODIFIER_LEGENDARY$
                 duration = 2920
-            }
-        }
-        else_if = {
-            limit = {
-                has_legendary_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_POOR$
-                duration = 3650
-            }
-        }
-    }
-    # Common
-    else_if = {
-        limit = {
-            has_common_finesse = yes
-        }
-        
-        if = {
-            limit = {
-                has_poor_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_COMMON$
-                duration = 730
-            }
-        }
-        else_if = {
-            limit = {
-                has_common_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_COMMON$
-                duration = 1460
             }
         }
         else_if = {
@@ -83,42 +31,8 @@ scaled_magic_modifier_effect = {
                 has_rare_concentration = yes
             }
             add_ruler_modifier = {
-                name = $MODIFIER_COMMON$
+                name = $MODIFIER_LEGENDARY$
                 duration = 2190
-            }
-        }
-        else_if = {
-            limit = {
-                has_epic_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_COMMON$
-                duration = 2920
-            }
-        }
-        else_if = {
-            limit = {
-                has_legendary_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_COMMON$
-                duration = 3650
-            }
-        }
-    }
-    # Rare
-    else_if = {
-        limit = {
-            has_rare_finesse = yes
-        }
-        
-        if = {
-            limit = {
-                has_poor_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_RARE$
-                duration = 730
             }
         }
         else_if = {
@@ -126,35 +40,17 @@ scaled_magic_modifier_effect = {
                 has_common_concentration = yes
             }
             add_ruler_modifier = {
-                name = $MODIFIER_RARE$
+                name = $MODIFIER_LEGENDARY$
                 duration = 1460
             }
         }
         else_if = {
             limit = {
-                has_rare_concentration = yes
+                has_poor_concentration = yes
             }
             add_ruler_modifier = {
-                name = $MODIFIER_RARE$
-                duration = 2190
-            }
-        }
-        else_if = {
-            limit = {
-                has_epic_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_RARE$
-                duration = 2920
-            }
-        }
-        else_if = {
-            limit = {
-                has_legendary_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_RARE$
-                duration = 3650
+                name = $MODIFIER_LEGENDARY$
+                duration = 730
             }
         }
     }
@@ -166,29 +62,11 @@ scaled_magic_modifier_effect = {
         
         if = {
             limit = {
-                has_poor_concentration = yes
+                has_legendary_concentration = yes
             }
             add_ruler_modifier = {
                 name = $MODIFIER_EPIC$
-                duration = 730
-            }
-        }
-        else_if = {
-            limit = {
-                has_common_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_EPIC$
-                duration = 1460
-            }
-        }
-        else_if = {
-            limit = {
-                has_rare_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_EPIC$
-                duration = 2190
+                duration = 3650
             }
         }
         else_if = {
@@ -202,45 +80,45 @@ scaled_magic_modifier_effect = {
         }
         else_if = {
             limit = {
-                has_legendary_concentration = yes
+                has_rare_concentration = yes
             }
             add_ruler_modifier = {
                 name = $MODIFIER_EPIC$
-                duration = 3650
+                duration = 2190
+            }
+        }
+        else_if = {
+            limit = {
+                has_common_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_EPIC$
+                duration = 1460
+            }
+        }
+        else_if = {
+            limit = {
+                has_poor_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_EPIC$
+                duration = 730
             }
         }
     }
-    # Legendary
+    # Rare
     else_if = {
         limit = {
-            has_legendary_finesse = yes
+            has_rare_finesse = yes
         }
         
         if = {
             limit = {
-                has_poor_concentration = yes
+                has_legendary_concentration = yes
             }
             add_ruler_modifier = {
-                name = $MODIFIER_LEGENDARY$
-                duration = 730
-            }
-        }
-        else_if = {
-            limit = {
-                has_common_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_LEGENDARY$
-                duration = 1460
-            }
-        }
-        else_if = {
-            limit = {
-                has_rare_concentration = yes
-            }
-            add_ruler_modifier = {
-                name = $MODIFIER_LEGENDARY$
-                duration = 2190
+                name = $MODIFIER_RARE$
+                duration = 3650
             }
         }
         else_if = {
@@ -248,18 +126,203 @@ scaled_magic_modifier_effect = {
                 has_epic_concentration = yes
             }
             add_ruler_modifier = {
-                name = $MODIFIER_LEGENDARY$
+                name = $MODIFIER_RARE$
                 duration = 2920
             }
         }
         else_if = {
             limit = {
+                has_rare_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_RARE$
+                duration = 2190
+            }
+        }
+        else_if = {
+            limit = {
+                has_common_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_RARE$
+                duration = 1460
+            }
+        }
+        else_if = {
+            limit = {
+                has_poor_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_RARE$
+                duration = 730
+            }
+        }
+    }
+    # Common
+    else_if = {
+        limit = {
+            has_common_finesse = yes
+        }
+        
+        if = {
+            limit = {
                 has_legendary_concentration = yes
             }
             add_ruler_modifier = {
-                name = $MODIFIER_LEGENDARY$
+                name = $MODIFIER_COMMON$
                 duration = 3650
             }
+        }
+        else_if = {
+            limit = {
+                has_epic_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_COMMON$
+                duration = 2920
+            }
+        }
+        else_if = {
+            limit = {
+                has_rare_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_COMMON$
+                duration = 2190
+            }
+        }
+        else_if = {
+            limit = {
+                has_common_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_COMMON$
+                duration = 1460
+            }
+        }
+        else_if = {
+            limit = {
+                has_poor_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_COMMON$
+                duration = 730
+            }
+        }
+    }
+    # Poor
+    if = {
+        limit = {
+            has_poor_finesse = yes
+        }
+        
+        if = {
+            limit = {
+                has_legendary_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_POOR$
+                duration = 3650
+            }
+        }
+        else_if = {
+            limit = {
+                has_epic_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_POOR$
+                duration = 2920
+            }
+        }
+        else_if = {
+            limit = {
+                has_rare_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_POOR$
+                duration = 2190
+            }
+        }
+        else_if = {
+            limit = {
+                has_common_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_POOR$
+                duration = 1460
+            }
+        }
+        else_if = {
+            limit = {
+                has_poor_concentration = yes
+            }
+            add_ruler_modifier = {
+                name = $MODIFIER_POOR$
+                duration = 730
+            }
+        }
+    }
+}
+
+evocation_cooldown_effect = {
+    # Legendary
+    if = {
+        limit = {
+            has_legendary_concentration = yes
+        }
+        
+        add_ruler_modifier = {
+            name = $MODIFIER$
+            duration = $DURATION_LEGENDARY$
+            hidden = yes
+        }
+    }
+    # Epic
+    else_if = {
+        limit = {
+            has_epic_concentration = yes
+        }
+        
+        add_ruler_modifier = {
+            name = $MODIFIER$
+            duration = $DURATION_EPIC$
+            hidden = yes
+        }
+    }
+    # Rare
+    else_if = {
+        limit = {
+            has_rare_concentration = yes
+        }
+        
+        add_ruler_modifier = {
+            name = $MODIFIER$
+            duration = $DURATION_RARE$
+            hidden = yes
+        }
+    }
+    # Common
+    else_if = {
+        limit = {
+            has_common_concentration = yes
+        }
+        
+        add_ruler_modifier = {
+            name = $MODIFIER$
+            duration = $DURATION_COMMON$
+            hidden = yes
+        }
+    }
+    # Poor
+    else_if = {
+        limit = {
+            has_poor_concentration = yes
+        }
+        
+        add_ruler_modifier = {
+            name = $MODIFIER$
+            duration = $DURATION_POOR$
+            hidden = yes
         }
     }
 }
@@ -327,30 +390,24 @@ temporal_sight_effect = {
     }
 }
 
+demonic_touch_effect = {
+    scaled_magic_modifier_effect = {
+        MODIFIER_POOR       = demonic_touch_poor
+        MODIFIER_COMMON     = demonic_touch_common
+        MODIFIER_RARE       = demonic_touch_rare
+        MODIFIER_EPIC       = demonic_touch_epic
+        MODIFIER_LEGENDARY  = demonic_touch_legendary
+    }
+}
+
 transmute_gold_effect = {
-    # Poor
+    # Legendary
     if = {
         limit = {
-            has_poor_finesse = yes
+            has_legendary_finesse = yes
         }
         
-        add_years_of_income = 1
-    }
-    # Common
-    else_if = {
-        limit = {
-            has_common_finesse = yes
-        }
-        
-        add_years_of_income = 2
-    }
-    # Rare
-    else_if = {
-        limit = {
-            has_rare_finesse = yes
-        }
-        
-        add_years_of_income = 3
+        add_years_of_income = 5
     }
     # Epic
     else_if = {
@@ -360,27 +417,13 @@ transmute_gold_effect = {
         
         add_years_of_income = 4
     }
-    # Legendary
+    # Rare
     else_if = {
         limit = {
-            has_legendary_finesse = yes
+            has_rare_finesse = yes
         }
         
-        add_years_of_income = 5
-    }
-}
-
-
-presence_of_mind_effect = {
-    # Poor
-    if = {
-        limit = {
-            has_poor_finesse = yes
-        }
-        
-        add_adm_power = 20
-        add_dip_power = 20
-        add_mil_power = 20
+        add_years_of_income = 3
     }
     # Common
     else_if = {
@@ -388,19 +431,29 @@ presence_of_mind_effect = {
             has_common_finesse = yes
         }
         
-        add_adm_power = 40
-        add_dip_power = 40
-        add_mil_power = 40
+        add_years_of_income = 2
     }
-    # Rare
+    # Poor
     else_if = {
         limit = {
-            has_rare_finesse = yes
+            has_poor_finesse = yes
         }
         
-        add_adm_power = 60
-        add_dip_power = 60
-        add_mil_power = 60
+        add_years_of_income = 1
+    }
+}
+
+
+presence_of_mind_effect = {
+    # Legendary
+    if = {
+        limit = {
+            has_legendary_finesse = yes
+        }
+        
+        add_adm_power = 100
+        add_dip_power = 100
+        add_mil_power = 100
     }
     # Epic
     else_if = {
@@ -412,15 +465,35 @@ presence_of_mind_effect = {
         add_dip_power = 80
         add_mil_power = 80
     }
-    # Legendary
+    # Rare
     else_if = {
         limit = {
-            has_legendary_finesse = yes
+            has_rare_finesse = yes
         }
         
-        add_adm_power = 100
-        add_dip_power = 100
-        add_mil_power = 100
+        add_adm_power = 60
+        add_dip_power = 60
+        add_mil_power = 60
+    }
+    # Common
+    else_if = {
+        limit = {
+            has_common_finesse = yes
+        }
+        
+        add_adm_power = 40
+        add_dip_power = 40
+        add_mil_power = 40
+    }
+    # Poor
+    else_if = {
+        limit = {
+            has_poor_finesse = yes
+        }
+        
+        add_adm_power = 20
+        add_dip_power = 20
+        add_mil_power = 20
     }
 }
 
@@ -439,29 +512,13 @@ mind_surge_effect = {
 }
 
 display_prowess_effect = {
-    # Poor
+    # Legendary
     if = {
         limit = {
-            has_poor_finesse = yes
+            has_legendary_finesse = yes
         }
         
-        add_splendor = 20
-    }
-    # Common
-    else_if = {
-        limit = {
-            has_common_finesse = yes
-        }
-        
-        add_splendor = 40
-    }
-    # Rare
-    else_if = {
-        limit = {
-            has_rare_finesse = yes
-        }
-        
-        add_splendor = 60
+        add_splendor = 100
     }
     # Epic
     else_if = {
@@ -471,24 +528,13 @@ display_prowess_effect = {
         
         add_splendor = 80
     }
-    # Legendary
+    # Rare
     else_if = {
         limit = {
-            has_legendary_finesse = yes
+            has_rare_finesse = yes
         }
         
-        add_splendor = 100
-    }
-}
-
-soothe_minds_effect = {
-    # Poor
-    if = {
-        limit = {
-            has_poor_finesse = yes
-        }
-        
-        add_stability = 1
+        add_splendor = 60
     }
     # Common
     else_if = {
@@ -496,17 +542,28 @@ soothe_minds_effect = {
             has_common_finesse = yes
         }
         
-        add_stability = 1
+        add_splendor = 40
     }
-    # Rare
+    # Poor
     else_if = {
         limit = {
-            has_rare_finesse = yes
+            has_poor_finesse = yes
+        }
+        
+        add_splendor = 20
+    }
+}
+
+soothe_minds_effect = {
+    # Legendary
+    if = {
+        limit = {
+            has_legendary_finesse = yes
         }
         
         if = {
             limit = {
-                NOT = { stability = -2 }
+                NOT = { stability = 0 }
             }
             add_stability = 2
         }
@@ -530,15 +587,15 @@ soothe_minds_effect = {
             add_stability = 1
         }
     }
-    # Legendary
+    # Rare
     else_if = {
         limit = {
-            has_legendary_finesse = yes
+            has_rare_finesse = yes
         }
         
         if = {
             limit = {
-                NOT = { stability = 0 }
+                NOT = { stability = -2 }
             }
             add_stability = 2
         }
@@ -546,35 +603,33 @@ soothe_minds_effect = {
             add_stability = 1
         }
     }
-}
-
-focus_magic_effect = {
-    # Poor
-    if = {
-        limit = {
-            has_poor_finesse = yes
-        }
-        
-        add_army_tradition = 5
-        add_navy_tradition = 5
-    }
     # Common
     else_if = {
         limit = {
             has_common_finesse = yes
         }
         
-        add_army_tradition = 10
-        add_navy_tradition = 10
+        add_stability = 1
     }
-    # Rare
+    # Poor
     else_if = {
         limit = {
-            has_rare_finesse = yes
+            has_poor_finesse = yes
         }
         
-        add_army_tradition = 15
-        add_navy_tradition = 15
+        add_stability = 1
+    }
+}
+
+focus_magic_effect = {
+    # Legendary
+    if = {
+        limit = {
+            has_legendary_finesse = yes
+        }
+        
+        add_army_tradition = 25
+        add_navy_tradition = 25
     }
     # Epic
     else_if = {
@@ -585,33 +640,14 @@ focus_magic_effect = {
         add_army_tradition = 20
         add_navy_tradition = 20
     }
-    # Legendary
+    # Rare
     else_if = {
         limit = {
-            has_legendary_finesse = yes
+            has_rare_finesse = yes
         }
         
-        add_army_tradition = 25
-        add_navy_tradition = 25
-    }
-}
-
-polymorph_effect = {
-    # Poor
-    if = {
-        limit = {
-            has_poor_finesse = yes
-        }
-        
-        hidden_effect = {
-            set_variable = {
-                which = polymorph_count
-                value = 1
-            }
-            set_country_flag = polymorph_active
-        }
-        
-        custom_tooltip = POLYMORPH_EFFECT
+        add_army_tradition = 15
+        add_navy_tradition = 15
     }
     # Common
     else_if = {
@@ -619,26 +655,31 @@ polymorph_effect = {
             has_common_finesse = yes
         }
         
-        hidden_effect = {
-            set_variable = {
-                which = polymorph_count
-                value = 2
-            }
-            set_country_flag = polymorph_active
-        }
-        
-        custom_tooltip = POLYMORPH_EFFECT
+        add_army_tradition = 10
+        add_navy_tradition = 10
     }
-    # Rare
+    # Poor
     else_if = {
         limit = {
-            has_rare_finesse = yes
+            has_poor_finesse = yes
+        }
+        
+        add_army_tradition = 5
+        add_navy_tradition = 5
+    }
+}
+
+polymorph_effect = {
+    # Legendary
+    if = {
+        limit = {
+            has_legendary_finesse = yes
         }
         
         hidden_effect = {
             set_variable = {
                 which = polymorph_count
-                value = 3
+                value = 5
             }
             set_country_flag = polymorph_active
         }
@@ -661,16 +702,48 @@ polymorph_effect = {
         
         custom_tooltip = POLYMORPH_EFFECT
     }
-    # Legendary
+    # Rare
     else_if = {
         limit = {
-            has_legendary_finesse = yes
+            has_rare_finesse = yes
         }
         
         hidden_effect = {
             set_variable = {
                 which = polymorph_count
-                value = 5
+                value = 3
+            }
+            set_country_flag = polymorph_active
+        }
+        
+        custom_tooltip = POLYMORPH_EFFECT
+    }
+    # Common
+    else_if = {
+        limit = {
+            has_common_finesse = yes
+        }
+        
+        hidden_effect = {
+            set_variable = {
+                which = polymorph_count
+                value = 2
+            }
+            set_country_flag = polymorph_active
+        }
+        
+        custom_tooltip = POLYMORPH_EFFECT
+    }
+    # Poor
+    else_if = {
+        limit = {
+            has_poor_finesse = yes
+        }
+        
+        hidden_effect = {
+            set_variable = {
+                which = polymorph_count
+                value = 1
             }
             set_country_flag = polymorph_active
         }
@@ -679,42 +752,6 @@ polymorph_effect = {
     }
 }
 
-#-----------------------------
-# Spells - Disorder
-#-----------------------------
-demonic_touch_effect = {
-    scaled_magic_modifier_effect = {
-        MODIFIER_POOR       = demonic_touch_poor
-        MODIFIER_COMMON     = demonic_touch_common
-        MODIFIER_RARE       = demonic_touch_rare
-        MODIFIER_EPIC       = demonic_touch_epic
-        MODIFIER_LEGENDARY  = demonic_touch_legendary
-    }
-}
-
-#-----------------------------
-# Spells - Life
-#-----------------------------
-
-#-----------------------------
-# Spells - Death
-#-----------------------------
-
-#-----------------------------
-# Spells - Light
-#-----------------------------
-
-#-----------------------------
-# Spells - Shadow
-#-----------------------------
-
-#-----------------------------
-# Spells - Elemental
-#-----------------------------
-
-#-----------------------------
-# Spells - Generic
-#-----------------------------
 ascendance_effect = {
     define_general = {
         name = "Ascended Commander"
@@ -727,3 +764,19 @@ ascendance_effect = {
     country_event = { id = wwu_magic.20 days = 3650 }
 }
 
+evocation_effect = {
+    add_corruption = 2
+    
+    custom_tooltip = EVOCATION_TT
+    
+    hidden_effect = {
+        evocation_cooldown_effect = {
+            MODIFIER            = evocation_cooldown
+            DURATION_POOR       = 1825
+            DURATION_COMMON     = 1460
+            DURATION_RARE       = 1095
+            DURATION_EPIC       = 730
+            DURATION_LEGENDARY  = 365
+        }
+    }
+}

@@ -1,142 +1,139 @@
 #------------------------
 # Aptitude
 #------------------------
-has_common_aptitude = {
+has_untrained_aptitude = {
+    check_variable = {
+        which = ruler_magic_aptitude
+        value = 0
+    }
+}
+has_poor_aptitude = {
     check_variable = {
         which = ruler_magic_aptitude
         value = 1
     }
 }
-has_rare_aptitude = {
+has_common_aptitude = {
     check_variable = {
         which = ruler_magic_aptitude
         value = 2
     }
 }
-has_epic_aptitude = {
+has_rare_aptitude = {
     check_variable = {
         which = ruler_magic_aptitude
         value = 3
     }
 }
-has_legendary_aptitude = {
+has_epic_aptitude = {
     check_variable = {
         which = ruler_magic_aptitude
         value = 4
+    }
+}
+has_legendary_aptitude = {
+    check_variable = {
+        which = ruler_magic_aptitude
+        value = 5
     }
 }
 
 #------------------------
 # Finesse
 #------------------------
-has_poor_finesse = {
-    NOT = {
-        check_variable = {
-            which = ruler_magic_finesse
-            value = 1
-        }
+has_untrained_finesse = {
+    check_variable = {
+        which = ruler_magic_finesse
+        value = 0
     }
 }
-has_common_finesse = {
-    NOT = {
-        check_variable = {
-            which = ruler_magic_finesse
-            value = 2
-        }
-    }
+has_poor_finesse = {
     check_variable = {
         which = ruler_magic_finesse
         value = 1
     }
 }
-has_rare_finesse = {
-    NOT = {
-        check_variable = {
-            which = ruler_magic_finesse
-            value = 3
-        }
-    }
+has_common_finesse = {
     check_variable = {
         which = ruler_magic_finesse
         value = 2
     }
 }
-has_epic_finesse = {
-    NOT = {
-        check_variable = {
-            which = ruler_magic_finesse
-            value = 4
-        }
-    }
+has_rare_finesse = {
     check_variable = {
         which = ruler_magic_finesse
         value = 3
     }
 }
-has_legendary_finesse = {
+has_epic_finesse = {
     check_variable = {
         which = ruler_magic_finesse
         value = 4
+    }
+}
+has_legendary_finesse = {
+    check_variable = {
+        which = ruler_magic_finesse
+        value = 5
     }
 }
 
 #------------------------
 # Concentration
 #------------------------
-has_poor_concentration = {
-    NOT = {
-        check_variable = {
-            which = ruler_magic_concentration
-            value = 1
-        }
+has_untrained_concentration = {
+    check_variable = {
+        which = ruler_magic_concentration
+        value = 0
     }
 }
-has_common_concentration = {
-    NOT = {
-        check_variable = {
-            which = ruler_magic_concentration
-            value = 2
-        }
-    }
+has_poor_concentration = {
     check_variable = {
         which = ruler_magic_concentration
         value = 1
     }
 }
-has_rare_concentration = {
-    NOT = {
-        check_variable = {
-            which = ruler_magic_concentration
-            value = 3
-        }
-    }
+has_common_concentration = {
     check_variable = {
         which = ruler_magic_concentration
         value = 2
     }
 }
-has_epic_concentration = {
-    NOT = {
-        check_variable = {
-            which = ruler_magic_concentration
-            value = 4
-        }
-    }
+has_rare_concentration = {
     check_variable = {
         which = ruler_magic_concentration
         value = 3
     }
 }
-has_legendary_concentration = {
+has_epic_concentration = {
     check_variable = {
         which = ruler_magic_concentration
         value = 4
+    }
+}
+has_legendary_concentration = {
+    check_variable = {
+        which = ruler_magic_concentration
+        value = 5
     }
 }
 
 #------------------------
 # Mana
 #------------------------
+has_mana_0 = {
+    custom_trigger_tooltip = {
+        tooltip = HAS_MANA_0
+    
+        NOT = {
+            check_variable = {
+                which = ruler_magic_mana
+                value = 1
+            }
+        }
+    }
+}
+
 has_mana_1 = {
     custom_trigger_tooltip = {
         tooltip = HAS_MANA_1
@@ -187,3 +184,121 @@ has_mana_5 = {
         }
     }
 }
+
+#------------------------
+# Mana Inverse
+#------------------------
+has_less_than_1_mana = {
+    NOT = {
+        check_variable = {
+            which = ruler_magic_mana
+            value = 1
+        }
+    }
+}
+has_less_than_2_mana = {
+    NOT = {
+        check_variable = {
+            which = ruler_magic_mana
+            value = 2
+        }
+    }
+}
+has_less_than_3_mana = {
+    NOT = {
+        check_variable = {
+            which = ruler_magic_mana
+            value = 3
+        }
+    }
+}
+has_less_than_4_mana = {
+    NOT = {
+        check_variable = {
+            which = ruler_magic_mana
+            value = 4
+        }
+    }
+}
+has_less_than_5_mana = {
+    NOT = {
+        check_variable = {
+            which = ruler_magic_mana
+            value = 5
+        }
+    }
+}
+
+#------------------------
+# Spells
+#------------------------
+has_conjure_feast_effect = {
+    OR = {
+        has_country_modifier = conjure_feast_poor
+        has_country_modifier = conjure_feast_common
+        has_country_modifier = conjure_feast_rare
+        has_country_modifier = conjure_feast_epic
+        has_country_modifier = conjure_feast_legendary
+    }
+}
+
+has_apply_mass_invisibility_effect = {
+    OR = {
+        has_country_modifier = apply_mass_invisibility_poor
+        has_country_modifier = apply_mass_invisibility_common
+        has_country_modifier = apply_mass_invisibility_rare
+        has_country_modifier = apply_mass_invisibility_epic
+        has_country_modifier = apply_mass_invisibility_legendary
+    }
+}
+
+has_summon_portals_effect = {
+    OR = {
+        has_country_modifier = summon_portals_poor
+        has_country_modifier = summon_portals_common
+        has_country_modifier = summon_portals_rare
+        has_country_modifier = summon_portals_epic
+        has_country_modifier = summon_portals_legendary
+    }
+}
+
+has_alter_time_effect = {
+    OR = {
+        has_country_modifier = alter_time_poor
+        has_country_modifier = alter_time_common
+        has_country_modifier = alter_time_rare
+        has_country_modifier = alter_time_epic
+        has_country_modifier = alter_time_legendary
+    }
+}
+
+has_touch_of_the_magi_effect = {
+    OR = {
+        has_country_modifier = touch_of_the_magi_poor
+        has_country_modifier = touch_of_the_magi_common
+        has_country_modifier = touch_of_the_magi_rare
+        has_country_modifier = touch_of_the_magi_epic
+        has_country_modifier = touch_of_the_magi_legendary
+    }
+}
+
+has_temporal_sight_effect = {
+    OR = {
+        has_country_modifier = temporal_sight_poor
+        has_country_modifier = temporal_sight_common
+        has_country_modifier = temporal_sight_rare
+        has_country_modifier = temporal_sight_epic
+        has_country_modifier = temporal_sight_legendary
+    }
+}
+
+has_demonic_touch_effect = {
+    OR = {
+        has_country_modifier = demonic_touch_poor
+        has_country_modifier = demonic_touch_common
+        has_country_modifier = demonic_touch_rare
+        has_country_modifier = demonic_touch_epic
+        has_country_modifier = demonic_touch_legendary
+    }
+}
+
