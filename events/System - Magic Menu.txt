@@ -1,7 +1,7 @@
 namespace = wwu_magic_menu
 
 #-----------------------------
-# Spell Menu - Order
+# Spell Menu - Categories
 #-----------------------------
 country_event = {
 	id = wwu_magic_menu.1
@@ -15,9 +15,116 @@ country_event = {
         has_ruler_modifier = spellcaster_capabilities
     }
 
-    # Poor - Conjure Feast
+    # Basic Spells
     option = {
-		name = wwu_magic_menu.1.option.conjure_feast
+		name = wwu_magic_menu.1.option.basic
+		
+        country_event = { id = wwu_magic_menu.10 }
+        
+        ai_chance = {
+            factor = 50
+        }
+	}
+    
+    # Intermediate Spells
+    option = {
+		name = wwu_magic_menu.1.option.intermediate
+		
+        trigger = {
+            has_common_aptitude = yes
+        }
+        
+        country_event = { id = wwu_magic_menu.11 }
+        
+        ai_chance = {
+            factor = 30
+        }
+	}
+    
+    # Advanced Spells
+    option = {
+		name = wwu_magic_menu.1.option.advanced
+		
+        trigger = {
+            has_rare_aptitude = yes
+        }
+        
+        country_event = { id = wwu_magic_menu.12 }
+        
+        ai_chance = {
+            factor = 10
+        }
+	}
+    
+    # Powerful Spells
+    option = {
+		name = wwu_magic_menu.1.option.powerful
+		
+        trigger = {
+            has_epic_aptitude = yes
+        }
+        
+        country_event = { id = wwu_magic_menu.13 }
+        
+        ai_chance = {
+            factor = 6
+        }
+	}
+    
+    # Legendary Spells
+    option = {
+		name = wwu_magic_menu.1.option.legendary
+		
+        trigger = {
+            has_legendary_aptitude = yes
+        }
+        
+        country_event = { id = wwu_magic_menu.14 }
+        
+        ai_chance = {
+            factor = 4
+        }
+	}
+    
+    # Exit
+    option = {
+		name = wwu_magic_menu.1.option.exit
+		
+	}
+}
+
+# Basic (Poor)
+country_event = {
+	id = wwu_magic_menu.10
+	title = wwu_magic_menu.10.title
+	desc = wwu_magic_menu.10.desc
+	picture = MAGI_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+    
+    # Basic - Evocation
+    option = {
+		name = wwu_magic_menu.10.option.evocation
+        
+        trigger = {
+            NOT = { corruption = 99 }
+        }
+		
+        add_corruption = 2
+        gaub_mana_1 = yes
+        
+        ai_chance = {
+            factor = 0
+        }
+	}
+    
+    # Basic - Conjure Feast
+    option = {
+		name = wwu_magic_menu.10.option.conjure_feast
         
         trigger = {
             has_mana_1 = yes
@@ -26,11 +133,21 @@ country_event = {
         lose_mana_1 = yes
         
         conjure_feast_effect = yes
+        
+        ai_chance = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                num_of_free_diplomatic_relations = 3
+            }
+        }
 	}
     
-    # Poor - Soothe Minds
+    # Basic - Soothe Minds
     option = {
-		name = wwu_magic_menu.1.option.soothe_minds
+		name = wwu_magic_menu.10.option.soothe_minds
         
         trigger = {
             has_mana_2 = yes
@@ -39,11 +156,21 @@ country_event = {
         lose_mana_2 = yes
         
         soothe_minds_effect = yes
+        
+        ai_chance = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                stability = 3
+            }
+        }
 	}
     
-    # Poor - Polymorph
+    # Basic - Polymorph
     option = {
-		name = wwu_magic_menu.1.option.polymorph
+		name = wwu_magic_menu.10.option.polymorph
         
         trigger = {
             has_mana_2 = yes
@@ -55,11 +182,36 @@ country_event = {
         lose_mana_2 = yes
         
         polymorph_effect = yes
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
     
+    # Exit
+    option = {
+		name = wwu_magic_menu.10.option.exit
+		
+        country_event = { id = wwu_magic_menu.1 }
+	}
+}
+
+# Intermediate
+country_event = {
+	id = wwu_magic_menu.11
+	title = wwu_magic_menu.11.title
+	desc = wwu_magic_menu.11.desc
+	picture = BIG_BOOK_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
     # Common - Apply Mass Invisibility
     option = {
-		name = wwu_magic_menu.1.option.apply_mass_invisibility
+		name = wwu_magic_menu.11.option.apply_mass_invisibility
         
         trigger = {
             has_common_aptitude = yes
@@ -69,11 +221,21 @@ country_event = {
         lose_mana_1 = yes
         
         apply_mass_invisibility_effect = yes
+        
+        ai_chance = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { is_at_war = yes }
+            }
+        }
 	}
     
     # Common - Focus Magic
     option = {
-		name = wwu_magic_menu.1.option.focus_magic
+		name = wwu_magic_menu.11.option.focus_magic
         
         trigger = {
             has_common_aptitude = yes
@@ -83,11 +245,36 @@ country_event = {
         lose_mana_2 = yes
         
         focus_magic_effect = yes
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
+
+    # Exit
+    option = {
+		name = wwu_magic_menu.11.option.exit
+		
+        country_event = { id = wwu_magic_menu.1 }
+	}
+}
+
+# Advanced (Rare)
+country_event = {
+	id = wwu_magic_menu.12
+	title = wwu_magic_menu.12.title
+	desc = wwu_magic_menu.12.desc
+	picture = MAGI_eventPicture
     
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
     # Rare - Summon Portals
     option = {
-		name = wwu_magic_menu.1.option.summon_portals
+		name = wwu_magic_menu.12.option.summon_portals
         
         trigger = {
             has_rare_aptitude = yes
@@ -97,11 +284,15 @@ country_event = {
         lose_mana_1 = yes
         
         summon_portals_effect = yes
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
     
     # Rare - Display Prowess
     option = {
-		name = wwu_magic_menu.1.option.display_prowess
+		name = wwu_magic_menu.12.option.display_prowess
         
         trigger = {
             has_dlc = "Mandate of Heaven"
@@ -112,11 +303,36 @@ country_event = {
         lose_mana_2 = yes
         
         display_prowess_effect = yes
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
+
+    # Exit
+    option = {
+		name = wwu_magic_menu.12.option.exit
+		
+        country_event = { id = wwu_magic_menu.1 }
+	}
+}
+
+# Powerful (Epic)
+country_event = {
+	id = wwu_magic_menu.13
+	title = wwu_magic_menu.13.title
+	desc = wwu_magic_menu.13.desc
+	picture = MAGI_eventPicture
     
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
     # Epic - Transmute Gold
     option = {
-		name = wwu_magic_menu.1.option.transmute_gold
+		name = wwu_magic_menu.13.option.transmute_gold
         
         trigger = {
             has_epic_aptitude = yes
@@ -126,11 +342,15 @@ country_event = {
         lose_mana_3 = yes
         
         transmute_gold_effect = yes
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
     
     # Epic - Temporal Sight
     option = {
-		name = wwu_magic_menu.1.option.temporal_sight
+		name = wwu_magic_menu.13.option.temporal_sight
         
         trigger = {
             has_epic_aptitude = yes
@@ -140,11 +360,21 @@ country_event = {
         lose_mana_3 = yes
         
         temporal_sight_effect = yes
+        
+        ai_chance = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { corruption = 10 }
+            }
+        }
 	}
     
     # Epic - Touch of the Magi
     option = {
-		name = wwu_magic_menu.1.option.touch_of_the_magi
+		name = wwu_magic_menu.13.option.touch_of_the_magi
         
         trigger = {
             has_epic_aptitude = yes
@@ -154,11 +384,42 @@ country_event = {
         lose_mana_3 = yes
         
         touch_of_the_magi_effect = yes
+        
+        ai_chance = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { is_at_war = yes }
+            }
+        }
 	}
     
+    # Exit
+    option = {
+		name = wwu_magic_menu.13.option.exit
+		
+        country_event = { id = wwu_magic_menu.1 }
+	}
+}
+
+# Legendary
+country_event = {
+	id = wwu_magic_menu.14
+	title = wwu_magic_menu.14.title
+	desc = wwu_magic_menu.14.desc
+	picture = MAGI_eventPicture
+    
+	is_triggered_only = yes
+    
+    trigger = {
+        has_ruler_modifier = spellcaster_capabilities
+    }
+
     # Legendary - Alter Time
     option = {
-		name = wwu_magic_menu.1.option.alter_time
+		name = wwu_magic_menu.14.option.alter_time
         
         trigger = {
             has_legendary_aptitude = yes
@@ -168,11 +429,15 @@ country_event = {
         lose_mana_4 = yes
         
         alter_time_effect = yes
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
     
     # Legendary - Presence of Mind
     option = {
-		name = wwu_magic_menu.1.option.presence_of_mind
+		name = wwu_magic_menu.14.option.presence_of_mind
         
         trigger = {
             has_legendary_aptitude = yes
@@ -182,11 +447,15 @@ country_event = {
         lose_mana_4 = yes
         
         presence_of_mind_effect = yes
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
     
     # Cataclysmic - Mind Surge
     option = {
-		name = wwu_magic_menu.1.option.mind_surge
+		name = wwu_magic_menu.14.option.mind_surge
         
         trigger = {
             has_legendary_aptitude = yes
@@ -200,11 +469,15 @@ country_event = {
         cataclysmic_effect = yes
         
         mind_surge_effect = yes
+        
+        ai_chance = {
+            factor = 1
+        }
 	}
     
     # Cataclysmic - Ascendance
     option = {
-		name = wwu_magic_menu.1.option.ascendance
+		name = wwu_magic_menu.14.option.ascendance
         
         trigger = {
             has_legendary_aptitude = yes
@@ -216,392 +489,22 @@ country_event = {
         cataclysmic_effect = yes
         
         ascendance_effect = yes
-	}
-    
-    # Exit
-    option = {
-		name = wwu_magic_menu.1.option.exit
-		
-	}
-}
-
-#-----------------------------
-# Spell Menu - Disorder
-#-----------------------------
-country_event = {
-	id = wwu_magic_menu.2
-	title = wwu_magic_menu.2.title
-	desc = wwu_magic_menu.2.desc
-	picture = BIG_BOOK_eventPicture
-    
-	is_triggered_only = yes
-    
-    trigger = {
-        has_ruler_modifier = spellcaster_capabilities
-    }
-
-    # Poor - Fire and Brimstone
-    
-    # Poor - Soul Siphon
-    
-    # Common - Howl of Terror
-    
-    # Common - Demonic Power
-    
-    # Rare - Essence Leech
-    
-    # Rare - Dark Regeneration
-    
-    # Epic - Forge Bloodstone
-    
-    # Epic - Demonic Touch
-    option = {
-		name = wwu_magic_menu.1.option.demonic_touch
         
-        trigger = {
-            has_epic_aptitude = yes
-            has_mana_3 = yes
+        ai_chance = {
+            factor = 1
+            
+            modifier = {
+                factor = 0
+                
+                NOT = { is_at_war = yes }
+            }
         }
-		
-        lose_mana_3 = yes
-        
-        demonic_touch_effect = yes
 	}
-    
-    # Legendary - Everlasting Affliction
-    
-    # Legendary - Grimoire of Demons
-    
-    # Cataclysmic - Soulburn
-    
-    # Cataclysmic - Demonic Empowerment
     
     # Exit
     option = {
-		name = wwu_magic_menu.2.option.exit
+		name = wwu_magic_menu.14.option.exit
 		
-	}
-}
-
-#-----------------------------
-# Spell Menu - Life
-#-----------------------------
-country_event = {
-	id = wwu_magic_menu.3
-	title = wwu_magic_menu.3.title
-	desc = wwu_magic_menu.3.desc
-	picture = BIG_BOOK_eventPicture
-    
-	is_triggered_only = yes
-    
-    trigger = {
-        has_ruler_modifier = spellcaster_capabilities
-    }
-
-    # Poor - Flourish
-    
-    # Poor - Primal Tenacity
-    
-    # Common - Gift of the Moon
-    
-    # Common - Gift of the Sun
-    
-    # Rare - Rejuvination
-    
-    # Rare - Focused Growth
-    
-    # Epic - Astral Storm
-    
-    # Epic - Mark of Ursol
-    
-    # Legendary - Force of Nature
-    
-    # Legendary - Eclipse
-    
-    # Cataclysmic - Primal Aggression
-    
-    # Cataclysmic - Twilight's Wrath
-    
-    # Exit
-    option = {
-		name = wwu_magic_menu.3.option.exit
-		
-	}
-}
-
-#-----------------------------
-# Spell Menu - Death
-#-----------------------------
-country_event = {
-	id = wwu_magic_menu.4
-	title = wwu_magic_menu.4.title
-	desc = wwu_magic_menu.4.desc
-	picture = BIG_BOOK_eventPicture
-    
-	is_triggered_only = yes
-    
-    trigger = {
-        has_ruler_modifier = spellcaster_capabilities
-    }
-
-    # Poor - Raise Undead
-    
-    # Poor - Rune of Spellwarding
-    
-    # Common - Chains of Ice
-    
-    # Common - Rune of Hysteria
-    
-    # Rare - Undying Plague
-    
-    # Rare - Rune of Sanguination
-    
-    # Epic - Anti-Magic Shell
-    
-    # Epic - Rune of Unending Thirst
-    
-    # Legendary - Dark Command
-    
-    # Legendary - Rune of the Apocalypse
-    
-    # Cataclysmic - Lichdom
-    
-    # Cataclysmic - Army of the Dead
-    
-    # Exit
-    option = {
-		name = wwu_magic_menu.4.option.exit
-		
-	}
-}
-
-#-----------------------------
-# Spell Menu - Light
-#-----------------------------
-country_event = {
-	id = wwu_magic_menu.5
-	title = wwu_magic_menu.5.title
-	desc = wwu_magic_menu.5.desc
-	picture = BIG_BOOK_eventPicture
-    
-	is_triggered_only = yes
-    
-    trigger = {
-        has_ruler_modifier = spellcaster_capabilities
-    }
-
-    # Poor - Binding Prayers
-    
-    # Poor - Hand of Light
-    
-    # Common - Angelic Bulwark
-    
-    # Common - Judgement
-    
-    # Rare - Heavenly Voice
-    
-    # Rare - Sacred Cleansing
-    
-    # Epic - Cascade
-    
-    # Epic - Sanctified Wrath
-    
-    # Legendary - Clarity of Will
-    
-    # Legendary - Blade of Justice
-    
-    # Cataclysmic - Ascension
-    
-    # Cataclysmic - Final Verdict
-    
-    # Exit
-    option = {
-		name = wwu_magic_menu.5.option.exit
-		
-	}
-}
-
-#-----------------------------
-# Spell Menu - Shadow
-#-----------------------------
-country_event = {
-	id = wwu_magic_menu.6
-	title = wwu_magic_menu.6.title
-	desc = wwu_magic_menu.6.desc
-	picture = BIG_BOOK_eventPicture
-    
-	is_triggered_only = yes
-    
-    trigger = {
-        has_ruler_modifier = spellcaster_capabilities
-    }
-
-    # Poor - Void Bolt
-    
-    # Poor - Void Lash
-    
-    # Common - Looming Darkness
-    
-    # Common - Surging Darkness
-    
-    # Rare - Dispersion
-    
-    # Rare - Psychic Torment
-    
-    # Epic - Aura of Despair
-    
-    # Epic - Shadow Crash
-    
-    # Legendary - Lunatic Gaze
-    
-    # Legendary - Will of the Corruptor
-    
-    # Cataclysmic - Extinguish All Life
-    
-    # Cataclysmic - Corruptor's Pact
-    
-    # Exit
-    option = {
-		name = wwu_magic_menu.6.option.exit
-		
-	}
-}
-
-#-----------------------------
-# Spell Menu - Elemental
-#-----------------------------
-country_event = {
-	id = wwu_magic_menu.7
-	title = wwu_magic_menu.7.title
-	desc = wwu_magic_menu.7.desc
-	picture = BIG_BOOK_eventPicture
-    
-	is_triggered_only = yes
-    
-    trigger = {
-        has_ruler_modifier = spellcaster_capabilities
-    }
-
-    # Poor - Bind Elemental
-    
-    # Poor - Healing Tide
-    
-    # Common - Stone Bulwark
-    
-    # Common - Windwalk
-    
-    # Rare - Earthquake
-    
-    # Rare - Skyfury
-    
-    # Epic - Lightning Lasso
-    
-    # Epic - Fire Nova
-    
-    # Legendary - Echo of the Elements
-    
-    # Legendary - Ancestral Guidance
-    
-    # Cataclysmic - Storm, Earth, Fire
-    
-    # Cataclysmic - Unleashed Fury
-    
-    
-    # Exit
-    option = {
-		name = wwu_magic_menu.7.option.exit
-		
-	}
-}
-
-#-----------------------------
-# Spell Menu - Blood
-#-----------------------------
-country_event = {
-	id = wwu_magic_menu.8
-	title = wwu_magic_menu.8.title
-	desc = wwu_magic_menu.8.desc
-	picture = BIG_BOOK_eventPicture
-    
-	is_triggered_only = yes
-    
-    trigger = {
-        has_ruler_modifier = spellcaster_capabilities
-    }
-
-    # Poor - Blood Siphon
-    
-    # Poor - Hex of Weakness
-    
-    # Common - Blood Bolt
-    
-    # Common - Leeching Boil
-    
-    # Rare - Blood Feast
-    
-    # Rare - Fetid Frenzy
-    
-    # Epic - Blood Shield
-    
-    # Epic - Shattered Psyche
-    
-    # Legendary - Rupture
-    
-    # Legendary - Mark of the Blood God
-    
-    # Cataclysmic - Transfusion
-    
-    # Cataclysmic - Gaze of G'huun
-    
-    # Exit
-    option = {
-		name = wwu_magic_menu.8.option.exit
-		
-	}
-}
-
-#-----------------------------
-# Spell Menu - Voodoo
-#-----------------------------
-country_event = {
-	id = wwu_magic_menu.9
-	title = wwu_magic_menu.9.title
-	desc = wwu_magic_menu.9.desc
-	picture = BIG_BOOK_eventPicture
-    
-	is_triggered_only = yes
-    
-    trigger = {
-        has_ruler_modifier = spellcaster_capabilities
-    }
-
-    # Poor - Lightning Bolt
-    
-    # Poor - Hex
-    
-    # Common - Rain of Fire
-    
-    # Common - Flame Whirl
-    
-    # Rare - Static Disruption
-    
-    # Rare - Protective Ward
-    
-    # Epic - Creeping Paralysis
-    
-    # Epic - Siphon Soul
-    
-    # Legendary - Shapeshift
-    
-    # Legendary - Drain Power
-    
-    # Cataclysmic - Frenzy
-    
-    # Cataclysmic - Big Bad Voodoo
-    
-    # Exit
-    option = {
-		name = wwu_magic_menu.9.option.exit
-		
+        country_event = { id = wwu_magic_menu.1 }
 	}
 }

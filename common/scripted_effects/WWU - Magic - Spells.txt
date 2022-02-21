@@ -603,12 +603,15 @@ polymorph_effect = {
             has_poor_finesse = yes
         }
         
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
+        hidden_effect = {
+            set_variable = {
+                which = polymorph_count
+                value = 1
             }
-            change_culture = ROOT
+            set_country_flag = polymorph_active
         }
+        
+        custom_tooltip = POLYMORPH_EFFECT
     }
     # Common
     else_if = {
@@ -616,18 +619,15 @@ polymorph_effect = {
             has_common_finesse = yes
         }
         
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
+        hidden_effect = {
+            set_variable = {
+                which = polymorph_count
+                value = 2
             }
-            change_culture = ROOT
+            set_country_flag = polymorph_active
         }
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
-            }
-            change_culture = ROOT
-        }
+        
+        custom_tooltip = POLYMORPH_EFFECT
     }
     # Rare
     else_if = {
@@ -635,24 +635,15 @@ polymorph_effect = {
             has_rare_finesse = yes
         }
         
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
+        hidden_effect = {
+            set_variable = {
+                which = polymorph_count
+                value = 3
             }
-            change_culture = ROOT
+            set_country_flag = polymorph_active
         }
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
-            }
-            change_culture = ROOT
-        }
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
-            }
-            change_culture = ROOT
-        }
+        
+        custom_tooltip = POLYMORPH_EFFECT
     }
     # Epic
     else_if = {
@@ -660,30 +651,15 @@ polymorph_effect = {
             has_epic_finesse = yes
         }
         
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
+        hidden_effect = {
+            set_variable = {
+                which = polymorph_count
+                value = 4
             }
-            change_culture = ROOT
+            set_country_flag = polymorph_active
         }
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
-            }
-            change_culture = ROOT
-        }
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
-            }
-            change_culture = ROOT
-        }
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
-            }
-            change_culture = ROOT
-        }
+        
+        custom_tooltip = POLYMORPH_EFFECT
     }
     # Legendary
     else_if = {
@@ -691,36 +667,15 @@ polymorph_effect = {
             has_legendary_finesse = yes
         }
         
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
+        hidden_effect = {
+            set_variable = {
+                which = polymorph_count
+                value = 5
             }
-            change_culture = ROOT
+            set_country_flag = polymorph_active
         }
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
-            }
-            change_culture = ROOT
-        }
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
-            }
-            change_culture = ROOT
-        }
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
-            }
-            change_culture = ROOT
-        }
-        random_owned_province = {
-            limit = {
-                NOT = { culture = ROOT }
-            }
-            change_culture = ROOT
-        }
+        
+        custom_tooltip = POLYMORPH_EFFECT
     }
 }
 

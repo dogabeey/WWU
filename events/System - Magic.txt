@@ -481,6 +481,89 @@ country_event = {
 	}
 }
 
+# Polymorph in X
+country_event = {
+	id = wwu_magic.21
+	title = wwu_magic.21.title
+	desc = wwu_magic.21.desc
+	picture = MAGI_eventPicture
+    
+	trigger = {
+        has_country_flag = polymorph_active
+        check_variable = {
+            which = polymorph_count
+            value = 1
+        }
+        any_owned_province = {
+            NOT = { culture = ROOT }
+        }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            random_owned_province = {
+                limit = {
+                    NOT = { culture = ROOT }
+                }
+                save_event_target_as = target_province
+            }
+            subtract_variable = {
+                which = polymorph_count
+                value = 1
+            }
+        }
+    }
+    
+    mean_time_to_happen = {
+		days = 1
+    }
+	
+	option = {
+		name = wwu_magic.21.option.a
+		
+        event_target:target_province = {
+            change_culture = ROOT
+        }
+	}
+}
+
+# Polymorph Emds
+country_event = {
+	id = wwu_magic.22
+	title = wwu_magic.22.title
+	desc = wwu_magic.22.desc
+	picture = MAGI_eventPicture
+    
+    hidden = yes
+    
+	trigger = {
+        has_country_flag = polymorph_active
+        OR = {
+            NOT = {
+                check_variable = {
+                    which = polymorph_count
+                    value = 1
+                }
+            }
+            NOT = {
+                any_owned_province = {
+                    NOT = { culture = ROOT }
+                }
+            }
+        }
+    }
+    
+    mean_time_to_happen = {
+		days = 1
+    }
+    
+	option = {
+		name = wwu_magic.22.option.a
+		
+        clr_country_flag = polymorph_active
+	}
+}
+
 # Improvement in Aptitude 
 country_event = {
 	id = wwu_magic.40
