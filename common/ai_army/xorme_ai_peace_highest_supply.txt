@@ -1,0 +1,18 @@
+province = {
+    peace = {
+        active = {
+            is_at_war = no
+			OR = {
+				NOT = { num_of_rebel_armies = 1 }
+				NOT = { num_of_rebel_controlled_provinces = 1 }
+			}
+        }
+        eval_add = {
+            factor = 1.0
+			modifier = {
+				factor = 25000.0
+				highest_supply_limit_in_area = no
+			}
+        }
+    }
+}
