@@ -1,12 +1,12 @@
 country_decisions = {
     start_archeological_project = {
         potential = {
-			NOT = { has_country_flag = dig_begins }
+			NOT = { has_country_flag = excavation_decision_used }
         }
         allow = {
 			custom_trigger_tooltip = {
                 tooltip = HAS_NOT_STARTED_ARCHAEOLOGICAL_DIG
-                NOT = { has_country_flag = dig_begins }
+                NOT = { has_country_flag = excavation_decision_used }
             }
             
             adm_power = 50
@@ -21,7 +21,7 @@ country_decisions = {
             country_event { id = wwu_archaeology.1 }
             
             hidden_effect = {
-                set_country_flag = dig_begins
+                set_country_flag = excavation_decision_used
             }
         }
         ai_will_do = {
