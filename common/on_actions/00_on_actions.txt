@@ -130,6 +130,15 @@ on_war_won = {
 			value = 1
 		}
 	}
+    
+    if = {
+        limit = {
+            is_nomad = yes
+        }
+        
+        add_horde_unity = 20
+    }
+    
 	events = {
         wwu_dragon_aspects.1
 		on_action_special.2
@@ -165,6 +174,18 @@ on_war_lost = {
 # root = winning country, from = loser country
 on_battle_won_country = {
 	#log = "[Root.GetName]: Triggered battle_won_country"
+
+    if = {
+        limit = {
+            is_nomad = yes
+            FROM = {
+                NOT = { tag = REB }
+            }
+        }
+        
+        add_horde_unity = 5
+    }
+
 
     if = {
         limit = {
