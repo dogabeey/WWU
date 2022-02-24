@@ -1,0 +1,37 @@
+namespace = wwu_savage_vassalage
+
+# Convert normal vassals into savage vassals for specific nations
+country_event = {
+	id = wwu_savage_vassalage.1
+	title = wwu_savage_vassalage.1.title
+	desc = wwu_savage_vassalage.1.desc
+	picture = BAD_WITH_MONARCH_eventPicture
+
+    hidden = yes
+
+	trigger = {
+        is_subject = yes
+        OR = {
+            is_subject_of_type = vassal
+            is_subject_of_type = march
+        }
+        overlord = {
+            uses_savage_vassalage = yes
+        }
+    }
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = wwu_savage_vassalage.1.option.a
+
+        overlord = {
+            create_subject = {
+                subject_type = savage_vassal
+                subject = ROOT
+            }
+        }
+	}
+}

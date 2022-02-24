@@ -54,51 +54,45 @@ country_decisions = {
 	sacrifice_loa = {
 		potential = {
 			has_any_loa = yes
+            NOT = { has_ruler_flag = sacrificed_loa }
 		}
 		allow = {
 			has_any_loa = yes
 			stability = 0
 		}
 		effect = {
-			sacrifice_own_loa = yes
-			add_stability = -1
-			add_adm_power = 200
-			add_dip_power = 200
-			add_mil_power = 200
+            hidden_effect = {
+                set_ruler_flag = sacrificed_loa
+            }
+            
+			gain_loa_effect = yes
+            kill_loa = yes
+            remove_loa_influence = yes
+            
+            add_stability = -1
             
             add_country_modifier = {
                 name = is_evil
                 duration = -1
             }
+            
+            every_known_country = {
+                limit = {
+                    OR = {
+                        religion = voodoo
+                        religion = hakkari
+                    }
+                }
+                
+                add_opinion = {
+                    who = ROOT
+                    modifier = sacrificed_loa
+                }
+            }
 		}
 	
 		ai_will_do = {
 			factor = 0
-			
-			modifier = {
-				factor = 0
-				NOT = { stability = 1 }
-			}
-			modifier = {
-				factor = 0
-				OR = { 
-					adm = 6
-					dip = 6
-					mil = 6
-				}
-			}
-			modifier = {
-				factor = 0
-				NOT = { 
-					any_neighbor_country = {
-						tech_difference = 2
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				has_ruler_modifier = sacrificed_a_loa
-			}
 		}
 	}
 }

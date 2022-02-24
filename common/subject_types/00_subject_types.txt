@@ -1117,99 +1117,85 @@ protected_vassal = {
 	}
 }
 
-# Tributary state for Trolls
-troll_tributary = {
+# Flexible form of vassal for savages
+savage_vassal = {
 	copy_from = default
-
-	# Triggers:
-	is_potential_overlord = {
-		NOT = { 
-			is_subject_of_type = troll_tributary
-		}
-		culture_group = culture_group_troll
-	}
 	
 	# Graphics:
-	sprite = GFX_subject_tributary_state
-	diplomacy_overlord_sprite = GFX_diplomacy_leadtributary
-	diplomacy_subject_sprite = GFX_diplomacy_amtributary
+	sprite = GFX_icon_vassal
+	diplomacy_overlord_sprite = GFX_diplomacy_leadvassal
+	diplomacy_subject_sprite = GFX_diplomacy_amvassal
 
 	# Properties:
-	can_fight_independence_war = no
-	joins_overlords_wars = no
-	joins_colonial_wars = no
-	is_voluntary = no
-	overlord_can_attack = yes
+	transfer_trade_if_merchant_republic = yes
+	can_be_annexed = yes
+	has_power_projection = no
+	gets_help_with_rebels = yes
+	forms_trade_companies = no
+    overlord_protects_external = yes
+    can_transfer_in_peace = no
+    
+	max_government_rank = 1
+
+	liberty_desire_development_ratio = 0.25
+	liberty_desire_same_dynasty = -5.0
+	pays_overlord = 0.5
+	forcelimit_to_overlord = 0.1
+
+	relative_power_class = 2
+	should_quit_wars_on_activation = yes
+
 	takes_diplo_slot = no
-	base_liberty_desire = -5
-	relative_power_class = 1
-	should_quit_wars_on_activation = no
-	can_send_tribute = yes
-	can_have_subjects_of_other_types = yes
-	uses_military_focus = no
-	overlord_protects_external = yes
-	counts_for_borders = no
-	can_use_claims = no
-	share_rebel_popup = no
-	can_transfer_in_peace = no
-	can_set_mil_focus = no
-	can_send_missionary_to_subject = no
-	overlord_can_fabricate_for = no
-	does_overlord_size_count_for_warscore_cost = no
-	can_concentrate_development = no
-	
-	liberty_desire_development_ratio = 0.175
-	trust_on_start = 0
-	
-	overlord_opinion_modifier = is_tributary
-	subject_opinion_modifier = is_tributary
-	
+
 	can_fight = {
-		independent_nations = yes
-		same_overlord = troll_tributary
+        independent_nations = yes
 		other_overlord = all
 	}
 	can_rival = {
-		independent_nations = yes
-		same_overlord = troll_tributary
+        independent_nations = yes
 		other_overlord = all
 	}
 	can_ally = {
-		independent_nations = yes
-		same_overlord = troll_tributary
+        independent_nations = yes
 		other_overlord = all
 	}
 	can_marry = {
-		independent_nations = yes
-		same_overlord = troll_tributary
+        independent_nations = yes
 		other_overlord = all
 	}
+	
+	restoration_cb = cb_disloyal_vassal
 
 	# Subject Interactions:
-	# (immediate)
-	enforce_religion = no
-	grant_core_claim = no
-	bestow_gifts = yes
-	send_additional_troops = yes
-	demand_artifacts = yes
-	demand_additional_tribute = yes
-	block_settlement_growth = no
-	allow_settlement_growth = no
-	placate_rulers = no
-	knowledge_sharing = no
-	# (continuous)
-	embargo_rivals = no
+	scutage = yes
+	place_relative_on_throne = yes
+	sacrifice_ruler = no
+	sacrifice_heir = no
+	divert_trade = yes
+	seize_territory = yes
+	
+	force_seppuku = yes
+	contribute_to_capital = yes
+	return_land = yes
+	conscript_general = yes
+	
+	sword_hunt = yes
+	sankin_kotai = yes
+	expel_ronin = yes
 
-	# Modifiers:
+	overlord_opinion_modifier = is_vassal
+	subject_opinion_modifier = is_vassal
+    
+    # Modifiers:
 	modifier_subject = clear
     modifier_overlord = clear
     
 	# Modifiers:
 	modifier_subject = {
-		modifier = troll_tributary_subject
+		modifier = savage_vassal_subject
 	}
 	modifier_overlord = {
-		modifier = troll_tributary_overlord
+		modifier = savage_vassal_overlord
 	}
 }
 

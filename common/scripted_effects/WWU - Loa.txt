@@ -1,0 +1,1018 @@
+# Loa
+increase_loa_influence = {
+    if = {
+        limit = {
+            has_country_modifier = loa_influence_high
+        }
+        custom_tooltip = LOA_INFLUENCE_REMAINS_HIGH
+    }
+    else_if = {
+        limit = {
+            has_country_modifier = loa_influence_medium
+        }
+        
+        custom_tooltip = LOA_INFLUENCE_SET_TO_HIGH
+        
+        hidden_effect = {
+            remove_country_modifier = loa_influence_medium
+            add_ruler_modifier = {
+                name = loa_influence_high
+                duration = -1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            has_country_modifier = loa_influence_low
+        }
+        
+        custom_tooltip = LOA_INFLUENCE_SET_TO_MEDIUM
+        
+        hidden_effect = {
+            remove_country_modifier = loa_influence_low
+            add_ruler_modifier = {
+                name = loa_influence_medium
+                duration = -1
+            }
+        }
+    }
+    else = {
+        custom_tooltip = LOA_INFLUENCE_SET_TO_LOW
+        
+        hidden_effect = {
+            add_ruler_modifier = {
+                name = loa_influence_low
+                duration = -1
+            }
+        }
+    }
+}
+
+decrease_loa_influence = {
+    if = {
+        limit = {
+            has_country_modifier = loa_influence_low
+        }
+        custom_tooltip = LOA_INFLUENCE_REMIANS_LOW
+    }
+    else_if = {
+        limit = {
+            has_country_modifier = loa_influence_medium
+        }
+        
+        custom_tooltip = LOA_INFLUENCE_SET_TO_LOW
+        
+        hidden_effect = {
+            remove_country_modifier = loa_influence_medium
+            add_ruler_modifier = {
+                name = loa_influence_low
+                duration = -1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            has_country_modifier = loa_influence_high
+        }
+        
+         custom_tooltip = LOA_INFLUENCE_SET_TO_MEDIUM
+         
+        hidden_effect = {
+            remove_country_modifier = loa_influence_high
+            add_ruler_modifier = {
+                name = loa_influence_medium
+                duration = -1
+            }
+        }
+    }
+}
+
+set_warring_loa = {
+    clr_country_flag = warring_loa_shadra
+    clr_country_flag = warring_loa_akildarah
+    clr_country_flag = warring_loa_halazi
+    clr_country_flag = warring_loa_janalai
+    clr_country_flag = warring_loa_nalarokk
+    clr_country_flag = warring_loa_gahzrilla
+    clr_country_flag = warring_loa_kimbul
+    clr_country_flag = warring_loa_muehzala
+    clr_country_flag = warring_loa_akali
+    clr_country_flag = warring_loa_harkoa
+    clr_country_flag = warring_loa_mamtoth
+    clr_country_flag = warring_loa_rhunok
+    clr_country_flag = warring_loa_quetzlun
+    clr_country_flag = warring_loa_sseratus
+    clr_country_flag = warring_loa_tharonja
+    clr_country_flag = warring_loa_hakkar
+    clr_country_flag = warring_loa_hethiss
+    clr_country_flag = warring_loa_hireek
+    clr_country_flag = warring_loa_shirvallah
+    clr_country_flag = warring_loa_akunda
+    clr_country_flag = warring_loa_bethekk
+    clr_country_flag = warring_loa_rezan
+    clr_country_flag = warring_loa_bwonsamdi
+    clr_country_flag = warring_loa_gonk
+    clr_country_flag = warring_loa_gral
+    clr_country_flag = warring_loa_paku
+    clr_country_flag = warring_loa_jani
+    clr_country_flag = warring_loa_torga
+    
+    random_list = {
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_shadra }
+                NOT = { has_global_flag = deity_shadra_killed }
+                primary_culture = culture_forest_troll
+            }
+            
+            set_country_flag = warring_loa_shadra
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_akildarah }
+                NOT = { has_global_flag = deity_akildarah_killed }
+                primary_culture = culture_forest_troll
+            }
+            
+            set_country_flag = warring_loa_akildarah
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_halazi }
+                NOT = { has_global_flag = deity_halazi_killed }
+                primary_culture = culture_forest_troll
+            }
+            
+            set_country_flag = warring_loa_halazi
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_janalai }
+                NOT = { has_global_flag = deity_janalai_killed }
+                primary_culture = culture_forest_troll
+            }
+            
+            set_country_flag = warring_loa_janalai
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_nalarokk }
+                NOT = { has_global_flag = deity_nalarokk_killed }
+                primary_culture = culture_forest_troll
+            }
+            
+            set_country_flag = warring_loa_nalarokk
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_gahzrilla }
+                NOT = { has_global_flag = deity_gahzrilla_killed }
+                primary_culture = culture_sand_troll
+            }
+            
+            set_country_flag = warring_loa_gahzrilla
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_kimbul }
+                NOT = { has_global_flag = deity_kimbul_killed }
+                primary_culture = culture_sand_troll
+            }
+            
+            set_country_flag = warring_loa_kimbul
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_muehzala }
+                NOT = { has_global_flag = deity_muehzala_killed }
+                primary_culture = culture_sand_troll
+            }
+            
+            set_country_flag = warring_loa_muehzala
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_akali }
+                NOT = { has_global_flag = deity_akali_killed }
+                primary_culture = culture_frost_troll
+            }
+            
+            set_country_flag = warring_loa_akali
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_harkoa }
+                NOT = { has_global_flag = deity_harkoa_killed }
+                primary_culture = culture_frost_troll
+            }
+            
+            set_country_flag = warring_loa_harkoa
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_mamtoth }
+                NOT = { has_global_flag = deity_mamtoth_killed }
+                primary_culture = culture_frost_troll
+            }
+            
+            set_country_flag = warring_loa_mamtoth
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_rhunok }
+                NOT = { has_global_flag = deity_rhunok_killed }
+                primary_culture = culture_frost_troll
+            }
+            
+            set_country_flag = warring_loa_rhunok
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_quetzlun }
+                NOT = { has_global_flag = deity_quetzlun_killed }
+                primary_culture = culture_frost_troll
+            }
+            
+            set_country_flag = warring_loa_quetzlun
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_sseratus }
+                NOT = { has_global_flag = deity_sseratus_killed }
+                primary_culture = culture_frost_troll
+            }
+            
+            set_country_flag = warring_loa_sseratus
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_tharonja }
+                NOT = { has_global_flag = deity_tharonja_killed }
+                primary_culture = culture_frost_troll
+            }
+            
+            set_country_flag = warring_loa_tharonja
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_hakkar }
+                NOT = { has_global_flag = deity_hakkar_killed }
+                primary_culture = culture_jungle_troll
+            }
+            
+            set_country_flag = warring_loa_hakkar
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_hethiss }
+                NOT = { has_global_flag = deity_hethiss_killed }
+                primary_culture = culture_jungle_troll
+            }
+            
+            set_country_flag = warring_loa_hethiss
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_hireek }
+                NOT = { has_global_flag = deity_hireek_killed }
+                primary_culture = culture_jungle_troll
+            }
+            
+            set_country_flag = warring_loa_hireek
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_shirvallah }
+                NOT = { has_global_flag = deity_shirvallah_killed }
+                primary_culture = culture_jungle_troll
+            }
+            
+            set_country_flag = warring_loa_shirvallah
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_akunda }
+                NOT = { has_global_flag = deity_akunda_killed }
+                primary_culture = culture_zandalari_troll
+            }
+            
+            set_country_flag = warring_loa_akunda
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_bethekk }
+                NOT = { has_global_flag = deity_bethekk_killed }
+                OR = {
+                    primary_culture = culture_zandalari_troll
+                    primary_culture = culture_frost_troll
+                    primary_culture = culture_forest_troll
+                    primary_culture = culture_dark_troll
+                    primary_culture = culture_jungle_troll
+                    primary_culture = culture_sand_troll
+                }
+            }
+            
+            set_country_flag = warring_loa_bethekk
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_rezan }
+                NOT = { has_global_flag = deity_rezan_killed }    
+                primary_culture = culture_zandalari_troll
+            }
+            
+            set_country_flag = warring_loa_rezan
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_bwonsamdi }
+                NOT = { has_global_flag = deity_bwonsamdi_killed }    
+            }
+            
+            set_country_flag = warring_loa_bwonsamdi
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_gonk }
+                NOT = { has_global_flag = deity_gonk_killed }    
+                OR = {
+                    primary_culture = culture_zandalari_troll
+                    primary_culture = culture_dark_troll
+                }
+            }
+            
+            set_country_flag = warring_loa_gonk
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_gral }
+                NOT = { has_global_flag = deity_gral_killed }    
+                primary_culture = culture_zandalari_troll
+            }
+            
+            set_country_flag = warring_loa_gral
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_paku }
+                NOT = { has_global_flag = deity_paku_killed }    
+                primary_culture = culture_zandalari_troll
+            }
+            
+            set_country_flag = warring_loa_paku
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_jani }
+                NOT = { has_global_flag = deity_jani_killed }  
+                primary_culture = culture_zandalari_troll
+            }
+            
+            set_country_flag = warring_loa_jani
+        }
+        1 = { 
+            trigger = {
+                NOT = { has_personal_deity = deity_torga }
+                NOT = { has_global_flag = deity_torga_killed }
+                primary_culture = culture_zandalari_troll
+            }
+            
+            set_country_flag = warring_loa_torga
+        }
+    }
+}
+
+set_loa_as_ruler = {
+	if = {
+		limit = { has_personal_deity = deity_shadra }
+		define_ruler = {
+			name = "Shadra"
+			dynasty = "the Loa"
+			age = 2000
+			claim = 95
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_akildarah }
+		define_ruler = {
+			name = "Akildarah" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_halazi }
+		define_ruler = {
+			name = "Halazi" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_janalai }
+		define_ruler = {
+			name = "Janalai" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_nalarokk }
+		define_ruler = {
+			name = "Nalarokk" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_gahzrilla }
+		define_ruler = {
+			name = "Gahzrilla" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_kimbul }
+		define_ruler = {
+			name = "Kimbul" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_muehzala }
+		define_ruler = {
+			name = "Muehzala" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_akali }
+		define_ruler = {
+			name = "Akali" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_harkoa }
+		define_ruler = {
+			name = "Harkoa" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa 
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_mamtoth }
+		define_ruler = {
+			name = "Mamtoth" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_rhunok }
+		define_ruler = {
+			name = "Rhunok" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_quetzlun }
+		define_ruler = {
+			name = "Quetzlun" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_sseratus }
+		define_ruler = {
+			name = "Sseratus" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_tharonja }
+		define_ruler = {
+			name = "Tharonja" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_hakkar }
+		define_ruler = {
+			name = "Hakkar" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_hethiss }
+		define_ruler = {
+			name = "Hethiss" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_hireek }
+		define_ruler = {
+			name = "Hireek" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_shirvallah }
+		define_ruler = {
+			name = "Shirvallah" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_akunda }
+		define_ruler = {
+			name = "Akunda" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_bethekk }
+		define_ruler = {
+			name = "Bethekk" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_rezan }
+		define_ruler = {
+			name = "Rezan" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_bwonsamdi }
+		define_ruler = {
+			name = "Bwonsamdi" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_gonk }
+		define_ruler = {
+			name = "Gonk" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_gral }
+		define_ruler = {
+			name = "Gral" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_paku }
+		define_ruler = {
+			name = "Paku" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_jani }
+		define_ruler = {
+			name = "Jani" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+	if = {
+		limit = { has_personal_deity = deity_torga }
+		define_ruler = {
+			name = "Torga" 
+            dynasty = "the Loa" 
+            age = 2000 
+            claim = 95 
+            culture = culture_loa
+		}
+		set_ruler_flag = is_immortal
+	}
+}
+
+kill_loa = {
+	custom_tooltip = KILLED_LOA_TT
+    
+	if = {
+		limit = { has_personal_deity = deity_shadra }
+		set_country_flag = deity_shadra_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_akildarah }
+		set_country_flag = deity_akildarah_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_halazi }
+		set_country_flag = deity_halazi_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_janalai }
+		set_country_flag = deity_janalai_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_nalarokk }
+		set_country_flag = deity_nalarokk_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_gahzrilla }
+		set_country_flag = deity_gahzrilla_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_kimbul }
+		set_country_flag = deity_kimbul_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_muehzala }
+		set_country_flag = deity_muehzala_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_akali }
+		set_country_flag = deity_akali_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_harkoa }
+		set_country_flag = deity_harkoa_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_mamtoth }
+		set_country_flag = deity_mamtoth_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_rhunok }
+		set_country_flag = deity_rhunok_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_quetzlun }
+		set_country_flag = deity_quetzlun_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_sseratus }
+		set_country_flag = deity_sseratus_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_tharonja }
+		set_country_flag = deity_tharonja_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_hakkar }
+		set_country_flag = deity_hakkar_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_hethiss }
+		set_country_flag = deity_hethiss_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_hireek }
+		set_country_flag = deity_hireek_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_shirvallah }
+		set_country_flag = deity_shirvallah_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_akunda }
+		set_country_flag = deity_akunda_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_bethekk }
+		set_country_flag = deity_bethekk_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_rezan }
+		set_country_flag = deity_rezan_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_bwonsamdi }
+		set_country_flag = deity_bwonsamdi_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_gonk }
+		set_country_flag = deity_gonk_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_gral }
+		set_country_flag = deity_gral_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_paku }
+		set_country_flag = deity_paku_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_jani }
+		set_country_flag = deity_jani_killed
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_torga }
+		set_country_flag = deity_torga_killed
+	}
+    
+    change_personal_deity = deity_nothing
+}
+
+gain_loa_effect = {
+	if = {
+		limit = { has_personal_deity = deity_shadra }
+		add_ruler_modifier = {
+            name = loa_effect_shadra
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_akildarah }
+		add_ruler_modifier = {
+            name = loa_effect_akildarah
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_halazi }
+		add_ruler_modifier = {
+            name = loa_effect_halazi
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_janalai }
+		add_ruler_modifier = {
+            name = loa_effect_janalai
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_nalarokk }
+		add_ruler_modifier = {
+            name = loa_effect_nalarokk
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_gahzrilla }
+		add_ruler_modifier = {
+            name = loa_effect_gahzrilla
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_kimbul }
+		add_ruler_modifier = {
+            name = loa_effect_kimbul
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_muehzala }
+		add_ruler_modifier = {
+            name = loa_effect_muehzala
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_akali }
+		add_ruler_modifier = {
+            name = loa_effect_akali
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_harkoa }
+		add_ruler_modifier = {
+            name = loa_effect_harkoa
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_mamtoth }
+		add_ruler_modifier = {
+            name = loa_effect_mamtoth
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_rhunok }
+		add_ruler_modifier = {
+            name = loa_effect_rhunok
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_quetzlun }
+		add_ruler_modifier = {
+            name = loa_effect_quetzlun
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_sseratus }
+		add_ruler_modifier = {
+            name = loa_effect_sseratus
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_tharonja }
+		add_ruler_modifier = {
+            name = loa_effect_tharonja
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_hakkar }
+		add_ruler_modifier = {
+            name = loa_effect_hakkar
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_hethiss }
+		add_ruler_modifier = {
+            name = loa_effect_hethiss
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_hireek }
+		add_ruler_modifier = {
+            name = loa_effect_hireek
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_shirvallah }
+		add_ruler_modifier = {
+            name = loa_effect_shirvallah
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_akunda }
+		add_ruler_modifier = {
+            name = loa_effect_akunda
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_bethekk }
+		add_ruler_modifier = {
+            name = loa_effect_bethekk
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_rezan }
+		add_ruler_modifier = {
+            name = loa_effect_rezan
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_bwonsamdi }
+		add_ruler_modifier = {
+            name = loa_effect_bwonsamdi
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_gonk }
+		add_ruler_modifier = {
+            name = loa_effect_gonk
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_gral }
+		add_ruler_modifier = {
+            name = loa_effect_gral
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_paku }
+		add_ruler_modifier = {
+            name = loa_effect_paku
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_jani }
+		add_ruler_modifier = {
+            name = loa_effect_jani
+            duration = -1
+        }
+	}
+	else_if = {
+		limit = { has_personal_deity = deity_torga }
+		add_ruler_modifier = {
+            name = loa_effect_torga
+            duration = -1
+        }
+	}
+}
+
+remove_loa_influence = {
+    remove_country_modifier = loa_influence_low
+    remove_country_modifier = loa_influence_medium
+    remove_country_modifier = loa_influence_high
+}
