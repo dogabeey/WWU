@@ -6,7 +6,15 @@ country_decisions = {
             always = yes
 		}
 		allow = {
-            always = yes
+            if = {
+                limit = {
+                    ai = yes
+                }
+                has_country_flag = ai_can_use_ruler_view
+            }
+            else = {
+                always = yes
+            }
 		}
         effect = {
             country_event = { id = wwu_ruler_view.1 }
@@ -20,6 +28,7 @@ country_decisions = {
                         name = ai_personal_chamber_cooldown
                         duration = 3650
                     }
+                    clr_country_flag = ai_can_use_ruler_view
                 }
             }
         }
@@ -33,4 +42,24 @@ country_decisions = {
             }
 		}
 	}
+    
+    ai_ruler_view_logic = {
+        potential = {
+			ai = yes
+        }
+        allow = {
+			ai = yes
+            
+            # This is arbitary, it functions to stagger the AI's usage of the menu
+            adm_power = 300
+            dip_power = 300
+            mil_power = 300
+        }
+        effect = {
+			set_country_flag = ai_can_use_ruler_view
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
 }

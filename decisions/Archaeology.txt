@@ -2,6 +2,7 @@ country_decisions = {
     start_archeological_project = {
         potential = {
 			NOT = { has_country_flag = excavation_decision_used }
+            NOT = { has_country_flag = archaeology_dig_decision_cooldown }
         }
         allow = {
 			custom_trigger_tooltip = {
@@ -22,6 +23,11 @@ country_decisions = {
             
             hidden_effect = {
                 set_country_flag = excavation_decision_used
+                add_country_modifier = {
+                    name = archaeology_dig_decision_cooldown
+                    duration = 1800
+                    hidden = yes
+                }
             }
         }
         ai_will_do = {
@@ -41,17 +47,17 @@ country_decisions = {
 			modifier = {
 				factor = 0
 				
-                NOT = { adm_power = 200 }
+                NOT = { adm_power = 600 }
 			}
             modifier = {
 				factor = 0
 				
-                NOT = { dip_power = 200 }
+                NOT = { dip_power = 600 }
 			}
             modifier = {
 				factor = 0
 				
-                NOT = { mil_power = 200 }
+                NOT = { mil_power = 600 }
 			}
         }
     }
