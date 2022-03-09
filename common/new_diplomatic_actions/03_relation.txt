@@ -46,20 +46,18 @@ abandon_subject = {
 	}
 	ai_will_do = {
         # AI will use it for tributary-type subjects that are disliked
-        AND = {
-            # Below -150 opinion
-            NOT = {
-                has_opinion = {
-                    who = FROM
-                    value = -150
-                }
-            }
-            FROM = {
-                is_subject_of_type = dragonflight_splinter
-                is_subject_of_type = troll_tributary
-                is_subject_of_type = tributary_state
-            }
-        }
+        # Below -150 opinion
+		NOT = {
+			has_opinion = {
+				who = FROM
+				value = -150
+			}
+		}
+		FROM = {
+			is_subject_of_type = dragonflight_splinter
+			is_subject_of_type = troll_tributary
+			is_subject_of_type = tributary_state
+		}
 	}
 }
 
