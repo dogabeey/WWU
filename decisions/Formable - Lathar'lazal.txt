@@ -7,6 +7,7 @@ country_decisions = {
 		    # Exclusions
 			NOT = { exists = LAT }
 			NOT = { tag = A94 }
+			NOT = { has_country_flag = rebuild_ancient_elven_cities }
 			
             # Requisites
 			OR = {
@@ -32,7 +33,7 @@ country_decisions = {
 				type = all
 				owned_by = ROOT
 			}
-			1304 = { development = 30 }
+			1304 = { development = 20 }
 			
             # General
 			is_at_war = no	
@@ -54,23 +55,12 @@ country_decisions = {
 			change_tag = LAT
 			change_government = theocracy
 			set_capital = 1304
-			if = {
-			    limit = {
-			        primary_culture = culture_sentinel
-				}
-			    change_primary_culture = culture_night_elf
-			}
-			if = {
-			    limit = {
-			        primary_culture = culture_cenarion
-				}
-			    change_primary_culture = culture_night_elf
-			}
 
 			# Bonus
             add_formable_bonus = yes
             trigger_ni_switch = yes
             #trigger_mission_switch = yes
+			set_country_flag = rebuild_ancient_elven_cities
 		}
 		
 		ai_will_do = {

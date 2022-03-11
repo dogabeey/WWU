@@ -9,7 +9,10 @@ country_decisions = {
 			NOT = { exists = A90 } # QuelThalas
             
             # Requisites
-			culture_group = culture_group_thalassian
+			OR = {
+			    culture = culture_blood_elf
+			    culture = culture_high_elf
+			}
 			
             any_owned_province = {
                 region = region_isle_of_quel_danas
@@ -49,12 +52,8 @@ country_decisions = {
             
             # Switch
 			change_tag = A90
-			change_primary_culture = culture_high_elf
 			change_government = monarchy
 			set_capital = 660
-            capital_scope = {
-                change_culture = culture_high_elf
-            }
             
             # Bonus
             add_formable_bonus = yes

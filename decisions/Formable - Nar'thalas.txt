@@ -7,6 +7,7 @@ country_decisions = {
 		    # Exclusions
 			NOT = { exists = NAL }
 			NOT = { tag = A94 }
+			NOT = { has_country_flag = rebuild_ancient_elven_cities }
 			
             # Requisites
 			OR = {
@@ -33,7 +34,7 @@ country_decisions = {
 				type = all
 				owned_by = ROOT
 			}
-			3178 = { development = 30 }
+			3178 = { development = 20 }
 			
             # General
 			is_at_war = no	
@@ -55,23 +56,25 @@ country_decisions = {
 			change_tag = NAL
 			change_government = theocracy
 			set_capital = 3178
-			if = {
+            if = {
 			    limit = {
-			        primary_culture = culture_sentinel
+			        primary_culture = culture_ghost
 				}
-			    change_primary_culture = culture_night_elf
+			    change_primary_culture = culture_highbourne
 			}
-			if = {
-			    limit = {
-			        primary_culture = culture_cenarion
-				}
-			    change_primary_culture = culture_night_elf
-			}
-
+			every_owned_province = { 
+                limit = {
+                    continent = continent_broken_isles
+                    culture = culture_ghost
+                    NOT = { culture = culture_highbourne }
+                }
+                change_culture = culture_highbourne 
+            }
 			# Bonus
             add_formable_bonus = yes
             trigger_ni_switch = yes
             #trigger_mission_switch = yes
+			set_country_flag = rebuild_ancient_elven_cities
 		}
 		
 		ai_will_do = {

@@ -6,13 +6,15 @@ country_decisions = {
 		potential = { 
 		    # Exclusions
 			NOT = { exists = MSF }
+			NOT = { tag = U04 }
 			
             # Requisites
 			OR = {
 			    tag = ISI
 				tag = ELR
 			}
-            
+            has_country_flag = rebuild_ancient_elven_cities
+			
             any_owned_province = {
                 region = region_feralas
             }

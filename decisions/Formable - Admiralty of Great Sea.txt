@@ -1,0 +1,124 @@
+country_decisions = {
+    form_admiralty_of_great_sea = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+			# Exclusions
+			NOT = { exists = AGS }
+            
+            # Requisites
+			OR = {
+			    tag = TAB
+			    tag = A14
+			    tag = A78
+			    tag = B82
+			    tag = B81
+			    tag = A80
+			    tag = A79
+			    tag = A81
+			    tag = A83
+			    tag = A15
+			    tag = A23
+			    tag = RTC
+			}
+			
+            any_owned_province = {
+			    OR = {
+                    continent = continent_broken_isles
+				    continent = continent_zandalar
+				    continent = continent_kul_tiras
+				    continent = continent_south_seas
+				    continent = continent_kezan				     
+					continent = continent_lost_isles
+				    continent = continent_plunder_isle
+				    continent = continent_paradise_isles
+				}
+            }
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+			OR = {
+			    continent = continent_broken_isles
+				continent = continent_zandalar
+				continent = continent_kul_tiras
+				continent = continent_south_seas
+				continent = continent_kezan
+				continent = continent_lost_isles
+				continent = continent_plunder_isle
+				continent = continent_paradise_isles
+			}
+		}
+        
+		allow = {   
+            # Ownership
+		    continent_broken_isles = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+			continent_zandalar = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+			continent_kul_tiras = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+			continent_south_seas = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+			continent_kezan = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+			continent_lost_isles = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+			continent_plunder_isle = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+			continent_paradise_isles = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            
+			# General
+			is_at_war = no	
+			stability = 2
+            total_development = 700
+            
+            # Cost
+            adm_power = 400
+			dip_power = 400
+			mil_power = 400
+		}
+        
+		effect = {
+            # Cost
+			add_adm_power = -400
+			add_dip_power = -400
+            add_mil_power = -400
+        
+            # Switch
+			change_tag = AGS
+			change_government = monarchy
+			add_government_reform = admiralty_reform
+            
+            # Bonus
+			add_formable_bonus = yes
+            trigger_ni_switch = yes
+            #trigger_mission_switch = yes
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

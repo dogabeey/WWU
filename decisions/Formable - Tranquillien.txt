@@ -1,0 +1,63 @@
+country_decisions = {
+    form_tranquillien = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+			# Exclusions
+			NOT = { exists = FRT } # Tranquillien
+            
+            # Requisites
+			tag = F54
+            
+            any_owned_province = {
+                region = region_ghostlands
+            }
+		}
+        
+        provinces_to_highlight = {
+            NOT = { owned_by = ROOT }
+			region = region_ghostlands
+		}
+        
+		allow = {   
+            # Ownership
+		    region_ghostlands = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+			
+			# General
+			is_at_war = no	
+			stability = 1
+            total_development = 200
+            
+            # Cost
+            adm_power = 150
+			dip_power = 150
+			mil_power = 150
+		}
+        
+		effect = {
+            # Cost
+			add_adm_power = -150
+			add_dip_power = -150
+            add_mil_power = -150
+        
+            # Switch
+			change_tag = FRT
+            
+            # Bonus
+			add_formable_bonus = yes
+            trigger_ni_switch = yes
+            #trigger_mission_switch = yes
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

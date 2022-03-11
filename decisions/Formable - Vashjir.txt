@@ -1,11 +1,11 @@
 country_decisions = {
-    rebuild_zinazshari = {
+    restore_vashjir = {
 		major = yes
         ai_importance = 300
         
 		potential = { 
 		    # Exclusions
-			NOT = { exists = AZH }
+			NOT = { exists = VHJ }
 			NOT = { tag = A94 }
 			NOT = { has_country_flag = rebuild_ancient_elven_cities }
 			
@@ -18,21 +18,22 @@ country_decisions = {
 			}
             
             any_owned_province = {
-                region = region_nazjatar
+                region = region_vashjir
             }
 		}
         
 		provinces_to_highlight = {
             NOT = { owned_by = ROOT }
-			region = region_nazjatar
+			region = region_vashjir
 		}
 		
 		allow = {
             # Ownership
-			region_nazjatar = {
+			region_vashjir = {
 				type = all
 				owned_by = ROOT
 			}
+			3174 = { development = 20 }
 			
             # General
 			is_at_war = no	
@@ -51,9 +52,10 @@ country_decisions = {
             add_mil_power = -200
             
             # Switch
-			change_tag = AZH
+			change_tag = VHJ
 			change_government = theocracy
-
+			set_capital = 3174
+			
 			# Bonus
             add_formable_bonus = yes
             trigger_ni_switch = yes

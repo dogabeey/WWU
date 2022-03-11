@@ -1,0 +1,92 @@
+country_decisions = {
+    form_feldorei_empire = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+			NOT = { exists = FDE }
+            
+            # Requisites
+			has_country_flag = rebuild_ancient_elven_cities
+		    culture_group = culture_group_satyr
+			religion = fel
+			
+		}
+        
+        provinces_to_highlight = {
+			OR = {
+			    province_id = 2037
+                province_id = 2504
+				province_id = 3645
+				province_id = 1492
+				province_id = 1331
+				province_id = 1304
+				province_id = 2268
+				province_id = 1297
+				province_id = 2226
+				province_id = 3282
+				province_id = 1431
+			}
+		}
+        
+		allow = {
+            # Ownership
+			owns_core_province = 2037   
+			owns_core_province = 2504
+			owns_core_province = 3645
+			owns_core_province = 1492
+			owns_core_province = 1331
+			owns_core_province = 1304
+            owns_core_province = 2268			
+			owns_core_province = 1297
+			owns_core_province = 2226
+			owns_core_province = 3282
+			owns_core_province = 1431
+            
+            # General
+			is_at_war = no	
+			stability = 3
+			total_development = 1800
+            
+			# Cost
+            adm_power = 450
+			dip_power = 450
+			mil_power = 450
+		}
+        
+		effect = {
+            # Cost
+			add_adm_power = -450
+			add_dip_power = -450
+            add_mil_power = -450
+            
+            # Switch
+			change_tag = FDE
+			
+			if = {
+			    limit = {
+			        culture_group = culture_group_darnassian
+				}
+			    change_primary_culture = culture_satyr
+			}
+			
+            every_owned_province = { 
+                limit = {
+					culture_group = culture_group_darnassian
+                    NOT = { culture = culture_satyr }
+                }
+                change_culture = culture_satyr 
+            }
+            
+			# Bonus
+            add_formable_bonus = yes
+            trigger_ni_switch = yes
+            #trigger_mission_switch = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

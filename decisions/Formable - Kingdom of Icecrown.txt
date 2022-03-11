@@ -1,39 +1,37 @@
 country_decisions = {
-    form_silvermoon = {
+    form_kingdom_of_icecrown = {
 		major = yes
         ai_importance = 300
         
 		potential = {
             # Exclusions
-			NOT = { culture = culture_wretched }
-			NOT = { exists = A91 } # Silvermoon
+            NOT = { exists = KCC }
             
             # Requisites
-			culture = culture_high_elf
-			
+			tag = P11
+            
             any_owned_province = {
-                region = region_eversong_woods
+                region = region_icecrown
             }
 		}
         
         provinces_to_highlight = {
 			NOT = { owned_by = ROOT }
-			province_id = 660
+			region = region_icecrown
 		}
         
-		allow = {
-            # Ownership
-		    owns_core_province = 660 # Silvermoon
-            
-			# General
+		allow = {		
+            # General
 			is_at_war = no	
 			stability = 1
-            total_development = 300
-            
+            total_development = 400
+            primary_culture = culture_lordaeron
+			religion = holy_light
+			
             # Cost
-            adm_power = 200
-			dip_power = 200
-			mil_power = 200	
+            adm_power = 250
+			dip_power = 250
+			mil_power = 250
 		}
 		effect = {
             # Cost
@@ -42,25 +40,23 @@ country_decisions = {
             add_mil_power = -200
             
             # Switch
-			change_tag = A91
+			change_tag = KCC
 			change_government = monarchy
-			change_primary_culture = culture_blood_elf
-			set_capital = 660
             every_owned_province = { 
                 limit = {
-                    continent = continent_eastern_kingdoms
-					culture = culture_high_elf
-                    NOT = { culture = culture_blood_elf }
+                    continent = continent_northrend
+					culture = culture_scourge
+                    NOT = { culture = culture_lordaeron }
                 }
-                change_culture = culture_blood_elf
+                change_culture = culture_lordaeron 
             }
-            
-            # Bonus
+
+			# Bonus
             add_formable_bonus = yes
             trigger_ni_switch = yes
             #trigger_mission_switch = yes
 		}
-        
+		
 		ai_will_do = {
 			factor = 1
 		}
