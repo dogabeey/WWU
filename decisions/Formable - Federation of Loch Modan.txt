@@ -1,0 +1,61 @@
+country_decisions = {
+    form_federation_of_loch_modan = {
+		major = yes
+        ai_importance = 300
+        
+		potential = {
+            # Exclusions
+            NOT = { exists = FLM }
+            
+            # Requisites
+			tag = F56
+            
+            any_owned_province = {
+                region = region_loch_modan
+            }
+		}
+        
+        provinces_to_highlight = {
+			region = region_loch_modan
+			NOT = { owned_by = ROOT }
+		}
+        
+		allow = {
+            # Ownership
+			num_accepted_cultures = 4
+			region_loch_modan = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+            
+            # General
+			is_at_war = no	
+			stability = 1
+			total_development = 100
+            
+			# Cost
+            adm_power = 100
+			dip_power = 100
+			mil_power = 100
+		}
+        
+		effect = {
+            # Cost
+			add_adm_power = -100
+			add_dip_power = -100
+            add_mil_power = -100
+            
+            # Switch
+			change_tag = FLM
+            
+			# Bonus
+            add_formable_bonus = yes
+            trigger_ni_switch = yes
+            #trigger_mission_switch = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
