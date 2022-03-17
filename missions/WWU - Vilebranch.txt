@@ -1,0 +1,214 @@
+# A60 - Vilebranch
+# A61- Raventusk
+# A63 - Firetree
+# A64 - Witherbark
+# A65 - Smolderthorn
+
+#--------------------------------------
+# Missions
+#--------------------------------------
+wwu_vilebranch_column_4 = { 
+	slot = 4
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A60
+	} 
+    
+	wwu_vilebranch_vassal_stability = { 
+		icon = mission_blood_rage
+        
+		required_missions = {  } 
+        
+		trigger = {
+            all_subject_country = {
+				NOT = { liberty_desire = 40 }
+			}
+			savage_vassal = 4
+		}
+		effect = { 
+            add_adm_power = 100
+            add_dip_power = 100
+            add_mil_power = 100
+            
+            region_the_hinterlands = {
+                add_permanent_claim = ROOT
+            }
+		}
+	}
+    wwu_expand_vilebranch_reach = { 
+		icon = mission_troll_hexxer
+        
+		required_missions = { wwu_vilebranch_vassal_stability } 
+        
+		trigger = {
+            region_the_hinterlands = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_the_hinterlands
+        }
+		effect = { 
+            add_mil_power = 100
+			
+			add_country_modifier = {
+				name = "mission_amani_expansionism"
+				duration = -1
+			}
+		}
+	}
+    wwu_vilebranch_stromgarge_occupation = { 
+		icon = mission_troll_male
+        
+		required_missions = { wwu_expand_vilebranch_reach } 
+        
+		trigger = {
+            area_stromgarde = {
+                type = all
+                controlled_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            area = area_stromgarde
+        }
+		effect = { 
+			add_country_modifier = {
+				name = "mission_bane_of_trollbane"
+				duration = -1
+			}
+            region_arathi_highlands = {
+                add_permanent_claim = ROOT
+            }
+			area_stromgarde = {
+				change_culture = culture_forest_troll
+			}
+		}
+	}
+    wwu_retake_troll_homelands = { 
+		icon = mission_orbital_strike
+        
+		required_missions = { wwu_vilebranch_stromgarge_occupation } 
+        
+		trigger = {
+            region_arathi_highlands = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_arathi_highlands
+        }
+		effect = { 
+            region_hillsbrad_foothills = {
+                add_permanent_claim = ROOT
+            }
+		
+			add_country_modifier = {
+				name = "mission_vilebranch_victory"
+				duration = -1
+			}
+		}
+	}
+    wwu_expand_influence_to_the_west = { 
+		icon = mission_axe_and_sword
+        
+		required_missions = { wwu_retake_troll_homelands } 
+        
+		trigger = {
+            region_hillsbrad_foothills = {
+                type = all
+                owned_by = ROOT
+            }
+		}
+        provinces_to_highlight = {
+            region = region_hillsbrad_foothills
+        }
+		effect = { 
+			add_prestige = 20
+		}
+	}
+}
+
+
+wwu_vilebranch_column_5 = { 
+	slot = 5
+	generic = no
+	ai = yes
+    has_country_shield = yes
+    
+	potential = {
+		tag = A60
+	} 
+    
+	wwu_vilebranch_colonist = { 
+		position = 3
+		icon = mission_treasure_map
+        
+		required_missions = { } 
+        
+		trigger = {
+            has_colonist = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = "mission_vilebranch_colonialism"
+				duration = 1825
+			}
+		}
+	}
+    
+	wwu_vilebranch_colony_expansion = { 
+		position = 4
+		icon = mission_treasure_map
+        
+		required_missions = { wwu_vilebranch_colonist } 
+        
+		trigger = {
+            1831 = {
+				owned_by = ROOT
+			}
+            539 = {
+				owned_by = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            OR = {
+				province_id = 539
+				province_id = 1831
+			}
+        }
+		
+		effect = {
+			add_dip_power = 100
+			add_prestige = 10
+		}
+	}
+    
+	wwu_vilebranch_new_avalon = { 
+		position = 5
+		icon = mission_treasure_map
+        
+		required_missions = { wwu_vilebranch_colony_expansion } 
+        
+		trigger = {
+            area_new_avalon = {
+				owned_by = ROOT
+			}
+		}
+        provinces_to_highlight = {
+            area = area_new_avalon
+        }
+		
+		effect = {
+			add_dip_power = 100
+			add_country_modifier = {
+				name = "mission_vilebranch_connected_north"
+				duration = -1
+			}
+		}
+	}
+}
